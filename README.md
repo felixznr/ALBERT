@@ -14,36 +14,24 @@ ALBERT is a self-regulating guided rocket project developed as a Maturaprojekt (
 - Develop autonomous flight path correction through advanced control systems
 - Implement fin-based steering for precise guidance
 - Create a reliable parachute recovery system
-- Design and build a custom solid fuel motor
+- Design a concept of a custom solid fuel motor
 - Integrate comprehensive telemetry and safety systems
 
-**Project Constraints:**
-- Budget: Under €1,000
-- Timeline: 9 months
-- All systems must pass rigorous ground testing before flight
 
 ## Team Structure
 
-- **TIM**: Recovery system, steering system, and structural components
-- **FLIGHTCOMPUTER**: Flight computer development, control systems, simulation, and telemetry
+- **Timofey Luzin**: Recovery system, steering system, and structural components
+- **Felix Zauner**: Flight computer development, control systems, simulation, and telemetry
 
 ## Repository Organization
 
 ```
-├── 1_Documentation/     # Project documentation and requirements
-├── 2_CAD_Structure/     # 3D models and structural designs  
-├── 3_Flight_Computer/   # Flight computer hardware and software
-├── 4_Simulation/        # Flight simulation and testing tools
-└── 5_Codebase/         # Main source code and algorithms
+├── 1_Documentation/        # Project documentation and requirements
+├── 2_CAD_Structure/        # 3D models and structural designs  
+├── 3_Flight_Computer/      # Flight computer hardware
+├── 4_Simulation/           # Flight simulation and testing tools
+└── 5_Codebase/             # Main source code and algorithms
 ```
-
-## Technical Highlights
-
-- **Flight Computer**: 32-bit microcontroller with 9-DOF IMU, GPS, and barometric sensors
-- **Control System**: PID-based attitude control with Kalman filtering for sensor fusion
-- **Telemetry**: LoRa radio system for real-time data transmission to ground station
-- **Structure**: Lightweight cardboard tube design with 3D-printed components
-- **Recovery**: Pyrotechnic parachute deployment system with backup timer
 
 ## Current Status
 
