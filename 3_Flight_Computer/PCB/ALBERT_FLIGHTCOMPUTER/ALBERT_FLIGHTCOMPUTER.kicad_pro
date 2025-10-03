@@ -477,7 +477,11 @@
       "version": 4
     },
     "net_colors": null,
-    "netclass_assignments": null,
+    "netclass_assignments": {
+      "VIN-": [
+        "VCC"
+      ]
+    },
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -611,6 +615,14 @@
     [
       "caf1b85f-a91d-4c85-9df1-65f9ebc85027",
       "Root"
+    ],
+    [
+      "98cbb8f8-8dc6-43c0-8573-4a0e6318dc31",
+      "Power"
+    ],
+    [
+      "f7ea2c19-61e9-4cc6-adc7-384d26cb19eb",
+      "Sensors"
     ]
   ],
   "text_variables": {}
