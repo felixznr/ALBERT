@@ -477,11 +477,7 @@
       "version": 4
     },
     "net_colors": null,
-    "netclass_assignments": {
-      "/Power/IN-": [
-        "VCC"
-      ]
-    },
+    "netclass_assignments": null,
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -617,12 +613,20 @@
       "Root"
     ],
     [
-      "98cbb8f8-8dc6-43c0-8573-4a0e6318dc31",
-      "Power"
+      "1edee9cd-27d7-479a-992c-cbc714ec1449",
+      "MPU Peripherals"
+    ],
+    [
+      "7985d733-09dc-4902-a3ab-fbbf0df3c379",
+      "Navigation Processing Unit"
     ],
     [
       "f7ea2c19-61e9-4cc6-adc7-384d26cb19eb",
-      "Sensors"
+      "Sensors and NavPeripherals"
+    ],
+    [
+      "98cbb8f8-8dc6-43c0-8573-4a0e6318dc31",
+      "Power Management"
     ]
   ],
   "text_variables": {}
