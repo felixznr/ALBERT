@@ -2517,6 +2517,16 @@
 		)
 		(uuid ad820350-7a7a-468b-82ff-336f69ab797c)
 	)
+	(text "Tantalum\n"
+		(exclude_from_sim no)
+		(at 101.6 97.536 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0223b0d2-c931-4476-aa3d-bc78e454853f")
+	)
 	(text "C19 - ceramic\nC21 - ceramic\n\npay attention to the max voltage ratings of the caps\n"
 		(exclude_from_sim no)
 		(at 180.594 69.85 0)
@@ -2547,7 +2557,7 @@
 		)
 		(uuid "7f1a15f8-fd49-436a-b94a-7fe550eef80a")
 	)
-	(text "Buck Converter UNO 12V/5V\n"
+	(text "Buck Converter UNO 12V/3V3\n"
 		(exclude_from_sim no)
 		(at 143.764 78.74 0)
 		(effects
@@ -3172,6 +3182,16 @@
 			(type default)
 		)
 		(uuid "5d62c4f5-1419-4d13-947f-2779635f29f6")
+	)
+	(wire
+		(pts
+			(xy 240.03 36.83) (xy 240.03 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60f60968-a36b-4e88-87b9-c7d619d3d8af")
 	)
 	(wire
 		(pts
@@ -3946,7 +3966,7 @@
 		)
 	)
 	(global_label "I2C2_SDA_MPU"
-		(shape input)
+		(shape bidirectional)
 		(at 86.36 129.54 0)
 		(fields_autoplaced yes)
 		(effects
@@ -3957,7 +3977,7 @@
 		)
 		(uuid "1bef5c1a-12c4-40e0-a027-ba16c0183aeb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 103.1942 129.54 0)
+			(at 104.3055 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4652,72 +4672,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 240.03 38.1 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "273645ec-5f6d-4530-8404-f3475bae7383")
-		(property "Reference" "#PWR036"
-			(at 240.03 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 240.03 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 240.03 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 240.03 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 240.03 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "0bc6e392-1cc5-4e9b-9570-59e6c26856c7")
-		)
-		(instances
-			(project ""
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/98cbb8f8-8dc6-43c0-8573-4a0e6318dc31"
-					(reference "#PWR036")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 140.97 111.76 0)
 		(unit 1)
@@ -5010,7 +4964,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "6u8"
+		(property "Value" "10u"
 			(at 153.67 45.7199 0)
 			(effects
 				(font
@@ -5193,6 +5147,72 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/98cbb8f8-8dc6-43c0-8573-4a0e6318dc31"
 					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 240.03 36.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5df375d1-a3ff-414f-8c4e-b9c08b0248ef")
+		(property "Reference" "#PWR036"
+			(at 240.03 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 240.03 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 240.03 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 240.03 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 240.03 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f182a958-f1ea-47e6-ad36-196f7b271c88")
+		)
+		(instances
+			(project ""
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/98cbb8f8-8dc6-43c0-8573-4a0e6318dc31"
+					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -5921,7 +5941,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "220"
 			(at 107.95 83.8199 0)
 			(effects
 				(font
@@ -6599,7 +6619,7 @@
 				)
 			)
 		)
-		(property "Value" "15u"
+		(property "Value" "10u"
 			(at 201.93 34.29 90)
 			(effects
 				(font
@@ -6800,7 +6820,7 @@
 				)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "LED_GREEN"
 			(at 93.0275 69.85 0)
 			(effects
 				(font
@@ -6878,7 +6898,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "13k7"
+		(property "Value" "22k"
 			(at 220.98 55.8799 0)
 			(effects
 				(font

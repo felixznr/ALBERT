@@ -4019,6 +4019,16 @@
 	)
 	(wire
 		(pts
+			(xy 92.71 41.91) (xy 92.71 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3bd7a51c-f622-4af3-898b-82ae678a37ef")
+	)
+	(wire
+		(pts
 			(xy 247.65 130.81) (xy 251.46 130.81)
 		)
 		(stroke
@@ -4409,16 +4419,6 @@
 	)
 	(wire
 		(pts
-			(xy 223.52 27.94) (xy 227.33 27.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a0a8b224-42a6-4506-8d66-1637e4a0b9e7")
-	)
-	(wire
-		(pts
 			(xy 266.7 27.94) (xy 266.7 30.48)
 		)
 		(stroke
@@ -4758,7 +4758,7 @@
 		(uuid "54e528b5-1b57-4e91-a8de-f1a2ec8e527f")
 	)
 	(global_label "I2C2_SCL_NAV"
-		(shape input)
+		(shape output)
 		(at 105.41 124.46 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4780,7 +4780,7 @@
 		)
 	)
 	(global_label "I2C2_SDA_NAV"
-		(shape input)
+		(shape bidirectional)
 		(at 105.41 127 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4791,7 +4791,7 @@
 		)
 		(uuid "2a8c8e93-97c6-4330-ab74-ba79faa1bb57")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 121.7 127 0)
+			(at 122.8113 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4824,7 +4824,7 @@
 		)
 	)
 	(global_label "SPI1_IMU1_CSB_ACCEL"
-		(shape input)
+		(shape output)
 		(at 64.77 81.28 180)
 		(fields_autoplaced yes)
 		(effects
@@ -4868,7 +4868,7 @@
 		)
 	)
 	(global_label "USB_D-_NAV"
-		(shape input)
+		(shape bidirectional)
 		(at 105.41 83.82 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4879,7 +4879,7 @@
 		)
 		(uuid "37e08510-ffca-49c5-a7d5-6e8c163d1a95")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 120.4905 83.82 0)
+			(at 121.6018 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4890,7 +4890,7 @@
 		)
 	)
 	(global_label "BOOT0_NAV"
-		(shape input)
+		(shape output)
 		(at 187.96 64.77 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4912,7 +4912,7 @@
 		)
 	)
 	(global_label "SWCLK_NAV"
-		(shape input)
+		(shape bidirectional)
 		(at 251.46 125.73 180)
 		(fields_autoplaced yes)
 		(effects
@@ -4923,7 +4923,7 @@
 		)
 		(uuid "461ff383-4349-41f3-b534-669682b643d8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 237.7705 125.73 0)
+			(at 236.6592 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4934,7 +4934,7 @@
 		)
 	)
 	(global_label "SWDIO_NAV"
-		(shape input)
+		(shape bidirectional)
 		(at 105.41 88.9 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4945,7 +4945,7 @@
 		)
 		(uuid "4682a869-9c14-4087-81f0-294142029424")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 118.7367 88.9 0)
+			(at 119.848 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4956,7 +4956,7 @@
 		)
 	)
 	(global_label "HSE_IN_NAV"
-		(shape input)
+		(shape output)
 		(at 243.84 73.66 90)
 		(fields_autoplaced yes)
 		(effects
@@ -4978,7 +4978,7 @@
 		)
 	)
 	(global_label "SWDIO_NAV"
-		(shape input)
+		(shape bidirectional)
 		(at 251.46 123.19 180)
 		(fields_autoplaced yes)
 		(effects
@@ -4989,7 +4989,7 @@
 		)
 		(uuid "6b46307f-eb54-405a-b6ff-e24d768168db")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 238.1333 123.19 0)
+			(at 237.022 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5000,7 +5000,7 @@
 		)
 	)
 	(global_label "HSE_OUT_NAV"
-		(shape input)
+		(shape output)
 		(at 64.77 68.58 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5022,7 +5022,7 @@
 		)
 	)
 	(global_label "SPI1_IMU1_SCK"
-		(shape input)
+		(shape output)
 		(at 105.41 68.58 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5044,7 +5044,7 @@
 		)
 	)
 	(global_label "NRST_NAV"
-		(shape input)
+		(shape output)
 		(at 251.46 128.27 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5066,7 +5066,7 @@
 		)
 	)
 	(global_label "I2C1_SDA_NAV"
-		(shape input)
+		(shape bidirectional)
 		(at 105.41 116.84 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5077,7 +5077,7 @@
 		)
 		(uuid "7cb441c4-6413-40f8-88a6-cc66ad20bbc4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 121.7 116.84 0)
+			(at 122.8113 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5132,7 +5132,7 @@
 		)
 	)
 	(global_label "I2C1_SCL_NAV"
-		(shape input)
+		(shape output)
 		(at 105.41 114.3 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5154,7 +5154,7 @@
 		)
 	)
 	(global_label "SPI2_BAR_MOSI"
-		(shape input)
+		(shape output)
 		(at 105.41 137.16 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5176,7 +5176,7 @@
 		)
 	)
 	(global_label "USB_D+_NAV"
-		(shape input)
+		(shape bidirectional)
 		(at 105.41 86.36 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5187,7 +5187,7 @@
 		)
 		(uuid "872c32f9-c738-4618-8c11-964cac0e1cd7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 120.4905 86.36 0)
+			(at 121.6018 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5220,7 +5220,7 @@
 		)
 	)
 	(global_label "SPI2_BAR_SCK"
-		(shape input)
+		(shape output)
 		(at 105.41 132.08 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5242,7 +5242,7 @@
 		)
 	)
 	(global_label "USB_D+_NAV"
-		(shape input)
+		(shape output)
 		(at 180.34 99.06 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5307,30 +5307,8 @@
 			)
 		)
 	)
-	(global_label "VDDA_NAV"
-		(shape input)
-		(at 92.71 48.26 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "b603fa16-45cb-4208-83b9-dbacd2dddffa")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 92.71 36.0823 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "USART1_TX_NAV"
-		(shape input)
+		(shape output)
 		(at 105.41 78.74 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5374,7 +5352,7 @@
 		)
 	)
 	(global_label "USB_D-_NAV"
-		(shape input)
+		(shape bidirectional)
 		(at 180.34 101.6 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5385,7 +5363,7 @@
 		)
 		(uuid "cc8dbd88-2258-4bd0-8465-ffb0b1307390")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 195.4205 101.6 0)
+			(at 196.5318 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5395,30 +5373,8 @@
 			)
 		)
 	)
-	(global_label "VDDA_NAV"
-		(shape input)
-		(at 223.52 27.94 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "d054215e-a0d3-4c6c-a50e-207df0623f2a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 211.3423 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "SWCLK_NAV"
-		(shape input)
+		(shape bidirectional)
 		(at 105.41 91.44 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5429,7 +5385,7 @@
 		)
 		(uuid "d4b321ed-6957-4c5f-8267-5901e6b30aee")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 119.0995 91.44 0)
+			(at 120.2108 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5440,7 +5396,7 @@
 		)
 	)
 	(global_label "SPI1_IMU1_MOSI"
-		(shape input)
+		(shape output)
 		(at 105.41 73.66 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5462,7 +5418,7 @@
 		)
 	)
 	(global_label "SPI1_IMU1_CSB_GYRO"
-		(shape input)
+		(shape output)
 		(at 64.77 83.82 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5550,7 +5506,7 @@
 		)
 	)
 	(global_label "SPI2_BAR_CSB"
-		(shape input)
+		(shape output)
 		(at 64.77 93.98 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7419,6 +7375,72 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/7985d733-09dc-4902-a3ab-fbbf0df3c379"
 					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 92.71 41.91 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a6549098-9a1b-404b-9599-19ff7f69a23f")
+		(property "Reference" "#PWR093"
+			(at 92.71 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3VA"
+			(at 92.71 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 92.71 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 92.71 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 92.71 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e6d4d737-331f-4012-b744-f1abba259544")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/7985d733-09dc-4902-a3ab-fbbf0df3c379"
+					(reference "#PWR093")
 					(unit 1)
 				)
 			)
