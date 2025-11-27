@@ -1,4 +1,25 @@
-24735720720006481
+24788580077988361
+5-1814400-2
+518144002
+5-1814400-2-1
+Connector
+0
+5
+5
+16SVPF180M
+16SVF180M
+C6
+Capacitor Polarised
+0
+2
+2
+20SVPF120M
+16SVF180M
+C6
+Capacitor Polarised
+0
+2
+2
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -13,6 +34,27 @@ audio belton reverb
 0
 7
 7
+BLM15HD102SN1D
+NFZ15SG152SN10B
+BLM15 L=1.0 W=0.5 T=0.5
+Ferrite Bead
+0
+2
+2
+BMI088
+PQFN50P450X300X100-16N
+
+
+0
+16
+16
+BMP390
+BMP390
+BMP390
+Integrated Circuit
+0
+10
+10
 Battery
 BatteryClip_Keystone_54_D16-19mm
 Battery clip for batteries with a diameter between 16-19 mm: https://www.keyelco.com/product.cfm/product_id/826
@@ -2565,6 +2607,55 @@ Buzzer_Beeper
 Speaker_CUI_CMR-1206S-67
 Speaker, 30mW, 300-7000Hz, IP67 face, 12x6x2,25mm, https://www.cuidevices.com/product/resource/cmr-12062s-67.pdf
 speaker CUI
+0
+2
+2
+CC0805JRNPO9BN120
+CAPC2012X95N
+0805_2023
+Capacitor
+0
+2
+2
+CL05B104KO5NNNC
+CAPC1005X55N
+CL05B104KO5NNNC
+Capacitor
+0
+2
+2
+CL21A475KOFNNNE
+CAPC2012X135N
+0805 1.35T
+Capacitor
+0
+2
+2
+CL21B105KAFNFNE
+CAPC2012X135N
+
+
+0
+2
+2
+CL32A106KBJNNNE
+CAPC3225X270N
+
+
+0
+2
+2
+CL32A226KOJNNE
+CAPC3225X270N
+1210
+Capacitor
+0
+2
+2
+CMV-T1A-32.768KHZ
+CM7V32768TBQA020
+CM7V-T1A
+Crystal or Oscillator
 0
 2
 2
@@ -57252,6 +57343,20 @@ One digit LED 7 segment SA39-11 SC39-11 SA39-12 SC39-12
 0
 10
 10
+EMK107B7105KA-T
+CAPC1608X90N
+EMK107
+Capacitor
+0
+2
+2
+ESD9R3.3ST5G
+SODFL1006X40N
+
+
+0
+2
+2
 Ferrite_THT
 LairdTech_28C0236-0JW-10
 Ferrite, vertical, LairdTech 28C0236-0JW-10, https://assets.lairdtech.com/home/brandworld/files/28C0236-0JW-10.pdf, JW Miller core https://www.bourns.com/products/magnetic-products/j.w.-miller-through-hole-ferrite-beads-emi-filters
@@ -58295,6 +58400,27 @@ Fuse Fuseholder TR5 Littelfuse/Wickmann No. 460 No560
 0
 2
 2
+GRM32ER61C476KE15L
+CAPC3225X270N
+
+
+0
+2
+2
+GRM155R61E102KA01D
+CAPC1005X70N
+GRM15_0.10 L=1.0mm W=0.5mm T=0.5mm
+Capacitor
+0
+2
+2
+HXPZ2.54-3x8PZZ
+HX PZ2.54-3x8P ZZ
+
+
+0
+24
+24
 Heatsink
 Heatsink_35x26mm_1xFixation3mm_Fischer-SK486-35
 Heatsink, 35mm x 26mm, 1x Fixation 3mm, Fischer SK486-35
@@ -65848,6 +65974,20 @@ Yellow 5381 Series LED
 0
 2
 2
+LQM21PN1R0MC0D
+LQM21PN1R0MC0D
+0805 (2012) T=0.5±0.05mm
+Inductor
+0
+2
+2
+LSM6DSLTR
+PQFN50P300X250X86-14N
+
+
+0
+14
+14
 Module
 A20_OLINUXINO_LIME2
 A20 Olinuxino LIME2, 1.2GHz, 512-1024MB RAM, Micro-SD, NAND or eMMC, 1000Mbit Ethernet
@@ -68515,6 +68655,13 @@ threaded screw
 0
 4
 1
+NFM18PC
+NFM18PC474R0J3D
+NFM18PC L=1.6mm W=0.8mm T=0.6mm
+Capacitor
+0
+4
+4
 NetTie
 NetTie-2_SMD_Pad0.5mm
 Net tie, 2 pin, 0.5mm square SMD pads
@@ -69796,6 +69943,13 @@ DIL DIP PDIP 2.54mm 7.62mm 300mil
 0
 4
 4
+PCA968PW,118
+SOP65P640X110-28N
+28-LEAD TSSOP
+Integrated Circuit
+0
+28
+28
 Package_BGA
 Alliance_TFBGA-36_6x8mm_Layout6x8_P0.75mm
 Alliance TFBGA-36, NSMD, 6.0x8.0mm, 36 Ball, 6x8 Layout, 0.75mm Pitch, https://www.alliancememory.com/wp-content/uploads/pdf/AS6C1008_Mar_2023V1.2.pdf
@@ -87653,6 +87807,13 @@ Skyworks
 0
 7
 7
+RFM95W-868S2
+XCVR_RFM95W-868S2
+
+
+0
+16
+16
 RF_Antenna
 AVX_M620720
 868Mhz, 915Mhz ISM antenna, 6 x 2 x 1.08mm, http://datasheets.avx.com/ethertronics/AVX-E_M620720.pdf
@@ -92868,6 +93029,20 @@ Logo WEEE
 0
 0
 0
+TPS55289RYQR
+TPS55289RYQR
+TPS55289RYQR-1
+Integrated Circuit
+0
+23
+23
+TPS62135
+TPS621361RGXT
+RGX0011A
+Integrated Circuit
+0
+11
+11
 TerminalBlock
 TerminalBlock_Altech_AK300-2_P5.00mm
 Altech AK300 terminal block, pitch 5.0mm, 45 degree angled, see http://www.mouser.com/ds/2/16/PCBMETRC-24178.pdf
@@ -99511,3 +99686,38 @@ Varistor VF
 0
 2
 2
+W25N01GVZEIG
+SON127P800X600X80-9N-D
+8-Pad WSON 8x6-mm (Package Code ZE)
+Integrated Circuit
+0
+9
+9
+XAL5050-822MEC
+XAL5050822MEC
+XAL5050-822MEC-4
+Inductor
+0
+2
+2
+XAL6060-472MEC
+XAL6060472MEC
+XAL6060-472MEC-4
+Inductor
+0
+2
+2
+XT60-M
+AMASS_XT60-M
+
+
+0
+2
+2
+ZOE-M8Q
+ZOEM8Q0
+ZOE-M8Q-0-3
+Integrated Circuit
+0
+51
+51
