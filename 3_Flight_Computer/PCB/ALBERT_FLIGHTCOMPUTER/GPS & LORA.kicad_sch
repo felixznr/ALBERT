@@ -5,7 +5,7 @@
 	(uuid "6752d9e4-650b-4d68-926a-ca3d75c0c6b3")
 	(paper "A4")
 	(title_block
-		(title "RF")
+		(title "GPS & LORA")
 		(date "2025-11-10")
 		(rev "0.1")
 		(company "ALBERT AEROSPACE")

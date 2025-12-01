@@ -2511,8 +2511,8 @@
 		(uuid 5363d839-f4e7-4295-a06d-45377af6a953)
 	)
 	(rectangle
-		(start 17.78 160.02)
-		(end 63.5 179.07)
+		(start 19.05 90.17)
+		(end 64.77 109.22)
 		(stroke
 			(width 0)
 			(type default)
@@ -2559,8 +2559,8 @@
 		(uuid 8f8a50e8-8ddd-4189-801f-37ab7ee94aee)
 	)
 	(rectangle
-		(start 87.63 160.02)
-		(end 116.84 186.69)
+		(start 88.9 90.17)
+		(end 118.11 116.84)
 		(stroke
 			(width 0)
 			(type default)
@@ -2582,7 +2582,7 @@
 	)
 	(text "Mounting Holes"
 		(exclude_from_sim no)
-		(at 94.742 188.722 0)
+		(at 96.012 118.872 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2592,7 +2592,7 @@
 	)
 	(text "POWER FLAGS"
 		(exclude_from_sim no)
-		(at 24.13 180.594 0)
+		(at 25.4 110.744 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2762,7 +2762,7 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 167.64) (xy 54.61 171.45)
+			(xy 55.88 97.79) (xy 55.88 101.6)
 		)
 		(stroke
 			(width 0)
@@ -2922,7 +2922,7 @@
 	)
 	(wire
 		(pts
-			(xy 24.13 167.64) (xy 24.13 171.45)
+			(xy 25.4 97.79) (xy 25.4 101.6)
 		)
 		(stroke
 			(width 0)
@@ -3920,7 +3920,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 95.25 180.34 0)
+		(at 96.52 110.49 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -3929,7 +3929,7 @@
 		(fields_autoplaced yes)
 		(uuid "2e1b7976-1bbe-4418-9854-17bdd923e7b7")
 		(property "Reference" "H4"
-			(at 97.79 179.0699 0)
+			(at 99.06 109.2199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3938,7 +3938,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 97.79 181.6099 0)
+			(at 99.06 111.7599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3947,7 +3947,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
-			(at 95.25 180.34 0)
+			(at 96.52 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3956,7 +3956,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 95.25 180.34 0)
+			(at 96.52 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3965,7 +3965,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 95.25 180.34 0)
+			(at 96.52 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4188,7 +4188,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 95.25 170.18 0)
+		(at 96.52 100.33 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -4197,7 +4197,7 @@
 		(fields_autoplaced yes)
 		(uuid "481497da-5e8e-43de-bcb2-6250cb7b15fb")
 		(property "Reference" "H2"
-			(at 97.79 168.9099 0)
+			(at 99.06 99.0599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4206,7 +4206,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 97.79 171.4499 0)
+			(at 99.06 101.5999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4215,7 +4215,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
-			(at 95.25 170.18 0)
+			(at 96.52 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4224,7 +4224,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 95.25 170.18 0)
+			(at 96.52 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4233,7 +4233,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 95.25 170.18 0)
+			(at 96.52 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4319,7 +4319,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 24.13 171.45 180)
+		(at 25.4 101.6 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4328,7 +4328,7 @@
 		(fields_autoplaced yes)
 		(uuid "4e8961f3-77e2-483e-aac2-3e357b8bf6d7")
 		(property "Reference" "#FLG03"
-			(at 24.13 173.355 0)
+			(at 25.4 103.505 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4337,7 +4337,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 24.13 176.53 0)
+			(at 25.4 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4345,7 +4345,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 24.13 171.45 0)
+			(at 25.4 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4354,7 +4354,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 24.13 171.45 0)
+			(at 25.4 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4363,7 +4363,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 24.13 171.45 0)
+			(at 25.4 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4932,7 +4932,7 @@
 	)
 	(symbol
 		(lib_id "power:VBUS")
-		(at 24.13 167.64 0)
+		(at 25.4 97.79 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4941,7 +4941,7 @@
 		(fields_autoplaced yes)
 		(uuid "72b592a1-c9a2-46e3-b73a-e974294dd9b2")
 		(property "Reference" "#PWR098"
-			(at 24.13 171.45 0)
+			(at 25.4 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4950,7 +4950,7 @@
 			)
 		)
 		(property "Value" "VBAT"
-			(at 24.13 162.56 0)
+			(at 25.4 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4958,7 +4958,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 24.13 167.64 0)
+			(at 25.4 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4967,7 +4967,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 24.13 167.64 0)
+			(at 25.4 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4976,7 +4976,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VBUS\""
-			(at 24.13 167.64 0)
+			(at 25.4 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5134,7 +5134,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 95.25 165.1 0)
+		(at 96.52 95.25 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -5143,7 +5143,7 @@
 		(fields_autoplaced yes)
 		(uuid "8d7651a7-6f0f-4aa5-8882-b289b9d1dd62")
 		(property "Reference" "H1"
-			(at 97.79 163.8299 0)
+			(at 99.06 93.9799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5152,7 +5152,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 97.79 166.3699 0)
+			(at 99.06 96.5199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5161,7 +5161,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
-			(at 95.25 165.1 0)
+			(at 96.52 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5170,7 +5170,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 95.25 165.1 0)
+			(at 96.52 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5179,7 +5179,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 95.25 165.1 0)
+			(at 96.52 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5335,7 +5335,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 54.61 167.64 0)
+		(at 55.88 97.79 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5344,7 +5344,7 @@
 		(fields_autoplaced yes)
 		(uuid "9b620131-ca14-4b90-b8e3-9172b5253f77")
 		(property "Reference" "#PWR0100"
-			(at 54.61 171.45 0)
+			(at 55.88 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5353,7 +5353,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 54.61 162.56 0)
+			(at 55.88 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5361,7 +5361,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 54.61 167.64 0)
+			(at 55.88 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5370,7 +5370,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 54.61 167.64 0)
+			(at 55.88 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5379,7 +5379,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 54.61 167.64 0)
+			(at 55.88 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5737,7 +5737,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 95.25 175.26 0)
+		(at 96.52 105.41 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -5746,7 +5746,7 @@
 		(fields_autoplaced yes)
 		(uuid "d8233576-dcba-4441-a515-60cd23ed6667")
 		(property "Reference" "H3"
-			(at 97.79 173.9899 0)
+			(at 99.06 104.1399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5755,7 +5755,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 97.79 176.5299 0)
+			(at 99.06 106.6799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5764,7 +5764,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
-			(at 95.25 175.26 0)
+			(at 96.52 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5773,7 +5773,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 95.25 175.26 0)
+			(at 96.52 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5782,7 +5782,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 95.25 175.26 0)
+			(at 96.52 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5867,7 +5867,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 54.61 171.45 180)
+		(at 55.88 101.6 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5876,7 +5876,7 @@
 		(fields_autoplaced yes)
 		(uuid "de25137b-bc4a-4e8d-be9e-216f23037ea7")
 		(property "Reference" "#FLG05"
-			(at 54.61 173.355 0)
+			(at 55.88 103.505 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5885,7 +5885,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 54.61 176.53 0)
+			(at 55.88 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5893,7 +5893,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 54.61 171.45 0)
+			(at 55.88 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5902,7 +5902,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 54.61 171.45 0)
+			(at 55.88 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5911,7 +5911,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 54.61 171.45 0)
+			(at 55.88 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
