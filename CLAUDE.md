@@ -12,7 +12,7 @@ ALBERT is a self-regulating guided rocket project - a "Maturaprojekt" (Austrian 
 - Develop fully functional self-regulating guided rocket
 - Autonomous flight path correction through control systems
 - Successful parachute recovery system deployment
-- Self-designed solid fuel motor (~F-Class)
+- Self-designed solid fuel motor (~H-Class)
 - Fin-based steering system
 - All systems must pass ground tests
 - Integrated safety systems in flight computer
@@ -79,7 +79,7 @@ The repository is organized into 5 main directories:
 - Battery voltage
 
 ### Propulsion System
-- Solid fuel motor F-class (80-160 Ns total impulse)
+- Solid fuel motor H-class
 - Burn duration: 2-4 seconds
 - Electrical ignition system
 - Secure motor mounting in fuselage
