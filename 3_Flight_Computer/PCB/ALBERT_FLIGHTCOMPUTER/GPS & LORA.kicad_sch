@@ -369,209 +369,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "CM7V-T1A-32_768KHZ-6PF-20PPM-T:CM7V-T1A-32.768KHZ-6PF-20PPM-TA-QC"
-			(pin_names
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "Y"
-				(at 8.89 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "CM7V-T1A-32.768KHZ-6PF-20PPM-TA-QC"
-				(at 8.89 3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "CM7V32768TBQA020"
-				(at 8.89 -96.19 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.microcrystal.com/fileadmin/Media/Products/32kHz/Datasheet/CM7V-T1A.pdf"
-				(at 8.89 -196.19 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Description" "CRYSTAL 32.768KHZ SMD"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Height" "0.65"
-				(at 8.89 -396.19 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" "428-201843-MG01"
-				(at 8.89 -496.19 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Micro-Crystal/CM7V-T1A-32.768kHz-6pF-20PPM-TA-QC?qs=7bTaA%2FLYtSZ7ZoUG8vJXMg%3D%3D"
-				(at 8.89 -596.19 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "Micro Crystal AG"
-				(at 8.89 -696.19 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "CM7V-T1A-32.768KHZ-6PF-20PPM-TA-QC"
-				(at 8.89 -796.19 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(symbol "CM7V-T1A-32.768KHZ-6PF-20PPM-TA-QC_1_1"
-				(polyline
-					(pts
-						(xy 3.048 2.54) (xy 3.048 -2.54)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.048 0) (xy 2.54 0)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 4.064 3.556)
-					(end 6.096 -3.556)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(polyline
-					(pts
-						(xy 7.112 2.54) (xy 7.112 -2.54)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 7.112 0) (xy 7.62 0)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at 0 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 10.16 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:C"
 			(pin_numbers
 				(hide yes)
@@ -694,6 +491,179 @@
 					(at 0 -3.81 90)
 					(length 2.794)
 					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:Crystal"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "Y"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Crystal"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Two pin crystal"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "quartz ceramic resonator oscillator"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Crystal*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Crystal_0_1"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -1.905 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 -1.27) (xy -1.905 1.27)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.143 2.54)
+					(end 1.143 -2.54)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.905 -1.27) (xy 1.905 1.27)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 1.905 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Crystal_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 1.27)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 1.27)
+					(name "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3857,16 +3827,6 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 110.49) (xy 66.04 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "240ec3c1-784d-47e9-8158-d528b9afeb2c")
-	)
-	(wire
-		(pts
 			(xy 115.57 173.99) (xy 115.57 179.07)
 		)
 		(stroke
@@ -3884,16 +3844,6 @@
 			(type default)
 		)
 		(uuid "25e7768b-a5d9-45fe-ab32-29ab7afcbc56")
-	)
-	(wire
-		(pts
-			(xy 66.04 121.92) (xy 66.04 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "26141ba4-67b9-4198-999e-1d36e4186b95")
 	)
 	(wire
 		(pts
@@ -3954,16 +3904,6 @@
 			(type default)
 		)
 		(uuid "3dbe7968-436d-4f14-9f67-40c54dcda69c")
-	)
-	(wire
-		(pts
-			(xy 66.04 123.19) (xy 80.01 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3f853566-078a-47db-ba80-3ff005e4cac3")
 	)
 	(wire
 		(pts
@@ -4117,6 +4057,16 @@
 	)
 	(wire
 		(pts
+			(xy 67.31 110.49) (xy 81.28 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "64c96766-67b3-4fae-b9f2-f6b198645102")
+	)
+	(wire
+		(pts
 			(xy 115.57 173.99) (xy 128.27 173.99)
 		)
 		(stroke
@@ -4177,16 +4127,6 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 123.19) (xy 80.01 113.03)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "741b6034-2661-44a5-a10e-98826a4476f1")
-	)
-	(wire
-		(pts
 			(xy 148.59 60.96) (xy 148.59 62.23)
 		)
 		(stroke
@@ -4237,6 +4177,16 @@
 	)
 	(wire
 		(pts
+			(xy 80.01 113.03) (xy 80.01 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a843d17-5643-46c4-97e4-0a1b1f1897fc")
+	)
+	(wire
+		(pts
 			(xy 93.98 171.45) (xy 115.57 171.45)
 		)
 		(stroke
@@ -4277,6 +4227,16 @@
 	)
 	(wire
 		(pts
+			(xy 67.31 110.49) (xy 67.31 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "89698dd8-3cec-495a-970b-448387d236ed")
+	)
+	(wire
+		(pts
 			(xy 115.57 166.37) (xy 115.57 168.91)
 		)
 		(stroke
@@ -4284,6 +4244,16 @@
 			(type default)
 		)
 		(uuid "897e59f4-1554-47e8-8231-8beab2c06d9d")
+	)
+	(wire
+		(pts
+			(xy 80.01 120.65) (xy 67.31 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8a1655e8-0cca-4fa7-b4c1-11bc2613f98b")
 	)
 	(wire
 		(pts
@@ -4454,16 +4424,6 @@
 			(type default)
 		)
 		(uuid "c0551f98-1d56-41bf-9ab4-33a51c373e2e")
-	)
-	(wire
-		(pts
-			(xy 81.28 110.49) (xy 66.04 110.49)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c37eaa6c-f39f-4053-b7ec-77018508f7a8")
 	)
 	(wire
 		(pts
@@ -4644,6 +4604,16 @@
 			(type default)
 		)
 		(uuid "fbc8953f-e1ce-458e-b6e8-a116b7e36427")
+	)
+	(wire
+		(pts
+			(xy 67.31 120.65) (xy 67.31 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc07688f-6f7a-4e39-8d87-6aeb333e7374")
 	)
 	(wire
 		(pts
@@ -5107,11 +5077,90 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 168.91 73.66 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "08fc1344-8578-4657-a3e8-21c0d0b486b9")
+		(property "Reference" "C62"
+			(at 172.72 72.3899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 172.72 74.9299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 169.8752 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 168.91 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 168.91 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 168.91 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7564ed07-983a-4fc5-9372-44a9326924a3")
+		)
+		(pin "2"
+			(uuid "b9b96128-c820-4e4f-a3f7-ffcb3f990099")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/76e020bf-81c9-4f5e-8dd2-c0ea6f7fd91c"
+					(reference "C62")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "RFM95W-868S2:RFM95W-868S2")
 		(at 76.2 161.29 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
@@ -5429,6 +5478,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1746"
+			(at 148.59 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "82b2b8c6-a605-46cc-8150-03183af30c62")
 		)
@@ -5491,6 +5549,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 233.68 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25077"
 			(at 233.68 36.83 0)
 			(effects
 				(font
@@ -5714,6 +5781,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 115.57 162.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "58a865cf-6745-4553-bdf5-3a4272acd7df")
+		(property "Reference" "C60"
+			(at 119.38 161.2899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 119.38 163.8299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 116.5352 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 115.57 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 115.57 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 115.57 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "06773b86-efa2-4f77-98c4-4cdefeb6f11b")
+		)
+		(pin "2"
+			(uuid "c4cc23e3-ca2b-49c7-b9ed-930f9ba36bbf")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/76e020bf-81c9-4f5e-8dd2-c0ea6f7fd91c"
+					(reference "C60")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "RF_GPS:ZOE-M8Q")
 		(at 104.14 80.01 0)
 		(unit 1)
@@ -5759,6 +5905,15 @@
 			)
 		)
 		(property "Description" "ultra small GNSS  module IC, SiP"
+			(at 104.14 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C7398634"
 			(at 104.14 80.01 0)
 			(effects
 				(font
@@ -6035,6 +6190,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C113100"
+			(at 148.59 40.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "84f27e25-67fd-4ba4-aa1e-8518419114fa")
 		)
@@ -6045,76 +6209,6 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/76e020bf-81c9-4f5e-8dd2-c0ea6f7fd91c"
 					(reference "L3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 168.91 73.66 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "79638904-c15d-4893-bf7f-6256ec917d9c")
-		(property "Reference" "C62"
-			(at 172.72 72.3899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 172.72 74.9299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 169.8752 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 168.91 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 168.91 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6f680cb1-4d21-4de4-97e3-d6ca7fa19e44")
-		)
-		(pin "2"
-			(uuid "bda0596c-0c00-4adf-a121-a1498a1ff301")
-		)
-		(instances
-			(project "ALBERT_FLIGHTCOMPUTER"
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/76e020bf-81c9-4f5e-8dd2-c0ea6f7fd91c"
-					(reference "C62")
 					(unit 1)
 				)
 			)
@@ -6292,6 +6386,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C3174972"
+			(at 215.9 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "5"
 			(uuid "a837c294-0527-46a5-b91b-aed580542779")
 		)
@@ -6311,6 +6414,84 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/76e020bf-81c9-4f5e-8dd2-c0ea6f7fd91c"
 					(reference "J19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Crystal")
+		(at 67.31 115.57 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "87c2fe8f-dd48-430f-8766-2024a98d4441")
+		(property "Reference" "Y3"
+			(at 70.104 112.776 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "32.768kHz"
+			(at 69.596 118.11 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Crystal:Crystal_SMD_MicroCrystal_CC7V-T1A-2Pin_3.2x1.5mm"
+			(at 67.31 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 67.31 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Two pin crystal"
+			(at 67.31 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C7462182"
+			(at 67.31 115.57 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8078ff86-a586-44e0-9382-e94cd6596e20")
+		)
+		(pin "2"
+			(uuid "c1fac0d0-06ad-487e-87d2-1d03f3740646")
+		)
+		(instances
+			(project ""
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/76e020bf-81c9-4f5e-8dd2-c0ea6f7fd91c"
+					(reference "Y3")
 					(unit 1)
 				)
 			)
@@ -6621,6 +6802,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C3174972"
+			(at 132.08 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "5"
 			(uuid "09ce2b6a-68f7-4fa0-8c11-55c9fae16d89")
 		)
@@ -6747,6 +6937,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C478452"
+			(at 233.68 43.18 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -6936,6 +7135,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C233388"
+			(at 227.33 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "C"
 			(uuid "903fb074-c2fc-4747-81df-6dfa2f89a9a8")
 		)
@@ -6956,7 +7164,7 @@
 		(at 50.8 105.41 90)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "aa412a07-4c47-4bb2-b3b1-c57289e0015b")
@@ -7084,127 +7292,6 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/76e020bf-81c9-4f5e-8dd2-c0ea6f7fd91c"
 					(reference "#PWR0122")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "CM7V-T1A-32_768KHZ-6PF-20PPM-T:CM7V-T1A-32.768KHZ-6PF-20PPM-TA-QC")
-		(at 66.04 121.92 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b7f5c889-5ce1-4e56-9e90-2a639ad63ebc")
-		(property "Reference" "Y3"
-			(at 71.12 115.5699 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "CM7V-T1A-32.768KHZ-6PF-20PPM-TA-QC"
-			(at 48.514 124.968 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "CMV-T1A-32.768KHZ:CM7V32768TBQA020"
-			(at 162.23 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.microcrystal.com/fileadmin/Media/Products/32kHz/Datasheet/CM7V-T1A.pdf"
-			(at 262.23 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Description" "CRYSTAL 32.768KHZ SMD"
-			(at 66.04 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "0.65"
-			(at 462.23 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "428-201843-MG01"
-			(at 562.23 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Micro-Crystal/CM7V-T1A-32.768kHz-6pF-20PPM-TA-QC?qs=7bTaA%2FLYtSZ7ZoUG8vJXMg%3D%3D"
-			(at 662.23 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "Micro Crystal AG"
-			(at 762.23 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "CM7V-T1A-32.768KHZ-6PF-20PPM-TA-QC"
-			(at 862.23 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "1e9294ed-e5e2-4052-b6cd-8865d02d0889")
-		)
-		(pin "1"
-			(uuid "7cde0675-f185-4336-a9ec-b6218ee6a4f6")
-		)
-		(instances
-			(project "ALBERT_FLIGHTCOMPUTER"
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/76e020bf-81c9-4f5e-8dd2-c0ea6f7fd91c"
-					(reference "Y3")
 					(unit 1)
 				)
 			)
@@ -7399,6 +7486,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25744"
+			(at 57.15 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "54565c69-06af-4be2-84fd-2d932622fbbe")
 		)
@@ -7409,76 +7505,6 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/76e020bf-81c9-4f5e-8dd2-c0ea6f7fd91c"
 					(reference "R46")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 115.57 162.56 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d56d4b3c-eda1-44d8-b3d6-abbc8d0243a0")
-		(property "Reference" "C60"
-			(at 119.38 161.2899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 119.38 163.8299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 116.5352 166.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 115.57 162.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 115.57 162.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "0d27091b-a296-4dd9-9277-0a5360fea0c7")
-		)
-		(pin "2"
-			(uuid "85d92816-e6e4-47d8-951f-fb1877d9b83b")
-		)
-		(instances
-			(project "ALBERT_FLIGHTCOMPUTER"
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/76e020bf-81c9-4f5e-8dd2-c0ea6f7fd91c"
-					(reference "C60")
 					(unit 1)
 				)
 			)
@@ -7588,6 +7614,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C21516"
+			(at 246.38 91.44 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)

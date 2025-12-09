@@ -1018,167 +1018,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:C_Polarized"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.254)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "C"
-				(at 0.635 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "C_Polarized"
-				(at 0.635 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0.9652 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Polarized capacitor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "cap capacitor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "CP_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "C_Polarized_0_1"
-				(rectangle
-					(start -2.286 0.508)
-					(end 2.286 1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 2.286) (xy -0.762 2.286)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 2.794) (xy -1.27 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 2.286 -0.508)
-					(end -2.286 -1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-			)
-			(symbol "C_Polarized_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 2.794)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.794)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:Crystal_GND24"
 			(pin_names
 				(offset 1.016)
@@ -4741,6 +4580,453 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Power_Protection:USBLC6-2SC6"
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0.635 5.715 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "USBLC6-2SC6"
+				(at 0.635 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+				(at 1.27 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.st.com/resource/en/datasheet/usblc6-2.pdf"
+				(at 1.27 -8.255 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Description" "Very low capacitance ESD protection diode, 2 data-line, SOT-23-6"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "usb ethernet video"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SOT?23*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "USBLC6-2SC6_0_0"
+				(circle
+					(center -1.524 0)
+					(radius 0.0001)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -0.508 2.032)
+					(radius 0.0001)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -0.508 -4.572)
+					(radius 0.0001)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0.508 2.032)
+					(radius 0.0001)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0.508 -4.572)
+					(radius 0.0001)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 1.524 -2.54)
+					(radius 0.0001)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "USBLC6-2SC6_0_1"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy 2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -2.54) (xy 2.54 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 0.508) (xy -1.016 0.508) (xy -1.524 1.524) (xy -2.032 0.508)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 -3.048) (xy -1.016 -3.048)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.016 1.524) (xy -2.032 1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.016 -4.064) (xy -2.032 -4.064) (xy -1.524 -3.048) (xy -1.016 -4.064)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.508 -1.143) (xy -0.508 -0.762) (xy 0.508 -0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy -0.508 2.032) (xy 0.508 2.032) (xy 0 1.524) (xy 0 -4.064) (xy -0.508 -4.572) (xy 0.508 -4.572)
+						(xy 0 -5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 -1.778) (xy -0.508 -1.778) (xy 0 -0.762) (xy 0.508 -1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 1.524) (xy 2.032 1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 -3.048) (xy 2.032 -3.048)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.032 0.508) (xy 1.016 0.508) (xy 1.524 1.524) (xy 2.032 0.508)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.032 -4.064) (xy 1.016 -4.064) (xy 1.524 -3.048) (xy 2.032 -4.064)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "USBLC6-2SC6_1_1"
+				(rectangle
+					(start -2.54 2.794)
+					(end 2.54 -5.334)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.508 2.032) (xy -1.524 2.032) (xy -1.524 -4.572) (xy -0.508 -4.572)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 -4.572) (xy 1.524 -4.572) (xy 1.524 2.032) (xy 0.508 2.032)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "I/O1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 2.54)
+					(name "I/O2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 5.08 270)
+					(length 2.54)
+					(name "VBUS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "I/O1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 2.54)
+					(name "I/O2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Switch:SW_SPDT"
 			(pin_names
 				(offset 0)
@@ -5432,7 +5718,7 @@
 	)
 	(rectangle
 		(start 198.12 107.696)
-		(end 273.05 161.29)
+		(end 281.94 161.29)
 		(stroke
 			(width 0)
 			(type default)
@@ -5605,22 +5891,28 @@
 		(uuid "0e844a4d-b37e-4e45-9e8c-e9531e3df154")
 	)
 	(junction
+		(at 228.6 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0ff468cf-809d-4444-9f64-8d56f097bab4")
+	)
+	(junction
 		(at 66.04 187.96)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "114b6908-760a-430b-8ce7-48dde0a7af51")
 	)
 	(junction
-		(at 231.14 132.08)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "15045313-29ab-4b1f-8933-8f002d91573e")
-	)
-	(junction
 		(at 21.59 179.07)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1b773095-02f9-40d7-9339-4ed90b25ab88")
+	)
+	(junction
+		(at 228.6 130.81)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2b0aeee6-f445-457b-8010-0f4b55cb2e23")
 	)
 	(junction
 		(at 58.42 38.1)
@@ -5659,10 +5951,10 @@
 		(uuid "59b49cde-c8bc-486a-983f-90e0da69ee4a")
 	)
 	(junction
-		(at 231.14 137.16)
+		(at 231.14 133.35)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "5c15ff0d-6e2e-4e25-9c28-08ae8530f08b")
+		(uuid "6433977d-2733-4a02-bfd3-d9646bcdde82")
 	)
 	(junction
 		(at 233.68 27.94)
@@ -5725,6 +6017,12 @@
 		(uuid "a6d614ab-6ec2-4bb7-9c87-4e13eae19700")
 	)
 	(junction
+		(at 231.14 135.89)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b06ffc3c-d74b-4f60-a4f6-1594700e9548")
+	)
+	(junction
 		(at 233.68 39.37)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5741,6 +6039,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b3bea610-064b-4217-be4c-9cf65a566596")
+	)
+	(junction
+		(at 241.3 118.11)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b578dd13-4c82-4330-aa1b-401a2bd6bf54")
 	)
 	(junction
 		(at 138.43 26.67)
@@ -5920,6 +6224,26 @@
 	)
 	(wire
 		(pts
+			(xy 228.6 130.81) (xy 231.14 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "025ce820-83f1-4ad3-a52d-5a7ea0fc9485")
+	)
+	(wire
+		(pts
+			(xy 241.3 118.11) (xy 241.3 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "061073d0-b608-47c4-bee0-6bf9d0dcf384")
+	)
+	(wire
+		(pts
 			(xy 146.05 143.51) (xy 146.05 147.32)
 		)
 		(stroke
@@ -5940,23 +6264,13 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 125.73) (xy 256.54 127)
+			(xy 266.7 125.73) (xy 266.7 127)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "10159835-648e-4f47-84cb-8005580156dd")
-	)
-	(wire
-		(pts
-			(xy 231.14 135.89) (xy 231.14 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "101fb172-e94b-46ee-999f-e952394d8b71")
 	)
 	(wire
 		(pts
@@ -5980,7 +6294,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 125.73) (xy 256.54 125.73)
+			(xy 228.6 125.73) (xy 266.7 125.73)
 		)
 		(stroke
 			(width 0)
@@ -6000,6 +6314,16 @@
 	)
 	(wire
 		(pts
+			(xy 246.38 133.35) (xy 247.65 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "17da9de5-bd3a-423c-b947-154b5b928439")
+	)
+	(wire
+		(pts
 			(xy 231.14 138.43) (xy 228.6 138.43)
 		)
 		(stroke
@@ -6010,7 +6334,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 123.19) (xy 265.43 123.19)
+			(xy 228.6 123.19) (xy 275.59 123.19)
 		)
 		(stroke
 			(width 0)
@@ -6040,16 +6364,6 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 132.08) (xy 231.14 133.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2040719a-cf33-4411-a57f-4ebc8bc14161")
-	)
-	(wire
-		(pts
 			(xy 149.86 26.67) (xy 160.02 26.67)
 		)
 		(stroke
@@ -6060,7 +6374,7 @@
 	)
 	(wire
 		(pts
-			(xy 265.43 123.19) (xy 265.43 127)
+			(xy 275.59 123.19) (xy 275.59 127)
 		)
 		(stroke
 			(width 0)
@@ -6220,7 +6534,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 137.16) (xy 234.95 137.16)
+			(xy 231.14 135.89) (xy 236.22 135.89)
 		)
 		(stroke
 			(width 0)
@@ -6420,7 +6734,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 132.08) (xy 234.95 132.08)
+			(xy 231.14 133.35) (xy 236.22 133.35)
 		)
 		(stroke
 			(width 0)
@@ -6510,7 +6824,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 118.11) (xy 228.6 118.11)
+			(xy 245.11 118.11) (xy 241.3 118.11)
 		)
 		(stroke
 			(width 0)
@@ -6537,6 +6851,16 @@
 			(type default)
 		)
 		(uuid "71275ee1-5339-4291-8aae-074efa3deebe")
+	)
+	(wire
+		(pts
+			(xy 231.14 130.81) (xy 231.14 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7290d92b-bb7a-4d7b-ae80-a4eb971186cb")
 	)
 	(wire
 		(pts
@@ -6700,6 +7024,16 @@
 	)
 	(wire
 		(pts
+			(xy 228.6 128.27) (xy 228.6 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8eeebde0-877e-456e-9fbe-44bd9b6e9c52")
+	)
+	(wire
+		(pts
 			(xy 133.35 171.45) (xy 133.35 168.91)
 		)
 		(stroke
@@ -6707,16 +7041,6 @@
 			(type default)
 		)
 		(uuid "91fae43f-ea10-41ef-8392-e6c3d4dd4375")
-	)
-	(wire
-		(pts
-			(xy 228.6 130.81) (xy 231.14 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "933861b9-275c-44a7-ac63-ca1afebb987b")
 	)
 	(wire
 		(pts
@@ -6760,7 +7084,7 @@
 	)
 	(wire
 		(pts
-			(xy 257.81 118.11) (xy 251.46 118.11)
+			(xy 271.78 118.11) (xy 265.43 118.11)
 		)
 		(stroke
 			(width 0)
@@ -6857,6 +7181,16 @@
 			(type default)
 		)
 		(uuid "a145a2fb-56d4-461a-aa61-d261841d180a")
+	)
+	(wire
+		(pts
+			(xy 241.3 118.11) (xy 228.6 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a1770eae-02bb-4e73-9c3e-5caca198a423")
 	)
 	(wire
 		(pts
@@ -6960,7 +7294,7 @@
 	)
 	(wire
 		(pts
-			(xy 257.81 116.84) (xy 257.81 118.11)
+			(xy 271.78 116.84) (xy 271.78 118.11)
 		)
 		(stroke
 			(width 0)
@@ -6970,7 +7304,7 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 134.62) (xy 256.54 142.24)
+			(xy 266.7 134.62) (xy 266.7 142.24)
 		)
 		(stroke
 			(width 0)
@@ -7050,7 +7384,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 118.11) (xy 243.84 118.11)
+			(xy 252.73 118.11) (xy 257.81 118.11)
 		)
 		(stroke
 			(width 0)
@@ -7120,7 +7454,7 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 137.16) (xy 231.14 138.43)
+			(xy 231.14 135.89) (xy 231.14 138.43)
 		)
 		(stroke
 			(width 0)
@@ -7170,16 +7504,6 @@
 	)
 	(wire
 		(pts
-			(xy 231.14 130.81) (xy 231.14 132.08)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d8ef4e65-93be-4931-ab3c-442550e6bd4e")
-	)
-	(wire
-		(pts
 			(xy 161.29 123.19) (xy 161.29 124.46)
 		)
 		(stroke
@@ -7197,6 +7521,16 @@
 			(type default)
 		)
 		(uuid "d994e99f-20c2-4f46-abec-5b680a042ea9")
+	)
+	(wire
+		(pts
+			(xy 241.3 140.97) (xy 241.3 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dabd19e8-3b77-4bc9-b1dd-0430c335c8dc")
 	)
 	(wire
 		(pts
@@ -7290,6 +7624,16 @@
 	)
 	(wire
 		(pts
+			(xy 246.38 135.89) (xy 247.65 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea9e248b-fb76-4400-89a5-c0f008b38c34")
+	)
+	(wire
+		(pts
 			(xy 138.43 39.37) (xy 149.86 39.37)
 		)
 		(stroke
@@ -7330,7 +7674,7 @@
 	)
 	(wire
 		(pts
-			(xy 265.43 134.62) (xy 265.43 142.24)
+			(xy 275.59 134.62) (xy 275.59 142.24)
 		)
 		(stroke
 			(width 0)
@@ -7380,6 +7724,16 @@
 	)
 	(wire
 		(pts
+			(xy 228.6 143.51) (xy 228.6 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe0c1ce6-8880-42f4-87f7-09a95828f8de")
+	)
+	(wire
+		(pts
 			(xy 246.38 91.44) (xy 246.38 82.55)
 		)
 		(stroke
@@ -7398,6 +7752,16 @@
 		)
 		(uuid "ffed7e17-e8d5-4713-bcab-d08986bcbd52")
 	)
+	(label "ESD_MPU_D+"
+		(at 228.6 143.51 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "02796fa5-ca5f-4e26-bd0e-bd579ca9a391")
+	)
 	(label "SW_BOOT0_NAV"
 		(at 181.61 62.23 0)
 		(effects
@@ -7407,6 +7771,16 @@
 			(justify left bottom)
 		)
 		(uuid "da99e391-2a9b-4504-b228-02a45d2fb58c")
+	)
+	(label "ESD_MPU_D-"
+		(at 228.6 128.27 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "de7cfaeb-ad11-4c9a-9ff2-f97fd5aea433")
 	)
 	(global_label "VREF+_MPU"
 		(shape input)
@@ -8092,7 +8466,7 @@
 	)
 	(global_label "USB_MPU_D-"
 		(shape bidirectional)
-		(at 234.95 132.08 0)
+		(at 247.65 133.35 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8100,9 +8474,9 @@
 			)
 			(justify left)
 		)
-		(uuid "4c80b3c3-21f1-44a9-9079-8f2c4f6385af")
+		(uuid "4e550db9-27b3-4ab2-aa0a-48d43beac4b7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 251.686 132.08 0)
+			(at 264.386 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8262,6 +8636,28 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "USB_MPU_D+"
+		(shape bidirectional)
+		(at 247.65 135.89 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "60a9d75e-3880-4eab-81c9-d2be5cd99881")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 264.386 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -8675,28 +9071,6 @@
 		(uuid "9f0b4fe9-1c2f-4b82-9433-50afbbcb7c10")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 104.245 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "USB_MPU_D+"
-		(shape bidirectional)
-		(at 234.95 137.16 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "a194a2e5-a7fb-4b4c-a018-59c3fb9eea5e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 251.686 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9289,6 +9663,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25900"
+			(at 143.51 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a84c497a-2aff-4d15-b127-dd0dd955d246")
 		)
@@ -9351,6 +9734,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 234.95 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C32949"
 			(at 234.95 85.09 0)
 			(effects
 				(font
@@ -9505,6 +9897,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25744"
+			(at 200.66 62.23 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d6760a17-f478-40a2-ace3-17fcff7e25fd")
 		)
@@ -9567,6 +9968,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 120.65 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25091"
 			(at 120.65 139.7 0)
 			(effects
 				(font
@@ -9712,6 +10122,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25900"
+			(at 123.19 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "6593ec5f-4d0c-4fd9-8dc2-40bfe874a2f1")
 		)
@@ -9729,7 +10148,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 265.43 142.24 0)
+		(at 275.59 142.24 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9738,7 +10157,7 @@
 		(fields_autoplaced yes)
 		(uuid "1008ac26-98d6-4345-b214-1cf928431da7")
 		(property "Reference" "#PWR0110"
-			(at 265.43 148.59 0)
+			(at 275.59 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9747,7 +10166,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 265.43 147.32 0)
+			(at 275.59 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9756,7 +10175,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 265.43 142.24 0)
+			(at 275.59 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9765,7 +10184,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 265.43 142.24 0)
+			(at 275.59 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9774,7 +10193,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 265.43 142.24 0)
+			(at 275.59 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9928,7 +10347,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Polarized")
+		(lib_id "Device:C")
 		(at 195.58 34.29 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9936,9 +10355,9 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "18a820af-3605-442e-a205-93019cc3749a")
+		(uuid "20703189-b26b-40ee-8db9-0e2fae7a1f59")
 		(property "Reference" "C7"
-			(at 199.39 32.1309 0)
+			(at 199.39 33.0199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9947,7 +10366,7 @@
 			)
 		)
 		(property "Value" "10u"
-			(at 199.39 34.6709 0)
+			(at 199.39 35.5599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9955,7 +10374,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-1608-10_AVX-L"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 196.5452 38.1 0)
 			(effects
 				(font
@@ -9973,7 +10392,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Polarized capacitor"
+		(property "Description" "Unpolarized capacitor"
 			(at 195.58 34.29 0)
 			(effects
 				(font
@@ -9982,14 +10401,23 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "6fef8429-5be8-4873-9411-4564e65724c6")
+		(property "LCSC" "C15850"
+			(at 195.58 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
 		)
 		(pin "1"
-			(uuid "8cac09fd-26d1-4a69-a8d9-05694b59c7b9")
+			(uuid "3c7e13ea-9011-42d1-8e5c-1a2de9436f8a")
+		)
+		(pin "2"
+			(uuid "4ff6551c-3307-4d12-a191-714130f3ee11")
 		)
 		(instances
-			(project ""
+			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
 					(reference "C7")
 					(unit 1)
@@ -10058,6 +10486,85 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
 					(reference "#PWR011")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 149.86 33.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2399175b-58c8-4f9c-91d6-5114d7d9b080")
+		(property "Reference" "C5"
+			(at 153.67 31.7499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1u"
+			(at 153.67 34.2899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 150.8252 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C28323"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a0035385-3f86-44c9-b10e-d8097d405923")
+		)
+		(pin "2"
+			(uuid "29532dc1-527e-431b-bbb3-91edb868525b")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
+					(reference "C5")
 					(unit 1)
 				)
 			)
@@ -10251,6 +10758,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25091"
+			(at 161.29 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "474cca3a-4532-455e-8ab1-3b8a6db1891a")
 		)
@@ -10313,6 +10829,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 21.59 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C377773"
 			(at 21.59 172.72 0)
 			(effects
 				(font
@@ -10397,6 +10922,85 @@
 			(project ""
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
 					(reference "#PWR06")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 35.56 172.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "35a1d676-54aa-472d-9fa1-506a914e4f17")
+		(property "Reference" "C3"
+			(at 39.37 171.4499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2u2"
+			(at 39.37 173.9899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 36.5252 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 35.56 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 35.56 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C377773"
+			(at 35.56 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cd143483-1a26-45c1-a26d-681c177013bd")
+		)
+		(pin "2"
+			(uuid "a0c89231-dd2a-4209-beaf-dc1833d430da")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
+					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -10603,6 +11207,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1525"
+			(at 220.98 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "49e12fa6-0e6e-49cc-86b7-de41cca049eb")
 		)
@@ -10620,16 +11233,16 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 245.11 34.29 0)
+		(at 233.68 34.29 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "48d0d3a4-b3f5-46c4-b926-e8491a74d706")
-		(property "Reference" "C14"
-			(at 248.92 33.0199 0)
+		(uuid "4765095d-b377-45a7-84bb-d762f808fae5")
+		(property "Reference" "C12"
+			(at 237.49 33.0199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10638,7 +11251,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 248.92 35.5599 0)
+			(at 237.49 35.5599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10647,7 +11260,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 246.0752 38.1 0)
+			(at 234.6452 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10656,7 +11269,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 245.11 34.29 0)
+			(at 233.68 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10665,7 +11278,16 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 245.11 34.29 0)
+			(at 233.68 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 233.68 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10674,15 +11296,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "1d5523a3-eb32-4f8e-9894-0c55a606f1a2")
+			(uuid "5781dec7-505c-4972-9f17-a285b45148ab")
 		)
 		(pin "2"
-			(uuid "b19c1d87-b0e9-4f46-8f42-4780bbe15c36")
+			(uuid "a2236fe7-4a9d-494f-b8d7-6b26b7e2559b")
 		)
 		(instances
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
-					(reference "C14")
+					(reference "C12")
 					(unit 1)
 				)
 			)
@@ -10690,7 +11312,7 @@
 	)
 	(symbol
 		(lib_id "Device:FerriteBead")
-		(at 247.65 118.11 90)
+		(at 261.62 118.11 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10699,23 +11321,23 @@
 		(fields_autoplaced yes)
 		(uuid "4aa71681-4359-407b-a947-6c8e0e3c87ea")
 		(property "Reference" "FB2"
-			(at 247.5992 110.49 90)
+			(at 261.5692 110.49 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "FerriteBead"
-			(at 247.5992 113.03 90)
+		(property "Value" "100R"
+			(at 261.5692 113.03 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_0603_1608Metric"
-			(at 247.65 119.888 90)
+		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
+			(at 261.62 119.888 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10724,7 +11346,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 247.65 118.11 0)
+			(at 261.62 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10733,7 +11355,16 @@
 			)
 		)
 		(property "Description" "Ferrite bead"
-			(at 247.65 118.11 0)
+			(at 261.62 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C15957"
+			(at 261.62 118.11 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10751,76 +11382,6 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
 					(reference "FB2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized")
-		(at 149.86 33.02 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "54545975-1a08-4bc6-a52b-d6ff7fef841d")
-		(property "Reference" "C5"
-			(at 153.67 30.8609 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1u"
-			(at 153.67 33.4009 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-1608-10_AVX-L"
-			(at 150.8252 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 149.86 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Polarized capacitor"
-			(at 149.86 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "bb724a09-ea94-4bdd-92a5-b218884a42c5")
-		)
-		(pin "1"
-			(uuid "9863044f-b74e-4099-b921-6ee8539edfdf")
-		)
-		(instances
-			(project ""
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
-					(reference "C5")
 					(unit 1)
 				)
 			)
@@ -10894,76 +11455,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 35.56 172.72 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "566cdfdc-497d-491a-9a67-a1ccd79fae2a")
-		(property "Reference" "C3"
-			(at 39.37 171.4499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "2u2"
-			(at 39.37 173.9899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 36.5252 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 35.56 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 35.56 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a27c7fa5-a58a-4f2a-87eb-67519ff4954d")
-		)
-		(pin "2"
-			(uuid "8c4b98e6-5d4b-44e6-a60a-d8db2cbdc03b")
-		)
-		(instances
-			(project "ALBERT_FLIGHTCOMPUTER"
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
-					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 133.35 139.7 0)
 		(unit 1)
@@ -11010,6 +11501,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 133.35 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25091"
 			(at 133.35 139.7 0)
 			(effects
 				(font
@@ -11180,16 +11680,16 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 207.01 90.17 0)
+		(at 269.24 34.29 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "697e5b28-50d3-4c1b-8f29-1d81ac8474fa")
-		(property "Reference" "C9"
-			(at 210.82 88.8999 0)
+		(uuid "658fc40d-f386-4b5b-9643-bdea746f0e26")
+		(property "Reference" "C17"
+			(at 273.05 33.0199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11198,7 +11698,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 210.82 91.4399 0)
+			(at 273.05 35.5599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11207,7 +11707,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 207.9752 93.98 0)
+			(at 270.2052 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11216,7 +11716,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 207.01 90.17 0)
+			(at 269.24 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11225,7 +11725,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 207.01 90.17 0)
+			(at 269.24 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11233,16 +11733,104 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "b9feac01-5fda-4eb9-ab2f-44766a34c903")
+		(property "LCSC" "C1525"
+			(at 269.24 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
 		)
 		(pin "1"
-			(uuid "1556fb0d-bea3-460a-bdd8-4415236c7301")
+			(uuid "032ba2d9-e6b7-4021-9e03-5c7e21e8f78a")
+		)
+		(pin "2"
+			(uuid "14a967b7-a908-4295-a24e-7a69d5d2fe5e")
 		)
 		(instances
-			(project ""
+			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
-					(reference "C9")
+					(reference "C17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 256.54 34.29 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6ad9a3db-6fb9-486e-b2a8-4eb92b2c3421")
+		(property "Reference" "C15"
+			(at 260.35 33.0199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 260.35 35.5599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 257.5052 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 256.54 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 256.54 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 256.54 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9f071f8f-66df-4461-8d71-9f74d94ce8b1")
+		)
+		(pin "2"
+			(uuid "4334ab9b-7de5-4747-99e8-030fdbbf0c02")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
+					(reference "C15")
 					(unit 1)
 				)
 			)
@@ -11292,6 +11880,15 @@
 			)
 		)
 		(property "Description" "Switch, single pole double throw"
+			(at 176.53 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C221841"
 			(at 176.53 62.23 0)
 			(effects
 				(font
@@ -11453,7 +12050,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 256.54 130.81 0)
+		(at 266.7 130.81 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11462,7 +12059,7 @@
 		(fields_autoplaced yes)
 		(uuid "7c8d49d1-8715-43bb-b0cb-a446961fabed")
 		(property "Reference" "R39"
-			(at 259.08 129.5399 0)
+			(at 269.24 129.5399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11471,7 +12068,7 @@
 			)
 		)
 		(property "Value" "5k1"
-			(at 259.08 132.0799 0)
+			(at 269.24 132.0799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11480,7 +12077,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 254.762 130.81 90)
+			(at 264.922 130.81 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11489,7 +12086,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 256.54 130.81 0)
+			(at 266.7 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11498,7 +12095,16 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 256.54 130.81 0)
+			(at 266.7 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25905"
+			(at 266.7 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11643,6 +12249,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C32949"
+			(at 257.81 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "51907e30-9edb-4b5f-aa7a-0f6dbd0f82d0")
 		)
@@ -11725,6 +12340,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 207.01 90.17 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "85767b04-6223-411a-91a5-13f5f035fde3")
+		(property "Reference" "C9"
+			(at 210.82 88.8999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 210.82 91.4399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 207.9752 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 207.01 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 207.01 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 207.01 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "54010930-b5a1-4940-96dc-a49e03c960c7")
+		)
+		(pin "2"
+			(uuid "6f80787a-c394-416f-a9f4-d6e410bec822")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
+					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 152.4 69.85 0)
 		(unit 1)
@@ -11771,6 +12465,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 152.4 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25900"
 			(at 152.4 69.85 0)
 			(effects
 				(font
@@ -11849,6 +12552,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25900"
+			(at 133.35 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "8acc36de-579e-4b77-ada7-2e4a63f5fbeb")
 		)
@@ -11866,16 +12578,16 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 256.54 34.29 0)
+		(at 195.58 90.17 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "97667cb0-c8ab-469d-a6a9-02321e2d1b66")
-		(property "Reference" "C15"
-			(at 260.35 33.0199 0)
+		(uuid "8f0a54ff-a444-4630-8ea5-56ef958eea20")
+		(property "Reference" "C8"
+			(at 199.39 88.8999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11883,8 +12595,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
-			(at 260.35 35.5599 0)
+		(property "Value" "1u"
+			(at 199.39 91.4399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11892,8 +12604,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 257.5052 38.1 0)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 196.5452 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11902,7 +12614,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 256.54 34.29 0)
+			(at 195.58 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11911,7 +12623,16 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 256.54 34.29 0)
+			(at 195.58 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C28323"
+			(at 195.58 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11920,15 +12641,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "49b2be6c-663c-4b68-a421-8b0d84d74211")
+			(uuid "5661792f-1018-4b48-bac5-7f678c41f3c8")
 		)
 		(pin "2"
-			(uuid "10bab222-6572-4bba-9506-d9da0b1817f3")
+			(uuid "928aff2d-5b1e-4467-ab15-3141d1f82700")
 		)
 		(instances
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
-					(reference "C15")
+					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -11936,7 +12657,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 257.81 116.84 0)
+		(at 271.78 116.84 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11945,7 +12666,7 @@
 		(fields_autoplaced yes)
 		(uuid "981c50c9-983c-4e49-bed1-90214f95b21e")
 		(property "Reference" "#PWR023"
-			(at 257.81 120.65 0)
+			(at 271.78 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11954,7 +12675,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 257.81 111.76 0)
+			(at 271.78 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11962,7 +12683,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 257.81 116.84 0)
+			(at 271.78 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11971,7 +12692,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 257.81 116.84 0)
+			(at 271.78 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11980,7 +12701,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 257.81 116.84 0)
+			(at 271.78 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12135,76 +12856,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Polarized")
-		(at 177.8 33.02 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9e2db770-6167-42c4-832a-3f732fe8d524")
-		(property "Reference" "C6"
-			(at 181.61 30.8609 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1u"
-			(at 181.61 33.4009 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-1608-10_AVX-L"
-			(at 178.7652 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 177.8 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Polarized capacitor"
-			(at 177.8 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "547e9fd3-f742-4fb1-9a09-77835b00a92a")
-		)
-		(pin "1"
-			(uuid "7ea0cda2-9ec1-4d61-8615-0fbedd7b26d4")
-		)
-		(instances
-			(project "ALBERT_FLIGHTCOMPUTER"
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
-					(reference "C6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "MCU_ST_STM32H7:STM32H753VITx")
 		(at 66.04 115.57 0)
 		(unit 1)
@@ -12222,7 +12873,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "STM32H753VITx"
+		(property "Value" "STM32H753VIT6"
 			(at 71.374 183.642 0)
 			(effects
 				(font
@@ -12251,6 +12902,33 @@
 			)
 		)
 		(property "Description" "STMicroelectronics Arm Cortex-M7 MCU, 2048KB flash, 1024KB RAM, 480 MHz, 1.71-3.6V, 82 GPIO, LQFP100"
+			(at 66.04 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "STMicroelectronics"
+			(at 66.04 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "STM32H753VIT6"
+			(at 66.04 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C730206"
 			(at 66.04 115.57 0)
 			(effects
 				(font
@@ -12586,7 +13264,7 @@
 				)
 			)
 		)
-		(property "Value" "120R"
+		(property "Value" "100R"
 			(at 163.7792 21.59 90)
 			(effects
 				(font
@@ -12614,6 +13292,15 @@
 		)
 		(property "Description" "Ferrite bead"
 			(at 163.83 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C15957"
+			(at 163.83 26.67 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12758,6 +13445,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1525"
+			(at 208.28 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0e498458-5a72-42ba-8723-1a1e70f8c3bb")
 		)
@@ -12835,146 +13531,6 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
 					(reference "#PWR08")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 233.68 34.29 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b68cc9a3-e2bc-4da4-8af7-7d0481454a0a")
-		(property "Reference" "C12"
-			(at 237.49 33.0199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 237.49 35.5599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 234.6452 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 233.68 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 233.68 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "09c2b4b0-e2cc-4b89-ade0-47ba39a95570")
-		)
-		(pin "2"
-			(uuid "7e642e18-7808-493f-bc53-1e4ca15d0204")
-		)
-		(instances
-			(project "ALBERT_FLIGHTCOMPUTER"
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
-					(reference "C12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 269.24 34.29 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bfabed8b-c20b-43f2-a7e7-efae84be98b0")
-		(property "Reference" "C17"
-			(at 273.05 33.0199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 273.05 35.5599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 270.2052 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 269.24 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 269.24 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7ed2df4a-0ee7-4fd5-a225-6f3b949165f4")
-		)
-		(pin "2"
-			(uuid "73401a0a-3ab8-4e33-b5c2-14cf5a83e3ce")
-		)
-		(instances
-			(project "ALBERT_FLIGHTCOMPUTER"
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
-					(reference "C17")
 					(unit 1)
 				)
 			)
@@ -13102,6 +13658,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1525"
+			(at 19.05 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ec388c52-5723-4167-b370-4f5408f6acee")
 		)
@@ -13112,76 +13677,6 @@
 			(project ""
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
 					(reference "C1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized")
-		(at 195.58 90.17 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d2f61771-3dd2-4041-98a7-c1e6453d1c4a")
-		(property "Reference" "C8"
-			(at 199.39 88.0109 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1u"
-			(at 199.39 90.5509 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-1608-10_AVX-L"
-			(at 196.5452 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 195.58 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Polarized capacitor"
-			(at 195.58 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2c59fcbb-8979-4292-bbdb-a04f102ed582")
-		)
-		(pin "2"
-			(uuid "642054ce-4475-4364-9dac-30220ff118e0")
-		)
-		(instances
-			(project ""
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
-					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -13231,6 +13726,15 @@
 			)
 		)
 		(property "Description" "Four pin crystal, GND on pins 2 and 4"
+			(at 246.38 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C13738"
 			(at 246.38 74.93 0)
 			(effects
 				(font
@@ -13328,6 +13832,99 @@
 		)
 	)
 	(symbol
+		(lib_id "Power_Protection:USBLC6-2SC6")
+		(at 241.3 133.35 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ddda610a-a9eb-45d7-9bcc-0293a52873a6")
+		(property "Reference" "U9"
+			(at 241.554 128.778 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "USBLC6-2SC6"
+			(at 242.316 140.716 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+			(at 242.57 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/usblc6-2.pdf"
+			(at 242.57 141.605 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "Very low capacitance ESD protection diode, 2 data-line, SOT-23-6"
+			(at 241.3 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C7519"
+			(at 241.3 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "abbc0ae9-3b88-4e36-8566-93f82cafe7a1")
+		)
+		(pin "3"
+			(uuid "13d5037f-f038-4e9c-a7e7-c6559fc4858e")
+		)
+		(pin "1"
+			(uuid "de5efb6c-8f26-4008-aeca-74ebc557d8a5")
+		)
+		(pin "4"
+			(uuid "8c50b07c-a1ac-445f-912d-0c557bf99c5b")
+		)
+		(pin "6"
+			(uuid "6e87463d-41b3-471b-9abf-37147dbc4b6e")
+		)
+		(pin "2"
+			(uuid "219b8790-af28-48ab-a331-30da799fc1ad")
+		)
+		(instances
+			(project ""
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
+					(reference "U9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 161.29 147.32 0)
 		(unit 1)
@@ -13396,7 +13993,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 256.54 142.24 0)
+		(at 266.7 142.24 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13405,7 +14002,7 @@
 		(fields_autoplaced yes)
 		(uuid "e1c3db17-9036-41a7-bddc-8980666d1bf5")
 		(property "Reference" "#PWR0101"
-			(at 256.54 148.59 0)
+			(at 266.7 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13414,7 +14011,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 256.54 147.32 0)
+			(at 266.7 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13423,7 +14020,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 256.54 142.24 0)
+			(at 266.7 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13432,7 +14029,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 256.54 142.24 0)
+			(at 266.7 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13441,7 +14038,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 256.54 142.24 0)
+			(at 266.7 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13463,7 +14060,7 @@
 	)
 	(symbol
 		(lib_id "Diode:SS14")
-		(at 234.95 118.11 180)
+		(at 248.92 118.11 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13472,7 +14069,7 @@
 		(fields_autoplaced yes)
 		(uuid "e24fd6d4-111d-434e-bf2c-9ab7b8238ea4")
 		(property "Reference" "D5"
-			(at 235.2675 111.76 0)
+			(at 249.2375 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13480,7 +14077,7 @@
 			)
 		)
 		(property "Value" "SS14"
-			(at 235.2675 114.3 0)
+			(at 249.2375 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13488,7 +14085,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_SMA"
-			(at 234.95 113.665 0)
+			(at 248.92 113.665 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13497,7 +14094,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/88746/ss12.pdf"
-			(at 234.95 118.11 0)
+			(at 248.92 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13506,7 +14103,16 @@
 			)
 		)
 		(property "Description" "40V 1A Schottky Diode, SMA"
-			(at 234.95 118.11 0)
+			(at 248.92 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2480"
+			(at 248.92 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13524,6 +14130,152 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
 					(reference "D5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 241.3 156.21 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e817c5ab-9fbd-404d-95a3-d47fa1fef074")
+		(property "Reference" "#PWR0129"
+			(at 241.3 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 241.3 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 241.3 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 241.3 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 241.3 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "da33f2e1-2e2f-45bc-85cd-30cf76713593")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
+					(reference "#PWR0129")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 245.11 34.29 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ea1e8fff-dc5d-4e1b-a43f-8e4c36696647")
+		(property "Reference" "C14"
+			(at 248.92 33.0199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 248.92 35.5599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 246.0752 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 245.11 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 245.11 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 245.11 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d3668cbb-5970-43a5-8d80-82fe3a2f586c")
+		)
+		(pin "2"
+			(uuid "db06bcbe-c973-4b42-9dc2-fb0cd1e2ccf9")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
+					(reference "C14")
 					(unit 1)
 				)
 			)
@@ -13718,6 +14470,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25091"
+			(at 146.05 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "15fd810b-8f49-4ff3-886c-5340e6933696")
 		)
@@ -13728,6 +14489,85 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
 					(reference "R6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 177.8 33.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f070c575-851f-4abf-b965-ef74a85923f5")
+		(property "Reference" "C6"
+			(at 181.61 31.7499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1u"
+			(at 181.61 34.2899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 178.7652 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 177.8 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 177.8 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C28323"
+			(at 177.8 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "817f8ed6-eaf6-47e0-8a69-3acc8b492c73")
+		)
+		(pin "2"
+			(uuid "24b66ffb-9227-4123-8cca-9d26393cce8b")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027"
+					(reference "C6")
 					(unit 1)
 				)
 			)
@@ -13751,7 +14591,7 @@
 				)
 			)
 		)
-		(property "Value" "47"
+		(property "Value" "22"
 			(at 186.69 78.74 90)
 			(effects
 				(font
@@ -13779,6 +14619,15 @@
 		)
 		(property "Description" "Resistor"
 			(at 186.69 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25092"
+			(at 186.69 82.55 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13854,6 +14703,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C165948"
+			(at 213.36 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "B9"
 			(uuid "6f16e33a-d685-4bde-b112-9a143ca1cb87")
 		)
@@ -13910,7 +14768,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 265.43 130.81 0)
+		(at 275.59 130.81 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13919,7 +14777,7 @@
 		(fields_autoplaced yes)
 		(uuid "fbb316f0-3536-45c0-98f9-c1113833b3eb")
 		(property "Reference" "R40"
-			(at 267.97 129.5399 0)
+			(at 278.13 129.5399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13928,7 +14786,7 @@
 			)
 		)
 		(property "Value" "5k1"
-			(at 267.97 132.0799 0)
+			(at 278.13 132.0799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13937,7 +14795,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 263.652 130.81 90)
+			(at 273.812 130.81 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13946,7 +14804,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 265.43 130.81 0)
+			(at 275.59 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13955,7 +14813,16 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 265.43 130.81 0)
+			(at 275.59 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25905"
+			(at 275.59 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14183,6 +15050,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 138.43 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C15195"
 			(at 138.43 33.02 0)
 			(effects
 				(font

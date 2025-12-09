@@ -3677,216 +3677,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 251.46 72.39 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1685a31f-e5d7-4052-ba68-d1e956d9aa66")
-		(property "Reference" "C40"
-			(at 255.27 71.1199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 255.27 73.6599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 252.4252 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 251.46 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 251.46 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b2466ad6-6c3d-421d-9c99-1cff8da354f6")
-		)
-		(pin "2"
-			(uuid "fccad787-1721-4dd9-bc60-250e43b4ff72")
-		)
-		(instances
-			(project "ALBERT_FLIGHTCOMPUTER"
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
-					(reference "C40")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 248.92 116.84 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1d76f24e-26d7-4edc-b02a-bdac5b5ff5d8")
-		(property "Reference" "C39"
-			(at 252.73 115.5699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 252.73 118.1099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 249.8852 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 248.92 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 248.92 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b7fab4d1-3d6d-4714-b0fb-a7c9a1d8e0d1")
-		)
-		(pin "2"
-			(uuid "46777c0d-f3dc-4e65-ab96-41852ad58e7b")
-		)
-		(instances
-			(project "ALBERT_FLIGHTCOMPUTER"
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
-					(reference "C39")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 113.03 142.24 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2a54a84d-56f6-47b5-9a52-d1080d197b44")
-		(property "Reference" "C36"
-			(at 116.84 140.9699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 116.84 143.5099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 113.9952 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 113.03 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 113.03 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d14d27a0-9f7d-4e20-a22b-d137f7c30894")
-		)
-		(pin "2"
-			(uuid "3a65851a-5a99-4ecc-a4b1-011d4ef21694")
-		)
-		(instances
-			(project "ALBERT_FLIGHTCOMPUTER"
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
-					(reference "C36")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "BMI088:BMI088")
 		(at 198.12 55.88 0)
 		(unit 1)
@@ -4058,6 +3848,15 @@
 					(size 1.27 1.27)
 				)
 				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C194919"
+			(at 198.12 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -4289,6 +4088,15 @@
 					(size 1.27 1.27)
 				)
 				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C126672"
+			(at 77.47 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -4776,6 +4584,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C5124834"
+			(at 67.31 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "7"
 			(uuid "336ee5c2-7f0c-4a4f-bd43-e1a7777dde41")
 		)
@@ -4810,6 +4627,164 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
 					(reference "IC3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 113.03 142.24 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4f496789-ca2e-4109-b780-209b32e1265c")
+		(property "Reference" "C36"
+			(at 116.84 140.9699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 116.84 143.5099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 113.9952 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 113.03 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 113.03 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 113.03 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "05370827-b367-4890-ad8e-aad1ed42b36b")
+		)
+		(pin "2"
+			(uuid "516b67ac-07c7-464f-b90f-b1a81d05ee6f")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
+					(reference "C36")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 49.53 59.69 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5b1c7c19-7df2-46bc-b720-179901aefcab")
+		(property "Reference" "C33"
+			(at 53.34 58.4199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 53.34 60.9599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 50.4952 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 49.53 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 49.53 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 49.53 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "933aa80f-f1bf-42c4-aa9c-c9524df3227a")
+		)
+		(pin "2"
+			(uuid "90a49f6d-496b-4127-8c26-02b7c120ba4d")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
+					(reference "C33")
 					(unit 1)
 				)
 			)
@@ -4862,6 +4837,15 @@
 			)
 		)
 		(property "Description" "Geomagnetic Sensor, WLCSP-12"
+			(at 228.6 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C171681"
 			(at 228.6 115.57 0)
 			(effects
 				(font
@@ -5050,16 +5034,16 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 49.53 59.69 0)
+		(at 187.96 118.11 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "7cd90e32-955a-419a-8bbd-349d0e51af82")
-		(property "Reference" "C33"
-			(at 53.34 58.4199 0)
+		(uuid "72e37e8f-4c8d-4f94-8352-e6e690d983b5")
+		(property "Reference" "C37"
+			(at 191.77 116.8399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5068,7 +5052,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 53.34 60.9599 0)
+			(at 191.77 119.3799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5077,7 +5061,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 50.4952 63.5 0)
+			(at 188.9252 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5086,7 +5070,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 49.53 59.69 0)
+			(at 187.96 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5095,7 +5079,16 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 49.53 59.69 0)
+			(at 187.96 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 187.96 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5104,15 +5097,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "521827d1-1194-4467-bf1c-82c28253fd12")
+			(uuid "51ffc1c7-243a-4182-8136-60447f23b68a")
 		)
 		(pin "2"
-			(uuid "81c369b2-4622-486f-83ee-4ff51afb0d68")
+			(uuid "54869f6d-90d7-47f7-88c2-b12e345d367b")
 		)
 		(instances
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
-					(reference "C33")
+					(reference "C37")
 					(unit 1)
 				)
 			)
@@ -5307,6 +5300,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25796"
+			(at 146.05 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "64cd920b-dbf1-4a53-a260-1b9d9287452e")
 		)
@@ -5391,16 +5393,16 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 101.6 66.04 0)
+		(at 240.03 72.39 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "aba047aa-3568-4563-9d61-6a523d271e14")
-		(property "Reference" "C35"
-			(at 105.41 64.7699 0)
+		(uuid "aa45a4ab-e9e5-4df3-9ce2-e7ecad8a8928")
+		(property "Reference" "C38"
+			(at 243.84 71.1199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5409,7 +5411,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 105.41 67.3099 0)
+			(at 243.84 73.6599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5418,7 +5420,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 102.5652 69.85 0)
+			(at 240.9952 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5427,7 +5429,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 101.6 66.04 0)
+			(at 240.03 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5436,7 +5438,16 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 101.6 66.04 0)
+			(at 240.03 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 240.03 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5445,85 +5456,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "33188905-b3bc-4e52-b2d7-7894e34120b2")
+			(uuid "17c2b4cd-6d50-47d2-a635-f61743492b6d")
 		)
 		(pin "2"
-			(uuid "cd3ca750-99de-447b-b6e2-0a5776f998eb")
+			(uuid "5ae6a044-c9c5-4db2-83b5-04d9bad5c3c7")
 		)
 		(instances
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
-					(reference "C35")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 187.96 118.11 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b8d3abcf-ac70-452d-9b96-a29793d7d479")
-		(property "Reference" "C37"
-			(at 191.77 116.8399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 191.77 119.3799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 188.9252 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 187.96 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 187.96 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "4178ebf4-4095-41e0-a01c-d869446697dd")
-		)
-		(pin "2"
-			(uuid "73749976-26f5-45f0-a6d2-08e0be433d9b")
-		)
-		(instances
-			(project "ALBERT_FLIGHTCOMPUTER"
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
-					(reference "C37")
+					(reference "C38")
 					(unit 1)
 				)
 			)
@@ -5538,7 +5479,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "bb716201-2065-4887-bb8a-62be08eccc36")
+		(uuid "c0323351-de50-4a3a-b884-b9be362e2380")
 		(property "Reference" "C34"
 			(at 104.14 140.9699 0)
 			(effects
@@ -5584,11 +5525,20 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1525"
+			(at 100.33 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
-			(uuid "21db17b8-4051-4417-9a98-ae93373629bb")
+			(uuid "b27c5232-caaa-430e-a996-a2a6660ced41")
 		)
 		(pin "2"
-			(uuid "a2c33289-d05c-455b-a355-15e5c5effaf4")
+			(uuid "279c7905-f612-4ab9-a62d-7749733c40f9")
 		)
 		(instances
 			(project "ALBERT_FLIGHTCOMPUTER"
@@ -5652,6 +5602,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25796"
+			(at 66.04 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "5db6b4b0-2763-4052-8449-741f60c0f7d1")
 		)
@@ -5662,6 +5621,164 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
 					(reference "R35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 101.6 66.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d8784a3a-db4c-47df-9ae2-06f5cfc85a30")
+		(property "Reference" "C35"
+			(at 105.41 64.7699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 105.41 67.3099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 102.5652 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 101.6 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 101.6 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 101.6 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "253cbb2b-f9fc-4648-be06-0ff8c394ce98")
+		)
+		(pin "2"
+			(uuid "4080d8b6-3f93-42d9-a4d7-88004a6018e2")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
+					(reference "C35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 248.92 116.84 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d9b663df-83f9-4733-8765-5252adf4f49c")
+		(property "Reference" "C39"
+			(at 252.73 115.5699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 252.73 118.1099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 249.8852 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 248.92 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 248.92 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 248.92 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ee314b80-950d-4585-a2be-1f1c7ac7cc2a")
+		)
+		(pin "2"
+			(uuid "0d4cdc73-c093-4aac-8055-5bb068f48901")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
+					(reference "C39")
 					(unit 1)
 				)
 			)
@@ -5795,76 +5912,6 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
 					(reference "#PWR083")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 240.03 72.39 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ec1ad80f-97a6-47ca-bf6c-c73cfbafa4ad")
-		(property "Reference" "C38"
-			(at 243.84 71.1199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 243.84 73.6599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 240.9952 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 240.03 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 240.03 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3a3b651c-5fed-4e7f-a420-165139d4dfd4")
-		)
-		(pin "2"
-			(uuid "7e98884a-a299-4f3e-81b5-185299ec696b")
-		)
-		(instances
-			(project "ALBERT_FLIGHTCOMPUTER"
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
-					(reference "C38")
 					(unit 1)
 				)
 			)
@@ -6058,6 +6105,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25796"
+			(at 137.16 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d35d9541-ac2d-4282-aab2-1d3f50754312")
 		)
@@ -6068,6 +6124,85 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
 					(reference "R36")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 251.46 72.39 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f6f2beca-2381-408a-afc7-535b7226d913")
+		(property "Reference" "C40"
+			(at 255.27 71.1199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 255.27 73.6599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 252.4252 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 251.46 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 251.46 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 251.46 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2c20bd9f-859e-4443-8481-242c303ce922")
+		)
+		(pin "2"
+			(uuid "b11e8fdb-9564-4408-8840-fb13e8a29ad4")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/f7ea2c19-61e9-4cc6-adc7-384d26cb19eb"
+					(reference "C40")
 					(unit 1)
 				)
 			)

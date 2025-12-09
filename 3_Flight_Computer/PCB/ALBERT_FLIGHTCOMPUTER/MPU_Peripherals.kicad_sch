@@ -8415,6 +8415,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C17168"
+			(at 92.71 82.55 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f2b97665-403c-4596-bfdc-d23fd7c430cf")
 		)
@@ -8475,6 +8484,15 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 97.79 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C5183989"
 			(at 97.79 115.57 0)
 			(effects
 				(font
@@ -8545,6 +8563,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 44.45 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25744"
 			(at 44.45 134.62 0)
 			(effects
 				(font
@@ -8805,6 +8832,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C2678753"
+			(at 146.05 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "12"
 			(uuid "c720545e-7d2f-4185-af5c-a0baa8f5be4a")
 		)
@@ -8953,6 +8989,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C566011"
+			(at 160.02 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "9395a168-eca6-4ef6-839c-b63fbc794aec")
 		)
@@ -9079,6 +9124,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C907680"
+			(at 204.47 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "9"
 			(uuid "d9235ed0-142a-496b-aa14-95a0adce5b10")
 		)
@@ -9124,16 +9178,16 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "35208c42-745c-4996-b450-a8346476c547")
-		(property "Reference" "HXPZ2.54-3x8PZZ1"
-			(at 224.028 45.72 0)
+		(property "Reference" "J13"
+			(at 227.076 16.764 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 225.425 21.59 0)
+		(property "Value" "HXPZ2.54-3x8PZZ1"
+			(at 235.204 19.304 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9159,6 +9213,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 212.09 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C32713295"
 			(at 212.09 44.45 0)
 			(effects
 				(font
@@ -9242,7 +9305,7 @@
 		(instances
 			(project ""
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/1edee9cd-27d7-479a-992c-cbc714ec1449"
-					(reference "HXPZ2.54-3x8PZZ1")
+					(reference "J13")
 					(unit 1)
 				)
 			)
@@ -9705,6 +9768,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C534316"
+			(at 52.07 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "669d4073-7f44-49b1-b197-92e8c25f3a79")
 		)
@@ -9783,6 +9855,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25744"
+			(at 63.5 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "84a63d7a-b6cd-4eef-8d7c-a94af26bfcc4")
 		)
@@ -9843,6 +9924,15 @@
 		)
 		(property "Description" "Resistor"
 			(at 144.78 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25077"
+			(at 144.78 82.55 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9976,6 +10066,15 @@
 		)
 		(property "Description" "Resistor"
 			(at 144.78 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25077"
+			(at 144.78 90.17 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10184,6 +10283,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C5183989"
+			(at 39.37 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "85d8cf85-0f25-4f4b-85d3-b4d702021bd3")
 		)
@@ -10318,6 +10426,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C5183989"
+			(at 99.06 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b6257d80-e3ab-4cd8-a318-f6da83bcfeea")
 		)
@@ -10328,76 +10445,6 @@
 			(project "ALBERT_FLIGHTCOMPUTER"
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/1edee9cd-27d7-479a-992c-cbc714ec1449"
 					(reference "J6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 273.05 124.46 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6a7a603d-8b65-4330-929e-d767a7cfbf59")
-		(property "Reference" "C18"
-			(at 276.86 123.1899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 276.86 125.7299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 274.0152 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 273.05 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 273.05 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "6423e1ad-0f9e-4ba1-ac32-2cff063ebb67")
-		)
-		(pin "1"
-			(uuid "2b83394e-415e-41b0-933c-5e3cada39fca")
-		)
-		(instances
-			(project ""
-				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/1edee9cd-27d7-479a-992c-cbc714ec1449"
-					(reference "C18")
 					(unit 1)
 				)
 			)
@@ -10453,6 +10500,15 @@
 			)
 		)
 		(property "Description" "100A Id, 60V Vds, OptiMOS N-Channel Power MOSFET, 2.8mOhm Ron, Qg (typ) 31.0nC, PG-TDSON-8"
+			(at 52.07 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C534316"
 			(at 52.07 172.72 0)
 			(effects
 				(font
@@ -10540,6 +10596,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C566011"
+			(at 160.02 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f669907f-b6fb-4b99-a008-0273f488fbfb")
 		)
@@ -10608,6 +10673,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 160.02 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C495261"
 			(at 160.02 177.8 0)
 			(effects
 				(font
@@ -10767,6 +10841,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C534316"
+			(at 111.76 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "45b05801-2f14-42dd-a266-fb0ab89ffffa")
 		)
@@ -10845,6 +10928,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25744"
+			(at 44.45 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "808ac95e-aa6a-4c63-b603-9389a6b29621")
 		)
@@ -10906,6 +10998,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 57.15 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25744"
 			(at 57.15 31.75 0)
 			(effects
 				(font
@@ -10982,6 +11083,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25092"
+			(at 96.52 127 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "40a553da-abf8-444f-85f6-6da52cff2699")
 		)
@@ -11043,6 +11153,15 @@
 		)
 		(property "Description" "Resistor"
 			(at 97.79 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25092"
+			(at 97.79 173.99 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11112,6 +11231,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 44.45 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25744"
 			(at 44.45 180.34 0)
 			(effects
 				(font
@@ -11249,6 +11377,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 262.89 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25744"
 			(at 262.89 115.57 0)
 			(effects
 				(font
@@ -11593,6 +11730,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C5183989"
+			(at 39.37 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "6d3d44af-7e31-494f-86ec-bdebb96ba50c")
 		)
@@ -11655,6 +11801,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 104.14 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25744"
 			(at 104.14 181.61 0)
 			(effects
 				(font
@@ -11866,6 +12021,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25744"
+			(at 180.34 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "485c7b1f-6300-4850-a7ce-9035f59c97c1")
 		)
@@ -11999,6 +12163,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25077"
+			(at 40.64 82.55 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e69685e3-b20c-4d4d-be16-e34b3f87bee8")
 		)
@@ -12060,6 +12233,15 @@
 		)
 		(property "Description" "Resistor"
 			(at 38.1 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25092"
+			(at 38.1 127 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12193,6 +12375,15 @@
 		)
 		(property "Description" "Resistor"
 			(at 92.71 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C17168"
+			(at 92.71 90.17 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12336,6 +12527,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25744"
+			(at 38.1 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ab9d1bd2-885d-43b2-bdf9-afa538b2574b")
 		)
@@ -12403,6 +12603,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C114218"
+			(at 101.6 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "6ec206ad-92ca-473e-b9f3-5750eaa64ab0")
 		)
@@ -12440,6 +12649,85 @@
 			(project ""
 				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/1edee9cd-27d7-479a-992c-cbc714ec1449"
 					(reference "J7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 273.05 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e3596d46-7d2a-433e-ae93-379ccfb56094")
+		(property "Reference" "C18"
+			(at 276.86 123.1899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 276.86 125.7299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 274.0152 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 273.05 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 273.05 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 273.05 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5aede5cd-0fe0-4ca4-9843-23897e53620c")
+		)
+		(pin "2"
+			(uuid "1c336d46-489d-4454-8b8a-b69fcba00819")
+		)
+		(instances
+			(project "ALBERT_FLIGHTCOMPUTER"
+				(path "/caf1b85f-a91d-4c85-9df1-65f9ebc85027/1edee9cd-27d7-479a-992c-cbc714ec1449"
+					(reference "C18")
 					(unit 1)
 				)
 			)
@@ -12490,6 +12778,15 @@
 		)
 		(property "Description" "Resistor"
 			(at 40.64 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25077"
+			(at 40.64 90.17 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12559,6 +12856,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 102.87 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25744"
 			(at 102.87 134.62 0)
 			(effects
 				(font
@@ -12769,6 +13075,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25092"
+			(at 38.1 172.72 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c16cea96-2e65-4eb2-b268-ee41a772b3f3")
 		)
@@ -12830,6 +13145,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 50.8 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25744"
 			(at 50.8 31.75 0)
 			(effects
 				(font
@@ -13146,6 +13470,15 @@
 			)
 		)
 		(property "Description" "100A Id, 60V Vds, OptiMOS N-Channel Power MOSFET, 2.8mOhm Ron, Qg (typ) 31.0nC, PG-TDSON-8"
+			(at 110.49 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C534316"
 			(at 110.49 127 0)
 			(effects
 				(font
