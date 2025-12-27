@@ -1,0 +1,332 @@
+\documentclass{article}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% --- Pakete für Diagramme und Code ---
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, positioning}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% --- Farbdefinitionen für Listings ---
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% --- Stildefinitionen für Listings ---
+\lstdefinestyle{latexstyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single,
+    rulecolor=\color{gray!30}
+}
+\lstdefinestyle{csvstyle}{
+    backgroundcolor=\color{backcolour},
+    basicstyle=\ttfamily\small,
+    captionpos=b,
+    numbers=none,
+    frame=single,
+    rulecolor=\color{gray!30},
+    breaklines=true
+}
+
+% --- Beispiel-CSV-Datei ---
+\begin{filecontents*}{daten.csv}
+x,y
+0,1
+1,2
+2,4
+3,3
+4,5
+5,7
+\end{filecontents*}
+
+% --- TikZ Styles für Flowchart ---
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm,
+ minimum height=1cm, text centered, text width=3cm,
+ draw=black, fill=red!20]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm,
+ text centered, text width=3cm, draw=black, fill=orange!20]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm,
+ text centered, draw=black, fill=green!20, aspect=1]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110,
+ minimum width=3.5cm, minimum height=1cm,
+ text centered, text width=2cm, draw=black, fill=blue!20]
+\tikzstyle{arrow} = [thick, ->, >=stealth]
+
+\title{Beispieldokument: Liniendiagramm und Flowchart in \texttt{LaTeX}}
+\author{Jakob – Abteilung Elektrotechnik, HTBLuVA Salzburg}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Liniendiagramm aus CSV-Daten mit \texttt{pgfplots}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Einleitung}
+In diesem Abschnitt wird gezeigt, wie mit \LaTeX{} und dem Paket \texttt{pgfplots}
+ein Liniendiagramm aus einer externen CSV-Datei erstellt wird.  
+Die Codeausschnitte werden farbig dargestellt und anschließend das fertige Diagramm gezeigt.
+
+\subsection{Vorbereitung der Daten}
+Die zu visualisierenden Daten liegen in einer CSV-Datei vor.  
+Ihr Inhalt sieht wie folgt aus:
+
+\begin{lstlisting}[
+    style=csvstyle,
+    caption={Inhalt der Datei \texttt{daten.csv}},
+    label=lst:csv
+]
+x,y
+0,1
+1,2
+2,4
+3,3
+4,5
+5,7
+\end{lstlisting}
+
+\noindent
+Die erste Zeile enthält die Spaltenüberschriften \texttt{x} und \texttt{y}.  
+Jede weitere Zeile stellt ein Messpaar dar, das als Punkt im Diagramm visualisiert wird.
+
+\subsection{Einlesen und Plotten der Daten}
+Der zentrale Befehl zum Einlesen der CSV-Daten ist \texttt{\textbackslash addplot} in Kombination mit \texttt{table}.
+
+\begin{lstlisting}[
+    style=latexstyle,
+    caption={Plotten der Daten aus einer CSV-Datei},
+    label=lst:addplot
+]
+\addplot[
+    blue,
+    mark=*,
+    line width=1pt
+] table [
+    col sep=comma,
+    x=x,
+    y=y
+] {daten.csv};
+\end{lstlisting}
+
+\noindent
+Hier wird die Datei \texttt{daten.csv} eingelesen, wobei die Spalte \texttt{x} auf die X-Achse
+und die Spalte \texttt{y} auf die Y-Achse abgebildet wird.
+
+\subsection{Vollständiges Diagramm}
+Das folgende Listing zeigt die gesamte \texttt{axis}-Umgebung:
+
+\begin{lstlisting}[
+    style=latexstyle,
+    caption={Komplette \texttt{axis}-Umgebung für das Liniendiagramm},
+    label=lst:axis
+]
+\begin{tikzpicture}
+  \begin{axis}[
+    title={Liniendiagramm aus \texttt{daten.csv}},
+    xlabel={X-Werte},
+    ylabel={Y-Werte},
+    grid=major,
+    legend pos=north west,
+    width=12cm,
+    height=8cm,
+    xmin=0, xmax=5,
+    ymin=0, ymax=8,
+    thick
+  ]
+  
+  \addplot[
+    blue,
+    mark=*,
+    line width=1pt
+  ] table [
+    col sep=comma,
+    x=x,
+    y=y
+  ] {daten.csv};
+  
+  \legend{Messreihe}
+  \end{axis}
+\end{tikzpicture}
+\end{lstlisting}
+
+\noindent
+Die Umgebung \texttt{axis} definiert das Koordinatensystem.  
+Parameter wie \texttt{grid}, \texttt{width}, \texttt{height} oder \texttt{legend pos}
+bestimmen Darstellung und Layout.
+
+\subsection{Ergebnis}
+Das resultierende Diagramm ist in Abbildung~\ref{fig:lineplot} dargestellt.
+
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+    title={Liniendiagramm aus \texttt{daten.csv}},
+    xlabel={X-Werte},
+    ylabel={Y-Werte},
+    grid=major,
+    legend pos=north west,
+    width=12cm,
+    height=8cm,
+    xmin=0, xmax=5,
+    ymin=0, ymax=8,
+    thick
+  ]
+  \addplot[
+    blue,
+    mark=*,
+    line width=1pt
+  ] table [
+    col sep=comma,
+    x=x,
+    y=y
+  ] {daten.csv};
+  \legend{Messreihe}
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+\label{fig:lineplot}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Flowchart der Ball Balancing Platform (BBP) mit \texttt{TikZ}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Einleitung}
+Im zweiten Teil wird gezeigt, wie mit dem Paket \texttt{TikZ} ein vollständiges
+Flowchart für die Softwaresteuerung der Ball Balancing Platform (BBP) erstellt wird.
+Das Diagramm bildet den Programmablauf des Regelkreises ab.
+
+\subsection{Definition der TikZ-Styles}
+Die grafischen Styles bestimmen Form, Farbe und Textausrichtung der Blöcke.
+
+\begin{lstlisting}[
+    style=latexstyle,
+    caption={Definition der Styles für das Flowchart},
+    label=lst:styles
+]
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm,
+ minimum height=1cm, text centered, text width=3cm,
+ draw=black, fill=red!20]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm,
+ text centered, text width=3cm, draw=black, fill=orange!20]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm,
+ text centered, draw=black, fill=green!20, aspect=1]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110,
+ minimum width=3.5cm, minimum height=1cm,
+ text centered, text width=2cm, draw=black, fill=blue!20]
+\tikzstyle{arrow} = [thick, ->, >=stealth]
+\end{lstlisting}
+
+\subsection{Erstellung der Knoten}
+Jede Funktionseinheit wird durch einen \texttt{node}-Befehl dargestellt.  
+Die Positionierung erfolgt relativ zu anderen Knoten.
+
+\begin{lstlisting}[
+    style=latexstyle,
+    caption={Definition der Knoten für das Flowchart},
+    label=lst:nodes
+]
+\node(start) [startstop] {Start};
+\node(homing) [process, below of=start] {Homing};
+\node(control_loop) [process, below of=homing] {Control Loop};
+\node(camera) [io, below of=control_loop] {Read Camera};
+\node(circle_detection) [process, below of=camera] {Circle Detection};
+\node(read_mode) [io, below of=circle_detection] {Read Mode};
+\node(mode1) [decision, below of=read_mode, yshift=-0.6cm] {Mode = 1?};
+\node(mode2) [decision, below of=mode1, yshift=-1.2cm] {Mode = 2?};
+\node(target_zero) [process, below of=mode2, yshift=-0.6cm] {Set Target = 0};
+\node(read_joystick) [io, right of=mode1, xshift=6cm] {Read Joystick};
+\node(target_circle) [process, right of=mode2, xshift=2cm] {Set Target = Circle()};
+\node(calc_target) [process, right of=mode2, xshift=6cm] {Compute Target Value};
+\node(pid) [process, below of=target_zero] {PID Control};
+\node(invkin) [process, below of=pid] {Inverse Kinematics};
+\node(motor_control) [io, below of=invkin] {Drive Motors};
+\node(exit) [decision, below of=motor_control, yshift=-0.5cm] {Exit?};
+\node(cleanup) [process, below of=exit, yshift=-0.5cm] {Cleanup};
+\node(stop) [startstop, below of=cleanup] {Stop};
+\end{lstlisting}
+
+\subsection{Verbindungen und Pfeile}
+Die logischen Verbindungen werden mit \texttt{\textbackslash draw[arrow]} erstellt.
+
+\begin{lstlisting}[
+    style=latexstyle,
+    caption={Verbindungen der Blöcke mit Beschriftungen},
+    label=lst:arrows
+]
+\draw[arrow] (mode1) -- (mode2)         node[anchor=west, midway] {No};
+\draw[arrow] (mode1) -- (read_joystick) node[anchor=south, midway] {Yes};
+\draw[arrow] (mode2) -- (target_zero)   node[anchor=west, midway] {No};
+\draw[arrow] (mode2) -- (target_circle) node[anchor=south, midway] {Yes};
+\draw[arrow] (target_circle) |- (pid);  % Knickpfad
+\draw[arrow] (exit.east) -- node[anchor=south] {No} ++(10,0) |- (control_loop.east);
+\end{lstlisting}
+
+\subsection{Ergebnis}
+Das fertige Flowchart ist in Abbildung~\ref{fig:flowchart} dargestellt.
+
+\begin{center}
+\begin{tikzpicture}[node distance=2cm, scale=.55, transform shape]
+\node(start) [startstop] {Start};
+\node(homing) [process, below of=start] {Homing};
+\node(control_loop) [process, below of=homing] {Control Loop};
+\node(camera) [io, below of=control_loop] {Read Camera};
+\node(circle_detection) [process, below of=camera] {Circle Detection};
+\node(read_mode) [io, below of=circle_detection] {Read Mode};
+\node(mode1) [decision, below of=read_mode, yshift=-0.6cm] {Mode = 1?};
+\node(mode2) [decision, below of=mode1, yshift=-1.2cm] {Mode = 2?};
+\node(target_zero) [process, below of=mode2, yshift=-0.6cm] {Set Target = 0};
+\node(read_joystick) [io, right of=mode1, xshift=6cm] {Read Joystick};
+\node(target_circle) [process, right of=mode2, xshift=2cm] {Set Target = Circle()};
+\node(calc_target) [process, right of=mode2, xshift=6cm] {Compute Target Value};
+\node(pid) [process, below of=target_zero] {PID Control};
+\node(invkin) [process, below of=pid] {Inverse Kinematics};
+\node(motor_control) [io, below of=invkin] {Drive Motors};
+\node(exit) [decision, below of=motor_control, yshift=-0.5cm] {Exit?};
+\node(cleanup) [process, below of=exit, yshift=-0.5cm] {Cleanup};
+\node(stop) [startstop, below of=cleanup] {Stop};
+\draw[arrow] (start) -- (homing);
+\draw[arrow] (homing) -- (control_loop);
+\draw[arrow] (control_loop) -- (camera);
+\draw[arrow] (camera) -- (circle_detection);
+\draw[arrow] (circle_detection) -- (read_mode);
+\draw[arrow] (read_mode) -- (mode1);
+\draw[arrow] (mode1) -- (mode2) node[anchor=west, midway] {No};
+\draw[arrow] (mode1) -- (read_joystick) node[anchor=south, midway] {Yes};
+\draw[arrow] (mode2) -- (target_zero) node[anchor=west, midway] {No};
+\draw[arrow] (mode2) -- (target_circle) node[anchor=south, midway] {Yes};
+\draw[arrow] (read_joystick) -- (calc_target);
+\draw[arrow] (target_circle) |- (pid);
+\draw[arrow] (calc_target) |- (pid);
+\draw[arrow] (target_zero) -- (pid);
+\draw[arrow] (pid) -- (invkin);
+\draw[arrow] (invkin) -- (motor_control);
+\draw[arrow] (motor_control) -- (exit);
+\draw[arrow] (exit) -- node[anchor=west] {Yes} (cleanup);
+\draw[arrow] (cleanup) -- (stop);
+\draw[arrow] (exit.east) -- node[anchor=south] {No} ++(10,0) |- (control_loop.east);
+\end{tikzpicture}
+\end{center}
+\label{fig:flowchart}
+
+\end{document}

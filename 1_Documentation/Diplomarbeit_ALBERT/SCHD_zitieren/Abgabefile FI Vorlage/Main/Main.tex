@@ -1,0 +1,84 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc} 
+
+%===============================================================================================================================================
+%Das gehört in die Preambel kopiert:
+\usepackage[ngerman]{babel}
+\usepackage{csquotes} % korrekte Anführungszeichen, wichtig für biblatex
+
+\usepackage[
+  backend=biber,      
+  style=authoryear,                                             % Alternativen: numeric, ieee, apa, verbose, etc.
+  giveninits=true,                                              % Initialen statt voller Vornamen
+  uniquename=init,
+  maxcitenames=2,                                               % „Müller & Meier“; danach „u. a.“
+  maxbibnames=99,                                               % im Verzeichnis alles zeigen
+  url=true, doi=true, isbn=false
+]{biblatex}
+
+\addbibresource{../Bücher/refs.bib}                                                                 %Dateipfad für die .bib-Datei
+\DefineBibliographyStrings{ngerman}{andothers = {u.\,a.}, page = {S.}, pages = {S.}}
+\ExecuteBibliographyOptions{sorting=nty}                                                            %Sortierung: Name, Titel, Jahr
+%===============================================================================================================================================
+
+\title{Literaturverzeichnis, Zitieren und BibTeX}
+\author{SCHD, STOL, WACJ}
+\date{13.10.2025}
+
+\begin{document}
+  \maketitle
+
+  %Beispielzitat, weil im Literaturverzeichnis sonst nichts steht:
+  \noindent
+  Methodisch wurde das mehrfach diskutiert \parencite{einstein1905,knuth1984,lamport1994}.
+
+  \printbibliography %Druckt das Literaturverzeichnis am Ende des Dokuments
+
+\end{document}
+
+%===============================================================================================================================================
+%Zitiermöglichekeiten in LaTeX
+
+%Autor im Satz:
+\textcite{einstein1905} entwickelt die Spezielle Relativitätstheorie.
+
+%Klammerzitat:
+Klammerzitat: Das \LaTeX{}-System ist weit verbreitet \parencite{lamport1994}.
+
+
+%Seiten- und Stellenangaben:
+Eine Seite: \parencite[23]{knuth1984}. \\
+Bereich: \parencite[23--27]{knuth1984}. \\
+Kapitel/Abbildung: \parencite[Kap.\,2; Abb.\,3]{lamport1994}.
+
+%Meherere Quellen auf einmal:
+Methodisch wurde das mehrfach diskutiert \parencite{einstein1905,knuth1984,lamport1994}.
+
+%Fußnotenzitate:
+Webressourcen lassen sich bequem als Fußnote setzen:\footnote{Vgl.\ \footcite{w3cHTML}.}
+
+%Autor oder Jahr einzeln:
+Nur Autor: \citeauthor{einstein1905}; nur Jahr: \citeyear{einstein1905}.
+%================================================================================================================================================
+
+%================================================================================================================================================
+%Literaturverzeichnis anpassen 
+
+%Eigene Überschrift für Literaturverzeichnis, Eintrag ins Inhaltsverzeichnis:
+\printbibliography[title={Literatur}, heading=bibintoc]
+
+%Teil-Literaturverzeichnis nach Typ:
+\printbibliography[type=book,     title={Bücher}]
+\printbibliography[type=article,  title={Zeitschriftenartikel}]
+\printbibliography[type=online,   title={Webquellen}]
+
+%Teil-Literaturverzeichnis nach Stichwort:
+\printbibliography[keyword=seminar, title={Quellen für das Seminar}]
+
+% Familienname zuerst anzeigen (in Preambel):
+\DeclareNameAlias{default}{family-given}
+
+%Eigene Kategorien (z.b: Klassiker):
+\DeclareBibliographyCategory{klassiker}
+\addtocategory{klassiker}{knuth1984,lamport1994}
+%================================================================================================================================================

@@ -1,0 +1,279 @@
+\documentclass[a4paper,12pt]{article}
+
+% Eingabekodierung: UTF-8 (ermöglicht direkte Eingabe von Umlauten)
+\usepackage[utf8]{inputenc}
+% Schriftkodierung: T1 für bessere Trennung und Akzentdarstellung
+\usepackage[T1]{fontenc}
+% Deutsche Sprachunterstützung (Trennungen, typografische Regeln, Datum etc.)
+\usepackage[ngerman]{babel}
+% Seitenlayout / Ränder
+\usepackage{geometry}
+
+\usepackage{xcolor}    % nur für Blau (optional)
+
+
+
+
+% AMS-Erweiterungen für Mathematik: Umgebungen, Symbole und Schriften
+\usepackage{amsmath, amssymb, amsfonts}
+% Zusätzliche Mathe-Tools (Erweiterungen und Komfortfunktionen zu amsmath)
+\usepackage{mathtools}
+
+\usepackage{trsym}   % definiert \TransformVert, \InversTransformVert, \TransformHoriz, ...
+
+\usepackage{tikz} % TikZ für Zeichnungen (tikzpicture, \draw, \fill, ...)
+
+
+
+
+\geometry{margin=2.5cm}
+
+\title{Darstellung von Formeln und Gleichungssystemen in \LaTeX}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+% ==============================================================
+\section{Formeln im Fließtext und in eigener Zeile}
+
+Formeln können im Fließtext oder abgesetzt dargestellt werden.
+
+\subsection{Formel im Fließtext}
+
+Beispiel einer Formel im Text:
+
+\noindent Die Energie eines ruhenden Körpers wird durch $E = mc^2$ beschrieben...
+
+\subsection{Formel in eigener Zeile (Display-Math)}
+
+Die gleiche Formel abgesetzt und zentriert:
+
+\[
+E = mc^2
+\]
+
+\noindent oder mit automatischer Nummerierung:
+
+\begin{equation}
+E = mc^2
+\end{equation}
+
+\noindent Man kann mit einem Label darauf verweisen, zum Beispiel Gleichung~\eqref{eq:energie}:
+
+\begin{equation}
+E = mc^2
+\label{eq:energie}
+\end{equation}
+
+% ==============================================================
+\section{Gleichungssysteme}
+
+Gleichungssysteme können auf verschiedene Arten dargestellt werden:
+entweder als Block mit geschweiften Klammern oder als ausgerichtete Zeilen.
+
+\subsection{Einfaches Gleichungssystem (ohne Ausrichtung)}
+
+\[
+\begin{cases}
+x + y = 5 \\
+x - y = 1
+\end{cases}
+\]
+
+\subsection{Ausgerichtetes Gleichungssystem (mit \texttt{align})}
+
+Hier werden die Gleichheitszeichen untereinander ausgerichtet:
+
+\begin{align}
+x + y &= 5 \\
+x - y &= 1
+\end{align}
+
+\subsection{Gleichungssystem mit Beschriftung (Label)}
+
+\noindent Das Label ermöglicht späteres Referenzieren.  
+\noindent Beispiel: Siehe Gleichungssystem~\eqref{eq:gleichungssystem}.
+
+\begin{align}
+a + b &= 3 \\
+2a - b &= 4
+\label{eq:gleichungssystem}
+\end{align}
+
+\subsection{Ausrichtung mit mehreren Spalten (z.\,B. Zwischenschritte)}
+
+\begin{align*}
+x + y &= 5  && \text{(erste Gleichung)}\\
+x - y &= 1  && \text{(zweite Gleichung)}\\
+\Rightarrow\; 2x &= 6 && \text{(Addition)}\\
+\Rightarrow\; x &= 3 && \text{(Division durch 2)}
+\end{align*}
+
+\subsection{Gleichungssystem mit einer gemeinsamen Nummer (split)}
+
+\begin{equation}
+\label{eq:split-system}
+\begin{split}
+x + y &= 5 \\
+x - y &= 1
+\end{split}
+\end{equation}
+
+\noindent Das obige System~\eqref{eq:split-system} wird als eine Einheit nummeriert.
+
+% ==============================================================
+\section{Laplace-Transformation}
+\[
+\mathcal{L}\{f(t)\} = F(s)
+\]
+
+\[
+\begin{aligned}
+f(t)\\
+\TransformVert\\
+F(s)
+\end{aligned}
+\]
+
+% ==============================================================
+\section{Matrix}
+\noindent Ein Beispiel aus der Statistik:
+
+% Darstellung mit runder Klammern
+\[
+A = \begin{pmatrix}
+  a_{11} & a_{12} & a_{13} \\
+  a_{21} & a_{22} & a_{23} \\
+  a_{31} & a_{32} & a_{33}
+\end{pmatrix}
+\]
+
+% Darstellung mit eckigen Klammern
+\[
+B = \begin{bmatrix}
+  1 & 2 & 3 \\
+  4 & 5 & 6 \\
+  7 & 8 & 9
+\end{bmatrix}
+\]
+
+% Darstellung mit geschwungener Klammern
+\[
+C = \left\{
+\begin{matrix}
+c_{11} & c_{12} & c_{13} \\
+c_{21} & c_{22} & c_{23} \\
+c_{31} & c_{32} & c_{33}
+\end{matrix}
+\right\}
+\]
+
+% ==============================================================
+\section{Sonderzeichen und Operatoren}
+
+\[
+\begin{aligned}
+x^2, \quad a_i, \quad \frac{a}{b}, \quad \sqrt{x}, \quad \sqrt[3]{y}, \\ % Potenz, Index, Bruch, Quadratwurzel, Kubikwurzel
+\sum_{i=1}^n i^2, \quad \int_0^\infty e^{-x}\,dx, \quad % Summe, uneigentliches Integral (mit kleinem Abstand vor dx)
+\lim_{x\to0} \frac{\sin x}{x}, \\ % Limes
+\vec{a}, \quad \overrightarrow{AB}, \quad |x|, \quad \lvert x \rvert % Vektornotationen, Betrag (zwei Schreibweisen)
+\end{aligned}
+\]
+
+% ==============================================================
+\section{Kleine griechische Buchstaben im Fließtext}
+
+Hier einige Beispiele für kleine griechische Buchstaben im Text:
+
+\noindent $\alpha, \beta, \gamma, \delta, \epsilon, \zeta, \eta, \theta, \iota, \kappa, \lambda, \mu, \nu, \xi, \pi, \rho, \sigma, \tau, \phi, \chi, \psi, \omega$.
+
+\noindent Beispielhafte Verwendung im Kontext:
+
+\noindent Die Dichte $\rho$ eines Körpers und der Winkel $\theta$ sind wichtige Größen in der Physik.
+
+% ==============================================================
+\section{Große griechische Buchstaben in Gleichungen}
+
+In der Mathematik werden auch große griechische Buchstaben verwendet:
+
+\[
+\Gamma + \Delta + \Theta = \Lambda + \Pi + \Sigma + \Omega
+\] 
+
+
+
+% ==============================================================
+\section{Beispielhafte Formeln mit griechischen Symbolen}
+
+
+\subsection{Beispiel aus der Trigonometrie}
+
+\[
+\sin(\alpha) + \cos(\beta) = 1
+\]
+
+\subsection{Beispiel aus der Physik}
+
+\[
+F = m \cdot g = m \cdot 9.81~\frac{\text{m}}{\text{s}^2}
+\]
+
+\noindent mit dem Winkelbezug $\theta$:
+\[
+F_\text{Hang} = F \cdot \sin(\theta)
+\]
+
+% ==============================================================
+\section{Übersicht: Griechische Buchstaben in \LaTeX}
+
+\begin{center}
+\begin{tabular}{ll|ll}
+\textbf{Klein} & \textbf{Code} & \textbf{Groß} & \textbf{Code} \\
+\hline
+$\alpha$ & \verb|\alpha| & $\Gamma$ & \verb|\Gamma| \\
+$\beta$ & \verb|\beta| & $\Delta$ & \verb|\Delta| \\
+$\gamma$ & \verb|\gamma| & $\Theta$ & \verb|\Theta| \\
+$\delta$ & \verb|\delta| & $\Lambda$ & \verb|\Lambda| \\
+$\epsilon$ & \verb|\epsilon| & $\Xi$ & \verb|\Xi| \\
+$\zeta$ & \verb|\zeta| & $\Pi$ & \verb|\Pi| \\
+$\eta$ & \verb|\eta| & $\Sigma$ & \verb|\Sigma| \\
+$\theta$ & \verb|\theta| & $\Upsilon$ & \verb|\Upsilon| \\
+$\lambda$ & \verb|\lambda| & $\Phi$ & \verb|\Phi| \\
+$\mu$ & \verb|\mu| & $\Psi$ & \verb|\Psi| \\
+$\nu$ & \verb|\nu| & $\Omega$ & \verb|\Omega| \\
+$\xi$ & \verb|\xi| & & \\
+$\pi$ & \verb|\pi| & & \\
+$\rho$ & \verb|\rho| & & \\
+$\sigma$ & \verb|\sigma| & & \\
+$\tau$ & \verb|\tau| & & \\
+$\phi$ & \verb|\phi| & & \\
+$\chi$ & \verb|\chi| & & \\
+$\psi$ & \verb|\psi| & & \\
+$\omega$ & \verb|\omega| & & \\
+\end{tabular}
+\end{center}
+
+% ==============================================================
+\section{Mengenzeichen}
+
+Die wichtigsten Zahlenmengen der Mathematik werden mit Doppelstrich-Buchstaben dargestellt.  
+Dazu verwendet man in \LaTeX{} den Befehl \verb|\mathbb|{} (bereitgestellt durch das Paket \texttt{amssymb}).
+
+\[
+\mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R}, \mathbb{C}
+\]
+
+\begin{itemize}
+    \item $\mathbb{N}$ – Menge der natürlichen Zahlen
+    \item $\mathbb{Z}$ – Menge der ganzen Zahlen
+    \item $\mathbb{Q}$ – Menge der rationalen Zahlen
+    \item $\mathbb{R}$ – Menge der reellen Zahlen
+    \item $\mathbb{C}$ – Menge der komplexen Zahlen
+\end{itemize}
+\end{document}
