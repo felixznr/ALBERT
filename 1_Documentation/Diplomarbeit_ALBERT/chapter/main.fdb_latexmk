@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1767012981.99884 "main.bcf" "main.bbl" "main" 1767014305.22708 0
+["biber main"] 1767012981.99884 "main.bcf" "main.bbl" "main" 1767015340.55951 0
   "../appendix/refs.bib" 1767008567.42823 1830 6887b2df32fb8e0373fdace282df116a ""
-  "main.bcf" 1767014305.13621 108949 b37a1ea3ce30bbe404d5dfd999e71bf7 "pdflatex"
+  "main.bcf" 1767015340.46616 108949 b37a1ea3ce30bbe404d5dfd999e71bf7 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1767014303.03986 "/Users/felixzauner/Documents/Privat/Github/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1767014305.22729 0
+["pdflatex"] 1767015338.39636 "/Users/felixzauner/Documents/Privat/Github/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1767015340.55977 0
   "../figures/HTL.png" 1766852796.69518 2085 c77d2b69cf6c473be35a48b33bab07d5 ""
   "../figures/Logo_HTL.png" 1766852796.69837 12928 f9625eb9d101fb9449998abc4277cbe3 ""
   "../figures/RückstrompfadAC.png" 1767006559.02198 109526 618616d02711040f3c63656635340c48 ""
@@ -334,15 +334,15 @@
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "abstract.tex" 1766852959.9239 8102 b9e8ccd6a7b45bb43f75e57e9e5d755f ""
   "bibliography.tex" 1767003088.77101 450 0689808b8dd9155f773bb7b7303016b9 ""
-  "introduction.tex" 1766859083.8592 358 575a09c37ff108569ce7cc484eb90d1f ""
-  "main.aux" 1767014305.1313 13832 14b6bf6d596bc2bde006cffa739cc894 "pdflatex"
+  "introduction.tex" 1767015335.91585 1198 b1d1ad0dcf479b1c12314345f894cf01 ""
+  "main.aux" 1767015340.46114 13832 d234a87012ac5620c00b4118e69383f9 "pdflatex"
   "main.bbl" 1767012982.96389 6037 84c437fe40ee521d91315cd371a67482 "biber main"
-  "main.lof" 1767014305.13681 940 1d97553a06ad2166315529db86da048e "pdflatex"
-  "main.lot" 1767014305.13682 255 1ded9d2c504324beb211a5fb224965b2 "pdflatex"
-  "main.out" 1767014304.42661 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.run.xml" 1767014305.13674 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
+  "main.lof" 1767015340.46684 940 1d97553a06ad2166315529db86da048e "pdflatex"
+  "main.lot" 1767015340.46686 255 1ded9d2c504324beb211a5fb224965b2 "pdflatex"
+  "main.out" 1767015339.77996 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.run.xml" 1767015340.46676 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
   "main.tex" 1767003093.93985 317 f38607b62f21c944a15b384f5f17dbc7 ""
-  "main.toc" 1767014305.13679 2084 213b8452a427393d53ee90f2f138bb9c "pdflatex"
+  "main.toc" 1767015340.46682 2084 213b8452a427393d53ee90f2f138bb9c "pdflatex"
   "preamble.tex" 1767003326.315 9825 148ad36fae9450d4e0692abe1cdd291d ""
   "tableofcontents.tex" 1766853321.19398 684 74a712d631795294899c60a2b5541849 ""
   "theory.tex" 1766859530.01358 161 3c9c2c25022935f0981833f77fdd0d53 ""
