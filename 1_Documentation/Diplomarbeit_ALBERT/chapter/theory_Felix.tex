@@ -118,40 +118,87 @@ Aus diesen beiden Punkten können folgende Designregeln abgeleitet werden:
 \section{Stromversorgung \& Entkopplung}
 \section{Abwärtswandler}
 Der Abwärtswandler (Buck Converter) ist ein DC-DC-Wandler, der eine höhere Eingangsspannung in eine niedrigere Ausgangsspannung umwandelt. Durch einen getakteten Schaltvorgang wird die Energieübertragung gesteuert, was zu einer verbesserten Effizienz im Vergleich zu linearen Spannungsreglern führt.
+\\
+Für den kontinuierlichen Betrieb\footnote{kontinuierlicher Betrieb - der Strom $I_L$ wird während des gesamten Zykluses nie 0} gilt folgender Zusammenhang zwischen Ein- und Ausgangsspannung:
+\begin{equation}
+    U_{A} = U_{E} \cdot \frac{t_{1}}{T}
+\end{equation}
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
 	% Paths, nodes and wires:
-	\draw (4, 2) to[empty diode, l={$D$}] (4, 5);
-	\draw (4, 5) to[european inductor, l={$L$}] (7, 5);
-	\draw (7, 5) to[capacitor, l={$C$}] (7, 2);
-	\draw (7, 5) -- (9, 5);
-	\draw (7, 2) |- (5, 2) -- (2, 2) -- (0, 2);
-	\node[circ] at (0, 5){};
-	\node[circ] at (0, 2){};
-	\node[circ] at (9, 5){};
-	\node[circ] at (9, 2){};
-	\node[ground] at (4, 2){};
-	\draw (7, 2) -- (9, 2);
-	\draw (0, 5) to[normal open switch, l={$S$}] (4, 5);
-	\draw[-stealth] (0, 4.75) -- (0, 2.25);
-	\draw[line width=0.9pt, -stealth] (9, 4.75) -- (9, 2.25);
-	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N1) at (0.5, 3.375){} node[anchor=center] at (N1.text){$U_{E}$};
-	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N2) at (9.5, 3.375){} node[anchor=center] at (N2.text){$U_{A}$};
-	\draw[-stealth] (4.25, 5) -- (4.5, 5);
-	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N3) at (4.25, 5.375){} node[anchor=center] at (N3.text){$I_{L}$};
-	\draw[-stealth] (4, 4.25) -- (4, 4.5);
-	\node[shape=rectangle, rotate=90, minimum width=0.965cm, minimum height=0.715cm](N4) at (3.625, 4.25){} node[anchor=center] at (N4.text){$I_{D}$};
-	\draw[-stealth] (1, 5) -- (1.25, 5);
-	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N5) at (1, 5.375){} node[anchor=center] at (N5.text){$I_{E}$};
-	\draw[-stealth] (7.75, 5) -- (8, 5);
-	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N6) at (7.75, 5.375){} node[anchor=center] at (N6.text){$I_{A}$};
+	\draw (4.875, 2) to[empty diode, l={$D$}] (4.875, 5);
+	\draw (4.375, 5) to[european inductor, l={$L$}] (7.375, 5);
+	\draw (6.875, 5) to[capacitor, l={$C_{A}$}] (6.875, 2);
+	\draw (7.875, 5) -- (9.875, 5);
+	\node[circ] at (0.335, 5){};
+	\node[circ] at (0.335, 2){};
+	\node[circ] at (9.875, 5){};
+	\node[circ] at (9.875, 2){};
+	\node[ground] at (4.875, 2){};
+	\draw (7.875, 2) -- (9.875, 2);
+	\draw[-stealth] (0.335, 4.75) -- (0.335, 2.25);
+	\draw[line width=0.9pt, -stealth] (9.875, 4.75) -- (9.875, 2.25);
+	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N1) at (-0.125, 3.625){} node[anchor=center] at (N1.text){$U_{E}$};
+	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N2) at (10.375, 3.375){} node[anchor=center] at (N2.text){$U_{A}$};
+	\draw[-stealth] (4.5, 5) -- (5.2, 5);
+	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N3) at (4.9, 5.375){} node[anchor=center] at (N3.text){$I_{L}$};
+	\draw[-stealth] (4.875, 4.25) -- (4.875, 4.5);
+	\node[shape=rectangle, rotate=90, minimum width=0.965cm, minimum height=0.715cm](N4) at (4.625, 4.25){} node[anchor=center] at (N4.text){$I_{D}$};
+	\draw[-stealth] (1.375, 5) -- (1.625, 5);
+	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N5) at (1.335, 5.375){} node[anchor=center] at (N5.text){$I_{E}$};
+	\draw[-stealth] (9.375, 5) -- (9.625, 5);
+	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N6) at (9.375, 5.375){} node[anchor=center] at (N6.text){$I_{A}$};
+	\node[nigfete, rotate=90](N7) at (2.605, 5){} node[anchor=south] at (N7.text){$Q$};
+	\draw (3.375, 5) -- (4.375, 5);
+	\draw (0.335, 5) -- (1.835, 5);
+	\node[shape=rectangle, draw, line width=1pt, minimum width=1.715cm, minimum height=0.715cm] at (3.125, 3.375){};
+	\node[shape=rectangle, minimum width=1.465cm, minimum height=0.715cm] at (3.125, 3.375){} node[anchor=north, align=center, text width=1.077cm, inner sep=6pt] at (2.83, 3.75){Controller};
+	\draw (2.874, 4.02) -| (2.875, 3.75);
+	\draw (8.375, 5) to[european resistor, l={$R_{FB1}$}] (8.375, 3.5);
+	\draw (8.375, 3.5) to[european resistor, l={$R_{FB2}$}] (8.375, 2);
+	\draw (6.875, 5) -- (7.875, 5);
+	\draw (7.875, 2) -- (6.875, 2);
+	\draw (6.835, 2) |- (4.335, 2) -- (0.335, 2);
+	\draw[dash pattern={on 1.6pt off 1.6pt}] (2.875, 3) |- (3, 1) -| (9.625, 3.5) -- (8.375, 3.5);
+	\draw (1.125, 5) to[capacitor, l={$C_{E}$}] (1.125, 2);
 \end{tikzpicture}
     \caption{Vereinfachter Schaltplan eines Abwärtswandlers}
     \label{fig:buck_converter}
 \end{figure}
 \subsection{Funktionsweise}
-Der Schalter $S$ wird periodisch durch einen Regler ein- und ausgeschaltet, wodurch während der Einschaltphase $T_{ON}$ der Ausgangsstrom $I_{A}$ durch die Induktivität $L$ und die angeschlossene, aber hier nicht eingezeichnete Last fließt. Die Diode $D$ ist in dieser Phase gesperrt. Während der Ausschaltphase $T_{OFF}$ hingegen sperrt der Schalter $S$ und die Induktivität $L$ entlädt sich über die Diode $D$ und die Last um den Stromfluss aufrechtzuerhalten. Der Kondensator $C$ stützt in dieser Phase die Ausgangsspannung $U_{A}$. Durch die kontinuierliche Ein- und Ausschaltphase wird eine mittlere Ausgangsspannung $U_{A}$ erzeugt, die niedriger ist als die Eingangsspannung $U_{E}$ und über die Schaltfrequenz gesteuert werden kann.
+Der MOSFET $Q$ wird periodisch durch einen Regler (Controller) ein- und ausgeschaltet, wodurch während der Einschaltphase $t_{1}$ der Ausgangsstrom $I_{A}$ durch die Induktivität $L$ und die angeschlossene, aber hier nicht eingezeichnete Last fließt. Die Diode $D$ ist in dieser Phase gesperrt. Während der Ausschaltphase  hingegen sperrt der MOSFET $Q$ und die Induktivität $L$ entlädt sich über die Diode $D$ und die Last um den Stromfluss aufrechtzuerhalten. 
+\\
+Der Kondensator $C_A$ stützt in dieser Phase die Ausgangsspannung $U_{A}$. Der Eingangskondensator $C_E$ stellt die hochfrequenten, gepulsten Eingangsstromanteile bereit und wirkt als lokaler Energiespeicher, wodurch Eingangsspannungsripple, Spannungsspitzen und EMV-Störungen reduziert und die Spannungsquelle entlastet werden. 
+\\
+Durch die kontinuierliche Ein- und Ausschaltphase wird eine mittlere Ausgangsspannung $U_{A}$ erzeugt, die niedriger ist als die Eingangsspannung $U_{E}$ und über die Schaltfrequenz gesteuert werden kann.
+\\
+Über den Feedback-Widerstandsteiler $R_{FB1}$ und $R_{FB2}$ wird die Ausgangsspannung $U_{A}$ dem Controller zurückgeführt, der das Tastverhältnis $\frac{t_1}{T}$ (duty cycle) des MOSFETs $Q$ anpasst, um die gewünschte Ausgangsspannung zu halten.
+\parencite{schmidt-walter_Abwärtswandler}\parencite{PhilsLab60}
+\subsection{Layoutrichtlinien}
+Beim Layout eines Abwärtswandlers gilt es mehrere kritische Aspekte zu berücksichtigen, um eine stabile und saubere Spannungsversorgung zu gewährleisten und Störungen zu minimieren. 
+\begin{wrapfigure}{r}{0.5\textwidth}
+\vspace{10pt}
+  % {r} = rechtsbündig platzieren
+  % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+  % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+  \centering
+    \includegraphics[width=0.5\textwidth]{layoutexamplebuck.png}
+    \caption{Beispielhaftes Layout eines Abwärtswandlers \parencite{TPS55289}}
+    \label{fig:buck_layout_example}
+  % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+
+  % Abstand nach dem Bild reduzieren
+\end{wrapfigure}
+
+\begin{itemize}
+   \item \textbf{Schleifen kurz halten}: Die Stromschleifen, insbesondere die Schleife, die durch den MOSFET $Q$, die Diode $D$, die Induktivität $L$ und den Eingangskondensator $C_E$ gebildet wird, sollten so kurz wie möglich gehalten werden, um parasitäre Induktivitäten und elektromagnetische Störungen zu minimieren.
+   \item \textbf{Kritische Pfade zuerst routen}: Hochfrequente sowie stromtragende Leiterbahnen, wie die Verbindungen zwischen $Q$, $D$, $L$ und $C_A$, sollten zuerst geroutet werden, um deren optimale Platzierung und minimale Länge sicherzustellen. Feedback Leitungen können später und weit weg von Störquellen geroutet werden.
+   \item \textbf{Power und Ground Puddles nutzen}: Verwendung von durchgehenden Power- und Ground-Planes, mit sauberer Trennung der Signale. Eine durchgehende Ground-Ebene unter dem Abwärtswandler hilft, Rückstrompfade zu minimieren und Störungen zu reduzieren.
+\end{itemize}
+\vspace{10pt}
+Als Best Practice gilt die Orientierung an Referenzdesigns und Anwendungshinweisen der Hersteller, da Datenblätter meist konkrete Layout-Empfehlungen für Abwärtswandler enthalten. 
+\parencite{PhilsLab60}
 
 \newpage
 \section{Sensorik}

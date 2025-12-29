@@ -15,14 +15,15 @@
 \contentsline {section}{\numberline {4.2}Stromversorgung \& Entkopplung}{9}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Abwärtswandler}{9}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Funktionsweise}{9}{subsection.4.3.1}%
-\contentsline {section}{\numberline {4.4}Sensorik}{10}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Inertial Measurement Unit (IMU)}{10}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Magnetometer}{10}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Barometer}{10}{subsection.4.4.3}%
-\contentsline {section}{\numberline {4.5}Global Navigation Satellite System (GNSS)}{11}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Microcontroller}{12}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Softwarekonzepte}{13}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Kalman-Filter}{14}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Regelung}{15}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Aerodynamische Grundlagen}{16}{chapter.8}%
+\contentsline {subsection}{\numberline {4.3.2}Layoutrichtlinien}{10}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Sensorik}{11}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Inertial Measurement Unit (IMU)}{11}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Magnetometer}{11}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Barometer}{11}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Global Navigation Satellite System (GNSS)}{12}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Microcontroller}{13}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Softwarekonzepte}{14}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Kalman-Filter}{15}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Regelung}{16}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Aerodynamische Grundlagen}{17}{chapter.8}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

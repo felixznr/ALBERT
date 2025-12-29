@@ -65,6 +65,7 @@
       \strng{authornamehash}{2ebe0aa598361ef6415e8bc30497c26b}
       \strng{authorfullhash}{2ebe0aa598361ef6415e8bc30497c26b}
       \strng{authorfullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \field{extraname}{1}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{labelnamesource}{author}
@@ -81,6 +82,97 @@
       \endverb
       \verb{url}
       \verb https://www.youtube.com/watch?v=QAOEtfvCaMw&t=554s
+      \endverb
+    \endentry
+    \entry{PhilsLab60}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2ebe0aa598361ef6415e8bc30497c26b}{%
+           family={{Phil's Lab}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{bibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorbibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authornamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \field{extraname}{2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Zugriff am 29.12.2025}
+      \field{title}{(Sponsored) Switching Regulator PCB Design - Phil's Lab 60}
+      \field{urlday}{21}
+      \field{urlmonth}{5}
+      \field{urlyear}{2022}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=AmfLhT5SntE&t=582s
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=AmfLhT5SntE&t=582s
+      \endverb
+    \endentry
+    \entry{schmidt-walter_Abwärtswandler}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cda09589287af4c4265e313fbad07a0f}{%
+           family={{Prof. Dr.-Ing. Heinz Schmidt-Walter}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{cda09589287af4c4265e313fbad07a0f}
+      \strng{fullhash}{cda09589287af4c4265e313fbad07a0f}
+      \strng{fullhashraw}{cda09589287af4c4265e313fbad07a0f}
+      \strng{bibnamehash}{cda09589287af4c4265e313fbad07a0f}
+      \strng{authorbibnamehash}{cda09589287af4c4265e313fbad07a0f}
+      \strng{authornamehash}{cda09589287af4c4265e313fbad07a0f}
+      \strng{authorfullhash}{cda09589287af4c4265e313fbad07a0f}
+      \strng{authorfullhashraw}{cda09589287af4c4265e313fbad07a0f}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Zugriff am 29.12.2025}
+      \field{title}{Abwärtswandler}
+      \verb{urlraw}
+      \verb http://schmidt-walter-schaltnetzteile.de/snt/snt_deu/sntdeu2.pdf
+      \endverb
+      \verb{url}
+      \verb http://schmidt-walter-schaltnetzteile.de/snt/snt_deu/sntdeu2.pdf
+      \endverb
+    \endentry
+    \entry{TPS55289}{manual}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=67e54b1ee931f3f4bddfefa5fbde5fd8}{%
+           family={{Texas Instruments}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{fullhash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{fullhashraw}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{bibnamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorbibnamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authornamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorfullhash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorfullhashraw}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{TPS55289 Buck Converter Datasheet}
+      \field{urlday}{29}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ti.com/lit/ds/symlink/tps55289.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/lit/ds/symlink/tps55289.pdf
       \endverb
     \endentry
     \entry{ToddToporski_EMC}{online}{}{}
