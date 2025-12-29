@@ -1,0 +1,90 @@
+PWD j:\Dokumente\HTL\DA\GitHub\ERIS-DA\Andere Sachen\FI_Kopf_Fuss_Zeile
+INPUT C:\Users\marti\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
+INPUT j:\Dokumente\HTL\DA\GitHub\ERIS-DA\Andere Sachen\FI_Kopf_Fuss_Zeile\LaTeX_Kopf_und_Fußzeile.tex
+OUTPUT LaTeX_Kopf_und_Fußzeile.log
+INPUT G:\Program Files\MiKTeX\tex\latex\base\report.cls
+INPUT G:\Program Files\MiKTeX\tex\latex\base\report.cls
+INPUT G:\Program Files\MiKTeX\tex\latex\base\size10.clo
+INPUT G:\Program Files\MiKTeX\tex\latex\base\size10.clo
+INPUT G:\Program Files\MiKTeX\tex\latex\base\size10.clo
+INPUT G:\Program Files\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\geometry\geometry.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\geometry\geometry.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics\keyval.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics\keyval.sty
+INPUT G:\Program Files\MiKTeX\tex\generic\iftex\ifvtex.sty
+INPUT G:\Program Files\MiKTeX\tex\generic\iftex\ifvtex.sty
+INPUT G:\Program Files\MiKTeX\tex\generic\iftex\iftex.sty
+INPUT G:\Program Files\MiKTeX\tex\generic\iftex\iftex.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT G:\Program Files\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT G:\Program Files\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics\graphicx.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics\graphicx.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics\graphics.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics\graphics.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics\trig.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics\trig.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics-cfg\graphics.cfg
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT G:\Program Files\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT G:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT G:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT .\LaTeX_Kopf_und_Fußzeile.aux
+INPUT .\LaTeX_Kopf_und_Fußzeile.aux
+INPUT LaTeX_Kopf_und_Fußzeile.aux
+OUTPUT LaTeX_Kopf_und_Fußzeile.aux
+INPUT G:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT G:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT G:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT G:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT G:\Program Files\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT G:\Program Files\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT G:\Program Files\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT G:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+OUTPUT LaTeX_Kopf_und_Fußzeile.pdf
+INPUT C:\Users\marti\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT G:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT .\bilder\Logo_HTL.png
+INPUT LaTeX_Kopf_und_Fußzeile.aux
+INPUT G:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT G:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT G:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT G:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT G:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT G:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb

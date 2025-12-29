@@ -1,0 +1,259 @@
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}    % für Umlaute und Sonderzeichen
+\usepackage[charter]{mathdesign}     % Palatino - professionelle Serifenschrift für Diplomarbeiten
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{xcolor}    % nur für Blau (optional)
+% AMS-Erweiterungen für Mathematik: Umgebungen, Symbole und Schriften
+\usepackage{amsmath}
+% Zusätzliche Mathe-Tools (Erweiterungen und Komfortfunktionen zu amsmath)
+\usepackage{mathtools}
+
+\usepackage{trsym}   % definiert \TransformVert, \InversTransformVert, \TransformHoriz, ...
+
+\usepackage{tikz} % TikZ für Zeichnungen (tikzpicture, \draw, \fill, ...)
+
+\usepackage{csquotes} % korrekte Anführungszeichen, wichtig für biblatex
+
+\usepackage{circuitikz} % Wichtiges Paket: erlaubt das Zeichnen elektrischer Schaltungen in LaTeX
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, positioning}
+\usepackage{listings}
+
+\usepackage{float}                 
+% Ermöglicht feste Positionierung mit [H] = „Hier und nicht woanders“
+
+\usepackage{wrapfig}               
+% Lässt Text um eine Grafik herumlaufen (Textumlauf)
+
+\usepackage{rotating}              
+% Zum Drehen von Objekten (z. B. Abbildungen um 90°)
+
+\usepackage{pdfpages}              
+% Zum Einfügen kompletter PDF-Seiten ins Dokument
+
+\usepackage{csquotes}              
+% Sorgt für korrekte deutsche Anführungszeichen („Text“)
+
+
+\usepackage{booktabs}
+
+
+\usepackage{longtable}
+
+% longtable für mehrseitige Tabellen
+\usepackage{multirow}
+
+% multirow für Zusammenführen von Zellen über mehrere Zeilen
+\usepackage{siunitx}
+% siunitx für saubere Zahlenausrichtung
+
+\usepackage{subcaption}
+% subcaption für Unterabbildungen (subfigure-Umgebung)
+\usepackage{hyperref}
+
+\usepackage[
+  backend=biber,      
+  style=numeric,                                             % Alternativen: numeric, ieee, apa, verbose, etc.
+  giveninits=true,                                              % Initialen statt voller Vornamen
+  uniquename=init,
+  maxcitenames=2,                                               % „Müller & Meier“; danach „u. a.“
+  maxbibnames=99,                                               % im Verzeichnis alles zeigen
+  url=true, doi=true, isbn=false
+]{biblatex}
+
+\addbibresource{../appendix/refs.bib}                                                                 %Dateipfad für die .bib-Datei
+\DefineBibliographyStrings{ngerman}{andothers = {u.\,a.}, page = {S.}, pages = {S.}}
+\ExecuteBibliographyOptions{sorting=nty}  
+
+% Überschriften auch mit Serifenschrift (statt Sans-Serif)
+\setkomafont{disposition}{\normalcolor\bfseries}
+
+\geometry{left=3cm,right=2cm,top=2.5cm,bottom=2.5cm}
+
+\graphicspath{
+    {../figures/}
+}
+
+
+\captionsetup{ % Definition des Caption Styles der Verzeichnisse
+    font=small,
+    labelfont=bf,
+    format=plain,
+    justification=justified,
+    singlelinecheck=false
+}
+
+    %Kopf- und Fußzeilen aktivieren
+    \pagestyle{fancy}
+    
+    %Linie über Fußzeile aktivieren
+    \renewcommand{\footrulewidth}{0.4pt}
+
+
+
+
+    %Abstände oben und unten anpassen
+    \setlength{\topmargin}{-40pt}
+    \setlength{\headheight}{33pt}
+    \setlength{\headsep}{40pt}
+    \setlength{\footskip}{40pt}
+    \setlength{\textheight}{660pt}
+
+    \fancyhead[LO]{\large 2025/26} % Left Even: Jahr links auf geraden Seiten
+    \fancyhead[RE]{\large 2025/26} % Right Odd: Jahr rechts auf ungeraden Seiten
+    \fancyhead[C]{\large} 
+    \fancyhead[RO]{\includegraphics[height=1cm]{Logo_HTL.png}} % Right Even: Logo rechts auf geraden Seiten
+    \fancyhead[LE]{\includegraphics[height=1cm]{Logo_HTL.png}} % Left Odd: Logo links auf ungeraden Seiten
+
+    \fancyfoot[LE]{\large \thepage} % Left Even: Seitenzahl links auf geraden Seiten
+    \fancyfoot[RO]{\large \thepage} % Right Odd: Seitenzahl rechts auf ungeraden Seiten
+    \fancyfoot[C]{\large Felix Zauner, Timofey Luzin}
+    \fancyfoot[RE]{\large 5AHETS} % Right Even: Klasse rechts auf geraden Seiten
+    \fancyfoot[LO]{\large 5AHETS} % Left Odd: Klasse links auf ungeraden Seiten
+
+\fancypagestyle{plain}{
+    %Abstände oben und unten anpassen
+    \setlength{\topmargin}{-40pt}
+    \setlength{\headheight}{33pt}
+    \setlength{\headsep}{40pt}
+    \setlength{\footskip}{40pt}
+    \setlength{\textheight}{660pt}
+
+    \fancyhead[LO]{\large 2025/26} % Left Even: Jahr links auf geraden Seiten
+    \fancyhead[RE]{\large 2025/26} % Right Odd: Jahr rechts auf ungeraden Seiten
+    \fancyhead[C]{\large} 
+    \fancyhead[RO]{\includegraphics[height=1cm]{Logo_HTL.png}} % Right Even: Logo rechts auf geraden Seiten
+    \fancyhead[LE]{\includegraphics[height=1cm]{Logo_HTL.png}} % Left Odd: Logo links auf ungeraden Seiten
+
+    \fancyfoot[LE]{\large \thepage} % Left Even: Seitenzahl links auf geraden Seiten
+    \fancyfoot[RO]{\large \thepage} % Right Odd: Seitenzahl rechts auf ungeraden Seiten
+    \fancyfoot[C]{\large Felix Zauner, Timofey Luzin}
+    \fancyfoot[RE]{\large 5AHETS} % Right Even: Klasse rechts auf geraden Seiten
+    \fancyfoot[LO]{\large 5AHETS} % Left Odd: Klasse links auf ungeraden Seiten
+}
+
+% --- Farbdefinitionen für Listings ---
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% --- Stildefinitionen für Listings ---
+\lstdefinestyle{latexstyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single,
+    rulecolor=\color{gray!30}
+}
+\lstdefinestyle{csvstyle}{
+    backgroundcolor=\color{backcolour},
+    basicstyle=\ttfamily\small,
+    captionpos=b,
+    numbers=none,
+    frame=single,
+    rulecolor=\color{gray!30},
+    breaklines=true
+}
+
+
+% --- TikZ Styles für Flowchart ---
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm,
+ minimum height=1cm, text centered, text width=3cm,
+ draw=black, fill=red!20]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm,
+ text centered, text width=3cm, draw=black, fill=orange!20]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm,
+ text centered, draw=black, fill=green!20, aspect=1]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110,
+ minimum width=3.5cm, minimum height=1cm,
+ text centered, text width=2cm, draw=black, fill=blue!20]
+\tikzstyle{arrow} = [thick, ->, >=stealth]
+
+\title{Beispieldokument: Liniendiagramm und Flowchart in \texttt{LaTeX}}
+\author{Jakob – Abteilung Elektrotechnik, HTBLuVA Salzburg}
+\date{\today}
+
+% Listing Kopfzeile umbenennen
+\renewcommand{\lstlistingname}{Codeblock}
+
+% Farbschema
+% Was soll eingefärbt werden | HTML Colorcode | HEX Code
+\definecolor{codebg}{HTML}{F7F7F7}
+\definecolor{codeframe}{HTML}{E0E0E0}
+\definecolor{codekw}{HTML}{005CC5}
+\definecolor{codestr}{HTML}{E36209}
+\definecolor{codecom}{HTML}{6A737D}
+\definecolor{codety}{HTML}{22863A}
+\definecolor{codenum}{HTML}{111111}
+
+% Neuen Code-Stil erstellen
+\lstdefinestyle{cstyle}{ % Neuen Stil definieren
+  language=C, % Sprache
+  backgroundcolor=\color{codebg}, % Farbschema
+  frame=single, % Rahmenoptionen
+  rulecolor=\color{codeframe}, % Rahmenoptionen
+  frameround=tttt, % Rahmenoptionen
+  basicstyle=\ttfamily\small, % Monospace und kleiner
+  numbers=left, % Zeilennummern auf der linken Seite
+  numberstyle=\footnotesize\color{codenum}, % Stil der Nummern definieren
+  stepnumber=1, % Schritte der Nummern
+  numbersep=8pt, % Größe der Nummern
+  showstringspaces=false, % Leerzeichen in Strings anzeigen
+  tabsize=4, % Größe von Tabs in Leerzeichen
+  keepspaces=true, % Leerzeichen verwenden
+  breaklines=true, % Lange Zeichen umbrechen
+  keywordstyle=\bfseries\color{codekw}, % Schlüsselwörter wie If While etc. in bestimmten Farbstil
+  stringstyle=\color{codestr}, % Strings in bestimmten Farbstil
+  commentstyle=\itshape\color{codecom}, % Kommentare in bestimmten Farbstil
+  morekeywords={uint8_t,uint16_t,uint32_t,size_t,inline,bool}, % zusätzliche Typen
+  emph={uint8_t,uint16_t,uint32_t,size_t,bool}, emphstyle=\color{codety}\bfseries
+}
+
+% Neuer Python-Code-Stil
+\lstdefinestyle{pystyle}{ % Neuen Stil definieren
+  language=Python, % Sprache
+  backgroundcolor=\color{codebg}, % Hintergrundfarbe
+  frame=single, % Rahmen um Codeblock
+  rulecolor=\color{codeframe}, % Rahmenfarbe
+  frameround=tttt, % abgerundete Ecken
+  basicstyle=\ttfamily\small, % Monospace-Schrift, klein
+  numbers=left, % Zeilennummern links
+  numberstyle=\footnotesize\color{codenum}, % Stil der Nummern
+  stepnumber=1, % Jede Zeile nummerieren
+  numbersep=8pt, % Abstand Nummer ↔ Code
+  showstringspaces=false, % Keine Markierung für Leerzeichen in Strings
+  tabsize=4, % Tabweite in Leerzeichen
+  keepspaces=true, % Leerzeichen beibehalten
+  breaklines=true, % Lange Zeilen umbrechen
+  keywordstyle=\bfseries\color{codekw}, % Schlüsselwörter (def, if, for, ...)
+  stringstyle=\color{codestr}, % Strings ("..." oder '...')
+  commentstyle=\itshape\color{codecom}, % Kommentare (# ...)
+  emph={int,float,bool,list,dict,set,tuple,str,range,zip,enumerate}, emphstyle=\color{codety}\bfseries, % Typen/Objekte grün
+  morekeywords={self,True,False,None,async,await,with,as,lambda,yield,from,import}, % Zusätzliche Schlüsselwörter
+}
+% Ende Preamble

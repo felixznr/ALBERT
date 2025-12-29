@@ -1,0 +1,185 @@
+\chapter{Platinendesign}
+\fancyfoot[C]{\large Felix Zauner}
+\fancypagestyle{plain}{\fancyfoot[C]{\large Felix Zauner}}
+Eine Platine ist eine gedruckte Schaltung (Printed Circuit Board, PCB in Englisch), die dazu dient, elektronische Bauteile miteinander zu verbinden. In diesem Kapitel werden die Grundlagen des Platinendesigns erörtert, einschließlich der Auswahl von Bauteilen, Layout-Strategien und Fertigungstechniken.
+\\
+Im Rahmen des Projektes wurde die Software KiCad eingesetzt, um den Schaltplan als auch das Layout der Platine zu erstellen. KiCad ist eine Open-Source-Software, die eine Vielzahl von Werkzeugen für das Design von Leiterplatten bereitstellt.
+\\
+Es ist von essentieller Bedeutung, sich vorab mit den Anforderungen an die Platine vertraut zu machen. Bei der Auswahl von Komponenten sind eine Vielzahl von Faktoren zu berücksichtigen. Dazu zählen elektrische Anforderungen, wie beispielsweise die Spannungs- und Stromstärken, mechanische Anforderungen, wie die Größe und Form der Platine, sowie Umweltanforderungen, wie die Betriebstemperatur, die Feuchtigkeitsbeständigkeit, aber auch Vibrationen und externe Störungen, Stichwort EMV, müssen, besonders bei der Bauteilauswahl, berücksichtigt werden.
+\\
+\\
+Es ist in allen folgenden Punkten essentiell, sich zuvor mit den Produktionskapazitäten und -anforderungen des gewählten Platinenherstellers vertraut zu machen, um sicherzustellen, dass das Design den Fertigungsspezifikationen entspricht und somit eine reibungslose Produktion gewährleistet ist.
+Darüber hinaus ist es ratsam, die Grenzen der Fertigungskapazitäten zu meiden, um Zusatzkosten zu vermeiden und potenzielle Fehlerquellen zu minimieren.
+
+\section{Build-up \& Stack-up}
+\subsection{Build-up}
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+
+  % {r} = rechtsbündig platzieren
+  % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+  % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+  \centering
+  \includegraphics[width=0.4\textwidth]{StackupExample.png}
+    \caption{Beispielhafter Stackup einer vierlagigen Leiterplatte \parencite{bitweenie2013}}
+    \label{fig:stackup_example}
+  % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+
+  % Abstand nach dem Bild reduzieren
+\end{wrapfigure}
+Der Leiterplattenaufbau (Build-up) einer Leiterplatte beschreibt den physikalischen Aufbau und die Anordnung der verschiedenen Schichten, aus denen die Platine besteht. Ein charakteristisches Build-up besteht aus einer Mehrzahl von Kupferschichten, die durch Isolationsmaterialien voneinander getrennt sind. Die Anzahl der Schichten sowie die Auswahl des dielektrischen Isolationsmaterials sind abhängig von der Komplexität der Schaltung und den Anforderungen an Signalqualität und Leistung. 
+\\
+In der Planungsphase sind primär die Anzahl der erforderlichen Lagen, die Auswahl der Isolationsmaterialien für den Kern sowie Prepreg und die Dicke der inneren und äußeren Kupferschichten festzulegen. \parencite{PhilsLab56}
+\\
+Die Abbildung \ref{fig:stackup_example} zeigt ein beispielhaftes Build-up und Stack-up einer vierlagigen Leiterplatte.
+\\
+\subsection{Stack-up}
+Das Stack-up einer Leiterplatte beschreibt die Anordnung der verschiedenen Schichten in Bezug auf die elektrische Verwendung und Funktionalität. Das Stack-up umfasst die Definition von:
+\begin{itemize}
+    \item Ground-Layers $\rightarrow$ Referenzpotential für die Schaltung, Rückstrompfade
+    \item Power-Layers  $\rightarrow$ Versorgungsspannungen für die Schaltung
+    \item Signal-Layers $\rightarrow$ Leiterbahnen für die Signalübertragung
+\end{itemize}
+Des Weiteren besteht die Möglichkeit, Power- und Ground-Planes\footnote{Plane: Eine durchgehende Kupferfläche auf einer Leiterplattenlage, die als Referenzpotential oder Versorgungsspannung dient.} sowie Signal- und Ground-Planes auf einem Layer zu kombinieren. Auf diese Weise kann etwa auf zweilagigen Platinen Platz eingespart werden.
+\\
+Die Anordnung dieser Schichten im Stack-up ist entscheidend für gute EMC\footnote{EMC - Electromagnetic Compatibility}/EMI\footnote{EMI - Electromagnetic Interference} Eigenschaften, Signalintegrität und Leistungsverteilung. Ein gut durchdachtes Stack-up minimiert Störungen, verbessert die Signalqualität und gewährleistet eine zuverlässige Funktion der Schaltung.
+\\\\
+Die im folgenden Abschnitten beschriebenen Konzepte stellen die wichtigsten Prinzipien dar, die bei der Gestaltung eines effektiven Stack-ups zu berücksichtigen sind.
+\subsubsection{Rückstrompfade}
+Ein kritischer Aspekt im Platinendesign ist die Gestaltung der Rückstrompfade für Signale. Rückstrompfade sind die Wege, die der Strom zurück zum Ursprungspunkt nimmt, nachdem er durch die Schaltung geflossen ist. 
+\\
+Für Gleichspannung nimmt der Rückstrom den Weg des geringsten Widerstands über die nächste Massefläche. Bei Wechselspannung ($>kHz$) hingegen folgt der Rückstrompfad dem Signalpfad, da die Kapazitive und induktive Kopplung zwischen den Leitungen dominant wird. \parencite{ZachariahPeterson_Rückstromführung}
+
+\begin{figure}[H]
+  \centering
+  % Erste Unterabbildung (Subfigure)
+  \begin{subfigure}[b]{0.49\textwidth}
+    % [b] = bottom-aligned (unten ausgerichtet)
+    % Alternativen: [t] = top, [c] = center
+    % 0.45\textwidth = 45% der Textbreite
+    \centering
+    \includegraphics[width=\textwidth]{RückstrompfadDC.png}
+    % \textwidth bezieht sich hier auf die Subfigure-Breite (45%)
+    \caption{Rückstrompfad für Gleichstrom}
+    % Separate Bildunterschrift für diese Subfigure
+    \label{fig:sub-mercedes}
+    % Eigenes Label für Referenzierung
+  \end{subfigure}
+  \hfill
+  % \hfill = maximaler horizontaler Abstand (verteilt Bilder gleichmäßig)
+  % Alternative: \hspace{1cm} für festen Abstand
+  \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{RückstrompfadAC.png}
+    \caption{Rückstrompfad für Wechselstrom}
+    \label{fig:sub-porsche}
+  \end{subfigure}
+  \caption{Rückstrompfade im Vergleich \parencite{ZachariahPeterson_Rückstromführung}}
+  % Gemeinsame Hauptbildunterschrift für beide Subfigures
+  \label{fig:zwei-neben}
+  % Hauptlabel für die gesamte Figure
+\end{figure}
+
+\subsubsection{Energiefluss}
+Für eine optimale Signalübertragung und minimale Störungen ist es entscheidend, den Energiefluss zwischen den Leiterbahnen und den zugehörigen Ground- und Power-Planes zu verstehen. 
+\begin{wrapfigure}{r}{0.5\textwidth}
+
+  % {r} = rechtsbündig platzieren
+  % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+  % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+  \centering
+  \includegraphics[width=0.6\textwidth]{TraceFields.png}
+    \caption{Elektrisches und magnetisches Feld eines Leiterbahnschnitts \parencite{ToddToporski_EMC}}
+    \label{fig:trace_fields}
+  % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+
+  % Abstand nach dem Bild reduzieren
+\end{wrapfigure}
+Jede Leiterbahn erzeugt ein elektrisches Feld (E-Feld) und ein magnetisches Feld (H-Feld) um sich herum, wenn Strom durch sie fließt. Die Energieübertragung erfolgt durch diese Felder. Das elektrische Feld ist zwischen der Leiterbahn und dem nächstgelegenen Ground-Plane konzentriert, während das magnetische Feld konzentrisch um die Leiterbahn verläuft.
+Dabei stellen die Kupferbahnen den Waveguide für die Felder dar. 
+\\
+Die Abbildung \ref{fig:trace_fields} veranschaulicht die Verteilung der elektrischen und magnetischen Felder um eine Leiterbahn.
+\\\\
+Um nun die Signalintegrität zu gewährleisten und Crosstalk \footnote{Crosstalk bezeichnet bei Leiterplatten das unerwünschte Übersprechen von Signalen zwischen benachbarten Leiterbahnen, verursacht durch kapazitive und induktive Kopplung} sowie EMI zu minimieren, ist es wichtig, dass sich die Felder der Leiterbahnen nicht ausbreiten und mit deren von benachbarten Leiterbahnen verursachten Feldern koppeln. 
+\\
+Dies kann durch zwei wesentliche Maßnahmen erreicht werden:
+\begin{itemize}
+    \item Minimierung des Abstands $h$ zwischen der Leiterbahn und dem zugehörigen Ground-Plane
+    \item Maximierung des Abstands zu benachbarten Leiterbahnen
+\end{itemize}
+\vspace{1cm}
+Aus diesen beiden Punkten können folgende Designregeln abgeleitet werden:
+\begin{itemize}
+    \item Der Abstand $h$ zwischen der Leiterbahn und dem zugehörigen Ground-Plane sollte so klein wie möglich gehalten werden $\rightarrow$ es wäre ideal , wenn jede Signal-Leiterbahn direkt über einem Ground-Plane verlaufen würde
+    \item Jede Signal-Leiterbahn sollte einen ununterbrochenen  Rückstrompfad auf der darunterliegenden Ground Layer haben $\rightarrow$ Vermeidung von Unterbrechungen im Ground-Plane durch andere Leiterbahnen
+\end{itemize}
+\parencite{PhilsLab56}
+\newpage
+\section{Stromversorgung \& Entkopplung}
+\section{Abwärtswandler}
+Der Abwärtswandler (Buck Converter) ist ein DC-DC-Wandler, der eine höhere Eingangsspannung in eine niedrigere Ausgangsspannung umwandelt. Durch einen getakteten Schaltvorgang wird die Energieübertragung gesteuert, was zu einer verbesserten Effizienz im Vergleich zu linearen Spannungsreglern führt.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+	% Paths, nodes and wires:
+	\draw (4, 2) to[empty diode, l={$D$}] (4, 5);
+	\draw (4, 5) to[european inductor, l={$L$}] (7, 5);
+	\draw (7, 5) to[capacitor, l={$C$}] (7, 2);
+	\draw (7, 5) -- (9, 5);
+	\draw (7, 2) |- (5, 2) -- (2, 2) -- (0, 2);
+	\node[circ] at (0, 5){};
+	\node[circ] at (0, 2){};
+	\node[circ] at (9, 5){};
+	\node[circ] at (9, 2){};
+	\node[ground] at (4, 2){};
+	\draw (7, 2) -- (9, 2);
+	\draw (0, 5) to[normal open switch, l={$S$}] (4, 5);
+	\draw[-stealth] (0, 4.75) -- (0, 2.25);
+	\draw[line width=0.9pt, -stealth] (9, 4.75) -- (9, 2.25);
+	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N1) at (0.5, 3.375){} node[anchor=center] at (N1.text){$U_{E}$};
+	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N2) at (9.5, 3.375){} node[anchor=center] at (N2.text){$U_{A}$};
+	\draw[-stealth] (4.25, 5) -- (4.5, 5);
+	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N3) at (4.25, 5.375){} node[anchor=center] at (N3.text){$I_{L}$};
+	\draw[-stealth] (4, 4.25) -- (4, 4.5);
+	\node[shape=rectangle, rotate=90, minimum width=0.965cm, minimum height=0.715cm](N4) at (3.625, 4.25){} node[anchor=center] at (N4.text){$I_{D}$};
+	\draw[-stealth] (1, 5) -- (1.25, 5);
+	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N5) at (1, 5.375){} node[anchor=center] at (N5.text){$I_{E}$};
+	\draw[-stealth] (7.75, 5) -- (8, 5);
+	\node[shape=rectangle, minimum width=0.965cm, minimum height=0.715cm](N6) at (7.75, 5.375){} node[anchor=center] at (N6.text){$I_{A}$};
+\end{tikzpicture}
+    \caption{Vereinfachter Schaltplan eines Abwärtswandlers}
+    \label{fig:buck_converter}
+\end{figure}
+\subsection{Funktionsweise}
+Der Schalter $S$ wird periodisch durch einen Regler ein- und ausgeschaltet, wodurch während der Einschaltphase $T_{ON}$ der Ausgangsstrom $I_{A}$ durch die Induktivität $L$ und die angeschlossene, aber hier nicht eingezeichnete Last fließt. Die Diode $D$ ist in dieser Phase gesperrt. Während der Ausschaltphase $T_{OFF}$ hingegen sperrt der Schalter $S$ und die Induktivität $L$ entlädt sich über die Diode $D$ und die Last um den Stromfluss aufrechtzuerhalten. Der Kondensator $C$ stützt in dieser Phase die Ausgangsspannung $U_{A}$. Durch die kontinuierliche Ein- und Ausschaltphase wird eine mittlere Ausgangsspannung $U_{A}$ erzeugt, die niedriger ist als die Eingangsspannung $U_{E}$ und über die Schaltfrequenz gesteuert werden kann.
+
+\newpage
+\section{Sensorik}
+Zur Erfassung der benötigten Messgrößen für das Regelungssystem werden verschiedene Sensoren eingesetzt. Diese Sensoren wandeln physikalische Größen in elektrische Signale um, die von der Steuerungseinheit verarbeitet werden können.
+\subsection{Inertial Measurement Unit (IMU)}
+Inertialsensoren, respektive Beschleunigungssensoren und Gyroskope, werden verwendet, um die Bewegungszustände des Systems zu erfassen. Beschleunigungssensoren messen die lineare Beschleunigung in verschiedenen Achsen, während Gyroskope die Winkelgeschwindigkeit um diese Achsen erfassen. Diese Daten sind entscheidend für die Bestimmung der Position und Orientierung des Systems im Raum.
+\subsection{Magnetometer}
+Magnetometer messen das Magnetfeld der Erde und liefern Informationen zur Orientierung des Systems relativ zum Erdmagnetfeld. Diese Daten können verwendet werden, um die Ausrichtung des Systems zu bestimmen und Korrekturen in der Regelung vorzunehmen.
+\subsection{Barometer}
+Barometer messen den Luftdruck und können zur Höhenbestimmung des Systems verwendet werden. Veränderungen im Luftdruck korrelieren mit Änderungen in der Höhe, was für die Regelung der vertikalen Position des Systems von Bedeutung ist.
+
+\newpage
+\section{Global Navigation Satellite System (GNSS)}
+\newpage
+\section{Microcontroller}
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Softwarekonzepte}
+
+\chapter{Kalman-Filter}
+
+\chapter{Regelung}

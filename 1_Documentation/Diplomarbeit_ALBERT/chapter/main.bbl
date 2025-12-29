@@ -1,0 +1,148 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{bitweenie2013}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e46d7b0968f3146029db689f94ad8df6}{%
+           family={{Nikola T.}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{fullhash}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{fullhashraw}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{bibnamehash}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{authorbibnamehash}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{authornamehash}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{authorfullhash}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{authorfullhashraw}{e46d7b0968f3146029db689f94ad8df6}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Zugriff am 28.12.2025}
+      \field{title}{Standard 4- and 6-Layer PCB Stackups}
+      \field{urlday}{17}
+      \field{urlmonth}{4}
+      \field{urlyear}{2013}
+      \field{year}{2013}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.bitweenie.com/listings/standard-4-and-6-layer-pcb-stackups/
+      \endverb
+      \verb{url}
+      \verb https://www.bitweenie.com/listings/standard-4-and-6-layer-pcb-stackups/
+      \endverb
+    \endentry
+    \entry{PhilsLab56}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2ebe0aa598361ef6415e8bc30497c26b}{%
+           family={{Phil's Lab}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{bibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorbibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authornamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Zugriff am 29.12.2025}
+      \field{title}{(Sponsored) PCB Stack-Up and Build-Up - Phil's Lab 56}
+      \field{urlday}{12}
+      \field{urlmonth}{4}
+      \field{urlyear}{2022}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=QAOEtfvCaMw&t=554s
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=QAOEtfvCaMw&t=554s
+      \endverb
+    \endentry
+    \entry{ToddToporski_EMC}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3ecc9cadd5b037de751e48d6baf77359}{%
+           family={{Todd Toporski}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{fullhash}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{fullhashraw}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{bibnamehash}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{authorbibnamehash}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{authornamehash}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{authorfullhash}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{authorfullhashraw}{3ecc9cadd5b037de751e48d6baf77359}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Zugriff am 29.12.2025}
+      \field{title}{Switch Node Layout Considerations for EMC}
+      \verb{urlraw}
+      \verb https://www.monolithicpower.com/en/learning/resources/switch-node-layout-considerations-for-emc?srsltid=AfmBOoqRXddokKGt6qhy2Qypf72WE3ECnBd1sNlJD2nkrFNsOXMKb-D_
+      \endverb
+      \verb{url}
+      \verb https://www.monolithicpower.com/en/learning/resources/switch-node-layout-considerations-for-emc?srsltid=AfmBOoqRXddokKGt6qhy2Qypf72WE3ECnBd1sNlJD2nkrFNsOXMKb-D_
+      \endverb
+    \endentry
+    \entry{ZachariahPeterson_Rückstromführung}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4515c71615020f121f4cb30082d534ab}{%
+           family={{Zachariah Peterson}},
+           familyi={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{4515c71615020f121f4cb30082d534ab}
+      \strng{fullhash}{4515c71615020f121f4cb30082d534ab}
+      \strng{fullhashraw}{4515c71615020f121f4cb30082d534ab}
+      \strng{bibnamehash}{4515c71615020f121f4cb30082d534ab}
+      \strng{authorbibnamehash}{4515c71615020f121f4cb30082d534ab}
+      \strng{authornamehash}{4515c71615020f121f4cb30082d534ab}
+      \strng{authorfullhash}{4515c71615020f121f4cb30082d534ab}
+      \strng{authorfullhashraw}{4515c71615020f121f4cb30082d534ab}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Zugriff am 29.12.2025}
+      \field{title}{Was ist die Rückstromführung in einem PCB?}
+      \field{urlday}{29}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://resources.altium.com/de/p/what-return-current-path-pcb
+      \endverb
+      \verb{url}
+      \verb https://resources.altium.com/de/p/what-return-current-path-pcb
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

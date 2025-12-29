@@ -1,7 +1,0 @@
-\babel@toc {ngerman}{}\relax 
-\contentsline {chapter}{Abbildungsverzeichnis}{3}{}%
-\contentsline {chapter}{Tabellenverzeichnis}{4}{}%
-\contentsline {section}{\numberline {0.1}Bsp Abbildung}{5}{}%
-\contentsline {section}{\numberline {0.2}Bsp Tabelle}{5}{}%
-\contentsline {section}{\numberline {0.3}Bespiel Text Referenz}{5}{}%
-\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
