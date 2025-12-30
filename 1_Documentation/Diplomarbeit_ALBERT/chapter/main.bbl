@@ -19,6 +19,68 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
+    \entry{AdvancedNavigation_IMU}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7fc20efe5300e0823e05fb442d07126e}{%
+           family={{Advanced Navigation}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{fullhash}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{fullhashraw}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{bibnamehash}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{authorbibnamehash}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{authornamehash}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{authorfullhash}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{authorfullhashraw}{7fc20efe5300e0823e05fb442d07126e}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Inertial Measurement Unit (IMU) – An Introduction}
+      \field{urlday}{30}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.advancednavigation.com/tech-articles/inertial-measurement-unit-imu-an-introduction/
+      \endverb
+      \verb{url}
+      \verb https://www.advancednavigation.com/tech-articles/inertial-measurement-unit-imu-an-introduction/
+      \endverb
+    \endentry
+    \entry{BoschFlipCore}{patent}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=110823ca6b065c4ca0615ec97eb35889}{%
+           family={GmbH},
+           familyi={G\bibinitperiod},
+           given={Robert\bibnamedelima Bosch},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{fullhash}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{fullhashraw}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{bibnamehash}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{authorbibnamehash}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{authornamehash}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{authorfullhash}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{authorfullhashraw}{110823ca6b065c4ca0615ec97eb35889}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{WO2012/126693A1}
+      \field{title}{Vorrichtung und Verfahren zur Messung von Magnetfeldern}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb https://patentimages.storage.googleapis.com/f7/0c/82/ff4acea094b486/WO2012126693A1.pdf
+      \endverb
+      \verb{url}
+      \verb https://patentimages.storage.googleapis.com/f7/0c/82/ff4acea094b486/WO2012126693A1.pdf
+      \endverb
+    \endentry
     \entry{bitweenie2013}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=e46d7b0968f3146029db689f94ad8df6}{%
@@ -37,11 +99,10 @@
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Zugriff am 28.12.2025}
       \field{title}{Standard 4- and 6-Layer PCB Stackups}
-      \field{urlday}{17}
-      \field{urlmonth}{4}
-      \field{urlyear}{2013}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
       \field{year}{2013}
       \field{urldateera}{ce}
       \verb{urlraw}
@@ -70,11 +131,10 @@
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Zugriff am 29.12.2025}
       \field{title}{(Sponsored) PCB Stack-Up and Build-Up - Phil's Lab 56}
-      \field{urlday}{12}
-      \field{urlmonth}{4}
-      \field{urlyear}{2022}
+      \field{urlday}{29}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
       \field{year}{2022}
       \field{urldateera}{ce}
       \verb{urlraw}
@@ -103,11 +163,10 @@
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Zugriff am 29.12.2025}
       \field{title}{(Sponsored) Switching Regulator PCB Design - Phil's Lab 60}
-      \field{urlday}{21}
-      \field{urlmonth}{5}
-      \field{urlyear}{2022}
+      \field{urlday}{29}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
       \field{year}{2022}
       \field{urldateera}{ce}
       \verb{urlraw}
@@ -135,8 +194,11 @@
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Zugriff am 29.12.2025}
       \field{title}{Abwärtswandler}
+      \field{urlday}{29}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb http://schmidt-walter-schaltnetzteile.de/snt/snt_deu/sntdeu2.pdf
       \endverb
@@ -193,8 +255,11 @@
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Zugriff am 29.12.2025}
       \field{title}{Switch Node Layout Considerations for EMC}
+      \field{urlday}{29}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.monolithicpower.com/en/learning/resources/switch-node-layout-considerations-for-emc?srsltid=AfmBOoqRXddokKGt6qhy2Qypf72WE3ECnBd1sNlJD2nkrFNsOXMKb-D_
       \endverb
@@ -220,11 +285,10 @@
       \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Zugriff am 29.12.2025}
       \field{title}{Was ist die Rückstromführung in einem PCB?}
       \field{urlday}{29}
-      \field{urlmonth}{3}
-      \field{urlyear}{2021}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
       \field{year}{2021}
       \field{urldateera}{ce}
       \verb{urlraw}

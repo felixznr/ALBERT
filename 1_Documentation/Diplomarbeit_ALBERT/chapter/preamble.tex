@@ -19,6 +19,8 @@
 \usepackage{trsym}   % definiert \TransformVert, \InversTransformVert, \TransformHoriz, ...
 
 \usepackage{tikz} % TikZ für Zeichnungen (tikzpicture, \draw, \fill, ...)
+\usepackage{tikz-3dplot}
+
 
 \usepackage{csquotes} % korrekte Anführungszeichen, wichtig für biblatex
 
@@ -65,7 +67,7 @@
 \usepackage[
   backend=biber,      
   style=numeric,                                             % Alternativen: numeric, ieee, apa, verbose, etc.
-  giveninits=true,                                              % Initialen statt voller Vornamen
+  giveninits=false,                                              % Initialen statt voller Vornamen
   uniquename=init,
   maxcitenames=2,                                               % „Müller & Meier“; danach „u. a.“
   maxbibnames=99,                                               % im Verzeichnis alles zeigen

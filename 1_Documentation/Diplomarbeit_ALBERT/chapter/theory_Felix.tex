@@ -48,7 +48,7 @@ Die im folgenden Abschnitten beschriebenen Konzepte stellen die wichtigsten Prin
 \subsubsection{Rückstrompfade}
 Ein kritischer Aspekt im Platinendesign ist die Gestaltung der Rückstrompfade für Signale. Rückstrompfade sind die Wege, die der Strom zurück zum Ursprungspunkt nimmt, nachdem er durch die Schaltung geflossen ist. 
 \\
-Für Gleichspannung nimmt der Rückstrom den Weg des geringsten Widerstands über die nächste Massefläche. Bei Wechselspannung ($>kHz$) hingegen folgt der Rückstrompfad dem Signalpfad, da die Kapazitive und induktive Kopplung zwischen den Leitungen dominant wird. \parencite{ZachariahPeterson_Rückstromführung}
+Für Gleichspannung nimmt der Rückstrom den Weg des geringsten ohmschen Widerstands über die nächste Massefläche. Bei Wechselspannung ($>kHz$) hingegen folgt der Rückstrompfad dem Signalpfad, da die Kapazitive und induktive Kopplung zwischen den Leitungen dominant wird. \parencite{ZachariahPeterson_Rückstromführung}
 
 \begin{figure}[H]
   \centering
@@ -204,9 +204,142 @@ Als Best Practice gilt die Orientierung an Referenzdesigns und Anwendungshinweis
 \section{Sensorik}
 Zur Erfassung der benötigten Messgrößen für das Regelungssystem werden verschiedene Sensoren eingesetzt. Diese Sensoren wandeln physikalische Größen in elektrische Signale um, die von der Steuerungseinheit verarbeitet werden können.
 \subsection{Inertial Measurement Unit (IMU)}
-Inertialsensoren, respektive Beschleunigungssensoren und Gyroskope, werden verwendet, um die Bewegungszustände des Systems zu erfassen. Beschleunigungssensoren messen die lineare Beschleunigung in verschiedenen Achsen, während Gyroskope die Winkelgeschwindigkeit um diese Achsen erfassen. Diese Daten sind entscheidend für die Bestimmung der Position und Orientierung des Systems im Raum.
+\begin{wrapfigure}{r}{0.35\textwidth}
+\vspace{-20pt}
+  % {r} = rechtsbündig platzieren
+  % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+  % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+  \centering
+   
+% Kameraperspektive
+\tdplotsetmaincoords{65}{115}
+
+\begin{tikzpicture}[tdplot_main_coords, scale=3]
+
+% Ursprung
+\coordinate (O) at (0,0,0);
+
+% Achsen
+\draw[->, thick] (O) -- (1,0,0) node[anchor=north] {$x$};
+\draw[->, thick] (O) -- (0,0.8,0) node[anchor=west] {$y$};
+\draw[->, thick] (O) -- (0,0,0.8) node[anchor=south east] {$z$};
+
+% Flache IMU-Platine
+\draw[fill=gray!25] (-0.25,-0.18,-0.03) -- (0.25,-0.18,-0.03) --
+                    (0.25,0.18,-0.03) -- (-0.25,0.18,-0.03) -- cycle;
+\draw[fill=gray!35] (-0.25,-0.18,0.03) -- (0.25,-0.18,0.03) --
+                    (0.25,0.18,0.03) -- (-0.25,0.18,0.03) -- cycle;
+
+\foreach \x/\y in { 0.25/-0.18, 0.25/0.18, -0.25/0.18}
+  \draw (\x,\y,-0.03) -- (\x,\y,0.03);
+
+\node at (0,0,0.05) {\scriptsize IMU};
+
+% Accelerometer
+\node[blue] at (0.9,-0.15,0) {$a_x$};
+\node[blue] at (0.2,0.9,0) {$a_y$};
+\node[blue] at (0,0.05,0.9) {$a_z$};
+
+% Gyroskop
+% ω_x : Rotation um x-Achse (in y–z-Ebene)
+\tdplotsetrotatedcoords{0}{0}{180}
+\tdplotdrawarc[
+  tdplot_rotated_coords,
+  red, thick, ->]
+  {(0,0,0.5)}{0.2}{0}{270}
+  {anchor=north}{$\omega_z$}
+
+% ω_y : Rotation um y-Achse (in x–z-Ebene)
+\tdplotsetrotatedcoords{90}{90}{0}
+\tdplotdrawarc[
+  tdplot_rotated_coords,
+  red, thick, ->]
+  {(0,0,0.5)}{0.2}{0}{270}
+  {anchor=west}{$\omega_y$}
+
+% ω_z : Rotation um z-Achse (in x–y-Ebene)
+\tdplotsetrotatedcoords{0}{90}{90}
+\tdplotdrawarc[
+  tdplot_rotated_coords,
+  red, thick, ->]
+  {(0,0,0.5)}{0.2}{0}{270}
+  {anchor=east}{$\omega_x$}
+
+% Legende
+\node[blue] at (0,0.8,0.8) {Beschleunigungssensor};
+\node[red]  at (0,0.8,0.6) {Gyroskop};
+
+\end{tikzpicture}
+    \caption{Messgrößen einer 6-DOF IMU}
+    \label{fig:imu_example}
+  % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+
+  % Abstand nach dem Bild reduzieren
+\vspace{0.5cm}
+\end{wrapfigure}
+Eine Inertial Measurement Unit (IMU) ist ein elektronisches Gerät, das mehrere Inertialsensoren kombiniert, um die Bewegungs- und Lageänderungen eines Objekts zu messen. 
+ Beschleunigungssensoren messen die lineare Beschleunigung $a$ in verschiedenen Achsen, während Gyroskope die Winkelgeschwindigkeit $\omega$ um diese Achsen erfassen. Durch Integration dieser Messwerte können Position, Geschwindigkeit und Orientierung des Systems bestimmt werden.
+\\
+In vorliegendem Projekt finden moderne IMUs Anwendung, die MEMS-Technologie\footnote{MEMS - Micro-Electro-Mechanical Systems} nutzen, um kompakte und energieeffiziente Sensoren bereitzustellen, welche auf der Platine integriert werden können.
+\parencite{AdvancedNavigation_IMU}
+
+\subsubsection{Funktionsweise von MEMS Beschleunigungssensoren}
+Die Messung der Beschleunigung in MEMS-Beschleunigungssensoren basiert auf der Erfassung der Trägheitskräfte, die auf eine kleine Masse (Proof Mass) wirken, wenn das Gerät beschleunigt wird. Diese Masse ist über mikroskopisch kleine Federstrukturen mit einem internen Rahmen verbunden. 
+\\
+Die Messung der Lageverschiebung der Proof Mass erfolgt durch kapazitive Messung. Dabei bilden die bewegliche Masse und feste Elektroden Kondensatoren, deren Kapazität sich ändert, wenn die Masse aufgrund der Beschleunigung ihre Position verändert. Dabei werden mehrere dieser Strukturen in verschiedenen Achsen angeordnet, um die dreidimensionale Beschleunigung zu erfassen. \parencite{AdvancedNavigation_IMU}
+\begin{wrapfigure}{l}{0.4\textwidth}
+
+  % {r} = rechtsbündig platzieren
+  % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+  % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+  \centering
+    \includegraphics[width=0.4\textwidth]{MEMS_Accel.jpeg}
+    \caption{Schematische Darstellung eines MEMS-Beschleunigungssensors }
+    \label{fig:mems_accel}
+  % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+
+  % Abstand nach dem Bild reduzieren
+    \vspace{-3cm}
+\end{wrapfigure}
+\\
+In der Abbildung \ref{fig:mems_accel} ist eine schematische Darstellung eines Segments eines MEMS-Beschleunigungssensors zu sehen. Die Proof Mass $B$ ist in der Mitte angeordnet und durch Federstrukturen $B1$ mit dem Rahmen $A$ verbunden. $B2$ bildet den zentralen Teil der Proof Mass auf welcher mehrere vorstehende Finger $B3$ sitzen. Elektroden $C$ auf beiden Seiten der Masse bilden die Kondensatoren $C1$ \& $C2$, deren Kapazitätsänderung gemessen wird, um die Beschleunigung zu bestimmen.
+\\
+\vspace{2cm}
+\subsubsection{Funktionsweise von MEMS Gyroskop}
+Um die Winkelgeschwindigkeit zu messen, nutzen MEMS-Gyroskope das Coriolis-Prinzip. Hierzu wird eine über Federn $A$ mit dem inneren Rahmen $C$ verbundene kleine Masse (Proof Mass) $B$ in Schwingung versetzt. Dieser Referenzrahmen ist wiederum über Federn $E$ mit dem äußeren Rahmen $D$ verbunden.
+\\
+Wenn das Gyroskop rotiert, wirkt auf die schwingende Masse eine Coriolis-Kraft, die eine sekundäre Schwingung der Masse verursacht. Diese Verschiebung ebenfalls kapazitiv über die Verschiebung der Rahmen gemessen, ähnlich wie bei den Beschleunigungssensoren. Die Größe der Verschiebung ist proportional zur Winkelgeschwindigkeit des Gyroskops. \parencite{AdvancedNavigation_IMU}
+\vspace{-0.5cm}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{MEMS_Gyro.png}
+        \caption{Schematische Darstellung eines MEMS-Gyroskops \parencite{AdvancedNavigation_IMU}}
+        \label{fig:mems_gyro}
+\end{figure}
+
+
+
 \subsection{Magnetometer}
 Magnetometer messen das Magnetfeld der Erde und liefern Informationen zur Orientierung des Systems relativ zum Erdmagnetfeld. Diese Daten können verwendet werden, um die Ausrichtung des Systems zu bestimmen und Korrekturen in der Regelung vorzunehmen.
+\\
+Es gibt verschiedene Technologien zur Messung von Magnetfeldern, darunter Hall-Effekt-Sensoren, Fluxgate-Magnetometer und magnetoresistive Sensoren.
+\\
+\begin{wrapfigure}
+{r}{0.45\textwidth}
+\vspace{-10pt}
+  % {r} = rechtsbündig platzieren
+  % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+  % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+  \centering
+    \includegraphics[width=0.4\textwidth]{Fluxgate-Magnetometer.jpeg}
+    \caption{Funktionsprinzip eines Fluxgate-Magnetometers }
+    \label{fig:fluxgate_principle}
+  % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)   
+  \vspace{10pt}
+\end{wrapfigure}
+Hier soll nun die für dieses Projekt relevante Funktionsprinzip eines Fluxgate-Magnetometers in seiner einfachsten Form erläutert werden: Die Messung basiert auf einem ferromagnetischen Kern, der von einer Primärspule umgeben ist, durch die ein Wechselstrom fließt. Dieser Strom erzeugt ein magnetisches Wechselfeld im Kern, das diesen periodisch in Sättigung bringt. Eine Sekundärspule, die ebenfalls den Kern umgibt, detektiert die Änderung des magnetischen Flusses im Kern, die durch das externe waagrechte Magnetfeld beeinflusst wird. Wenn ein externes Magnetfeld vorhanden ist, ändert sich die Zeit, die der Kern benötigt, um in die Sättigung zu gelangen, was zu einer Änderung der induzierten Spannung in der Sekundärspule führt. Diese Spannung kann gemessen und zur Bestimmung der Stärke und Richtung des externen Magnetfelds verwendet werden.
+\\
+Das in diesem Projekt eingesetzte Magnetometer verwendet eine von Bosch Sensortec patentierte Technologie namens FlipCore, welche auf dem Fluxgate-Prinzip basiert, sich jedoch in einem wichtigen Punkt von dieser unterscheidet: Sie kann viel kompakter gebaut werden. Die Unterschiede in der Funktionsweise gestalten sich wie folgt: Eine Ummagnetisierung des Kernmaterials erfolgt durch Verschiebung mindestens einer Bloch-Wand\footnote{Bloch-Wand - Verdrehter Übergangsbereich zwischen zwei gegensätzlich gepolten Weißschen Bezirke}, anstatt wie bei dem Fluxgate-Prinzip durch eine gesamtheitliche Umpolung der Weißschen Bezirke\footnote{Weißsche Bezirke - Bereiche innerhalb eines ferromagnetischen Materials, in denen die magnetischen Momente der Atome parallel ausgerichtet sind}. Dies führt zu einer steileren Hysteresekurve und somit zu einer höheren Empfindlichkeit bei der Messung von Magnetfeldern, was es wiederum erlaubt kleiner zu bauen (MEMS). \parencite{BoschFlipCore}
 \subsection{Barometer}
 Barometer messen den Luftdruck und können zur Höhenbestimmung des Systems verwendet werden. Veränderungen im Luftdruck korrelieren mit Änderungen in der Höhe, was für die Regelung der vertikalen Position des Systems von Bedeutung ist.
 
