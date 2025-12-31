@@ -23,9 +23,11 @@
 \contentsline {subsection}{\numberline {4.4.2}Magnetometer}{12}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Barometer}{13}{subsection.4.4.3}%
 \contentsline {section}{\numberline {4.5}Global Navigation Satellite System (GNSS)}{14}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Microcontroller}{15}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Softwarekonzepte}{16}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Kalman-Filter}{17}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Regelung}{18}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Aerodynamische Grundlagen}{19}{chapter.8}%
+\contentsline {subsection}{\numberline {4.5.1}Grundlegendes Funktionsprinzip}{14}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Layout}{14}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Microcontroller}{16}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Softwarekonzepte}{17}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Kalman-Filter}{18}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Regelung}{19}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Aerodynamische Grundlagen}{20}{chapter.8}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

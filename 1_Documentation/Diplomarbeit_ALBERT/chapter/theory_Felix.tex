@@ -1,4 +1,5 @@
 \chapter{Platinendesign}
+\label{ch:platinendesign}
 \fancyfoot[C]{\large Felix Zauner}
 \fancypagestyle{plain}{\fancyfoot[C]{\large Felix Zauner}}
 Eine Platine ist eine gedruckte Schaltung (Printed Circuit Board, PCB in Englisch), die dazu dient, elektronische Bauteile miteinander zu verbinden. In diesem Kapitel werden die Grundlagen des Platinendesigns erörtert, einschließlich der Auswahl von Bauteilen, Layout-Strategien und Fertigungstechniken.
@@ -12,18 +13,20 @@ Es ist in allen folgenden Punkten essentiell, sich zuvor mit den Produktionskapa
 Darüber hinaus ist es ratsam, die Grenzen der Fertigungskapazitäten zu meiden, um Zusatzkosten zu vermeiden und potenzielle Fehlerquellen zu minimieren.
 
 \section{Build-up \& Stack-up}
+\label{sec:buildup_stackup}
 \subsection{Build-up}
+\label{subsec:buildup}
 
 \begin{wrapfigure}{r}{0.5\textwidth}
 
-  % {r} = rechtsbündig platzieren
-  % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
-  % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
-  \centering
-  \includegraphics[width=0.4\textwidth]{StackupExample.png}
-    \caption{Beispielhafter Stackup einer vierlagigen Leiterplatte \parencite{bitweenie2013}}
-    \label{fig:stackup_example}
-  % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+    % {r} = rechtsbündig platzieren
+    % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+    % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+    \centering
+    \includegraphics[width=0.4\textwidth]{StackupExample.png}
+        \caption{Beispielhafter Stackup einer vierlagigen Leiterplatte \parencite{bitweenie2013}}
+        \label{fig:stackup_example}
+    % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
 
   % Abstand nach dem Bild reduzieren
 \end{wrapfigure}
@@ -34,11 +37,12 @@ In der Planungsphase sind primär die Anzahl der erforderlichen Lagen, die Auswa
 Die Abbildung \ref{fig:stackup_example} zeigt ein beispielhaftes Build-up und Stack-up einer vierlagigen Leiterplatte.
 \\
 \subsection{Stack-up}
+\label{subsec:stackup}
 Das Stack-up einer Leiterplatte beschreibt die Anordnung der verschiedenen Schichten in Bezug auf die elektrische Verwendung und Funktionalität. Das Stack-up umfasst die Definition von:
 \begin{itemize}
-    \item Ground-Layers $\rightarrow$ Referenzpotential für die Schaltung, Rückstrompfade
-    \item Power-Layers  $\rightarrow$ Versorgungsspannungen für die Schaltung
-    \item Signal-Layers $\rightarrow$ Leiterbahnen für die Signalübertragung
+        \item Ground-Layers $\rightarrow$ Referenzpotential für die Schaltung, Rückstrompfade
+        \item Power-Layers  $\rightarrow$ Versorgungsspannungen für die Schaltung
+        \item Signal-Layers $\rightarrow$ Leiterbahnen für die Signalübertragung
 \end{itemize}
 Des Weiteren besteht die Möglichkeit, Power- und Ground-Planes\footnote{Plane: Eine durchgehende Kupferfläche auf einer Leiterplattenlage, die als Referenzpotential oder Versorgungsspannung dient.} sowie Signal- und Ground-Planes auf einem Layer zu kombinieren. Auf diese Weise kann etwa auf zweilagigen Platinen Platz eingespart werden.
 \\
@@ -46,6 +50,7 @@ Die Anordnung dieser Schichten im Stack-up ist entscheidend für gute EMC\footno
 \\\\
 Die im folgenden Abschnitten beschriebenen Konzepte stellen die wichtigsten Prinzipien dar, die bei der Gestaltung eines effektiven Stack-ups zu berücksichtigen sind.
 \subsubsection{Rückstrompfade}
+\label{subsubsec:rueckstrompfade}
 Ein kritischer Aspekt im Platinendesign ist die Gestaltung der Rückstrompfade für Signale. Rückstrompfade sind die Wege, die der Strom zurück zum Ursprungspunkt nimmt, nachdem er durch die Schaltung geflossen ist. 
 \\
 Für Gleichspannung nimmt der Rückstrom den Weg des geringsten ohmschen Widerstands über die nächste Massefläche. Bei Wechselspannung ($>kHz$) hingegen folgt der Rückstrompfad dem Signalpfad, da die Kapazitive und induktive Kopplung zwischen den Leitungen dominant wird. \parencite{ZachariahPeterson_Rückstromführung}
@@ -81,6 +86,7 @@ Für Gleichspannung nimmt der Rückstrom den Weg des geringsten ohmschen Widerst
 \end{figure}
 
 \subsubsection{Energiefluss}
+\label{subsubsec:energiefluss}
 Für eine optimale Signalübertragung und minimale Störungen ist es entscheidend, den Energiefluss zwischen den Leiterbahnen und den zugehörigen Ground- und Power-Planes zu verstehen. 
 \begin{wrapfigure}{r}{0.5\textwidth}
 
@@ -93,7 +99,7 @@ Für eine optimale Signalübertragung und minimale Störungen ist es entscheiden
     \label{fig:trace_fields}
   % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
 
-  % Abstand nach dem Bild reduzieren
+    % Abstand nach dem Bild reduzieren
 \end{wrapfigure}
 Jede Leiterbahn erzeugt ein elektrisches Feld (E-Feld) und ein magnetisches Feld (H-Feld) um sich herum, wenn Strom durch sie fließt. Die Energieübertragung erfolgt durch diese Felder. Das elektrische Feld ist zwischen der Leiterbahn und dem nächstgelegenen Ground-Plane konzentriert, während das magnetische Feld konzentrisch um die Leiterbahn verläuft.
 Dabei stellen die Kupferbahnen den Waveguide für die Felder dar. 
@@ -116,7 +122,9 @@ Aus diesen beiden Punkten können folgende Designregeln abgeleitet werden:
 \parencite{PhilsLab56}
 \newpage
 \section{Stromversorgung \& Entkopplung}
+\label{sec:stromversorgung_entkopplung}
 \section{Abwärtswandler}
+\label{sec:abwaertswandler}
 Der Abwärtswandler (Buck Converter) ist ein DC-DC-Wandler, der eine höhere Eingangsspannung in eine niedrigere Ausgangsspannung umwandelt. Durch einen getakteten Schaltvorgang wird die Energieübertragung gesteuert, was zu einer verbesserten Effizienz im Vergleich zu linearen Spannungsreglern führt.
 \\
 Für den kontinuierlichen Betrieb\footnote{kontinuierlicher Betrieb - der Strom $I_L$ wird während des gesamten Zykluses nie 0} gilt folgender Zusammenhang zwischen Ein- und Ausgangsspannung:
@@ -167,6 +175,7 @@ Für den kontinuierlichen Betrieb\footnote{kontinuierlicher Betrieb - der Strom 
     \label{fig:buck_converter}
 \end{figure}
 \subsection{Funktionsweise}
+\label{subsec:buck_funktionsweise}
 Der MOSFET $Q$ wird periodisch durch einen Regler (Controller) ein- und ausgeschaltet, wodurch während der Einschaltphase $t_{1}$ der Ausgangsstrom $I_{A}$ durch die Induktivität $L$ und die angeschlossene, aber hier nicht eingezeichnete Last fließt. Die Diode $D$ ist in dieser Phase gesperrt. Während der Ausschaltphase  hingegen sperrt der MOSFET $Q$ und die Induktivität $L$ entlädt sich über die Diode $D$ und die Last um den Stromfluss aufrechtzuerhalten. 
 \\
 Der Kondensator $C_A$ stützt in dieser Phase die Ausgangsspannung $U_{A}$. Der Eingangskondensator $C_E$ stellt die hochfrequenten, gepulsten Eingangsstromanteile bereit und wirkt als lokaler Energiespeicher, wodurch Eingangsspannungsripple, Spannungsspitzen und EMV-Störungen reduziert und die Spannungsquelle entlastet werden. 
@@ -176,6 +185,7 @@ Durch die kontinuierliche Ein- und Ausschaltphase wird eine mittlere Ausgangsspa
 Über den Feedback-Widerstandsteiler $R_{FB1}$ und $R_{FB2}$ wird die Ausgangsspannung $U_{A}$ dem Controller zurückgeführt, der das Tastverhältnis $\frac{t_1}{T}$ (duty cycle) des MOSFETs $Q$ anpasst, um die gewünschte Ausgangsspannung zu halten.
 \parencite{schmidt-walter_Abwärtswandler}\parencite{PhilsLab60}
 \subsection{Layoutrichtlinien}
+\label{subsec:buck_layoutrichtlinien}
 Beim Layout eines Abwärtswandlers gilt es mehrere kritische Aspekte zu berücksichtigen, um eine stabile und saubere Spannungsversorgung zu gewährleisten und Störungen zu minimieren. 
 \begin{wrapfigure}{r}{0.5\textwidth}
 \vspace{10pt}
@@ -202,8 +212,10 @@ Als Best Practice gilt die Orientierung an Referenzdesigns und Anwendungshinweis
 
 \newpage
 \section{Sensorik}
+\label{sec:sensorik}
 Zur Erfassung der benötigten Messgrößen für das Regelungssystem werden verschiedene Sensoren eingesetzt. Diese Sensoren wandeln physikalische Größen in elektrische Signale um, die von der Steuerungseinheit verarbeitet werden können.
 \subsection{Inertial Measurement Unit (IMU)}
+\label{subsec:imu}
 \begin{wrapfigure}{r}{0.35\textwidth}
 \vspace{-20pt}
   % {r} = rechtsbündig platzieren
@@ -284,6 +296,7 @@ In vorliegendem Projekt finden moderne IMUs Anwendung, die MEMS-Technologie\foot
 \parencite{AdvancedNavigation_IMU}
 
 \subsubsection{Funktionsweise von MEMS Beschleunigungssensoren}
+\label{subsubsec:mems_accelerometer}
 Die Messung der Beschleunigung in MEMS-Beschleunigungssensoren basiert auf der Erfassung der Trägheitskräfte, die auf eine kleine Masse (Proof Mass) wirken, wenn das Gerät beschleunigt wird. Diese Masse ist über mikroskopisch kleine Federstrukturen mit einem internen Rahmen verbunden. 
 \\
 Die Messung der Lageverschiebung der Proof Mass erfolgt durch kapazitive Messung. Dabei bilden die bewegliche Masse und feste Elektroden Kondensatoren, deren Kapazität sich ändert, wenn die Masse aufgrund der Beschleunigung ihre Position verändert. Dabei werden mehrere dieser Strukturen in verschiedenen Achsen angeordnet, um die dreidimensionale Beschleunigung zu erfassen. \parencite{AdvancedNavigation_IMU}
@@ -306,9 +319,10 @@ In der Abbildung \ref{fig:mems_accel} ist eine schematische Darstellung eines Se
 \\
 \vspace{2cm}
 \subsubsection{Funktionsweise von MEMS Gyroskop}
+\label{subsubsec:mems_gyroscope}
 Um die Winkelgeschwindigkeit zu messen, nutzen MEMS-Gyroskope das Coriolis-Prinzip. Hierzu wird eine über Federn $A$ mit dem inneren Rahmen $C$ verbundene kleine Masse (Proof Mass) $B$ in Schwingung versetzt. Dieser Referenzrahmen ist wiederum über Federn $E$ mit dem äußeren Rahmen $D$ verbunden.
 \\
-Wenn das Gyroskop rotiert, wirkt auf die schwingende Masse eine Coriolis-Kraft, die eine sekundäre Schwingung der Masse verursacht. Diese Verschiebung ebenfalls kapazitiv über die Verschiebung der Rahmen gemessen, ähnlich wie bei den Beschleunigungssensoren. Die Größe der Verschiebung ist proportional zur Winkelgeschwindigkeit des Gyroskops. \parencite{AdvancedNavigation_IMU}
+Wenn das Gyroskop rotiert, wirkt auf die schwingende Masse eine Coriolis-Kraft, die eine sekundäre Schwingung der Masse verursacht. Diese Verschiebung wird ebenfalls kapazitiv über die Verschiebung der Rahmen gemessen, ähnlich wie bei den Beschleunigungssensoren. Die Größe der Verschiebung ist proportional zur Winkelgeschwindigkeit des Gyroskops. \parencite{AdvancedNavigation_IMU}
 \vspace{-0.5cm}
 \begin{figure}[H]
     \centering
@@ -317,10 +331,9 @@ Wenn das Gyroskop rotiert, wirkt auf die schwingende Masse eine Coriolis-Kraft, 
         \label{fig:mems_gyro}
 \end{figure}
 
-
-
 \subsection{Magnetometer}
-Magnetometer messen das Magnetfeld der Erde und liefern Informationen zur Orientierung des Systems relativ zum Erdmagnetfeld. Diese Daten können verwendet werden, um die Ausrichtung des Systems zu bestimmen und Korrekturen in der Regelung vorzunehmen.
+\label{subsec:magnetometer}
+Magnetometer messen das Magnetfeld der Erde und liefern Informationen zur Orientierung des Systems relativ zum Erdmagnetfeld. Diese Daten können verwendet werden, um die Ausrichtung des Systems zu bestimmen und Korrektionen in der Regelung vorzunehmen.
 \\
 Es gibt verschiedene Technologien zur Messung von Magnetfeldern, darunter Hall-Effekt-Sensoren, Fluxgate-Magnetometer und magnetoresistive Sensoren.
 \\
@@ -341,10 +354,87 @@ Hier soll nun die für dieses Projekt relevante Funktionsprinzip eines Fluxgate-
 \\
 Das in diesem Projekt eingesetzte Magnetometer verwendet eine von Bosch Sensortec patentierte Technologie namens FlipCore, welche auf dem Fluxgate-Prinzip basiert, sich jedoch in einem wichtigen Punkt von dieser unterscheidet: Sie kann viel kompakter gebaut werden. Die Unterschiede in der Funktionsweise gestalten sich wie folgt: Eine Ummagnetisierung des Kernmaterials erfolgt durch Verschiebung mindestens einer Bloch-Wand\footnote{Bloch-Wand - Verdrehter Übergangsbereich zwischen zwei gegensätzlich gepolten Weißschen Bezirke}, anstatt wie bei dem Fluxgate-Prinzip durch eine gesamtheitliche Umpolung der Weißschen Bezirke\footnote{Weißsche Bezirke - Bereiche innerhalb eines ferromagnetischen Materials, in denen die magnetischen Momente der Atome parallel ausgerichtet sind}. Dies führt zu einer steileren Hysteresekurve und somit zu einer höheren Empfindlichkeit bei der Messung von Magnetfeldern, was es wiederum erlaubt kleiner zu bauen (MEMS). \parencite{BoschFlipCore}
 \subsection{Barometer}
-Barometer messen den Luftdruck und können zur Höhenbestimmung des Systems verwendet werden. Veränderungen im Luftdruck korrelieren mit Änderungen in der Höhe, was für die Regelung der vertikalen Position des Systems von Bedeutung ist.
+\label{subsec:barometer}
+
+\begin{wrapfigure}
+{r}{0.3\textwidth}
+\vspace{-10pt}
+  % {r} = rechtsbündig platzieren
+  % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+  % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+  \centering
+    \includegraphics[width=0.25\textwidth]{examplebaro.png}
+    \caption{Beispielhafter Aufbau eines piezoresistiven Barometers \parencite{barometerWorkingPrinciple}}
+    \label{fig:barometer_principle}
+  % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)   
+  \vspace{10pt}
+\end{wrapfigure}
+Barometer messen den Luftdruck und können zur Höhenbestimmung des Systems verwendet werden. Veränderungen im Luftdruck korrelieren mit Änderungen in der Höhe, was für die Regelung der vertikalen Position des Systems von Bedeutung ist.\\
+Der in diesem Projekt eingesetzte Barometer-Sensor basiert auf einem piezoresistiven Prinzip, bei dem der Luftdruck eine Verformung einer dünnen Membran verursacht.  Diese in Abbildung \ref{fig:barometer_principle} rot dargestellte Verformung hat eine Veränderung des Widerstands der integrierten piezoresistiven Elementen zur Folge. Die resultierende Spannungsänderung wird gemessen und über das digitale Interface des Sensors ausgegeben. Es handelt sich wieder um MEMS-Technologie.
 
 \newpage
+
 \section{Global Navigation Satellite System (GNSS)}
+\label{sec:gnss}
+
+Global Navigation Satellite System (GNSS) ist ein Sammelbegriff für Satellitennavigationssysteme, die es ermöglichen, die Position eines Empfängers auf der Erde mit hoher Genauigkeit zu bestimmen. Zu den wichtigsten GNSS-Systemen gehören das amerikanische in den 70er Jahren entwickelte NAVSTAR GPS (Global Positioning System), das russische GLONASS, das europäische Galileo und das chinesische BeiDou.
+\subsection{Grundlegendes Funktionsprinzip}
+\label{subsec:gnss_funktionsprinzip}
+GNSS-Empfänger (in der Abbildung \ref{fig:gnss_simplified} rot dargestellt) nutzen die Signale von mindestens drei Satelliten, um die dreidimensionale Position (Breiten- und Längengrad sowie Höhe) zu berechnen. Der vierte Satellit wird benötigt, um die genaue Zeitdifferenz zwischen der Satellitenuhr und der Empfängeruhr zu bestimmen, da diese nicht exakt synchronisiert sind. Dabei wird die Laufzeit der Signale vom Satelliten zum Empfänger gemessen, wodurch die Entfernung zu jedem Satelliten bestimmt werden kann.
+Jeder GNSS-Satellit sendet dazu seine genaue Sendezeit. Beim Eintreffen des Signals vergleicht der Empfänger diese mit seiner eigenen Zeit und berechnet aus der Zeitdifferenz die Entfernung $s$ zum jeweiligen Satelliten.
+Aus diesen Entfernungen lassen sich um die Satelliten gedanklich Kugeln konstruieren, deren gemeinsamer Schnittpunkt im dreidimensionalen Raum die Position des Empfängers darstellt.
+\\
+
+\begin{figure}[H]
+    \centering
+\begin{tikzpicture}[scale=0.7]
+
+% Erd-Ausschnitt mit Schattierung
+\shade[ball color=blue!50, opacity=0.8]
+(-3,-3) arc[start angle=180, end angle=0, radius=3] -- (3,-3) -- cycle;
+\draw[thick] (-3,-3) arc[start angle=180, end angle=0, radius=3];
+
+
+% Empfänger auf der Erde
+\filldraw[red] (0,0) circle (4pt) node[above right] {Empfänger};
+
+% Satelliten
+\filldraw[fill=gray!30, draw=gray] (-4,3) circle (3pt) node[above] {Satellit 1};
+\filldraw[fill=gray!30, draw=gray] (4,3) circle (3pt) node[above] {Satellit 3};
+\filldraw[fill=gray!30, draw=gray] (0,5) circle (3pt) node[above] {Satellit 2};
+
+
+% Abstandskreise (vereinfacht 2D statt Kugeln)
+\draw[dashed] (-4,3) circle (5);
+\draw[dashed] (4,3) circle (5);
+\draw[dashed] (0,5) circle (5);
+
+% Signallinien
+\draw[->] (-4,3) -- (0,0) node [midway, above ] {$s_1$};
+\draw[->] (4,3) -- (0,0) node [midway, above ] {$s_3$};
+\draw[->] (0,5) -- (0,0) node [midway, right] {$s_2$};
+
+\draw (0,-1) node[below] {Erdoberfläche};
+
+
+\end{tikzpicture}
+    \caption{Vereinfachte Darstellung der GNSS-Satelliten und des Empfängers}
+    \label{fig:gnss_simplified}
+\end{figure}
+
+\subsection{Layout}
+\label{subsec:gnss_layout}
+
+Bei der Integration eines GNSS-Empfängers auf einer Leiterplatte sind mehrere wichtige Layout-Aspekte zu beachten, um eine optimale Signalqualität und Empfangsleistung zu gewährleisten:
+\begin{itemize}
+    \item \textbf{Antenne-Positionierung}: Die GNSS-Antenne sollte dort platziert werden, wo sie eine freie Sicht zum Himmel hat, fern von metallischen Objekten und Störquellen, um Signalabschattung und Reflexionen zu minimieren.
+    \item \textbf{Platzierung}: Störquellen wie digitale Schaltungen oder Hochfrequenzkomponenten sollten von der GNSS-Antenne und dem Empfänger (Insbesondere dem Verbindungspfad) getrennt werden, um elektromagnetische Interferenzen zu minimieren. 
+    \item \textbf{Leiterbahnlänge}: Die Verbindung zwischen der Antenne und dem GNSS-Empfänger sollte so kurz wie möglich gehalten werden, um Signalverluste und Verzerrungen zu reduzieren. Ergänzend ist es sinnvoll, eine 50-Ohm-impedanzangepasste Leitung zu verwenden.
+    \item \textbf{Massefläche}: Eine gute Masseverbindung und Abschirmung (wird durch Vias realisiert) der GNSS-Schaltung ist entscheidend, um Störungen zu minimieren und die Signalqualität zu verbessern. Es ist empfohlen, die GNSS-Masse von der digitalen Masse zu trennen und nur an einem Punkt zu verbinden.
+\end{itemize}
+Wie bei den bereits in der Sektion \ref{sec:abwaertswandler} beschriebenen Layoutrichtlinien für den Abwärtswandler ist es ratsam, die Layout-Empfehlungen als auch die Bauteilempfehlungen des Herstellers des GNSS-Empfängers zu befolgen, da diese spezifische Hinweise zur optimalen Integration des Bauteils enthalten.
+\parencite{AltiumGPS}
+
 \newpage
 \section{Microcontroller}
 
@@ -359,7 +449,10 @@ Barometer messen den Luftdruck und können zur Höhenbestimmung des Systems verw
 
 
 \chapter{Softwarekonzepte}
+\label{ch:softwarekonzepte}
 
 \chapter{Kalman-Filter}
+\label{ch:kalman_filter}
 
 \chapter{Regelung}
+\label{ch:regelung}
