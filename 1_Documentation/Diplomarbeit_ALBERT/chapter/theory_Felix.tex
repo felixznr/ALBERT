@@ -121,8 +121,30 @@ Aus diesen beiden Punkten können folgende Designregeln abgeleitet werden:
 \end{itemize}
 \parencite{PhilsLab56}
 \newpage
-\section{Stromversorgung \& Entkopplung}
-\label{sec:stromversorgung_entkopplung}
+
+\section{Bypass- \& Decoupling-Kondensatoren}
+\label{sec:bypass_decoupling}
+Bypass- und Decoupling-Kondensatoren sind wesentliche Komponenten in der Entwicklung von Leiterplatten, die dazu dienen, Störungen zu minimieren und eine stabile Versorgungsspannung für ICs\footnote{IC - Integrated Circuit} bereitzustellen. Oft werden die Begriffe Bypass- und Decoupling-Kondensatoren synonym verwendet, obwohl sie eigentlich unterschiedliche Funktionen erfüllen.
+\\\\
+\textbf{Bypass-Kondensatoren} werden verwendet, da Kondensatoren bei hohen Frequenzen einen niedrigen Impedanzwert aufweisen. Sie leiten hochfrequente Störsignale von der Versorgungsspannung gegen Masse ab und dienen als Filter, um zu verhindern, dass Störungen in die Schaltung eindringen und die Funktion der Bauteile beeinträchtigen.
+\\\\
+\textbf{Decoupling-Kondensatoren} hingegen werden direkt an den Versorgungspins von ICs platziert, um schnelle Stromänderungen lokal auszugleichen, die durch das Schalten der internen Transistoren verursacht werden. Sie stellen sicher, dass die Versorgungsspannung stabil bleibt und verhindert Spannungsschwankungen.
+\parencite{JLCDecouplingBypass}
+\\\\
+Bei der Platzierung von Bypass- und Decoupling-Kondensatoren auf der Leiterplatte sind folgende Richtlinien zu beachten:
+\begin{itemize}
+    \item \textbf{Nähe zum IC}: Decoupling-Kondensatoren sollten so nah wie möglich an den Versorgungspins des ICs platziert werden und mit möglichst breiten Leiterbahnen verbunden werden, um die Induktivität der Leiterbahnen zu minimieren. Die Vias zu Masse \& Power sollten ebenfalls so nah wie möglich am Kondensator platziert werden.
+    \item \textbf{Verschiedene Werte}: In vielen Fällen erweist es sich als sinnvoll, mehrere \\Decoupling-Kondensatoren mit unterschiedlichen Kapazitätswerten (typischerweise $100nF$ und $10 \mu F$, Keramik) zu verwenden. Aufgrund der Tatsache, dass kleinere Kondensatoren dazu in der Lage sind, Energie schneller bereitzustellen, empfiehlt es sich, diese näher am IC zu platzieren. 
+    \item \textbf{Bypass-Kondensatoren}: Diese sollten strategisch in der Nähe von kritischen Versorgungspunkten auf der Platine platziert werden, um Störungen effektiv abzuleiten. So etwa an der Analogversorgung von Mikrocontrollern.
+\end{itemize}
+Auch hier gilt wieder, die Empfehlungen des Herstellers der jeweiligen Bauteile zu beachten um eine optimale Funktion zu gewährleisten.
+\begin{figure}[H]
+
+    \includegraphics[width=0.4\textwidth]{decouplingcap.png}
+    \caption{Platzierung von Decoupling-Kondensatoren}
+    \label{fig:decoupling_cap}
+\end{figure}
+\newpage
 \section{Abwärtswandler}
 \label{sec:abwaertswandler}
 Der Abwärtswandler (Buck Converter) ist ein DC-DC-Wandler, der eine höhere Eingangsspannung in eine niedrigere Ausgangsspannung umwandelt. Durch einen getakteten Schaltvorgang wird die Energieübertragung gesteuert, was zu einer verbesserten Effizienz im Vergleich zu linearen Spannungsreglern führt.
@@ -184,6 +206,7 @@ Durch die kontinuierliche Ein- und Ausschaltphase wird eine mittlere Ausgangsspa
 \\
 Über den Feedback-Widerstandsteiler $R_{FB1}$ und $R_{FB2}$ wird die Ausgangsspannung $U_{A}$ dem Controller zurückgeführt, der das Tastverhältnis $\frac{t_1}{T}$ (duty cycle) des MOSFETs $Q$ anpasst, um die gewünschte Ausgangsspannung zu halten.
 \parencite{schmidt-walter_Abwärtswandler}\parencite{PhilsLab60}
+\newpage
 \subsection{Layoutrichtlinien}
 \label{subsec:buck_layoutrichtlinien}
 Beim Layout eines Abwärtswandlers gilt es mehrere kritische Aspekte zu berücksichtigen, um eine stabile und saubere Spannungsversorgung zu gewährleisten und Störungen zu minimieren. 
@@ -427,7 +450,7 @@ Aus diesen Entfernungen lassen sich um die Satelliten gedanklich Kugeln konstrui
 
 Bei der Integration eines GNSS-Empfängers auf einer Leiterplatte sind mehrere wichtige Layout-Aspekte zu beachten, um eine optimale Signalqualität und Empfangsleistung zu gewährleisten:
 \begin{itemize}
-    \item \textbf{Antenne-Positionierung}: Die GNSS-Antenne sollte dort platziert werden, wo sie eine freie Sicht zum Himmel hat, fern von metallischen Objekten und Störquellen, um Signalabschattung und Reflexionen zu minimieren.
+    \item \textbf{Antennen-Positionierung}: Die GNSS-Antenne sollte dort platziert werden, wo sie eine freie Sicht zum Himmel hat, fern von metallischen Objekten und Störquellen, um Signalabschattung und Reflexionen zu minimieren.
     \item \textbf{Platzierung}: Störquellen wie digitale Schaltungen oder Hochfrequenzkomponenten sollten von der GNSS-Antenne und dem Empfänger (Insbesondere dem Verbindungspfad) getrennt werden, um elektromagnetische Interferenzen zu minimieren. 
     \item \textbf{Leiterbahnlänge}: Die Verbindung zwischen der Antenne und dem GNSS-Empfänger sollte so kurz wie möglich gehalten werden, um Signalverluste und Verzerrungen zu reduzieren. Ergänzend ist es sinnvoll, eine 50-Ohm-impedanzangepasste Leitung zu verwenden.
     \item \textbf{Massefläche}: Eine gute Masseverbindung und Abschirmung (wird durch Vias realisiert) der GNSS-Schaltung ist entscheidend, um Störungen zu minimieren und die Signalqualität zu verbessern. Es ist empfohlen, die GNSS-Masse von der digitalen Masse zu trennen und nur an einem Punkt zu verbinden.

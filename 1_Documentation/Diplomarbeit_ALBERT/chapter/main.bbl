@@ -143,6 +143,37 @@
       \verb https://patentimages.storage.googleapis.com/f7/0c/82/ff4acea094b486/WO2012126693A1.pdf
       \endverb
     \endentry
+    \entry{JLCDecouplingBypass}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6089278730660d27c2f7e812bfa9ee38}{%
+           family={{jlcpcb}},
+           familyi={j\bibinitperiod}}}%
+      }
+      \strng{namehash}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{fullhash}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{fullhashraw}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{bibnamehash}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{authorbibnamehash}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{authornamehash}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{authorfullhash}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{authorfullhashraw}{6089278730660d27c2f7e812bfa9ee38}
+      \field{sortinit}{j}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Decoupling vs Bypass Capacitor : What’s the Difference}
+      \field{urlday}{31}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://jlcpcb.com/blog/decoupling-vs-bypass-capacitor
+      \endverb
+      \verb{url}
+      \verb https://jlcpcb.com/blog/decoupling-vs-bypass-capacitor
+      \endverb
+    \endentry
     \entry{bitweenie2013}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=e46d7b0968f3146029db689f94ad8df6}{%

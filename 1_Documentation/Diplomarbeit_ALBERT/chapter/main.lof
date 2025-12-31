@@ -6,14 +6,15 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Beispielhafter Stackup einer vierlagigen Leiterplatte \blx@tocontentsinit {0}\parencite {bitweenie2013}}}{6}{figure.caption.4}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Rückstrompfade im Vergleich \blx@tocontentsinit {0}\parencite {ZachariahPeterson_Rückstromführung}}}{7}{figure.caption.7}%
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Elektrisches und magnetisches Feld eines Leiterbahnschnitts \blx@tocontentsinit {0}\parencite {ToddToporski_EMC}}}{8}{figure.caption.10}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Vereinfachter Schaltplan eines Abwärtswandlers}}{9}{figure.caption.11}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Beispielhaftes Layout eines Abwärtswandlers \blx@tocontentsinit {0}\parencite {TPS55289}}}{10}{figure.caption.12}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Messgrößen einer 6-DOF IMU}}{11}{figure.caption.13}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Schematische Darstellung eines MEMS-Beschleunigungssensors }}{11}{figure.caption.16}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Schematische Darstellung eines MEMS-Gyroskops \blx@tocontentsinit {0}\parencite {AdvancedNavigation_IMU}}}{12}{figure.caption.19}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Funktionsprinzip eines Fluxgate-Magnetometers }}{12}{figure.caption.20}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Beispielhafter Aufbau eines piezoresistiven Barometers \blx@tocontentsinit {0}\parencite {barometerWorkingPrinciple}}}{13}{figure.caption.21}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Vereinfachte Darstellung der GNSS-Satelliten und des Empfängers}}{14}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Platzierung von Decoupling-Kondensatoren}}{9}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Vereinfachter Schaltplan eines Abwärtswandlers}}{10}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Beispielhaftes Layout eines Abwärtswandlers \blx@tocontentsinit {0}\parencite {TPS55289}}}{11}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Messgrößen einer 6-DOF IMU}}{12}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Schematische Darstellung eines MEMS-Beschleunigungssensors }}{12}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Schematische Darstellung eines MEMS-Gyroskops \blx@tocontentsinit {0}\parencite {AdvancedNavigation_IMU}}}{13}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Funktionsprinzip eines Fluxgate-Magnetometers }}{13}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Beispielhafter Aufbau eines piezoresistiven Barometers \blx@tocontentsinit {0}\parencite {barometerWorkingPrinciple}}}{14}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Vereinfachte Darstellung der GNSS-Satelliten und des Empfängers}}{15}{figure.caption.23}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
