@@ -405,7 +405,7 @@ Global Navigation Satellite System (GNSS) ist ein Sammelbegriff für Satellitenn
 \label{subsec:gnss_funktionsprinzip}
 GNSS-Empfänger (in der Abbildung \ref{fig:gnss_simplified} rot dargestellt) nutzen die Signale von mindestens drei Satelliten, um die dreidimensionale Position (Breiten- und Längengrad sowie Höhe) zu berechnen. Der vierte Satellit wird benötigt, um die genaue Zeitdifferenz zwischen der Satellitenuhr und der Empfängeruhr zu bestimmen, da diese nicht exakt synchronisiert sind. Dabei wird die Laufzeit der Signale vom Satelliten zum Empfänger gemessen, wodurch die Entfernung zu jedem Satelliten bestimmt werden kann.
 Jeder GNSS-Satellit sendet dazu seine genaue Sendezeit. Beim Eintreffen des Signals vergleicht der Empfänger diese mit seiner eigenen Zeit und berechnet aus der Zeitdifferenz die Entfernung $s$ zum jeweiligen Satelliten.
-Aus diesen Entfernungen lassen sich um die Satelliten gedanklich Kugeln konstruieren, deren gemeinsamer Schnittpunkt im dreidimensionalen Raum die Position des Empfängers darstellt.
+Aus diesen Entfernungen lassen sich um die Satelliten gedanklich Kugeln konstruieren, deren gemeinsamer Schnittpunkt (es gibt zwei, jedoch ist einer irrelevant) im dreidimensionalen Raum die Position des Empfängers darstellt.
 \\
 
 \begin{figure}[H]
@@ -444,7 +444,7 @@ Aus diesen Entfernungen lassen sich um die Satelliten gedanklich Kugeln konstrui
     \caption{Vereinfachte Darstellung der GNSS-Satelliten und des Empfängers}
     \label{fig:gnss_simplified}
 \end{figure}
-
+\newpage
 \subsection{Layout}
 \label{subsec:gnss_layout}
 
@@ -471,11 +471,19 @@ Wie bei den bereits in der Sektion \ref{sec:abwaertswandler} beschriebenen Layou
 
 
 
-\chapter{Softwarekonzepte}
-\label{ch:softwarekonzepte}
+\chapter{Software}
+\label{ch:software}
+\section{STM32CubeIDE}
+\label{sec:stm32cubeide}
+STM32CubeIDE ist eine integrierte Entwicklungsumgebung (IDE) von STMicroelectronics, die speziell für die Entwicklung von Anwendungen auf STM32-Mikrocontrollern entwickelt wurde. Sie kombiniert den STM32CubeMX-Konfigurationsgenerator mit der Eclipse-basierten IDE, um eine umfassende Plattform für die Softwareentwicklung bereitzustellen.
 
 \chapter{Kalman-Filter}
 \label{ch:kalman_filter}
+Das Kalman-Filter ist ein mathematisches Verfahren zur iterativen Schätzung des Zustands eines Systems aus einer Reihe von verrauschten Messungen von indirekten Systemgrößen. Der große Vorteil im Vergleich zu anderen Filtermethoden liegt in der Fähigkeit, in Echtzeit zu arbeiten, was die Anwendung in Inertialnavigationssystemen in Flugzeugen und Raketen ermöglicht.
+Es wurde ursprünglich von Rudolf E. Kálmán, Richard S. Bucy und Ruslan L. Stratonovich in den 1960er Jahren entwickelt und fand bereits kurz darauf in den Apollo-Missionen der NASA Anwendung zur Navigation, dieser schnelle Sprung von der mathematischen Forschung zur ingenieurstechnischen Anwendung ist außergewöhnlich und zeigt die Effektivität des Verfahrens.
+\\
+\\
+Eine Anwendung eines Kalman-Filters macht dann Sinn, wenn erstens eine zugrundeliegende Systemdynamik (physikalische Gesetze) modelliert werden kann und somit eine Vorhersage des Systemzustands möglich ist und zweitens eine direkte Messung der Systemgrößen nicht möglich oder mit Unsicherheiten behaftet ist. Das Kalman-Filter kombiniert diese beiden Informationsquellen optimal um so eine genauere Vorhersage des Systemzustands zu erhalten.
 
 \chapter{Regelung}
 \label{ch:regelung}
