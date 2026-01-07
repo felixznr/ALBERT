@@ -112,6 +112,37 @@
       \verb https://www.youtube.com/watch?v=zXIeqeT_FC8
       \endverb
     \endentry
+    \entry{DorFuchsKalman}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ae5718ac83b526e3f44d0b055719d9f6}{%
+           family={{Dor Fuchs}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{fullhash}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{fullhashraw}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{bibnamehash}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{authorbibnamehash}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{authornamehash}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{authorfullhash}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{authorfullhashraw}{ae5718ac83b526e3f44d0b055719d9f6}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Wie ein bisschen Mathe bei der Mondlandung half (Das Kalman-Filter)}
+      \field{urlday}{7}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=EBjca6tPuO0
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=EBjca6tPuO0
+      \endverb
+    \endentry
     \entry{BoschFlipCore}{patent}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=110823ca6b065c4ca0615ec97eb35889}{%
@@ -299,6 +330,37 @@
       \verb http://schmidt-walter-schaltnetzteile.de/snt/snt_deu/sntdeu2.pdf
       \endverb
     \endentry
+    \entry{Kalman60}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1f656053f2a54f45a3e6769362d7a49d}{%
+           family={{R. E. KALMAN}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{fullhash}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{fullhashraw}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{bibnamehash}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{authorbibnamehash}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{authornamehash}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{authorfullhash}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{authorfullhashraw}{1f656053f2a54f45a3e6769362d7a49d}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A New Approach to Linear Filtering and Prediction Problems}
+      \field{urlday}{7}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{1960}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.unitedthc.com/DSP/Kalman1960.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.unitedthc.com/DSP/Kalman1960.pdf
+      \endverb
+    \endentry
     \entry{TPS55289}{manual}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=67e54b1ee931f3f4bddfefa5fbde5fd8}{%
@@ -358,6 +420,37 @@
       \endverb
       \verb{url}
       \verb https://www.monolithicpower.com/en/learning/resources/switch-node-layout-considerations-for-emc?srsltid=AfmBOoqRXddokKGt6qhy2Qypf72WE3ECnBd1sNlJD2nkrFNsOXMKb-D_
+      \endverb
+    \endentry
+    \entry{WikipediaKalman}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=535bebf06af273c7e2d9ff9d7fc43470}{%
+           family={{Wikipedia Contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{fullhash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{fullhashraw}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{bibnamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorbibnamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authornamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorfullhash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorfullhashraw}{535bebf06af273c7e2d9ff9d7fc43470}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Kalman-Filter}
+      \field{urlday}{7}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://de.wikipedia.org/wiki/Kalman-Filter#cite_note-1
+      \endverb
+      \verb{url}
+      \verb https://de.wikipedia.org/wiki/Kalman-Filter#cite_note-1
       \endverb
     \endentry
     \entry{ZachariahPeterson_Rückstromführung}{online}{}{}

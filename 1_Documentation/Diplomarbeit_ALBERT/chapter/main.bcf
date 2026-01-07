@@ -2390,6 +2390,9 @@
     <bcf:citekey order="22" intorder="1">BoschFlipCore</bcf:citekey>
     <bcf:citekey order="23" intorder="1">barometerWorkingPrinciple</bcf:citekey>
     <bcf:citekey order="24" intorder="1">AltiumGPS</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">Kalman60</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">DorFuchsKalman</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">WikipediaKalman</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
