@@ -1,5 +1,5 @@
 \babel@toc {ngerman}{}\relax 
-\contentsline {chapter}{Abbildungsverzeichnis}{V}{chapter*.2}%
+\contentsline {chapter}{Abbildungsverzeichnis}{VI}{chapter*.2}%
 \contentsline {chapter}{Tabellenverzeichnis}{VII}{chapter*.3}%
 \contentsline {part}{\numberline {I}Einleitung}{1}{part.1}%
 \contentsline {chapter}{\numberline {1}Motivation}{2}{chapter.1}%
@@ -30,6 +30,9 @@
 \contentsline {section}{\numberline {5.1}STM32CubeIDE}{18}{section.5.1}%
 \contentsline {chapter}{\numberline {6}Kalman-Filter}{19}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Zustandsraummodellierung}{19}{section.6.1}%
-\contentsline {chapter}{\numberline {7}Regelung}{21}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Aerodynamische Grundlagen}{22}{chapter.8}%
+\contentsline {section}{\numberline {6.2}Vorhersageschritt}{20}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Korrekturschritt}{20}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Erweiterter Kalman-Filter}{21}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Regelung}{22}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Aerodynamische Grundlagen}{23}{chapter.8}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

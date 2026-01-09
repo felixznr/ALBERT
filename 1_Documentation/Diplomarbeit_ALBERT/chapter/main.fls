@@ -650,6 +650,9 @@ INPUT ../figures/Logo_HTL.png
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/mathdesign/mdbch/mdbchb8t.vf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chb8y.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chb8t.tfm
+INPUT ../figures/Logo_HTL.png
+INPUT ../figures/Logo_HTL.png
+INPUT ../figures/Logo_HTL.png
 INPUT ./main.lof
 INPUT ./main.lof
 INPUT main.lof
@@ -844,6 +847,10 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/mathdesign/mdbch/mdbchr
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chr7v.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/mathdesign/mdbch/mdbchr7m.vf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chr7m.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/mdbchb8t.tfm
+INPUT ../figures/Logo_HTL.png
+INPUT ../figures/Logo_HTL.png
+INPUT ../figures/Logo_HTL.png
 INPUT ../figures/Logo_HTL.png
 INPUT ../figures/Logo_HTL.png
 INPUT ../figures/Logo_HTL.png
