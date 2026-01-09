@@ -51,7 +51,7 @@ Die Anordnung dieser Schichten im Stack-up ist entscheidend für gute EMC\footno
 Die im folgenden Abschnitten beschriebenen Konzepte stellen die wichtigsten Prinzipien dar, die bei der Gestaltung eines effektiven Stack-ups zu berücksichtigen sind.
 \subsubsection{Rückstrompfade}
 \label{subsubsec:rueckstrompfade}
-Ein kritischer Aspekt im Platinendesign ist die Gestaltung der Rückstrompfade für Signale. Rückstrompfade sind die Wege, die der Strom zurück zum Ursprungspunkt nimmt, nachdem er durch die Schaltung geflossen ist. 
+Ein kritischer Aspekt im Platinendesign ist die Gestaltung der Rückstrompfade für Signale. \\Rückstrompfade sind die Wege, die der Strom zurück zum Ursprungspunkt nimmt, nachdem er durch die Schaltung geflossen ist. 
 \\
 Für Gleichspannung nimmt der Rückstrom den Weg des geringsten ohmschen Widerstands über die nächste Massefläche. Bei Wechselspannung ($>kHz$) hingegen folgt der Rückstrompfad dem Signalpfad, da die Kapazitive und induktive Kopplung zwischen den Leitungen dominant wird. \parencite{ZachariahPeterson_Rückstromführung}
 
@@ -540,7 +540,7 @@ Die Zustandsgleichungen und die Messgleichungen bilden die Grundlage für den Fi
 
 \section{Vorhersageschritt}
 \label{sec:vorhersageschritt}
-Im Vorhersageschritt wird nach der zuvor aufgestellten Zustandsgleichung der vorhergesagte Systemzustand $\mathbf{X}_{k|k-1}$ und die vorhergesagte Kovarianzmatrix\footnote{mehrdimensionale Zufallsvariable} $\mathbf{P}_{k|k-1}$ berechnet. Diese Vorhersagen basieren auf dem vorherigen geschätzten Zustand $\mathbf{X}_{k-1}$ und da der Erwartungswert des Prozessrauschens $\mathbf{w}_k$ null ist, wird dieses im Vorhersageschritt nicht berücksichtigt.
+Im Vorhersageschritt wird nach der zuvor aufgestellten Zustandsgleichung der vorhergesagte Systemzustand $\mathbf{X}_{k|k-1}$ und die vorhergesagte Kovarianzmatrix\footnote{Kovarianzmatrix - mehrdimensionale Zufallsvariable} $\mathbf{P}_{k|k-1}$ berechnet. Diese Vorhersagen basieren auf dem vorherigen geschätzten Zustand $\mathbf{X}_{k-1}$ und da der Erwartungswert des Prozessrauschens $\mathbf{w}_k$ null ist, wird dieses im Vorhersageschritt nicht berücksichtigt.
 \begin{equation}
     \mathbf{X}_{k|k-1} = \mathbf{F}_k \cdot \mathbf{X}_{k-1} + \mathbf{B}_k \cdot \mathbf{u}_k
 \end{equation}
@@ -558,7 +558,7 @@ Im Korrekturschritt wird die Vorhersage des Systemzustands $\mathbf{X}_{k|k-1}$ 
 \\
 Anschließend stellt sich die Frage wie stark die Messdaten gewichtet werden sollen, um die Vorhersage zu korrigieren. Diese Gewichtung wird durch die Kalman-Gain-Matrix $\mathbf{K}_k$ beschrieben, welche auf Basis der vorhergesagten Kovarianzmatrix $\mathbf{P}_{k|k-1}$, der Beobachtungsmatrix $\mathbf{H}_k$ und der Kovarianzmatrix $\mathbf{R}_k$ des Messrauschens $\mathbf{v}_k$ berechnet wird.
 \begin{equation}
-    \mathbf{K}_k = \mathbf{P}_{k|k-1} \cdot \mathbf{H}_k^T \cdot (\mathbf{H}_k \cdot \mathbf{P}_{k|k-1} \cdot \mathbf{H}_k^T + \mathbf{R}_k)^{-1}
+    \mathbf{K}_k = \frac{\mathbf{P}_{k|k-1} \cdot \mathbf{H}_k^T }{\mathbf{H}_k \cdot \mathbf{P}_{k|k-1} \cdot \mathbf{H}_k^T + \mathbf{R}_k} 
 \end{equation}
 Mit der Kalman-Gain-Matrix wird nun die Vorhersage des Systemzustands dynamisch korrigiert, um die aktualisierte Schätzung des Systemzustands $\mathbf{X}_k$ zu erhalten.
 \begin{equation}
@@ -570,7 +570,105 @@ Abschließend wird die Kovarianzmatrix der Schätzfehler aktualisiert, um die Un
 \end{equation}
 \section{Erweiterter Kalman-Filter}
 \label{sec:erweiterter_kalman_filter}
-Der erweiterte Kalman-Filter (EKF) ist eine Erweiterung des klassischen Kalman-Filters, die es ermöglicht, nichtlineare Systeme zu modellieren und zu schätzen. Während der klassische Kalman-Filter auf linearen Zustands- und Messgleichungen basiert, verwendet der EKF eine lineare Approximation dieser Gleichungen durch Taylor-Expansion um den aktuellen Schätzwert.
+Der erweiterte Kalman-Filter (EKF) ist eine Erweiterung des klassischen Kalman-Filters, die es ermöglicht, nichtlineare Systeme zu modellieren und zu schätzen. Während der klassische Kalman-Filter auf linearen Zustands- und Messgleichungen basiert, verwendet der EKF eine lokale lineare Approximation dieser Gleichungen durch das Euler-Verfahren.
 \\
+Die Systemmodellierung erfolgt analog zum klassischen Kalman-Filter,
+wobei nichtlineare \\Zustandsübergangs- und Beobachtungsfunktionen mittels
+einer Linearisierung erster Ordnung approximiert werden.
+Hierzu werden die Jacobi-Matrizen der nichtlinearen Funktionen an der
+aktuellen Zustandsabschätzung ausgewertet und anstelle der linearen
+Matrizen $\mathbf{F}_k$ und $\mathbf{H}_k$ verwendet.
+\\
+\\
+Das nichtlineare Zustandsmodell ist gegeben durch
+\begin{equation}
+\mathbf{x}_k = f(\mathbf{x}_{k-1}, \boldsymbol{\omega}_{k-1}),
+\end{equation}
+wobei $\boldsymbol{\omega}_{k-1}$ das Prozessrauschen beschreibt.
+Durch Linearisierung um die a-priori-Zustandsschätzung (Vorhersage)
+$\hat{\mathbf{x}}_{k-1}$ ergibt sich
+\begin{equation}
+\mathbf{x}_k \approx f({\mathbf{x}}_{k|k-1}, \mathbf{0})
++ \mathbf{F}_k (\mathbf{x}_{k-1} - {\mathbf{x}}_{k|k-1})
++ \mathbf{W}_k \boldsymbol{\omega}_{k-1},
+\end{equation}
+mit den Jacobi-Matrizen
+\begin{equation}
+\mathbf{F}_k =
+\left.\frac{\partial f}{\partial \mathbf{x}}\right|_{{\mathbf{x}}_{k|k-1}},
+\qquad
+\mathbf{W}_k =
+\left.\frac{\partial f}{\partial \boldsymbol{\omega}}\right|_{{\mathbf{x}}_{k|k-1}}
+\end{equation}
+\\
+Das nichtlineare Beobachtungsmodell (Messvektor) lautet
+\begin{equation}
+\mathbf{z}_k = h(\mathbf{x}_k, \boldsymbol{\nu}_k),
+\end{equation}
+wobei $\boldsymbol{\nu}_k$ das Messrauschen bezeichnet.
+
+Die Linearisierung um die a-priori-Zustandsschätzung
+${\mathbf{x}}_{k|k-1}$ führt zu
+\begin{equation}
+\mathbf{z}_k \approx h({\mathbf{x}}_{k|k-1}, \mathbf{0})
++ \mathbf{H}_k (\mathbf{x}_k - {\mathbf{x}}_{k|k-1})
++ \mathbf{V}_k \boldsymbol{\nu}_k,
+\end{equation}
+mit den Jacobi-Matrizen
+\begin{equation}
+\mathbf{H}_k =
+\left.\frac{\partial h}{\partial \mathbf{x}}\right|_{{\mathbf{x}}_{k|k-1}},
+\qquad
+\mathbf{V}_k =
+\left.\frac{\partial h}{\partial \boldsymbol{\nu}}\right|_{{\mathbf{x}}_{k|k-1}}.
+\end{equation}
+
+\parencite{ExtendedKalmanHalle}
+\\\\
+\textbf{Jacobi-Matrix:}
+\\
+Die Jacobi-Matrix ist eine Matrix, die die partiellen Ableitungen einer Matrix nach ihren Variablen enthält. Sie stellt die lokale Steigung einer nichtlinearen Funktion in mehreren Richtungen dar.
+\\
+Für eine Funktion ${f}({x})$ mit $m$ Ausgabekomponenten (Zeilen) und $n$ Eingabekomponenten (Spalten) ist die Jacobi-Matrix definiert als:
+\begin{equation}
+    \mathbf{J} = \begin{bmatrix}
+    \frac{\partial f_1}{\partial x_1}  & \cdots & \frac{\partial f_1}{\partial x_n} \\
+    
+    \vdots  & \ddots & \vdots \\
+    \frac{\partial f_m}{\partial x_1} &  \cdots & \frac{\partial f_m}{\partial x_n}
+    \end{bmatrix}
+\end{equation}
+\\
+\textbf{Euler-Verfahren}
+\\
+Das Euler-Verfahren ist ein numerisches Verfahren zur Lösung von gewöhnlichen Differentialgleichungen. Es basiert auf der Idee, die Ableitung einer Funktion an einem bestimmten Punkt zu verwenden, um den Funktionswert an einem nahegelegenen Punkt zu approximieren. 
+\begin{equation}
+    y_{k+1} = y_k + h \cdot \dot{y}(t)= y_k + h \cdot f(t_k, y_k)
+\end{equation}
+wobei $y_k$ der Funktionswert zum Zeitpunkt $t_k$, $h$ die Schrittweite und $f(t_k, y_k)$ die Ableitung der Funktion zum Zeitpunkt $t_k$ ist, welcher durch $t_{k} = t_0 + k \cdot h$ definiert ist. $k$ ist eine positive ganze Zahl, welche den Zeitschritt angibt.
+\\
+\\
+Für den Vorherageschritt des EKF ergibt sich somit:
+\begin{equation}
+    \mathbf{X}_{k|k-1} = f(\mathbf{X}_{k-1}, \mathbf{u}_k) 
+\end{equation}
+\begin{equation}
+    \mathbf{P}_{k|k-1} = \mathbf{A} \cdot \mathbf{P}_{k-1} \cdot \mathbf{A}^T + \mathbf{W} \cdot \mathbf{Q}_k \cdot \mathbf{W}^T
+\end{equation}
+Für den Korrekturschritt des EKF ergibt sich:
+\begin{equation}
+    \mathbf{y}_k = \mathbf{Z}_k - \mathbf{H}_{k|k-1} \cdot \mathbf{X}_{k|k-1}
+\end{equation}
+\begin{equation}
+    \mathbf{K}_k =  \frac{\mathbf{P}_{k|k-1} \cdot \mathbf{H}^T}{  \mathbf{H} \cdot \mathbf{P}_{k|k-1} \cdot \mathbf{H}^T + \mathbf{V} \cdot \mathbf{R}_k \cdot \mathbf{V}^T}
+\end{equation}
+\begin{equation}
+    \mathbf{X}_k = \mathbf{X}_{k|k-1} + \mathbf{K}_k \cdot \mathbf{y}_k
+\end{equation}
+\begin{equation}
+    \mathbf{P}_k = (\mathbf{I} - \mathbf{K}_k \cdot \mathbf{H}) \cdot \mathbf{P}_{k|k-1}
+\end{equation}  
+Der Ablauf des EKF ist ansonsten identisch zum klassischen Kalman-Filter.
+
 \chapter{Regelung}
 \label{ch:regelung}
