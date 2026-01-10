@@ -1,0 +1,382 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{bookmark}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[german]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+% Farbdefinitionen
+\definecolor{sectioncolor}{RGB}{30,80,150}
+\definecolor{subsectioncolor}{RGB}{60,110,180}
+
+% Überschriften formatieren
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{subsectioncolor}}
+  {\thesubsection}{1em}{}
+
+% Kopf- und Fußzeile
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Businessplan – ALBERT-AEROSPACE}
+\fancyhead[R]{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Tabellendefinitionen
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% Listeneinstellungen
+\setlist[itemize]{leftmargin=*, topsep=3pt, partopsep=0pt}
+\setlist[enumerate]{leftmargin=*, topsep=3pt, partopsep=0pt}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Huge Businessplan} \\
+    \vspace{0.5cm}
+    \textbf{\LARGE ALBERT-AEROSPACE GmbH} \\
+    \vspace{0.3cm}
+    \large Technologieunternehmen für zivile Drohnenabwehr \\
+    \vspace{1cm}
+    \textbf{\Large Abschnitte: Produkt/Dienstleistung und Markt \& Wettbewerb} \\
+    \vspace{0.5cm}
+    \small Stand: \today
+\end{center}
+
+\vspace{1cm}
+
+\section*{Vorwort}
+Dieser Businessplan-Auszug beschreibt detailliert die Produktentwicklung und Marktpositionierung von ALBERT-AEROSPACE, einem in Salzburg gegründeten Technologieunternehmen. Der Fokus liegt auf der Entwicklung kosteneffizienter, nicht-letaler Schutzsysteme zur Abwehr unautorisierter Flugobjekte für den zivilen Einsatz.
+
+\tableofcontents
+\newpage
+
+\section{Produkt/Dienstleistung}
+
+\subsection{Einführung und Hintergrund}
+ALBERT-AEROSPACE ist ein im Technologiestandort Salzburg gegründetes Unternehmen, das sich auf die Entwicklung, Produktion und den Vertrieb von nicht-letalen, modularen Schutzsystemen zur Abwehr unautorisierter Drohnen und Flugobjekte spezialisiert. Unsere Mission ist es, kritische zivile Infrastrukturen durch eine zugängliche, effektive und gesetzeskonforme Lösung zu schützen – zu einem Bruchteil der Kosten bestehender, militärisch geprägter Systeme.
+
+\subsection{Detailbeschreibung der wesentlichen Merkmale}
+Das \textbf{„ALBERT-SHIELD“}-System ist ein integriertes, sensorgestütztes Drohnenabwehrsystem, das speziell für den zivilen und halböffentlichen Bereich konzipiert wurde. Es kombiniert fortschrittliche Erkennungstechnologien mit selektiven, nicht-letalen Gegenmaßnahmen, um eine unerwünschte Drohne zu detektieren, zu identifizieren, zu verfolgen und schließlich abzuwehren – ohne Personen oder die Umgebung zu gefährden.
+
+\subsubsection{Kernfunktionen:}
+\begin{itemize}
+    \item \textbf{Frühwarnung \& Detektion:} Echtzeit-Überwachung eines definierten Luftraums (bis zu 3 km Radius im Basismodul).
+    \item \textbf{Identifikation \& Klassifizierung:} Unterscheidung zwischen autorisierten (z.B. Rettungsdrohnen) und potenziell bedrohlichen Flugobjekten.
+    \item \textbf{Automatisierte Bedrohungsbewertung:} Risikobewertung basierend auf Flugbahn, Geschwindigkeit und Objekttyp.
+    \item \textbf{Maßgeschneiderte Abwehr:} Auswahl der angemessensten, nicht-letalen Gegenmaßnahme.
+    \item \textbf{Dokumentation \& Forensik:} Vollständige Protokollierung aller Ereignisse für behördliche Meldungen und Analysen.
+    \item \textbf{Fernwartung \& Updates:} Cloud-basierte Systemüberwachung und regelmäßige Software-Updates zur Anpassung an neue Drohnentypen.
+\end{itemize}
+
+\subsubsection{Technische Eckdaten (Basismodul):}
+\begin{table}[ht]
+\centering
+\begin{tabularx}{0.9\textwidth}{lY}
+\toprule
+\textbf{Parameter} & \textbf{Spezifikation} \\
+\midrule
+Detektionsreichweite & bis zu 3 km \\
+Abfühlreichweite & bis zu 1,5 km \\
+Reaktionszeit & $<$ 10 Sekunden von der Detektion bis zur Initiierung einer Gegenmaßnahme \\
+Betriebstemperatur & -20°C bis +50°C \\
+Stromversorgung & 230V / optional netzunabhängig mit Solarmodul und Akku \\
+Schnittstellen & REST-API, SIP, TCP/IP für Integration in Leitstellen und Sicherheitsmanagementsysteme \\
+\bottomrule
+\end{tabularx}
+\caption{Technische Spezifikationen des ALBERT-SHIELD Basismoduls}
+\end{table}
+
+\subsection{Beschreibung der modularen Systemarchitektur}
+Das System ist bewusst modular aufgebaut, um maximale Flexibilität und Skalierbarkeit für unterschiedliche Kundenbedürfnisse und Budgets zu gewährleisten.
+
+\begin{itemize}
+    \item \textbf{Modul 1: Sensorik \& Detektion („ALBERT-EYE“)}
+    \begin{itemize}
+        \item \textbf{Inhalt:} Kombination aus passivem Radiofrequenz (RF)-Scanner, elektro-optischem Sensor (Tag/Nacht-Kamera) und kleinem AESA-Radar (Active Electronically Scanned Array).
+        \item \textbf{Funktion:} Erzeugt ein 360°-Luftbild und detektiert Objekte unabhängig von deren Übertragung (auch „stumme“ Drohnen). Die Multi-Sensor-Fusion erhöht die Trefferquote auf $>$99\%.
+        \item \textbf{Variante:} Für kleine Areale ist ein rein RF-basiertes Einstiegsmodul verfügbar.
+    \end{itemize}
+    
+    \item \textbf{Modul 2: Analyse \& Command \& Control („ALBERT-BRAIN“)}
+    \begin{itemize}
+        \item \textbf{Inhalt:} Servereinheit mit proprietärer KI-Software und Benutzeroberfläche.
+        \item \textbf{Funktion:} Führt die Sensorfusion durch, klassifiziert die Drohne anhand einer ständig aktualisierten Datenbank, bewertet die Bedrohungslage und schlägt Gegenmaßnahmen vor. Ermöglicht sowohl automatisierten als auch manuellen Betrieb durch einen Sicherheitsmitarbeiter.
+        \item \textbf{Benutzeroberfläche:} Intuitives Dashboard mit Lagekarte, Alarmmanagement und Ereignislog.
+    \end{itemize}
+    
+    \item \textbf{Modul 3: Effektor \& Abwehr („ALBERT-GUARD“)}
+    \begin{itemize}
+        \item \textbf{Inhalt:} Auswahl an nicht-letalen Effektoren. Das Basispaket umfasst einen gezielten, frequenzselektiven \textbf{Störsender (Jammer)}.
+        \item \textbf{Funktion:} Unterbricht die Funkverbindung (Command \& Control Link) und/oder das GPS-Signal der Drohne, was diese zwingt, entweder an Ort und Stelle zu schweben, sicher zu landen oder zum Startpunkt zurückzukehren (RTH-Funktion).
+        \item \textbf{Erweiterbare Effektoren (als Add-on-Module):}
+        \begin{itemize}
+            \item \textbf{Netzwerfer:} Physisches Abfangen durch ein ausgeworfenes Netz (für sehr niedrige Flughöhen).
+            \item \textbf{Spoofing-Modul:} Sendet falsche GPS-Signale, um die Drohne in eine sichere Zone zu leiten.
+            \item \textbf{Kooperationsmodul:} Sende Einrichtungen für präzise Geopositionierung der Drohne zur Weiterverfolgung durch Behörden.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{USP und Stärken-/Schwächen-Analyse (SWOT auf Produktebene)}
+
+\begin{itemize}
+    \item \textbf{Unique Selling Proposition (USP):} \\
+    ALBERT-SHIELD ist das erste vollständig modulare, skalierbare und auf den zivilen Markt zugeschnittene Drohnenabwehrsystem, das Hochtechnologie zu einem \textbf{transparenten und vorhersehbaren Betriebskostenmodell („Security-as-a-Service“)} anbietet.
+    
+    \item \textbf{Stärken (Strengths):}
+    \begin{itemize}
+        \item \textbf{Kostenvorteil:} Deutlich niedrigere Anschaffungs- und Betriebskosten (ca. 60\% günstiger) als vergleichbare militärische Systeme.
+        \item \textbf{Skalierbarkeit \& Modularität:} Kunden beginnen mit einem Basispaket und können später kostengünstig erweitern (z.B. mehr Sensoren, andere Effektoren).
+        \item \textbf{Zivile Zertifizierung:} Entwicklung unter Berücksichtigung aller EU-Regularien (Luftverkehrsgesetz, Funkverordnung).
+        \item \textbf{Einfache Implementierung:} Plug-and-play-Charakter, geringer Installationsaufwand, intuitive Benutzeroberfläche.
+        \item \textbf{Starkes Gründungsteam:} Kombination aus Aerospace-Engineering, IT-Sicherheit und Betriebswirtschaft.
+    \end{itemize}
+    
+    \item \textbf{Schwächen (Weaknesses):}
+    \begin{itemize}
+        \item \textbf{Begrenzte Abwehrreichweite:} Im Vergleich zu hochleistungsfähigen militärischen Systemen ist die Reichweite für großflächige Einsätze begrenzt.
+        \item \textbf{Abhängigkeit von Zulassungen:} Markteinführung und Vertrieb sind von der Erteilung behördlicher Genehmigungen (z.B. der Fernmeldetechnik) abhängig.
+        \item \textbf{Neue Marke:} Noch kein etablierter Name und keine umfangreiche Referenzliste.
+        \item \textbf{Beschränkte Ressourcen:} Als Startup begrenzte Produktionskapazitäten und Vertriebsreichweite.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Kundennutzen}
+\begin{itemize}
+    \item \textbf{Erhöhte Sicherheit:} Proaktiver Schutz vor Spionage, Sabotage, Schmuggel und Unfällen durch Drohnen.
+    \item \textbf{Rechtssicherheit:} Einsatz eines gesetzeskonformen Systems mit voller Dokumentation, was Haftungsrisiken minimiert.
+    \item \textbf{Kostentransparenz:} Klare Preismodelle (Kauf oder Miete) ohne versteckte Betriebskosten für Wartung oder Updates.
+    \begin{itemize}
+        \item \textbf{Kaufoption:} Einmalige Investition, jährliche Wartungsgebühr.
+        \item \textbf{Mietoption („SaaS“):} Monatliche oder jährliche Gebühr inkl. Hardware, Software, Wartung und Updates.
+    \end{itemize}
+    \item \textbf{Operative Effizienz:} Entlastung des Sicherheitspersonals durch automatisierte Überwachung und klare Alarmvorgaben.
+    \item \textbf{Skalierbarer Schutz:} Das System wächst mit den Anforderungen des Kunden mit.
+\end{itemize}
+
+\subsection{Entwicklungsstand}
+\begin{itemize}
+    \item \textbf{Aktueller Status (Q1/2024):}
+    \begin{itemize}
+        \item \textbf{Technologie-Readiness-Level (TRL) 6:} Systemprototyp in einer relevanten Umgebung erfolgreich getestet.
+        \item Ein funktionsfähiger Labordemonstrator mit allen drei Kernmodulen ist vorhanden.
+        \item Feldtests der Sensorik und der KI-Klassifizierung in Kooperation mit einem regionalen Flugplatz wurden erfolgreich abgeschlossen.
+        \item Die Software-Plattform (ALBERT-BRAIN) befindet sich in der Beta-Phase.
+    \end{itemize}
+    
+    \item \textbf{Nächste Meilensteine:}
+    \begin{itemize}
+        \item Integration der Effektor-Hardware (Jammer) in den Gesamtprototyp.
+        \item Geschlossene Pilotierung mit ersten industriellen Lead-Kunden (z.B. Energieversorger).
+        \item Einleitung des \textbf{CE-Konformitätsbewertungsverfahrens} und Antrag auf Funkzulassung.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Schutzrechte und geistiges Eigentum}
+\begin{itemize}
+    \item \textbf{Patente:} Europäische Patentanmeldung eingereicht für das Verfahren der \textbf{„adaptiven, KI-gestützten Gegenmaßnahmenauswahl in einem modularen Drohnenabwehrsystem“} (Aktenzeichen wird nach Veröffentlichung ergänzt).
+    \item \textbf{Gebrauchsmuster:} Angemeldet für die mechanische Schnittstelle und Verkabelung der Module, die einen werkzeuglosen Aufbau ermöglicht.
+    \item \textbf{Marken:} Wort-Bild-Marke \textbf{„ALBERT-AEROSPACE“} sowie Wortmarke \textbf{„ALBERT-SHIELD“} sind auf EU-Ebene angemeldet.
+    \item \textbf{Software:} Der Quellcode der KI-Klassifizierungsengine und der Steuerungssoftware ist als Geschäftsgeheimnis geschützt.
+\end{itemize}
+
+\subsection{Wichtige Konkurrenzangebote}
+Der Wettbewerb lässt sich in drei Segmente unterteilen:
+
+\begin{table}[ht]
+\centering
+\begin{tabularx}{\textwidth}{lYYYY}
+\toprule
+\textbf{Anbieter / Produkt} & \textbf{Segment} & \textbf{Preisklasse (ca.)} & \textbf{Stärken} & \textbf{Unsere Differenzierung} \\
+\midrule
+\textbf{Hensoldt / Aaronia} (milit. Nischen) & Hochpreis / Militär & 250.000 – 1 Mio. €+ & Sehr große Reichweite, hohe Effektivität, etablierter Name & \textbf{Preis:} Ein Fünftel der Kosten. \textbf{Fokus:} Ziviler Einsatz, Benutzerfreundlichkeit. \\
+\addlinespace
+\textbf{Dedrone / DroneShield} & Mittel bis Hochpreis / Zivil & 80.000 – 300.000 € & Reine Detektionssysteme sehr ausgereift, globale Präsenz & \textbf{Integration:} Vollintegrierte Lösung aus einer Hand. \textbf{Modularität:} Echte Skalierbarkeit ab Kleinstsystem. \\
+\addlinespace
+\textbf{Einzelkomponenten-Anbieter} (z.B. Jammers) & Niedrigpreis & 5.000 – 50.000 € & Sehr günstig, einfach & \textbf{Rechtssicherheit:} Zertifizierte, selektive Abwehr. \textbf{Intelligenz:} KI-basierte Entscheidung gegen unerwünschte Objekte. \\
+\addlinespace
+\textbf{ALBERT-SHIELD} & \textbf{Niedrigpreis / Zivil} & \textbf{25.000 – 120.000 €} (je nach Modulierung) & \textbf{Modular, skalierbar, zertifizierbar, kosteneffizient} & \textbf{USP:} Das erste echte Plug-and-Play-System für den zivilen Massenmarkt. \\
+\bottomrule
+\end{tabularx}
+\caption{Wettbewerbsanalyse und Differenzierung}
+\end{table}
+
+\newpage
+
+\section{Markt und Wettbewerb}
+
+\subsection{Marktdefinition und -abgrenzung}
+ALBERT-AEROSPACE adressiert den spezifischen \textbf{Markt für zivile, nicht-letale Drohnenabwehrlösungen in Europa}, mit Fokus auf den DACH-Raum (Deutschland, Österreich, Schweiz). Dieser Markt umfasst Hardware (Sensoren, Effektoren), Software (Analyse, Steuerung) und Dienstleistungen (Installation, Wartung, Monitoring).
+
+Der relevante Markt wird nicht durch die Anzahl verkaufter Systeme, sondern durch den \textbf{geschützten monetären Wert der Infrastruktur} definiert. Wir schützen Anlagen, deren Ausfall oder Beschädigung enorme volkswirtschaftliche und sicherheitsrelevante Schäden verursachen würde.
+
+\subsection{Ergebnisse der Marktforschung}
+Unsere Analyse stützt sich auf eine Kombination aus Primär- und Sekundärforschung:
+
+\begin{itemize}
+    \item \textbf{Primäre Daten (eigene Erhebung):}
+    \begin{itemize}
+        \item \textbf{Experteninterviews:} 15 Gespräche mit Sicherheitsverantwortlichen von Flughäfen, Energieversorgern und Eventagenturen.
+        \item \textbf{Online-Umfrage:} Unter 100 mittelständischen Industrieunternehmen im DACH-Raum. \textbf{Kernergebnis:} 68\% sehen Drohnen als potenzielle Bedrohung, aber 82\% halten bestehende Lösungen für zu teuer oder zu komplex.
+        \item \textbf{Pilotkunden-Gespräche:} Drei Letter of Intent (LOI) von regionalen Infrastrukturbetreibern für Feldtests unterzeichnet.
+    \end{itemize}
+    
+    \item \textbf{Sekundäre Daten (Auswertung vorhandener Quellen):}
+    \begin{itemize}
+        \item \textbf{Marktstudien:} Drone Industry Insights, EU Aviation Safety Agency (EASA) Reports, Frost \& Sullivan.
+        \item \textbf{Behördliche Statistiken:} Zahlen zu gemeldeten Drohnenvorfällen der nationalen Luftfahrtbehörden und Polizeien.
+        \item \textbf{Wettbewerbsanalysen:} Produktdatenblätter, Preislisten und Kundenbewertungen der wichtigsten Mitbewerber.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Marktanalyse anhand etablierter Modelle}
+
+\subsubsection{SWOT-Analyse (auf Unternehmensebene für den Markteintritt):}
+\begin{table}[ht]
+\centering
+\begin{tabularx}{\textwidth}{YY}
+\toprule
+\textbf{Chancen (Opportunities)} & \textbf{Risiken (Threats)} \\
+\midrule
+\begin{itemize}
+    \item Rasantes Marktwachstum ($>$25\% p.a.)
+    \item Verschärfung der Gesetzgebung (z.B. EU-Drohnenverordnung) erzwingt Schutzmaßnahmen
+    \item Lücke im Niedrigpreissegment
+    \item Steigendes öffentliches Bewusstsein für Drohnenrisiken
+\end{itemize}
+&
+\begin{itemize}
+    \item Schneller technologischer Wandel bei Drohnen (Schwarmtechnologie)
+    \item Behördliche Zulassungsverfahren können sich verzögern
+    \item Eintritt großer Technologiekonzerne (z.B. Bosch, Siemens) in den Markt
+    \item Wirtschaftliche Abschwünge könnten Sicherheitsinvestitionen strecken
+\end{itemize} \\
+\bottomrule
+\end{tabularx}
+\caption{SWOT-Analyse: Chancen und Risiken}
+\end{table}
+
+\subsubsection{Fünf-Kräfte-Modell nach Porter:}
+\begin{enumerate}
+    \item \textbf{Rivalität unter bestehenden Wettbewerbern:} \textbf{Mittel.} Segmentiert in Hoch- und Niedrigpreissektor. Direkter Wettbewerb in unserem Kernsegment (modular, zivil, mittelpreisig) ist derzeit gering.
+    
+    \item \textbf{Bedrohung durch neue Anbieter:} \textbf{Hoch.} Der attraktive Markt lockt Startups und Tech-Firmen an. Eintrittsbarrieren sind jedoch moderat (Technologie, Zertifizierung).
+    
+    \item \textbf{Verhandlungsmacht der Lieferanten:} \textbf{Niedrig.} Sensorkomponenten (Kameras, Radarchips) sind Standardware. Bei spezieller KI-Hardware (GPUs) mittlere Abhängigkeit.
+    
+    \item \textbf{Verhandlungsmacht der Abnehmer:} \textbf{Mittel bis Hoch.} Industriekunden sind preissensibel und fordern Referenzen. Durch unsere USP und starken Kundennutzen können wir einen Preisaufschlag rechtfertigen.
+    
+    \item \textbf{Bedrohung durch Substitute:} \textbf{Niedrig.} Alternative Schutzmethoden (Netze, Falkner) sind nur in Nischen anwendbar. Die einzig echte Substitute sind "gar keine Maßnahmen" oder illegale Jammer – beides für unsere Zielkunden unattraktiv bzw. riskant.
+\end{enumerate}
+
+\subsubsection{Produktlebenszyklus:}
+Der Markt für zivile Drohnenabwehrsysteme befindet sich \textbf{global in der Einführungs- bzw. frühen Wachstumsphase}. In Europa, mit seiner fortschrittlichen Regulierung, beginnt gerade die \textbf{Wachstumsphase}. Dies ist der ideale Zeitpunkt für den Markteintritt, um Marktanteile zu sichern und sich als Pionier im zivilen Niedrigpreissegment zu etablieren.
+
+\subsection{Marktvolumen und -potenzial}
+Basierend auf Daten der EU Aviation Safety Agency (EASA) und Marktstudien von Drone Industry Insights:
+
+\begin{table}[ht]
+\centering
+\begin{tabularx}{0.9\textwidth}{lrrr}
+\toprule
+\textbf{Region} & \textbf{2023} & \textbf{2025 (Prognose)} & \textbf{2027 (Prognose)} \\
+\midrule
+Europa gesamt & 650 Mio. € & 950 Mio. € & 1,4 Mrd. € \\
+DACH-Raum & 180 Mio. € & 280 Mio. € & 420 Mio. € \\
+Österreich & 25 Mio. € & 40 Mio. € & 65 Mio. € \\
+\bottomrule
+\end{tabularx}
+\caption{Marktvolumen für zivile Drohnenabwehrsysteme (in Euro)}
+\end{table}
+
+\vspace{0.5cm}
+
+\textbf{Marktpotenzial für ALBERT-AEROSPACE:}
+\begin{itemize}
+    \item \textbf{Kurzfristig (Jahre 1-3):} Fokus auf DACH-Raum mit Zielmarktanteil von 5-8\% im adressierten Niedrig-/Mittelpreissegment.
+    \item \textbf{Mittelfristig (Jahre 4-6):} Expansion in weitere EU-Länder (Frankreich, Benelux, Norditalien).
+    \item \textbf{Umsatzpotenzial Jahr 3:} Bei konservativer Schätzung von 40 verkauften/vermieteten Systemen pro Jahr zu einem Durchschnittspreis von 70.000 € ergibt sich ein Umsatzpotenzial von \textbf{2,8 Mio. € p.a.}
+\end{itemize}
+
+\subsection{Trends und Marktentwicklung}
+\begin{itemize}
+    \item \textbf{Regulatorischer Push:} Die EU-Drohnenverordnung (EU) 2019/947 und nationale Gesetze verpflichten Betreiber kritischer Infrastrukturen zunehmend zum Schutz ihrer Anlagen.
+    \item \textbf{Technologische Konvergenz:} Verschmelzung von klassischer Sicherheitstechnik mit KI, IoT und Cloud Computing.
+    \item \textbf{Vom Produkt zum Service:} Starke Nachfrage nach „Security-as-a-Service“-Modellen mit monatlichen Fixkosten statt hoher Anfangsinvestitionen.
+    \item \textbf{Zunehmende Drohnenpenetration:} Kommerzielle Drohnennutzung wächst in Logistik, Landwirtschaft und Inspektion, was gleichzeitig das Missbrauchspotenzial erhöht.
+    \item \textbf{Sicherheitsbewusstsein:} Hochkarätige Vorfälle (z.B. Drohnenüberflüge über Flughäfen) sensibilisieren die Öffentlichkeit und Entscheider.
+\end{itemize}
+
+\subsection{Klare Definition der Zielgruppen}
+\begin{table}[ht]
+\centering
+\begin{tabularx}{\textwidth}{lYY}
+\toprule
+\textbf{Zielgruppe} & \textbf{Spezifische Bedürfnisse} & \textbf{Adressierte Lösung} \\
+\midrule
+\textbf{Regionalflughäfen \& Heliports} & Schutz des Kontrollraums, Compliance mit Luftaufsicht, 24/7-Betrieb & ALBERT-SHIELD Professional mit erweiterter Reichweite und redundanter Auslegung \\
+\addlinespace
+\textbf{Energieversorger} (Kraftwerke, Umspannwerke) & Schutz vor Sabotage und Spionage, oft abgelegene Standorte, geringe Personalpräsenz & Robustes Basismodul mit Solarenergie-Option und Fernüberwachung \\
+\addlinespace
+\textbf{Industrieunternehmen} (Chemie, Automotive, Hightech) & Schutz geistigen Eigentums, Werksspionage-Prävention, Sicherheit von Außenlagern & Modular erweiterbares System, Integration in bestehende Sicherheitszentrale \\
+\addlinespace
+\textbf{Großveranstalter} (Festivals, Sportevents, polit. Gipfel) & Temporärer Schutz für begrenzte Zeit, schnelle Installation/Demontage, Crowd-Safety & Mobiles Miet-System, kurzfristige Bereitstellung, einfache Bedienung \\
+\addlinespace
+\textbf{Kommunale Einrichtungen} (Gefängnisse, Regierungsgebäude) & Hohe rechtliche Anforderungen, Kooperation mit Behörden, forensische Dokumentation & Voll zertifiziertes System mit detailliertem Reporting und behördenkonformen Schnittstellen \\
+\bottomrule
+\end{tabularx}
+\caption{Zielgruppenanalyse und Lösungsansätze}
+\end{table}
+
+\subsection{Wettbewerbsanalyse}
+\begin{itemize}
+    \item \textbf{Anzahl direkter Konkurrenten:} Im präzisen Segment (modular, zivil, €25.000–120.000) sind derzeit nur 2-3 ernsthafte Wettbewerber identifizierbar. Im erweiterten Markt (zivile Drohnenabwehr insgesamt) sind es 8-10 Anbieter.
+    
+    \item \textbf{Markteintrittsbarrieren:}
+    \begin{itemize}
+        \item \textbf{Technologische Barrieren:} Hohes Know-how in Sensorfusion, KI und Funktechnologie erforderlich.
+        \item \textbf{Regulatorische Barrieren:} Aufwendige Zertifizierungsverfahren (Funkzulassung, CE, ggf. militärische Exportkontrolle).
+        \item \textbf{Kapitalbarrieren:} Hohe Entwicklungskosten vor der ersten Umsatzgenerierung (€500.000–1 Mio.).
+        \item \textbf{Vertrauensbarrieren:} Kunden benötigen Referenzen und Nachweise der Wirksamkeit.
+    \end{itemize}
+    
+    \item \textbf{Differenzierung zur Konkurrenz:}
+    \begin{itemize}
+        \item \textbf{Gegenüber Hochpreisanbietern:} Preis-Leistungs-Verhältnis, Fokus auf zivile Anwendungsfälle.
+        \item \textbf{Gegenüber Low-End-Anbietern:} Vollintegrierte, rechtssichere Gesamtlösung statt Einzelkomponenten.
+        \item \textbf{Gegenüber reinen Detektionsanbietern:} Komplettlösung inkl. Abwehr, kein zusätzlicher Integrationsaufwand.
+    \end{itemize}
+    
+    \item \textbf{Positionierung am Markt:} \\
+    ALBERT-AEROSPACE positioniert sich bewusst als \textbf{„Demokratisierer der Drohnenabwehr“} – wir machen hochentwickelte Schutztechnologie für den Mittelstand und öffentliche Einrichtungen erschwinglich und zugänglich. Unsere Positionierung lautet:
+    
+    \begin{center}
+        \textbf{„Professioneller Drohnenschutz – endlich auch für Ihr Budget.“}
+    \end{center}
+\end{itemize}
+
+\subsection{Kritische Erfolgsfaktoren}
+\begin{enumerate}
+    \item \textbf{Schnelle Zertifizierung:} Zeitnahe Erlangung aller notwendigen behördlichen Genehmigungen.
+    \item \textbf{Pilotkunden-Referenzen:} Aufbau von 3-5 öffentlich kommunizierbaren Referenzprojekten im ersten Jahr.
+    \item \textbf{Kontinuierliche Produktentwicklung:} Anpassung an neue Drohnentechnologien (z.B. Schwarmdrohnen).
+    \item \textbf{Starker Vertriebspartner:} Aufbau eines Netzwerks von Sicherheitsfachhändlern und Systemintegratoren.
+    \item \textbf{Kapitaleffizienz:} Kontrolle der Entwicklungskosten und Erreichen der Break-even-Marke innerhalb von 24 Monaten.
+\end{enumerate}
+
+\section*{Fazit der Markt- und Wettbewerbsanalyse}
+Der Markt für zivile Drohnenabwehrsysteme bietet ALBERT-AEROSPACE außergewöhnlich günstige Rahmenbedingungen: starkes Wachstum, regulatorischer Rückenwind und eine klare Lücke im attraktiven Niedrigpreissegment. Durch unsere modulare, skalierbare und kosteneffiziente Lösung sind wir optimal positioniert, um diese Marktchance zu nutzen und uns als führender Anbieter für zivilen Drohnenschutz im DACH-Raum zu etablieren.
+
+\end{document}
