@@ -1,0 +1,24 @@
+\babel@toc {nil}{}\relax 
+\contentsline {section}{\numberline {1}Produkt/Dienstleistung}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Einführung und Hintergrund}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Detailbeschreibung der wesentlichen Merkmale}{2}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Kernfunktionen:}{2}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Technische Eckdaten (Basismodul):}{2}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.3}Beschreibung der modularen Systemarchitektur}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}USP und Stärken-/Schwächen-Analyse (SWOT auf Produktebene)}{3}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Kundennutzen}{4}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Entwicklungsstand}{4}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Schutzrechte und geistiges Eigentum}{5}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Wichtige Konkurrenzangebote}{5}{subsection.1.8}%
+\contentsline {section}{\numberline {2}Markt und Wettbewerb}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Marktdefinition und -abgrenzung}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Ergebnisse der Marktforschung}{6}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Marktanalyse anhand etablierter Modelle}{6}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}SWOT-Analyse (auf Unternehmensebene für den Markteintritt):}{6}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Fünf-Kräfte-Modell nach Porter:}{6}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Produktlebenszyklus:}{7}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Marktvolumen und -potenzial}{7}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Trends und Marktentwicklung}{7}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Klare Definition der Zielgruppen}{7}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Wettbewerbsanalyse}{7}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Kritische Erfolgsfaktoren}{8}{subsection.2.8}%
