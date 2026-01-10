@@ -1,0 +1,237 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{array}
+
+% Farben definieren
+\definecolor{primary}{RGB}{0, 102, 204}
+\definecolor{secondary}{RGB}{51, 51, 51}
+\definecolor{accent}{RGB}{255, 153, 0}
+
+% Seitenstil
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% Titel-Formatierung
+\titleformat{\section}{\Large\bfseries\color{primary}}{}{0em}{}[\color{primary}\rule{\linewidth}{2pt}]
+\titleformat{\subsection}{\large\bfseries\color{secondary}}{}{0em}{}
+
+\title{}
+\author{}
+\date{}
+
+\begin{document}
+
+% ===== TITELSEITE =====
+\thispagestyle{empty}
+\vspace*{3cm}
+
+\begin{center}
+    {\fontsize{48}{60}\selectfont\bfseries\color{primary}BUSINESSPLAN}
+    
+    \vspace{0.5cm}
+    {\fontsize{24}{30}\selectfont\color{accent}[Ihr Startup-Name]}
+    
+    \vspace{3cm}
+    {\fontsize{14}{18}\selectfont\color{secondary}
+    Ein umfassendes Geschäftskonzept für die Gründung und Entwicklung\\
+    unseres innovativen Unternehmens
+    }
+\end{center}
+
+\vspace{4cm}
+
+\begin{center}
+    \begin{tabular}{l l}
+        \textbf{Gründer:} & [Name des Gründers] \\[0.3cm]
+        \textbf{Adresse:} & [Adresse] \\[0.3cm]
+        \textbf{Telefon:} & [Telefonnummer] \\[0.3cm]
+        \textbf{E-Mail:} & [E-Mail-Adresse] \\[0.3cm]
+        \textbf{Datum:} & \today
+    \end{tabular}
+\end{center}
+
+\vfill
+
+\begin{center}
+    {\color{primary}\rule{0.8\linewidth}{3pt}}
+    
+    \vspace{0.5cm}
+    {\fontsize{11}{13}\selectfont\color{secondary}
+    Dieses Dokument enthält vertrauliche Informationen.\\
+    Unbefugte Weitergabe ist untersagt.
+    }
+\end{center}
+
+\newpage
+
+% ===== INHALTSVERZEICHNIS =====
+\tableofcontents
+\newpage
+
+% ===== 1. EXECUTIVE SUMMARY =====
+\section{Executive Summary}
+Prägnante Zusammenfassung des Geschäftskonzepts (max. 1-2 Seiten).
+\begin{itemize}
+    \item Geschäftsidee kurz beschreiben
+    \item Zielmarkt und Marktpotenzial
+    \item Wettbewerbsvorteil
+    \item Finanzielle Prognose (Umsatz, Gewinn)
+    \item Kapitalbedarfe
+\end{itemize}
+
+% ===== 2. UNTERNEHMENSKONZEPT =====
+\section{Unternehmenskonzept}
+
+\subsection{Geschäftsidee}
+Detaillierte Beschreibung der Geschäftsidee und des Produkts/der Dienstleistung.
+
+\subsection{Vision und Mission}
+\begin{itemize}
+    \item \textbf{Vision:} Langfristige Zielstellung
+    \item \textbf{Mission:} Unternehmenszweck und Werte
+\end{itemize}
+
+\subsection{Rechtsform und Organisationsstruktur}
+Wahl der Unternehmensform (GmbH, GbR, etc.) und interne Struktur.
+
+% ===== 3. MARKTANALYSE =====
+\section{Marktanalyse}
+
+\subsection{Marktgröße und Markttrends}
+\begin{itemize}
+    \item Gesamtmarktvolumen
+    \item Wachstumstrends
+    \item Prognosen für die nächsten 5 Jahre
+\end{itemize}
+
+\subsection{Zielgruppe}
+\begin{itemize}
+    \item Demografie
+    \item Psychografie
+    \item Kundenbedarf
+\end{itemize}
+
+\subsection{Wettbewerbsanalyse}
+\begin{itemize}
+    \item Direkte Konkurrenten
+    \item Indirekte Konkurrenten
+    \item Wettbewerbsvorteil (USP)
+    \item SWOT-Analyse
+\end{itemize}
+
+% ===== 4. MARKETING- UND VERTRIEBSSTRATEGIE =====
+\section{Marketing- und Vertriebsstrategie}
+
+\subsection{Produktpositionierung}
+Wie soll das Produkt/die Dienstleistung positioniert werden?
+
+\subsection{Marketingmaßnahmen}
+\begin{itemize}
+    \item Online-Marketing (SEO, Social Media, etc.)
+    \item Offline-Marketing (Events, PR, etc.)
+    \item Partnerschaften und Kooperationen
+\end{itemize}
+
+\subsection{Vertriebskanäle}
+Beschreibung der Vertriebswege (direkt, indirekt, online, etc.).
+
+\subsection{Preisgestaltung}
+Pricing-Strategie und Begründung.
+
+% ===== 5. LEISTUNGSERSTELLUNG =====
+\section{Leistungserstellung}
+
+\subsection{Produktentwicklung}
+Entwicklungsprozess und Roadmap.
+
+\subsection{Lieferanten und Partnerschaften}
+\begin{itemize}
+    \item Kritische Lieferanten
+    \item Qualitätssicherung
+\end{itemize}
+
+\subsection{Technologie und Infrastruktur}
+Benötigte Systeme, Software, Hardware.
+
+% ===== 6. MANAGEMENT UND ORGANISATION =====
+\section{Management und Organisation}
+
+\subsection{Organisationsstruktur}
+Aufbauorganisation und Verantwortlichkeiten.
+
+\subsection{Gründerteam}
+\begin{itemize}
+    \item Kurzbios der Gründer
+    \item Relevant Erfahrung und Expertise
+    \item Referenzen
+\end{itemize}
+
+\subsection{Personalplanung}
+\begin{itemize}
+    \item Aktueller und zukünftiger Personalbestand
+    \item Qualifikationsanforderungen
+\end{itemize}
+
+% ===== 7. FINANZPLANUNG =====
+\section{Finanzplanung}
+
+\subsection{Kapitalbedarfsplan}
+Detaillierung des benötigten Kapitals.
+
+\subsection{Rentabilitätsprognose}
+\begin{itemize}
+    \item Umsatzprognose (3-5 Jahre)
+    \item Kostenstruktur
+    \item Gewinnprognose
+\end{itemize}
+
+\subsection{Break-Even-Analyse}
+Zeitpunkt der Profitabilität.
+
+\subsection{Finanzierungsquellen}
+\begin{itemize}
+    \item Eigenkapital
+    \item Fremdkapital (Kredite, Investoren)
+\end{itemize}
+
+% ===== 8. RISIKOMANAGEMENT =====
+\section{Risikomanagement}
+
+\subsection{Identifizierte Risiken}
+\begin{itemize}
+    \item Marktrisiken
+    \item Technologische Risiken
+    \item Personalrisiken
+    \item Finanzielle Risiken
+\end{itemize}
+
+\subsection{Risikominderungsmaßnahmen}
+Strategien zur Risikovermeidung und -minimierung.
+
+% ===== 9. MEILENSTEINE UND ZEITPLAN =====
+\section{Meilensteine und Zeitplan}
+
+Konkrete Ziele und Zeitrahmen für die ersten 24 Monate.
+
+% ===== 10. ANHANG =====
+\section{Anhang}
+
+\begin{itemize}
+    \item Detaillierte Finanzpläne (Bilanz, GuV, Cashflow)
+    \item Marktforschungsergebnisse
+    \item Produktmuster/Prototypen
+    \item Lebenslauf der Gründer
+    \item Zertifikate und Qualifikationen
+    \item Presseberichte und Referenzen
+\end{itemize}
+
+\end{document}
