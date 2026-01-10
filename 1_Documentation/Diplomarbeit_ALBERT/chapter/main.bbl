@@ -267,7 +267,7 @@
       \verb https://www.bitweenie.com/listings/standard-4-and-6-layer-pcb-stackups/
       \endverb
     \endentry
-    \entry{PhilsLab56}{online}{}{}
+    \entry{ExtendedKalmanPhils1}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=2ebe0aa598361ef6415e8bc30497c26b}{%
            family={{Phil's Lab}},
@@ -282,6 +282,38 @@
       \strng{authorfullhash}{2ebe0aa598361ef6415e8bc30497c26b}
       \strng{authorfullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
       \field{extraname}{1}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{(Sponsored) Extended Kalman Filter - Sensor Fusion 3 - Phil's Lab 37}
+      \field{urlday}{8}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=hQUkiC5o0JI&t=17s
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=hQUkiC5o0JI&t=17s
+      \endverb
+    \endentry
+    \entry{PhilsLab56}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2ebe0aa598361ef6415e8bc30497c26b}{%
+           family={{Phil's Lab}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{bibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorbibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authornamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \field{extraname}{2}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{labelnamesource}{author}
@@ -313,7 +345,7 @@
       \strng{authornamehash}{2ebe0aa598361ef6415e8bc30497c26b}
       \strng{authorfullhash}{2ebe0aa598361ef6415e8bc30497c26b}
       \strng{authorfullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{labelnamesource}{author}

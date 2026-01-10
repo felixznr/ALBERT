@@ -196,20 +196,85 @@ Für den kontinuierlichen Betrieb\footnote{kontinuierlicher Betrieb - der Strom 
     \caption{Vereinfachter Schaltplan eines Abwärtswandlers}
     \label{fig:buck_converter}
 \end{figure}
+\vspace{-2.5cm}
 \subsection{Funktionsweise}
 \label{subsec:buck_funktionsweise}
 Der MOSFET $Q$ wird periodisch durch einen Regler (Controller) ein- und ausgeschaltet, wodurch während der Einschaltphase $t_{1}$ der Ausgangsstrom $I_{A}$ durch die Induktivität $L$ und die angeschlossene, aber hier nicht eingezeichnete Last fließt. Die Diode $D$ ist in dieser Phase gesperrt. Während der Ausschaltphase  hingegen sperrt der MOSFET $Q$ und die Induktivität $L$ entlädt sich über die Diode $D$ und die Last um den Stromfluss aufrechtzuerhalten. 
 \\
-Der Kondensator $C_A$ stützt in dieser Phase die Ausgangsspannung $U_{A}$. Der Eingangskondensator $C_E$ stellt die hochfrequenten, gepulsten Eingangsstromanteile bereit und wirkt als lokaler Energiespeicher, wodurch Eingangsspannungsripple, Spannungsspitzen und EMV-Störungen reduziert und die Spannungsquelle entlastet werden. 
+Der Kondensator $C_A$ lädt sich in dieser Phase so lang auf bis beide das gleiche Potenzial erreicht haben, danach stützt er die Ausgangsspannung $U_{A}$. Der Eingangskondensator $C_E$ stellt die hochfrequenten, gepulsten Eingangsstromanteile bereit und wirkt als lokaler Energiespeicher, wodurch Eingangsspannungsripple, Spannungsspitzen und EMV-Störungen reduziert und die Spannungsquelle entlastet werden. 
 \\
-Durch die kontinuierliche Ein- und Ausschaltphase wird eine mittlere Ausgangsspannung $U_{A}$ erzeugt, die niedriger ist als die Eingangsspannung $U_{E}$ und über die Schaltfrequenz gesteuert werden kann.
+Durch die kontinuierliche Ein- und Ausschaltphase wird eine mittlere Ausgangsspannung $\bar{U}_{A}$ erzeugt, die niedriger ist als die Eingangsspannung $U_{E}$ und über die Schaltfrequenz gesteuert werden kann.
 \\
 Über den Feedback-Widerstandsteiler $R_{FB1}$ und $R_{FB2}$ wird die Ausgangsspannung $U_{A}$ dem Controller zurückgeführt, der das Tastverhältnis $\frac{t_1}{T}$ (duty cycle) des MOSFETs $Q$ anpasst, um die gewünschte Ausgangsspannung zu halten.
 \parencite{schmidt-walter_Abwärtswandler}\parencite{PhilsLab60}
-\newpage
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+
+    
+    % Gitternetz
+      \draw[gray!20] (0,0) grid (9,5);
+      \draw[gray!40] (0,0) grid[step=2] (9,5);
+      
+       
+       
+      
+      % Bereich 1: MOSFET AN (0 bis t1)
+      \draw[gray!20, fill=green!10] (0,0) -- (3,0) -- (3,5) -- (0,5) -- cycle;
+      \node[green, anchor=south] at (1.5, 5) { Q AN};
+      
+      % Bereich 2: MOSFET AUS (t1 bis T)
+      \draw[gray!20, fill=red!10] (3,0) -- (6,0) -- (6,5) -- (3,5) -- cycle;
+      \node[red, anchor=south] at (4.5, 5) { Q AUS};
+
+      % Bereich 1: MOSFET AN (0 bis t1)
+      \draw[gray!20, fill=green!10] (6,0) -- (9,0) -- (9,5) -- (6,5) -- cycle;
+      \node[green, anchor=south] at (7.5, 5) { Q AN};
+      
+      % --- U_Q (Schaltspannung) ---
+      \draw[line width=1pt, blue!50] (0,5) -- (3,5) -- (3,0) -- (6,0) -- (6,5) -- (9,5);
+      \node[blue!50, left] at (0,4.5) {$U_Q$};
+      
+      % --- U_A (Ausgangsspannung) ---
+
+      \draw[line width=1.5pt, orange] (0,2.5) -- (1.5,2);
+
+      \draw[line width=1.5pt, orange] (1.5,2) -- (4.5,3);
+      \draw[line width=1.5pt, orange] (4.5,3) -- (6,2.5);
+      \draw[line width=1.5pt, orange] (6,2.5) -- (7.5,2);
+      \draw[line width=1.5pt, orange] (7.5,2) -- (9,2.5);
+       
+      \node[orange, left] at (0,2.8) {$U_A$};
+      
+      % --- I_L (Induktivitätsstrom) ---
+      % Phase 1: Strom steigt linear
+      \draw[line width=1.5pt, purple] (0,1.5) -- (3,3.5);
+      % Phase 2: Strom fällt linear
+      \draw[line width=1.5pt, purple] (3,3.5) -- (6,1.5);
+      % Periodische Wiederholung
+      \draw[line width=1.5pt, purple] (6,1.5) -- (9,3.5);
+      
+      % Strommittelwert
+      \draw[dashed, orange] (0,2.5) -- (9,2.5) node[right] {$\bar{U}_A$};
+      \node[purple, left] at (0,1.2) {$I_L$};
+      
+      % Achsen
+      \draw[->] (0,0) -- (9.25,0) node[right] {$t$};
+      \draw[->] (0,0) -- (0,5.25) node[above] {I / U};
+      
+      % Messpfeile
+      \draw[<->] (0,-0.2) -- (3,-0.2) node[midway, below] {$t_1$};
+      \draw[<->] (0,-0.7) -- (6,-0.7) node[midway, below] {$T$};
+    
+  \end{tikzpicture}
+  \caption{Zeitliche Verläufe von Schaltspannung $U_Q$, Ausgangsspannung $U_A$ und Induktivitätsstrom $I_L$ eines Buck Converters im kontinuierlichen Betrieb}
+  \label{fig:buck_waveforms}
+\end{figure}
+
 \subsection{Layoutrichtlinien}
 \label{subsec:buck_layoutrichtlinien}
-Beim Layout eines Abwärtswandlers gilt es mehrere kritische Aspekte zu berücksichtigen, um eine stabile und saubere Spannungsversorgung zu gewährleisten und Störungen zu minimieren. 
+Beim Layout eines Abwärtswandlers gilt es mehrere kritische Aspekte zu berücksichtigen, um eine stabile und saubere Spannungsversorgung zu gewährleisten, hierzu ist es sinnvoll, sich an Referenzdesigns sowie Bauteilempfehlungen der Hersteller zu orientieren.
 \begin{wrapfigure}{r}{0.5\textwidth}
 \vspace{10pt}
   % {r} = rechtsbündig platzieren
@@ -227,11 +292,11 @@ Beim Layout eines Abwärtswandlers gilt es mehrere kritische Aspekte zu berücks
 \begin{itemize}
    \item \textbf{Schleifen kurz halten}: Die Stromschleifen, insbesondere die Schleife, die durch den MOSFET $Q$, die Diode $D$, die Induktivität $L$ und den Eingangskondensator $C_E$ gebildet wird, sollten so kurz wie möglich gehalten werden, um parasitäre Induktivitäten und elektromagnetische Störungen zu minimieren.
    \item \textbf{Kritische Pfade zuerst routen}: Hochfrequente sowie stromtragende Leiterbahnen, wie die Verbindungen zwischen $Q$, $D$, $L$ und $C_A$, sollten zuerst geroutet werden, um deren optimale Platzierung und minimale Länge sicherzustellen. Feedback Leitungen können später und weit weg von Störquellen geroutet werden.
-   \item \textbf{Power und Ground Puddles nutzen}: Verwendung von durchgehenden Power- und Ground-Planes, mit sauberer Trennung der Signale. Eine durchgehende Ground-Ebene unter dem Abwärtswandler hilft, Rückstrompfade zu minimieren und Störungen zu reduzieren.
+   \item \textbf{Power und Ground Puddles nutzen}: Verwendung von durchgehenden Power- und Ground-Planes, mit sauberer Trennung der Signale zur Minimierung von Störungen. 
 \end{itemize}
-\vspace{10pt}
-Als Best Practice gilt die Orientierung an Referenzdesigns und Anwendungshinweisen der Hersteller, da Datenblätter meist konkrete Layout-Empfehlungen für Abwärtswandler enthalten. 
 \parencite{PhilsLab60}
+
+
 
 \newpage
 \section{Sensorik}
@@ -669,6 +734,7 @@ Für den Korrekturschritt des EKF ergibt sich:
     \mathbf{P}_k = (\mathbf{I} - \mathbf{K}_k \cdot \mathbf{H}) \cdot \mathbf{P}_{k|k-1}
 \end{equation}  
 Der Ablauf des EKF ist ansonsten identisch zum klassischen Kalman-Filter.
+\parencite{ExtendedKalmanHalle}\parencite{ExtendedKalmanPhils1}
 
 \chapter{Regelung}
 \label{ch:regelung}
