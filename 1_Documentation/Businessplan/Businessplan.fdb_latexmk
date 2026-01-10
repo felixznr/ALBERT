@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1768070691.93249 "/Users/felixzauner/Documents/Privat/Github/ALBERT/1_Documentation/Businessplan/Businessplan.tex" "Businessplan.pdf" "Businessplan" 1768070692.49507 0
-  "/Users/felixzauner/Documents/Privat/Github/ALBERT/1_Documentation/Businessplan/Businessplan.tex" 1768070690.79018 63717 0dbafb8b670619d3ee3e43ce31d7d07b ""
+["pdflatex"] 1768071270.44272 "/Users/felixzauner/Documents/Privat/Github/ALBERT/1_Documentation/Businessplan/Businessplan.tex" "Businessplan.pdf" "Businessplan" 1768071270.96604 0
+  "/Users/felixzauner/Documents/Privat/Github/ALBERT/1_Documentation/Businessplan/Businessplan.tex" 1768071270.27773 63949 4c4df21251b39e478b4dac86e5beeaff ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcbx1095.tfm" 1136768653 1536 0adca69c597a47fe7664bf81057bb53b ""
@@ -85,10 +85,10 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1766844448 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1758554744 3345739 2a2ad443f1ed40c72acb9b0723e4f0b3 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "Businessplan.aux" 1768070692.44715 21892 5d909640351be61e8a9d00a91bfeed1c "pdflatex"
-  "Businessplan.out" 1768070692.44886 31421 a5c1e44ebfb9f340adbdbac9a3ef6c79 "pdflatex"
-  "Businessplan.tex" 1768070690.79018 63717 0dbafb8b670619d3ee3e43ce31d7d07b ""
-  "Businessplan.toc" 1768070692.44907 15307 84dfba463d70c4c67c146eb89927dba7 "pdflatex"
+  "Businessplan.aux" 1768071270.92305 20261 90eec50b468da82664030d6d24ba4e86 "pdflatex"
+  "Businessplan.out" 1768071270.92465 29093 7bf731fbad07b36e9b0f889aa056e6a9 "pdflatex"
+  "Businessplan.tex" 1768071270.27773 63949 4c4df21251b39e478b4dac86e5beeaff ""
+  "Businessplan.toc" 1768071270.92483 14168 8a3a30008e07c6da380934940db2d8f1 "pdflatex"
   (generated)
   "Businessplan.aux"
   "Businessplan.log"
