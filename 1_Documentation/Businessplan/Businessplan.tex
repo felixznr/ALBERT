@@ -8,9 +8,11 @@
 \usepackage{titlesec}
 \usepackage{hyperref}
 \usepackage{array}
+\usepackage{wrapfig}
+\usepackage{tikz}
 
 % Farben definieren
-\definecolor{primary}{RGB}{0, 102, 204}
+\definecolor{primary}{RGB}{205, 106, 72}
 \definecolor{secondary}{RGB}{51, 51, 51}
 \definecolor{accent}{RGB}{255, 153, 0}
 
@@ -19,6 +21,10 @@
 \fancyhf{}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0pt}
+
+% Kopfzeile
+
+
 
 % Titel-Formatierung
 \titleformat{\section}{\Large\bfseries\color{primary}}{}{0em}{}[\color{primary}\rule{\linewidth}{2pt}]
@@ -33,53 +39,28 @@
 % ===== TITELSEITE =====
 \thispagestyle{empty}
 \vspace*{3cm}
-
 \begin{center}
-    {\fontsize{48}{60}\selectfont\bfseries\color{primary}BUSINESSPLAN}
+    \includegraphics[width=\textwidth]{Businessplan.png}
     
-    \vspace{0.5cm}
-    {\fontsize{24}{30}\selectfont\color{accent}ALBERT-AEROSPACE}
-    
-    \vspace{3cm}
-    {\fontsize{14}{18}\selectfont\color{secondary}
-    Entwicklung ziviler, nicht-letaler Schutzsysteme\\
-    zum Schutz kritischer Infrastruktur
-    }
-\end{center}
 
-\vspace{4cm}
-
-\begin{center}
-    \begin{tabular}{l l}
-        \textbf{Gründer:} & Felix Zauner, Timofey Luzin \\[0.3cm]
-        \textbf{Standort:} & Salzburg, Österreich \\[0.3cm]
-        \textbf{E-Mail:} & kontakt@albert-aerospace.at \\[0.3cm]
-        \textbf{Datum:} & \today
-    \end{tabular}
 \end{center}
 
 \vfill
 
-\begin{center}
-    {\color{primary}\rule{0.8\linewidth}{3pt}}
-    
-    \vspace{0.5cm}
-    {\fontsize{11}{13}\selectfont\color{secondary}
-    Dieses Dokument enthält vertrauliche Informationen.\\
-    Unbefugte Weitergabe ist untersagt.
-    }
-\end{center}
 
 \newpage
 
 % ===== INHALTSVERZEICHNIS =====
 \tableofcontents
 \newpage
+\fancyhead[R]{\includegraphics[width=1.8cm]{AlbertAero.png}}
+\newpage
+
 
 % ===== 1. EXECUTIVE SUMMARY =====
 \section{Executive Summary}
 
-ALBERT-AEROSPACE entwickelt und vermarktet kostengünstige, nicht-letale Schutzsysteme zur Neutralisierung 
+ALBERT AERO entwickelt und vermarktet kostengünstige, nicht-letale Schutzsysteme zur Neutralisierung 
 unautorisierter Drohnen (UAV) im zivilen Einsatzbereich. Das in Salzburg gegründete Unternehmen schließt 
 eine bedeutende Marktlücke durch das Angebot von zivil-genehmigungsfähigen, modularen Lösungen, die 
 60–70\% günstiger sind als militärische Systeme, ohne dabei Kompromisse bei technischer Zuverlässigkeit 
@@ -88,7 +69,7 @@ oder rechtlicher Konformität einzugehen.
 \subsubsection*{Geschäftsidee}
 Die Geschäftsidee adressiert einen rasant wachsenden Markt: Der globale Drohnenabwehr-Markt wächst mit 
 15–20\% CAGR und wird bis 2030 ein Volumen von EUR 6–8 Milliarden erreichen. Europa, der Fokusmarkt 
-von ALBERT-AEROSPACE, repräsentiert davon EUR 800–1.200 Millionen. Getrieben wird diese Entwicklung 
+von ALBERT AERO, repräsentiert davon EUR 800–1.200 Millionen. Getrieben wird diese Entwicklung 
 durch zunehmende Drohnenvorfälle an kritischen Infrastrukturen, regulatorische Mandate von Behörden, 
 technologische Verfügbarkeit von Sensoren sowie die fortschreitende Digitalisierung und damit einhergehende 
 erhöhte Anfälligkeit kritischer Infrastruktur.
@@ -96,14 +77,14 @@ erhöhte Anfälligkeit kritischer Infrastruktur.
 \subsubsection*{Zielgruppe}
 Die primäre Zielgruppe besteht aus europäischen Infrastrukturbetreibern mit hohen Sicherheitsanforderungen: 
 Flughäfen und Flugplätze, Energieversorger und Betreiber kritischer Infrastruktur, Häfen und Logistikzentren 
-sowie Veranstalter von Großveranstaltungen. Für diese Kunden bietet ALBERT-AEROSPACE einen vierfachen 
+sowie Veranstalter von Großveranstaltungen. Für diese Kunden bietet ALBERT AERO einen vierfachen 
 Kundennutzen: Direkt profitieren sie von zuverlässiger, schneller Neutralisierung unautorisierter Drohnen 
 (Reaktionszeit im Millisekundenbereich). Wirtschaftlich entstehen Einsparungen durch Reduktion von Betriebsunterbrechungen, 
 Einsparung von Sicherheitspersonal und schnelle ROI. Strategisch erreichen Kunden Compliance mit behördlichen 
 Vorgaben, verbesserten Versicherungsstatus und Wettbewerbsvorteil gegenüber Konkurrenten.
 
 \subsubsection*{Wettbewerbsvorteil und Positionierung}
-Das Unique Selling Proposition von ALBERT-AEROSPACE basiert auf vier Säulen: Kostenführerschaft mit 
+Das Unique Selling Proposition von ALBERT AERO basiert auf vier Säulen: Kostenführerschaft mit 
 40–60\% Kostenersparnis gegenüber etablierten Wettbewerbern, Modularität für flexible Konfiguration 
 verschiedenster Anwendungsfälle, konsequenter Zivil-Fokus mit nicht-letaler, genehmigungsfähiger Technologie 
 sowie Benutzerfreundlichkeit durch intuitive Bedienung mit minimalen Schulungsanforderungen.
@@ -133,10 +114,10 @@ von EUR [X]k angestrebt. Zur Erreichung dieser Ziele sind jährliche Personalkos
 einkalkuliert.
 
 \subsubsection*x{Zusammenfassung und Investitionsattraktivität}
-ALBERT-AEROSPACE adressiert somit eine schnell wachsende Marktnische mit einem kostengünstigen, technologisch 
+ALBERT AERO adressiert somit eine schnell wachsende Marktnische mit einem kostengünstigen, technologisch 
 überlegenen Produkt und einem erfahrenen Gründerteam. Der klare Go-to-Market-Plan, die tragfähige Finanzstruktur 
 und das erhebliche Skalierungspotenzial ermöglichen schnelle Marktdurchdringung in Europa mit deutlichen Chancen 
-auf Expansion in Nordamerika und weitere internationale Märkte. Die Investition in ALBERT-AEROSPACE bietet somit 
+auf Expansion in Nordamerika und weitere internationale Märkte. Die Investition in ALBERT AERO bietet somit 
 attraktive Renditeaussichten in einem strukturell wachsenden Markt mit signifikanten Eintrittsbarrieren für neue 
 Wettbewerber.
 
@@ -144,7 +125,7 @@ Wettbewerber.
 \section{Unternehmenskonzept}
 
 \subsection{Geschäftsidee}
-ALBERT-AEROSPACE entwickelt und vertreibt nicht-letale, ferngesteuerte Abfang- und Schutzsysteme 
+ALBERT AERO entwickelt und vertreibt nicht-letale, ferngesteuerte Abfang- und Schutzsysteme 
 zur gezielten Neutralisierung unautorisierter Flugobjekte, insbesondere im Bereich kommerzieller 
 und privater Drohnen (UAV). Die Systeme sind speziell auf die rechtlichen, betrieblichen und 
 wirtschaftlichen Anforderungen ziviler Infrastrukturbetreiber ausgelegt und bieten eine 
@@ -179,16 +160,14 @@ Das Unternehmen wird als \textbf{GmbH} (Gesellschaft mit beschränkter Haftung) 
     \item \textbf{Laboreinrichtungen:} Prototyping, Testanlage, Feldtests
     \item \textbf{IT-Infrastruktur:} Cloud-basierte Entwicklung, sichere Datenhaltung, Compliance-Management
 \end{itemize}
-
+\newpage
 % ===== 3. PRODUKT- UND DIENSTLEISTUNGSBESCHREIBUNG =====
 \section{Produkt- und Dienstleistung}
 
-Das Produkt- oder Dienstleistungsangebot wird anhand folgender Faktoren dargestellt:
 
 \subsection{Detailbeschreibung der wesentlichen Merkmale}
 
-\subsubsection{Produktaufbau und Funktionsweise}
-Das ALBERT-AEROSPACE Schutzsystem ist als integrierte Lösung konzipiert, die mehrere technologische Komponenten 
+Das ALBERT AERO Schutzsystem ist als integrierte Lösung konzipiert, die mehrere technologische Komponenten 
 zu einem autonomen Abwehrsystem vereint. Das Herzstück bildet ein hochentwickeltes Erkennungssystem auf Basis 
 von Multi-Sensor-Fusion, das Radar- und optische Sensoren kombiniert, um unautorisierte Drohnen zuverlässig zu 
 erfassen und zu verfolgen. Diese redundante Sensorarchitektur gewährleistet auch bei herausfordernden 
@@ -197,125 +176,90 @@ Witterungsbedingungen eine kontinuierliche Überwachung des Luftraums.
 Die zentrale Steuereinheit nutzt Real-Time-Computing-Technologie für autonome Zielerfassung und 
 Entscheidungsfindung. Intelligente Algorithmen analysieren in Echtzeit Flugmuster, Geschwindigkeiten und 
 Verhaltensweisen, um zwischen autorisierten und potentiell bedrohlichen Flugobjekten zu unterscheiden. 
-Der nicht-letale Abfangmechanismus basiert auf einem netzbasierten System mit integrierten Sicherheitsmechanismen, 
-das Drohnen gezielt neutralisiert, ohne Kollateralschäden zu verursachen oder unbeteiligte Personen zu gefährden.
+Bei Zielidentifikation leitet das System autonom die Abwehr durch eine kinetische Abwehrrakete ein, die 
+das UAV gezielt neutralisiert. Parallel dazu steht eine Human-in-the-Loop-Funktionalität zur Verfügung, 
+die es Sicherheitspersonal ermöglicht, kritische Entscheidungen manuell zu validieren oder zu übersteuern, 
+bevor die Abfangsequenz eingeleitet wird. Dies bietet maximale Flexibilität zwischen vollständiger Autonomie 
+und manueller Kontrolle je nach Sicherheitsvorgaben des Betreibers.
 
 Die sichere Datenverbindung über ein verschlüsseltes Kommunikationsmodul ermöglicht sowohl die Fernsteuerung 
-als auch die Integration in bestehende Sicherheitsinfrastrukturen. Das intuitive Nutzerinterface erlaubt 
-Sicherheitspersonal eine einfache Bedienung ohne umfangreiche technische Schulung. Die modulare Energieversorgung 
-kann flexibel als solar-, batterie- oder netzgestützte Lösung konfiguriert werden, abhängig von den spezifischen 
-Anforderungen des Einsatzortes.
+als auch die Integration in bestehende Sicherheitsinfrastrukturen und bereits vorhandene Systeme wie Radar oder 
+Videoüberwachung. Das intuitive Nutzerinterface erlaubt Sicherheitspersonal eine einfache Bedienung ohne 
+umfangreiche technische Schulung. 
 
-\subsubsection{Leistungscharakteristiken}
+Neben der Systemlieferung übernimmt ALBERT AERO die vollständige Einrichtung, Inbetriebnahme und laufende 
+Wartung der Anlage. Dies umfasst die Standortanalyse, Systemkonfiguration, Sicherheitspersonalschulung, 
+regelmäßige Wartungschecks sowie technischen Support. Diese integrierte Service-Leistung gewährleistet optimale 
+Systemverfügbarkeit und reduziert Betriebsrisiken für den Kunden.
+
+\subsubsection*{Leistungscharakteristiken}
 Das System erreicht eine Erkennungsreichweite von bis zu 2,5 Kilometern und eine Reaktionszeit von 3 bis 5 
-Sekunden vom Moment der Zielerkennung bis zur Abfangeinleitung. Die projizierte Abfangsicherheit liegt bei 
-92\% erfolgreicher Neutralisierung bei optimalen Bedingungen. Pro Ladevorgang ermöglicht das System eine 
-Einsatzdauer von 8 bis 12 Stunden kontinuierlicher Überwachung. Der Betriebstemperaturbereich erstreckt sich 
-von -20°C bis +50°C, was einen ganzjährigen Einsatz in den meisten europäischen Klimazonen ermöglicht. 
+Sekunden vom Moment der Zielerkennung bis zur Abfangeinleitung. Die projizierte Abfangsicherheit der kinetischen 
+Abwehrrakete liegt bei ca. 90\% erfolgreicher Neutralisierung bei optimalen Bedingungen. Pro Ladevorgang ermöglicht 
+das System eine kontinuierliche 24/7-Überwachung und Einsatzfähigkeit. Das System ist für den Betrieb 
+unter vielfältigen Wetterbedingungen ausgelegt: Bei Windgeschwindigkeiten bis zu 40 km/h bleibt die Erkennungs- 
+und Abwehrgenauigkeit erhalten. Regenbedingungen (bis 20 mm/h Niederschlag) beeinträchtigen die Multi-Sensor-Fusion 
+nicht wesentlich, da redundante optische und Radar-Sensoren einander ergänzen und eine kontinuierliche Zielerfassung 
+gewährleisten.
 Das System kann simultan bis zu 8 Flugobjekte verfolgen und priorisieren, was auch bei mehrfachen 
-Bedrohungsszenarien eine effektive Abwehr gewährleistet.
+Bedrohungsszenarien eine effektive Abwehr gewährleistet. Die kinetische Abwehrrakete ist modular austauschbar 
+und ermöglicht schnelle Nachladung für kontinuierliche Einsatzfähigkeit. Aufgrund des modularen Aufbaus können 
+diese Spezifikationen von System zu System abweichen, je nach individueller Konfiguration und Kundenanforderungen.
 
 \subsection{Modularer Aufbau}
 
 Das ALBERT-System ist konzeptionell als modulares Baukastensystem ausgelegt, um maximale Flexibilität für 
-unterschiedliche Einsatzszenarien und Kundenbedürfnisse zu gewährleisten. Aktuell befindet sich das Unternehmen 
-im ersten Entwicklungsschritt der ersten funktionsfähigen Abwehrrakete, wobei die modulare Architektur bereits 
-in der Grundkonzeption verankert ist.
-
-Das Basismodul umfasst die Erkennungs- und Steuereinheit als Einstiegsvariante und ist für einen Preis von 
-EUR 45.000 bis 60.000 konzipiert. Diese Grundkonfiguration ermöglicht bereits vollständige Luftraumüberwachung 
-und Bedrohungsanalyse. Das Abfangmodul Standard ist für kleine bis mittlere UAV mit einem Gewicht unter 5 kg 
-ausgelegt und wird mit einem Aufpreis von EUR 15.000 kalkuliert. Für größere Drohnensysteme bis 15 kg ist das 
-Abfangmodul Extended vorgesehen, das zusätzlich EUR 35.000 kostet und verstärkte Abfangmechanismen integriert.
-
-Für Betreiber mit mehreren zu schützenden Standorten wird ein Netzwerk-Add-On entwickelt, das eine Multi-Site-Vernetzung 
-für flächendeckenden Großschutz ermöglicht. Pro zusätzlichem vernetztem Standort werden EUR 20.000 veranschlagt. 
-Das geplante Autonomie-Modul erweitert das System um KI-gestützte autonome Einsatzoptionen und ist mit EUR 25.000 
-Aufpreis konzipiert. Zur nahtlosen Anbindung an bereits bestehende Sicherheitssysteme wird ein Integration-Paket 
-angeboten, dessen Preis je nach Komplexität zwischen EUR 10.000 und 30.000 variiert.
-
-Diese kundenspezifische Zusammenstellung ermöglicht eine präzise Kostenoptimierung entsprechend den tatsächlichen 
-Anforderungen des jeweiligen Anwendungsfalls und vermeidet Überinvestitionen in nicht benötigte Funktionalitäten.
+unterschiedliche Einsatzszenarien und Kundenanforderungen zu gewährleisten. Diese modulare Architektur ermöglicht 
+es, das System je nach Bedarf zu konfigurieren: Vom Basis-Erkennungs- und Überwachungssystem über verschiedene 
+Abfang-Varianten bis hin zu erweiterten Funktionen wie Netzwerk-Koordination mehrerer Standorte oder KI-gestützte 
+autonome Einsatzoptionen. Die Integration in bestehende Sicherheitsinfrastrukturen ist dabei zentral – Radar-, 
+Video- oder sonstige Überwachungssysteme können nahtlos eingebunden werden.
 
 \subsection{Unique Selling Proposition (USP) – Stärken und Unterscheidungsmerkmale}
 
-ALBERT-AEROSPACE positioniert sich bewusst als zivile Alternative zu militärischen Drohnenabwehrsystemen und 
+ALBERT AERO positioniert sich bewusst als zivile Alternative zu militärischen Drohnenabwehrsystemen und 
 adressiert damit einen spezifischen Markt, der bislang zwischen kostspieligen militärischen Lösungen und 
 unzureichenden passiven Schutzmaßnahmen wählen musste. Die zentrale Stärke des Systems liegt in der Kombination 
 aus nicht-letaler Technologie, wirtschaftlicher Effizienz und rechtlicher Genehmigungsfähigkeit im zivilen Kontext.
-
-\subsubsection{Primäre Differenzierungsmerkmale}
-
+\\
 Im direkten Vergleich zu militärischen Systemen bietet ALBERT folgende entscheidende Vorteile:
-
-\textbf{Kosteneffizienz und Wirtschaftlichkeit:} Das ALBERT-System erzielt eine Kostenersparnis von 60-70\% 
-gegenüber militärischen Lösungen bei vergleichbarer Funktionalität. Während militärische Systeme Investitionen 
-im Bereich von EUR 300.000 bis 500.000 erfordern, liegt das ALBERT-Basissystem bei EUR 60.000 bis 90.000. Diese 
-deutliche Preisdifferenz resultiert aus der gezielten Optimierung für zivile Anforderungen, dem Verzicht auf 
-militärspezifische Überkapazitäten und der effizienten modularen Bauweise.
-
-\textbf{Zivile Genehmigungsfähigkeit:} Militärische Drohnenabwehrsysteme unterliegen strengen Exportkontrollen, 
-Dual-Use-Regulierungen und sind für zivile Betreiber rechtlich problematisch. ALBERT ist von Grund auf für den 
-zivilen Einsatz konzipiert, vollständig nicht-letal und entspricht den Anforderungen der europäischen 
-Luftfahrtbehörden (EASA). Dies ermöglicht einen deutlich beschleunigten Genehmigungsprozess und rechtssichere 
-Anwendung ohne militärische Auflagen.
-
-\textbf{Implementierung und Betrieb:} Die Implementierungszeit beträgt 2-4 Wochen im Vergleich zu 3-6 Monaten 
-bei militärischen Systemen. Die Bedienung erfordert lediglich 2-3 Tage Schulung statt mehrwöchiger 
-Spezialistenausbildung. Das modulare Design ermöglicht flexible Skalierung von Einzelstandorten bis zu vernetzten 
-Großflächenlösungen ohne komplette Systemneuanschaffung.
-
-\subsubsection{Technische Differenzierungsmerkmale}
-
-Die technologische Überlegenheit manifestiert sich in folgenden Kernelementen:
 \begin{itemize}
-    \item \textbf{Multi-Sensor-Fusion:} Redundante Erkennungssysteme (Radar + Optik) gewährleisten 
-    Zuverlässigkeit auch bei widrigen Witterungsbedingungen und reduzieren die Falsch-Positiv-Rate auf unter 5\%.
+    \item \textbf{Kosteneffizienz und Wirtschaftlichkeit:} 60–70\% Kostenersparnis gegenüber militärischen Lösungen. ALBERT-Basissystem EUR 60.000–90.000 vs. militärische Systeme EUR \\300.000–500.000. Optimierung für zivile Anforderungen, Verzicht auf militärspezifische Überkapazitäten, effiziente modulare Bauweise.
     
-    \item \textbf{Intelligente Zielverifizierung:} KI-gestützte Algorithmen unterscheiden autonom zwischen 
-    autorisierten und bedrohlichen Flugobjekten, minimieren False-Alarms und ermöglichen forensische Auswertung 
-    für nachgelagerte Sicherheitsanalysen.
+    \item \textbf{Zivile Genehmigungsfähigkeit:} Vollständig nicht-letale Technologie, konform mit europäischen Luftfahrtbehörden (EASA). Keine Exportkontrollen oder Dual-Use-Regulierungen. Rechtssichere Anwendung, beschleunigter Genehmigungsprozess, keine militärischen Auflagen.
     
-    \item \textbf{Nicht-letale Neutralisierung:} Der netzbasierte Abfangmechanismus vermeidet Kollateralschäden 
-    und erfüllt strenge zivile Sicherheitsstandards. Im Gegensatz zu militärischen Systemen mit kinetischen oder 
-    elektronischen Störmaßnahmen bleibt das Umfeld unbeeinflusst.
+    \item \textbf{Schnelle Implementierung:} Implementierungszeit 2–4 Wochen (vs. 3–6 Monate bei militärischen Systemen). Bedienung erfordert nur 2–3 Tage Schulung (vs. mehrwöchige Spezialistenausbildung).
     
-    \item \textbf{Benutzerfreundlichkeit:} Intuitive Bedienoberfläche, automatisierte Entscheidungsprozesse und 
-    minimaler Wartungsaufwand ermöglichen den Betrieb durch reguläres Sicherheitspersonal ohne Spezialisierung.
+    \item \textbf{Modularer Aufbau und Skalierbarkeit:} Flexible Skalierung von Einzelstandorten bis zu vernetzten Großflächenlösungen. Keine komplette Systemneuanschaffung erforderlich.
 \end{itemize}
+
 
 \subsection{Kundennutzen}
 
-\subsubsection{Direkter Nutzen}
-\begin{itemize}
-    \item Zuverlässige Abwehr unautorisierter Drohnen im Betrieb
-    \item Reduziertes Sicherheitsrisiko für Personal und Assets
-    \item Compliance mit behördlichen Sicherheitsvorgaben
-    \item Verbesserter Versicherungsstatus
-\end{itemize}
+Das ALBERT AERO Schutzsystem bietet seinen Kunden einen umfassenden, mehrschichtigen Nutzen, der sich in direkten operativen, wirtschaftlichen und strategischen Vorteilen manifestiert.
 
-\subsubsection{Wirtschaftlicher Nutzen}
-\begin{itemize}
-    \item Geringere Betriebskosten durch Automatisierung
-    \item Ersparnis von Sicherheitspersonal
-    \item Reduktion von Betriebsunterbrechungen
-    \item Schnelle ROI durch modulares Pricing-Modell
-\end{itemize}
+\subsubsection*{Direkter operativer Nutzen}
 
-\subsubsection{Strategischer Nutzen}
-\begin{itemize}
-    \item Wettbewerbsvorteil durch Sicherheitszertifizierung
-    \item Stärkeres Sicherheitsimage gegenüber Stakeholdern und Kunden
-    \item Datengestützte Sicherheitsplanung für zukünftige Investitionen
-\end{itemize}
+Die Kernleistung des Systems besteht in der zuverlässigen und schnellen Abwehr unautorisierter Drohnen während des laufenden Betriebs. Mit einer schnellen Reaktionszeit und einer hohen Abfangsicherheit bietet ALBERT eine Lösung, die unmittelbar das Sicherheitsrisiko für Personal und Assets reduziert. Dies ist besonders kritisch an sensiblen Infrastrukturen wie Flughäfen oder Energieversorgungsanlagen, wo eine Drohnenbedrohung zu erheblichen Störungen oder Gefahren führen kann. Parallel dazu gewährleistet das System automatisch die Compliance mit behördlichen Sicherheitsvorgaben, die von europäischen Luftfahrtbehörden und nationalen Sicherheitsbehörden zunehmend gefordert werden. Ein weiterer unmittelbarer Vorteil ist die Verbesserung des Versicherungsstatus: Durch die Installation eines zertifizierten Schutzsystems erhalten Kunden oft bessere Versicherungsbedingungen und niedrigere Prämien, da das Risikoprofil ihrer Einrichtung nachweislich sinkt.
+
+\subsubsection*{Wirtschaftlicher Nutzen und ROI}
+Aus ökonomischer Perspektive generiert ALBERT für seine Kunden substanzielle Kostenersparnisse. Das System automatisiert große Teile der Drohnenüberwachung und -abwehr, was zu einer signifikanten Reduktion von Sicherheitspersonal führt – eine der größten Ausgabenkategorien in der Sicherheitsinfrastruktur. Zudem minimiert die schnelle und zuverlässige Abwehr unautorisierter Drohnen das Risiko von Betriebsunterbrechungen, deren Kosten für kritische Infrastrukturbetreiber erheblich sein können (Flughäfen verlieren beispielsweise tausende Euro pro Minute bei Betriebsstillständen). Das modulare Pricing-Modell von ALBERT ermöglicht es Kunden, mit einer leistungsgerechten Investition zu starten und das System später zu erweitern, was eine schnelle Amortisation ermöglicht. Auf Grundlage unserer Modellierungen erreichen mittlere bis große Infrastrukturbetreiber ihre Return-on-Investment (ROI) typischerweise innerhalb von 18–24 Monaten, was stark von der Vermeidung potenzieller Ausfälle abhängt.
+
 
 \subsection{Entwicklungsstand}
 
-\subsubsection{Aktuelle Phase}
-Das ALBERT-AEROSPACE Projekt befindet sich derzeit in der fortgeschrittenen Prototyp-Phase mit dem Ziel der 
+\subsubsection*{Aktuelle Phase}
+\begin{wrapfigure}{r}{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.35\textwidth]{ALBERT_FLIGHTCOMPUTER_FRONT.png}
+    \caption{ALBERT Flightcomputer - Prototyp}
+    \label{fig:flightcomputer}
+\end{wrapfigure}
+
+Das ALBERT AERO Projekt befindet sich derzeit in der fortgeschrittenen Prototyp-Phase mit dem Ziel der 
 Pre-Market-Validierung bis Q2 2026. Die bisherigen Entwicklungsarbeiten konzentrierten sich auf die 
 grundlegenden Systemkomponenten und haben bereits wesentliche Meilensteine erreicht. Der Flightcomputer, 
-der als zentrale Steuereinheit für Zielerkennung, Entscheidungsfindung und Abfangkoordination dient, wurde 
+der als zentrale Steuereinheit für Zielerkennung, Entscheidungsfindung und Abfangkoordination in der Rakete dient, wurde 
 erfolgreich entwickelt und befindet sich in der Testphase. Erste CAD-Modelle für die mechanischen Komponenten 
 und das Gehäusedesign sind abgeschlossen und bilden die Grundlage für die bevorstehende Prototypenfertigung.
 
@@ -325,83 +269,92 @@ der Sensorik, umfangreiche Funktionsvalidierungen sowie erste kontrollierte Feld
 Einsatzbedingungen. Der Abschluss der Kernentwicklung ist für Q2 2026 geplant, parallel dazu laufen bereits 
 die Vorbereitungen für die erforderlichen Zertifizierungsprozesse.
 
-\subsubsection{Roadmap zu Marktreife}
-Die Markteinführung erfolgt in vier strukturierten Phasen. Phase 1 (M0–M6, Q1–Q2 2026) fokussiert auf die 
-Finalisierung des Hardwaredesigns, den Beginn der CE-Zertifizierung und die Abstimmung mit der EASA sowie 
-nationalen Luftfahrtbehörden. In Phase 2 (M6–M12, Q3–Q4 2026) wird ein erster Pilotkunde für Referenztests 
-gewonnen, umfangreiche Feldtests durchgeführt und das System basierend auf realen Einsatzerfahrungen optimiert. 
-Phase 3 (M12–M18, Q1–Q2 2027) markiert den Übergang zur Serienfertigung und den offiziellen Markteintritt mit 
-aktiver Kundenakquisition. Phase 4 (M18+, Q3+ 2027) konzentriert sich auf Marktskalierung, geografische 
-Expansion und die Entwicklung von Produkterweiterungen wie dem Autonomie-Modul und Netzwerk-Funktionalitäten.
+\subsection{Schutzrechte}
 
-\subsection{Schutzrechte – Patent, Lizenzen, Urheberrechte, Markenrechte}
+ALBERT AERO verfolgt eine kostenbewusste IP-Strategie\footnote{IP - Intellectual Property} mit Fokus auf den europäischen Markt:
 
-\subsubsection{Patente und Patentanmeldungen}
 \begin{itemize}
-    \item \textbf{PCT-Anmeldung [Datum]:} „Verfahren und System zur nicht-letalen UAV-Neutralisierung"
-    \item \textbf{Schutzumfang:} Abfangmechanismus, Erkennungsalgorithmus, Steuerarchitektur
-    \item \textbf{Nationale Patente:} Anmeldungen in EU, USA, Asien geplant
+    \item \textbf{Europäisches Patent (EP):} Anmeldung für kinetisches Abfangverfahren und Steuerungsalgorithmen geplant Q2/Q3 2026 nach Abschluss der Kernentwicklung. Schutz in Deutschland, Österreich, Frankreich, Italien, Benelux.
+    
+    \item \textbf{Markenschutz:} EUIPO-Anmeldung für ALBERT AERO in Q1 2026 – europaweiter Schutz mit einer Anmeldung.
+    
+    \item \textbf{Know-How-Schutz:} Proprietäre Algorithmen und Herstellungsverfahren durch NDAs mit Mitarbeitern und Partnern abgesichert. Geschäftsgeheimnisse ergänzen Patentschutz.
+    
+    \item \textbf{Zertifizierungen:} CE-Kennzeichnung (Start Q2 2026) als Voraussetzung für EU-Markt. Abstimmung mit EASA und Austro Control für Luftraumbetrieb. ISO 9001 mittelfristig geplant.
 \end{itemize}
 
-\subsubsection{Eigentumsschutz (Know-How)}
-\begin{itemize}
-    \item Proprietäre Software-Algorithmen (Datenschutz durch Geheimhaltungsverträge)
-    \item Spezielle Herstellungsverfahren
-    \item Kundenspezifische Konfigurationen
-\end{itemize}
+\subsection{Wichtige Konkurrenzangebote}
 
-\subsubsection{Markenscutz}
-\begin{itemize}
-    \item Markenanmeldung: „ALBERT-AEROSPACE" – [Status]
-    \item Logo und Corporate Design – rechtlich geschützt
-\end{itemize}
+\subsubsection*{Direkte Konkurrenten in Europa}
 
-\subsubsection{Lizenzen und Zulassungen}
 \begin{itemize}
-    \item \textbf{Geplante Zertifizierungen:} CE-Kennzeichnung, [Branchenspezifische Standards]
-    \item \textbf{Behördliche Genehmigungen:} FFG-Zulassung (Österreich), [Weitere relevante Genehmigungen]
-\end{itemize}
-
-\subsection{Wettbewerberfähigkeit – wichtige Konkurrenzangebote}
-
-\subsubsection{Direkte Konkurrenten}
-\begin{itemize}
-    \item \textbf{Hersteller A [Name]:} Ähnliches Konzept, aber höhere Preisposition (EUR [X])
+    \item \textbf{Dedrone GmbH (Deutschland):} Marktführer im Bereich Drohnendetektion und -abwehr mit umfassender Softwareplattform. \\
+    Website: \url{https://www.dedrone.com}
     \begin{itemize}
-        \item Stärken: etablierter Marktname
-        \item Schwächen: höhere Komplexität, längere Implementierung
+        \item \textbf{Stärken:} Etablierte Marktposition, umfangreiche Installationsbasis (über 500 Standorte weltweit), 
+        starke Sensorintegration, cloudbasierte Analyseplattform, enge Partnerschaften mit Behörden und Flughäfen
+        \item \textbf{Schwächen:} Fokus auf Detektion und Tracking, keine eigene kinetische Abwehrlösung, hohe Preise 
+        (Komplettsysteme ab EUR 200.000+), komplexe Implementation erfordert umfangreiche Integration
     \end{itemize}
     
-    \item \textbf{Hersteller B [Name]:} Netzwerk-fokussiert, Enterprise-Segment
+    \item \textbf{Hensoldt AG (Deutschland):} Großer Verteidigungs- und Sicherheitskonzern mit XPELLER-Drohnenabwehrsystem. \\
+    Website: \url{https://www.hensoldt.net}
     \begin{itemize}
-        \item Stärken: umfangreiche Integration
-        \item Schwächen: sehr teuer (EUR [X]+), nur für Großkunden
+        \item \textbf{Stärken:} Starke technologische Expertise, Radar- und elektronische Kampfführungssysteme, 
+        militärischer Background, etablierte Kundenbeziehungen im Verteidigungssektor
+        \item \textbf{Schwächen:} Primär militärisch ausgerichtet, sehr hohe Preise (EUR 300.000–500.000+), 
+        Dual-Use-Regulierung erschwert zivile Nutzung, lange Beschaffungsprozesse, Fokus auf Großkunden
     \end{itemize}
+    
+    \item \textbf{Robin Radar Systems (Niederlande):} Spezialist für Radarsysteme zur Vogel- und Drohnenerkennung. \\
+    Website: \url{https://www.robinradar.com}
+    \begin{itemize}
+        \item \textbf{Stärken:} Exzellente Radartechnologie, ursprünglich für Flughäfen entwickelt, 
+        präzise Kleinzielerfassung, gute Integration in Flughafen-Infrastruktur
+        \item \textbf{Schwächen:} Keine Abwehrfunktion (nur Detektion), erfordert Kombination mit Drittanbietern 
+        für vollständige Lösung, höhere Preisklasse (EUR 150.000–250.000)
+    \end{itemize}
+    
+    \item \textbf{Thales Group (Frankreich):} Internationaler Konzern mit umfassendem Counter-UAS Portfolio. \\
+    Website: \url{https://www.thalesgroup.com}
+    \begin{itemize}
+        \item \textbf{Stärken:} Umfassendes Produktportfolio, starke F\&E-Ressourcen, internationale Präsenz, 
+        elektronische und kinetische Lösungen, etablierte Regierungskunden
+        \item \textbf{Schwächen:} Extrem hohe Preise (EUR 500.000+), ausschließlich auf militärische und 
+        Regierungskunden fokussiert, keine zivilen Lösungen, lange Projektlaufzeiten
+    \end{itemize}
+    
 \end{itemize}
 
-\subsubsection{Indirekte Konkurrenten / Alternative Lösungen}
+\subsubsection*{Indirekte Konkurrenten und Alternative Lösungen}
 \begin{itemize}
-    \item Militärische Systeme (Regierungskauf, sehr teuer)
-    \item Klassische physische Barrieren und Perimeterschutz
-    \item Erhöhte menschliche Überwachung
+    \item \textbf{RF-Jamming-Systeme:} Elektronische Störsender zur Unterbrechung der Drohnensteuerung 
+    (rechtlich problematisch in vielen zivilen Kontexten aufgrund Frequenzstörung)
+    \item \textbf{Netzbasierte Fang-Drohnen:} Systeme wie DroneHunter, die Drohnen mit Netzen einfangen 
+    (begrenzte Reichweite, hohe Betriebskosten)
+    \item \textbf{Klassische physische Barrieren:} Perimeterschutz, Zäune, Vogelschutznetze (statisch, 
+    begrenzte Wirksamkeit gegen Luftbedrohungen)
+    \item \textbf{Erhöhte menschliche Überwachung:} Zusätzliches Sicherheitspersonal und visuelle Beobachtung 
+    (personalintensiv, hohe laufende Kosten, reaktiv statt proaktiv)
 \end{itemize}
 
-\subsubsection{Competitive Positioning}
+\subsubsection*{Competitive Positioning}
 
 \begin{center}
-\begin{tabular}{|l|c|c|c|c|}
+\begin{tabular}{|l|c|c|c|c|c|}
 \hline
-\textbf{Kriterium} & \textbf{ALBERT} & \textbf{Konkurrent A} & \textbf{Konkurrent B} & \textbf{Militär} \\
+\textbf{Kriterium} & \textbf{ALBERT} & \textbf{Dedrone} & \textbf{Hensoldt} & \textbf{Robin} & \textbf{Thales} \\
 \hline
-Preis (EUR) & [X] & [X] & [X]+ & [X]+ \\
-Modularer Aufbau & Ja & Teilweise & Nein & Nein \\
-Nicht-letal & Ja & Ja & Ja & Nein \\
-Implementierungszeit & 2–4 Wo. & 4–8 Wo. & 3–6 Mo. & [X] \\
-Zielgruppe & KMU/Mittel & Mittel & Enterprise & Regierung \\
+Preis (EUR '000) & 60–90 & 200+ & 300–500 & 150–250 & 500+ \\
+Kinetische Abwehr & Ja & Nein & Ja & Nein & Ja \\
+Zivil-fokussiert & Ja & Ja & Nein & Ja & Nein \\
+Implementierung & 2–4 Wo. & 6–12 Wo. & 3–6 Mo. & 4–8 Wo. & 6+ Mo. \\
+Zielgruppe & KMU/Mittel & Mittel/Groß & Militär & Flughäfen & Militär \\
+Modularer Aufbau & Ja & Teilweise & Nein & Teilweise & Nein \\
 \hline
 \end{tabular}
 \end{center}
-
+\vspace{1.5cm}
 % ===== 4. MARKTANALYSE =====
 \section{Marktanalyse}
 
@@ -566,7 +519,7 @@ Die Marktevaluierung basiert auf folgenden Ansätzen:
 
 \subsection{Produktpositionierung und Marken-Strategie}
 
-ALBERT-AEROSPACE positioniert sich als \textbf{ziviler, kostenoptimierter High-Tech-Spezialist} für nicht-letale 
+ALBERT AERO positioniert sich als \textbf{ziviler, kostenoptimierter High-Tech-Spezialist} für nicht-letale 
 Drohnenabwehr mit folgenden Kernbotschaften:
 
 \begin{itemize}
@@ -579,12 +532,8 @@ Drohnenabwehr mit folgenden Kernbotschaften:
 
 Zielmarkt-Positioning: \textbf{Mid-Market und wachsende Enterprise-Kunden} in der EU und international.
 
-<<<<<<< HEAD
 \subsection{Preisgestaltung}
 Pricing-Strategie und Begründung. 
-=======
-\subsection{Marketing-Mix (4 P's)}
->>>>>>> cf119ea0da5acf4eded013c052545dda7b5b70e3
 
 \subsubsection{Product}
 \begin{itemize}
@@ -1511,8 +1460,8 @@ Zur Überwachung des Fortschritts werden folgende KPIs regelmäßig überprüft:
 \begin{itemize}
     \item \textbf{Unternehmenskontakt:}
     \begin{itemize}
-        \item E-Mail: kontakt@albert-aerospace.at
-        \item Website: [www.albert-aerospace.com]
+        \item E-Mail: kontakt@albertaero.at
+        \item Website: [www.albertaero.com]
         \item Telefon: [+43 XXX XXXXXXX]
     \end{itemize}
     

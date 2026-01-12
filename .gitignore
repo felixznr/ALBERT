@@ -222,10 +222,8 @@ secrets.py
 # Simulation outputs
 simulation_results/
 plots/
-*.png
-*.jpg
+
 *.gif
-*.svg
 
 # Hardware specific
 firmware/build/
