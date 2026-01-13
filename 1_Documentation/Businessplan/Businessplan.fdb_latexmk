@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1768294560.30838 "/Users/felixzauner/Documents/Privat/Github/ALBERT/1_Documentation/Businessplan/Businessplan.tex" "Businessplan.pdf" "Businessplan" 1768294561.07239 0
-  "/Users/felixzauner/Documents/Privat/Github/ALBERT/1_Documentation/Businessplan/Businessplan.tex" 1768294558.48304 70809 9b9c142972906f72b0e3f4a075a9adc3 ""
+["pdflatex"] 1768294664.62592 "/Users/felixzauner/Documents/Privat/Github/ALBERT/1_Documentation/Businessplan/Businessplan.tex" "Businessplan.pdf" "Businessplan" 1768294665.3847 0
+  "/Users/felixzauner/Documents/Privat/Github/ALBERT/1_Documentation/Businessplan/Businessplan.tex" 1768294661.91406 68326 1c722c38dd844a9beda6f41a140a874a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcbx1095.tfm" 1136768653 1536 0adca69c597a47fe7664bf81057bb53b ""
@@ -155,11 +155,11 @@
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "ALBERT_FLIGHTCOMPUTER_FRONT.png" 1768220901.42306 1557095 7de1a55cda75a0d6bee16a7900071d13 ""
   "AlbertAero.png" 1768222277.25943 19532 f184fd8bcade572e91aba4779aa9f591 ""
-  "Businessplan.aux" 1768294561.01209 18325 a947877daf96f1bb16c452d5464e4fa8 "pdflatex"
-  "Businessplan.out" 1768294561.01357 25442 f87e86ba78294bd44592b25bb75a5378 "pdflatex"
+  "Businessplan.aux" 1768294665.3229 15674 733d771564266f397c005505bedc576b "pdflatex"
+  "Businessplan.out" 1768294665.32443 21932 88971fd6e8d24c8b3559d35a654de59b "pdflatex"
   "Businessplan.png" 1768223707.39609 22633 8c2e2af61f58e066ed2d644df9584f43 ""
-  "Businessplan.tex" 1768294558.48304 70809 9b9c142972906f72b0e3f4a075a9adc3 ""
-  "Businessplan.toc" 1768294561.01377 12456 dcbf22add8067e74511371c7a890c9c9 "pdflatex"
+  "Businessplan.tex" 1768294661.91406 68326 1c722c38dd844a9beda6f41a140a874a ""
+  "Businessplan.toc" 1768294665.32463 10584 dc0448cc621d0496e6afc3151d93550c "pdflatex"
   "raketo.jpeg" 1768290858.43578 55149 be5c713177d5cc3220bb2b602e9aa818 ""
   (generated)
   "Businessplan.aux"
