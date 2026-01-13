@@ -26,50 +26,50 @@
 \contentsline {subsubsection}{\numberline {4.4.1}Wettbewerbslandschaft}{14}{subsubsection.4.4.1}%
 \contentsline {subsubsection}{\numberline {4.4.2}Wettbewerbsvorteile von ALBERT AERO}{15}{subsubsection.4.4.2}%
 \contentsline {subsubsection}{\numberline {4.4.3}Competitive Positioning}{15}{subsubsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.5}Markteintrittsbarrieren}{15}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.5}Markteintrittsbarrieren}{16}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Risikobewertung}{16}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Fazit der Markt- und Wettbewerbsanalyse}{16}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.7}Fazit der Markt- und Wettbewerbsanalyse}{17}{subsection.4.7}%
 \contentsline {section}{\numberline {5}Leistungserstellung und Wertschöpfung}{17}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Produktentwicklung und Innovationsprozess}{17}{subsection.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}Aktueller Entwicklungsstand}{17}{subsubsection.5.1.1}%
 \contentsline {subsubsection}{\numberline {5.1.2}Entwicklungs-Roadmap}{17}{subsubsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.2}Lieferanten und Beschaffungsstrategie}{17}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Kritische Komponenten und Lieferanten}{17}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}Supply-Chain-Strategie}{17}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2}Lieferanten und Beschaffungsstrategie}{18}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Kritische Komponenten und Lieferanten}{18}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Supply-Chain-Strategie}{18}{subsubsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.3}Produktion und Fertigung}{18}{subsection.5.3}%
 \contentsline {subsubsection}{\numberline {5.3.1}Fertigungsmodell}{18}{subsubsection.5.3.1}%
 \contentsline {subsubsection}{\numberline {5.3.2}Qualitätssicherung}{18}{subsubsection.5.3.2}%
 \contentsline {subsection}{\numberline {5.4}Technologie und IT-Infrastruktur}{18}{subsection.5.4}%
 \contentsline {subsubsection}{\numberline {5.4.1}Eigen-Infrastruktur}{18}{subsubsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.5}Kundenservice und Support}{18}{subsection.5.5}%
-\contentsline {subsubsection}{\numberline {5.5.1}Service-Modell}{18}{subsubsection.5.5.1}%
-\contentsline {subsubsection}{\numberline {5.5.2}Service-Level-Agreements (SLA)}{18}{subsubsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5}Kundenservice und Support}{19}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Service-Modell}{19}{subsubsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.2}Service-Level-Agreements (SLA)}{19}{subsubsection.5.5.2}%
 \contentsline {subsection}{\numberline {5.6}Partnerschaften und Kooperationen}{19}{subsection.5.6}%
 \contentsline {subsubsection}{\numberline {5.6.1}Strategische Partnerschaften}{19}{subsubsection.5.6.1}%
 \contentsline {section}{\numberline {6}Management und Organisation}{19}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Organisationsstruktur}{19}{subsection.6.1}%
 \contentsline {subsubsection}{\numberline {6.1.1}Aufbauorganisation}{19}{subsubsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.2}Gründerteam}{19}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Felix Zauner – Chief Technology Officer \& Co-Founder}{19}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}Timofey Luzin – Chief Operating Officer \& Co-Founder}{19}{subsubsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2}Gründerteam}{20}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Felix Zauner – Chief Technology Officer \& Co-Founder}{20}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Timofey Luzin – Chief Operating Officer \& Co-Founder}{20}{subsubsection.6.2.2}%
 \contentsline {subsection}{\numberline {6.3}Personalplanung und Recruitment}{20}{subsection.6.3}%
 \contentsline {subsubsection}{\numberline {6.3.1}Phase 1 – Gründung (M0–M6)}{20}{subsubsection.6.3.1}%
 \contentsline {subsubsection}{\numberline {6.3.2}Phase 2 – Skalierung (M6–M18)}{20}{subsubsection.6.3.2}%
 \contentsline {subsubsection}{\numberline {6.3.3}Personalkosten-Szenarien}{20}{subsubsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.4}Kompetenzaufbau und Weiterbildung}{20}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Governance und Entscheidungsfindung}{20}{subsection.6.5}%
-\contentsline {subsubsection}{\numberline {6.5.1}Corporate Governance}{20}{subsubsection.6.5.1}%
-\contentsline {subsubsection}{\numberline {6.5.2}Risikomanagement und Compliance}{20}{subsubsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.4}Kompetenzaufbau und Weiterbildung}{21}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Governance und Entscheidungsfindung}{21}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Corporate Governance}{21}{subsubsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.2}Risikomanagement und Compliance}{21}{subsubsection.6.5.2}%
 \contentsline {section}{\numberline {7}Erfolgs- und Finanzplanung}{21}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Umsatzprognose}{21}{subsection.7.1}%
 \contentsline {subsubsection}{\numberline {7.1.1}Annahmen zur Umsatzentwicklung}{21}{subsubsection.7.1.1}%
 \contentsline {subsubsection}{\numberline {7.1.2}Umsatzprognose (3-Jahres-Planung)}{21}{subsubsection.7.1.2}%
-\contentsline {subsection}{\numberline {7.2}Kostenkalkulation}{21}{subsection.7.2}%
-\contentsline {subsubsection}{\numberline {7.2.1}Variable Kosten pro System}{21}{subsubsection.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.2.2}Fixkosten (Jahresbasis)}{21}{subsubsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2}Kostenkalkulation}{22}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Variable Kosten pro System}{22}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Fixkosten (Jahresbasis)}{22}{subsubsection.7.2.2}%
 \contentsline {subsection}{\numberline {7.3}Profitabilität und Break-Even}{22}{subsection.7.3}%
 \contentsline {subsubsection}{\numberline {7.3.1}Gewinn- und Verlustrechnung (Prognose)}{22}{subsubsection.7.3.1}%
-\contentsline {subsubsection}{\numberline {7.3.2}Break-Even-Analyse}{22}{subsubsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.2}Break-Even-Analyse}{23}{subsubsection.7.3.2}%
 \contentsline {subsection}{\numberline {7.4}Kapitalbedarfsplan}{23}{subsection.7.4}%
 \contentsline {subsubsection}{\numberline {7.4.1}Investitionsbedarf nach Bereichen}{23}{subsubsection.7.4.1}%
 \contentsline {subsubsection}{\numberline {7.4.2}Finanzierungsquellen}{23}{subsubsection.7.4.2}%
@@ -80,29 +80,29 @@
 \contentsline {subsection}{\numberline {7.6}Kapitalflussrechnung (3 Jahre)}{24}{subsection.7.6}%
 \contentsline {subsection}{\numberline {7.7}Sensitivitätsanalyse}{24}{subsection.7.7}%
 \contentsline {section}{\numberline {8}Risikomanagement}{24}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Identifizierte Risiken und Risikobewertung}{24}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Technologische Risiken}{24}{subsubsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1}Identifizierte Risiken und Risikobewertung}{25}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Technologische Risiken}{25}{subsubsection.8.1.1}%
 \contentsline {subsubsection}{\numberline {8.1.2}Regulatorische \& Compliance-Risiken}{25}{subsubsection.8.1.2}%
 \contentsline {subsubsection}{\numberline {8.1.3}Markt- und Wettbewerbsrisiken}{25}{subsubsection.8.1.3}%
 \contentsline {subsubsection}{\numberline {8.1.4}Finanzielle Risiken}{25}{subsubsection.8.1.4}%
 \contentsline {subsubsection}{\numberline {8.1.5}Operationale Risiken}{25}{subsubsection.8.1.5}%
 \contentsline {subsection}{\numberline {8.2}Risikominderungsmaßnahmen}{25}{subsection.8.2}%
 \contentsline {subsubsection}{\numberline {8.2.1}Technische Mitigation}{25}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}Regulatory Mitigation}{25}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.2}Regulatory Mitigation}{26}{subsubsection.8.2.2}%
 \contentsline {subsubsection}{\numberline {8.2.3}Markt-Mitigation}{26}{subsubsection.8.2.3}%
 \contentsline {subsubsection}{\numberline {8.2.4}Finanz-Mitigation}{26}{subsubsection.8.2.4}%
 \contentsline {subsubsection}{\numberline {8.2.5}Operationale Mitigation}{26}{subsubsection.8.2.5}%
 \contentsline {subsection}{\numberline {8.3}Notfallpläne und Eskalationsprozesse}{26}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Meilensteine und Implementierungs-Roadmap}{26}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Meilenstein-Definition und Erfolgskriterien}{26}{subsection.9.1}%
-\contentsline {subsubsection}{\numberline {9.1.1}Phase 1: Gründung \& Produktfinalisierung (M0–M6 | 2026 Q1–Q2)}{26}{subsubsection.9.1.1}%
+\contentsline {section}{\numberline {9}Meilensteine und Implementierungs-Roadmap}{27}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Meilenstein-Definition und Erfolgskriterien}{27}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}Phase 1: Gründung \& Produktfinalisierung (M0–M6 | 2026 Q1–Q2)}{27}{subsubsection.9.1.1}%
 \contentsline {subsubsection}{\numberline {9.1.2}Phase 2: Markteinführung \& Skalierung (M6–M12 | 2026 Q2–Q4)}{27}{subsubsection.9.1.2}%
-\contentsline {subsubsection}{\numberline {9.1.3}Phase 3: Skalierung \& Expansion (M12–M24 | 2027 Q1–Q4)}{27}{subsubsection.9.1.3}%
+\contentsline {subsubsection}{\numberline {9.1.3}Phase 3: Skalierung \& Expansion (M12–M24 | 2027 Q1–Q4)}{28}{subsubsection.9.1.3}%
 \contentsline {subsection}{\numberline {9.2}Detaillierte Implementierungs-Roadmap (Gantt-Ähnlich)}{28}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Kritische Erfolgsfaktoren (CSF)}{28}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Key Performance Indicators (KPI)}{28}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.3}Kritische Erfolgsfaktoren (CSF)}{29}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Key Performance Indicators (KPI)}{29}{subsection.9.4}%
 \contentsline {subsubsection}{\numberline {9.4.1}Finanzielle KPIs}{29}{subsubsection.9.4.1}%
 \contentsline {subsubsection}{\numberline {9.4.2}Operationale KPIs}{29}{subsubsection.9.4.2}%
 \contentsline {subsubsection}{\numberline {9.4.3}Markt- und Sales-KPIs}{29}{subsubsection.9.4.3}%
-\contentsline {subsubsection}{\numberline {9.4.4}Team- und HR-KPIs}{29}{subsubsection.9.4.4}%
-\contentsline {section}{Anhang}{29}{subsubsection.9.4.4}%
+\contentsline {subsubsection}{\numberline {9.4.4}Team- und HR-KPIs}{30}{subsubsection.9.4.4}%
+\contentsline {section}{Anhang}{30}{subsubsection.9.4.4}%
