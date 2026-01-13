@@ -1,12 +1,12 @@
 # Fdb version 4
-["pdflatex"] 1768294425.02575 "c:/HTL/Diplomarbeit/ALBERT/1_Documentation/Businessplan/Businessplan.tex" "Businessplan.pdf" "Businessplan" 1768294427.07199 0
+["pdflatex"] 1768294579.09222 "c:/HTL/Diplomarbeit/ALBERT/1_Documentation/Businessplan/Businessplan.tex" "Businessplan.pdf" "Businessplan" 1768294581.44661 0
   "ALBERT_FLIGHTCOMPUTER_FRONT.png" 1768290827 1557095 30c802ab316641b82aedc789153a8270 ""
   "AlbertAero.png" 1768290827 19532 b20a8f3e67cc1d6cb7d799f6a5cdeeb4 ""
-  "Businessplan.aux" 1768294426 15471 77255a13b356a8063bc627b58966bc8f "pdflatex"
-  "Businessplan.out" 1768294426 21932 88971fd6e8d24c8b3559d35a654de59b "pdflatex"
+  "Businessplan.aux" 1768294581 15471 aa379ff86b26af7fd4c76156cff02ad6 "pdflatex"
+  "Businessplan.out" 1768294581 21932 88971fd6e8d24c8b3559d35a654de59b "pdflatex"
   "Businessplan.png" 1768290827 22633 210ca6ac416e6ed4ad6ec610d5a93bfd ""
-  "Businessplan.tex" 1768294424 69344 14c43a0d1a4afe73b7dbf851726a563c ""
-  "Businessplan.toc" 1768294426 10584 837218984cd6bf8e57605bee82ae9da4 "pdflatex"
+  "Businessplan.tex" 1768294575 69609 cf103ae2ffe6d6e964813d53c112f7dc ""
+  "Businessplan.toc" 1768294581 10584 c920667c97b2847f34e9bb44f8d6d0a7 "pdflatex"
   "C:/Users/timof/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1768291307 94578 3d7812996b5e70e7dd3d06c67bb78c06 ""
   "C:/Users/timof/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcbx1095.pk" 1768291312 13580 72301216e079267cccd598d70d100196 ""
   "C:/Users/timof/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1768291314 12668 dda3ab1882283ad19db5f6f7076ec1ab ""
@@ -153,7 +153,7 @@
   "C:/Users/timof/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/timof/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "C:/Users/timof/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/HTL/Diplomarbeit/ALBERT/1_Documentation/Businessplan/Businessplan.tex" 1768294424 69344 14c43a0d1a4afe73b7dbf851726a563c ""
+  "c:/HTL/Diplomarbeit/ALBERT/1_Documentation/Businessplan/Businessplan.tex" 1768294575 69609 cf103ae2ffe6d6e964813d53c112f7dc ""
   (generated)
   "Businessplan.aux"
   "Businessplan.log"
