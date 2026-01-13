@@ -7,20 +7,20 @@
 \contentsline {subsection}{\numberline {2.4}Standort und Infrastruktur}{7}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Produkt- und Dienstleistung}{8}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Detailbeschreibung der wesentlichen Merkmale}{8}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Modularer Aufbau}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Modularer Aufbau}{9}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Unique Selling Proposition (USP) – Stärken und Unterscheidungsmerkmale}{9}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Kundennutzen}{9}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Entwicklungsstand}{10}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Schutzrechte}{10}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.6}Schutzrechte}{11}{subsection.3.6}%
 \contentsline {subsection}{\numberline {3.7}Wichtige Konkurrenzangebote}{11}{subsection.3.7}%
 \contentsline {section}{\numberline {4}Markt und Wettbewerb}{12}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Marktdefinition und -abgrenzung}{12}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Marktanalyse}{12}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Marktvolumen und Wachstum}{12}{subsubsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2}Marktanalyse}{13}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Marktvolumen und Wachstum}{13}{subsubsection.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2}Markttrends}{13}{subsubsection.4.2.2}%
 \contentsline {subsubsection}{\numberline {4.2.3}Marktpotenzial für ALBERT AERO}{13}{subsubsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.3}Zielgruppen}{13}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Priorisierte Zielgruppen}{13}{subsubsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3}Zielgruppen}{14}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Priorisierte Zielgruppen}{14}{subsubsection.4.3.1}%
 \contentsline {subsubsection}{\numberline {4.3.2}Marktgröße der Zielgruppen}{14}{subsubsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.4}Wettbewerbsanalyse}{14}{subsection.4.4}%
 \contentsline {subsubsection}{\numberline {4.4.1}Wettbewerbslandschaft}{14}{subsubsection.4.4.1}%
