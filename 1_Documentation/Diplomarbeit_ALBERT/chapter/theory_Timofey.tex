@@ -4,3 +4,106 @@
 \chapter{Aerodynamische Grundlagen}
 \fancyfoot[C]{\large Timofey Luzin}
 \fancypagestyle{plain}{\fancyfoot[C]{\large Timofey Luzin}}
+
+Aerodynamik ist die Wissenschaft von strömenden Gasen, besonders von strömender Luft.
+Aerodynamik ist ein zentraler Punkt bei der Entwicklung von Flugkörpern.
+Raketen unterscheiden sich zwar von herkömmlichen Flugkörpern wie Flugzeugen im Aussehen
+und in aerodynamischen Eigenschaften, werden aber von den gleichen physikalischen Gesetzen und
+Kräften beeinflusst.
+
+\section{Die 4 Außenkräfte auf eine Rakete}
+\label{sec:4_outer_forces}
+
+Kräfte sind 
+Vektorgrößen, die sowohl über eine Richtung als auch über einen Betrag verfügen. Bei der 
+Beschreibung der Wirkung dieser Kräfte muss beides immer berücksichtigt werden. Im Flug wirken
+auf die Rakete gleichzeitig alle vier Kräfte, wie auf der Abbildung \ref{fig:four-forces-rocket}
+zu sehen ist.
+\subsection*{Nicht-aerodynamische äußere Kräfte}
+\label{subsec:not_aero_forces}
+\begin{wrapfigure}{r}{0.5\textwidth}
+
+    % {r} = rechtsbündig platzieren
+    % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+    % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+    \centering
+    \includegraphics[width=0.4\textwidth]{Four-Forces-Drawn-On-A-Rocket.png}
+        \caption{Die 4 wichtigsten Kräfte auf einen Raketenflugkörper \parencite{bitweenie2013}}
+        \label{fig:four-forces-rocket}
+    % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+
+  % Abstand nach dem Bild reduzieren
+\end{wrapfigure}
+Die Gewichtskraft hängt von der Masse aller Teile der Rakete ab. Die
+Gewichtskraft wirkt immer in Richtung des Erdmittelpunkts durch den Schwerpunkt(CG) der Rakete,
+der mit einem gelben Punkt auf der Abbildung gekennzeichnet ist.
+Die Größe der Schubkraft hängt vom Massenstrom durch den Motor und von der Geschwindigkeit
+und dem Druck am Austritt der Düse ab. Die Schubkraft wirkt entlang der Längenachse der
+Rakete somit auch durch den eigenen Schwerpunkt. In einigen Raketensteuersystemen die
+Thrust-Vectoring implementieren, wird die Düse abgewinkelt, um die Richtung der Schubkraft und
+somit auch die Richtung der Flugbahn zu ändern. \\ 
+Die Gewichtskraft und die Schubkraft sind wie folgt definiert:
+
+\begin{equation}
+    \vec{\mathbf{F}}_{weight} = \mathbf{m} \cdot \vec{\mathbf{g}}
+\end{equation}
+\begin{equation}
+    \vec{\mathbf{F}}_{thrust} = \dot{\mathbf{m}} \cdot \vec{\mathbf{v}}_{e} + (\mathbf{p}_{e} - \mathbf{p}_{0}) \cdot \mathbf{A}_{e}
+\end{equation}
+\\Mit $\mathbf{m}$ als Masse der Rakete, $\vec{\mathbf{g}}$ als Die Erdbeschleunigung,
+$\dot{\mathbf{m}}$ als Massenstrom durch den Motor, $\vec{\mathbf{v}}_{e}$
+als die Austrittgeschwindigkeit der Gase aus der Düse, $\mathbf{p}_{e}$
+als Druck am Düsenaustritt, $\mathbf{p}_{0}$ als Umgebungsdruck und $\mathbf{A}_{e}$
+als Querschnittsfläche am Düsenaustritt.
+
+\subsection*{Aerodynamische Kräfte}
+\label{subsec:aero_forces}
+Die Größe der aerodynamischen Kräfte hängt sowohl von der Größe und Form der Rakete, als auch
+von der Geschwindigkeit und der Eigenschaften der Atmosphäre ab. Diese Kräfte wirken durch 
+den Druckmittelpunkt(CP) der Rakete, welcher mit einem Gelb-schwarzen Punkt auf der Abbildung
+ekennzeichnet ist. Aerodynamische Kräfte sind ein zentraler Punkt bei der Entwicklung von 
+Modellraketen, für große Raketen sind diese möglicherweise weniger relevant, da sie in der 
+Regel nur eine kurze Zeit in der Atmosphäre verbringen. \\
+Diese zwei aerodynamischen Kräfte sind 
+die Widerstandskraft und die Auftriebskraft. Diese sind wie folgt definiert:
+
+\begin{equation}
+    \vec{\mathbf{F}}_{drag} = \mathbf{C}_d \cdot \frac{\mathbf{\rho} \cdot \mathbf{A} \cdot \vec{\mathbf{v}}^{2}}{2}
+\end{equation}
+\begin{equation}
+    \vec{\mathbf{F}}_{lift} = \mathbf{C}_l \cdot \frac{\mathbf{\rho} \cdot \mathbf{A} \cdot \vec{\mathbf{v}}^{2}}{2}
+\end{equation}
+\\Mit $\mathbf{C}_d$ als Widerstandsbeiwert, $\mathbf{C}_l$ als Auftriebsbeiwert,
+$\mathbf{\rho}$ als Luftdichte, $\mathbf{A}$ als Querschnittsfläche der aerodynamischen Features
+der Rakete und $\mathbf{v}$ als Geschwindigkeit der Rakete relativ zur Luft. Die Widerstandskraft
+und die Auftriebskraft hängen wie folgt zusammen:
+
+\begin{equation}
+    \frac{\vec{\mathbf{F}}_{drag}}{\vec{\mathbf{F}}_{lift}} = \frac{\mathbf{C}_l}{\mathbf{C}_d}
+\end{equation}
+
+
+\subsection{Äußere Faktoren}
+\label{subsec:external_factors}
+Während des gesamten Fluges verändern sich die Kräfte andauern, sowohl in ihrem Betrag als auch 
+in ihrer Richtung. Wenn man die Kräfte unter Berücksichtigung ihrer Richtung addiert, erhält man 
+eine externe resultierende Kraft auf die Rakete. Die durch diese Kraft verursachte Bewegung der 
+Rakete kann durch Newtonsche Bewegungsgesetze beschrieben werden:
+\subsubsection{Erstes Newtonsches Gesetz}
+\label{subsubsec:first_newton_law}
+Ein Kräftefreier Körper bleibt in Ruhe oder bewegt sich mit konstanter Geschwindkeit.
+
+\subsubsection{Zweites Newtonsches Gesetz}
+\label{subsubsec:second_newton_law}
+Kraft ist gleich Masse mal Beschleunigung.
+\begin{equation}
+    \vec{\mathbf{F}} = \mathbf{m} \cdot \vec{\mathbf{a}}
+\end{equation}
+
+\subsubsection{Drittes Newtonsches Gesetz}
+\label{subsubsec:third_newton_law}
+Kraft ist gleich Gegenkraft. Für eine Kraft von einem Körper auf einen anderen Körper 
+wird eine Gegenkraft ausgeübt, die gleich groß ist und in entgegengesetzter Richtung wirkt.
+\begin{equation}
+    \vec{\mathbf{F}}_{A\rightarrow B} = - \vec{\mathbf{F}}_{B\rightarrow A}
+\end{equation}
