@@ -424,6 +424,7 @@
       \verb https://www.unitedthc.com/DSP/Kalman1960.pdf
       \endverb
     \endentry
+<<<<<<< HEAD
     \entry{DataDrivenScience}{book}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=8c0bd5e6b90776e5178d64055a2c4108}{%
@@ -458,6 +459,8 @@
       \verb https://databookuw.com/databook.pdf
       \endverb
     \endentry
+=======
+>>>>>>> 616690d1aa4cbf39999a7cc91fcd9915855da917
     \entry{TPS55289}{manual}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=67e54b1ee931f3f4bddfefa5fbde5fd8}{%

@@ -1,13 +1,14 @@
 # Fdb version 4
-["biber main"] 1768478882.45499 "main.bcf" "main.bbl" "main" 1768479111.59297 0
-  "../appendix/refs.bib" 1768461161.40115 6053 eab57f08104da9b286deb32f5703e905 ""
-  "main.bcf" 1768479111.48913 110560 be1252278806aac0aa1d9b90bd8d023c "pdflatex"
+["biber main"] 1768550049.94073 "main.bcf" "main.bbl" "main" 1768550056.73495 0
+  "../appendix/refs.bib" 1768550045.74373 6282 2148a1c400e59951132fb316a584397e ""
+  "main.bcf" 1768550056.62759 110644 cd98d252df0f43f28663e20c4ca34799 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1768479108.76422 "/Users/felixzauner/Documents/Privat/Github/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1768479111.59318 0
+["pdflatex"] 1768550053.80351 "/Users/felixzauner/Documents/Privat/Github/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1768550056.73515 0
   "../figures/Fluxgate-Magnetometer.jpeg" 1767107499.72197 453972 9fac3d02ca092227d7917d1e742fd7c4 ""
+  "../figures/Four-Forces-Drawn-On-A-Rocket.png" 1768550004.6308 15528 5512424733197518a439ed543a2f74ee ""
   "../figures/HTL.png" 1766852796.69518 2085 c77d2b69cf6c473be35a48b33bab07d5 ""
   "../figures/Logo_HTL.png" 1766852796.69837 12928 f9625eb9d101fb9449998abc4277cbe3 ""
   "../figures/MEMS_Accel.jpeg" 1767095532.7707 324427 b6b40b8f0677a797b04178b072e539de ""
@@ -378,19 +379,19 @@
   "abstract.tex" 1766852959.9239 8102 b9e8ccd6a7b45bb43f75e57e9e5d755f ""
   "bibliography.tex" 1767104659.79234 536 19040c6066eb25a5f1d90f6b7e6ca17e ""
   "introduction.tex" 1767015335.91585 1198 b1d1ad0dcf479b1c12314345f894cf01 ""
-  "main.aux" 1768479111.48241 29102 89ac9b3c3fba00ce69e2cf10d3f475a9 "pdflatex"
-  "main.bbl" 1768478883.79722 24610 f87c4e05b73bec9d1f08324155670701 "biber main"
-  "main.lof" 1768479111.48976 2619 965c8eac3f296f41abaffa31ba46065d "pdflatex"
-  "main.lot" 1768479111.48978 235 a3672fb518efa7f65e77df53be0a66e5 "pdflatex"
-  "main.out" 1768479110.14964 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.run.xml" 1768479111.48968 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
+  "main.aux" 1768550056.62004 31737 8e0c4a176b96bf6b43f7bf7def14d1b2 "pdflatex"
+  "main.bbl" 1768550050.89905 25904 2bbc83051ac109056920bc5d749f70b7 "biber main"
+  "main.lof" 1768550056.62834 2819 4b56ccd2c0c488221a55683bca16e4a9 "pdflatex"
+  "main.lot" 1768550056.62836 235 a3672fb518efa7f65e77df53be0a66e5 "pdflatex"
+  "main.out" 1768550055.21509 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.run.xml" 1768550056.62824 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
   "main.tex" 1767003093.93985 317 f38607b62f21c944a15b384f5f17dbc7 ""
-  "main.toc" 1768479111.48974 3564 cee1c9fec5058452e2fc23f2755aa2a8 "pdflatex"
+  "main.toc" 1768550056.62832 4035 64801c16310c24012ff78fac5ed99075 "pdflatex"
   "preamble.tex" 1768465083.45853 9883 cc26f1fb4d18e084716d0b86798be4d8 ""
   "tableofcontents.tex" 1766853321.19398 684 74a712d631795294899c60a2b5541849 ""
   "theory.tex" 1766859530.01358 161 3c9c2c25022935f0981833f77fdd0d53 ""
   "theory_Felix.tex" 1768479105.6003 56960 7fdb44f7937b2e15749563ca3bc6e5c4 ""
-  "theory_Timofey.tex" 1766859526.6711 134 6e6af3f508d9c18d94f6143db89f8ce6 ""
+  "theory_Timofey.tex" 1768550004.63054 5562 bcd4f04cb6992f64dfa9070470a2df6e ""
   "titlepage.tex" 1766852462.85473 2641 3026b834bf9146ffb45202dc3f692d45 ""
   (generated)
   "main.aux"
