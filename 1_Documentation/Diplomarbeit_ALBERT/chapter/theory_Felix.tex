@@ -545,14 +545,148 @@ STM32CubeIDE ist eine integrierte Entwicklungsumgebung (IDE) von STMicroelectron
 \chapter{Regelungstechnik}
 \label{ch:regelungstechnik}
 
+% Anmerkung: Das ist zu nahe an der Anwendung dran und gehört abgeändert sodass ein Überblick über Regelungstechnik gegeben wird 
+% Welches System liegt vor nichtlinear linear zeitinvariant zeitvariant etc. 
+% Welche teile eines Regelkreises gibt es allgemein
+% Welche Regelungsstrategien gibt es allgemein
+
 
 Die Steuerung und Stabilisierung einer Rakete erfordert ein Regelungssystem, welches die aktuelle Lage und Position der Rakete erfasst und darauf basierend aktiv Korrekturen an die Aktuatoren sendet, um die gewünschte Flugbahn zu gewährleisten. 
 \\
 \\
 Um die Lage und Position der Rakete zu bestimmen, messen die auf der Platine integrierten Sensoren (IMU, Barometer, Magnetometer) und GNSS die physikalischen Größen. Diese Messwerte werden in einem Sensorfusion-Algorithmus (Erweiteter-Kalman-Filter, siehe Abschnitt \ref{sec:kalman_filter})kombiniert und mit einer durch physikalische Modelle getroffene Vorhersage des Systemzustands abgeglichen, um eine genaue Schätzung der aktuellen Lage und Position zu erhalten.
 \\
+\section{Überblick Lineare Regelungstechnik}
+\label{sec:lineare_regelungstechnik}
+Das Ziel dieses Abschnitts ist es, einen Überblick über die für diese Arbeit relevanten Konzepte der linearen Regelungstechnik zu geben. Dabei werden die grundlegenden Prinzipien und Methoden vorgestellt um ein System zu modellieren und zu regeln.
+\subsection{Arten von Systemsteuerung}
+\label{subsec:arten_von_systemsteuerung}
 
+\begin{wrapfigure}
+{r}{0.4\textwidth}
+\vspace{-20pt}
+  % {r} = rechtsbündig platzieren
+  % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+  % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+  \centering
+        \includegraphics[width=0.45\textwidth]{controltypes.png}
+        \caption{Arten von Systemsteuerung \parencite{DataDrivenScience}}
+        \label{fig:passive_vs_aktive_steuerung}
+  % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)   
+  \vspace{-10pt}
+\end{wrapfigure}
 
+Es gibt verschiedene Wege ein System zu steuern, nach der Einteilung von \textcite{DataDrivenScience} in Abbildung \ref{fig:passive_vs_aktive_steuerung} lassen sich wird zwischen passiver und aktiver Steuerung unterschieden. Passive Steuerungen zeigen keine Reaktion auf Veränderungen und es muss keine Energie aufgewendet werden, Beispiele sind etwa aerodynamische Stabilisatoren an Flugzeugen. 
+\\
+Welche wiederum sensorbasierte und nicht-sensorbasierte Steuerung umfassen. In der sensorbasierten Steuerung wird zwischen offenen und geschlossenen Regelkreisen unterschieden.
+\\
+Die Regelung (Closed-Loop Feedback) hat den Vorteil, dass durch die Rückkopplung der Regelgröße auf die Führungsgröße die Abweichung vom Sollwert erkannt und korrigiert werden kann. 
+\\
+Desweiteren ist es möglich instabile Systeme zu stabilisieren, auf externe Störungen zu reagieren und unerwartete Veränderungen im System zu kompensieren.\parencite{DataDrivenScience}
+
+\subsection{Geschlossener Regelkreis}
+\label{subsec:regelkreis}
+In Abbildung \ref{fig:standard_regelkreis} ist ein Standard-Regelkreis dargestellt, welcher die grundlegenden Komponenten eines Regelungssystems zeigt: Regler (Controller), Regelstrecke (System) und Messung. Die Führungsgröße (Reference) $w_r$ repräsentiert den gewünschten Sollwert und wird mit der gemessenen Regelgröße $y_m$ verglichen, um die Regelabweichung $e$ zu bestimmen. Dem Regler wird die Regeldifferenz $e$ übergeben, welcher daraufhin die Stellgröße $u$ berechnet und so die Regelstrecke beeinflusst. Die Regelstrecke stellt das zu regelnde System dar, welches auf die Stellgröße $u$ und Störgröße (Disturbance) $w_d$ mit der Regelgröße $y$ reagiert. Diese Regelgröße wird durch eine von Messrauschen (Noise) $w_n$ behaftete Messung ermittelt und als gemessene Regelgröße $y_m$ zurückgeführt, um den Regelkreis zu schließen.
+\begin{figure}[H]
+    \centering
+\tikzstyle{block} = [draw, fill=blue!10, rectangle, 
+    minimum height=3em, minimum width=6em]
+\tikzstyle{sum} = [draw, fill=blue!20, circle, node distance=1cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+
+    \node [input, name=input] {};
+    \node [sum, right of=input] (sum) {};
+    \node [block, right of=sum] (controller) {Regler};
+    \node [block, right of=controller, pin={[pinstyle]above:$w_d$},
+            node distance=4cm] (system) {Regelstrecke};
+    % We draw an edge between the controller and system block to 
+    % calculate the coordinate u. We need it to place the measurement block. 
+    \draw [->] (controller) -- node[name=u] {$u$} (system);
+    \node [output, right of=system] (output) {};
+    \node [block, below of=u, pin={[pinstyle]below:$w_n$}, node distance=2cm] (measurements) {Messung};
+
+    % Once the nodes are placed, connecting them is easy. 
+    \draw [draw,->] (input) -- node {$w_r$} (sum);
+    \draw [->] (sum) -- node {$e$} (controller);
+    \draw [->] (system) -- node [name=y] {$y$}(output);
+    \draw [->] (y) |- (measurements);
+    \draw [->] (measurements) -| node[pos=0.99] {$-$} 
+        node [near end] {$y_m$} (sum);
+
+\end{tikzpicture}
+    \caption{Standard-Regelkreis }
+    \label{fig:standard_regelkreis}
+\end{figure}
+Im folgenden werden die drei Störgrößen $\mathbf{w}_d$, $\mathbf{w}_n$ und $\mathbf{w}_r$ als Vektor $\mathbf{w}=[\mathbf{w}_d, \mathbf{w}_n, \mathbf{w}_r]$ zusammengefasst.
+\\
+So kann die Regelstrecke und die Messung mathematisch wie folgt beschrieben werden:
+\begin{equation}
+    \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x},\mathbf{u},\mathbf{w}_d)
+\end{equation}
+\begin{equation}
+    \mathbf{y}_m = \mathbf{g}(\mathbf{x},\mathbf{u},\mathbf{w}_n)
+\end{equation}
+Das Ziel des Reglers ist es nun eine optimale Stellgröße $u$ zu berechnen um die Kostenfunktion $J$ zu minimieren:
+\begin{equation}
+    \mathbf{u} = \mathbf{k}(\mathbf{y},\hat{\mathbf{x}}, \mathbf{w}_r)
+\end{equation}
+\begin{equation}
+    J \triangleq J(\mathbf{x},\mathbf{u},\mathbf{w}_r)
+\end{equation}
+Wobei $\hat{\mathbf{x}}$ die Schätzung des Systemzustands durch einen Zustandsschätzer (z.B. Kalman-Filter) darstellt.
+
+\subsection{Linearisierung}
+\label{subsec:linearisierung}
+Die Anwendung vieler Regelungsverfahren setzt ein lineares Systemmodell voraus, in der Praxis sind die meisten Systeme jedoch nichtlinear. Um dennoch lineare Regelungsverfahren anwenden zu können, kann das nichtlineare System um einen oder mehrere Arbeitspunkte linearisiert werden. 
+\\Im Folgenden werden die Störgrößen zur Vereinfachung vorübergehend vernachlässigt.
+\\\\
+Hierzu werden die nichtlinearen Systemgleichungen an einem Arbeitspunkt $(\bar{\mathbf{x}}, \bar{\mathbf{u}})$ an dem die Ableitungen der Systemgrößen null sind, mittels Taylor-Entwicklung approximiert. Für kleine Abweichungen $\Delta \mathbf{x}$ und $\Delta \mathbf{u}$ um den Arbeitspunkt gilt somit:
+\begin{equation}
+\mathbf{f}(\bar{\mathbf{x}} + \Delta \mathbf{x}, \bar{\mathbf{u}} + \Delta \mathbf{u}) = \mathbf{f}(\bar{\mathbf{x}}, \bar{\mathbf{u}}) + \underbrace{\left. \frac{\partial \mathbf{f}}{\partial \mathbf{x}} \right|_{(\bar{\mathbf{x}}, \bar{\mathbf{u}})}}_{\mathbf{A}} \cdot \Delta \mathbf{x} + \underbrace{\left. \frac{\partial \mathbf{f}}{\partial \mathbf{u}} \right|_{(\bar{\mathbf{x}}, \bar{\mathbf{u}})}}_{\mathbf{B}} \cdot \Delta \mathbf{u} + \cdots
+\end{equation}
+
+\begin{equation} 
+\mathbf{g}(\bar{\mathbf{x}} + \Delta \mathbf{x}, \bar{\mathbf{u}} + \Delta \mathbf{u}) = \mathbf{g}(\bar{\mathbf{x}}, \bar{\mathbf{u}}) + \underbrace{\left. \frac{\partial \mathbf{g}}{\partial \mathbf{x}} \right|_{(\bar{\mathbf{x}}, \bar{\mathbf{u}})}}_{\mathbf{C}} \cdot \Delta \mathbf{x} + \underbrace{\left. \frac{\partial \mathbf{g}}{\partial \mathbf{u}} \right|_{(\bar{\mathbf{x}}, \bar{\mathbf{u}})}}_{\mathbf{D}} \cdot \Delta \mathbf{u} + \cdots
+\end{equation}
+Nun können bei einer Verschiebung des Koordinatensystems auf den Arbeitspunkt $(\bar{\mathbf{x}}, \bar{\mathbf{u}})$ die Differentialgleichungen mit den Jacobi-Matrizen siehe \ref{subsec:jacobi_matrizen} $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$ und $\mathbf{D}$ wie folgt beschrieben werden:
+\begin{equation}
+  \dot{\mathbf{x}} = \mathbf{A} \cdot  \mathbf{x} + \mathbf{B} \cdot  \mathbf{u}
+\end{equation}
+\begin{equation}
+     \mathbf{y} = \mathbf{C} \cdot  \mathbf{x} + \mathbf{D} \cdot  \mathbf{u} 
+\end{equation}
+
+Für ein lineares zeitinvariantes System lässt sich unter der Annahme, dass keine Steuer- und Störgrößen vorliegen, die Systemdynamik wie folgt beschreiben:
+\begin{equation}
+    \dot{\mathbf{x}} = \mathbf{A} \cdot \mathbf{x}
+\end{equation}
+Die Lösung dieser Differentialgleichung ist gegeben durch:
+\begin{equation}
+    \mathbf{x}(t) = e^{\mathbf{A}t} \cdot \mathbf{x}(0)
+\end{equation}
+wobei $e^{\mathbf{A}t}$ die Matrixexponentialfunktion ist, welche die Systemdynamik beschreibt.
+\\
+Diese kann durch Taylor-Entwicklung wie folgt approximiert werden:
+\begin{equation}
+    e^{\mathbf{A}t} = \sum_{n=0}^{\infty} \frac{(\mathbf{A}t)^n}{n!} = \mathbf{I} + \mathbf{A}t + \frac{(\mathbf{A}t)^2}{2!} + \frac{(\mathbf{A}t)^3}{3!} + ...
+\end{equation}
+\subsection{Jacobi Matrizen}
+\label{subsec:jacobi_matrizen}
+Die Jacobi-Matrix ist eine Matrix, die die partiellen Ableitungen einer Matrix nach ihren Variablen enthält. Sie stellt die lokale Steigung einer nichtlinearen Funktion in mehreren Richtungen dar.
+\\
+Für eine Funktion ${f}({x})$ mit $m$ Ausgabekomponenten (Zeilen) und $n$ Eingabekomponenten (Spalten) ist die Jacobi-Matrix definiert als:
+\begin{equation}
+    \mathbf{J} = \begin{bmatrix}
+    \frac{\partial f_1}{\partial x_1}  & \cdots & \frac{\partial f_1}{\partial x_n} \\
+    
+    \vdots  & \ddots & \vdots \\
+    \frac{\partial f_m}{\partial x_1} &  \cdots & \frac{\partial f_m}{\partial x_n}
+    \end{bmatrix}
+\end{equation}
 \section{Kalman-Filter}
 \label{sec:kalman_filter}
 Das Kalman-Filter ist ein mathematisches Verfahren zur iterativen Schätzung des Zustands eines linearen Systems aus einer Reihe von verrauschten Messungen von indirekten Systemgrößen. Der große Vorteil im Vergleich zu anderen Filtermethoden liegt in der Fähigkeit, in Echtzeit zu arbeiten, was die Anwendung in Inertialnavigationssystemen in Flugzeugen und Raketen ermöglicht.
@@ -571,7 +705,7 @@ Das Kalman-Filter basiert auf einer Zustandsraummodellierung des Systems, dabei 
 \begin{equation}
     \mathbf{X}_k = \mathbf{F}_k \cdot \mathbf{X}_{k-1} + \mathbf{B}_k \cdot \mathbf{u}_k + \mathbf{w}_k
 \end{equation}
-Beispielhaft hier angeführt eine eindimensionale Bewegung mit konstanter Geschwindigkeit ohne Prozessrauschen, bei der die Position $x$ und die Geschwindigkeit $\dot{x}$ des Systems den Systemzustand bilden:
+Beispielhaft hier angeführt eine eindimensionale Bewegung mit konstanter Geschwindigkeit ohne Prozessrauschen, bei der die Position $x_k$ und die Geschwindigkeit $\dot{x}_k$ des Systems den Systemzustand bilden:
 \begin{equation}
     \mathbf{X}_k = \begin{bmatrix}
     x_k \\
@@ -698,32 +832,7 @@ mit den Jacobi-Matrizen
 \mathbf{V}_k =
 \left.\frac{\partial h}{\partial \boldsymbol{\nu}}\right|_{{\mathbf{x}}_{k|k-1}}.
 \end{equation}
-
 \parencite{ExtendedKalmanHalle}
-\\\\
-\textbf{Jacobi-Matrix:}
-\\
-Die Jacobi-Matrix ist eine Matrix, die die partiellen Ableitungen einer Matrix nach ihren Variablen enthält. Sie stellt die lokale Steigung einer nichtlinearen Funktion in mehreren Richtungen dar.
-\\
-Für eine Funktion ${f}({x})$ mit $m$ Ausgabekomponenten (Zeilen) und $n$ Eingabekomponenten (Spalten) ist die Jacobi-Matrix definiert als:
-\begin{equation}
-    \mathbf{J} = \begin{bmatrix}
-    \frac{\partial f_1}{\partial x_1}  & \cdots & \frac{\partial f_1}{\partial x_n} \\
-    
-    \vdots  & \ddots & \vdots \\
-    \frac{\partial f_m}{\partial x_1} &  \cdots & \frac{\partial f_m}{\partial x_n}
-    \end{bmatrix}
-\end{equation}
-\\
-\textbf{Euler-Verfahren}
-\\
-Das Euler-Verfahren ist ein numerisches Verfahren zur Lösung von gewöhnlichen Differentialgleichungen. Es basiert auf der Idee, die Ableitung einer Funktion an einem bestimmten Punkt zu verwenden, um den Funktionswert an einem nahegelegenen Punkt zu approximieren. 
-\begin{equation}
-    y_{k+1} = y_k + h \cdot \dot{y}(t)= y_k + h \cdot f(t_k, y_k)
-\end{equation}
-wobei $y_k$ der Funktionswert zum Zeitpunkt $t_k$, $h$ die Schrittweite und $f(t_k, y_k)$ die Ableitung der Funktion zum Zeitpunkt $t_k$ ist, welcher durch $t_{k} = t_0 + k \cdot h$ definiert ist. $k$ ist eine positive ganze Zahl, welche den Zeitschritt angibt.
-\\
-\\
 Für den Vorherageschritt des EKF ergibt sich somit:
 \begin{equation}
     \mathbf{X}_{k|k-1} = f(\mathbf{X}_{k-1}, \mathbf{u}_k) 
@@ -747,5 +856,11 @@ Für den Korrekturschritt des EKF ergibt sich:
 Der Ablauf des EKF ist ansonsten identisch zum klassischen Kalman-Filter.
 \parencite{ExtendedKalmanHalle}\parencite{ExtendedKalmanPhils1}
 
-
-\label{ch:regelung}
+\subsection{Euler-Verfahren}
+\label{subsec:ekf_euler_verfahren}
+Das Euler-Verfahren ist ein numerisches Verfahren zur Lösung von gewöhnlichen Differentialgleichungen. Es basiert auf der Idee, die Ableitung einer Funktion an einem bestimmten Punkt zu verwenden, um den Funktionswert an einem nahegelegenen Punkt zu approximieren. 
+\begin{equation}
+    y_{k+1} = y_k + h \cdot \dot{y}(t)= y_k + h \cdot f(t_k, y_k)
+\end{equation}
+wobei $y_k$ der Funktionswert zum Zeitpunkt $t_k$, $h$ die Schrittweite und $f(t_k, y_k)$ die Ableitung der Funktion zum Zeitpunkt $t_k$ ist, welcher durch $t_{k} = t_0 + k \cdot h$ definiert ist. $k$ ist eine positive ganze Zahl, welche den Zeitschritt angibt.
+\\

@@ -424,6 +424,40 @@
       \verb https://www.unitedthc.com/DSP/Kalman1960.pdf
       \endverb
     \endentry
+    \entry{DataDrivenScience}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8c0bd5e6b90776e5178d64055a2c4108}{%
+           family={{Steven L. Brunton}},
+           familyi={S\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=f7abeef56346f8ee0939df072ad91c21}{%
+           family={{J. Nathan Kutz}},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{9068c5569283b931b595bcc888bf8f38}
+      \strng{fullhash}{9068c5569283b931b595bcc888bf8f38}
+      \strng{fullhashraw}{9068c5569283b931b595bcc888bf8f38}
+      \strng{bibnamehash}{9068c5569283b931b595bcc888bf8f38}
+      \strng{authorbibnamehash}{9068c5569283b931b595bcc888bf8f38}
+      \strng{authornamehash}{9068c5569283b931b595bcc888bf8f38}
+      \strng{authorfullhash}{9068c5569283b931b595bcc888bf8f38}
+      \strng{authorfullhashraw}{9068c5569283b931b595bcc888bf8f38}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Data Driven Science \& Engineering}
+      \field{urlday}{15}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://databookuw.com/databook.pdf
+      \endverb
+      \verb{url}
+      \verb https://databookuw.com/databook.pdf
+      \endverb
+    \endentry
     \entry{TPS55289}{manual}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=67e54b1ee931f3f4bddfefa5fbde5fd8}{%

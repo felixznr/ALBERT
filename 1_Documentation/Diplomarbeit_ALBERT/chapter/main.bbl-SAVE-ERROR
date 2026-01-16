@@ -1,0 +1,587 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{AdvancedNavigation_IMU}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7fc20efe5300e0823e05fb442d07126e}{%
+           family={{Advanced Navigation}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{fullhash}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{fullhashraw}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{bibnamehash}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{authorbibnamehash}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{authornamehash}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{authorfullhash}{7fc20efe5300e0823e05fb442d07126e}
+      \strng{authorfullhashraw}{7fc20efe5300e0823e05fb442d07126e}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Inertial Measurement Unit (IMU) – An Introduction}
+      \field{urlday}{30}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.advancednavigation.com/tech-articles/inertial-measurement-unit-imu-an-introduction/
+      \endverb
+      \verb{url}
+      \verb https://www.advancednavigation.com/tech-articles/inertial-measurement-unit-imu-an-introduction/
+      \endverb
+    \endentry
+    \entry{AltiumGPS}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1ba7008bb3db3642bcf4e2feae38fb57}{%
+           family={{Altium}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{1ba7008bb3db3642bcf4e2feae38fb57}
+      \strng{fullhash}{1ba7008bb3db3642bcf4e2feae38fb57}
+      \strng{fullhashraw}{1ba7008bb3db3642bcf4e2feae38fb57}
+      \strng{bibnamehash}{1ba7008bb3db3642bcf4e2feae38fb57}
+      \strng{authorbibnamehash}{1ba7008bb3db3642bcf4e2feae38fb57}
+      \strng{authornamehash}{1ba7008bb3db3642bcf4e2feae38fb57}
+      \strng{authorfullhash}{1ba7008bb3db3642bcf4e2feae38fb57}
+      \strng{authorfullhashraw}{1ba7008bb3db3642bcf4e2feae38fb57}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GPS-Antennen in Ihrem PCB-Design: Sie werden sich nie wieder verirren}
+      \field{urlday}{31}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://resources.altium.com/de/p/gps-antennas-in-your-pcb-design-you-won-t-get-lost-again
+      \endverb
+      \verb{url}
+      \verb https://resources.altium.com/de/p/gps-antennas-in-your-pcb-design-you-won-t-get-lost-again
+      \endverb
+    \endentry
+    \entry{ExtendedKalmanHalle}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3c9843ce68dffdf1c0f301e28c14d4b7}{%
+           family={{Birgit Moeller und Denis Williams}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{3c9843ce68dffdf1c0f301e28c14d4b7}
+      \strng{fullhash}{3c9843ce68dffdf1c0f301e28c14d4b7}
+      \strng{fullhashraw}{3c9843ce68dffdf1c0f301e28c14d4b7}
+      \strng{bibnamehash}{3c9843ce68dffdf1c0f301e28c14d4b7}
+      \strng{authorbibnamehash}{3c9843ce68dffdf1c0f301e28c14d4b7}
+      \strng{authornamehash}{3c9843ce68dffdf1c0f301e28c14d4b7}
+      \strng{authorfullhash}{3c9843ce68dffdf1c0f301e28c14d4b7}
+      \strng{authorfullhashraw}{3c9843ce68dffdf1c0f301e28c14d4b7}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Extended Kalmanfilter}
+      \field{urlday}{9}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2003}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www2.informatik.uni-halle.de/agprbio/AG/Lehre/ABV_WS03/material/extendedKalman.pdf
+      \endverb
+      \verb{url}
+      \verb https://www2.informatik.uni-halle.de/agprbio/AG/Lehre/ABV_WS03/material/extendedKalman.pdf
+      \endverb
+    \endentry
+    \entry{barometerWorkingPrinciple}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d6909410a4f8426780fa6519b31a2130}{%
+           family={{Bosch Mobility}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d6909410a4f8426780fa6519b31a2130}
+      \strng{fullhash}{d6909410a4f8426780fa6519b31a2130}
+      \strng{fullhashraw}{d6909410a4f8426780fa6519b31a2130}
+      \strng{bibnamehash}{d6909410a4f8426780fa6519b31a2130}
+      \strng{authorbibnamehash}{d6909410a4f8426780fa6519b31a2130}
+      \strng{authornamehash}{d6909410a4f8426780fa6519b31a2130}
+      \strng{authorfullhash}{d6909410a4f8426780fa6519b31a2130}
+      \strng{authorfullhashraw}{d6909410a4f8426780fa6519b31a2130}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{EN | Bosch Working principle of a pressure sensor}
+      \field{urlday}{30}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=zXIeqeT_FC8
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=zXIeqeT_FC8
+      \endverb
+    \endentry
+    \entry{DorFuchsKalman}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ae5718ac83b526e3f44d0b055719d9f6}{%
+           family={{Dor Fuchs}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{fullhash}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{fullhashraw}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{bibnamehash}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{authorbibnamehash}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{authornamehash}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{authorfullhash}{ae5718ac83b526e3f44d0b055719d9f6}
+      \strng{authorfullhashraw}{ae5718ac83b526e3f44d0b055719d9f6}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Wie ein bisschen Mathe bei der Mondlandung half (Das Kalman-Filter)}
+      \field{urlday}{7}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=EBjca6tPuO0
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=EBjca6tPuO0
+      \endverb
+    \endentry
+    \entry{BoschFlipCore}{patent}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=110823ca6b065c4ca0615ec97eb35889}{%
+           family={GmbH},
+           familyi={G\bibinitperiod},
+           given={Robert\bibnamedelima Bosch},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{fullhash}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{fullhashraw}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{bibnamehash}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{authorbibnamehash}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{authornamehash}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{authorfullhash}{110823ca6b065c4ca0615ec97eb35889}
+      \strng{authorfullhashraw}{110823ca6b065c4ca0615ec97eb35889}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{WO2012/126693A1}
+      \field{title}{Vorrichtung und Verfahren zur Messung von Magnetfeldern}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb https://patentimages.storage.googleapis.com/f7/0c/82/ff4acea094b486/WO2012126693A1.pdf
+      \endverb
+      \verb{url}
+      \verb https://patentimages.storage.googleapis.com/f7/0c/82/ff4acea094b486/WO2012126693A1.pdf
+      \endverb
+    \endentry
+    \entry{JLCDecouplingBypass}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6089278730660d27c2f7e812bfa9ee38}{%
+           family={{jlcpcb}},
+           familyi={j\bibinitperiod}}}%
+      }
+      \strng{namehash}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{fullhash}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{fullhashraw}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{bibnamehash}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{authorbibnamehash}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{authornamehash}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{authorfullhash}{6089278730660d27c2f7e812bfa9ee38}
+      \strng{authorfullhashraw}{6089278730660d27c2f7e812bfa9ee38}
+      \field{sortinit}{j}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Decoupling vs Bypass Capacitor : What’s the Difference}
+      \field{urlday}{31}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://jlcpcb.com/blog/decoupling-vs-bypass-capacitor
+      \endverb
+      \verb{url}
+      \verb https://jlcpcb.com/blog/decoupling-vs-bypass-capacitor
+      \endverb
+    \endentry
+    \entry{bitweenie2013}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e46d7b0968f3146029db689f94ad8df6}{%
+           family={{Nikola T.}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{fullhash}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{fullhashraw}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{bibnamehash}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{authorbibnamehash}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{authornamehash}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{authorfullhash}{e46d7b0968f3146029db689f94ad8df6}
+      \strng{authorfullhashraw}{e46d7b0968f3146029db689f94ad8df6}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Standard 4- and 6-Layer PCB Stackups}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2013}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.bitweenie.com/listings/standard-4-and-6-layer-pcb-stackups/
+      \endverb
+      \verb{url}
+      \verb https://www.bitweenie.com/listings/standard-4-and-6-layer-pcb-stackups/
+      \endverb
+    \endentry
+    \entry{ExtendedKalmanPhils1}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2ebe0aa598361ef6415e8bc30497c26b}{%
+           family={{Phil's Lab}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{bibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorbibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authornamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \field{extraname}{1}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{(Sponsored) Extended Kalman Filter - Sensor Fusion 3 - Phil's Lab 37}
+      \field{urlday}{8}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=hQUkiC5o0JI&t=17s
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=hQUkiC5o0JI&t=17s
+      \endverb
+    \endentry
+    \entry{PhilsLab56}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2ebe0aa598361ef6415e8bc30497c26b}{%
+           family={{Phil's Lab}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{bibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorbibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authornamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \field{extraname}{2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{(Sponsored) PCB Stack-Up and Build-Up - Phil's Lab 56}
+      \field{urlday}{29}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=QAOEtfvCaMw&t=554s
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=QAOEtfvCaMw&t=554s
+      \endverb
+    \endentry
+    \entry{PhilsLab60}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2ebe0aa598361ef6415e8bc30497c26b}{%
+           family={{Phil's Lab}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{bibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorbibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authornamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \field{extraname}{3}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{(Sponsored) Switching Regulator PCB Design - Phil's Lab 60}
+      \field{urlday}{29}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=AmfLhT5SntE&t=582s
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=AmfLhT5SntE&t=582s
+      \endverb
+    \endentry
+    \entry{schmidt-walter_Abwärtswandler}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cda09589287af4c4265e313fbad07a0f}{%
+           family={{Prof. Dr.-Ing. Heinz Schmidt-Walter}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{cda09589287af4c4265e313fbad07a0f}
+      \strng{fullhash}{cda09589287af4c4265e313fbad07a0f}
+      \strng{fullhashraw}{cda09589287af4c4265e313fbad07a0f}
+      \strng{bibnamehash}{cda09589287af4c4265e313fbad07a0f}
+      \strng{authorbibnamehash}{cda09589287af4c4265e313fbad07a0f}
+      \strng{authornamehash}{cda09589287af4c4265e313fbad07a0f}
+      \strng{authorfullhash}{cda09589287af4c4265e313fbad07a0f}
+      \strng{authorfullhashraw}{cda09589287af4c4265e313fbad07a0f}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Abwärtswandler}
+      \field{urlday}{29}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://schmidt-walter-schaltnetzteile.de/snt/snt_deu/sntdeu2.pdf
+      \endverb
+      \verb{url}
+      \verb http://schmidt-walter-schaltnetzteile.de/snt/snt_deu/sntdeu2.pdf
+      \endverb
+    \endentry
+    \entry{Kalman60}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1f656053f2a54f45a3e6769362d7a49d}{%
+           family={{R. E. KALMAN}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{fullhash}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{fullhashraw}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{bibnamehash}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{authorbibnamehash}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{authornamehash}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{authorfullhash}{1f656053f2a54f45a3e6769362d7a49d}
+      \strng{authorfullhashraw}{1f656053f2a54f45a3e6769362d7a49d}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A New Approach to Linear Filtering and Prediction Problems}
+      \field{urlday}{7}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{1960}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.unitedthc.com/DSP/Kalman1960.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.unitedthc.com/DSP/Kalman1960.pdf
+      \endverb
+    \endentry
+    \entry{DataDrivenScience}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8c0bd5e6b90776e5178d64055a2c4108}{%
+           family={{Steven L. Brunton}},
+           familyi={S\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=f7abeef56346f8ee0939df072ad91c21}{%
+           family={{J. Nathan Kutz}},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{9068c5569283b931b595bcc888bf8f38}
+      \strng{fullhash}{9068c5569283b931b595bcc888bf8f38}
+      \strng{fullhashraw}{9068c5569283b931b595bcc888bf8f38}
+      \strng{bibnamehash}{9068c5569283b931b595bcc888bf8f38}
+      \strng{authorbibnamehash}{9068c5569283b931b595bcc888bf8f38}
+      \strng{authornamehash}{9068c5569283b931b595bcc888bf8f38}
+      \strng{authorfullhash}{9068c5569283b931b595bcc888bf8f38}
+      \strng{authorfullhashraw}{9068c5569283b931b595bcc888bf8f38}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Data Driven Science \& Engineering}
+      \field{urlday}{15}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://databookuw.com/databook.pdf
+      \endverb
+      \verb{url}
+      \verb https://databookuw.com/databook.pdf
+      \endverb
+    \endentry
+    \entry{TPS55289}{manual}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=67e54b1ee931f3f4bddfefa5fbde5fd8}{%
+           family={{Texas Instruments}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{fullhash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{fullhashraw}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{bibnamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorbibnamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authornamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorfullhash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorfullhashraw}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{TPS55289 Buck Converter Datasheet}
+      \field{urlday}{29}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ti.com/lit/ds/symlink/tps55289.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/lit/ds/symlink/tps55289.pdf
+      \endverb
+    \endentry
+    \entry{ToddToporski_EMC}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3ecc9cadd5b037de751e48d6baf77359}{%
+           family={{Todd Toporski}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{fullhash}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{fullhashraw}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{bibnamehash}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{authorbibnamehash}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{authornamehash}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{authorfullhash}{3ecc9cadd5b037de751e48d6baf77359}
+      \strng{authorfullhashraw}{3ecc9cadd5b037de751e48d6baf77359}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Switch Node Layout Considerations for EMC}
+      \field{urlday}{29}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.monolithicpower.com/en/learning/resources/switch-node-layout-considerations-for-emc?srsltid=AfmBOoqRXddokKGt6qhy2Qypf72WE3ECnBd1sNlJD2nkrFNsOXMKb-D_
+      \endverb
+      \verb{url}
+      \verb https://www.monolithicpower.com/en/learning/resources/switch-node-layout-considerations-for-emc?srsltid=AfmBOoqRXddokKGt6qhy2Qypf72WE3ECnBd1sNlJD2nkrFNsOXMKb-D_
+      \endverb
+    \endentry
+    \entry{WikipediaKalman}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=535bebf06af273c7e2d9ff9d7fc43470}{%
+           family={{Wikipedia Contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{fullhash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{fullhashraw}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{bibnamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorbibnamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authornamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorfullhash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorfullhashraw}{535bebf06af273c7e2d9ff9d7fc43470}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Kalman-Filter}
+      \field{urlday}{7}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://de.wikipedia.org/wiki/Kalman-Filter#cite_note-1
+      \endverb
+      \verb{url}
+      \verb https://de.wikipedia.org/wiki/Kalman-Filter#cite_note-1
+      \endverb
+    \endentry
+    \entry{ZachariahPeterson_Rückstromführung}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4515c71615020f121f4cb30082d534ab}{%
+           family={{Zachariah Peterson}},
+           familyi={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{4515c71615020f121f4cb30082d534ab}
+      \strng{fullhash}{4515c71615020f121f4cb30082d534ab}
+      \strng{fullhashraw}{4515c71615020f121f4cb30082d534ab}
+      \strng{bibnamehash}{4515c71615020f121f4cb30082d534ab}
+      \strng{authorbibnamehash}{4515c71615020f121f4cb30082d534ab}
+      \strng{authornamehash}{4515c71615020f121f4cb30082d534ab}
+      \strng{authorfullhash}{4515c71615020f121f4cb30082d534ab}
+      \strng{authorfullhashraw}{4515c71615020f121f4cb30082d534ab}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Was ist die Rückstromführung in einem PCB?}
+      \field{urlday}{29}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://resources.altium.com/de/p/what-return-current-path-pcb
+      \endverb
+      \verb{url}
+      \verb https://resources.altium.com/de/p/what-return-current-path-pcb
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
