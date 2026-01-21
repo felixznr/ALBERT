@@ -1,0 +1,31 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+
+dimensions [0 1 -1 0 0 0 0];
+
+internalField uniform (50 0 0);   // Free-stream velocity
+
+boundaryField
+{
+    inlet
+    {
+        type fixedValue;          // Velocity is imposed
+        value uniform (50 0 0);
+    }
+
+    outlet
+    {
+        type zeroGradient;        // Let velocity adjust freely
+    }
+
+    sides
+    {
+        type slip;                // Far-field: no shear stress
+    }
+}
+
