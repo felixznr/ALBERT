@@ -1,0 +1,159 @@
+FoamFile
+{
+	version		2.0;
+	format		ascii;
+	class		dictionary;
+	object		autoHexMeshDict;
+}
+
+castellatedMesh true;
+snap true;
+addLayers false;
+
+geometry
+{
+	NACA0012.stl
+	{
+		type triSurfaceMesh;
+		name NACA0012;
+	}
+};
+
+castellatedMeshControls
+{
+	maxLocalCells 100000;
+	maxGlobalCells 2000000;
+	minRefinementCells 2;
+	nCellsBetweenLevels 2;
+
+	features
+		(
+		 {
+		 file "NACA0012.eMesh";	
+		 level 1;
+		 }
+		);
+
+	refinementSurfaces
+	{
+		cylinder
+		{
+			level (1 2);
+		}
+	}
+
+	resolveFeatureAngle 20
+
+		refinementRegions
+		{
+			cylinder
+			{
+				mode inside;
+				levels ((1 2));
+			}
+		}
+
+}
+
+snapControls
+{
+	nSmoothPatch 4;
+	tolerance 4;
+	nSolveIter 5;
+	nRelaxIter 5;
+
+	nFeatureSnapIter 5;
+	implicitFeatureSnap true;
+	explicitFeatureSnap false;
+	multiRegionFeatureSnap false;
+
+}
+
+addLayersControls
+{
+	relativeSizes true;
+
+	layers
+	{
+		"cylinder_*"
+		{
+			nSurfaceLayers 3;
+		}
+	}
+
+	expansionRatio 1.1;
+
+
+	finalLayerThickness 0.9;
+
+	minThickness 0.05;
+
+	nGrow 0;
+
+
+	featureAngle 30;
+
+	nRelaxIter 5;
+
+	nSmoothSurfaceNormals 1;
+
+	nSmoothNormals 3;
+
+	nSmoothThickness 2;
+
+	maxFaceThicknessRatio 0.5;
+
+	maxThicknessToMedialRatio 0.3;
+
+	minMedianAxisAngle 90;
+
+	nBufferCellsNoExtrude 0;
+
+	nLayerIter 30;
+
+	nRelaxedIter 10;
+}
+
+
+
+meshQualityControls
+{
+	maxNonOrtho 65;
+
+	maxBoundarySkewness 20;
+	maxInternalSkewness 4;
+
+	maxConcave 80;
+
+	minVol 1e-13;
+
+	minTetQuality 1e-9;
+
+	minArea -1;
+
+	minTwist 0.05;
+
+	minDeterminant 0.001;
+
+	minFaceWeight 0.05;
+
+	minVolRatio 0.01;
+
+	minTriangleTwist -1;
+
+	nSmoothScale 4;
+	errorReduction 0.75;
+
+
+
+	relaxed
+	{
+		maxNonOrtho 75;
+	}
+}
+
+
+debug 0;
+
+
+mergeTolerance 1E-6;
