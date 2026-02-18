@@ -1,0 +1,27 @@
+\babel@toc {ngerman}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Beispielhafter Stackup einer vierlagigen Leiterplatte \blx@tocontentsinit {0}\parencite {bitweenie2013}}}{6}{figure.caption.4}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Rückstrompfade im Vergleich \blx@tocontentsinit {0}\parencite {ZachariahPeterson_Rückstromführung}}}{7}{figure.caption.6}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Elektrisches und magnetisches Feld eines Leiterbahnschnitts \blx@tocontentsinit {0}\parencite {ToddToporski_EMC}}}{8}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Platzierung von Decoupling-Kondensatoren}}{9}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Vereinfachter Schaltplan eines Abwärtswandlers}}{10}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Zeitliche Verläufe von Schaltspannung $U_Q$, Ausgangsspannung $U_A$ und Induktivitätsstrom $I_L$ eines Buck Converters im kontinuierlichen Betrieb}}{11}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Beispielhaftes Layout eines Abwärtswandlers \blx@tocontentsinit {0}\parencite {TPS55289}}}{11}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Messgrößen einer 6-DOF IMU}}{12}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Schematische Darstellung eines MEMS-Beschleunigungssensors }}{12}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Schematische Darstellung eines MEMS-Gyroskops \blx@tocontentsinit {0}\parencite {AdvancedNavigation_IMU}}}{13}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Funktionsprinzip eines Fluxgate-Magnetometers }}{13}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Beispielhafter Aufbau eines piezoresistiven Barometers \blx@tocontentsinit {0}\parencite {barometerWorkingPrinciple}}}{14}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Vereinfachte Darstellung der GNSS-Satelliten und des Empfängers}}{15}{figure.caption.20}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Arten von Systemsteuerung \blx@tocontentsinit {0}\parencite {DataDrivenScience}}}{19}{figure.caption.21}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Standard-Regelkreis }}{20}{figure.caption.22}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Die 4 wichtigsten Kräfte auf einen Raketenflugkörper \blx@tocontentsinit {0}\parencite {BeginnersGuideToAeronautics}}}{26}{figure.caption.23}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Machscher Kegel \blx@tocontentsinit {0}\parencite {ApogeeRockets}}}{28}{figure.caption.27}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Flügelprofile \blx@tocontentsinit {0}\parencite {NakkaRocketry}}}{29}{figure.caption.28}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
