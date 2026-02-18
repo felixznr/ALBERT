@@ -81,6 +81,37 @@
       \verb https://resources.altium.com/de/p/gps-antennas-in-your-pcb-design-you-won-t-get-lost-again
       \endverb
     \endentry
+    \entry{ApogeeRockets}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=dbcbea1f20422720680cf926a1a79783}{%
+           family={{AUSFÜLLEN}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{dbcbea1f20422720680cf926a1a79783}
+      \strng{fullhash}{dbcbea1f20422720680cf926a1a79783}
+      \strng{fullhashraw}{dbcbea1f20422720680cf926a1a79783}
+      \strng{bibnamehash}{dbcbea1f20422720680cf926a1a79783}
+      \strng{authorbibnamehash}{dbcbea1f20422720680cf926a1a79783}
+      \strng{authornamehash}{dbcbea1f20422720680cf926a1a79783}
+      \strng{authorfullhash}{dbcbea1f20422720680cf926a1a79783}
+      \strng{authorfullhashraw}{dbcbea1f20422720680cf926a1a79783}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{EIER JUCKEN}
+      \field{urlday}{18}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.apogeerockets.com/Peak-of-Flight/Newsletter563
+      \endverb
+      \verb{url}
+      \verb https://www.apogeerockets.com/Peak-of-Flight/Newsletter563
+      \endverb
+    \endentry
     \entry{ExtendedKalmanHalle}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=3c9843ce68dffdf1c0f301e28c14d4b7}{%
@@ -453,6 +484,37 @@
       \endverb
       \verb{url}
       \verb https://www.unitedthc.com/DSP/Kalman1960.pdf
+      \endverb
+    \endentry
+    \entry{NakkaRocketry}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=72aaaa794324b7514e7e99161f08c3d3}{%
+           family={{Richard Nakka}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{fullhash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{fullhashraw}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{bibnamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorbibnamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authornamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorfullhash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorfullhashraw}{72aaaa794324b7514e7e99161f08c3d3}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Richard Nakka's Experimental Rocketry Site}
+      \field{urlday}{18}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.nakka-rocketry.net/
+      \endverb
+      \verb{url}
+      \verb https://www.nakka-rocketry.net/
       \endverb
     \endentry
     \entry{DataDrivenScience}{book}{}{}

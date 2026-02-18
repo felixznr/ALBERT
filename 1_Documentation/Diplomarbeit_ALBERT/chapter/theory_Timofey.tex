@@ -127,7 +127,7 @@ hängt vor allem davon ab, ob die Rakete die Schallgeschwindigkeit
     % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
     \centering
     \includegraphics[width=0.6\textwidth]{supersonic_shockwave.jpg}
-        \caption{Machscher Kegel \parencite{BeginnersGuideToAeronautics}}
+        \caption{Machscher Kegel \parencite{ApogeeRockets}}
         \label{fig:supersonic_shockwave}
     % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
 
@@ -192,3 +192,35 @@ mehr Luftwiderstand und benötigen komplexere Regelungstechnik.
 Die Flügel einer Rakete können entweder fest oder beweglich sein, je
 nachdem ob die Rakete über ein aktives Steuersystem verfügt, oder
 ob die Flügel ausschließlich zur passiven Stabilisierung dienen.
+
+\subsubsection*{Flügelprofil}
+\label{subsubsec:fin_aerofoil}
+Das Profil der Raketenflügel hängt am meisten davon ab, ob die Rakete
+die Schallgeschwindigkeit überschreitet oder nicht. Wenn Überschallflug
+vorliegt, muss das Profil so geformt werden, dass die vordere Kante der
+Flügel scharf ist, um die Schockwelle nach hinten zu lenken und um
+weniger Luft 
+\begin{wrapfigure}{r}{0.5\textwidth}
+
+    % {r} = rechtsbündig platzieren
+    % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+    % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+    \centering
+    \includegraphics[width=0.5\textwidth]{finaerofoil.png}
+        \caption{Flügelprofile \parencite{NakkaRocketry}}
+        \label{fig:finaerofoil}
+    % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+
+  % Abstand nach dem Bild reduzieren
+\end{wrapfigure}
+zu komprimieren. Bei Unterschallflug werden Flügel in Form
+von einem symmetrischen Aerofoil Profil geformt, um gleichzeitig den
+Luftwiderstand zu minimieren und bei aktiven Steuersystemen den benötigten
+Auftrieb zu erzeugen. Auf der Abbildung \ref{fig:finaerofoil} sind
+Beispiele von Flügelprofilen zu sehen, sowohl für Unterschall- aus auch
+für Überschallflug. Es ist auch möglich ein unsymmetrisches Profil zu
+verwenden, um die Rakete zum drehen zu bringen, was mit Stabilität bei
+Raketen ohne aktivem Steuersystem helfen kann.
+\\
+Bei Aerofoil Profilen werden gerne die NACA Profile verwendet. NACA
+Profile sind standardisierte Profile, 
