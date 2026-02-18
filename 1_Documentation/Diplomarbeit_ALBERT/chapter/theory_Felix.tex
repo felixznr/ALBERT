@@ -541,9 +541,29 @@ Wie bei den bereits in der Sektion \ref{sec:abwaertswandler} beschriebenen Layou
 \section{STM32CubeIDE}
 \label{sec:stm32cubeide}
 STM32CubeIDE ist eine integrierte Entwicklungsumgebung (IDE) von STMicroelectronics, die speziell für die Entwicklung von Anwendungen auf STM32-Mikrocontrollern entwickelt wurde. Sie kombiniert den STM32CubeMX-Konfigurationsgenerator mit der Eclipse-basierten IDE, um eine umfassende Plattform für die Softwareentwicklung bereitzustellen.
+\\ 
+Die Hauptfunktionen von STM32CubeIDE umfassen:
+\begin{itemize}
+    \item \textbf{Konfiguration}: STM32CubeMX ermöglicht die grafische Konfiguration von Peripheriegeräten, Middleware und Pinbelegungen, um automatisch Initialisierungscode zu generieren, der als Ausgangspunkt für die Anwendungsentwicklung dient.
+    \item \textbf{Code-Editor}: Der Code-Editor basiert auf Eclipse und ermöglicht die Bearbeitung von C/C++-Code mit den üblichen Funktionen.
+    \item \textbf{Debugging-Tools}: STM32CubeIDE unterstützt verschiedene Debugging-Tools, einschließlich Breakpoints, Watchpoints und Echtzeit-Variable-Überwachung, um die Fehlersuche von Anwendungen zu erleichtern, was bei selbstentwickelten Platinen besonders hilfreich ist.
+\end{itemize}
+
+\section{Treiberentwicklung}
+\label{sec:treiberentwicklung}
+Um mit den Peripheriegeräten wie IMU, Flash und PWM Driver der Platine über I2C beziehungsweise SPI kommunizieren zu können, müssen zunächst die entsprechenden Treiber entwickelt werden. Ein Treiber ist eine Softwarekomponente, die die Kommunikation zwischen der Hardware und der Anwendungssoftware ermöglicht. Er konfiguriert zu Beginn die Peripheriegeräte, um die gewünschten Funktionen zu aktivieren, und stellt intern Funktionen bereit, um Daten aus den Registern der Geräte zu lesen und zu schreiben.
+\\
+Dabei ist eine Trennung in ein Header File und eine Source File sinnvoll, um eine strukturierte Schnittstelle zu schaffen. Im Header File werden die Funktionen deklariert, die von der Anwendungssoftware aufgerufen werden können, während im Source File die eigentliche Implementierung dieser Funktionen erfolgt. Die Funktionen sollten so gestaltet sein, dass sie die Interaktion mit den Peripheriegeräten dementsprechend abstrahieren, dass die Anwendungssoftware beispielhaft nicht direkt mit den Registeradressen oder der I2C/SPI-Kommunikation umgehen muss, sondern stattdessen einfache Funktionen wie \texttt{read\_acc\_data()} oder \texttt{write\_flash()} aufrufen kann.
+\\
+Die Entwicklung der Treiber erfordert ein umfassendes Verständnis der Spezifikationen der Peripheriegeräte, einschließlich der Registerstruktur, der Kommunikationsprotokolle und der erforderlichen Initialisierungsschritte. Für diese Arbeit hat sich die Verwendung von KI basierten Systemen als sehr hilfreich erwiesen, um schneller Informationen und Abläufe aus Datenblättern zu extrahieren.
+
+
 
 \chapter{Regelungstechnik}
 \label{ch:regelungstechnik}
+
+
+
 
 % Anmerkung: Das ist zu nahe an der Anwendung dran und gehört abgeändert sodass ein Überblick über Regelungstechnik gegeben wird 
 % Welches System liegt vor nichtlinear linear zeitinvariant zeitvariant etc. 

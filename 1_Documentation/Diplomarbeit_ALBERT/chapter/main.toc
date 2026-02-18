@@ -10,16 +10,16 @@
 \contentsline {section}{\numberline {4.1}Build-up \& Stack-up}{6}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Build-up}{6}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Stack-up}{7}{subsection.4.1.2}%
-\contentsline {subsubsection}{\nonumberline Rückstrompfade}{7}{subsubsection*.5}%
-\contentsline {subsubsection}{\nonumberline Energiefluss}{8}{subsubsection*.7}%
+\contentsline {subsubsection}{\nonumberline Rückstrompfade}{7}{subsubsection*.6}%
+\contentsline {subsubsection}{\nonumberline Energiefluss}{8}{subsubsection*.9}%
 \contentsline {section}{\numberline {4.2}Bypass- \& Decoupling-Kondensatoren}{9}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Abwärtswandler}{10}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Funktionsweise}{10}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}Layoutrichtlinien}{11}{subsection.4.3.2}%
 \contentsline {section}{\numberline {4.4}Sensorik}{12}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Inertial Measurement Unit (IMU)}{12}{subsection.4.4.1}%
-\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Beschleunigungssensoren}{12}{subsubsection*.14}%
-\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Gyroskop}{13}{subsubsection*.16}%
+\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Beschleunigungssensoren}{12}{subsubsection*.17}%
+\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Gyroskop}{13}{subsubsection*.20}%
 \contentsline {subsection}{\numberline {4.4.2}Magnetometer}{13}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Barometer}{14}{subsection.4.4.3}%
 \contentsline {section}{\numberline {4.5}Global Navigation Satellite System (GNSS)}{15}{section.4.5}%
@@ -28,6 +28,7 @@
 \contentsline {section}{\numberline {4.6}Microcontroller}{17}{section.4.6}%
 \contentsline {chapter}{\numberline {5}Software}{18}{chapter.5}%
 \contentsline {section}{\numberline {5.1}STM32CubeIDE}{18}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Treiberentwicklung}{18}{section.5.2}%
 \contentsline {chapter}{\numberline {6}Regelungstechnik}{19}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Überblick Lineare Regelungstechnik}{19}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Arten von Systemsteuerung}{19}{subsection.6.1.1}%
@@ -44,9 +45,9 @@
 \contentsline {section}{\numberline {7.1}Die 4 Außenkräfte auf eine Rakete}{26}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Nicht-aerodynamische äußere Kräfte}{26}{subsection.7.1.1}%
 \contentsline {subsection}{\numberline {7.1.2}Äußere Faktoren}{27}{subsection.7.1.2}%
-\contentsline {subsubsection}{\nonumberline Erstes Newtonsches Gesetz}{27}{subsubsection*.24}%
-\contentsline {subsubsection}{\nonumberline Zweites Newtonsches Gesetz}{27}{subsubsection*.25}%
-\contentsline {subsubsection}{\nonumberline Drittes Newtonsches Gesetz}{27}{subsubsection*.26}%
+\contentsline {subsubsection}{\nonumberline Erstes Newtonsches Gesetz}{27}{subsubsection*.30}%
+\contentsline {subsubsection}{\nonumberline Zweites Newtonsches Gesetz}{27}{subsubsection*.32}%
+\contentsline {subsubsection}{\nonumberline Drittes Newtonsches Gesetz}{27}{subsubsection*.34}%
 \contentsline {section}{\numberline {7.2}Aerodynamische Eigenschaften}{28}{section.7.2}%
 \contentsline {subsection}{\numberline {7.2.1}Überschallflug und Unterschallflug}{28}{subsection.7.2.1}%
 \contentsline {subsection}{\numberline {7.2.2}Raketenspitze}{28}{subsection.7.2.2}%
