@@ -184,8 +184,8 @@ Flügel können an verschiedenen Positionen entlang vom Raketengehäuse
 angebracht werden, am verbreitetsten sind jedoch Raketen mit entweder
 nur hinteren Flügeln oder mit sowohl frontalen als auch hinteren Flügeln.
 Bei aktiven Steuersystemen bieten bewegliche frontale Flügel den
-Vorteil der besseren Manövrierfähigkeit, erzeugen jedoch üblicherweise
-mehr Luftwiderstand und benötigen komplexere Regelungstechnik.
+Vorteil der besseren Manövrierfähigkeit, sorgen aber für weniger Stabilität
+und benötigen komplexere Regelungstechnik.
 
 \subsubsection*{Feste und bewegliche Flügel}
 \label{subsubsec:fixed_moveable_fins}
@@ -221,6 +221,41 @@ Beispiele von Flügelprofilen zu sehen, sowohl für Unterschall- aus auch
 für Überschallflug. Es ist auch möglich ein unsymmetrisches Profil zu
 verwenden, um die Rakete zum drehen zu bringen, was mit Stabilität bei
 Raketen ohne aktivem Steuersystem helfen kann.
+
+\subsection{NACA Flügelprofile}
+\label{subsec:naca_aerofoil}
+Für Aerofoil Profile werden oft die NACA Profile verwendet. NACA
+Profile sind standardisierte Profile, die von der National Advisory Committee
+for Aeronautics (NACA) entwickelt wurden, welche später in die NASA
+übrerging.
 \\
-Bei Aerofoil Profilen werden gerne die NACA Profile verwendet. NACA
-Profile sind standardisierte Profile, 
+Für symmetrische Flügelprofile für Unterschallflug werden meistens die
+vierstelligen NACA Profile verwendet. Die vierstellige NACA Serie umfasst
+78 im Windkanal getestete Profile. Diese Profile wurden recht willkürlich
+ausgewählt, aber manche dieser Profile werden noch heute von Flugzeugherstellern
+verwendet. Das Konstruktprinzip der NACA Profile beruht auf Kreisen, die auf
+der Profilmittellinie gezeichnet werden.
+\\
+Diese 
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{naca_geometry.png}
+        \caption{Geometrie der NACA Profile \parencite{WikipediaNACA}}
+        \label{fig:naca_geometry}
+\end{figure}
+Auf der Abbildung \ref{fig:naca_geometry} ist die Geometrie der NACA Profile
+mit den folgenden Parametern zu sehen:
+\begin{enumerate}
+    \item Nullauftriebslinie
+    \item Flügelnase
+    \item Krümmungsradius der Flügelnase
+    \item Wölbung maximale Profildicke
+    \item Wölbung
+    \item obere Profilseite
+    \item Profilhinterkante
+    \item Skelettlinie 
+    \item untere Profilseite  
+\end{enumerate}
+
+\subsubsection*{Profilauswahl}
+\label{profile_selection}

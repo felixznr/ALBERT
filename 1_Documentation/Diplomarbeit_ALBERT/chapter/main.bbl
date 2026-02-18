@@ -626,6 +626,7 @@
       \strng{authornamehash}{535bebf06af273c7e2d9ff9d7fc43470}
       \strng{authorfullhash}{535bebf06af273c7e2d9ff9d7fc43470}
       \strng{authorfullhashraw}{535bebf06af273c7e2d9ff9d7fc43470}
+      \field{extraname}{1}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{labelnamesource}{author}
@@ -641,6 +642,38 @@
       \endverb
       \verb{url}
       \verb https://de.wikipedia.org/wiki/Kalman-Filter#cite_note-1
+      \endverb
+    \endentry
+    \entry{WikipediaNACA}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=535bebf06af273c7e2d9ff9d7fc43470}{%
+           family={{Wikipedia Contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{fullhash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{fullhashraw}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{bibnamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorbibnamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authornamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorfullhash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorfullhashraw}{535bebf06af273c7e2d9ff9d7fc43470}
+      \field{extraname}{2}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{NACA-Profile}
+      \field{urlday}{18}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://de.wikipedia.org/wiki/NACA-Profile
+      \endverb
+      \verb{url}
+      \verb https://de.wikipedia.org/wiki/NACA-Profile
       \endverb
     \endentry
     \entry{ZachariahPeterson_Rückstromführung}{online}{}{}
