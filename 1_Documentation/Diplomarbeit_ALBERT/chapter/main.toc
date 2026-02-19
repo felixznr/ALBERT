@@ -10,16 +10,16 @@
 \contentsline {section}{\numberline {4.1}Build-up \& Stack-up}{6}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Build-up}{6}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Stack-up}{7}{subsection.4.1.2}%
-\contentsline {subsubsection}{\nonumberline Rückstrompfade}{7}{subsubsection*.5}%
-\contentsline {subsubsection}{\nonumberline Energiefluss}{8}{subsubsection*.7}%
+\contentsline {subsubsection}{\nonumberline Rückstrompfade}{7}{subsubsection*.6}%
+\contentsline {subsubsection}{\nonumberline Energiefluss}{8}{subsubsection*.9}%
 \contentsline {section}{\numberline {4.2}Bypass- \& Decoupling-Kondensatoren}{9}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Abwärtswandler}{10}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Funktionsweise}{10}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}Layoutrichtlinien}{11}{subsection.4.3.2}%
 \contentsline {section}{\numberline {4.4}Sensorik}{12}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Inertial Measurement Unit (IMU)}{12}{subsection.4.4.1}%
-\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Beschleunigungssensoren}{12}{subsubsection*.14}%
-\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Gyroskop}{13}{subsubsection*.16}%
+\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Beschleunigungssensoren}{12}{subsubsection*.17}%
+\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Gyroskop}{13}{subsubsection*.20}%
 \contentsline {subsection}{\numberline {4.4.2}Magnetometer}{13}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Barometer}{14}{subsection.4.4.3}%
 \contentsline {section}{\numberline {4.5}Global Navigation Satellite System (GNSS)}{15}{section.4.5}%
@@ -45,9 +45,9 @@
 \contentsline {section}{\numberline {7.1}Die 4 Außenkräfte auf eine Rakete}{26}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Nicht-aerodynamische äußere Kräfte}{26}{subsection.7.1.1}%
 \contentsline {subsection}{\numberline {7.1.2}Äußere Faktoren}{27}{subsection.7.1.2}%
-\contentsline {subsubsection}{\nonumberline Erstes Newtonsches Gesetz}{27}{subsubsection*.24}%
-\contentsline {subsubsection}{\nonumberline Zweites Newtonsches Gesetz}{27}{subsubsection*.25}%
-\contentsline {subsubsection}{\nonumberline Drittes Newtonsches Gesetz}{27}{subsubsection*.26}%
+\contentsline {subsubsection}{\nonumberline Erstes Newtonsches Gesetz}{27}{subsubsection*.30}%
+\contentsline {subsubsection}{\nonumberline Zweites Newtonsches Gesetz}{27}{subsubsection*.32}%
+\contentsline {subsubsection}{\nonumberline Drittes Newtonsches Gesetz}{27}{subsubsection*.34}%
 \contentsline {section}{\numberline {7.2}Aerodynamische Eigenschaften}{28}{section.7.2}%
 \contentsline {subsection}{\numberline {7.2.1}Überschallflug und Unterschallflug}{28}{subsection.7.2.1}%
 \contentsline {subsection}{\numberline {7.2.2}Raketenspitze}{28}{subsection.7.2.2}%
@@ -71,21 +71,22 @@
 \contentsline {section}{\numberline {8.7}Fazit}{33}{section.8.7}%
 \contentsline {chapter}{\numberline {9}Steuerungssystem}{34}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Anforderungsanalyse}{34}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Navigation}{34}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Guidance}{34}{section.9.3}%
-\contentsline {section}{\numberline {9.4}Control}{34}{section.9.4}%
-\contentsline {chapter}{\numberline {10}CAD-Aufbau}{35}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Konzeptentwicklung}{35}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Flügelsteuermechanismus}{35}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Implementierung und Fertigung}{35}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Herausforderungen und Lösungen}{35}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Fazit}{35}{section.10.5}%
-\contentsline {chapter}{\numberline {11}Simulation der Aerodynamik}{36}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Verwendete Software und Methoden}{36}{section.11.1}%
-\contentsline {subsection}{\numberline {11.1.1}OpenFOAM}{36}{subsection.11.1.1}%
-\contentsline {subsection}{\numberline {11.1.2}Ansys FLUENT}{36}{subsection.11.1.2}%
-\contentsline {section}{\numberline {11.2}Auswertung der Simulationsergebnisse}{36}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Vergleich mit experimentellen Daten}{36}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Herausforderungen und Lösungen}{36}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Fazit}{36}{section.11.5}%
+\contentsline {section}{\numberline {9.2}Zustandsraummodellierung}{34}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Navigation}{34}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Guidance}{35}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Control}{35}{section.9.5}%
+\contentsline {chapter}{\numberline {10}CAD-Aufbau}{36}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Konzeptentwicklung}{36}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Flügelsteuermechanismus}{36}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Implementierung und Fertigung}{36}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Herausforderungen und Lösungen}{36}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Fazit}{36}{section.10.5}%
+\contentsline {chapter}{\numberline {11}Simulation der Aerodynamik}{37}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Verwendete Software und Methoden}{37}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}OpenFOAM}{37}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Ansys FLUENT}{37}{subsection.11.1.2}%
+\contentsline {section}{\numberline {11.2}Auswertung der Simulationsergebnisse}{37}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Vergleich mit experimentellen Daten}{37}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Herausforderungen und Lösungen}{37}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Fazit}{37}{section.11.5}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

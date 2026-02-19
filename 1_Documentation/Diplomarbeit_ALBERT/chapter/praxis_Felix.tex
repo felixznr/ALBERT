@@ -41,6 +41,41 @@
 \section{Anforderungsanalyse}
 \label{sec:anforderungsanalyse_steuerung}
 
+\section{Zustandsraummodellierung}
+\label{sec:zustandsraummodellierung}
+Ein wesentlicher Teil der Entwicklung der Regelung für die Rakete ist die Erstellung eines Zustandsraummodells, das die Dynamik des Systems ausreichend akurat beschreibt. Im Bezug auf die Rakete umfasst dies die Modellierung der translationalen und rotatorischen Bewegungen, die durch die Kräfte und Momente beeinflusst werden, die auf die Rakete wirken. 
+\\
+\\
+Die Ableitung der Geschwindigkeit in allen drei Achsen erfolgt durch die Anwendung der Newtonschen Gesetze, wobei die Schubkraft, die aerodynamischen Kräfte (Auftrieb und Widerstand) sowie die Gravitationskraft. 
+\begin{align}
+\dot{u} &= \frac{F_{A_{x_b}} + F_{P_{x_b}} + F_{g_{x_b}}}{m} - (q w - r v) \quad [\mathrm{m/s^2}] \\[6pt]
+\dot{v} &= \frac{F_{A_{y_b}} + F_{P_{y_b}} + F_{g_{y_b}}}{m} - (r u - p w) \quad [\mathrm{m/s^2}] \\[6pt]
+\dot{w} &= \frac{F_{A_{z_b}} + F_{P_{z_b}} + F_{g_{z_b}}}{m} - (p v - q u) \quad [\mathrm{m/s^2}]
+\end{align}
+
+wobei $F_{A_{x_b}}$, $F_{A_{y_b}}$ und $F_{A_{z_b}}$ die Komponenten der aerodynamischen Kräfte in Körperachsen darstellen, $F_{P_{x_b}}$, $F_{P_{y_b}}$ und $F_{P_{z_b}}$ die Komponenten der Schubkraft und $F_{g_{x_b}}$, $F_{g_{y_b}}$ und $F_{g_{z_b}}$ die Komponenten der Gravitationskraft.
+\\
+Der Subtrahend in den Gleichungen berücksichtigt die Drehbewegung des Body Frames im Navigation Frame, wobei $p$, $q$ und $r$ die Winkelgeschwindigkeiten um die Körperachsen darstellen.
+Sie stammen aus dem Kreuzprodukt der Winkelgeschwindigkeiten mit den Geschwindigkeiten. \[
+\boldsymbol{\omega} \times \mathbf{v}
+=
+\begin{bmatrix}
+p \\ q \\ r
+\end{bmatrix}
+\times
+\begin{bmatrix}
+u \\ v \\ w
+\end{bmatrix}
+=
+\begin{bmatrix}
+q w - r v \\
+r u - p w \\
+p v - q u
+\end{bmatrix}
+\]
+
+
+
 \section{Navigation}
 \label{sec:navigation}
 Um das System steuern zu können ist es zwingend notwendig die aktuellen Systemzustände zu kennen.
