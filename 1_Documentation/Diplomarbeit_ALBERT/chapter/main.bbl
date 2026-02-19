@@ -236,6 +236,42 @@
       \verb https://jlcpcb.com/blog/decoupling-vs-bypass-capacitor
       \endverb
     \endentry
+    \entry{AliyuAliyuStateSpace}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=109003ac4cb551f0b0ca211aec41f88a}{%
+           family={Kisabo},
+           familyi={K\bibinitperiod},
+           given={Aliyu\bibnamedelima Bhar},
+           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a95f543dffb686407aa8b332a5dee91f}{%
+           family={Adebimpe},
+           familyi={A\bibinitperiod},
+           given={Aliyu\bibnamedelima Funmilayo},
+           giveni={A\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{400067550c811def876ede61aaf1c58f}
+      \strng{fullhash}{400067550c811def876ede61aaf1c58f}
+      \strng{fullhashraw}{400067550c811def876ede61aaf1c58f}
+      \strng{bibnamehash}{400067550c811def876ede61aaf1c58f}
+      \strng{authorbibnamehash}{400067550c811def876ede61aaf1c58f}
+      \strng{authornamehash}{400067550c811def876ede61aaf1c58f}
+      \strng{authorfullhash}{400067550c811def876ede61aaf1c58f}
+      \strng{authorfullhashraw}{400067550c811def876ede61aaf1c58f}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{State-Space Modeling of a Rocket for Optimal Control State-Space Modeling of a Rocket for Optimal Control System Design}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.intechopen.com/chapters/64567
+      \endverb
+      \verb{url}
+      \verb https://www.intechopen.com/chapters/64567
+      \endverb
+    \endentry
     \entry{BeginnersGuideToAeronautics}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=5e132303f66c04eff7f5dc9b56ce138c}{%

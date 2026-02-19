@@ -45,9 +45,9 @@
 \label{sec:zustandsraummodellierung}
 Ein wesentlicher Teil der Entwicklung der Regelung für die Rakete ist die Erstellung eines Zustandsraummodells, das die Dynamik des Systems ausreichend akurat beschreibt. Im Bezug auf die Rakete umfasst dies die Modellierung der translationalen und rotatorischen Bewegungen, die durch die Kräfte und Momente beeinflusst werden, die auf die Rakete wirken. 
 \\
+Die im folgenden aufgestellten Bewegungsgleichung basieren in großen Teilen auf den Gleichungen, die in \parencite{AliyuAliyuStateSpace} beschrieben werden.
 
 \subsection{Translationale Bewegunsgleichungen}
-Die Ableitung der Geschwindigkeit in allen drei Achsen erfolgt durch die Anwendung der Newtonschen Gesetze, wobei die Schubkraft, die aerodynamischen Kräfte (Auftrieb und Widerstand) sowie die Gravitationskraft. 
 \begin{align}
 \dot{u} &= \frac{F_{A_{x_b}} + F_{P_{x_b}} + F_{g_{x_b}}}{m} - (q w - r v) \quad [\mathrm{m/s^2}] \\[6pt]
 \dot{v} &= \frac{F_{A_{y_b}} + F_{P_{y_b}} + F_{g_{y_b}}}{m} - (r u - p w) \quad [\mathrm{m/s^2}] \\[6pt]
@@ -57,7 +57,9 @@ Die Ableitung der Geschwindigkeit in allen drei Achsen erfolgt durch die Anwendu
 wobei $F_{A_{x_b}}$, $F_{A_{y_b}}$ und $F_{A_{z_b}}$ die Komponenten der aerodynamischen Kräfte in Körperachsen darstellen, $F_{P_{x_b}}$, $F_{P_{y_b}}$ und $F_{P_{z_b}}$ die Komponenten der Schubkraft und $F_{g_{x_b}}$, $F_{g_{y_b}}$ und $F_{g_{z_b}}$ die Komponenten der Gravitationskraft.
 \\
 Der Subtrahend in den Gleichungen berücksichtigt die Drehbewegung des Body Frames im Navigation Frame, wobei $p$, $q$ und $r$ die Winkelgeschwindigkeiten um die Körperachsen darstellen.
-Sie stammen aus dem Kreuzprodukt der Winkelgeschwindigkeiten mit den Geschwindigkeiten. \[
+Sie stammen aus dem Kreuzprodukt der Winkelgeschwindigkeiten mit den Geschwindigkeiten.
+
+\begin{equation}
 \boldsymbol{\omega} \times \mathbf{v}
 =
 \begin{bmatrix}
@@ -73,13 +75,14 @@ q w - r v \\
 r u - p w \\
 p v - q u
 \end{bmatrix}
-\]
+\quad \left[\mathrm{m/s^2}\right] \\
+\end{equation}
 \\
 Die aerodynamischen Kräfte können wie folgt berechnet werden:
 \begin{align}
-F_{A_{x_b}} &= -\frac{1}{2} \rho S C_{A} |V|^2 \\
-F_{A_{y_b}} &= \frac{1}{2} \rho S C_{N_{y}} |V|^2 \\
-F_{A_{z_b}} &= \frac{1}{2} \rho S C_{N_{z}} |V|^2
+F_{A_{x_b}} &= -\frac{1}{2} \rho S C_{A} |V|^2 \quad \left[\mathrm{N}\right] \\
+F_{A_{y_b}} &= \frac{1}{2} \rho S C_{N_{y}} |V|^2 \quad \left[\mathrm{N}\right] \\
+F_{A_{z_b}} &= \frac{1}{2} \rho S C_{N_{z}} |V|^2 \quad \left[\mathrm{N}\right]
 \end{align}
 wobei $\rho$ die Luftdichte, $S$ die Referenzfläche, $C_{A}$ der axiale Widerstandsbeiwert (Luftwiderstand) und $|V|$ der Betrag des Geschwindigkeitsvektors  der Rakete ist. Der Auftriebsbeiwert, $C_{N_{y}}$ und $C_{N_{z}}$ sind die Normalbeiwertkomponenten in den y- und z-Richtung welche sich wie folgt aus $C_{N}$ berechnen lassen:
 \begin{align}
@@ -143,13 +146,13 @@ T_{n \to b}
 0 \\
 mg
 \end{bmatrix}
-\quad 
+\quad \left[\mathrm{N}\right] \\[6pt]
 \end{equation}
 \\
 Da über den Zeitraum der Masseverlust durch den Treibstoffverbrauch berücksichtigt werden muss, wird die Masse $m$ als Funktion der Zeit modelliert. 
 \begin{equation}
 m = m_0 - \frac{1}{I_{sp}} \int_{0}^{t} F_{p_{\mathrm{ref}}} \, dt
-\quad 
+\quad \left[\mathrm{kg}\right] \\[6pt]
 \end{equation}
 
 Dabei ist $F_{p_{\mathrm{ref}}}$ die Referenzschubkraft in Newton,
@@ -159,6 +162,90 @@ und $t$ die simulierte Zeit in Sekunden.
 
 
 \subsection{Rotatorische Bewegungsgleichungen}
+Die Winkelgeschwindigkeiten um die Körperachsen können wie folgt berechnet werden:
+\begin{align*}
+\dot{p} &= \frac{L_A + L_p - q r \left(I_z - I_y\right)}{I_x}
+\quad \left[\mathrm{rad/s^2}\right] \\[6pt]
+\dot{q} &= \frac{M_A + M_p - r p \left(I_x - I_z\right)}{I_y}
+\quad \left[\mathrm{rad/s^2}\right] \\[6pt]
+\dot{r} &= \frac{N_A + N_p - p q \left(I_y - I_x\right)}{I_z}
+\quad \left[\mathrm{rad/s^2}\right]
+\end{align*}
+
+wobei $L_A$, $M_A$ und $N_A$ die aerodynamischen Momente in Körperachsen darstellen, $L_p$, $M_p$ und $N_p$ die Schubmomente und $I_x$, $I_y$ und $I_z$ die Trägheitsmomente der Rakete um die Körperachsen.
+\\
+Die Schreibweise der aerodynamischen Momente im Body Frame als 
+\begin{align}
+M_B = \begin{bmatrix}
+    L \\
+    M \\
+    N   
+    \end{bmatrix}
+    \quad \left[\mathrm{Nm}\right] 
+\end{align} 
+ist historisch bedingt und wird in der Literatur häufig verwendet, um die Momente um die drei Körperachsen zu beschreiben. $L$ für das Moment um die x-Achse (Rollmoment), $M$ für das Moment um die y-Achse (Nickmoment) und $N$ für das Moment um die z-Achse (Giermoment).   
+\\
+Für die aerodynamischen Momente gilt:
+\begin{align}
+L_A &= \frac{1}{2} \rho S C_{l} |V|^2 d \quad \left[\mathrm{Nm}\right] \\
+M_A &= \frac{1}{2} \rho S C_{m} |V|^2 d \quad \left[\mathrm{Nm}\right] \\
+N_A &= \frac{1}{2} \rho S C_{n} |V|^2 d \quad \left[\mathrm{Nm}\right]
+\end{align}
+wobei $d$ die aerodynamische Referenzlänge ist, und $C_{l}$, $C_{m}$ und $C_{n}$ die Roll-, Nick- und Giermomentbeiwertkomponenten sind, welche sich wie folgt berechnen lassen:
+\begin{align}
+C_l &= C_{l\delta}\,\delta_r 
+      + \frac{d}{2 V_M}\left(C_{lp}\, p \right) \\
+C_m &= C_{m_{\mathrm{ref}}} 
+      - C_{N_z}\,\frac{x_{cm} - x_{ref}}{d} 
+      + \frac{d}{2 V_M}\left(C_{mq} + C_{m_\alpha}\right) q \\
+C_n &= C_{n_{\mathrm{ref}}} 
+      + C_{N_y}\,\frac{x_{cm} - x_{ref}}{d} 
+      + \frac{d}{2 V_M}\left(C_{nr} + C_{n_\beta}\right) r
+\end{align}
+
+Dabei ist $C_{lp}$ die Roll-Dämpfungsableitung bezüglich der Rollrate $p$ in $\mathrm{rad^{-1}}$. 
+$C_{l\delta}$ bezeichnet die Steigung der Kurve des Rollmomentbeiwerts $C_l$ in Abhängigkeit der Finnenauslenkung in $\mathrm{rad^{-1}}$ . 
+$C_{m_{\mathrm{ref}}}$ ist der Nickmomentbeiwert bezogen auf die Referenzmomentstation (dimensionslos). 
+$C_{mq}$ ist die Nick-Dämpfungsableitung bezüglich der Nickrate $q$ in $\mathrm{rad^{-1}}$ . 
+$C_{m_\alpha}$ ist die Nick-Dämpfungsableitung bezüglich der Änderungsrate des Anstellwinkels $\dot{\alpha}$ in $\mathrm{rad^{-1}}$ . 
+$C_{N_y}$ ist der Beiwert der Normalkraftkomponente in $y_b$-Richtung (dimensionslos). 
+$C_{N_z}$ ist der Beiwert der Normalkraftkomponente in $z_b$-Richtung (dimensionslos). 
+$C_{nr}$ ist die Gier-Dämpfungsableitung bezüglich der Gierrate $r$ in $\mathrm{rad^{-1}}$ . 
+$C_{n_{\mathrm{ref}}}$ ist der Giermomentbeiwert bezogen auf die Referenzmomentstation (dimensionslos). 
+$C_{n_\beta}$ ist die Gier-Dämpfungsableitung bezüglich der Änderungsrate des Schiebewinkels $\dot{\beta}$ in $\mathrm{rad^{-1}}$ . 
+$x_{cm}$ ist der Abstand von der Raketenspitze zum Schwerpunkt in Metern.
+
+Dabei ist $x_{ref}$ der Abstand von der Raketenspitze zur Referenzmomentstation in Metern. 
+$\delta_r$ ist die effektive Ruderauslenkung, die ein Rollmoment verursacht, angegeben in Radiant .
+
+\begin{align}
+C_{m_{\mathrm{ref}}} &= C_{m_\alpha}\,\alpha 
+                       + C_{m_\delta}\,\delta_\eta \\[6pt]
+C_{n_{\mathrm{ref}}} &= C_{n_\beta}\,\beta 
+                       + C_{n_\delta}\,\delta_\zeta
+\end{align}
+
+$C_{m_{\mathrm{ref}}}$ ist der Nickmomentbeiwert bezogen auf die Referenzmomentstation. 
+$C_{m_\alpha}$ bezeichnet die Steigung der Kurve des Nickmomentbeiwerts $C_m$ in Abhängigkeit vom Anstellwinkel $\alpha$ in $\mathrm{rad^{-1}}$. 
+$C_{m_\delta}$ ist die Steigung der Kurve des Nickmomentbeiwerts $C_m$ in Abhängigkeit von der Ruderauslenkung für Nickbewegungen in $\mathrm{rad^{-1}}$. 
+$C_{n_\beta}$ ist die Steigung der Kurve des Giermomentbeiwerts $C_n$ in Abhängigkeit vom Schiebewinkel $\beta$ in $\mathrm{rad^{-1}}$. 
+$C_{n_\delta}$ ist die Steigung der Kurve des Giermomentbeiwerts $C_n$ in Abhängigkeit von der effektiven Ruderauslenkung für Gierbewegungen in $\mathrm{rad^{-1}}$.
+Dabei ist $\alpha$ der Anstellwinkel (Angle of Attack) in Radiant, 
+$\beta$ der Schiebewinkel (Sideslip Angle) in Radiant, 
+$\delta_\eta = \delta_1 = \delta_3$ die effektive Ruderauslenkung, die ein Nickmoment verursacht, in Radiant, 
+und $\delta_\zeta = \delta_4 = \delta_2$ die effektive Ruderauslenkung, die ein Giermoment verursacht, in Radiant.
+
+Der Anstellwinkel, der Schiebewinkel sowie der aerodynamische Rollwinkel zur Bestimmung der aerodynamischen Koeffizienten ergeben sich zu:
+\begin{align}
+\alpha &= \tan^{-1}\!\left(\frac{w}{u}\right)
+\quad \text{oder} \quad
+\alpha_t = \tan^{-1}\!\left(\frac{\sqrt{v^2 + w^2}}{u}\right) \quad \text{[rad ]} \\
+\beta &= \sin^{-1}\!\left(\frac{v}{V_M}\right) \quad \text{[rad ]}\\
+\phi &= \tan^{-1}\!\left(\frac{v}{w}\right)
+\quad \text{[rad ]}
+\end{align}
+
+
 
 
 
