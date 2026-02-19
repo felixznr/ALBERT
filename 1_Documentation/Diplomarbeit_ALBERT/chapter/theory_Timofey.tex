@@ -193,6 +193,49 @@ Die Flügel einer Rakete können entweder fest oder beweglich sein, je
 nachdem ob die Rakete über ein aktives Steuersystem verfügt, oder
 ob die Flügel ausschließlich zur passiven Stabilisierung dienen.
 
+\subsubsection*{Flügelform}
+\label{fin_form}
+Ein wichtiger Punkt beim formen der Flügel ist die Auswahl der Form.
+Bei Modellraketen stehen grundsätzlich wie auf der Abbildung \ref{fig:fin_forms} zu erkennen
+ist 8 Formen zur Auswahl mit den jeweiligen Vor- und Nachteilen in \ref{tab:fin_shapes}.
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=1\textwidth]{fin_forms.jpg}
+        \caption{Verschiedene Flügelformen \parencite{NakkaRocketry}}
+        \label{fig:fin_forms}
+\end{figure}
+
+\newpage
+
+%==== VON DEEPSEEK ÜBERETZT ALSO PROMPT DANN SPÄTER NOCH ANGEBEN ====
+
+\begin{table}
+    \caption{Vor- und Nachteile verschiedener Flügelformen}
+    \centering
+\begin{tabular}{|m{3cm}|m{5cm}|m{5cm}|}
+    \hline
+    \textbf{Form} & \textbf{Vorteile} & \textbf{Nachteile} \\
+    \hline
+    Delta & Flatterrobust, gut für hohe Geschwindigkeiten & Spitze Kante anfällig für Beschädigungen\\
+    \hline
+    Rechteckig & Einfach zu bauen, strukturell robust & Kann bei Landung beschädigt werden, nicht optimal für Finnensteuerung\\
+    \hline
+    Gepfeilt & Flatterrobust, strukturell robust & Kann bei Landung beschödigt werden, nicht optimal für Finnensteuerung\\
+    \hline
+    Trapezförmig & Strukturell robust, kann gestutzt werden um den Druckpunkt nach vorne zu verlagern & Weniger aerodynamisch als gepfeilte Formen\\
+    \hline
+    Trapezförmig gepfeilt & Gut für hohe Geschwindigkeiten, kann gestutzt werden um den Druckpunkt nach vorne zu verlagern & Anfällig für Flattern und Beschädigungen bei Landung\\
+    \hline
+    Gestutztes Delta & Strukturell robust, gute Wahl für Finnensteuerung & Kann bei der Landung beschädigt werden\\
+    \hline
+    Gestutztes gepfeiltes Trapez & Eine Verbesserung des einfach gepfeilten Trapezes & Anfällig für Flattern und Beschädigungen bei Landung\\
+    \hline
+    Elliptisch & Aerodynamisch effizient, robust, flattersicher & Schwer herzustellen, Berechnung des Druckpunkts kompliziert\\
+    \hline
+\end{tabular}
+    \label{tab:fin_shapes}
+\end{table}
+
 \subsubsection*{Flügelprofil}
 \label{subsubsec:fin_aerofoil}
 Das Profil der Raketenflügel hängt am meisten davon ab, ob die Rakete
@@ -235,8 +278,6 @@ vierstelligen NACA Profile verwendet. Die vierstellige NACA Serie umfasst
 ausgewählt, aber manche dieser Profile werden noch heute von Flugzeugherstellern
 verwendet. Das Konstruktprinzip der NACA Profile beruht auf Kreisen, die auf
 der Profilmittellinie gezeichnet werden.
-\\
-Diese 
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.8\textwidth]{naca_geometry.png}
@@ -256,6 +297,3 @@ mit den folgenden Parametern zu sehen:
     \item Skelettlinie 
     \item untere Profilseite  
 \end{enumerate}
-
-\subsubsection*{Profilauswahl}
-\label{profile_selection}
