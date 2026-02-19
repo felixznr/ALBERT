@@ -45,7 +45,8 @@
 \label{sec:zustandsraummodellierung}
 Ein wesentlicher Teil der Entwicklung der Regelung für die Rakete ist die Erstellung eines Zustandsraummodells, das die Dynamik des Systems ausreichend akurat beschreibt. Im Bezug auf die Rakete umfasst dies die Modellierung der translationalen und rotatorischen Bewegungen, die durch die Kräfte und Momente beeinflusst werden, die auf die Rakete wirken. 
 \\
-\\
+
+\subsection{Translationale Bewegunsgleichungen}
 Die Ableitung der Geschwindigkeit in allen drei Achsen erfolgt durch die Anwendung der Newtonschen Gesetze, wobei die Schubkraft, die aerodynamischen Kräfte (Auftrieb und Widerstand) sowie die Gravitationskraft. 
 \begin{align}
 \dot{u} &= \frac{F_{A_{x_b}} + F_{P_{x_b}} + F_{g_{x_b}}}{m} - (q w - r v) \quad [\mathrm{m/s^2}] \\[6pt]
@@ -73,6 +74,91 @@ r u - p w \\
 p v - q u
 \end{bmatrix}
 \]
+\\
+Die aerodynamischen Kräfte können wie folgt berechnet werden:
+\begin{align}
+F_{A_{x_b}} &= -\frac{1}{2} \rho S C_{A} |V|^2 \\
+F_{A_{y_b}} &= \frac{1}{2} \rho S C_{N_{y}} |V|^2 \\
+F_{A_{z_b}} &= \frac{1}{2} \rho S C_{N_{z}} |V|^2
+\end{align}
+wobei $\rho$ die Luftdichte, $S$ die Referenzfläche, $C_{A}$ der axiale Widerstandsbeiwert (Luftwiderstand) und $|V|$ der Betrag des Geschwindigkeitsvektors  der Rakete ist. Der Auftriebsbeiwert, $C_{N_{y}}$ und $C_{N_{z}}$ sind die Normalbeiwertkomponenten in den y- und z-Richtung welche sich wie folgt aus $C_{N}$ berechnen lassen:
+\begin{align}
+C_{N_y} &= C_N \frac{-v}{\sqrt{v^2 + w^2}}\\
+C_{N_{z}} &= C_N \frac{1}{\sqrt{v^2 + w^2}}
+\end{align}
+wobei $\alpha$ der Anstellwinkel der Rakete ist.
+\\
+Die Schubkraftkomponenten können wie folgt berechnet werden:
+\begin{align}
+F_{P_{x_b}} &= F_{pref} + (p_{ref} - p_{a}A_{e}) \\
+F_{P_{y_b}} &= 0 \\
+F_{P_{z_b}} &= 0
+\end{align}
+wobei $F_{pref}$ die Schubkraft ist, die sich aus dem Massestrom und der Austrittsgeschwindigkeit berechnet (siehe \ref{subsec:not_aero_forces}).
+\\
+\\
+Für die Gravitationskraft gilt im Navigation Frame:
+\begin{align}
+F_{g_{x_n}} &= 0 \\
+F_{g_{y_n}} &= 0 \\
+F_{g_{z_n}} &= mg
+\end{align}
+wobei $g$ die Erdbeschleunigung ist. Um die Gravitationskraft in den Körperachsen zu berechnen, muss sie mit der Transformationsmatrix $T_{n \to b}$ von Navigation Frame zu Body Frame transformiert werden:
+\[
+T_{n \to b} =
+\begin{bmatrix}
+\cos\theta \cos\psi &
+\sin\phi \sin\theta \cos\psi - \cos\phi \sin\psi &
+\cos\phi \sin\theta \cos\psi + \sin\phi \sin\psi \\[6pt]
+
+\cos\theta \sin\psi &
+\sin\phi \sin\theta \sin\psi + \cos\phi \cos\psi &
+\cos\phi \sin\theta \sin\psi - \sin\phi \cos\psi \\[6pt]
+
+- \sin\theta &
+\sin\phi \cos\theta &
+\cos\phi \cos\theta
+\end{bmatrix}
+\quad 
+\]
+wobei $\phi$, $\theta$ und $\psi$ die Roll-, Nick- und Gierwinkel der Rakete sind. Die Gravitationskraft in den Körperachsen kann dann wie folgt berechnet werden:
+\[
+\begin{bmatrix}
+F_{g_{x_b}} \\
+F_{g_{y_b}} \\
+F_{g_{z_b}}
+\end{bmatrix}
+=
+T_{n \to b}
+\begin{bmatrix}
+F_{g_{x_n}} \\
+F_{g_{y_n}} \\
+F_{g_{z_n}}
+\end{bmatrix}
+\quad 
+=
+T_{n \to b}
+\begin{bmatrix}
+0 \\
+0 \\
+mg
+\end{bmatrix}
+\quad 
+\]
+\\
+Da über den Zeitraum der Masseverlust durch den Treibstoffverbrauch berücksichtigt werden muss, wird die Masse $m$ als Funktion der Zeit modelliert. 
+\[
+m = m_0 - \frac{1}{I_{sp}} \int_{0}^{t} F_{p_{\mathrm{ref}}} \, dt
+\quad 
+\]
+
+Dabei ist $F_{p_{\mathrm{ref}}}$ die Referenzschubkraft in Newton,
+$I_{sp}$ der spezifische Impuls des Treibstoffs in $\mathrm{Ns/kg}$,
+$m_0$ die Raketenmasse zum Zeitpunkt $t = 0$ in Kilogramm,
+und $t$ die simulierte Zeit in Sekunden.
+
+
+\subsection{Rotatorische Bewegungsgleichungen}
 
 
 
