@@ -81,37 +81,6 @@
       \verb https://resources.altium.com/de/p/gps-antennas-in-your-pcb-design-you-won-t-get-lost-again
       \endverb
     \endentry
-    \entry{ApogeeRockets}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=dbcbea1f20422720680cf926a1a79783}{%
-           family={{AUSFÜLLEN}},
-           familyi={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{dbcbea1f20422720680cf926a1a79783}
-      \strng{fullhash}{dbcbea1f20422720680cf926a1a79783}
-      \strng{fullhashraw}{dbcbea1f20422720680cf926a1a79783}
-      \strng{bibnamehash}{dbcbea1f20422720680cf926a1a79783}
-      \strng{authorbibnamehash}{dbcbea1f20422720680cf926a1a79783}
-      \strng{authornamehash}{dbcbea1f20422720680cf926a1a79783}
-      \strng{authorfullhash}{dbcbea1f20422720680cf926a1a79783}
-      \strng{authorfullhashraw}{dbcbea1f20422720680cf926a1a79783}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{EIER JUCKEN}
-      \field{urlday}{18}
-      \field{urlmonth}{2}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.apogeerockets.com/Peak-of-Flight/Newsletter563
-      \endverb
-      \verb{url}
-      \verb https://www.apogeerockets.com/Peak-of-Flight/Newsletter563
-      \endverb
-    \endentry
     \entry{ExtendedKalmanHalle}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=3c9843ce68dffdf1c0f301e28c14d4b7}{%
@@ -610,6 +579,37 @@
       \endverb
       \verb{url}
       \verb https://www.monolithicpower.com/en/learning/resources/switch-node-layout-considerations-for-emc?srsltid=AfmBOoqRXddokKGt6qhy2Qypf72WE3ECnBd1sNlJD2nkrFNsOXMKb-D_
+      \endverb
+    \endentry
+    \entry{ApogeeRockets}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=67a9f28a34f4f99e66a26956c9a40746}{%
+           family={{Walter Lohmueller}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{67a9f28a34f4f99e66a26956c9a40746}
+      \strng{fullhash}{67a9f28a34f4f99e66a26956c9a40746}
+      \strng{fullhashraw}{67a9f28a34f4f99e66a26956c9a40746}
+      \strng{bibnamehash}{67a9f28a34f4f99e66a26956c9a40746}
+      \strng{authorbibnamehash}{67a9f28a34f4f99e66a26956c9a40746}
+      \strng{authornamehash}{67a9f28a34f4f99e66a26956c9a40746}
+      \strng{authorfullhash}{67a9f28a34f4f99e66a26956c9a40746}
+      \strng{authorfullhashraw}{67a9f28a34f4f99e66a26956c9a40746}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Peak of Flight Newsletter: Designing and Building for SuperSonic Flight}
+      \field{urlday}{18}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{year}{1562}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.apogeerockets.com/Peak-of-Flight/Newsletter563
+      \endverb
+      \verb{url}
+      \verb https://www.apogeerockets.com/Peak-of-Flight/Newsletter563
       \endverb
     \endentry
     \entry{WikipediaKalman}{online}{}{}
