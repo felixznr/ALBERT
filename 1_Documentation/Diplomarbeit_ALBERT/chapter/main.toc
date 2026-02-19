@@ -71,7 +71,8 @@
 \contentsline {section}{\numberline {8.7}Fazit}{33}{section.8.7}%
 \contentsline {chapter}{\numberline {9}Steuerungssystem}{34}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Anforderungsanalyse}{34}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Navigation}{34}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Guidance}{34}{section.9.3}%
-\contentsline {section}{\numberline {9.4}Control}{34}{section.9.4}%
+\contentsline {section}{\numberline {9.2}Zustandsraummodellierung}{34}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Navigation}{34}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Guidance}{35}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Control}{35}{section.9.5}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

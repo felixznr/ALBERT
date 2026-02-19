@@ -1010,6 +1010,11 @@ INPUT bibliography.tex
 INPUT ../figures/Logo_HTL.png
 INPUT ../figures/Logo_HTL.png
 INPUT ../figures/Logo_HTL.png
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/mathdesign/mdbch/mdbchr7m.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chr7m.tfm
+INPUT ../figures/Logo_HTL.png
+INPUT ../figures/Logo_HTL.png
+INPUT ../figures/Logo_HTL.png
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/mdbchri8t.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/mdbchrfc8t.tfm
 INPUT ../figures/Logo_HTL.png
