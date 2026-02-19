@@ -1,0 +1,8 @@
+../Core/Src/BMP390.c:21:9:BMP390_Init	24	static
+../Core/Src/BMP390.c:100:19:BMP390_ReadPressure	32	static
+../Core/Src/BMP390.c:127:7:BMP390_CompensateTemperature	24	static
+../Core/Src/BMP390.c:134:7:BMP390_CompensatePressure	40	static
+../Core/Src/BMP390.c:159:6:BMP390_ReadCalibrationData	64	static
+../Core/Src/BMP390.c:201:19:BMP390_ReadRegister	32	static
+../Core/Src/BMP390.c:222:19:BMP390_ReadRegisters	32	static
+../Core/Src/BMP390.c:256:19:BMP390_WriteRegister	24	static

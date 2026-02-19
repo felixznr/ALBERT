@@ -104,7 +104,7 @@ F_{g_{y_n}} &= 0 \\
 F_{g_{z_n}} &= mg
 \end{align}
 wobei $g$ die Erdbeschleunigung ist. Um die Gravitationskraft in den Körperachsen zu berechnen, muss sie mit der Transformationsmatrix $T_{n \to b}$ von Navigation Frame zu Body Frame transformiert werden:
-\[
+\begin{equation}
 T_{n \to b} =
 \begin{bmatrix}
 \cos\theta \cos\psi &
@@ -120,9 +120,9 @@ T_{n \to b} =
 \cos\phi \cos\theta
 \end{bmatrix}
 \quad 
-\]
+\end{equation}
 wobei $\phi$, $\theta$ und $\psi$ die Roll-, Nick- und Gierwinkel der Rakete sind. Die Gravitationskraft in den Körperachsen kann dann wie folgt berechnet werden:
-\[
+\begin{equation}
 \begin{bmatrix}
 F_{g_{x_b}} \\
 F_{g_{y_b}} \\
@@ -144,13 +144,13 @@ T_{n \to b}
 mg
 \end{bmatrix}
 \quad 
-\]
+\end{equation}
 \\
 Da über den Zeitraum der Masseverlust durch den Treibstoffverbrauch berücksichtigt werden muss, wird die Masse $m$ als Funktion der Zeit modelliert. 
-\[
+\begin{equation}
 m = m_0 - \frac{1}{I_{sp}} \int_{0}^{t} F_{p_{\mathrm{ref}}} \, dt
 \quad 
-\]
+\end{equation}
 
 Dabei ist $F_{p_{\mathrm{ref}}}$ die Referenzschubkraft in Newton,
 $I_{sp}$ der spezifische Impuls des Treibstoffs in $\mathrm{Ns/kg}$,

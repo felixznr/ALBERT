@@ -1,0 +1,7 @@
+../Core/Src/BMI088.c:21:9:BMI088_Init	3
+../Core/Src/BMI088.c:189:19:BMI088_OffsetCorrection	2
+../Core/Src/BMI088.c:220:19:BMI088_ReadAcceleration	2
+../Core/Src/BMI088.c:251:19:BMI088_ReadAngularRate	2
+../Core/Src/BMI088.c:287:19:BMI088_ReadRegister	6
+../Core/Src/BMI088.c:327:19:BMI088_ReadRegisters	6
+../Core/Src/BMI088.c:378:19:BMI088_WriteRegister	2
