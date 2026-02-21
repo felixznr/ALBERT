@@ -1,6 +1,9 @@
+
+
 \chapter{Flightcomputer KOMADORI}
 \label{ch:komadori}
-
+\fancyfoot[C]{\large Felix Zauner}
+\fancypagestyle{plain}{\fancyfoot[C]{\large Felix Zauner}}
 
 
 \section{Anforderungsanalyse}
@@ -48,6 +51,7 @@ Ein wesentlicher Teil der Entwicklung der Regelung für die Rakete ist die Erste
 Die im folgenden aufgestellten Bewegungsgleichung basieren in großen Teilen auf den Gleichungen, die in \parencite{AliyuAliyuStateSpace} beschrieben werden.
 
 \subsection{Translationale Bewegunsgleichungen}
+\label{subsec:translationale_bewegungsgleichungen}
 \begin{align}
 \dot{u} &= \frac{F_{A_{x_b}} + F_{P_{x_b}} + F_{g_{x_b}}}{m} - (q w - r v) \quad [\mathrm{m/s^2}] \\[6pt]
 \dot{v} &= \frac{F_{A_{y_b}} + F_{P_{y_b}} + F_{g_{y_b}}}{m} - (r u - p w) \quad [\mathrm{m/s^2}] \\[6pt]
@@ -162,6 +166,7 @@ und $t$ die simulierte Zeit in Sekunden.
 
 
 \subsection{Rotatorische Bewegungsgleichungen}
+\label{subsec:rotatorische_bewegungsgleichungen}
 Die Winkelgeschwindigkeiten um die Körperachsen können wie folgt berechnet werden:
 \begin{align*}
 \dot{p} &= \frac{L_A + L_p - q r \left(I_z - I_y\right)}{I_x}
@@ -233,9 +238,9 @@ $C_{n_\delta}$ ist die Steigung der Kurve des Giermomentbeiwerts $C_n$ in Abhän
 Dabei ist $\alpha$ der Anstellwinkel (Angle of Attack) in Radiant, 
 $\beta$ der Schiebewinkel (Sideslip Angle) in Radiant, 
 $\delta_\eta = \delta_1 = \delta_3$ die effektive Ruderauslenkung, die ein Nickmoment verursacht, in Radiant, 
-und $\delta_\zeta = \delta_4 = \delta_2$ die effektive Ruderauslenkung, die ein Giermoment verursacht, in Radiant.
+und $\delta_\zeta = \delta_4 = \delta_2$ die effektive Ruderauslenkung, die ein Giermoment verursacht, in Radiant siehe Abbildung \ref{fig:fincontrol}.
 
-Der Anstellwinkel, der Schiebewinkel sowie der aerodynamische Rollwinkel zur Bestimmung der aerodynamischen Koeffizienten ergeben sich zu:
+Der Anstellwinkel $\alpha$ (und gesamte Anstellwinkel $\alpha_t$), der Schiebewinkel $\beta$ sowie der aerodynamische Rollwinkel $\phi$ zur Bestimmung der aerodynamischen Koeffizienten ergeben sich zu:
 \begin{align}
 \alpha &= \tan^{-1}\!\left(\frac{w}{u}\right)
 \quad \text{oder} \quad
@@ -244,6 +249,98 @@ Der Anstellwinkel, der Schiebewinkel sowie der aerodynamische Rollwinkel zur Bes
 \phi &= \tan^{-1}\!\left(\frac{v}{w}\right)
 \quad \text{[rad ]}
 \end{align}
+
+
+
+\subsection{Ausrichtung (Attitude)}
+\label{subsec:attitude}
+Es gibt zwei übliche Methoden, um die Ausrichtung eines Flugkörpers zu beschreiben: die Verwendung von Euler-Winkeln oder die Verwendung von Quaternionen. Für ausgereiftere Steuerungsalgorithmen, insbesondere solche, die eine kontinuierliche und singularitätsfreie Darstellung der Ausrichtung erfordern, sind Quaternionen oft die bevorzugte Wahl. Da wir uns in diesem Projekt ausschließlich auf kleine Winkeländerungen konzentrieren und somit eine Division durch $cos(90^\circ) = 0$ und die daraus folgende Instabilität ausschließen können, bieten Euler-Winkel eine einfachere und intuitivere Möglichkeit, die Ausrichtung zu beschreiben. In diesem Fall werden die Euler-Winkel $\phi$ (Roll), $\theta$ (Nick) und $\psi$ (Gier) verwendet, um die Ausrichtung der Rakete im Navigation Frame zu beschreiben.
+\\
+\begin{align}
+\dot{\phi} &= p + (q \sin\phi + r \cos\phi)\tan\theta 
+\quad \left[\mathrm{rad/s}\right] \\[6pt]
+\dot{\theta} &= q \cos\phi - r \sin\phi 
+\quad \left[\mathrm{rad/s}\right] \\[6pt]
+\dot{\psi} &= \frac{q \sin\phi + r \cos\phi}{\cos\theta} 
+\quad \left[\mathrm{rad/s}\right]
+\end{align}
+
+
+\subsection{Systemdynamik}
+\label{subsec:systemdynamik}
+Die gesamte nichtlineare Systemdynamik mit 6 Freiheitsgraden (6dof, 3 translationale und 3 rotatorische) kann mit den folgenden bereits oben behandelten Gleichungen beschrieben werden:
+\begin{equation}
+x =
+\begin{bmatrix}
+u \\ v \\ w \\ p \\ q \\ r \\ \phi \\ \theta \\ \psi
+\end{bmatrix},
+\qquad
+\dot{x} = f(x) =
+\begin{bmatrix}
+\dfrac{F_{A_{x_b}} + F_{P_{x_b}} + F_{g_{x_b}}}{m} - (q w - r v) \\[8pt]
+
+\dfrac{F_{A_{y_b}} + F_{P_{y_b}} + F_{g_{y_b}}}{m} - (r u - p w) \\[8pt]
+
+\dfrac{F_{A_{z_b}} + F_{P_{z_b}} + F_{g_{z_b}}}{m} - (p v - q u) \\[8pt]
+
+\dfrac{L_A + L_p - q r (I_z - I_y)}{I_x} \\[8pt]
+
+\dfrac{M_A + M_p - r p (I_x - I_z)}{I_y} \\[8pt]
+
+\dfrac{N_A + N_p - p q (I_y - I_x)}{I_z} \\[8pt]
+
+p + (q \sin\phi + r \cos\phi)\tan\theta \\[8pt]
+
+q \cos\phi - r \sin\phi \\[8pt]
+
+\dfrac{q \sin\phi + r \cos\phi}{\cos\theta}
+\end{bmatrix}.
+\end{equation}
+
+
+\begin{figure}
+  \centering
+    \includegraphics[width=0.6\textwidth]{6dofrocket.png}
+    \caption{Modell eines Rakete mit 6 Freiheitsgraden \parencite{AliyuAliyuStateSpace}}
+    \label{fig:6dofrocket}
+\end{figure}
+
+Für die Entwicklung eines Linear Quadratic Gaussian (LQG) Reglers ist es notwendig, das System an einem passenden Arbeitspunkt zu linearisieren. 
+
+\subsection{Bestimmung des stationären Arbeitspunkts}
+\label{subsec:trimming}
+Es gilt einen Zustand $x$ und Eingänge $u$ zu finden, sodass $\dot{x} = f(x, u) = 0$ (oder Teile von $f$). Es stellt sich die Frage welche der Komponenten der Systemgleichungen auf null gesetzt werden müssen, um einen stationären Arbeitspunkt zu erreichen. Hierzu kann für das System einer Rakete der Arbeitspunkt wie folgt definiert werden:
+\\
+\textbf{Lateral (Seitenebene):} \\
+\begin{equation}
+\mathbf{o}_{\mathrm{la}} =
+\begin{bmatrix}
+\dot{v} \\
+\dot{p} \\
+\dot{r} \\
+\beta
+\end{bmatrix}
+\end{equation}
+Das bedeutet das keine seitliche Beschleunigung ($\dot{v} = 0$) und keine Roll-, Nick- und Gierrate ($\dot{p} = \dot{r} = 0$) vorliegen, sowie kein Schiebewinkel bzw. Seitenanschtrömung ($\beta = 0$) existiert.
+\textbf{Longitudinal (Nickebene):} \\
+\begin{equation}
+\mathbf{o}_{\mathrm{lo}} =
+\begin{bmatrix}
+\dot{u} \\
+\dot{w} \\
+\dot{q} \\
+\alpha
+\end{bmatrix}
+\end{equation}
+Das bedeutet das keine Vorwärts- und Vertikalbeschleunigung ($\dot{u} = \dot{w} = 0$) und keine Nickrate ($\dot{q} = 0$) vorliegen, sowie kein Anstellwinkel ($\alpha = 0$) existiert, was natürlich in der Realität nicht der Fall sein wird, da die Rakete stark beschleunigt wird. Man könnte die Gleichungen jedoch an mehreren Arbeitspunkten linearisieren, um die Dynamik in verschiedenen Flugphasen akurater zu beschreiben.
+\\
+\\
+
+
+Um diesen Punkt zu erreichen, müssen die Eingangsgrößen so gewählt werden, dass die Systemgleichungen für den Arbeitspunkt erfüllt sind. Die Eingangsgrößen sind die Schubkraft $F_{P_{x_b}}$ und die Ruderauslenkungen $\delta_\eta$ und $\delta_\zeta$.
+\\
+An diesem Punkt ergibt sich in unserer Anwendung ein Problem, da die Schubkraft aufgrund eines Feststoffmotors nicht regelbar ist. 
+
 
 
 
