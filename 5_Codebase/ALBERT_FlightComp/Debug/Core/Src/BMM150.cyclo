@@ -1,0 +1,5 @@
+../Core/Src/BMM150.c:18:9:BMM150_Init	2
+../Core/Src/BMM150.c:72:19:BMM150_ReadMagneticField	2
+../Core/Src/BMM150.c:119:19:BMM150_ReadRegister	1
+../Core/Src/BMM150.c:125:19:BMM150_ReadRegisters	1
+../Core/Src/BMM150.c:131:19:BMM150_WriteRegister	1

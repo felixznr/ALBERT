@@ -1,0 +1,7 @@
+../Core/Src/LSM6DSLTR.c:19:9:LSM6DSLTR_Init	2
+../Core/Src/LSM6DSLTR.c:107:19:LSM6DSLTR_OffsetCorrection	4
+../Core/Src/LSM6DSLTR.c:144:19:LSM6DSLTR_ReadAcceleration	2
+../Core/Src/LSM6DSLTR.c:174:19:LSM6DSLTR_ReadAngularRate	2
+../Core/Src/LSM6DSLTR.c:210:19:LSM6DSLTR_ReadRegister	1
+../Core/Src/LSM6DSLTR.c:216:19:LSM6DSLTR_ReadRegisters	1
+../Core/Src/LSM6DSLTR.c:222:19:LSM6DSLTR_WriteRegister	1

@@ -85,7 +85,7 @@ und die Auftriebskraft hängen wie folgt zusammen:
 
 \subsection{Äußere Faktoren}
 \label{subsec:external_factors}
-Während des gesamten Fluges verändern sich die Kräfte andauern, sowohl in ihrem Betrag als auch 
+Während des gesamten Fluges verändern sich die Kräfte andauernd, sowohl in ihrem Betrag als auch 
 in ihrer Richtung. Wenn man die Kräfte unter Berücksichtigung ihrer Richtung addiert, erhält man 
 eine externe resultierende Kraft auf die Rakete. Die durch diese Kraft verursachte Bewegung der 
 Rakete kann durch Newtonsche Bewegungsgesetze beschrieben werden:
@@ -107,3 +107,194 @@ wird eine Gegenkraft ausgeübt, die gleich groß ist und in entgegengesetzter Ri
 \begin{equation}
     \vec{\mathbf{F}}_{A\rightarrow B} = - \vec{\mathbf{F}}_{B\rightarrow A}
 \end{equation}
+
+\section{Aerodynamische Eigenschaften}
+\label{sec:aero_features}
+Die aerodynamischen Kräfte auf eine Rakete hängen direkt von
+der Form der Rakete ab. Entscheidende aerodynamische Eigenschaften
+sind die Nase der Rakete und die Flügel. Das Profil dieser Eigenschaften
+hängt vor allem davon ab, ob die Rakete die Schallgeschwindigkeit
+überschreitet oder nicht.
+
+\subsection{Überschallflug und Unterschallflug}
+\label{subsec:supersonic_and_subsonic_flight}
+\subsubsection*{Überschallflug}
+\label{subsubsec:supersonic_flight}
+\begin{wrapfigure}{r}{0.6\textwidth}
+
+    % {r} = rechtsbündig platzieren
+    % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+    % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+    \centering
+    \includegraphics[width=0.6\textwidth]{supersonic_shockwave.jpg}
+        \caption{Machscher Kegel \parencite{ApogeeRockets}}
+        \label{fig:supersonic_shockwave}
+    % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+
+  % Abstand nach dem Bild reduzieren
+\end{wrapfigure}
+Bei Überschreitung der Schallgeschwindigkeit (Mach > 1) bewegt sich
+die Rakete schneller durch die Luft, als diese sich mit der Rakete
+mitbewegen kann. Durch diesen enormen Druckanstieg vor der Rakete
+entsteht eine Schockwelle, die sich in einer kegelförmigen Struktur
+hinter der Rakete ausbreitet, wie auf der Abbildung \ref{fig:supersonic_shockwave}
+zu sehen ist. In diesem Fall sind
+die aerodynamischen Eigenschaften so zu formen, dass die 
+Schockwelle so weit nach hinten gelenkt wird, wie möglich, um den
+Luftwiderstand unter diesen Bedingungen so gering wie möglich
+zu halten. Dadurch entstehen die typischen spitzen Nasen und
+scharfen Flügelprofile von Überschallraketen.
+
+\subsubsection*{Unterschallflug}
+\label{subsubsec:subsonic_flight}
+Überschreitet die Rakete jedoch an keinem Zeitpunkt während des
+Fluges die Schallgeschwindigkeit, können die aerodynamischen
+Eigenschaften nach normalen aerodynamischen Konzepten geformt werden,
+um den Luftwiderstand zu minimieren und (falls erwünscht) den Auftrieb
+zu maximieren. 
+
+\subsection{Raketenspitze}
+\label{subsec:rocket_nose}
+Die Form der Raketenspitze hängt in erstere Linie davon ab,
+ob die Rakete die Schallgeschwindigkeit überschreitet oder nicht.
+Da ``ALBERT'' sich ausschließlich im Unterschallflug befindet, wird
+hier nur dieser Fall betrachtet. 
+
+HIER BISSCHEN ÜBER DIE SPITZE YAPPEN UND RENDER + ZEICHNUNG MIT MAßEN
+
+\subsection{Raketenflügel}
+\label{subsec:rocket_fins}
+Raketenflügel, auch als Flossen oder Finnen bezeichnet, sind
+aerodynamische Oberflächen, die Normal zur Längsachse der Rakete
+befestigt werden. Diese dienen dazu, die Rakete während des Fluges
+zu stabilisieren und bei Bedarf Auftrieb zu erzeugen.
+
+\subsubsection*{Anzahl der Flügel}
+\label{subsubsec:fin_count}
+Die Anzahl der Flügel an einer Rakete variiert, aber die meisten
+Modellraketen haben entweder 3 oder 4 Flügel, außer die Rakete
+verfügt sowohl über frontale als auch über hintere Flügel.
+Es werden meistens 4 Flügel verwendet, aber wenn der Luftwiderstand
+ganz gering gehalten werden soll, können auch nur 3 Flügel in Frage
+kommen.
+
+\subsubsection*{Position der Flügel}
+\label{subsubsec:fin_position}
+Flügel können an verschiedenen Positionen entlang vom Raketengehäuse
+angebracht werden, am verbreitetsten sind jedoch Raketen mit entweder
+nur hinteren Flügeln oder mit sowohl frontalen als auch hinteren Flügeln.
+Bei aktiven Steuersystemen bieten bewegliche frontale Flügel den
+Vorteil der besseren Manövrierfähigkeit, sorgen aber für weniger Stabilität
+und benötigen komplexere Regelungstechnik.
+
+\subsubsection*{Feste und bewegliche Flügel}
+\label{subsubsec:fixed_moveable_fins}
+Die Flügel einer Rakete können entweder fest oder beweglich sein, je
+nachdem ob die Rakete über ein aktives Steuersystem verfügt, oder
+ob die Flügel ausschließlich zur passiven Stabilisierung dienen.
+
+\subsubsection*{Flügelform}
+\label{fin_form}
+Ein wichtiger Punkt beim formen der Flügel ist die Auswahl der Form.
+Bei Modellraketen stehen grundsätzlich wie auf der Abbildung \ref{fig:fin_forms} zu erkennen
+ist 8 Formen zur Auswahl mit den jeweiligen Vor- und Nachteilen in \ref{tab:fin_shapes}.
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=1\textwidth]{fin_forms.jpg}
+        \caption{Verschiedene Flügelformen \parencite{NakkaRocketry}}
+        \label{fig:fin_forms}
+\end{figure}
+
+\newpage
+
+%==== VON DEEPSEEK ÜBERETZT ALSO PROMPT DANN SPÄTER NOCH ANGEBEN ====
+
+\begin{table}
+    \caption{Vor- und Nachteile verschiedener Flügelformen}
+    \centering
+\begin{tabular}{|m{3cm}|m{5cm}|m{5cm}|}
+    \hline
+    \textbf{Form} & \textbf{Vorteile} & \textbf{Nachteile} \\
+    \hline
+    Delta & Flatterrobust, gut für hohe Geschwindigkeiten & Spitze Kante anfällig für Beschädigungen\\
+    \hline
+    Rechteckig & Einfach zu bauen, strukturell robust & Kann bei Landung beschädigt werden, nicht optimal für Finnensteuerung\\
+    \hline
+    Gepfeilt & Flatterrobust, strukturell robust & Kann bei Landung beschödigt werden, nicht optimal für Finnensteuerung\\
+    \hline
+    Trapezförmig & Strukturell robust, kann gestutzt werden um den Druckpunkt nach vorne zu verlagern & Weniger aerodynamisch als gepfeilte Formen\\
+    \hline
+    Trapezförmig gepfeilt & Gut für hohe Geschwindigkeiten, kann gestutzt werden um den Druckpunkt nach vorne zu verlagern & Anfällig für Flattern und Beschädigungen bei Landung\\
+    \hline
+    Gestutztes Delta & Strukturell robust, gute Wahl für Finnensteuerung & Kann bei der Landung beschädigt werden\\
+    \hline
+    Gestutztes gepfeiltes Trapez & Eine Verbesserung des einfach gepfeilten Trapezes & Anfällig für Flattern und Beschädigungen bei Landung\\
+    \hline
+    Elliptisch & Aerodynamisch effizient, robust, flattersicher & Schwer herzustellen, Berechnung des Druckpunkts kompliziert\\
+    \hline
+\end{tabular}
+    \label{tab:fin_shapes}
+\end{table}
+\subsubsection*{Flügelprofil}
+\label{subsubsec:fin_aerofoil}
+\begin{wrapfigure}{r}{0.5\textwidth}
+
+    % {r} = rechtsbündig platzieren
+    % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+    % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+    \centering
+    \includegraphics[width=0.5\textwidth]{finaerofoil.png}
+        \caption{Flügelprofile \parencite{NakkaRocketry}}
+        \label{fig:finaerofoil}
+    % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+
+  % Abstand nach dem Bild reduzieren
+\end{wrapfigure}
+Das Profil der Raketenflügel hängt am meisten davon ab, ob die Rakete
+die Schallgeschwindigkeit überschreitet oder nicht. Wenn Überschallflug
+vorliegt, muss das Profil so geformt werden, dass die vordere Kante der
+Flügel scharf ist, um die Schockwelle nach hinten zu lenken und um
+weniger Luft 
+zu komprimieren. Bei Unterschallflug werden Flügel in Form
+von einem symmetrischen Aerofoil Profil geformt, um gleichzeitig den
+Luftwiderstand zu minimieren und bei aktiven Steuersystemen den benötigten
+Auftrieb zu erzeugen. Auf der Abbildung \ref{fig:finaerofoil} sind
+Beispiele von Flügelprofilen zu sehen, sowohl für Unterschall- aus auch
+für Überschallflug. Es ist auch möglich ein unsymmetrisches Profil zu
+verwenden, um die Rakete zum drehen zu bringen, was mit Stabilität bei
+Raketen ohne aktivem Steuersystem helfen kann.
+
+\subsection{NACA Flügelprofile}
+\label{subsec:naca_aerofoil}
+Für Aerofoil Profile werden oft die NACA Profile verwendet. NACA
+Profile sind standardisierte Profile, die von der National Advisory Committee
+for Aeronautics (NACA) entwickelt wurden, welche später in die NASA
+übrerging.
+\\
+Für symmetrische Flügelprofile für Unterschallflug werden meistens die
+vierstelligen NACA Profile verwendet. Die vierstellige NACA Serie umfasst
+78 im Windkanal getestete Profile. Diese Profile wurden recht willkürlich
+ausgewählt, aber manche dieser Profile werden noch heute von Flugzeugherstellern
+verwendet. Das Konstruktprinzip der NACA Profile beruht auf Kreisen, die auf
+der Profilmittellinie gezeichnet werden.
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{naca_geometry.png}
+        \caption{Geometrie der NACA Profile \parencite{WikipediaNACA}}
+        \label{fig:naca_geometry}
+\end{figure}
+Auf der Abbildung \ref{fig:naca_geometry} ist die Geometrie der NACA Profile
+mit den folgenden Parametern zu sehen:
+\begin{enumerate}
+    \item Nullauftriebslinie
+    \item Flügelnase
+    \item Krümmungsradius der Flügelnase
+    \item Wölbung maximale Profildicke
+    \item Wölbung
+    \item obere Profilseite
+    \item Profilhinterkante
+    \item Skelettlinie 
+    \item untere Profilseite  
+\end{enumerate}
+
+\newpage
