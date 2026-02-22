@@ -75,8 +75,8 @@
 \contentsline {subsection}{\numberline {9.2.1}Translationale Bewegunsgleichungen}{34}{subsection.9.2.1}%
 \contentsline {subsection}{\numberline {9.2.2}Rotatorische Bewegungsgleichungen}{36}{subsection.9.2.2}%
 \contentsline {subsection}{\numberline {9.2.3}Ausrichtung (Attitude)}{38}{subsection.9.2.3}%
-\contentsline {subsection}{\numberline {9.2.4}Systemdynamik}{38}{subsection.9.2.4}%
-\contentsline {subsection}{\numberline {9.2.5}Bestimmung des stationären Arbeitspunkts}{39}{subsection.9.2.5}%
+\contentsline {subsection}{\numberline {9.2.4}Systemdynamik}{39}{subsection.9.2.4}%
+\contentsline {subsection}{\numberline {9.2.5}Bestimmung des stationären Arbeitspunkts}{40}{subsection.9.2.5}%
 \contentsline {section}{\numberline {9.3}Navigation}{40}{section.9.3}%
 \contentsline {section}{\numberline {9.4}Guidance}{40}{section.9.4}%
 \contentsline {section}{\numberline {9.5}Control}{40}{section.9.5}%

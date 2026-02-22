@@ -240,6 +240,13 @@ $\beta$ der Schiebewinkel (Sideslip Angle) in Radiant,
 $\delta_\eta = \delta_1 = \delta_3$ die effektive Ruderauslenkung, die ein Nickmoment verursacht, in Radiant, 
 und $\delta_\zeta = \delta_4 = \delta_2$ die effektive Ruderauslenkung, die ein Giermoment verursacht, in Radiant siehe Abbildung \ref{fig:fincontrol}.
 
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.6\textwidth]{fincontrols.png}
+    \caption{Modell eines Rakete mit 6 Freiheitsgraden \parencite{AliyuAliyuStateSpace}}
+    \label{fig:fincontrol}
+\end{figure}
 Der Anstellwinkel $\alpha$ (und gesamte Anstellwinkel $\alpha_t$), der Schiebewinkel $\beta$ sowie der aerodynamische Rollwinkel $\phi$ zur Bestimmung der aerodynamischen Koeffizienten ergeben sich zu:
 \begin{align}
 \alpha &= \tan^{-1}\!\left(\frac{w}{u}\right)
@@ -296,50 +303,55 @@ q \cos\phi - r \sin\phi \\[8pt]
 \dfrac{q \sin\phi + r \cos\phi}{\cos\theta}
 \end{bmatrix}.
 \end{equation}
-
-
-\begin{figure}
+\begin{figure}[H]
   \centering
     \includegraphics[width=0.6\textwidth]{6dofrocket.png}
     \caption{Modell eines Rakete mit 6 Freiheitsgraden \parencite{AliyuAliyuStateSpace}}
     \label{fig:6dofrocket}
 \end{figure}
-
-Für die Entwicklung eines Linear Quadratic Gaussian (LQG) Reglers ist es notwendig, das System an einem passenden Arbeitspunkt zu linearisieren. 
+sFür die Entwicklung eines Linear Quadratic Gaussian (LQG) Reglers ist es notwendig, das System an einem passenden Arbeitspunkt zu linearisieren. 
 
 \subsection{Bestimmung des stationären Arbeitspunkts}
 \label{subsec:trimming}
-Es gilt einen Zustand $x$ und Eingänge $u$ zu finden, sodass $\dot{x} = f(x, u) = 0$ (oder Teile von $f$). Es stellt sich die Frage welche der Komponenten der Systemgleichungen auf null gesetzt werden müssen, um einen stationären Arbeitspunkt zu erreichen. Hierzu kann für das System einer Rakete der Arbeitspunkt wie folgt definiert werden:
+Es gilt einen Zustand $x$ und Eingänge $u$ zu finden, sodass $\dot{x} = f(x, u) = 0$ (oder Teile von $f$). Es stellt sich die Frage welche der Komponenten der Systemgleichungen auf null gesetzt werden müssen, um einen stationären Arbeitspunkt zu erreichen. Hierzu kann es für das Verständnis sinnvoll sein das System in zwei Ebenen und somit zwei Zuständen aufzuteilen, damit kann der Arbeitspunkt einer Rakete wie folgt definiert werden:
 \\
 \textbf{Lateral (Seitenebene):} \\
 \begin{equation}
 \mathbf{o}_{\mathrm{la}} =
 \begin{bmatrix}
-\dot{v} \\
-\dot{p} \\
-\dot{r} \\
+\dot{v} &
+\dot{p} &
+\dot{r} &
 \beta
-\end{bmatrix}
+\end{bmatrix}^{T}
 \end{equation}
-Das bedeutet das keine seitliche Beschleunigung ($\dot{v} = 0$) und keine Roll-, Nick- und Gierrate ($\dot{p} = \dot{r} = 0$) vorliegen, sowie kein Schiebewinkel bzw. Seitenanschtrömung ($\beta = 0$) existiert.
+Das bedeutet das keine seitliche Beschleunigung ($\dot{v} = 0$) und keine Roll-, Nick- und Gierrate ($\dot{p} = \dot{r} = 0$) vorliegen, sowie kein Schiebewinkel bzw. Seitenanschtrömung ($\beta = 0$) existiert.\\
 \textbf{Longitudinal (Nickebene):} \\
 \begin{equation}
 \mathbf{o}_{\mathrm{lo}} =
 \begin{bmatrix}
-\dot{u} \\
-\dot{w} \\
-\dot{q} \\
+\dot{u} &
+\dot{w} &
+\dot{q} &
 \alpha
-\end{bmatrix}
+\end{bmatrix}^{T}
 \end{equation}
 Das bedeutet das keine Vorwärts- und Vertikalbeschleunigung ($\dot{u} = \dot{w} = 0$) und keine Nickrate ($\dot{q} = 0$) vorliegen, sowie kein Anstellwinkel ($\alpha = 0$) existiert, was natürlich in der Realität nicht der Fall sein wird, da die Rakete stark beschleunigt wird. Man könnte die Gleichungen jedoch an mehreren Arbeitspunkten linearisieren, um die Dynamik in verschiedenen Flugphasen akurater zu beschreiben.
 \\
+Um nun diesen Punkt zu erreichen, müssen die Eingangsgrößen so gewählt werden, dass die Systemgleichungen für den Arbeitspunkt erfüllt sind. Die Eingangsgrößen können aus dem selben Grund wie die Systemgleichungen in laterale und longitudinale Eingänge aufgeteilt werden:
+\begin{equation}\mathbf{c}_{\mathrm{la}} =
+\begin{bmatrix}
+\delta_\zeta  & \phi & \psi
+\end{bmatrix}^{T}
+\qquad
+\mathbf{c}_{\mathrm{lo}}
+\begin{bmatrix}
+\delta_\eta  & \theta
+\end{bmatrix}^{T}
+\end{equation}
+wobei $\phi$ und $\psi$ die Roll- und Gierwinkel der Rakete sind, $\theta$ der Nickwinkel, $\delta_\eta = \delta_1 = \delta_3$ die effektive Ruderauslenkung, die ein Nickmoment verursacht, in Radiant, und $\delta_\zeta = \delta_4 = \delta_2$ die effektive Ruderauslenkung, die ein Giermoment verursacht, in Radiant siehe Abbildung \ref{fig:fincontrol}.
 \\
-
-
-Um diesen Punkt zu erreichen, müssen die Eingangsgrößen so gewählt werden, dass die Systemgleichungen für den Arbeitspunkt erfüllt sind. Die Eingangsgrößen sind die Schubkraft $F_{P_{x_b}}$ und die Ruderauslenkungen $\delta_\eta$ und $\delta_\zeta$.
-\\
-An diesem Punkt ergibt sich in unserer Anwendung ein Problem, da die Schubkraft aufgrund eines Feststoffmotors nicht regelbar ist. 
+Für die 
 
 
 
