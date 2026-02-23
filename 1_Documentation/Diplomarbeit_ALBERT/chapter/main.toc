@@ -74,21 +74,24 @@
 \contentsline {section}{\numberline {9.2}Zustandsraummodellierung}{34}{section.9.2}%
 \contentsline {subsection}{\numberline {9.2.1}Translationale Bewegunsgleichungen}{34}{subsection.9.2.1}%
 \contentsline {subsection}{\numberline {9.2.2}Rotatorische Bewegungsgleichungen}{36}{subsection.9.2.2}%
-\contentsline {section}{\numberline {9.3}Navigation}{38}{section.9.3}%
-\contentsline {section}{\numberline {9.4}Guidance}{38}{section.9.4}%
-\contentsline {section}{\numberline {9.5}Control}{38}{section.9.5}%
-\contentsline {chapter}{\numberline {10}CAD-Aufbau}{39}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Konzeptentwicklung}{39}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Flügelsteuermechanismus}{39}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Implementierung und Fertigung}{39}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Herausforderungen und Lösungen}{39}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Fazit}{39}{section.10.5}%
-\contentsline {chapter}{\numberline {11}Simulation der Aerodynamik}{40}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Verwendete Software und Methoden}{40}{section.11.1}%
-\contentsline {subsection}{\numberline {11.1.1}OpenFOAM}{40}{subsection.11.1.1}%
-\contentsline {subsection}{\numberline {11.1.2}Ansys FLUENT}{40}{subsection.11.1.2}%
-\contentsline {section}{\numberline {11.2}Auswertung der Simulationsergebnisse}{40}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Vergleich mit experimentellen Daten}{40}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Herausforderungen und Lösungen}{40}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Fazit}{40}{section.11.5}%
+\contentsline {subsection}{\numberline {9.2.3}Ausrichtung (Attitude)}{38}{subsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.2.4}Systemdynamik}{39}{subsection.9.2.4}%
+\contentsline {subsection}{\numberline {9.2.5}Bestimmung des stationären Arbeitspunkts}{40}{subsection.9.2.5}%
+\contentsline {section}{\numberline {9.3}Navigation}{40}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Guidance}{40}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Control}{40}{section.9.5}%
+\contentsline {chapter}{\numberline {10}CAD-Aufbau}{41}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Konzeptentwicklung}{41}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Flügelsteuermechanismus}{41}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Implementierung und Fertigung}{41}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Herausforderungen und Lösungen}{41}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Fazit}{41}{section.10.5}%
+\contentsline {chapter}{\numberline {11}Simulation der Aerodynamik}{42}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Verwendete Software und Methoden}{42}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}OpenFOAM}{42}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Ansys FLUENT}{42}{subsection.11.1.2}%
+\contentsline {section}{\numberline {11.2}Auswertung der Simulationsergebnisse}{42}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Vergleich mit experimentellen Daten}{42}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Herausforderungen und Lösungen}{42}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Fazit}{42}{section.11.5}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
