@@ -325,7 +325,7 @@ Es gilt einen Zustand $x$ und Eingänge $u$ zu finden, sodass $\dot{x} = f(x, u)
 \beta
 \end{bmatrix}^{T}
 \end{equation}
-Das bedeutet das keine seitliche Beschleunigung ($\dot{v} = 0$) und keine Roll-, Nick- und Gierrate ($\dot{p} = \dot{r} = 0$) vorliegen, sowie kein Schiebewinkel bzw. Seitenanschtrömung ($\beta = 0$) existiert.\\
+Das bedeutet das keine seitliche Beschleunigung ($\dot{v} = 0$) und keine Roll- und Gierrate ($\dot{p} = \dot{r} = 0$) vorliegen, sowie kein Schiebewinkel bzw. Seitenanschtrömung ($\beta = 0$) existiert.\\
 \textbf{Longitudinal (Nickebene):} \\
 \begin{equation}
 \mathbf{o}_{\mathrm{lo}} =
@@ -351,7 +351,11 @@ Um nun diesen Punkt zu erreichen, müssen die Eingangsgrößen so gewählt werde
 \end{equation}
 wobei $\phi$ und $\psi$ die Roll- und Gierwinkel der Rakete sind, $\theta$ der Nickwinkel, $\delta_\eta = \delta_1 = \delta_3$ die effektive Ruderauslenkung, die ein Nickmoment verursacht, in Radiant, und $\delta_\zeta = \delta_4 = \delta_2$ die effektive Ruderauslenkung, die ein Giermoment verursacht, in Radiant siehe Abbildung \ref{fig:fincontrol}.
 \\
-Für die 
+\\
+Auf Basis der Annahme, dass die Änderung des Zustands linear mit den Änderungen der Eingänge zusammenhängt, kann mithilfe der Jacobi-Matrix die lineare Näherung des Systems um den Arbeitspunkt berechnet werden. Es gilt:
+\begin{equation}
+\dot{x} = f(x, u) \approx f(x_0, u_0) + A (x - x_0) + B (u - u_0)   
+\end{equation}
 
 
 

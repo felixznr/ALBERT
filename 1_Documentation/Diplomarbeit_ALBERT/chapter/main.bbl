@@ -617,7 +617,7 @@
       \verb https://www.monolithicpower.com/en/learning/resources/switch-node-layout-considerations-for-emc?srsltid=AfmBOoqRXddokKGt6qhy2Qypf72WE3ECnBd1sNlJD2nkrFNsOXMKb-D_
       \endverb
     \endentry
-    \entry{ApogeeRockets}{online}{}{}
+    \entry{ApogeeRocketsPeakOfFlight}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=67a9f28a34f4f99e66a26956c9a40746}{%
            family={{Walter Lohmueller}},
