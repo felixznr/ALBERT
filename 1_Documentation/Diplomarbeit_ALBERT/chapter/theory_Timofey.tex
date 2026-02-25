@@ -155,12 +155,30 @@ zu maximieren.
 
 \subsection{Raketenspitze}
 \label{subsec:rocket_nose}
-Die Form der Raketenspitze hängt in erstere Linie davon ab,
-ob die Rakete die Schallgeschwindigkeit überschreitet oder nicht.
-Da ``ALBERT'' sich ausschließlich im Unterschallflug befindet, wird
-hier nur dieser Fall betrachtet. 
+\begin{wrapfigure}{l}{0.3\textwidth}
 
-HIER BISSCHEN ÜBER DIE SPITZE YAPPEN UND RENDER + ZEICHNUNG MIT MAßEN
+    % {r} = rechtsbündig platzieren
+    % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+    % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+    \centering
+    \includegraphics[width=0.3\textwidth]{nose_cone.png}
+        \caption{Raketenspitze}
+        \label{fig:rocket_nose_cone}
+    % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+
+  % Abstand nach dem Bild reduzieren
+\end{wrapfigure}
+Bei ``ALBERT'' ist hat die Raketenspitze die Form einer tangentialer Ogive.
+Das ist die am meisten verbreitete Form für die Spitze von Modellraketen, da sie
+bei kleinen Mach-Zahlen einen geringen Luftwiderstand bietet und gleichzeitig einfach zu bauen ist.
+Die Spitze ist innen hohl, um die Masse zu reduzieren, hat aber innen eine
+Verstärkung, um die strukturelle Integrität zu gewährleisten und eine
+ausreichend stabile Verbindung zum Seil des Fallschirms zu bieten.
+Abbildung \ref{fig:rocket_nose_cone} zeigt die Form der Raketenspitze von ``ALBERT''.
+Beim Aktivieren des Bergungsystems trennt sich die Spitze von der Rakete, daher
+wird diese mit einem Schochseil mit dem Rest der Rakete und dem Fallschirm
+verbunden.
+\newpage
 
 \subsection{Raketenflügel}
 \label{subsec:rocket_fins}
@@ -296,5 +314,88 @@ mit den folgenden Parametern zu sehen:
     \item Skelettlinie 
     \item untere Profilseite  
 \end{enumerate}
+
+\newpage
+
+\subsection{Flügeldesign}
+\label{subsec:fin_design}
+\begin{wrapfigure}{l}{0.3\textwidth}
+
+    % {r} = rechtsbündig platzieren
+    % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+    % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+    \centering
+    \includegraphics[width=0.3\textwidth]{albert_fin.png}
+        \caption{Flügel CAD Modell}
+        \label{fig:fin_cad_model}
+    % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+
+  % Abstand nach dem Bild reduzieren
+\end{wrapfigure}
+Die Flügel von ``ALBERT'' haben die Form eines gestutzten Deltas, da diese Form
+sowohl strukturell robust ist, als auch eine gute Wahl für Finnensteuerung darstellt.
+Beim Profil der Flügel von ``ALBERT'' wurde das NACA0012 Profil gewählt, da dieses Profil
+symmetrisch ist, was keinen Auftrieb bei einem Anstellwinkel von 0° erzeugt,
+die Auftriebskennlinie des Profils für kleine Anstellwinkel relativ linear ist,
+was die Regelung der Flügel einfacher macht. Die vierstelligen NACA Profile existieren
+schon sehr lange, daher gibt es gute Daten über die aerodynamischen Eigenschaften,
+was das überprüfen von Simlationsergebnissen und Versuchen erleichtert. Abbildung
+\ref{fig:fin_cad_model} zeigt das CAD Modell der Flügel.
+
+\chapter{Simulation und Messung im Windkanal}
+\fancyfoot[C]{\large Timofey Luzin}
+\fancypagestyle{plain}{\fancyfoot[C]{\large Timofey Luzin}}
+
+\section{CFD Simulation}
+\label{sec:cfd_simulation}
+
+\subsection{Grundlagen von CFD}
+\label{subsec:cfd_basics}
+Computational Fluid Dynamics (CFD) ist ein Zweig der Fluidmechanik, der numerische
+Methoden und Algorithmen verwendet, um die Strömung von Flüssigkeiten und Gasen zu
+analysieren und vorherzusagen. CFD ermöglicht es Ingenieuren und Wissenschaftlern,
+komplexe Strömungsphänomene zu simulieren, die in der realen Welt auftreten,
+ohne physische Experimente durchführen zu müssen. CFD wird in einer Vielzahl von
+Anwendungen eingesetzt, darunter die Luft- und Raumfahrt, die Automobilindustrie,
+die Energieerzeugung und die Umweltwissenschaften.
+
+\subsection{Ansys Fluent}
+\label{subsec:ansys_fluent}
+Die CFD Simulation der Rakete ``ALBERT'' wurde mit Student Version von Ansys Fluent
+durchgeführt, einem der führenden Softwarepakete für Computational Fluid Dynamics.
+Die Simulation läuft in mereren Schritten ab.
+
+\subsubsection*{Geometrie}
+\label{subsubsec:geometry_cfd}
+Beim ersten Schritt wird die Geometrie als .step Datei importiert
+und es werden Grenzen des Raums in dem die Simulation ablaufen soll definiert.
+Die Geometrie wird von dem Raum subtrahiert, um ein einzelnes Objekt zu erhalten.
+
+\subsubsection*{Meshing}
+\label{subsubsec:meshing_cfd}
+Nachdem die Geometrie erfolgreich definiert wurde, muss diese in ein Mesh umgewandelt
+werden, wo die Oberflächen in viele, je nach Komplexität der Oberfläche, kleine oder große
+Polygone aufgeteilt werden. Für CFD werden meistens dreieckige Polygone verwendet, dies
+hängt aber natürlich von der Form der Geometrie ab. Abbildung \ref{fig:ansys_mechanical_mesh}
+zeigt das Mesh in Ansys Mechanical.
+\newpage
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.8\textwidth]{ansys_mechanical.png}
+        \caption{Mesh der Geometrie in Ansys Mechanical}
+        \label{fig:ansys_mechanical_mesh}
+\end{figure}
+
+\subsubsection*{Einstellen der Simulation}
+\label{subsubsec:simulation_settings}
+
+\subsubsection*{Auswertung der Simulation}
+\label{subsubsec:simulation_postprossesing}
+
+\subsection{CFD Berechnung der Kräfte/Koeffizienten}
+\label{subsec:force_coeffietents_calculation}
+Um die Regelung vom Steuersystem der Rakete zu realisiren, sind 
+Kraft-/Momentkoeffizienten und dessen Ableitungen nötig. CFD ermöglicht
+es, diese bei verschiedenen Anstellwinkeln der Flügel zu erfassen.
 
 \newpage
