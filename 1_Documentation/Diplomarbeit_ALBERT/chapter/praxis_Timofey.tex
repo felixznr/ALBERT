@@ -11,9 +11,48 @@ der Flügel, wurde die Entwicklung eines Steuermechanismus für die Flügel bego
 Nach ein Paar gescheiterten Versuchen, wurde ein Mechanismus entwickelt, bei dem
 sowohl die Motoren aufgrund von Platzmangel in das Gehäuse passten, als diese auch
 effizient das Drehmoment auf die Flügel übertragen konnten. 
+\\
+Aufgrund von Platzmangel im Heckteil der Rakete, konnten die die Servomotoren nicht
+direkt an die Flügel angebracht werden, sondern mussten über ein System mit 2 ineinander
+zeigenden Hebelarmen und einem Gelenkarm, der die zwei Hebelarme miteinander verbindet.
+Das Drehmoment der Servomotoren wird dabei 1 zu 1 übertragen, da beide Hebelarme die
+gleiche Länge einer Drehachse auf die andere haben. Abbildung \ref{fig:fin_servo} zeigt
+den Flügelsteuermechanismus von ``ALBERT''.
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.4\textwidth]{fin_servo.png}
+        \caption{Flügelsteuermechanismus}
+        \label{fig:fin_servo}
+\end{figure}
+Um sicherzustellen, dass die Flügel stabil am Gehäuse befestigt sind, wurden diese mit
+2 Kugellagern gelagert, die in das Gehäuse eingebaut wurden. 
+
+\section{Innenstruktur und Materialwahl}
+\label{sec:internal_structure}
+Die Innenstruktur der Rakete wird auf 4 Carbonstäbe aufgebaut, die vom Heck bis zum
+Fallschirmfach verlaufen. Diese Stäbe sorgen für die notwendige Steifigkeit der Rakete
+und helfen dabei, die eizelnen Komponenten in nötiger Position zu halten. Die Stäbe
+mussten allerdings im Bereich des Flightcomputers unterbrochen werden, um Platz für
+diesen zu schaffen.
+\\
+\\
+Die Wahl des Materials für die Rakete fiel auf 3D-gedrucktes PLA, da dieses Material
+leicht zu verarbeiten ist, eine ausreichende Festigkeit für die Anforderungen der Rakete
+bietet und kostengünstig ist. Allerdings um die Festigkeit der Flügel und dessen
+Steuermechanismus zu erhöhen, wurde das Greentec Pro Filament von Extrudr verwendet,
+da dieses Material genauso einfach wie PLA zu verarbeiten ist, aber eine deutlich höhere
+Festigkeit aufweist.
+\\
+\\
+Für das Außengehäuse der Rakete wurde ein Kartorohr mit einem Außendurchmesser von 84 mm
+und einer Wandstärke von 2mm verwendet. Dieses ist eine kostengünstige und leicht verfügbare
+Option, die alle Anforderungen an die Festigkeit und Steifigkeit der Rakete ausreichend erfüllt.
 
 \section{Implementierung und Fertigung}
 \label{sec:implementation}
+Die Fertigung der Rakete erfolgte hauptsächlich durch 3D-Druck, wobei die meisten Komponenten
+mit dem Bambulab A1 mini gedruckt wurden. Die einzige Ausnahme war die Raketenspitze,
+die aufgrund ihrer Größe auf einem größeren Drucker gedruckt werden musste. 
 
 \section{Herausforderungen und Lösungen}
 \label{sec:challenges}
@@ -26,16 +65,17 @@ effizient das Drehmoment auf die Flügel übertragen konnten.
 \chapter{Simulation der Aerodynamik}
 \label{ch:aero_simulation}
 
-\section{Verwendete Software und Methoden}
+\section{Simulation der Raketenflügel in Ansys Fluent}
 \label{sec:used_software_sim}
-\subsection{OpenFOAM}
-\subsection{Ansys FLUENT}
 
 \section{Auswertung der Simulationsergebnisse}
 \label{sec:simulation_results}
 
-\section{Vergleich mit experimentellen Daten}
-\label{sec:comparison_experimental}
+\section{Messung im Windkanal}
+\label{sec:wind_tunnel_test}
+
+\section{Vergleich mit Messdaten}
+\label{sec:comparison_wind_tunnel_cfd}
 
 \section{Herausforderungen und Lösungen}
 \label{sec:challenges_simulation}
