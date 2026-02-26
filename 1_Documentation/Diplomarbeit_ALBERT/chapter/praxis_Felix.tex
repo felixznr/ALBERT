@@ -34,7 +34,7 @@ Die Anforderungen wurden in aktive und passive Anforderungen unterteilt. Aktive 
     \item Einhaltung einer maximalen Latenzzeit von unter 10\,ms zwischen Messwerterfassung und Steuerungsaktion, um eine ausreichend schnelle Reaktion auf Flugbedingungen sicherzustellen.
 \end{itemize}
 
-\vspace{10pt}
+\vspace{20pt}
 
 \textbf{Passive Anforderungen:}
 \begin{itemize}
@@ -44,45 +44,79 @@ Die Anforderungen wurden in aktive und passive Anforderungen unterteilt. Aktive 
     \item Implementierung von ESD-Schutzmaßnahmen zum Schutz vor elektrostatischer Entladung.
     \item Ausführung der USB-C-Schnittstelle mit geeigneten Schutzmaßnahmen zum Schutz angeschlossener Endgeräte vor elektrischen Fehlzuständen, Überspannungen und Fehlströmen.
 \end{itemize}
-\section{Funktionale Anordnung}
-\label{sec:fuin}
+
+
+
+\section{Systemarchitektur}
+\label{sec:systemarchitektur}
+Auf Basis der Anforderungen an die Funktionen und Eigenschaften des Flightcomputers wird im folgenden die Systemarchitektur ausgearbeitet um die Interaktion der verschiedenen Komponenten untereinander im Bezug auf ihre Funktionen zu strukturieren und so eine Grundlage für die weiteren Entwicklungsschritte zu schaffen.
 
 
 \begin{figure}[H]
-  \centering
-    \includegraphics[width=0.6\textwidth]{flightcomputerpcb.png}
-    \caption{Flightcomputer KOMADORI}
-    \label{fig:flightcomputer_pcb}
-  % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)   
-  
+    \centering
+    
+    \begin{tikzpicture}[
+    font=\sffamily,
+    node distance=7mm and 10mm,
+    box/.style={draw, rounded corners=2pt, minimum width=20mm, minimum height=10mm, align=center},
+    bigbox/.style={draw, rounded corners=2pt, minimum width=50mm, minimum height=18mm, align=center},
+    arr/.style={-latex, line width=0.8pt}
+    ]
+
+    % --- Nodes (top row sensors) ---
+    \node[box, fill=violet!20] (imu1) {IMU 1};
+    \node[box, fill=violet!20, right=of imu1] (baro) {Barometer};
+    \node[box, fill=violet!20, right=of baro] (mag) {Magnetometer};
+
+    % --- Center navigation computer ---
+    \node[box, fill=red!20, minimum width=45mm, minimum height=14mm,
+        below=10mm of baro] (nav) {Navigation Computer};
+
+    % --- Side sensors ---
+    \node[box, fill=violet!20, left=10mm of nav] (imu2) {IMU 2};
+    \node[box, fill=violet!20, right=10mm of nav] (gps) {GPS};
+
+    % --- Main processing unit ---
+    \node[bigbox, fill=green!20, below=12mm of nav] (mpu) {Main Processing Unit};
+
+    % --- Peripherals around MPU ---
+    \node[box, fill=orange!25, left=10mm of mpu] (lora) {LoRa};
+
+    \node[box, fill=red!30, right=10mm of mpu, yshift=8mm] (sd) {SD-Karte};
+    \node[box, fill=red!30, right=10mm of mpu, yshift=-8mm] (flash) {Flash};
+
+    \node[box, fill=yellow!30, below left=10mm and -20mm of mpu] (servos) {Servos};
+    \node[box, fill=yellow!30, below right=10mm and -20mm of mpu] (pyro) {Pyro Kan\"ale};
+
+    % --- Arrows: sensors -> nav ---
+    \draw[arr] (imu1.south) -- (nav.north west);
+    \draw[arr] (baro.south) -- (nav.north);
+    \draw[arr] (mag.south) -- (nav.north east);
+    \draw[arr] (imu2.east) -- (nav.west);
+    \draw[arr] (gps.west) -- (nav.east);
+
+    % --- Arrows: nav -> mpu ---
+    \draw[arr] (nav.south) -- (mpu.north);
+
+    % --- Arrows: mpu -> peripherals ---
+    \draw[arr] (mpu.west) -- (lora.east);
+    \draw[arr] (mpu.east) -- (sd.west);
+    \draw[arr] (mpu.east) -- (flash.west);
+    \draw[arr] (mpu.south) -- (servos.north);
+    \draw[arr] (mpu.south) -- (pyro.north);
+
+    \end{tikzpicture}
+    
+    \caption{Systemarchitektur des Flightcomputers}
+    \label{fig:systemarchitektur}
 \end{figure}
-
-
-
-\section{Design und Architektur}
-\label{sec:felix_design}
-\subsection{Systemarchitektur}
-\subsection{Komponenten}
-
-\section{Implementierung}
-\label{sec:felix_implementierung}
-\subsection{Technologie-Stack}
-\subsection{Kernmodule}
-\subsection{Codebeispiele}
-
-\section{Testergebnisse}
-\label{sec:felix_tests}
-\subsection{Unit Tests}
-\subsection{Integrationstests}
-
-\section{Herausforderungen und Lösungen}
-\label{sec:felix_challenges}
-
-\section{Fazit}
-\label{sec:felix_fazit}
-
-
-
+Die Hardwarearchitektur des Flightcomputers teilt sich in zwei Hauptkomponenten auf: den Navigation Processing Unit (NAV) mit den Sensoren und die Main Processing Unit (MPU) mit der Aktuatorik, den Datenspeichern sowie der Telemetrie (LoRa). Der NAV ist für die Erfassung der Sensordaten und die Berechnung der Fluglage, Geschwindigkeit, Höhe sowie Position verantwortlich. Er empfängt Daten von den Sensoren (IMU 1, IMU 2, Barometer, Magnetometer und GPS) und verarbeitet diese Informationen, um die aktuelle Fluglage und Position der Rakete mithilfe eines Sensor Fusion Alogrithmus (siehe Kapitel \ref{subsec:erweiterter_kalman_filter}) zu bestimmen.
+\\
+Wohingegen die MPU die zentrale Steuereinheit des Flightcomputers darstellt, welche die Steuerungsalgorithmen ausführt, die Aktuatoren (Servos und Pyro-Kanäle) ansteuert, die Flugdaten auf der SD-Karte und im Flash-Speicher speichert sowie die Telemetrie über LoRa überträgt. Die MPU empfängt die Zustandsschätzung vom NAV und verarbeitet diese mittels LQR Regelung (siehe Kapitel \ref{subsec:lqr_regelung}), um die erforderlichen Steuerbefehle für die Servos zu berechnen.
+\\
+Die Trennung der Aufgabengebiete dient primär der Echtzeitsicherheit und funktionalen Entkopplung. Der NAV verarbeitet hochfrequente Sensordaten (insbesondere IMU) und führt die Zustandsschätzung mittels Extended Kalman Filter unter strikt deterministischen Zeitbedingungen aus. Diese Berechnungen erfordern konstante Latenzen und dürfen nicht durch blockierende Operationen wie Speicherzugriffe oder Funkkommunikation beeinflusst werden. Durch die Auslagerung von potenziell nichtdeterministischen Aufgaben auf eine separate MPU wird sichergestellt, dass die Navigationslösung auch bei hoher Systemlast stabil bleibt. Darüber hinaus reduziert die funktionale Trennung die Softwarekomplexität.
+\\ 
+Mit der im Laufe des Entwicklungsprozesses gewonnen Erfahrung wäre eine 
 
 \chapter{Steuerungssystem}
 \label{ch:steuerungssystem}
