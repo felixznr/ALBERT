@@ -53,7 +53,6 @@
 \contentsline {subsection}{\numberline {7.2.2}Raketenspitze}{28}{subsection.7.2.2}%
 \contentsline {subsection}{\numberline {7.2.3}Raketenflügel}{29}{subsection.7.2.3}%
 \contentsline {subsection}{\numberline {7.2.4}NACA Flügelprofile}{31}{subsection.7.2.4}%
-<<<<<<< HEAD
 \contentsline {subsection}{\numberline {7.2.5}Flügeldesign}{32}{subsection.7.2.5}%
 \contentsline {chapter}{\numberline {8}Simulation und Messung im Windkanal}{33}{chapter.8}%
 \contentsline {section}{\numberline {8.1}CFD Simulation}{33}{section.8.1}%
@@ -84,65 +83,22 @@
 \contentsline {subsection}{\numberline {10.2.3}Ausrichtung (Attitude)}{41}{subsection.10.2.3}%
 \contentsline {subsection}{\numberline {10.2.4}Systemdynamik}{42}{subsection.10.2.4}%
 \contentsline {subsection}{\numberline {10.2.5}Bestimmung des stationären Arbeitspunkts}{43}{subsection.10.2.5}%
-\contentsline {section}{\numberline {10.3}Navigation}{43}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Guidance}{43}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Control}{43}{section.10.5}%
-\contentsline {chapter}{\numberline {11}CAD-Aufbau}{44}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Konzeptentwicklung}{44}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Flügelsteuermechanismus}{44}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Innenstruktur und Materialwahl}{45}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Implementierung und Fertigung}{45}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Herausforderungen und Lösungen}{45}{section.11.5}%
-\contentsline {section}{\numberline {11.6}Fazit}{45}{section.11.6}%
-\contentsline {chapter}{\numberline {12}Simulation der Aerodynamik}{46}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Simulation der Raketenflügel in Ansys Fluent}{46}{section.12.1}%
-\contentsline {section}{\numberline {12.2}Auswertung der Simulationsergebnisse}{46}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Messung im Windkanal}{46}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Vergleich mit Messdaten}{46}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Herausforderungen und Lösungen}{46}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Fazit}{46}{section.12.6}%
-=======
-\contentsline {part}{\numberline {III}Praktische Umsetzung}{32}{part.3}%
-\contentsline {chapter}{\numberline {8}Flightcomputer KOMADORI}{33}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Anforderungsanalyse}{33}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Funktionale Anordnung}{33}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Design und Architektur}{33}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}Systemarchitektur}{33}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}Komponenten}{33}{subsection.8.3.2}%
-\contentsline {section}{\numberline {8.4}Implementierung}{33}{section.8.4}%
-\contentsline {subsection}{\numberline {8.4.1}Technologie-Stack}{33}{subsection.8.4.1}%
-\contentsline {subsection}{\numberline {8.4.2}Kernmodule}{33}{subsection.8.4.2}%
-\contentsline {subsection}{\numberline {8.4.3}Codebeispiele}{33}{subsection.8.4.3}%
-\contentsline {section}{\numberline {8.5}Testergebnisse}{33}{section.8.5}%
-\contentsline {subsection}{\numberline {8.5.1}Unit Tests}{33}{subsection.8.5.1}%
-\contentsline {subsection}{\numberline {8.5.2}Integrationstests}{33}{subsection.8.5.2}%
-\contentsline {section}{\numberline {8.6}Herausforderungen und Lösungen}{33}{section.8.6}%
-\contentsline {section}{\numberline {8.7}Fazit}{33}{section.8.7}%
-\contentsline {chapter}{\numberline {9}Steuerungssystem}{34}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Anforderungsanalyse}{34}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Zustandsraummodellierung}{34}{section.9.2}%
-\contentsline {subsection}{\numberline {9.2.1}Translationale Bewegunsgleichungen}{34}{subsection.9.2.1}%
-\contentsline {subsection}{\numberline {9.2.2}Rotatorische Bewegungsgleichungen}{36}{subsection.9.2.2}%
-\contentsline {subsection}{\numberline {9.2.3}Ausrichtung (Attitude)}{38}{subsection.9.2.3}%
-\contentsline {subsection}{\numberline {9.2.4}Systemdynamik}{39}{subsection.9.2.4}%
-\contentsline {subsection}{\numberline {9.2.5}Bestimmung des stationären Arbeitspunkts}{40}{subsection.9.2.5}%
-\contentsline {subsection}{\numberline {9.2.6}Linearisierung}{40}{subsection.9.2.6}%
-\contentsline {section}{\numberline {9.3}Navigation}{41}{section.9.3}%
-\contentsline {section}{\numberline {9.4}Guidance}{41}{section.9.4}%
-\contentsline {section}{\numberline {9.5}Control}{41}{section.9.5}%
-\contentsline {chapter}{\numberline {10}CAD-Aufbau}{42}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Konzeptentwicklung}{42}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Flügelsteuermechanismus}{42}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Implementierung und Fertigung}{42}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Herausforderungen und Lösungen}{42}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Fazit}{42}{section.10.5}%
-\contentsline {chapter}{\numberline {11}Simulation der Aerodynamik}{43}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Verwendete Software und Methoden}{43}{section.11.1}%
-\contentsline {subsection}{\numberline {11.1.1}OpenFOAM}{43}{subsection.11.1.1}%
-\contentsline {subsection}{\numberline {11.1.2}Ansys FLUENT}{43}{subsection.11.1.2}%
-\contentsline {section}{\numberline {11.2}Auswertung der Simulationsergebnisse}{43}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Vergleich mit experimentellen Daten}{43}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Herausforderungen und Lösungen}{43}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Fazit}{43}{section.11.5}%
->>>>>>> 5fbeb60843b51ad5dfba5e4e59202638412cb5ed
+\contentsline {subsection}{\numberline {10.2.6}Linearisierung}{43}{subsection.10.2.6}%
+\contentsline {section}{\numberline {10.3}Navigation}{44}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Guidance}{44}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Control}{44}{section.10.5}%
+\contentsline {chapter}{\numberline {11}CAD-Aufbau}{45}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Konzeptentwicklung}{45}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Flügelsteuermechanismus}{45}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Innenstruktur und Materialwahl}{46}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Implementierung und Fertigung}{46}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Herausforderungen und Lösungen}{46}{section.11.5}%
+\contentsline {section}{\numberline {11.6}Fazit}{46}{section.11.6}%
+\contentsline {chapter}{\numberline {12}Simulation der Aerodynamik}{47}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Simulation der Raketenflügel in Ansys Fluent}{47}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Auswertung der Simulationsergebnisse}{47}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Messung im Windkanal}{47}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Vergleich mit Messdaten}{47}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Herausforderungen und Lösungen}{47}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Fazit}{47}{section.12.6}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
