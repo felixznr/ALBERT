@@ -2359,4 +2359,94 @@
         <bcf:field>issn</bcf:field>
       </bcf:constraint>
       <bcf:constraint type="data" datatype="ismn">
-        <bcf:field>ism
+        <bcf:field>ismn</bcf:field>
+      </bcf:constraint>
+      <bcf:constraint type="data" datatype="pattern" pattern="(?:sf|sm|sn|pf|pm|pn|pp)">
+        <bcf:field>gender</bcf:field>
+      </bcf:constraint>
+    </bcf:constraints>
+  </bcf:datamodel>
+  <!-- CITATION DATA -->
+  <!-- SECTION 0 -->
+  <bcf:bibdata section="0">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">../appendix/refs.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="0">
+    <bcf:citekey order="15" intorder="1">bitweenie2013</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">PhilsLab56</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">ZachariahPeterson_Rückstromführung</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">ZachariahPeterson_Rückstromführung</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">ToddToporski_EMC</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">PhilsLab56</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">JLCDecouplingBypass</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">schmidt-walter_Abwärtswandler</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">PhilsLab60</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">TPS55289</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">PhilsLab60</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">AdvancedNavigation_IMU</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">AdvancedNavigation_IMU</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">AdvancedNavigation_IMU</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">AdvancedNavigation_IMU</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">BoschFlipCore</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">barometerWorkingPrinciple</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">AltiumGPS</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">DataDrivenScience</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">DataDrivenScience</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">DataDrivenScience</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">DataDrivenScience</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">Kalman60</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">DorFuchsKalman</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">WikipediaKalman</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">ExtendedKalmanHalle</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">ExtendedKalmanHalle</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">ExtendedKalmanPhils1</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">BeginnersGuideToAeronautics</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">ApogeeRocketsPeakOfFlight</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">NakkaRocketry</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">NakkaRocketry</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">WikipediaNACA</bcf:citekey>
+    <bcf:citekey order="48" intorder="1">AliyuAliyuStateSpace</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">AliyuAliyuStateSpace</bcf:citekey>
+    <bcf:citekey order="50" intorder="1">AliyuAliyuStateSpace</bcf:citekey>
+  </bcf:section>
+  <!-- SORTING TEMPLATES -->
+  <bcf:sortingtemplate name="nty">
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">presort</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="2" final="1">
+      <bcf:sortitem order="1">sortkey</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="3">
+      <bcf:sortitem order="1">sortname</bcf:sortitem>
+      <bcf:sortitem order="2">author</bcf:sortitem>
+      <bcf:sortitem order="3">editor</bcf:sortitem>
+      <bcf:sortitem order="4">translator</bcf:sortitem>
+      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="6">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="4">
+      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">year</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="6">
+      <bcf:sortitem order="1">volume</bcf:sortitem>
+      <bcf:sortitem literal="1" order="2">0</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sortingtemplate>
+  <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="nty/global//global/global/global"
+                type="entry"
+                sortingtemplatename="nty"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global"
+                namehashtemplatename="global">
+  </bcf:datalist>
+</bcf:controlfile>
