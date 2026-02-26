@@ -8,9 +8,55 @@
 
 \section{Anforderungsanalyse}
 \label{sec:anforderungsanalyse}
+In der Planungsphase des Flightcomputers ist es entscheidend, die Anforderungen an das System klar zu definieren, um sicherzustellen das der entwickelte Flightcomputer alle zukünftigen Anforderungen erfüllt. 
+\\
+Die Anforderungen wurden in aktive und passive Anforderungen unterteilt. Aktive Anforderungen beziehen sich auf die Funktionen, die der Flightcomputer erfüllen muss, wie z.B. die Fähigkeit, Sensordaten zu erfassen, die Steuerungsalgorithmen schnell genug auszuführen und die Kommunikation mit anderen Systemen zu ermöglichen. Passive Anforderungen beziehen sich auf die Eigenschaften des Flightcomputers und dessen Bauteile, wie den Formfaktor und die Zuverlässigkeit in stark beschleunigten Umgebungen mit Vibrationen.
+\\
 
+\textbf{Aktive Anforderungen:}
+\begin{itemize}
+    \item Erfassung folgender Sensordaten zur Bestimmung von Fluglage, Geschwindigkeit, Höhe sowie Position:
+    \begin{itemize}
+        \item Beschleunigung mittels 3-Achsen-Beschleunigungssensor
+        \item Winkelgeschwindigkeit mittels 3-Achsen-Gyroskop
+        \item Magnetfeldmessung zur Ausrichtungsbestimmung mittels 3-Achsen-Magnetometer
+        \item Luftdruckmessung zur Höhenbestimmung mittels Barometer
+        \item Positionsbestimmung mittels GNSS-Modul
+    \end{itemize}
+    \item Bereitstellung von PWM-Ausgängen zur Ansteuerung der Servoantriebe der Finnensteuerung.
+    \item Bereitstellung von Pyro-Kanälen zur Zündung des Fallschirmauswurfmechanismus.
+    \item Telemetrieübertragung über LoRa zur Datenkommunikation mit der Bodenstation während des Fluges.
+    \item Speicherung der Flugdaten auf einem SD-Kartenmodul zur nachträglichen Analyse.
+    \item Bereitstellung von Kommunikationsschnittstellen (SPI, I\textsuperscript{2}C und UART) zur Integration externer Sensoren und Aktuatoren.
+    \item Versorgung über einen 2S-LiPo-Akku mit einem Spannungsbereich von 7,4\,V bis 8,4\,V.
+    \item Möglichkeit zur Programmierung sowie zum Datenlogging über eine USB-C-Schnittstelle.
+    \item Unterstützung von Debugging und Fehlersuche über eine SWD-Schnittstelle (Serial Wire Debug) mittels ST-Link.
+    \item Einhaltung einer maximalen Latenzzeit von unter 10\,ms zwischen Messwerterfassung und Steuerungsaktion, um eine ausreichend schnelle Reaktion auf Flugbedingungen sicherzustellen.
+\end{itemize}
+
+\vspace{10pt}
+
+\textbf{Passive Anforderungen:}
+\begin{itemize}
+    \item Kompakter Formfaktor mit maximalen Abmessungen von 110\,mm $\times$ 78\,mm zur Integration in die Rakete.
+    \item Auswahl geeigneter Sensoren für Beschleunigungen von bis zu 15\,g, um den mechanischen Belastungen während des Betriebs standzuhalten und valide Messwerte zu gewährleisten.
+    \item Verwendung vibrationssicherer und zuverlässiger Steckverbinder zur Gewährleistung stabiler Verbindungen zu externen Sensoren, Aktuatoren sowie der Stromversorgung.
+    \item Implementierung von ESD-Schutzmaßnahmen zum Schutz vor elektrostatischer Entladung.
+    \item Ausführung der USB-C-Schnittstelle mit geeigneten Schutzmaßnahmen zum Schutz angeschlossener Endgeräte vor elektrischen Fehlzuständen, Überspannungen und Fehlströmen.
+\end{itemize}
 \section{Funktionale Anordnung}
 \label{sec:fuin}
+
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.6\textwidth]{flightcomputerpcb.png}
+    \caption{Flightcomputer KOMADORI}
+    \label{fig:flightcomputer_pcb}
+  % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)   
+  
+\end{figure}
+
 
 
 \section{Design und Architektur}

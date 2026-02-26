@@ -62,43 +62,43 @@
 \contentsline {part}{\numberline {III}Praktische Umsetzung}{35}{part.3}%
 \contentsline {chapter}{\numberline {9}Flightcomputer KOMADORI}{36}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Anforderungsanalyse}{36}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Funktionale Anordnung}{36}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Design und Architektur}{36}{section.9.3}%
-\contentsline {subsection}{\numberline {9.3.1}Systemarchitektur}{36}{subsection.9.3.1}%
-\contentsline {subsection}{\numberline {9.3.2}Komponenten}{36}{subsection.9.3.2}%
-\contentsline {section}{\numberline {9.4}Implementierung}{36}{section.9.4}%
-\contentsline {subsection}{\numberline {9.4.1}Technologie-Stack}{36}{subsection.9.4.1}%
-\contentsline {subsection}{\numberline {9.4.2}Kernmodule}{36}{subsection.9.4.2}%
-\contentsline {subsection}{\numberline {9.4.3}Codebeispiele}{36}{subsection.9.4.3}%
-\contentsline {section}{\numberline {9.5}Testergebnisse}{36}{section.9.5}%
-\contentsline {subsection}{\numberline {9.5.1}Unit Tests}{36}{subsection.9.5.1}%
-\contentsline {subsection}{\numberline {9.5.2}Integrationstests}{36}{subsection.9.5.2}%
-\contentsline {section}{\numberline {9.6}Herausforderungen und Lösungen}{36}{section.9.6}%
-\contentsline {section}{\numberline {9.7}Fazit}{36}{section.9.7}%
-\contentsline {chapter}{\numberline {10}Steuerungssystem}{37}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Anforderungsanalyse}{37}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Zustandsraummodellierung}{37}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}Translationale Bewegunsgleichungen}{37}{subsection.10.2.1}%
-\contentsline {subsection}{\numberline {10.2.2}Rotatorische Bewegungsgleichungen}{39}{subsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.2.3}Ausrichtung (Attitude)}{41}{subsection.10.2.3}%
-\contentsline {subsection}{\numberline {10.2.4}Systemdynamik}{42}{subsection.10.2.4}%
-\contentsline {subsection}{\numberline {10.2.5}Bestimmung des stationären Arbeitspunkts}{43}{subsection.10.2.5}%
-\contentsline {subsection}{\numberline {10.2.6}Linearisierung}{43}{subsection.10.2.6}%
-\contentsline {section}{\numberline {10.3}Navigation}{44}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Guidance}{44}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Control}{44}{section.10.5}%
-\contentsline {chapter}{\numberline {11}CAD-Aufbau}{45}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Konzeptentwicklung}{45}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Flügelsteuermechanismus}{45}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Innenstruktur und Materialwahl}{46}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Implementierung und Fertigung}{46}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Herausforderungen und Lösungen}{46}{section.11.5}%
-\contentsline {section}{\numberline {11.6}Fazit}{46}{section.11.6}%
-\contentsline {chapter}{\numberline {12}Simulation der Aerodynamik}{47}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Simulation der Raketenflügel in Ansys Fluent}{47}{section.12.1}%
-\contentsline {section}{\numberline {12.2}Auswertung der Simulationsergebnisse}{47}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Messung im Windkanal}{47}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Vergleich mit Messdaten}{47}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Herausforderungen und Lösungen}{47}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Fazit}{47}{section.12.6}%
+\contentsline {section}{\numberline {9.2}Funktionale Anordnung}{37}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Design und Architektur}{38}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Systemarchitektur}{38}{subsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.3.2}Komponenten}{38}{subsection.9.3.2}%
+\contentsline {section}{\numberline {9.4}Implementierung}{38}{section.9.4}%
+\contentsline {subsection}{\numberline {9.4.1}Technologie-Stack}{38}{subsection.9.4.1}%
+\contentsline {subsection}{\numberline {9.4.2}Kernmodule}{38}{subsection.9.4.2}%
+\contentsline {subsection}{\numberline {9.4.3}Codebeispiele}{38}{subsection.9.4.3}%
+\contentsline {section}{\numberline {9.5}Testergebnisse}{38}{section.9.5}%
+\contentsline {subsection}{\numberline {9.5.1}Unit Tests}{38}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Integrationstests}{38}{subsection.9.5.2}%
+\contentsline {section}{\numberline {9.6}Herausforderungen und Lösungen}{38}{section.9.6}%
+\contentsline {section}{\numberline {9.7}Fazit}{38}{section.9.7}%
+\contentsline {chapter}{\numberline {10}Steuerungssystem}{39}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Anforderungsanalyse}{39}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Zustandsraummodellierung}{39}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Translationale Bewegunsgleichungen}{39}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Rotatorische Bewegungsgleichungen}{41}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Ausrichtung (Attitude)}{43}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}Systemdynamik}{44}{subsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.2.5}Bestimmung des stationären Arbeitspunkts}{45}{subsection.10.2.5}%
+\contentsline {subsection}{\numberline {10.2.6}Linearisierung}{45}{subsection.10.2.6}%
+\contentsline {section}{\numberline {10.3}Navigation}{46}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Guidance}{46}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Control}{46}{section.10.5}%
+\contentsline {chapter}{\numberline {11}CAD-Aufbau}{47}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Konzeptentwicklung}{47}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Flügelsteuermechanismus}{47}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Innenstruktur und Materialwahl}{48}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Implementierung und Fertigung}{48}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Herausforderungen und Lösungen}{48}{section.11.5}%
+\contentsline {section}{\numberline {11.6}Fazit}{48}{section.11.6}%
+\contentsline {chapter}{\numberline {12}Simulation der Aerodynamik}{49}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Simulation der Raketenflügel in Ansys Fluent}{49}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Auswertung der Simulationsergebnisse}{49}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Messung im Windkanal}{49}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Vergleich mit Messdaten}{49}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Herausforderungen und Lösungen}{49}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Fazit}{49}{section.12.6}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
