@@ -19,7 +19,19 @@
 \contentsline {subsection}{\numberline {4.3}Ergebnis der Markt- und Wettbewerbsanalyse}{11}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Fazit der Markt- und Wettbewerbsanalyse}{15}{subsection.4.4}%
 \contentsline {section}{\numberline {5}Leistungserstellung und Wertschöpfung}{16}{section.5}%
-\contentsline {section}{\numberline {6}Management und Organisation}{16}{section.6}%
-\contentsline {section}{\numberline {7}Erfolgs- und Finanzplanung}{16}{section.7}%
-\contentsline {section}{\numberline {8}Risikomanagement}{16}{section.8}%
-\contentsline {section}{\numberline {9}Meilensteine und Implementierungs-Roadmap}{16}{section.9}%
+\contentsline {section}{\numberline {6}Unternehmen und Management}{16}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Firmenname}{16}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Standort}{16}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Gründungsdatum}{16}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Rechtsform und Namen der Gesellschafter}{16}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Geschäftsführer, Eigentumsverhältnisse}{17}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Teammitglieder und deren Kompetenzen}{17}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Unternehmensgegenstand, Standort}{17}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Organisation}{17}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.9}Sozialversicherung und Steuern}{18}{subsection.6.9}%
+\contentsline {subsection}{\numberline {6.10}Externe Partner}{18}{subsection.6.10}%
+\contentsline {subsection}{\numberline {6.11} Kooperationsverträge}{18}{subsection.6.11}%
+\contentsline {subsection}{\numberline {6.12}Status der Gründung}{19}{subsection.6.12}%
+\contentsline {section}{\numberline {7}Erfolgs- und Finanzplanung}{19}{section.7}%
+\contentsline {section}{\numberline {8}Risikomanagement}{19}{section.8}%
+\contentsline {section}{\numberline {9}Meilensteine und Implementierungs-Roadmap}{19}{section.9}%
