@@ -367,27 +367,64 @@ Die Simulation läuft in mereren Schritten ab.
 
 \subsubsection*{Geometrie}
 \label{subsubsec:geometry_cfd}
-Beim ersten Schritt wird die Geometrie als .step Datei importiert
-und es werden Grenzen des Raums in dem die Simulation ablaufen soll definiert.
-Die Geometrie wird von dem Raum subtrahiert, um ein einzelnes Objekt zu erhalten.
+Die zu simulierende Geometrie wird von der CAD Software in Ansys Workbench als .step
+Datei importiert und anschließend angepasst. Es müssen Grenzen definiert werden und
+die Geometrie anschließend von den Grenzen subtrahiert werden, damit ein
+einzelner fester Körper entsteht.
 
 \subsubsection*{Meshing}
 \label{subsubsec:meshing_cfd}
 Nachdem die Geometrie erfolgreich definiert wurde, muss diese in ein Mesh umgewandelt
 werden, wo die Oberflächen in viele, je nach Komplexität der Oberfläche, kleine oder große
 Polygone aufgeteilt werden. Für CFD werden meistens dreieckige Polygone verwendet, dies
-hängt aber natürlich von der Form der Geometrie ab. Abbildung \ref{fig:ansys_mechanical_mesh}
-zeigt das Mesh in Ansys Mechanical.
-\newpage
-\begin{figure}[H]
-    \centering
-        \includegraphics[width=0.8\textwidth]{ansys_mechanical.png}
-        \caption{Mesh der Geometrie in Ansys Mechanical}
-        \label{fig:ansys_mechanical_mesh}
-\end{figure}
+hängt aber natürlich von der Form der Geometrie ab.
 
 \subsubsection*{Einstellen der Simulation}
 \label{subsubsec:simulation_settings}
+Bevor Ansys Fluent die tatsächliche Simulation durchführt, müssen mehrere Sachen definiert
+werden. \\
+Als erstes werden bestimmte Eigenschaften des Solvers, darunter ob die Berechnung
+druckbasiert oder dichtebasiert verlaufen soll und ob die Strömungsgeschwindigkeit
+absolut oder relativ formuliert wird. \\
+Gleich als nächstes folgt die Modellauswahl, diese hängt davon ab, was man berechnen
+will und welche Gleichungen Fluent im Hintergrund bei der Simulation rechnet. Darunter:
+\begin{itemize}
+    \item Multiphase: Wenn mehrere Zustände gleichzeitig vorhanden sind (z.B. Wasser + Luft)
+    \item Energy: Temperatur wird berechnet, Erwärmung Kühlung etc.
+    \item Viscous Laminar/Turbulent: Bestimmt wie "unruhig" die Strömung verläuft
+    \item Radiation: Wärmestrahlung wird bei der Simulation berücksichtigt
+    \item Heat Exchanger: Dient zur vereinfachten Modellierung von Wärmetauschen
+    \item Species: Mehrere Stoffe in einem Fluid (z.B. Luft + CO2)
+    \item Discrete Phase: Einzelne Partikel wie Staub oder Tropfen in der Luft werden berücksichtigt
+    \item Solidification \& Melting: Das Material kann schmelzen/gefrieren
+    \item Acoustics: Zur Lärmanalys, berücksichtigt Geräusche/Druckwellen
+    \item Structure: Wenn der feste Körper sich zusätzlich durch die Strömung bewegt
+    \item Electric Potential: Elektrische Felder sind in der Strömungsanalyse zu berücksichtigen
+\end{itemize}
+\vspace{0.5cm}
+Die Materialien des festen Körpers und des Fluids werden anschließend festgelegt.
+Als nächstes werden die Grenzbedingungen der Simulation werden definiert. Darunter
+der Einlass der Strömung, wo die Strömung austritt, das durchgehende Volumen durch
+das die Strömung fließt, und Wände (die äußeren Grenzen und der in der feste Körper
+in der Simulation). Diese Grenzbedingungen können noch einzeln eingestellt werden,
+so wie die Geschwindigkeit und die Turbulenzintensität beim Strömungseinlass. \\
+Ein weiterer zentaler Punkt sind die Referenzwerte. Diese sind:
+\vspace{0.5cm}
+\begin{itemize}
+    \item Fläche: Referenzfläche für die Strömung, ist für die Berechnung von Kraft- und Momentkoeffizienten wichtig
+    \item Tiefe: Referenztiefe für 2D Simulationen
+    \item Dichte: Referenzwert der Dichte zur Berechnung vom dynamischen Druck
+    \item Enthalpie: Referenzwert für die globale Differenz der Energiedichte
+    \item Länge: Charakteristische Länge, Referenzpunkt für Momentkoeffizienten
+    \item Druck: Referenzpunkt für Druckbezogene Berechnungen, Moment- und Druckkoeffizienten
+    \item Temperatur: Temperaturreferenzpunkt für thermische Berechnungen
+    \item Geschwindigkeit: Referenzgeschwindigkeit zur Berechnung vom dynamischen Druck
+    \item Viskosität: Dient zur Berechnung von Reynodls Zahl an Grenzen
+    \item Verhältnis der spezifischen Wärmekapazitäten: Referenzwert für Effizienzberechnungen
+    \item y+ - Wert für die Berechnung der Wärmeübergangskoeffizienten
+\end{itemize}
+\vspace{0.5cm}
+Danach kommen Einstellugen für die Lösungsmethoden. 
 
 \subsubsection*{Auswertung der Simulation}
 \label{subsubsec:simulation_postprossesing}
