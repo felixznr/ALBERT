@@ -116,7 +116,7 @@ Wohingegen die MPU die zentrale Steuereinheit des Flightcomputers darstellt, wel
 \\
 Die Trennung der Aufgabengebiete dient primär der Echtzeitsicherheit und funktionalen Entkopplung. Der NAV verarbeitet hochfrequente Sensordaten (insbesondere IMU) und führt die Zustandsschätzung mittels Extended Kalman Filter unter strikt deterministischen Zeitbedingungen aus. Diese Berechnungen erfordern konstante Latenzen und dürfen nicht durch blockierende Operationen wie Speicherzugriffe oder Funkkommunikation beeinflusst werden. Durch die Auslagerung von potenziell nichtdeterministischen Aufgaben auf eine separate MPU wird sichergestellt, dass die Navigationslösung auch bei hoher Systemlast stabil bleibt. Darüber hinaus reduziert die funktionale Trennung die Softwarekomplexität.
 \\ 
-Mit der im Laufe des Entwicklungsprozesses gewonnen Erfahrung wäre eine 
+ 
 
 \chapter{Steuerungssystem}
 \label{ch:steuerungssystem}
@@ -279,13 +279,13 @@ N_A &= \frac{1}{2} \rho S C_{n} |V|^2 d \quad \left[\mathrm{Nm}\right]
 wobei $d$ die aerodynamische Referenzlänge ist, und $C_{l}$, $C_{m}$ und $C_{n}$ die Roll-, Nick- und Giermomentbeiwertkomponenten sind, welche sich wie folgt berechnen lassen:
 \begin{align}
 C_l &= C_{l\delta}\,\delta_r 
-      + \frac{d}{2 V_M}\left(C_{lp}\, p \right) \\
+      + \frac{d}{2 |V|}\left(C_{lp}\, p \right) \\
 C_m &= C_{m_{\mathrm{ref}}} 
       - C_{N_z}\,\frac{x_{cm} - x_{ref}}{d} 
-      + \frac{d}{2 V_M}\left(C_{mq} + C_{m_\alpha}\right) q \\
+      + \frac{d}{2 |V|}\left(C_{mq} + C_{m_\alpha}\right) q \\
 C_n &= C_{n_{\mathrm{ref}}} 
       + C_{N_y}\,\frac{x_{cm} - x_{ref}}{d} 
-      + \frac{d}{2 V_M}\left(C_{nr} + C_{n_\beta}\right) r
+      + \frac{d}{2 |V|}\left(C_{nr} + C_{n_\beta}\right) r
 \end{align}
 
 Dabei ist $C_{lp}$ die Roll-Dämpfungsableitung bezüglich der Rollrate $p$ in $\mathrm{rad^{-1}}$. 
