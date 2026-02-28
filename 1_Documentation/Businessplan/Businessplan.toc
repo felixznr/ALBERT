@@ -16,10 +16,30 @@
 \contentsline {section}{\numberline {4}Markt und Wettbewerb - Timofey Luzin}{9}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Marktforschung und Methodik}{9}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Marktanalyse}{9}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Ergebnis der Markt- und Wettbewerbsanalyse}{12}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.3}Ergebnis der Markt- und Wettbewerbsanalyse}{11}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Fazit der Markt- und Wettbewerbsanalyse}{15}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Leistungserstellung und Wertschöpfung}{16}{section.5}%
-\contentsline {section}{\numberline {6}Management und Organisation}{16}{section.6}%
-\contentsline {section}{\numberline {7}Erfolgs- und Finanzplanung}{16}{section.7}%
-\contentsline {section}{\numberline {8}Risikomanagement}{16}{section.8}%
-\contentsline {section}{\numberline {9}Meilensteine und Implementierungs-Roadmap}{16}{section.9}%
+\contentsline {section}{\numberline {5}Unternehmen und Management - Felix Zauner}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Firmenname}{16}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Standort}{16}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Gründungsdatum}{16}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Rechtsform und Namen der Gesellschafter}{16}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Geschäftsführer, Eigentumsverhältnisse}{17}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Teammitglieder und deren Kompetenzen}{17}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Unternehmensgegenstand, Standort}{17}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Organisation}{17}{subsection.5.8}%
+\contentsline {subsection}{\numberline {5.9}Sozialversicherung und Steuern}{17}{subsection.5.9}%
+\contentsline {subsection}{\numberline {5.10}Externe Partner}{18}{subsection.5.10}%
+\contentsline {subsection}{\numberline {5.11} Kooperationsverträge}{18}{subsection.5.11}%
+\contentsline {subsection}{\numberline {5.12}Status der Gründung}{18}{subsection.5.12}%
+\contentsline {section}{\numberline {6}Erfolgs- und Finanzplanung - Timofey Luzin}{19}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Kapitalbedarf für Investitionen und Gründungskosten}{19}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Art der Finanzierung: Eigenmittel, Fremdkapital, sonstige Kapitalgeber, Unternehmensförderungen}{19}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Fixkosten, laufende Kosten, Personalkosten und kalkulatorischer Unternehmerlohn}{21}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Berechnung des Mindestumsatzes}{21}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Entwicklung von Umsatz, Aufwendungen und Erträgen (Plan-Gewinn- und Verlustrechnung)}{22}{subsection.6.5}%
+\contentsline {paragraph}{Einordnung der Ergebnisentwicklung.}{22}{paragraph*.1}%
+\contentsline {paragraph}{Skalierungslogik und operative Umsetzung.}{22}{paragraph*.2}%
+\contentsline {paragraph}{Risikobetrachtung (finanziell).}{23}{paragraph*.3}%
+\contentsline {paragraph}{Investorenperspektive.}{23}{paragraph*.4}%
+\contentsline {section}{\numberline {7}Risikomanagement}{23}{section.7}%
+\contentsline {section}{\numberline {8}Meilensteine und Implementierungs-Roadmap}{23}{section.8}%
