@@ -168,10 +168,10 @@ F_{A_{x_b}} &= -\frac{1}{2} \rho S C_{A} |V|^2 \quad \left[\mathrm{N}\right] \\
 F_{A_{y_b}} &= \frac{1}{2} \rho S C_{N_{y}} |V|^2 \quad \left[\mathrm{N}\right] \\
 F_{A_{z_b}} &= \frac{1}{2} \rho S C_{N_{z}} |V|^2 \quad \left[\mathrm{N}\right]
 \end{align}
-wobei $\rho$ die Luftdichte, $S$ die Referenzfläche, $C_{A}$ der axiale Widerstandsbeiwert (Luftwiderstand) und $|V|$ der Betrag des Geschwindigkeitsvektors  der Rakete ist. Der Auftriebsbeiwert, $C_{N_{y}}$ und $C_{N_{z}}$ sind die Normalbeiwertkomponenten in den y- und z-Richtung welche sich wie folgt aus $C_{N}$ berechnen lassen:
+wobei $\rho$ die Luftdichte, $S$ die Referenzfläche (Stirnfläche), $C_{A}$ der axiale Widerstandsbeiwert (Luftwiderstand) und $|V|$ der Betrag des Geschwindigkeitsvektors  der Rakete ist. Der Auftriebsbeiwert, $C_{N_{y}}$ und $C_{N_{z}}$ sind die Normalbeiwertkomponenten in den y- und z-Richtung welche sich wie folgt aus $C_{N}$ berechnen lassen:
 \begin{align}
 C_{N_y} &= C_N \frac{-v}{\sqrt{v^2 + w^2}}\\
-C_{N_{z}} &= C_N \frac{1}{\sqrt{v^2 + w^2}}
+C_{N_{z}} &= C_N \frac{-w}{\sqrt{v^2 + w^2}}
 \end{align}
 wobei $\alpha$ der Anstellwinkel der Rakete ist.
 \\
@@ -493,8 +493,7 @@ Mit $\Delta\mathbf{x} = \mathbf{x} - \bar{\mathbf{x}}_n$ und $\Delta\mathbf{u} =
 \begin{equation}
 \dot{\mathbf{x}} = \mathbf{A}_n \mathbf{x} + \mathbf{B}_n \mathbf{u}
 \end{equation}
-
-
+Zur Bestimmung der Systemmatrizen $\mathbf{A}_n$ und $\mathbf{B}_n$ wird die \textit{Symbolic Toolbox} von MATLAB verwendet. Zun\"achst werden die Jacobi-Matrizen des nichtlinearen Zustandsraummodells $\dot{\mathbf{x}}=\mathbf{f}(\mathbf{x},\mathbf{u})$ symbolisch berechnet. Durch Auswertung dieser Ableitungen an den festgelegten Arbeitspunkten (Einsetzen der jeweiligen Zustands- und Eingangsgrößen sowie der Modellparameter) ergeben sich die numerischen Systemmatrizen. Die folgenden Matrizen $\mathbf{A}_n$ und $\mathbf{B}_n$ beschreiben die lineare Dynamik der Rakete um die jeweiligen Arbeitspunkte mit verschiedenen Geschwindigkeiten $u$ in $x$ Richtung.
 
 
 
