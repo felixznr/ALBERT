@@ -54,11 +54,11 @@
 \contentsline {subsection}{\numberline {7.2.3}Raketenflügel}{29}{subsection.7.2.3}%
 \contentsline {subsection}{\numberline {7.2.4}NACA Flügelprofile}{31}{subsection.7.2.4}%
 \contentsline {subsection}{\numberline {7.2.5}Flügeldesign}{32}{subsection.7.2.5}%
-\contentsline {chapter}{\numberline {8}Simulation und Messung im Windkanal}{33}{chapter.8}%
+\contentsline {chapter}{\numberline {8}Strömungssimulation und Messung im Windkanal}{33}{chapter.8}%
 \contentsline {section}{\numberline {8.1}CFD Simulation}{33}{section.8.1}%
 \contentsline {subsection}{\numberline {8.1.1}Grundlagen von CFD}{33}{subsection.8.1.1}%
 \contentsline {subsection}{\numberline {8.1.2}Ansys Fluent}{33}{subsection.8.1.2}%
-\contentsline {subsection}{\numberline {8.1.3}CFD Berechnung der Kräfte/Koeffizienten}{34}{subsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.1.3}CFD Berechnung der Kräfte/Koeffizienten}{35}{subsection.8.1.3}%
 \contentsline {part}{\numberline {III}Praktische Umsetzung}{36}{part.3}%
 \contentsline {chapter}{\numberline {9}Flightcomputer KOMADORI}{37}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Anforderungsanalyse}{37}{section.9.1}%
