@@ -544,14 +544,14 @@ STM32CubeIDE ist eine integrierte Entwicklungsumgebung (IDE) von STMicroelectron
 \\ 
 Die Hauptfunktionen von STM32CubeIDE umfassen:
 \begin{itemize}
-    \item \textbf{Konfiguration}: Der integrierte Konfigurator STM32CubeMX ermöglicht die grafische Konfiguration von Peripheriegeräten, Middleware und Pinbelegungen, um automatisch Initialisierungscode zu generieren, der als Ausgangspunkt für die Anwendungsentwicklung dient.
+    \item \textbf{Konfiguration}: Der integrierte Konfigurator STM32CubeMX ermöglicht die grafische Konfiguration von Peripheriegeräten, Middleware und Pinbelegungen, um automatisch Code zu generieren, der als Ausgangspunkt für die weiter Entwicklung dient.
     \item \textbf{Code-Editor}: Der Code-Editor basiert auf Eclipse und ermöglicht die Bearbeitung von C/C++-Code mit den üblichen Funktionen.
-    \item \textbf{Debugging-Tools}: STM32CubeIDE unterstützt verschiedene Debugging-Tools, einschließlich Breakpoints, Watchpoints und Echtzeit-Variable-Überwachung, um die Fehlersuche von Anwendungen zu erleichtern, was insbesondere bei selbstentwickelten Platinen hilfreich ist.
+    \item \textbf{Debugging-Tools}: STM32CubeIDE unterstützt verschiedene Debugging-Tools um die Fehlersuche von Anwendungen zu erleichtern, was insbesondere bei selbstentwickelten Platinen hilfreich ist.
 \end{itemize}
 
 \section{Treiberentwicklung}
 \label{sec:treiberentwicklung}
-Um mit den Peripheriegeräten wie IMU, Flash und PWM Driver der Platine über I2C beziehungsweise SPI kommunizieren zu können, müssen zunächst die entsprechenden Treiber entwickelt werden. Ein Treiber ist eine Softwarekomponente, die die Kommunikation zwischen der Hardware und der Anwendungssoftware ermöglicht. Er konfiguriert zu Beginn die Peripheriegeräte, um die gewünschten Funktionen zu aktivieren, und stellt intern Funktionen bereit, um Daten aus den Registern der Geräte zu lesen und zu schreiben.
+Um mit den Peripheriegeräten wie IMU, Flash und PWM Driver der Platine über I2C beziehungsweise SPI kommunizieren zu können, müssen zunächst die entsprechenden Treiber entwickelt werden. Ein Treiber ist eine Softwarekomponente, die die Kommunikation zwischen Hardware und Anwendungssoftware ermöglicht. Er konfiguriert zu Beginn die Peripheriegeräte, um die gewünschten Funktionen zu aktivieren, und stellt intern Funktionen bereit, um Daten aus den Registern der Peripherie zu lesen und hineinzuschreiben.
 \\
 Dabei ist eine Trennung in ein Header File und eine Source File sinnvoll, um eine strukturierte Schnittstelle zu schaffen. Im Header File werden die Funktionen deklariert, die von der Anwendungssoftware aufgerufen werden können, während im Source File die eigentliche Implementierung dieser Funktionen erfolgt. Die Funktionen sollten so gestaltet sein, dass sie die Interaktion mit den Peripheriegeräten dementsprechend abstrahieren, dass die Anwendungssoftware beispielhaft nicht direkt mit den Registeradressen oder der I2C/SPI-Kommunikation umgehen muss, sondern stattdessen einfache Funktionen wie \texttt{read\_acc\_data()} oder \texttt{write\_flash()} aufrufen kann und die Low-Level-Aufgaben vom Treiber übernommen werden.
 \\
@@ -648,7 +648,7 @@ So kann die Regelstrecke und die Messung mathematisch wie folgt beschrieben werd
     \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x},\mathbf{u},\mathbf{w}_d)
 \end{equation}
 \begin{equation}
-    \mathbf{y}_m = \mathbf{g}(\mathbf{x},\mathbf{u},\mathbf{w}_n)
+    \mathbf{y} = \mathbf{g}(\mathbf{x},\mathbf{u},\mathbf{w}_n)
 \end{equation}
 Das Ziel des Reglers ist es nun eine optimale Stellgröße $u$ zu berechnen um die Kostenfunktion $J$ zu minimieren:
 \begin{equation}
@@ -680,20 +680,30 @@ Nun können bei einer Verschiebung des Koordinatensystems auf den Arbeitspunkt $
      \mathbf{y} = \mathbf{C} \cdot  \mathbf{x} + \mathbf{D} \cdot  \mathbf{u} 
 \end{equation}
 
-Für ein lineares zeitinvariantes System lässt sich unter der Annahme, dass keine Steuer- und Störgrößen vorliegen, die Systemdynamik wie folgt beschreiben:
+\subsection{Steuerbarkeit}
+\label{subsec:steuerbarkeit}
+Die Steuerbarkeit (Controllability) eines Systems beschreibt die Fähigkeit, den Systemzustand durch geeignete Wahl der Stellgröße $\mathbf{u}$ zu einem stabilen Endzustand zu steuern. Dies kann durch Rückführung der Stellgröße $\mathbf{u}$ auf den Systemzustand $\mathbf{x}$ über die Matrix $\mathbf{K}$ erreicht werden:
 \begin{equation}
-    \dot{\mathbf{x}} = \mathbf{A} \cdot \mathbf{x}
+    \mathbf{u} = -\mathbf{K} \cdot \mathbf{x}
 \end{equation}
-Die Lösung dieser Differentialgleichung ist gegeben durch:
+durch einsetzen in die Systemgleichung ergibt sich:
 \begin{equation}
-    \mathbf{x}(t) = e^{\mathbf{A}t} \cdot \mathbf{x}(0)
+    \dot{\mathbf{x}} = \mathbf{A} \cdot  \mathbf{x} + \mathbf{B} \cdot  (-\mathbf{K} \cdot \mathbf{x}) = (\mathbf{A} - \mathbf{B} \cdot \mathbf{K}) \cdot  \mathbf{x}
 \end{equation}
-wobei $e^{\mathbf{A}t}$ die Matrixexponentialfunktion ist, welche die Systemdynamik beschreibt.
-\\
-Diese kann durch Taylor-Entwicklung wie folgt approximiert werden:
-\begin{equation}
-    e^{\mathbf{A}t} = \sum_{n=0}^{\infty} \frac{(\mathbf{A}t)^n}{n!} = \mathbf{I} + \mathbf{A}t + \frac{(\mathbf{A}t)^2}{2!} + \frac{(\mathbf{A}t)^3}{3!} + ...
-\end{equation}
+Ein stabiler Systemzustand ist gegeben, wenn alle Eigenwerte der Systemmatrix $(\mathbf{A} - \mathbf{B} \cdot \mathbf{K})$ negative Realteile haben.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{eigenexample.png}
+    \caption{Eigenwerte eines geschlossenen Regelkreises}
+    \label{fig:eigenwerte_geschlossener_regelkreis}
+\end{figure}
+In Matlab können die Eigenwerte einer Matrix mit der Funktion \texttt{eig()} berechnet werden.
+Ob ein System steuerbar ist, kann durch die Steuerbarkeitsmatrix $\mathbf{C} = [\mathbf{B}, \mathbf{A} \cdot \mathbf{B}, \mathbf{A}^2 \cdot \mathbf{B}, ..., \mathbf{A}^{n-1} \cdot \mathbf{B}]$ überprüft werden, wenn diese Matrix vollen Rang sprich $\mathrm{rank}(\mathbf{C}) = n$ hat, ist das System steuerbar. Hierzu gibt es in Matlab die Funktion \texttt{ctrb(A,B)} welche die Steuerbarkeitsmatrix berechnet und mit \texttt{rank()} kann der Rang von $\mathbf{C}$ überprüft werden. \parencite{DataDrivenScience}
+
+\subsection{Beobachtbarkeit}
+\label{subsec:beobachtbarkeit}
+Die Beobachtbarkeit (Observability) eines Systems beschreibt die Fähigkeit, den Systemzustand $\mathbf{x}$ aus den Messungen der Regelgröße $\mathbf{y}$ zu rekonstruieren.
+
 \subsection{Jacobi Matrizen}
 \label{subsec:jacobi_matrizen}
 Die Jacobi-Matrix ist eine Matrix, die die partiellen Ableitungen einer Matrix nach ihren Variablen enthält. Sie stellt die lokale Steigung einer nichtlinearen Funktion in mehreren Richtungen dar.

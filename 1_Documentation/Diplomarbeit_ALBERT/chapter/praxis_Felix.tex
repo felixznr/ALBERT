@@ -110,12 +110,106 @@ Auf Basis der Anforderungen an die Funktionen und Eigenschaften des Flightcomput
     \caption{Systemarchitektur des Flightcomputers}
     \label{fig:systemarchitektur}
 \end{figure}
-Die Hardwarearchitektur des Flightcomputers teilt sich in zwei Hauptkomponenten auf: den Navigation Processing Unit (NAV) mit den Sensoren und die Main Processing Unit (MPU) mit der Aktuatorik, den Datenspeichern sowie der Telemetrie (LoRa). Der NAV ist für die Erfassung der Sensordaten und die Berechnung der Fluglage, Geschwindigkeit, Höhe sowie Position verantwortlich. Er empfängt Daten von den Sensoren (IMU 1, IMU 2, Barometer, Magnetometer und GPS) und verarbeitet diese Informationen, um die aktuelle Fluglage und Position der Rakete mithilfe eines Sensor Fusion Alogrithmus (siehe Kapitel \ref{subsec:erweiterter_kalman_filter}) zu bestimmen.
+Die Hardwarearchitektur des Flightcomputers teilt sich in zwei Hauptkomponenten auf: Navigation Processing Unit (NAV) mit den Sensoren und Main Processing Unit (MPU) mit der Aktuatorik, den Datenspeichern sowie der Telemetrie (LoRa). Der NAV ist für die Erfassung der Sensordaten und die Berechnung der Fluglage, Geschwindigkeit sowie Position verantwortlich. Er empfängt Daten von den Sensoren (IMU 1, IMU 2, Barometer, Magnetometer und GPS) und verarbeitet diese mittels Sensor Fusion (siehe Kapitel \ref{subsec:erweiterter_kalman_filter}).
 \\
-Wohingegen die MPU die zentrale Steuereinheit des Flightcomputers darstellt, welche die Steuerungsalgorithmen ausführt, die Aktuatoren (Servos und Pyro-Kanäle) ansteuert, die Flugdaten auf der SD-Karte und im Flash-Speicher speichert sowie die Telemetrie über LoRa überträgt. Die MPU empfängt die Zustandsschätzung vom NAV und verarbeitet diese mittels LQR Regelung (siehe Kapitel \ref{subsec:lqr_regelung}), um die erforderlichen Steuerbefehle für die Servos zu berechnen.
+Wohingegen die MPU die zentrale Steuereinheit des Flightcomputers darstellt, welche die Steuerungsalgorithmen ausführt, die Aktuatoren (Servos und Pyro-Kanäle) ansteuert, die Flugdaten auf der SD-Karte und im Flash-Speicher speichert sowie die Telemetriedaten über LoRa überträgt. Die MPU empfängt die Zustandsschätzung vom NAV und verarbeitet diese mittels LQR Regelung (siehe Kapitel \ref{subsec:lqr_regelung}), um die erforderlichen Steuerbefehle für die Servos zu berechnen.
 \\
-Die Trennung der Aufgabengebiete dient primär der Echtzeitsicherheit und funktionalen Entkopplung. Der NAV verarbeitet hochfrequente Sensordaten (insbesondere IMU) und führt die Zustandsschätzung mittels Extended Kalman Filter unter strikt deterministischen Zeitbedingungen aus. Diese Berechnungen erfordern konstante Latenzen und dürfen nicht durch blockierende Operationen wie Speicherzugriffe oder Funkkommunikation beeinflusst werden. Durch die Auslagerung von potenziell nichtdeterministischen Aufgaben auf eine separate MPU wird sichergestellt, dass die Navigationslösung auch bei hoher Systemlast stabil bleibt. Darüber hinaus reduziert die funktionale Trennung die Softwarekomplexität.
+Die Trennung der Aufgabengebiete dient primär der Echtzeitsicherheit und funktionalen Entkopplung. Der NAV verarbeitet hochfrequente Sensordaten (insbesondere IMU) und führt die Zustandsschätzung mittels Extended Kalman Filter unter deterministischen Zeitbedingungen aus. Diese Berechnungen erfordern konstante Latenzen und dürfen nicht durch blockierende Operationen wie Speicherzugriffe oder Funkkommunikation beeinflusst werden. Durch die Auslagerung von potenziell nichtdeterministischen Aufgaben auf eine separate MPU wird sichergestellt, dass die Zustandsschätzung auch bei hoher Systemlast stabil bleibt. Darüber hinaus reduziert die funktionale Trennung die Softwarekomplexität.
 \\ 
+\section{Komponentenauswahl}
+\label{sec:komponentenauswahl}
+Im folgenden soll die Auswahl der wichtigesten Komponenten des Flightcomputers erläutert werden und die Gründe für die Auswahl dargelegt werden. 
+\subsection{Sensoren}
+\label{subsec:sensoren}
+\subsubsection{\href{https://www.bosch-sensortec.com/products/motion-sensors/imus/bmi088/}{IMU1 - BMI088}}
+\begin{itemize}
+    \item 3 - Achsen-Beschleunigungssensor mit einem Messbereich von bis zu $\pm$ 16\,g
+    \item 3 - Achsen-Gyroskop mit einem Messbereich von bis zu $\pm$ 2000\,°/s
+    \item Hohe Vibrationsfestigkeit und Stoßresistenz, geeignet für den Einsatz in Raketenanwendungen
+    \item Direkter Zugriff auf die Rohdaten der Sensoren 
+    \item Bereits vorhandene Treiber von Bosch Sensortec
+\end{itemize}
+
+\subsubsection{\href{https://www.st.com/en/mems-and-sensors/lsm6dsl.html}{IMU2 - LSM6DSLTR}}
+\begin{itemize}
+    \item 3 - Achsen-Beschleunigungssensor mit einem Messbereich von bis zu $\pm$ 16\,g
+    \item 3 - Achsen-Gyroskop mit einem Messbereich von bis zu $\pm$ 2000\,°/s
+    \item Bereits vorhandene Treiber von STMicroelectronics
+\end{itemize}
+\subsubsection{\href{https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/}{Barometer - BMP390}}
+\begin{itemize}
+    \item Präzise Luftdruckmessung mit einem Messbereich von 300\,hPa bis 1250\,hPa
+    \item Hohe Auflösung von 0,18\,Pa, was einer Höhenauflösung von etwa 1,5\,m entspricht
+    \item Bereits vorhandene Treiber von Bosch Sensortec
+\end{itemize}
+\subsubsection{\href{https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf}{Magnetometer - BMM150}}
+\begin{itemize}
+    \item 3 - Achsen-Magnetometer mit einem Messbereich von $\pm$ 1300\,$\mu$T
+    \item Hohe Auflösung von 0,3\,$\mu$T, was eine präzise Bestimmung der Ausrichtung ermöglicht
+    \item Bereits vorhandene Treiber von Bosch Sensortec
+\end{itemize}
+\subsection{Prozessoren}
+\label{subsec:prozessoren}
+\subsubsection{\href{https://www.st.com/en/microcontrollers-microprocessors/stm32f405rg.html}{NAV - STM32F405RGT6}}
+\begin{itemize}
+    \item 32-Bit ARM Cortex-M4 Prozessor mit FPU
+    \item 168\,MHz Taktfrequenz
+    \item 1\,MB Flash-Speicher und 192\,KB RAM
+    \item Sehr gute Dokumentation und Community-Support
+    \item Bereits vorhandene Referenzdesigns
+    \item Benutzerfreundliche Entwicklungsumgebung mit STM32CubeIDE
+\end{itemize}
+\subsubsection{\href{https://www.st.com/en/microcontrollers-microprocessors/stm32h753vit6.html}{MPU - STM32H753VIT6}}
+\begin{itemize}
+    \item 64-Bit ARM Cortex-M7 Prozessor mit FPU
+    \item 400\,MHz Taktfrequenz
+    \item 2\,MB Flash-Speicher und 512\,KB RAM
+    \item Sehr gute Dokumentation und Community-Support
+    \item Bereits vorhandene Referenzdesigns
+    \item Benutzerfreundliche Entwicklungsumgebung mit STM32CubeIDE
+\end{itemize}
+\subsection{Aktuatoren}
+\label{subsec:aktuatoren}
+\subsubsection{Servos - ??}
+\subsubsection{\href{https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}
+\begin{itemize}
+    \item 16-Kanal, 12-Bit PWM-Controller mit I\textsuperscript{2}C-Schnittstelle
+    \item Bereits vorhandene Treiber
+    \item Erfahrungen mit diesem Bauteil aus vorherigen Projekten
+\end{itemize}
+\subsubsection{\href{https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc028n06ls3-g-datasheet-en.pdf?fileId=db3a30431ddc9372011ebafa4c607f8c}{Pyro-Kanäle-Mosfets - BSC028N06LS3}}
+\begin{itemize}
+    \item N-Kanal-MOSFET mit einem maximalen Drain-Strom von 28\,A und einer maximalen Drain-Source-Spannung von 60\,V
+    \item Logic Level-Typ, der direkt von der 3,3\,V Logik des STM32 angesteuert werden kann
+\end{itemize}
+\subsection{Weitere Peripheriekomponenten}
+\label{subsec:weitere_peripheriekomponenten}
+\subsubsection{\href{https://www.u-blox.com/en/product/u-blox8-antenna-module}{GPS Modul - ZOE-M8Q}}
+\begin{itemize}
+    \item Hochpräzises GPS-Modul mit Unterstützung für mehrere Satellitensysteme (GPS, GLONASS, Galileo, BeiDou)
+    \item Bevorzugte Module von U-blox waren auf JLCPCB nicht mehr verfügbar
+\end{itemize}
+\subsubsection{\href{https://www.radiomobiles.com/products/rfm95w-868s2}{LoRa - RFM95W-868S2}}
+\begin{itemize}
+    \item LoRa-Modul mit einer Frequenz von 868\,MHz, geeignet für die Telemetrieübertragung in Europa
+    \item Einfache Integration als externes Modul
+\end{itemize}
+\subsubsection{\href{https://www.digikey.com/en/products/detail/dm3at-sf-pejm5-hrs/10274802}{SD-Karte - DM3AT-SF-PEJM5 HRS}}
+\subsubsection{\href{https://www.winbond.com/products/w25n01gvzeig/}{Flash-Speicher - W25N01GVZEIG}}
+\begin{itemize}
+        \item 1\,GB Flash-Speicher mit SPI-Schnittstelle
+        \item Bereits vorhandene Treiber und einfache Integration
+\end{itemize}
+\subsubsection{\href{https://www.ti.com/product/TPS54308}{Buck Converter - TPS54308}}
+\begin{itemize}
+        \item Einfache Schaltungsdimension dank \href{https://webench.ti.com/}{WEBENCH POWER DESIGNER} von Texas Instruments 
+
+\end{itemize}
+\subsubsection{\href{https://www.hroparts.com/products/type-c-31-m-12-korean-hroparts-elec}{USB-C - TYPE-C-31-M-12 Korean Hroparts Elec}}
+
+
+
+
  
 
 \chapter{Steuerungssystem}
@@ -173,7 +267,6 @@ wobei $\rho$ die Luftdichte, $S$ die Referenzfläche (Stirnfläche), $C_{A}$ der
 C_{N_y} &= C_N \frac{-v}{\sqrt{v^2 + w^2}}\\
 C_{N_{z}} &= C_N \frac{-w}{\sqrt{v^2 + w^2}}
 \end{align}
-wobei $\alpha$ der Anstellwinkel der Rakete ist.
 \\
 Die Schubkraftkomponenten können wie folgt berechnet werden:
 \begin{align}
@@ -186,9 +279,9 @@ wobei $F_{pref}$ die Schubkraft ist, die sich aus dem Massestrom und der Austrit
 \\
 Für die Gravitationskraft gilt im Navigation Frame:
 \begin{align}
-F_{g_{x_n}} &= 0 \\
+F_{g_{x_n}} &= mg \\
 F_{g_{y_n}} &= 0 \\
-F_{g_{z_n}} &= mg
+F_{g_{z_n}} &= 0
 \end{align}
 wobei $g$ die Erdbeschleunigung ist. Um die Gravitationskraft in den Körperachsen zu berechnen, muss sie mit der Transformationsmatrix $T_{n \to b}$ von Navigation Frame zu Body Frame transformiert werden:
 \begin{equation}
@@ -290,13 +383,13 @@ C_n &= C_{n_{\mathrm{ref}}}
 
 Dabei ist $C_{lp}$ die Roll-Dämpfungsableitung bezüglich der Rollrate $p$ in $\mathrm{rad^{-1}}$. 
 $C_{l\delta}$ bezeichnet die Steigung der Kurve des Rollmomentbeiwerts $C_l$ in Abhängigkeit der Finnenauslenkung in $\mathrm{rad^{-1}}$ . 
-$C_{m_{\mathrm{ref}}}$ ist der Nickmomentbeiwert bezogen auf die Referenzmomentstation (dimensionslos). 
+$C_{m_{\mathrm{ref}}}$ ist der Nickmomentbeiwert bezogen auf die Referenzmomentstation . 
 $C_{mq}$ ist die Nick-Dämpfungsableitung bezüglich der Nickrate $q$ in $\mathrm{rad^{-1}}$ . 
 $C_{m_\alpha}$ ist die Nick-Dämpfungsableitung bezüglich der Änderungsrate des Anstellwinkels $\dot{\alpha}$ in $\mathrm{rad^{-1}}$ . 
-$C_{N_y}$ ist der Beiwert der Normalkraftkomponente in $y_b$-Richtung (dimensionslos). 
-$C_{N_z}$ ist der Beiwert der Normalkraftkomponente in $z_b$-Richtung (dimensionslos). 
+$C_{N_y}$ ist der Beiwert der Normalkraftkomponente in $y_b$-Richtung . 
+$C_{N_z}$ ist der Beiwert der Normalkraftkomponente in $z_b$-Richtung . 
 $C_{nr}$ ist die Gier-Dämpfungsableitung bezüglich der Gierrate $r$ in $\mathrm{rad^{-1}}$ . 
-$C_{n_{\mathrm{ref}}}$ ist der Giermomentbeiwert bezogen auf die Referenzmomentstation (dimensionslos). 
+$C_{n_{\mathrm{ref}}}$ ist der Giermomentbeiwert bezogen auf die Referenzmomentstation . 
 $C_{n_\beta}$ ist die Gier-Dämpfungsableitung bezüglich der Änderungsrate des Schiebewinkels $\dot{\beta}$ in $\mathrm{rad^{-1}}$ . 
 $x_{cm}$ ist der Abstand von der Raketenspitze zum Schwerpunkt in Metern.
 
