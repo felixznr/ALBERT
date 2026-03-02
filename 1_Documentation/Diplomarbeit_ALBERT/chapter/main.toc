@@ -63,30 +63,50 @@
 \contentsline {chapter}{\numberline {9}Flightcomputer KOMADORI}{37}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Anforderungsanalyse}{37}{section.9.1}%
 \contentsline {section}{\numberline {9.2}Systemarchitektur}{38}{section.9.2}%
-\contentsline {chapter}{\numberline {10}Steuerungssystem}{40}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Anforderungsanalyse}{40}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Zustandsraummodellierung}{40}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}Translationale Bewegunsgleichungen}{40}{subsection.10.2.1}%
-\contentsline {subsection}{\numberline {10.2.2}Rotatorische Bewegungsgleichungen}{42}{subsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.2.3}Ausrichtung (Attitude)}{44}{subsection.10.2.3}%
-\contentsline {subsection}{\numberline {10.2.4}Systemdynamik}{45}{subsection.10.2.4}%
-\contentsline {subsection}{\numberline {10.2.5}Bestimmung des stationären Arbeitspunkts}{46}{subsection.10.2.5}%
-\contentsline {subsection}{\numberline {10.2.6}Linearisierung}{46}{subsection.10.2.6}%
-\contentsline {section}{\numberline {10.3}Navigation}{47}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Guidance}{47}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Control}{47}{section.10.5}%
-\contentsline {chapter}{\numberline {11}CAD-Aufbau}{48}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Konzeptentwicklung}{48}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Flügelsteuermechanismus}{48}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Innenstruktur und Materialwahl}{49}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Implementierung und Fertigung}{49}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Herausforderungen und Lösungen}{49}{section.11.5}%
-\contentsline {section}{\numberline {11.6}Fazit}{49}{section.11.6}%
-\contentsline {chapter}{\numberline {12}Simulation der Aerodynamik}{50}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Simulation der Raketenflügel in Ansys Fluent}{50}{section.12.1}%
-\contentsline {section}{\numberline {12.2}Auswertung der Simulationsergebnisse}{50}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Messung im Windkanal}{50}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Vergleich mit Messdaten}{50}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Herausforderungen und Lösungen}{50}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Fazit}{50}{section.12.6}%
+\contentsline {section}{\numberline {9.3}Komponentenauswahl}{39}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Sensoren}{39}{subsection.9.3.1}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/motion-sensors/imus/bmi088/}{IMU1 - BMI088}}{39}{subsubsection*.55}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/mems-and-sensors/lsm6dsl.html}{IMU2 - LSM6DSLTR}}{39}{subsubsection*.57}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/}{Barometer - BMP390}}{39}{subsubsection*.59}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf}{Magnetometer - BMM150}}{39}{subsubsection*.61}%
+\contentsline {subsection}{\numberline {9.3.2}Prozessoren}{40}{subsection.9.3.2}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/microcontrollers-microprocessors/stm32f405rg.html}{NAV - STM32F405RGT6}}{40}{subsubsection*.63}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/microcontrollers-microprocessors/stm32h753vit6.html}{MPU - STM32H753VIT6}}{40}{subsubsection*.65}%
+\contentsline {subsection}{\numberline {9.3.3}Aktuatoren}{40}{subsection.9.3.3}%
+\contentsline {subsubsection}{\nonumberline Servos - ??}{40}{subsubsection*.67}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}{40}{subsubsection*.69}%
+\contentsline {subsubsection}{\nonumberline Pyro-Kanäle-Mosfets - BSC028N06LS3}{40}{subsubsection*.71}%
+\contentsline {subsection}{\numberline {9.3.4}Weitere Peripheriekomponenten}{41}{subsection.9.3.4}%
+\contentsline {subsubsection}{\nonumberline GPS Modul - ZOE-M8Q}{41}{subsubsection*.73}%
+\contentsline {subsubsection}{\nonumberline LoRa - RFM95W-868S2}{41}{subsubsection*.75}%
+\contentsline {subsubsection}{\nonumberline SD-Karte - DM3AT-SF-PEJM5 HRS}{41}{subsubsection*.77}%
+\contentsline {subsubsection}{\nonumberline Flash-Speicher - W25N01GVZEIG}{41}{subsubsection*.79}%
+\contentsline {subsubsection}{\nonumberline Buck Converter - TPS54308}{41}{subsubsection*.81}%
+\contentsline {subsubsection}{\nonumberline USB-C - TYPE-C-31-M-12 Korean Hroparts Elec}{41}{subsubsection*.83}%
+\contentsline {chapter}{\numberline {10}Steuerungssystem}{42}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Anforderungsanalyse}{42}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Zustandsraummodellierung}{42}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Translationale Bewegunsgleichungen}{42}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Rotatorische Bewegungsgleichungen}{44}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Ausrichtung (Attitude)}{46}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}Systemdynamik}{47}{subsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.2.5}Bestimmung des stationären Arbeitspunkts}{48}{subsection.10.2.5}%
+\contentsline {subsection}{\numberline {10.2.6}Linearisierung}{48}{subsection.10.2.6}%
+\contentsline {section}{\numberline {10.3}Navigation}{49}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Guidance}{49}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Control}{49}{section.10.5}%
+\contentsline {chapter}{\numberline {11}CAD-Aufbau}{50}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Konzeptentwicklung}{50}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Flügelsteuermechanismus}{50}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Innenstruktur und Materialwahl}{51}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Implementierung und Fertigung}{51}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Herausforderungen und Lösungen}{51}{section.11.5}%
+\contentsline {section}{\numberline {11.6}Fazit}{51}{section.11.6}%
+\contentsline {chapter}{\numberline {12}Simulation der Aerodynamik}{52}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Simulation der Raketenflügel in Ansys Fluent}{52}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Auswertung der Simulationsergebnisse}{52}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Messung im Windkanal}{52}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Vergleich mit Messdaten}{52}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Herausforderungen und Lösungen}{52}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Fazit}{52}{section.12.6}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
