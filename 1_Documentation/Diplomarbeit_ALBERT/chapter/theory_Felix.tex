@@ -698,7 +698,7 @@ Ein stabiler Systemzustand ist gegeben, wenn alle Eigenwerte der Systemmatrix $(
     \label{fig:eigenwerte_geschlossener_regelkreis}
 \end{figure}
 In Matlab können die Eigenwerte einer Matrix mit der Funktion \texttt{eig()} berechnet werden.
-Ob ein System steuerbar ist, kann durch die Steuerbarkeitsmatrix $\mathbf{C} = [\mathbf{B}, \mathbf{A} \cdot \mathbf{B}, \mathbf{A}^2 \cdot \mathbf{B}, ..., \mathbf{A}^{n-1} \cdot \mathbf{B}]$ überprüft werden, wenn diese Matrix vollen Rang sprich $\mathrm{rank}(\mathbf{C}) = n$ hat, ist das System steuerbar. Hierzu gibt es in Matlab die Funktion \texttt{ctrb(A,B)} welche die Steuerbarkeitsmatrix berechnet und mit \texttt{rank()} kann der Rang von $\mathbf{C}$ überprüft werden. \parencite{DataDrivenScience}
+Ob ein System steuerbar ist, kann durch die Steuerbarkeitsmatrix $\mathbf{C} = [\mathbf{B}, \mathbf{A} \cdot \mathbf{B}, \mathbf{A}^2 \cdot \mathbf{B}, ..., \mathbf{A}^{n-1} \cdot \mathbf{B}]$ überprüft werden, wenn diese Matrix vollen Rang sprich $\mathrm{rank}(\mathbf{C}) = n$ hat, ist das System steuerbar. Hierzu kann in Matlab die Funktion \texttt{ctrb(A,B)} welche die Steuerbarkeitsmatrix berechnet und die Funktion \texttt{rank()} die den Rang von $\mathbf{C}$ überprüft verwendet werden. \parencite{DataDrivenScience}
 
 \subsection{Beobachtbarkeit}
 \label{subsec:beobachtbarkeit}
