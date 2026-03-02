@@ -177,35 +177,36 @@ Im folgenden soll die Auswahl der wichtigesten Komponenten des Flightcomputers e
     \item Bereits vorhandene Treiber
     \item Erfahrungen mit diesem Bauteil aus vorherigen Projekten
 \end{itemize}
-\subsubsection{Pyro-Kanäle-Mosfets - BSC028N06LS3}
+\subsubsection{\href{https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc028n06ls3-g-datasheet-en.pdf?fileId=db3a30431ddc9372011ebafa4c607f8c}{Pyro-Kanäle-Mosfets - BSC028N06LS3}}
 \begin{itemize}
     \item N-Kanal-MOSFET mit einem maximalen Drain-Strom von 28\,A und einer maximalen Drain-Source-Spannung von 60\,V
     \item Logic Level-Typ, der direkt von der 3,3\,V Logik des STM32 angesteuert werden kann
 \end{itemize}
 \subsection{Weitere Peripheriekomponenten}
 \label{subsec:weitere_peripheriekomponenten}
-\subsubsection{GPS Modul - ZOE-M8Q}
+\subsubsection{\href{https://www.u-blox.com/en/product/u-blox8-antenna-module}{GPS Modul - ZOE-M8Q}}
 \begin{itemize}
     \item Hochpräzises GPS-Modul mit Unterstützung für mehrere Satellitensysteme (GPS, GLONASS, Galileo, BeiDou)
     \item Bevorzugte Module von U-blox waren auf JLCPCB nicht mehr verfügbar
 \end{itemize}
-\subsubsection{LoRa - RFM95W-868S2}
+\subsubsection{\href{https://www.radiomobiles.com/products/rfm95w-868s2}{LoRa - RFM95W-868S2}}
 \begin{itemize}
     \item LoRa-Modul mit einer Frequenz von 868\,MHz, geeignet für die Telemetrieübertragung in Europa
     \item Einfache Integration als externes Modul
 \end{itemize}
-\subsubsection{SD-Karte - DM3AT-SF-PEJM5 HRS}
-\subsubsection{Flash-Speicher - W25N01GVZEIG}
+\subsubsection{\href{https://www.digikey.com/en/products/detail/dm3at-sf-pejm5-hrs/10274802}{SD-Karte - DM3AT-SF-PEJM5 HRS}}
+\subsubsection{\href{https://www.winbond.com/products/w25n01gvzeig/}{Flash-Speicher - W25N01GVZEIG}}
 \begin{itemize}
         \item 1\,GB Flash-Speicher mit SPI-Schnittstelle
         \item Bereits vorhandene Treiber und einfache Integration
 \end{itemize}
-\subsubsection{Buck Converter - TPS54308}
+\subsubsection{\href{https://www.ti.com/product/TPS54308}{Buck Converter - TPS54308}}
 \begin{itemize}
         \item Einfache Schaltungsdimension dank \href{https://webench.ti.com/}{WEBENCH POWER DESIGNER} von Texas Instruments 
 
 \end{itemize}
-\subsubsection{USB-C - TYPE-C-31-M-12 Korean Hroparts Elec}
+\subsubsection{\href{https://www.hroparts.com/products/type-c-31-m-12-korean-hroparts-elec}{USB-C - TYPE-C-31-M-12 Korean Hroparts Elec}}
+
 
 
 
@@ -266,7 +267,6 @@ wobei $\rho$ die Luftdichte, $S$ die Referenzfläche (Stirnfläche), $C_{A}$ der
 C_{N_y} &= C_N \frac{-v}{\sqrt{v^2 + w^2}}\\
 C_{N_{z}} &= C_N \frac{-w}{\sqrt{v^2 + w^2}}
 \end{align}
-wobei $\alpha$ der Anstellwinkel der Rakete ist.
 \\
 Die Schubkraftkomponenten können wie folgt berechnet werden:
 \begin{align}
@@ -279,9 +279,9 @@ wobei $F_{pref}$ die Schubkraft ist, die sich aus dem Massestrom und der Austrit
 \\
 Für die Gravitationskraft gilt im Navigation Frame:
 \begin{align}
-F_{g_{x_n}} &= 0 \\
+F_{g_{x_n}} &= mg \\
 F_{g_{y_n}} &= 0 \\
-F_{g_{z_n}} &= mg
+F_{g_{z_n}} &= 0
 \end{align}
 wobei $g$ die Erdbeschleunigung ist. Um die Gravitationskraft in den Körperachsen zu berechnen, muss sie mit der Transformationsmatrix $T_{n \to b}$ von Navigation Frame zu Body Frame transformiert werden:
 \begin{equation}
@@ -383,13 +383,13 @@ C_n &= C_{n_{\mathrm{ref}}}
 
 Dabei ist $C_{lp}$ die Roll-Dämpfungsableitung bezüglich der Rollrate $p$ in $\mathrm{rad^{-1}}$. 
 $C_{l\delta}$ bezeichnet die Steigung der Kurve des Rollmomentbeiwerts $C_l$ in Abhängigkeit der Finnenauslenkung in $\mathrm{rad^{-1}}$ . 
-$C_{m_{\mathrm{ref}}}$ ist der Nickmomentbeiwert bezogen auf die Referenzmomentstation (dimensionslos). 
+$C_{m_{\mathrm{ref}}}$ ist der Nickmomentbeiwert bezogen auf die Referenzmomentstation . 
 $C_{mq}$ ist die Nick-Dämpfungsableitung bezüglich der Nickrate $q$ in $\mathrm{rad^{-1}}$ . 
 $C_{m_\alpha}$ ist die Nick-Dämpfungsableitung bezüglich der Änderungsrate des Anstellwinkels $\dot{\alpha}$ in $\mathrm{rad^{-1}}$ . 
-$C_{N_y}$ ist der Beiwert der Normalkraftkomponente in $y_b$-Richtung (dimensionslos). 
-$C_{N_z}$ ist der Beiwert der Normalkraftkomponente in $z_b$-Richtung (dimensionslos). 
+$C_{N_y}$ ist der Beiwert der Normalkraftkomponente in $y_b$-Richtung . 
+$C_{N_z}$ ist der Beiwert der Normalkraftkomponente in $z_b$-Richtung . 
 $C_{nr}$ ist die Gier-Dämpfungsableitung bezüglich der Gierrate $r$ in $\mathrm{rad^{-1}}$ . 
-$C_{n_{\mathrm{ref}}}$ ist der Giermomentbeiwert bezogen auf die Referenzmomentstation (dimensionslos). 
+$C_{n_{\mathrm{ref}}}$ ist der Giermomentbeiwert bezogen auf die Referenzmomentstation . 
 $C_{n_\beta}$ ist die Gier-Dämpfungsableitung bezüglich der Änderungsrate des Schiebewinkels $\dot{\beta}$ in $\mathrm{rad^{-1}}$ . 
 $x_{cm}$ ist der Abstand von der Raketenspitze zum Schwerpunkt in Metern.
 

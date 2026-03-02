@@ -34,20 +34,22 @@
 \contentsline {subsection}{\numberline {6.1.1}Arten von Systemsteuerung}{19}{subsection.6.1.1}%
 \contentsline {subsection}{\numberline {6.1.2}Geschlossener Regelkreis}{20}{subsection.6.1.2}%
 \contentsline {subsection}{\numberline {6.1.3}Linearisierung}{20}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Jacobi Matrizen}{21}{subsection.6.1.4}%
-\contentsline {section}{\numberline {6.2}Kalman-Filter}{21}{section.6.2}%
+\contentsline {subsection}{\numberline {6.1.4}Steuerbarkeit}{21}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Beobachtbarkeit}{22}{subsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.1.6}Jacobi Matrizen}{22}{subsection.6.1.6}%
+\contentsline {section}{\numberline {6.2}Kalman-Filter}{22}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Zustandsraummodellierung}{22}{subsection.6.2.1}%
 \contentsline {subsection}{\numberline {6.2.2}Vorhersageschritt}{23}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Korrekturschritt}{23}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.3}Korrekturschritt}{24}{subsection.6.2.3}%
 \contentsline {subsection}{\numberline {6.2.4}Erweiterter Kalman-Filter}{24}{subsection.6.2.4}%
 \contentsline {subsection}{\numberline {6.2.5}Euler-Verfahren}{25}{subsection.6.2.5}%
 \contentsline {chapter}{\numberline {7}Aerodynamische Grundlagen}{26}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Die 4 Außenkräfte auf eine Rakete}{26}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Nicht-aerodynamische äußere Kräfte}{26}{subsection.7.1.1}%
 \contentsline {subsection}{\numberline {7.1.2}Äußere Faktoren}{27}{subsection.7.1.2}%
-\contentsline {subsubsection}{\nonumberline Erstes Newtonsches Gesetz}{27}{subsubsection*.30}%
-\contentsline {subsubsection}{\nonumberline Zweites Newtonsches Gesetz}{27}{subsubsection*.32}%
-\contentsline {subsubsection}{\nonumberline Drittes Newtonsches Gesetz}{27}{subsubsection*.34}%
+\contentsline {subsubsection}{\nonumberline Erstes Newtonsches Gesetz}{27}{subsubsection*.31}%
+\contentsline {subsubsection}{\nonumberline Zweites Newtonsches Gesetz}{27}{subsubsection*.33}%
+\contentsline {subsubsection}{\nonumberline Drittes Newtonsches Gesetz}{27}{subsubsection*.35}%
 \contentsline {section}{\numberline {7.2}Aerodynamische Eigenschaften}{28}{section.7.2}%
 \contentsline {subsection}{\numberline {7.2.1}Überschallflug und Unterschallflug}{28}{subsection.7.2.1}%
 \contentsline {subsection}{\numberline {7.2.2}Raketenspitze}{28}{subsection.7.2.2}%
@@ -65,24 +67,24 @@
 \contentsline {section}{\numberline {9.2}Systemarchitektur}{38}{section.9.2}%
 \contentsline {section}{\numberline {9.3}Komponentenauswahl}{39}{section.9.3}%
 \contentsline {subsection}{\numberline {9.3.1}Sensoren}{39}{subsection.9.3.1}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/motion-sensors/imus/bmi088/}{IMU1 - BMI088}}{39}{subsubsection*.55}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/mems-and-sensors/lsm6dsl.html}{IMU2 - LSM6DSLTR}}{39}{subsubsection*.57}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/}{Barometer - BMP390}}{39}{subsubsection*.59}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf}{Magnetometer - BMM150}}{39}{subsubsection*.61}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/motion-sensors/imus/bmi088/}{IMU1 - BMI088}}{39}{subsubsection*.56}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/mems-and-sensors/lsm6dsl.html}{IMU2 - LSM6DSLTR}}{39}{subsubsection*.58}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/}{Barometer - BMP390}}{39}{subsubsection*.60}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf}{Magnetometer - BMM150}}{39}{subsubsection*.62}%
 \contentsline {subsection}{\numberline {9.3.2}Prozessoren}{40}{subsection.9.3.2}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/microcontrollers-microprocessors/stm32f405rg.html}{NAV - STM32F405RGT6}}{40}{subsubsection*.63}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/microcontrollers-microprocessors/stm32h753vit6.html}{MPU - STM32H753VIT6}}{40}{subsubsection*.65}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/microcontrollers-microprocessors/stm32f405rg.html}{NAV - STM32F405RGT6}}{40}{subsubsection*.64}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/microcontrollers-microprocessors/stm32h753vit6.html}{MPU - STM32H753VIT6}}{40}{subsubsection*.66}%
 \contentsline {subsection}{\numberline {9.3.3}Aktuatoren}{40}{subsection.9.3.3}%
-\contentsline {subsubsection}{\nonumberline Servos - ??}{40}{subsubsection*.67}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}{40}{subsubsection*.69}%
-\contentsline {subsubsection}{\nonumberline Pyro-Kanäle-Mosfets - BSC028N06LS3}{40}{subsubsection*.71}%
+\contentsline {subsubsection}{\nonumberline Servos - ??}{40}{subsubsection*.68}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}{40}{subsubsection*.70}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc028n06ls3-g-datasheet-en.pdf?fileId=db3a30431ddc9372011ebafa4c607f8c}{Pyro-Kanäle-Mosfets - BSC028N06LS3}}{40}{subsubsection*.72}%
 \contentsline {subsection}{\numberline {9.3.4}Weitere Peripheriekomponenten}{41}{subsection.9.3.4}%
-\contentsline {subsubsection}{\nonumberline GPS Modul - ZOE-M8Q}{41}{subsubsection*.73}%
-\contentsline {subsubsection}{\nonumberline LoRa - RFM95W-868S2}{41}{subsubsection*.75}%
-\contentsline {subsubsection}{\nonumberline SD-Karte - DM3AT-SF-PEJM5 HRS}{41}{subsubsection*.77}%
-\contentsline {subsubsection}{\nonumberline Flash-Speicher - W25N01GVZEIG}{41}{subsubsection*.79}%
-\contentsline {subsubsection}{\nonumberline Buck Converter - TPS54308}{41}{subsubsection*.81}%
-\contentsline {subsubsection}{\nonumberline USB-C - TYPE-C-31-M-12 Korean Hroparts Elec}{41}{subsubsection*.83}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.u-blox.com/en/product/u-blox8-antenna-module}{GPS Modul - ZOE-M8Q}}{41}{subsubsection*.74}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.radiomobiles.com/products/rfm95w-868s2}{LoRa - RFM95W-868S2}}{41}{subsubsection*.76}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.digikey.com/en/products/detail/dm3at-sf-pejm5-hrs/10274802}{SD-Karte - DM3AT-SF-PEJM5 HRS}}{41}{subsubsection*.78}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.winbond.com/products/w25n01gvzeig/}{Flash-Speicher - W25N01GVZEIG}}{41}{subsubsection*.80}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.ti.com/product/TPS54308}{Buck Converter - TPS54308}}{41}{subsubsection*.82}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.hroparts.com/products/type-c-31-m-12-korean-hroparts-elec}{USB-C - TYPE-C-31-M-12 Korean Hroparts Elec}}{41}{subsubsection*.84}%
 \contentsline {chapter}{\numberline {10}Steuerungssystem}{42}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Anforderungsanalyse}{42}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Zustandsraummodellierung}{42}{section.10.2}%
