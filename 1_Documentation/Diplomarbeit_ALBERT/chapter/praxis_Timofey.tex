@@ -65,14 +65,123 @@ die aufgrund ihrer Größe auf einem größeren Drucker gedruckt werden musste.
 \chapter{Simulation der Aerodynamik}
 \label{ch:aero_simulation}
 
-\section{Simulation der Raketenflügel in Ansys Fluent}
+\section{Simulation des Raketenkörpers in Ansys Fluent}
 \label{sec:used_software_sim}
-Fläche des Flügels bei reference values = eine seitenfläche also 60mm * 80mm - (40mm * 0,06) / 2
+Um alle nötigen Kraft-/Momentkoeffizienten für das Steuersystem zu berechnen, wurde der ganze Raketenkörper in Ansys Fluent mit Verschiedenen Anstellwinkeln der Flügel simuliert.
+
+\subsection{Definition der Referenzwerte und der simulierten/berechneten Werte}
+\label{subsec:reference_sim_values}
+Um die richtige Berechnung von den Kraft-/Momentkoeffizienten und dessen Ableitungen müssen in Fluent bestimmte Referenzwerte gesetzt werden.
+\paragraph{Definition der Referenzwerte für alle Simulationsdurchgänge}
+\begin{itemize}
+    \item $A = \frac{\pi \cdot D^2}{4}$: Referenzfläche (Frontfläche der Rakete) mit $D$ als Durchmesser des Raketenkörpers
+    \item $l = D$: Referenzlänge (Durchmesser des Raketenkörpers)
+\end{itemize}
+\paragraph{Definition der Winkel des Raketenkörpers und der Flügel}
+\begin{itemize}
+    \item $\alpha$: Pitch Winkel des Raketenkörpers
+    \item $\beta$: Yaw Winkel des Raketenkörpers
+    \item $\delta_i$: Anstellwinkel von Flügel $i$
+\end{itemize}
+\paragraph{Simulierte Beiwerte}
+\begin{itemize}
+    \item $C_A$: Axialkraftbeiwert
+    \item $C_Y$: Seitenkraftbeiwert
+    \item $C_Z$: Normalkraftbeiwert
+    \item $C_l$: Rollmomentbeiwert
+    \item $C_m$: Pitchmomentbeiwert
+    \item $C_n$: Yawmomentbeiwert
+\end{itemize}
+
+\paragraph{Aus mehreren Simulationsfällen errechnete ``Modellwerte''}
+\begin{equation}
+    C_{A0} = C_A(\alpha = \ang{0}, \beta = \ang{0}, \delta = \ang{0})
+\end{equation}
+$C_{A0}$ ist der Axialkraftbeiwert bei Pitch- und Yaw-Winkel von $\ang{0}$
+\begin{equation}
+    C_{A\alpha} \approx \frac{C_A(+\Delta\alpha) - C_A(-\Delta\alpha)}{2\Delta\alpha}
+\end{equation}
+$C_{A\alpha}$ ist als Ableitung des Axialkraftbeiwertes $C_A$ nach der Änderung vom Pitch-Winkel $\Delta\alpha$ definiert
+\begin{equation}
+    C_{A\beta} \approx \frac{C_A(+\Delta\beta) - C_A(-\Delta\beta)}{2\Delta\beta}
+\end{equation}
+$C_{A\beta}$ ist genauso wie $C_{A\alpha}$ definiert, aber nach Yaw-Winkel $\beta$
+\begin{equation}
+    C_{Y\zeta} \approx \frac{C_Y(\delta_\zeta = +\Delta) - C_Y(\delta_\zeta = -\Delta)}{2\Delta}
+\end{equation}
+$C_{Y\zeta}$ beschreibt aus, wie viel Seitenkraft $C_Y$ pro Yaw-Steuereingang $\delta_\zeta$ entsteht
+\begin{equation}
+    C_{Z\alpha} \approx \frac{C_Z(+\Delta\alpha) - C_Z(-\Delta\alpha)}{2\Delta\alpha}
+\end{equation}
+$C_{Z\alpha}$ ist als Ableitung der Normalkraft nach der Änderung des Pitch-Winkels definiert
+\begin{equation}
+    C_{Z\eta} \approx \frac{C_Z(\delta_\eta = +\Delta) - C_Z(\eta_\zeta = -\Delta)}{2\Delta}
+\end{equation}
+$C_{Z\eta}$ beschreibt aus, wie viel Normalkraft $C_Z$ pro Pitch-Steuereingang $\delta_\eta$ entsteht
+
+\paragraph{Stabilitäts- und Steuerungs-Moment-Ableitungen}
+\begin{equation}
+    C_{m\alpha} \approx \frac{C_m(+\Delta\alpha) - C_m(-\Delta\alpha)}{2\Delta\alpha}
+\end{equation}
+$C_{m\alpha}$ beschreibt die Änderung vom Pitch-Moment $C_m$ bei Veränderung vom Pitch-Winkel $\alpha$
+\begin{equation}
+    C_{n\beta} \approx \frac{C_n(+\Delta\beta) - C_n(-\Delta\beta)}{2\Delta\beta}
+\end{equation}
+$C_{n\beta}$ beschreibt die Änderung vom Yaw-Moment $C_n$ bei Veränderung vom Yaw-Winkel $\beta$
+\begin{equation}
+    C_{l\beta} \approx \frac{C_l(+\Delta\beta) - C_l(-\Delta\beta)}{2\Delta\beta}
+\end{equation}
+$C_{l\beta}$ sagt ob bei Veränderung vom Yaw-Winkel $\beta$ ein Roll-Moment Erzeugt wird
+\begin{equation}
+    \frac{\Delta C_m}{\Delta \delta_\eta} \approx \frac{C_m(\delta_\eta = +\Delta) - C_m(\delta_\eta = -\Delta)}{2\Delta}
+\end{equation}
+$\frac{\Delta C_m}{\Delta \delta_\eta}$ beschreibt das Pitch-Moment pro Pitch-Steuereingang
+\begin{equation}
+    \frac{\Delta C_n}{\Delta \delta_\zeta} \approx \frac{C_n(\delta_\zeta = +\Delta) - C_n(\delta_\zeta = -\Delta)}{2\Delta}
+\end{equation}
+$\frac{\Delta C_n}{\Delta \delta_\zeta}$ beschreibt das Yaw-Moment pro Yaw-Steuereingang
+\begin{equation}
+    \frac{\Delta C_l}{\Delta \delta_r} \approx \frac{C_l(\delta_r = +\Delta) - C_l(\delta_r = -\Delta)}{2\Delta}
+\end{equation}
+$\frac{\Delta C_n}{\Delta \delta_\zeta}$ beschreibt das Roll-Moment pro Roll-Steuereingang
+
+\subsection{Simulationsdurchgänge}
+\label{subsec:sim_cases}
+Um genug Messpunkte der verschiedenen Werte für genaue Ableitungen zu erreichen und um für alle simulierten Werte die besten Bedingungen zu schaffen, wo diese am genausten von Fluent berechent werden können, wurden 17 Verschieden Fälle in der Simulation betrachtet. Durch diese 17 Durchgänge wurden sowohl alle möglichen Fälle bezüglich Pitch- und Yaw-Winkel abgedeckt, als auch Veränderungen im Anstellwinkel der Flügel. Diese Werte für $\alpha, \beta$ und $\delta_i$ wurden bei jedem Durchgang angenommen:
+\begin{itemize}
+    \item Fall 1: $\alpha = \ang{0}, \beta = \ang{0}, \delta_i = \ang{0}$
+    \item Fall 2: $\alpha = \ang{+2}, \beta = \ang{0}, \delta_i = \ang{0}$
+    \item Fall 3: $\alpha = \ang{-2}, \beta = \ang{0}, \delta_i = \ang{0}$
+    \item Fall 4: $\alpha = \ang{+5}, \beta = \ang{0}, \delta_i = \ang{0}$
+    \item Fall 5: $\alpha = \ang{-5}, \beta = \ang{0}, \delta_i = \ang{0}$
+    \item Fall 6: $\alpha = \ang{0}, \beta = \ang{+2}, \delta_i = \ang{0}$
+    \item Fall 7: $\alpha = \ang{0}, \beta = \ang{-2}, \delta_i = \ang{0}$
+    \item Fall 8: $\alpha = \ang{0}, \beta = \ang{+5}, \delta_i = \ang{0}$
+    \item Fall 9: $\alpha = \ang{0}, \beta = \ang{-5}, \delta_i = \ang{0}$
+    \item Fall 10: $\alpha = \ang{0}, \beta = \ang{0}, \delta_1 = \ang{+5}, \delta_{2,3,4} = \ang{0}$
+    \item Fall 11: $\alpha = \ang{0}, \beta = \ang{0}, \delta_1 = \ang{-5}, \delta_{2,3,4} = \ang{0}$
+    \item Fall 12: $\alpha = \ang{+2}, \beta = \ang{0}, \delta_1 = \ang{+5}, \delta_{2,3,4} = \ang{0}$
+    \item Fall 13: $\alpha = \ang{+2}, \beta = \ang{0}, \delta_1 = \ang{-5}, \delta_{2,3,4} = \ang{0}$
+    \item Fall 14: $\alpha = \ang{-2}, \beta = \ang{0}, \delta_1 = \ang{+5}, \delta_{2,3,4} = \ang{0}$
+    \item Fall 15: $\alpha = \ang{-2}, \beta = \ang{0}, \delta_1 = \ang{-5}, \delta_{2,3,4} = \ang{0}$
+    \item Fall 16: $\alpha = \ang{+5}, \beta = \ang{0}, \delta_1 = \ang{+5}, \delta_{2,3,4} = \ang{0}$
+    \item Fall 17: $\alpha = \ang{+5}, \beta = \ang{0}, \delta_1 = \ang{-5}, \delta_{2,3,4} = \ang{0}$
+\end{itemize}
 
 \section{Auswertung der Simulationsergebnisse}
 \label{sec:simulation_results}
+Nach dem Simulieren aller 17 Fälle, wurden die benötigten Werte von Fluent kalkuliert und geplotted.
 
-\section{Messung im Windkanal}
+\subsection*{Simulationsergebnisse und Plots} 
+\label{subsec:sim_results_plots}
+
+\subsection*{Berechnungen der ``Modellwerte'' und Ableitungen}
+\label{subsec:derivatives_calculation}
+
+\subsubsection*{Visualisierung der Strömung um den Raketenkörper}
+\label{subsec:cfd_flow_visualization}
+
+\section{Messung eines Raketenflügels im Windkanal}
 \label{sec:wind_tunnel_test}
 
 \section{Vergleich mit Messdaten}
