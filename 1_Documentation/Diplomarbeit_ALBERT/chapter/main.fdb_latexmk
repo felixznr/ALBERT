@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1772283730.63972 "main.bcf" "main.bbl" "main" 1772300228.35038 0
+["biber main"] 1772481370.91006 "main.bcf" "main.bbl" "main" 1772481375.58356 0
   "../appendix/refs.bib" 1771836907.2264 7282 1d13b0a07f516bd74582b0d4e6b5e73f ""
-  "main.bcf" 1772300228.22302 111161 0ce97b2e67fbeff28e0af77cda08f154 "pdflatex"
+  "main.bcf" 1772481375.4633 111234 c373786b32079146504a07a242fea642 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1772300224.51601 "/Users/felixzauner/Desktop/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1772300228.3506 0
+["pdflatex"] 1772481371.92348 "/Users/felixzauner/Desktop/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1772481375.58378 0
   "../figures/6dofrocket.png" 1771673931.54071 314532 56689617eb28dbaf3516b522b3b7463f ""
   "../figures/Fluxgate-Magnetometer.jpeg" 1771322208.49235 453972 9fac3d02ca092227d7917d1e742fd7c4 ""
   "../figures/Four-Forces-Drawn-On-A-Rocket.png" 1771322208.49265 15528 5512424733197518a439ed543a2f74ee ""
@@ -21,6 +21,7 @@
   "../figures/albert_fin.png" 1772087445.51847 23166 19c758d3e33039f2075cf24fc7d50bfd ""
   "../figures/controltypes.png" 1771322208.49931 54453 c2e18549817ae37b20a12c5ea5b33bb7 ""
   "../figures/decouplingcap.png" 1771322208.49979 142441 7ab115a5fffdd38407eaa46b8bba02cc ""
+  "../figures/eigenexample.png" 1772475837.35266 19313 d0a0a0fd67040b7d82db6e0c316d62b4 ""
   "../figures/examplebaro.png" 1771322208.50091 467648 3a2caf32937a5e6a300fc827e7b7e80e ""
   "../figures/fin_forms.jpg" 1771497498.26835 24127 03e0e944e5f810d1913e84956aee6cc5 ""
   "../figures/fin_servo.png" 1772087445.52101 43002 4b19eab69671194369eb956e1109aa35 ""
@@ -391,21 +392,21 @@
   "abstract.tex" 1771397042.85523 8129 a7776335df22d691dd7917e7ab3fb79f ""
   "bibliography.tex" 1771322208.48226 536 19040c6066eb25a5f1d90f6b7e6ca17e ""
   "introduction.tex" 1771322208.48231 1198 b1d1ad0dcf479b1c12314345f894cf01 ""
-  "main.aux" 1772300228.21186 59718 d3fcbf20be5f064177cda679618d7a27 "pdflatex"
-  "main.bbl" 1772283731.82777 31431 f8127ca9d2964214a81a90cca2a49d95 "biber main"
-  "main.lof" 1772300228.22373 4323 79887ba125546b3d421bdf5f441e923f "pdflatex"
-  "main.lot" 1772300228.22375 461 0dfa1a04e75c6f0343c5f51792e74792 "pdflatex"
-  "main.out" 1772300225.89774 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.run.xml" 1772300228.22364 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
+  "main.aux" 1772481375.45132 66426 e5dde67489c0cb55a5247a4c7fd4c4e2 "pdflatex"
+  "main.bbl" 1772481371.90768 31431 f8127ca9d2964214a81a90cca2a49d95 "biber main"
+  "main.lof" 1772481375.46402 4448 292edad5361b8b91e3a3ee5b3db88528 "pdflatex"
+  "main.lot" 1772481375.46409 461 cfcf6ad0a57155310accbaf14ac78adb "pdflatex"
+  "main.out" 1772481373.36784 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.run.xml" 1772481375.46386 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
   "main.tex" 1771497622.85214 337 df4961bf5fd091a187fe14a1bfdc03dd ""
-  "main.toc" 1772300228.2237 7791 fb13090bb23fab94bcea1c0c123e014d "pdflatex"
+  "main.toc" 1772481375.46392 10972 2dc00efb41b6bbff0244b626789392f7 "pdflatex"
   "praxis.tex" 1771497669.58499 152 3ebd16f48f0ab5262dc6f05ec17f495e ""
-  "praxis_Felix.tex" 1772300220.57987 26918 67366153b7b434cf2fdf312a37c1cbf3 ""
-  "praxis_Timofey.tex" 1772087445.51801 3537 ffec8193ccd3f916e04f158eaa13445f ""
+  "praxis_Felix.tex" 1772474067.21406 31964 a9786b0379ac5aeeafdf64e9cdf1c21f ""
+  "praxis_Timofey.tex" 1772481365.17843 3637 dd7765cc6d67bd73d3dead5c5b832d8c ""
   "preamble.tex" 1771497498.26734 9902 c184f3192dfde2d33be83ebae7c49425 ""
   "tableofcontents.tex" 1771322208.49 684 74a712d631795294899c60a2b5541849 ""
   "theory.tex" 1771322208.49005 161 3c9c2c25022935f0981833f77fdd0d53 ""
-  "theory_Felix.tex" 1772087068.07174 59468 246fb394aea01dbfe8c52a7dfe26fd6c ""
+  "theory_Felix.tex" 1772478151.59551 60562 c5d35d6f84a622be9c1525275afd8f4a ""
   "theory_Timofey.tex" 1772189833.33425 21970 75008b8c47a8e4f8a4677ca17982021d ""
   "titlepage.tex" 1771322208.49053 2641 3026b834bf9146ffb45202dc3f692d45 ""
   (generated)
