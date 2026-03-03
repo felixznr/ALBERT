@@ -147,17 +147,12 @@ Der zentrale Vorteil der STM32-Plattform liegt in der stark ausgeprägten Commun
 \subsection{Aktuatoren}
 \label{subsec:aktuatoren}
 \subsubsection{Servos - BMS-125WV+}
+Für die Ansteuerung der Finnen sind Servos notwendig, welche die erforderlichen Kräfte und Geschwindigkeiten bereitstellen können, zugleich aber auch kompakt genug sind um in den Rumpf zu passen. Die BMS-125WV+ Servos bieten mit einem Stellmoment von 7,1\,kg/cm sowie einer Geschwindigkeit von 0.09\,s/60° bei 8.4\,V ausreichend Leistung für die Finnensteuerung und sind mit Abmessungen von 23.2\,mm $\times$ 10\,mm $\times$ 23\,mm ideal für die Integration in die Rakete. Die Servos werden per Pulsweitenmodulation (PWM) über den PWM-Controller angesteuert, welcher die Signale von der Main Processing Unit empfängt und in die entsprechenden PWM-Signale für die Servos umsetzt.
 \subsubsection{\href{https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}
-\begin{itemize}
-    \item 16-Kanal, 12-Bit PWM-Controller mit I\textsuperscript{2}C-Schnittstelle
-    \item Bereits vorhandene Treiber
-    \item Erfahrungen mit diesem Bauteil aus vorherigen Projekten
-\end{itemize}
+Der PWM-Controller übernimmt die Ansteuerung der Servos über PWM-Signale, wobei die Main Processing Unit die Steuerbefehle liefert und diese über die I\textsuperscript{2}C-Schnittstelle an den PWM-Controller übermittelt. 
+
 \subsubsection{\href{https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc028n06ls3-g-datasheet-en.pdf?fileId=db3a30431ddc9372011ebafa4c607f8c}{Pyro-Kanäle-Mosfets - BSC028N06LS3}}
-\begin{itemize}
-    \item N-Kanal-MOSFET mit einem maximalen Drain-Strom von 28\,A und einer maximalen Drain-Source-Spannung von 60\,V
-    \item Logic Level-Typ, der direkt von der 3,3\,V Logik des STM32 angesteuert werden kann
-\end{itemize}
+Um den Fallschirm auszuwerfen, werden Pyro-Kanäle benötigt, welche die pyrotechnischen Ladungen zünden. Die BSC028N06LS3 N-Kanal-MOSFETs bieten mit einem maximalen Drain-Strom von 28\,A und einer maximalen Drain-Source-Spannung von 60\,V mehr als genug Leistung für die Zündung und können direkt über Logic Level sprich die MPU angesteuert werden.
 \subsection{Weitere Peripheriekomponenten}
 \label{subsec:weitere_peripheriekomponenten}
 \subsubsection{\href{https://www.u-blox.com/en/product/u-blox8-antenna-module}{GPS Modul - ZOE-M8Q}}
@@ -177,10 +172,7 @@ Der zentrale Vorteil der STM32-Plattform liegt in der stark ausgeprägten Commun
         \item Bereits vorhandene Treiber und einfache Integration
 \end{itemize}
 \subsubsection{\href{https://www.ti.com/product/TPS54308}{Buck Converter - TPS54308}}
-\begin{itemize}
-        \item Einfache Schaltungsdimension dank \href{https://webench.ti.com/}{WEBENCH POWER DESIGNER} von Texas Instruments 
-
-\end{itemize}
+Um die Komponenten des Flightcomputers mit der benötigten Spannung von 3.3\,V zu versorgen, wird ein Buck Converter benötigt, welcher die Eingangsspannung von 7.4-8.4\,V des 2S-LiPo-Akkus auf die benötigte Spannung herunterregelt. Der TPS54308 bietet mit einem Eingangsspannungsbereich von 5.5\,V bis 36\,V und einem Ausgangsstrom von bis zu 3\,A ausreichend Leistung für die Versorgung aller Komponenten des Flightcomputers. Für die Dimensionierung der Schaltung und die Auswahl der Komponenten bietet der WEBENCH POWER DESIGNER von Texas Instruments eine einfache Möglichkeit die Entwicklung zu beschleunigen.
 \subsubsection{\href{https://www.hroparts.com/products/type-c-31-m-12-korean-hroparts-elec}{USB-C - TYPE-C-31-M-12 Korean Hroparts Elec}}
 
 
@@ -548,7 +540,7 @@ Wobei für die Eingangsgrößen $u$ im Vertikalflug gilt:
 
 \subsection{Linearisierung}
 \label{subsec:linearisierung}
-Da während der Startphase kein stationärer Arbeitspunkt existiert, erfolgt Linearisierung des Systems um die Arbeitspunkte $\bar{\mathbf{x}}_n$ durch Berechnung der Jacobimatrix der Funktion $\mathbf{f}(\mathbf{x}, \mathbf{u})$ für $n$ Arbeitspunkte. Dies führt zu den folgenden linearen von der Geschwindigkeit $\bar{\mathbf{u}}_n$ abhängigen Systemmatrizen $\mathbf{A}_n$ und $\mathbf{B}_n$ für jeden Arbeitspunkt:
+Da während der Startphase kein stationärer Arbeitspunkt existiert, erfolgt Linearisierung des Systems um den Arbeitspunkt $\bar{\mathbf{x}}_n$ durch Berechnung der Jacobimatrix der Funktion $\mathbf{f}(\mathbf{x}, \mathbf{u})$ für $n$ Arbeitspunkte. Dies führt zu den folgenden linearen von der Geschwindigkeit $\bar{\mathbf{u}}_n$ abhängigen Systemmatrizen $\mathbf{A}_n$ und $\mathbf{B}_n$ für jeden Arbeitspunkt:
 \begin{equation}
 \mathbf{A}_n = \left. \frac{\partial \mathbf{f}}{\partial \mathbf{x}} \right|_{\mathbf{x} = \bar{\mathbf{x}}, \mathbf{u} = \bar{\mathbf{u}}_n}
 \quad \text{und} \quad
