@@ -116,61 +116,37 @@ Wohingegen die MPU die zentrale Steuereinheit des Flightcomputers darstellt, wel
 \\
 Die Trennung der Aufgabengebiete dient primär der Echtzeitsicherheit und funktionalen Entkopplung. Der NAV verarbeitet hochfrequente Sensordaten (insbesondere IMU) und führt die Zustandsschätzung mittels Extended Kalman Filter unter deterministischen Zeitbedingungen aus. Diese Berechnungen erfordern konstante Latenzen und dürfen nicht durch blockierende Operationen wie Speicherzugriffe oder Funkkommunikation beeinflusst werden. Durch die Auslagerung von potenziell nichtdeterministischen Aufgaben auf eine separate MPU wird sichergestellt, dass die Zustandsschätzung auch bei hoher Systemlast stabil bleibt. Darüber hinaus reduziert die funktionale Trennung die Softwarekomplexität.
 \\ 
+Um Flugdaten sicher zu speichern werden diese während des Fluges im Flash-Speicher gespeichert und erst nach der Landung auf die SD-Karte übertragen. Dies verhindert Datenverluste da unter starken Vibrationen ein Datentransfer über die Kontakte der SD-Karte nicht garantiert werden kann.
 \section{Komponentenauswahl}
 \label{sec:komponentenauswahl}
-Im folgenden soll die Auswahl der wichtigesten Komponenten des Flightcomputers erläutert werden und die Gründe für die Auswahl dargelegt werden. 
+Im folgenden soll die Auswahl der wichtigesten Komponenten des Flightcomputers erläutert werden und die Gründe für die Auswahl dargelegt werden. Für die spätere Treiberentwicklung gilt es bereits bei der Komponentenauswahl darauf zu achten, dass umfangreiche Dokumentationen und optimalerweise Referenztreiber vorliegen da dies den Zeitaufwand später deutlich verkürzt. Desweiteren ist es essentiell darauf zu achten, dass die ausgewählten Komponenten bei dem gewählten Platinenhersteller verfügbar sind.
+
 \subsection{Sensoren}
 \label{subsec:sensoren}
 \subsubsection{\href{https://www.bosch-sensortec.com/products/motion-sensors/imus/bmi088/}{IMU1 - BMI088}}
-\begin{itemize}
-    \item 3 - Achsen-Beschleunigungssensor mit einem Messbereich von bis zu $\pm$ 16\,g
-    \item 3 - Achsen-Gyroskop mit einem Messbereich von bis zu $\pm$ 2000\,°/s
-    \item Hohe Vibrationsfestigkeit und Stoßresistenz, geeignet für den Einsatz in Raketenanwendungen
-    \item Direkter Zugriff auf die Rohdaten der Sensoren 
-    \item Bereits vorhandene Treiber von Bosch Sensortec
-\end{itemize}
+Das BMI088 ist speziell für hochdynamische Anwendungen mit starken Vibrationen konzipiert und eignet sich daher ideal für den Einsatz in Raketen. Es beinhaltet einen 3-Achsen-MEMS-Beschleunigungssensor mit einem Messbereich von bis zu $\pm$ 24\,g und einen 3-Achsen-Gyroskop mit einem Messbereich von bis zu $\pm$ 2000\,°/s. Diese Spezifikationen decken den Arbeitsbereich des Flightcomputers mit ausreichend Sicherheitsreserven ab und verhinderen bei starken Beschleunigungen am Start das Abschneiden von Signalen außerhalb des Messbereichs.
 
 \subsubsection{\href{https://www.st.com/en/mems-and-sensors/lsm6dsl.html}{IMU2 - LSM6DSLTR}}
-\begin{itemize}
-    \item 3 - Achsen-Beschleunigungssensor mit einem Messbereich von bis zu $\pm$ 16\,g
-    \item 3 - Achsen-Gyroskop mit einem Messbereich von bis zu $\pm$ 2000\,°/s
-    \item Bereits vorhandene Treiber von STMicroelectronics
-\end{itemize}
+Aufgrund der immensen Wichtigkeit der IMU-Daten für die Lagebestimmung des Systems, wird eine Inertial Measurement Unit als Backup verwendet. Der LSM6DSLTR bietet mit einem Messbereich von bis zu $\pm$ 16\,g für den Beschleunigungssensor und $\pm$ 2000\,°/s für das Gyroskop ausreichend Reserven und kann in den Sensor Fusion Algorithmus integriert werden, um die Robustheit der Zustandsschätzung zu erhöhen.
 \subsubsection{\href{https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/}{Barometer - BMP390}}
-\begin{itemize}
-    \item Präzise Luftdruckmessung mit einem Messbereich von 300\,hPa bis 1250\,hPa
-    \item Hohe Auflösung von 0,18\,Pa, was einer Höhenauflösung von etwa 1,5\,m entspricht
-    \item Bereits vorhandene Treiber von Bosch Sensortec
-\end{itemize}
+Der Drucksensor wird für die Höhenbestimmung verwendet. Mit einem Arbeitsbereich von 300-1250\,hPa und einer Genauigkeit von 0.50\,hPa erfüllt der BMP390 die Anforderungen problemlos und kann als zusätzlicher Stützwert für die Zustandsschätzung sowie als verlässliche Entscheidungsgrundlage für den Fallschirmauswurf dienen.
 \subsubsection{\href{https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf}{Magnetometer - BMM150}}
-\begin{itemize}
-    \item 3 - Achsen-Magnetometer mit einem Messbereich von $\pm$ 1300\,$\mu$T
-    \item Hohe Auflösung von 0,3\,$\mu$T, was eine präzise Bestimmung der Ausrichtung ermöglicht
-    \item Bereits vorhandene Treiber von Bosch Sensortec
-\end{itemize}
+Das Magnetometer wird zur Bestimmung der Ausrichtung der Rakete im Bezug auf den Referenzrahmen der Erde verwendet. Dabei ist es wichtig, zu beachten, dass die Messungen durch magnetische Störfelder auf der Platine beeinflusst und somit verfälscht werden können. Das BMM150 bietet einen Messbereich von $\pm$ 1300\,$\mu$T und einer Auflösung von 0.3\,$\mu$T.
 \subsection{Prozessoren}
 \label{subsec:prozessoren}
-\subsubsection{\href{https://www.st.com/en/microcontrollers-microprocessors/stm32f405rg.html}{NAV - STM32F405RGT6}}
-\begin{itemize}
-    \item 32-Bit ARM Cortex-M4 Prozessor mit FPU
-    \item 168\,MHz Taktfrequenz
-    \item 1\,MB Flash-Speicher und 192\,KB RAM
-    \item Sehr gute Dokumentation und Community-Support
-    \item Bereits vorhandene Referenzdesigns
-    \item Benutzerfreundliche Entwicklungsumgebung mit STM32CubeIDE
-\end{itemize}
-\subsubsection{\href{https://www.st.com/en/microcontrollers-microprocessors/stm32h753vit6.html}{MPU - STM32H753VIT6}}
-\begin{itemize}
-    \item 64-Bit ARM Cortex-M7 Prozessor mit FPU
-    \item 400\,MHz Taktfrequenz
-    \item 2\,MB Flash-Speicher und 512\,KB RAM
-    \item Sehr gute Dokumentation und Community-Support
-    \item Bereits vorhandene Referenzdesigns
-    \item Benutzerfreundliche Entwicklungsumgebung mit STM32CubeIDE
-\end{itemize}
+Für die Auswahl der beiden Prozessoren des Flightcomputers – der Navigation Processing Unit (NAV) sowie der Main Processing Unit (MPU) – wurde besonderer Wert auf eine umfassende technische Dokumentation, die zuverlässige Verfügbarkeit über den Leiterplattenfertiger JLCPCB sowie eine breite communitybasierte Nutzung gelegt.
+\\
+Zum Zeitpunkt des Projektbeginns beschränkte sich die schulische Ausbildung im Bereich der Mikrocontroller-Programmierung ausschließlich auf die Verwendung der Arduino-Plattform. Eine vertiefte Auseinandersetzung mit hardwarenaher Embedded-Programmierung, eigenständigem Leiterplattendesign oder der Entwicklung komplexerer Systeme war im bisherigen Unterricht nicht vorgesehen und musste sich in Eigeninitiative angeeignet werden.
+\\
+Aus den oben genannten Gründen wird für die Navigation Processing Unit (NAV) der STM32F405RGT6 von STMicroelectronics ausgewählt, da dieser Mikrocontroller eine leistungsstarke Arm Cortex-M4 CPU mit einer Taktfrequenz von bis zu 168\,MHz bietet, was ausreichend Rechenleistung für die Echtzeitverarbeitung der Zustandsschätzung gewährleistet sowie genügend Schnittstellen zur Anbindung von Sensoren bereitstellt
+\\
+Für die Main Processing Unit (MPU) wird der STM32H753VIT6 ausgewählt, da dieser mit einer ARM Cortex-M7 CPU mit einer Taktfrequenz von bis zu 400\,MHz eine deutlich höhere Rechenleistung bietet, die für die Regelung, die Verwaltung der Peripherie und die Telemetrieübertragung in Echtzeit mehr als ausreichend ist und darüber hinaus zusätzliche Pins für externe Peripherie bietet. 
+\\
+Der zentrale Vorteil der STM32-Plattform liegt in der stark ausgeprägten Community-Unterstützung. Neben der offiziellen Dokumentation stehen zahlreiche technisch hochwertige, communitygetriebene Lernressourcen zur Verfügung, welche die eigenständige Einarbeitung in komplexere Themenbereiche um ein vielfaches erleichtern.
+
 \subsection{Aktuatoren}
 \label{subsec:aktuatoren}
-\subsubsection{Servos - ??}
+\subsubsection{Servos - BMS-125WV+}
 \subsubsection{\href{https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}
 \begin{itemize}
     \item 16-Kanal, 12-Bit PWM-Controller mit I\textsuperscript{2}C-Schnittstelle

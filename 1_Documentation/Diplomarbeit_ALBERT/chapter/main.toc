@@ -69,22 +69,20 @@
 \contentsline {subsection}{\numberline {9.3.1}Sensoren}{39}{subsection.9.3.1}%
 \contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/motion-sensors/imus/bmi088/}{IMU1 - BMI088}}{39}{subsubsection*.56}%
 \contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/mems-and-sensors/lsm6dsl.html}{IMU2 - LSM6DSLTR}}{39}{subsubsection*.58}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/}{Barometer - BMP390}}{39}{subsubsection*.60}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf}{Magnetometer - BMM150}}{39}{subsubsection*.62}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/}{Barometer - BMP390}}{40}{subsubsection*.60}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf}{Magnetometer - BMM150}}{40}{subsubsection*.62}%
 \contentsline {subsection}{\numberline {9.3.2}Prozessoren}{40}{subsection.9.3.2}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/microcontrollers-microprocessors/stm32f405rg.html}{NAV - STM32F405RGT6}}{40}{subsubsection*.64}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/microcontrollers-microprocessors/stm32h753vit6.html}{MPU - STM32H753VIT6}}{40}{subsubsection*.66}%
 \contentsline {subsection}{\numberline {9.3.3}Aktuatoren}{40}{subsection.9.3.3}%
-\contentsline {subsubsection}{\nonumberline Servos - ??}{40}{subsubsection*.68}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}{40}{subsubsection*.70}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc028n06ls3-g-datasheet-en.pdf?fileId=db3a30431ddc9372011ebafa4c607f8c}{Pyro-Kanäle-Mosfets - BSC028N06LS3}}{40}{subsubsection*.72}%
+\contentsline {subsubsection}{\nonumberline Servos - BMS-125WV+}{40}{subsubsection*.64}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}{40}{subsubsection*.66}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc028n06ls3-g-datasheet-en.pdf?fileId=db3a30431ddc9372011ebafa4c607f8c}{Pyro-Kanäle-Mosfets - BSC028N06LS3}}{41}{subsubsection*.68}%
 \contentsline {subsection}{\numberline {9.3.4}Weitere Peripheriekomponenten}{41}{subsection.9.3.4}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.u-blox.com/en/product/u-blox8-antenna-module}{GPS Modul - ZOE-M8Q}}{41}{subsubsection*.74}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.radiomobiles.com/products/rfm95w-868s2}{LoRa - RFM95W-868S2}}{41}{subsubsection*.76}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.digikey.com/en/products/detail/dm3at-sf-pejm5-hrs/10274802}{SD-Karte - DM3AT-SF-PEJM5 HRS}}{41}{subsubsection*.78}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.winbond.com/products/w25n01gvzeig/}{Flash-Speicher - W25N01GVZEIG}}{41}{subsubsection*.80}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.ti.com/product/TPS54308}{Buck Converter - TPS54308}}{41}{subsubsection*.82}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.hroparts.com/products/type-c-31-m-12-korean-hroparts-elec}{USB-C - TYPE-C-31-M-12 Korean Hroparts Elec}}{41}{subsubsection*.84}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.u-blox.com/en/product/u-blox8-antenna-module}{GPS Modul - ZOE-M8Q}}{41}{subsubsection*.70}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.radiomobiles.com/products/rfm95w-868s2}{LoRa - RFM95W-868S2}}{41}{subsubsection*.72}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.digikey.com/en/products/detail/dm3at-sf-pejm5-hrs/10274802}{SD-Karte - DM3AT-SF-PEJM5 HRS}}{41}{subsubsection*.74}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.winbond.com/products/w25n01gvzeig/}{Flash-Speicher - W25N01GVZEIG}}{41}{subsubsection*.76}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.ti.com/product/TPS54308}{Buck Converter - TPS54308}}{41}{subsubsection*.78}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.hroparts.com/products/type-c-31-m-12-korean-hroparts-elec}{USB-C - TYPE-C-31-M-12 Korean Hroparts Elec}}{41}{subsubsection*.80}%
 \contentsline {chapter}{\numberline {10}Steuerungssystem}{42}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Anforderungsanalyse}{42}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Zustandsraummodellierung}{42}{section.10.2}%
