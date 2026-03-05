@@ -33,16 +33,9 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {9.1}{\ignorespaces Systemarchitektur des Flightcomputers}}{38}{figure.caption.35}%
 \addvspace {10\p@ }
-<<<<<<< HEAD
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{47}{figure.caption.81}%
-\contentsline {figure}{\numberline {10.2}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{48}{figure.caption.82}%
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{47}{figure.caption.49}%
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{48}{figure.caption.50}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {11.1}{\ignorespaces Flügelsteuermechanismus}}{51}{figure.caption.83}%
-=======
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{46}{figure.caption.49}%
-\contentsline {figure}{\numberline {10.2}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{47}{figure.caption.50}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {11.1}{\ignorespaces Flügelsteuermechanismus}}{50}{figure.caption.51}%
->>>>>>> df71cede85be3f17145c6bbf03065f94179df9ab
+\contentsline {figure}{\numberline {11.1}{\ignorespaces Flügelsteuermechanismus}}{51}{figure.caption.51}%
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
