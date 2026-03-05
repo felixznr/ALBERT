@@ -33,9 +33,16 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {9.1}{\ignorespaces Systemarchitektur des Flightcomputers}}{38}{figure.caption.54}%
 \addvspace {10\p@ }
+<<<<<<< HEAD
 \contentsline {figure}{\numberline {10.1}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{46}{figure.caption.71}%
 \contentsline {figure}{\numberline {10.2}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{47}{figure.caption.72}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {11.1}{\ignorespaces Flügelsteuermechanismus}}{50}{figure.caption.73}%
+=======
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{47}{figure.caption.49}%
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{48}{figure.caption.50}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {11.1}{\ignorespaces Flügelsteuermechanismus}}{51}{figure.caption.51}%
+>>>>>>> e00b8b4efede86edb925586bd044d49395749277
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
