@@ -156,7 +156,7 @@ Um den Fallschirm auszuwerfen, werden Pyro-Kanäle benötigt, welche die pyrotec
 
 
 \subsubsection{\href{https://www.ti.com/product/TPS54308}{Buck Converter - TPS54308}}
-Um die Komponenten des Flightcomputers mit der benötigten Spannung von 3.3\,V zu versorgen, wird ein Buck Converter benötigt, welcher die Eingangsspannung von 7.4-8.4\,V des 2S-LiPo-Akkus auf die benötigte Spannung herunterregelt. Der TPS54308 bietet mit einem Eingangsspannungsbereich von 5.5\,V bis 36\,V und einem Ausgangsstrom von bis zu 3\,A ausreichend Leistung für die Versorgung aller Komponenten des Flightcomputers. Für die Dimensionierung der Schaltung und die Auswahl der Komponenten bietet der WEBENCH POWER DESIGNER von Texas Instruments eine einfache Möglichkeit die Entwicklung zu beschleunigen.
+Um die Komponenten des Flightcomputers mit der benötigten Spannung von 3.3\,V zu versorgen, wird ein Buck Converter benötigt, welcher die Eingangsspannung von 7.4-8.4\,V des 2S-LiPo-Akkus auf die benötigte Spannung herunterregelt. Der TPS54308 bietet mit einem Eingangsspannungsbereich von 5.5\,V bis 36\,V und einem Ausgangsstrom von bis zu 3\,A ausreichend Leistung für die Versorgung aller Komponenten des Flightcomputers. 
 \\
 \\
 Auf die Auswahl der Komponenten für die SD-Karte, den Flash-Speicher, des LoRa-Moduls, des GPS-Moduls sowie des PWM-Controllers wird an dieser Stelle nicht weiter eingegangen, da diese auf Basis der Verfügbarkeit bei JLCPCB, den bereits beschriebenen Anforderungen sowie der vorhandenen Dokumentation ausgewählt wurden und eine detaillierte Erläuterung dem Kapitel keinerlei Mehrwert bieten würde.
@@ -200,7 +200,7 @@ Um die durch die digitalen Schaltvorgänge auf der 3.3\,V Schiene entstehenden h
     \begin{minipage}{0.52\textwidth}
         \centering
         \includegraphics[width=0.9\textwidth]{pifilter.png}
-        \captionof{figure}{PI-Filter zur Entkopplung der VDDA und VREF+ Pins von der VDD Schiene}
+        \captionof{figure}{PI-Filter zur Entkopplung der VDDA und VREF+ Pins von der 3.3\,V Schiene}
         \label{fig:pifilter}
     \end{minipage}
     \hfill
@@ -227,7 +227,7 @@ C_L = \frac{C_{L1} \cdot C_{L2}}{C_{L1} + C_{L2}} + C_{stray}
 wobei $C_L$ die gesamte Lastkapazität des Quarzes mit 9\,pF \cite{YSX321SL}, $C_{L1}$ und $C_{L2}$ die beiden Lastkapazitäten sowie $C_{stray}$ die parasitäre Kapazität mit angenommenen 4\,pF ist. \cite{PCBDEsignFullTutorial}
 
 
-\subsection{Versorgungskonzept}
+\subsection{Spannungsversorgung}
 \label{subsec:versorgungskonzept}
 Die Versorgung des Flightcomputer während des gesamten Fluges erfolgt über einen 2S-LiPo-Akku mit einem Spannungsbereich von 7.4\,V (vollständig entladen) bis 8.4\,V (vollständig geladen), während die Betriebsspannung der Komponenten 3.3\,V beträgt. Um nun die benötigte Betriebsspannung von 3.3\,V aus der Eingangsspannung zu erzeugen, wird ein Abwärtswandler (siehe Abschnitt \ref{sec:abwaertswandler}) verwendet, welcher die Spannung herunterregelt. Die Entscheidung fiel auf einen Abwärtswandler, da dieser im Bezug auf die Effizienz deutlich besser ist als ein linearer Spannungsregler, welcher die überschüssige Energie in Form von Wärme an die Umgebung abgibt.
 \\
@@ -235,7 +235,7 @@ Bei der Planung des Buck Converters ist es essentiell den Bauteilanforderungen d
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.8\textwidth]{BuckSchematic.png}
-    \vspace{-20pt}
+    \vspace{-25pt}
     \caption{Schaltplan des Buck Converters basierend auf dem TPS54308 }
     \label{fig:BuckSchematic}
 \end{figure}
@@ -245,12 +245,11 @@ Bei der Planung des Buck Converters ist es essentiell den Bauteilanforderungen d
    \vspace{-20pt}
     \centering
     \includegraphics[width=0.5\textwidth]{LDO.png}
-    \vspace{-20pt}
+    \vspace{-25pt}
     \caption{Schaltplan des LDOs basierend auf dem AMS1117-3.3}
     \label{fig:LDO}
     
 \end{wrapfigure}
-
 Um in der Entwicklungsphase nicht abhängig von der Akkuspannung zu sein wird die Möglichkeit geschaffen, den Flightcomputer auch über eine externe Spannungsversorgung (etwas Laptop) mit 5\,V zu versorgen, welche über die USB-C-Schnittstelle angeschlossen werden kann. In diesem Fall wird die Eingangsspannung von 5\,V über einen LDO (Low Dropout Regulator) auf die benötigten 3.3\,V herunterregelt, da zu keiner Zeit eine hohe Stromaufnahme erfolgt und die Spannungsdifferenz gering ist.
 \\
 An den Ein- und Ausgängen des LDOs sind zwei 22\,\si{\micro\farad} Kondensatoren zur Stabilisierung der Spannung verschaltet (siehe Abbildung \ref{fig:LDO}) außerdem wird eine LED zur Anzeige des Betriebszustands eingesetzt.
@@ -261,6 +260,57 @@ Um im späteren Betrieb die Möglichkeit zu haben, die Stromaufnahme sowie die S
 
 \section{Leiterplattendesign}
 \label{sec:leiterplattendesign}
+\begin{wrapfigure}{r}{0.35\textwidth}
+    \vspace{-20pt}
+  \centering
+    \includegraphics[width=0.35\textwidth]{sketch.png}
+    \vspace{-30pt}
+    \caption{Erste Skizze der Leiterplatte}
+    \label{fig:layout}
+\end{wrapfigure}
+An die Auswahl der Bauteile, die Erstellung der Schaltpläne, die Einbindung der Footprints sowie 3D-Modelle und die Durchführung eines Electric Rule Check (ERC) anschließend wird mit dem eigentlichen Design der PCB begonnen. Dabei gilt es eine Vielzahl von Faktoren zu berücksichtigen. Den ersten Schritt stellt die Auswahl des Build-up und Stack-up dar (siehe Abschnitt \ref{sec:buildup_stackup}), da der gesamte Entwicklungsprozess davon abhängt. 
+Anschließend werden die Bauteile grob nach Systemarchitektur (siehe Abbildung \ref{fig:systemarchitektur}) strukturiert, dabei werden zunächst die einzelnen ICs mit ihren jeweiligen passiven Komponenten gruppiert und in Folge nach Funktion als auch Platzbedarf angeordnet. Hierzu ist es sinnvoll bereits zuvor eine grobe Skizze der Leiterplatte zu erstellen, um strukturierter vorgehen zu können (siehe Abbildung \ref{fig:layout}).
+\newpage
+Die Dimensionen der Platine unterliegen den Limitationen des Raketenrumpfs mit einem Innendurchmesser von 80\,mm und betragen 73\,mm $\times$ 98\,mm.
+Im Bezug auf das Stack-up wird ein 4-lagiges Design mit einer Gesamtdicke von 1.6\,mm gewählt, da dies für die Anforderungen im Bezug auf Signalintegrität und Platzbedarf ausreichend ist und gleichzeitig die Kosten im Rahmen hält. Die Anordnung der Lagen erfolgt wie folgt:
+\begin{itemize}
+    \item Top Layer: Signale, Bauteile
+    \item Inner Layer 1: Masse
+    \item Inner Layer 2: Versorgungsspannung (3.3\,V)
+    \item Bottom Layer: Signale, Bauteile
+\end{itemize}
+Obwohl die Bottom-Layer nicht direkt an eine zusammenhängende Ground-Plane angrenzt, ist dies für die dort verwendeten Bauteile akzeptabel, da die zugehörigen Netze keine allzu schnellen Flanken bzw. hohen Stromtransienten aufweisen. Die Rückstromführung bleibt damit unkritisch und es sind keine signifikanten Auswirkungen auf Signalqualität oder EMV zu erwarten.
+\\
+\\
+Hier soll nun die Platine des Flightcomputers KOMADORI und die wichtigsten Designentscheidungen möglichst strukturiert und verständlich erläutert werden.
+
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pcbfront.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \vspace{2pt}
+        \includegraphics[width=1\textwidth]{pcbback.png}
+    \end{minipage}
+    \caption{Layout der Leiterplatte des Flightcomputers KOMADORI (Vorder- und Rückseite)}
+    \label{fig:pcb_layout}
+\end{figure}
+\newpage
+\subsection{Prozessorenlayout}
+\label{subsec:prozessoren_layout}
+\subsection{Abwärtswandler}
+\label{subsec:abwaertswandler}
+\subsection{GNSS Modul}
+\label{subsec:gnss_modul}
+\subsection{Servos und Pyro-Kanäle}
+\label{subsec:servos_pyro_kanaele}
+\subsection{USB-C-Schnittstelle}
+\label{subsec:usb_c_schnittstelle}
 
 \chapter{Steuerungssystem}
 \label{ch:steuerungssystem}

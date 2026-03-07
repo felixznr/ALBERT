@@ -80,39 +80,44 @@
 \contentsline {section}{\numberline {9.4}Schaltungsentwurf}{41}{section.9.4}%
 \contentsline {subsection}{\numberline {9.4.1}Sensoren}{41}{subsection.9.4.1}%
 \contentsline {subsection}{\numberline {9.4.2}Prozessoren}{42}{subsection.9.4.2}%
-\contentsline {subsection}{\numberline {9.4.3}Versorgungskonzept}{43}{subsection.9.4.3}%
+\contentsline {subsection}{\numberline {9.4.3}Spannungsversorgung}{43}{subsection.9.4.3}%
 \contentsline {section}{\numberline {9.5}Leiterplattendesign}{44}{section.9.5}%
-\contentsline {chapter}{\numberline {10}Steuerungssystem}{45}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Anforderungsanalyse}{45}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Zustandsraummodellierung}{45}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}Translationale Bewegunsgleichungen}{45}{subsection.10.2.1}%
-\contentsline {subsection}{\numberline {10.2.2}Rotatorische Bewegungsgleichungen}{47}{subsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.2.3}Ausrichtung (Attitude)}{49}{subsection.10.2.3}%
-\contentsline {subsection}{\numberline {10.2.4}Systemdynamik}{50}{subsection.10.2.4}%
-\contentsline {subsection}{\numberline {10.2.5}Bestimmung des stationären Arbeitspunkts}{51}{subsection.10.2.5}%
-\contentsline {subsection}{\numberline {10.2.6}Linearisierung}{51}{subsection.10.2.6}%
-\contentsline {section}{\numberline {10.3}Navigation}{52}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Guidance}{52}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Control}{52}{section.10.5}%
-\contentsline {chapter}{\numberline {11}CAD-Aufbau}{54}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Konzeptentwicklung}{54}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Flügelsteuermechanismus}{54}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Innenstruktur und Materialwahl}{55}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Implementierung und Fertigung}{55}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Herausforderungen und Lösungen}{55}{section.11.5}%
-\contentsline {section}{\numberline {11.6}Fazit}{55}{section.11.6}%
-\contentsline {chapter}{\numberline {12}Simulation der Aerodynamik}{56}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Simulation des Raketenkörpers in Ansys Fluent}{56}{section.12.1}%
-\contentsline {subsection}{\numberline {12.1.1}Definition der Referenzwerte und der simulierten/berechneten Werte}{56}{subsection.12.1.1}%
-\contentsline {paragraph}{\nonumberline Definition der Referenzwerte für alle Simulationsdurchgänge}{56}{paragraph*.80}%
-\contentsline {paragraph}{\nonumberline Definition der Winkel des Raketenkörpers und der Flügel}{56}{paragraph*.82}%
-\contentsline {paragraph}{\nonumberline Simulierte Beiwerte}{56}{paragraph*.84}%
-\contentsline {paragraph}{\nonumberline Aus mehreren Simulationsfällen errechnete ``Modellwerte''}{56}{paragraph*.86}%
-\contentsline {paragraph}{\nonumberline Stabilitäts- und Steuerungs-Moment-Ableitungen}{57}{paragraph*.88}%
-\contentsline {subsection}{\numberline {12.1.2}Simulationsdurchgänge}{58}{subsection.12.1.2}%
-\contentsline {section}{\numberline {12.2}Auswertung der Simulationsergebnisse}{58}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Messung eines Raketenflügels im Windkanal}{59}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Vergleich mit Messdaten}{59}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Herausforderungen und Lösungen}{59}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Fazit}{59}{section.12.6}%
+\contentsline {subsection}{\numberline {9.5.1}Prozessorenlayout}{46}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Abwärtswandler}{46}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.3}GNSS Modul}{46}{subsection.9.5.3}%
+\contentsline {subsection}{\numberline {9.5.4}Servos und Pyro-Kanäle}{46}{subsection.9.5.4}%
+\contentsline {subsection}{\numberline {9.5.5}USB-C-Schnittstelle}{46}{subsection.9.5.5}%
+\contentsline {chapter}{\numberline {10}Steuerungssystem}{47}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Anforderungsanalyse}{47}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Zustandsraummodellierung}{47}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Translationale Bewegunsgleichungen}{47}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Rotatorische Bewegungsgleichungen}{49}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Ausrichtung (Attitude)}{51}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}Systemdynamik}{52}{subsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.2.5}Bestimmung des stationären Arbeitspunkts}{53}{subsection.10.2.5}%
+\contentsline {subsection}{\numberline {10.2.6}Linearisierung}{53}{subsection.10.2.6}%
+\contentsline {section}{\numberline {10.3}Navigation}{54}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Guidance}{54}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Control}{54}{section.10.5}%
+\contentsline {chapter}{\numberline {11}CAD-Aufbau}{56}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Konzeptentwicklung}{56}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Flügelsteuermechanismus}{56}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Innenstruktur und Materialwahl}{57}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Implementierung und Fertigung}{57}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Herausforderungen und Lösungen}{57}{section.11.5}%
+\contentsline {section}{\numberline {11.6}Fazit}{57}{section.11.6}%
+\contentsline {chapter}{\numberline {12}Simulation der Aerodynamik}{58}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Simulation des Raketenkörpers in Ansys Fluent}{58}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Definition der Referenzwerte und der simulierten/berechneten Werte}{58}{subsection.12.1.1}%
+\contentsline {paragraph}{\nonumberline Definition der Referenzwerte für alle Simulationsdurchgänge}{58}{paragraph*.82}%
+\contentsline {paragraph}{\nonumberline Definition der Winkel des Raketenkörpers und der Flügel}{58}{paragraph*.84}%
+\contentsline {paragraph}{\nonumberline Simulierte Beiwerte}{58}{paragraph*.86}%
+\contentsline {paragraph}{\nonumberline Aus mehreren Simulationsfällen errechnete ``Modellwerte''}{58}{paragraph*.88}%
+\contentsline {paragraph}{\nonumberline Stabilitäts- und Steuerungs-Moment-Ableitungen}{59}{paragraph*.90}%
+\contentsline {subsection}{\numberline {12.1.2}Simulationsdurchgänge}{60}{subsection.12.1.2}%
+\contentsline {section}{\numberline {12.2}Auswertung der Simulationsergebnisse}{60}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Messung eines Raketenflügels im Windkanal}{61}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Vergleich mit Messdaten}{61}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Herausforderungen und Lösungen}{61}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Fazit}{61}{section.12.6}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
