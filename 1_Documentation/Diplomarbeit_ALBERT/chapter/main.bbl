@@ -205,6 +205,36 @@
       \verb https://patentimages.storage.googleapis.com/f7/0c/82/ff4acea094b486/WO2012126693A1.pdf
       \endverb
     \endentry
+    \entry{YSX321SL}{manual}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=92f306c31bed5178fb45604cfc04b454}{%
+           family={{JLCPCB}},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{92f306c31bed5178fb45604cfc04b454}
+      \strng{fullhash}{92f306c31bed5178fb45604cfc04b454}
+      \strng{fullhashraw}{92f306c31bed5178fb45604cfc04b454}
+      \strng{bibnamehash}{92f306c31bed5178fb45604cfc04b454}
+      \strng{authorbibnamehash}{92f306c31bed5178fb45604cfc04b454}
+      \strng{authornamehash}{92f306c31bed5178fb45604cfc04b454}
+      \strng{authorfullhash}{92f306c31bed5178fb45604cfc04b454}
+      \strng{authorfullhashraw}{92f306c31bed5178fb45604cfc04b454}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Datasheet for YSX321SL Crystall Oscillator}
+      \field{urlday}{6}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588879072148017152
+      \endverb
+      \verb{url}
+      \verb https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588879072148017152
+      \endverb
+    \endentry
     \entry{JLCDecouplingBypass}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=6089278730660d27c2f7e812bfa9ee38}{%
@@ -430,6 +460,38 @@
       \verb https://www.youtube.com/watch?v=AmfLhT5SntE&t=582s
       \endverb
     \endentry
+    \entry{PCBDEsignFullTutorial}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2ebe0aa598361ef6415e8bc30497c26b}{%
+           family={{Phil's Lab}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{fullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{bibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorbibnamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authornamehash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhash}{2ebe0aa598361ef6415e8bc30497c26b}
+      \strng{authorfullhashraw}{2ebe0aa598361ef6415e8bc30497c26b}
+      \field{extraname}{4}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{KiCad 6 STM32 PCB Design Full Tutorial - Phil's Lab 65}
+      \field{urlday}{6}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=aVUqaB0IMh4&list=PLklY_E0G-raUnTVxycViqcf9D-y793ckX&index=13
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=aVUqaB0IMh4&list=PLklY_E0G-raUnTVxycViqcf9D-y793ckX&index=13
+      \endverb
+    \endentry
     \entry{schmidt-walter_Abwärtswandler}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=cda09589287af4c4265e313fbad07a0f}{%
@@ -554,6 +616,68 @@
       \endverb
       \verb{url}
       \verb https://databookuw.com/databook.pdf
+      \endverb
+    \endentry
+    \entry{STM32F405xI}{manual}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a07ff4a7ec8f19855712b081b80c456e}{%
+           family={{STM Electronics}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{fullhash}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{fullhashraw}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{bibnamehash}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{authorbibnamehash}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{authornamehash}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{authorfullhash}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{authorfullhashraw}{a07ff4a7ec8f19855712b081b80c456e}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Datasheet for STM32F405RGT6 Microcontroller}
+      \field{urlday}{6}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.st.com/resource/en/datasheet/stm32f405rg.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.st.com/resource/en/datasheet/stm32f405rg.pdf
+      \endverb
+    \endentry
+    \entry{STM32H753xI}{manual}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a07ff4a7ec8f19855712b081b80c456e}{%
+           family={{STM Electronics}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{fullhash}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{fullhashraw}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{bibnamehash}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{authorbibnamehash}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{authornamehash}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{authorfullhash}{a07ff4a7ec8f19855712b081b80c456e}
+      \strng{authorfullhashraw}{a07ff4a7ec8f19855712b081b80c456e}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Datasheet for STM32H753VIT6 Microcontroller}
+      \field{urlday}{6}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.st.com/resource/en/datasheet/stm32h753vi.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.st.com/resource/en/datasheet/stm32h753vi.pdf
       \endverb
     \endentry
     \entry{TPS55289}{manual}{}{}

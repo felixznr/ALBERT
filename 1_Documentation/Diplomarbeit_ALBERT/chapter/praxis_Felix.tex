@@ -163,12 +163,101 @@ Auf die Auswahl der Komponenten für die SD-Karte, den Flash-Speicher, des LoRa-
  
 \section{Schaltungsentwurf}
 \label{sec:schaltungsentwurf}
-\subsection{Versorgungskonzept}
-\label{subsec:versorgungskonzept}
+Im folgenden wird der Entwicklungsprozess und der Aufbau der Schaltung näher erläutert. Dabei wird auf die Versorgungskonzept, die Sensorik sowie die Prozessoren genauer eingegangen. Für die vollständigen Schaltpläne wird auf den Anhang verwiesen (siehe Anhang \ref{app:schaltplaene}), da diese aufgrund der Komplexität und des Umfangs an dieser Stelle nicht sinnvoll dargestellt werden können.
+
+
 \subsection{Sensoren}
 \label{subsec:sensoren}
+Den wichtigsten Teil der Sensorik stellt die IMU1 (BMI088) dar, welche die Hauptquelle für die Daten der Zustandsschätzung ist. Für eine möglichst hohe Datenrate und damit eine möglichst genaue Zustandsschätzung wird die IMU1 über die SPI-Schnittstelle an die Navigation Processing Unit angebunden, da diese im Vergleich zu I\textsuperscript{2}C eine höhere Datenrate ermöglicht. Die IMU2 (LSM6DSLTR) sowie das Magnetometer (BMM150) werden über die I\textsuperscript{2}C-Schnittstelle angebunden.
+Im folgenden soll genauer auf die Anbindung der IMU1 eingegangen werden, da diese representativ für alle Sensoren ist.
+\\
+Die beiden Sensoren der IMU1 (Beschleunigungssensor und Gyroskop) teilen sich die gleiche SPI-Schnittstelle (CLK, MOSI, MISO), sind jedoch als zwei separate Sensoren implementieren und müssen aufgrund dessen mit einzelnen CS-Leitungen versehen werden. Zur rechentechnisch resourcenschonenden Anbindung werden zwei Data Ready Interrupts (DRDY) verwendet, welche die NAV-Unit darüber informieren, dass neue Daten des jeweiligen Sensors bereit zur Auslese sind. Um den Sensor in SPI Mode zu betreiben muss der PS Pin auf GND gezogen werden. Auf den Versorgungsleitungen werden zusätzlich 100\,nF Keramikkondensatoren als Decoupling-Kondensatoren eingesetzt (siehe Abbildung \ref{fig:IMU1Schematic}). Die auf dem Bild zusehenden Widerstände dienen der Zustandsdefinition beim Einschalten, sind jedoch in keinerlei Hinsicht kritisch und können auch weggelassen werden.
+
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.85\textwidth]{IMU1.png}
+    
+    \caption{Schaltplan des BMI088 }
+    \label{fig:IMU1Schematic}
+\end{figure}
+
 \subsection{Prozessoren}
 \label{subsec:prozessoren}
+Die Anbindung der beiden Prozessoren setzt eine Reihe von passiven Bauteilen voraus, um eine stabile Funktion zu gewährleisten. Im Folgenden soll anhand der Anbindung der MPU (STM32H753VIT6) genauer auf diese eingegangen werden, da die Anbindung der NAV (STM32F405RGT6) im Grunde identisch ist. \cite{STM32F405xI} \cite{STM32H753xI} 
+\\
+Der wichtigste Punkt im Bezug auf die Anbindung des Prozessors ist eine stabile Spannungsversorgung von 3.3\,V der verschiedenen Spannungsschienen. Diese teilen sich wie folgt auf: 
+\begin{itemize}
+    \item VDD: Versorgungsspannung der internen Logik und In- und Outputs des Prozessors
+    \item VDDA: Versorgungsspannung der analogen Komponenten des Prozessors (ADC, DAC, etc.)
+    \item VREF+ : Interne Referenzspannung
+    \item VBAT: Versorgungsspannung über externe Batterie
+\end{itemize}
+VDD wird direkt an die 3.3\,V Schiene angeschlossen, wobei zwischen jedem der fünf VDD-Pins und Masse ein 100\,nF Keramikkondensator als Decoupling-Kondensator eingesetzt wird, um die Stabilität der Versorgung zu gewährleisten, zusätzlich zu den 100\,nF Keramikkondensatoren wird ein 10\,\si{\micro\farad} Kondensator eingesetzt um größere Ströme zu kompensieren. 
+Um die durch die digitalen Schaltvorgänge auf der 3.3\,V Schiene entstehenden hochfrequenten Störungen zu minimieren, werden die VDDA und VREF+ Pins über einen PI-Filter von der VDD Schiene entkoppelt, welcher aus zwei 1\,\si{\micro\farad} Kondensator, einem 10\,nF Keramikkondensator sowie einem Ferrite Bead (Induktivität) mit einer Impedanz von 100\,\si{\ohm} besteht (siehe Abbildung \ref{fig:pifilter}). Für VREF+ wird zusätzlich ein RC Tiefpass eingefügt, um eine möglichst konsistente Referenzspannung zu gewährleisten. Hier stellt der Widerstand kein Problem dar, da kein nennenswerter Strom fließt. Da keine externe Batterie verwendet wird, kann der VBAT Pin als VDD Pin behandelt werden.
+
+\begin{minipage}{\textwidth}
+    \begin{minipage}{0.52\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{pifilter.png}
+        \captionof{figure}{PI-Filter zur Entkopplung der VDDA und VREF+ Pins von der VDD Schiene}
+        \label{fig:pifilter}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.47\textwidth}
+        \centering
+        \vspace{2pt}
+        \includegraphics[width=0.9\textwidth]{RCFilter.png}
+        \captionof{figure}{RC-Tiefpass zur Stabilisierung der Referenzspannung am VREF+ Pin}
+        \label{fig:rc_filter}
+    \end{minipage}
+\end{minipage}
+\vspace{1cm}
+\begin{wrapfigure}{r}{0.4\textwidth}
+        \vspace{-20pt}
+        \centering
+        \includegraphics[width=0.26\textwidth]{Quarz.png}
+        \captionof{figure}{Quarzschwingkreis zur Taktfrequenzgenerierung}
+        \label{fig:quarz}
+\end{wrapfigure}
+Auch wenn der STM32H753VIT6 über eine interne Clock-Quelle verfügt, wird eine externer Quarz (High Speed External Crystal) mit einer Frequenz von 16\,MHz verwendet, um eine höhere Genauigkeit der Taktfrequenz zu erreichen. Der Quarz wird über zwei 10\,pF Lastkapazitäten mit Masse verbunden, um die Schwingung zuverlässig zu starten und auf der vorgesehenen Frequenz zu halten (siehe Abbildung \ref{fig:quarz}). Die Werte für die Lastkapazitäten basieren auf folgender Formel:
+\begin{equation}
+C_L = \frac{C_{L1} \cdot C_{L2}}{C_{L1} + C_{L2}} + C_{stray}
+\end{equation}
+wobei $C_L$ die gesamte Lastkapazität des Quarzes mit 9\,pF \cite{YSX321SL}, $C_{L1}$ und $C_{L2}$ die beiden Lastkapazitäten sowie $C_{stray}$ die parasitäre Kapazität mit angenommenen 4\,pF ist. \cite{PCBDEsignFullTutorial}
+
+
+\subsection{Versorgungskonzept}
+\label{subsec:versorgungskonzept}
+Die Versorgung des Flightcomputer während des gesamten Fluges erfolgt über einen 2S-LiPo-Akku mit einem Spannungsbereich von 7.4\,V (vollständig entladen) bis 8.4\,V (vollständig geladen), während die Betriebsspannung der Komponenten 3.3\,V beträgt. Um nun die benötigte Betriebsspannung von 3.3\,V aus der Eingangsspannung zu erzeugen, wird ein Abwärtswandler (siehe Abschnitt \ref{sec:abwaertswandler}) verwendet, welcher die Spannung herunterregelt. Die Entscheidung fiel auf einen Abwärtswandler, da dieser im Bezug auf die Effizienz deutlich besser ist als ein linearer Spannungsregler, welcher die überschüssige Energie in Form von Wärme an die Umgebung abgibt.
+\\
+Bei der Planung des Buck Converters ist es essentiell den Bauteilanforderungen des Herstellers insbesondere bei der Induktivität und den Kondensatoren nachzukommen, da diese die Stabilität der Schaltung sowie die Qualität der Ausgangsspannung maßgeblich beeinflussen. Aufgrund dessen wurde der WEBENCH POWER DESIGNER von Texas Instruments verwendet, um die Schaltung zu dimensionieren und die passenden Komponenten auszuwählen. In der Abbildung \ref{fig:BuckSchematic} ist der Schaltplan des Buck Converters mit Ein- und Ausgangskondensatoren, Induktivität, Feedback Spannungsteiler zur Ausgansspannungseinstellung sowie einem Testpunkt und einer Lötbrücke zur späteren Funktionsvalidierung und Inbetriebnahme zu sehen.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.8\textwidth]{BuckSchematic.png}
+    \vspace{-20pt}
+    \caption{Schaltplan des Buck Converters basierend auf dem TPS54308 }
+    \label{fig:BuckSchematic}
+\end{figure}
+
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+   \vspace{-20pt}
+    \centering
+    \includegraphics[width=0.5\textwidth]{LDO.png}
+    \vspace{-20pt}
+    \caption{Schaltplan des LDOs basierend auf dem AMS1117-3.3}
+    \label{fig:LDO}
+    
+\end{wrapfigure}
+
+Um in der Entwicklungsphase nicht abhängig von der Akkuspannung zu sein wird die Möglichkeit geschaffen, den Flightcomputer auch über eine externe Spannungsversorgung (etwas Laptop) mit 5\,V zu versorgen, welche über die USB-C-Schnittstelle angeschlossen werden kann. In diesem Fall wird die Eingangsspannung von 5\,V über einen LDO (Low Dropout Regulator) auf die benötigten 3.3\,V herunterregelt, da zu keiner Zeit eine hohe Stromaufnahme erfolgt und die Spannungsdifferenz gering ist.
+\\
+An den Ein- und Ausgängen des LDOs sind zwei 22\,\si{\micro\farad} Kondensatoren zur Stabilisierung der Spannung verschaltet (siehe Abbildung \ref{fig:LDO}) außerdem wird eine LED zur Anzeige des Betriebszustands eingesetzt.
+\\
+Um im späteren Betrieb die Möglichkeit zu haben, die Stromaufnahme sowie die Spannung des Akkus zu überwachen, wird außerdem ein Strom \& Spannungsmesser in die Schaltung integriert, welcher die Messwerte über eine I\textsuperscript{2}C-Schnittstelle an die Main Processing Unit übermittelt.
+
+
 
 \section{Leiterplattendesign}
 \label{sec:leiterplattendesign}
@@ -548,6 +637,37 @@ Mit $\Delta\mathbf{x} = \mathbf{x} - \bar{\mathbf{x}}_n$ und $\Delta\mathbf{u} =
 \dot{\mathbf{x}} = \mathbf{A}_n \mathbf{x} + \mathbf{B}_n \mathbf{u}
 \end{equation}
 Zur Bestimmung der Systemmatrizen $\mathbf{A}_n$ und $\mathbf{B}_n$ wird die \textit{Symbolic Toolbox} von MATLAB verwendet. Zun\"achst werden die Jacobi-Matrizen des nichtlinearen Zustandsraummodells $\dot{\mathbf{x}}=\mathbf{f}(\mathbf{x},\mathbf{u})$ symbolisch berechnet. Durch Auswertung dieser Ableitungen an den festgelegten Arbeitspunkten (Einsetzen der jeweiligen Zustands- und Eingangsgrößen sowie der Modellparameter) ergeben sich die numerischen Systemmatrizen. Die folgenden Matrizen $\mathbf{A}_n$ und $\mathbf{B}_n$ beschreiben die lineare Dynamik der Rakete um die jeweiligen Arbeitspunkte mit verschiedenen Geschwindigkeiten $u$ in $x$ Richtung.
+
+\begin{sidewaystable}
+\centering
+\begin{equation}
+\mathbf{A}_n =
+\begin{array}{l}
+\left(\begin{array}{ccccccccc}
+-\frac{49\,u_b }{16000}-\frac{49\,v_b }{12000}-\frac{49\,w_b }{12000} & r-\frac{49\,u_b }{12000} & -q-\frac{49\,u_b }{12000} & 0 & -w_b  & v_b  & 0 & -\frac{981\,\cos \left(\psi \right)\,\sin \left(\theta \right)}{100} & -\frac{981\,\cos \left(\theta \right)\,\sin \left(\psi \right)}{100}\\
+\frac{49\,v_b }{960}-r-\frac{49\,u_b \,{\left(\delta_{\zeta } +\frac{10\,v_b }{u_b }\right)}}{4800} & \sigma_4  & p & w_b  & 0 & -u_b  & \frac{981\,\sin \left(\phi \right)\,\sin \left(\psi \right)}{100}+\frac{981\,\cos \left(\phi \right)\,\cos \left(\psi \right)\,\sin \left(\theta \right)}{100} & \frac{981\,\cos \left(\psi \right)\,\cos \left(\theta \right)\,\sin \left(\phi \right)}{100} & -\frac{981\,\cos \left(\phi \right)\,\cos \left(\psi \right)}{100}-\frac{981\,\sin \left(\phi \right)\,\sin \left(\psi \right)\,\sin \left(\theta \right)}{100}\\
+q+\frac{49\,w_b }{960}-\frac{49\,u_b \,{\left(\delta_{\eta } +\frac{10\,w_b }{u_b }\right)}}{4800} & -p & \sigma_4  & -v_b  & u_b  & 0 & \frac{981\,\cos \left(\phi \right)\,\sin \left(\psi \right)}{100}-\frac{981\,\cos \left(\psi \right)\,\sin \left(\phi \right)\,\sin \left(\theta \right)}{100} & \frac{981\,\cos \left(\phi \right)\,\cos \left(\psi \right)\,\cos \left(\theta \right)}{100} & \frac{981\,\cos \left(\psi \right)\,\sin \left(\phi \right)}{100}-\frac{981\,\cos \left(\phi \right)\,\sin \left(\psi \right)\,\sin \left(\theta \right)}{100}\\
+\frac{49\,\delta_r \,u_b }{400}-\frac{49\,p}{800} & 0 & 0 & -\frac{49\,u_b }{800} & 0 & 0 & 0 & 0 & 0\\
+\frac{343\,w_b }{1600}-\frac{49\,q}{4000}+\frac{147\,\delta_{\eta } \,u_b }{1600} & 0 & \frac{343\,u_b }{1600} & \frac{3\,r}{4} & \sigma_3  & \frac{3\,p}{4} & 0 & 0 & 0\\
+\frac{343\,v_b }{1600}-\frac{49\,r}{4000}+\frac{147\,\delta_{\zeta } \,u_b }{1600} & \frac{343\,u_b }{1600} & 0 & -\frac{3\,q}{4} & -\frac{3\,p}{4} & \sigma_3  & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & \frac{\sin \left(\phi \right)\,\sin \left(\theta \right)}{\cos \left(\theta \right)} & \frac{\cos \left(\phi \right)\,\sin \left(\theta \right)}{\cos \left(\theta \right)} & \frac{\sin \left(\theta \right)\,\sigma_1 }{\cos \left(\theta \right)} & r\,\cos \left(\phi \right)+q\,\sin \left(\phi \right)+\frac{{\sin \left(\theta \right)}^2 \,\sigma_2 }{{\cos \left(\theta \right)}^2 } & 0\\
+0 & 0 & 0 & 0 & \cos \left(\phi \right) & -\sin \left(\phi \right) & -r\,\cos \left(\phi \right)-q\,\sin \left(\phi \right) & 0 & 0\\
+0 & 0 & 0 & 0 & \frac{\sin \left(\phi \right)}{\cos \left(\theta \right)} & \frac{\cos \left(\phi \right)}{\cos \left(\theta \right)} & \frac{\sigma_1 }{\cos \left(\theta \right)} & \frac{\sin \left(\theta \right)\,\sigma_2 }{{\cos \left(\theta \right)}^2 } & 0
+\end{array}\right)\\
+\mathrm{}\\
+\textrm{where}\\
+\mathrm{}\\
+\;\;\sigma_1 =q\,\cos \left(\phi \right)-r\,\sin \left(\phi \right)\\
+\mathrm{}\\
+\;\;\sigma_2 =r\,\cos \left(\phi \right)+q\,\sin \left(\phi \right)\\
+\mathrm{}\\
+\;\;\sigma_3 =-\frac{49\,u_b }{4000}\\
+\mathrm{}\\
+\;\;\sigma_4 =-\frac{49\,u_b }{960}
+\end{array}
+\end{equation}
+\end{sidewaystable}
+
 
 
 

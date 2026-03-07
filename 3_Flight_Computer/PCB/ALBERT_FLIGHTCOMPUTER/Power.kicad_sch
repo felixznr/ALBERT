@@ -2610,7 +2610,7 @@
 		)
 		(uuid "7f1a15f8-fd49-436a-b94a-7fe550eef80a")
 	)
-	(text "Buck Converter 1 12V/3V3\n"
+	(text "Buck Converter 8V/3V3\n"
 		(exclude_from_sim no)
 		(at 151.13 67.31 0)
 		(effects
@@ -3410,16 +3410,6 @@
 		)
 		(uuid "fcbc6362-d50e-4f81-9e1f-60166a165439")
 	)
-	(label "PWR LED Kathode"
-		(at 101.6 64.77 0)
-		(effects
-			(font
-				(size 0.8 0.8)
-			)
-			(justify left bottom)
-		)
-		(uuid "f1b826c0-ca77-4da0-8e32-f164301603a1")
-	)
 	(global_label "IN-"
 		(shape output)
 		(at 93.98 35.56 270)
@@ -4098,6 +4088,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"

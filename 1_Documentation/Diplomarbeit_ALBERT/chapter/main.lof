@@ -32,17 +32,16 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {9.1}{\ignorespaces Systemarchitektur des Flightcomputers}}{38}{figure.caption.54}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Schaltplan des BMI088 }}{42}{figure.caption.71}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces PI-Filter zur Entkopplung der VDDA und VREF+ Pins von der VDD Schiene}}{43}{figure.9.3}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces RC-Tiefpass zur Stabilisierung der Referenzspannung am VREF+ Pin}}{43}{figure.9.4}%
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Quarzschwingkreis zur Taktfrequenzgenerierung}}{43}{figure.caption.72}%
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Schaltplan des Buck Converters basierend auf dem TPS54308 }}{44}{figure.caption.73}%
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Schaltplan des LDOs basierend auf dem AMS1117-3.3}}{44}{figure.caption.74}%
 \addvspace {10\p@ }
-<<<<<<< HEAD
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{46}{figure.caption.71}%
-\contentsline {figure}{\numberline {10.2}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{47}{figure.caption.72}%
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{49}{figure.caption.75}%
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{50}{figure.caption.76}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {11.1}{\ignorespaces Flügelsteuermechanismus}}{50}{figure.caption.73}%
-=======
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{47}{figure.caption.49}%
-\contentsline {figure}{\numberline {10.2}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{48}{figure.caption.50}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {11.1}{\ignorespaces Flügelsteuermechanismus}}{51}{figure.caption.51}%
->>>>>>> e00b8b4efede86edb925586bd044d49395749277
+\contentsline {figure}{\numberline {11.1}{\ignorespaces Flügelsteuermechanismus}}{54}{figure.caption.78}%
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
