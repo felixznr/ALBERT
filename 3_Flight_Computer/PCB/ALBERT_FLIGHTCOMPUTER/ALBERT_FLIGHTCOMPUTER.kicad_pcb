@@ -37013,7 +37013,7 @@
 			(uuid "a46fad7f-705a-45b8-a26d-1e82f472d907")
 		)
 		(fp_text user "${REFERENCE}"
-			(at -4.2 -0.1 0)
+			(at -3.5 -0.1 0)
 			(layer "F.Fab")
 			(uuid "9e0f0194-da83-4a45-adb1-f427b5131627")
 			(effects
@@ -63396,14 +63396,6 @@
 		(uuid "02fe6613-0096-45ff-9d36-c1e24d80460d")
 	)
 	(segment
-		(start 69.18 123.035)
-		(end 70.500235 123.035)
-		(width 0.5)
-		(layer "F.Cu")
-		(net 5)
-		(uuid "05c51761-0dc2-46ce-9f6a-4fd5606fe435")
-	)
-	(segment
 		(start 70.88104 123.415805)
 		(end 70.88104 120.65)
 		(width 0.5)
@@ -63412,12 +63404,12 @@
 		(uuid "0d5dc95b-85c8-4de1-b7bb-8a7589128ba2")
 	)
 	(segment
-		(start 70.500235 123.035)
-		(end 70.88104 123.415805)
+		(start 69.18 123.035)
+		(end 70.500235 123.035)
 		(width 0.5)
 		(layer "F.Cu")
 		(net 5)
-		(uuid "5c80dd91-7d98-48cd-a7f0-4db6586bb95c")
+		(uuid "1301f9f4-61de-4c20-bdde-2b50fb9e18b6")
 	)
 	(segment
 		(start 70.35 120.65)
@@ -63434,6 +63426,14 @@
 		(layer "F.Cu")
 		(net 5)
 		(uuid "897b5253-b8b6-4cfa-bea5-2263484a9add")
+	)
+	(segment
+		(start 70.500235 123.035)
+		(end 70.88104 123.415805)
+		(width 0.5)
+		(layer "F.Cu")
+		(net 5)
+		(uuid "a54a3ae4-0920-444a-99aa-152997bcd6ea")
 	)
 	(segment
 		(start 72.58 120.37)

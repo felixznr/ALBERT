@@ -108,7 +108,7 @@ Auf Basis der Anforderungen an die Funktionen und Eigenschaften des Flightcomput
     \caption{Systemarchitektur des Flightcomputers}
     \label{fig:systemarchitektur}
 \end{figure}
-Die Hardwarearchitektur des Flightcomputers teilt sich in zwei Hauptkomponenten auf: Navigation Processing Unit (NAV) mit den Sensoren und Main Processing Unit (MPU) mit der Aktuatorik, den Datenspeichern sowie der Telemetrie (LoRa). Der NAV ist für die Erfassung der Sensordaten und die Berechnung der Fluglage, Geschwindigkeit sowie Position verantwortlich. Er empfängt Daten von den Sensoren (IMU 1, IMU 2, Barometer, Magnetometer und GPS) und verarbeitet diese mittels Sensor Fusion (siehe Kapitel \ref{subsec:erweiterter_kalman_filter}).
+Die Hardwarearchitektur des Flightcomputers teilt sich in zwei Hauptkomponenten auf: Navigation Processing Unit (NAV) mit den Sensoren und Main Processing Unit (MPU) mit der Aktuatorik, den Datenspeichern sowie der Telemetrie (LoRa). Die NAV ist für die Erfassung der Sensordaten und die Berechnung der Fluglage, Geschwindigkeit sowie Position verantwortlich. Er empfängt Daten von den Sensoren (IMU 1, IMU 2, Barometer, Magnetometer und GPS) und verarbeitet diese mittels Sensor Fusion (siehe Kapitel \ref{subsec:erweiterter_kalman_filter}).
 \\
 Wohingegen die MPU die zentrale Steuereinheit des Flightcomputers darstellt, welche die Steuerungsalgorithmen ausführt, die Aktuatoren (Servos und Pyro-Kanäle) ansteuert, die Flugdaten auf der SD-Karte und im Flash-Speicher speichert sowie die Telemetriedaten über LoRa überträgt. Die MPU empfängt die Zustandsschätzung vom NAV und verarbeitet diese mittels LQR Regelung (siehe Kapitel \ref{subsec:lqr_regelung}), um die erforderlichen Steuerbefehle für die Servos zu berechnen.
 \\
@@ -148,8 +148,8 @@ Der zentrale Vorteil der STM32-Plattform liegt in der stark ausgeprägten Commun
 \subsubsection{Servos - BMS-125WV+}
 Für die Ansteuerung der Finnen sind Servos notwendig, welche die erforderlichen Kräfte und Geschwindigkeiten bereitstellen können, zugleich aber auch kompakt genug sind um in den Rumpf zu passen. Die BMS-125WV+ Servos bieten mit einem Stellmoment von 7,1\,kg/cm sowie einer Geschwindigkeit von 0.09\,s/60° bei 8.4\,V ausreichend Leistung für die Finnensteuerung und sind mit Abmessungen von 23.2\,mm $\times$ 10\,mm $\times$ 23\,mm ideal für die Integration in die Rakete. Die Servos werden per Pulsweitenmodulation (PWM) über den PWM-Controller angesteuert.
 \subsubsection{\href{https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}
-Aufgrund des Bedürfnisses, 8 Servos anzusteuern, ist eine Implementierung eines PWM-Controller sinnvoll um die Anzahl der belegten Pins der MPU zu reduzieren und die Ansteuerung der Servos zu vereinfachen.
-Dabei übernimmt der PWM-Controller die Ansteuerung der Servos, wobei die Main Processing Unit die Steuerbefehle per I\textsuperscript{2}C-Schnittstelle übermittelt. Der PCA9685PW,118 bietet 16 Kanäle mit 12-Bit-Auflösung und ist mit einem Betriebsspannungsbereich von 2.3\,V bis 5.5\,V kompatibel mit der Logikspannung der MPU.
+Um acht Servos anzusteuern, ist die Implementierung eines PWM-Controllers sinnvoll, da sich so die Anzahl der belegten Pins der MPU reduziert und die Ansteuerung der Servos vereinfacht wird.
+Die Steuerbefehle werden dabei per I\textsuperscript{2}C-Schnittstelle von der MPU übermittelt. Der PCA9685PW,118 bietet 16 Kanäle mit 12-Bit-Auflösung und ist mit einem Betriebsspannungsbereich von 2.3\,V bis 5.5\,V kompatibel mit der Logikspannung der MPU.
 \subsubsection{\href{https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc028n06ls3-g-datasheet-en.pdf?fileId=db3a30431ddc9372011ebafa4c607f8c}{Pyro-Kanäle-Mosfets - BSC028N06LS3}}
 Um den Fallschirm auszuwerfen, werden Pyro-Kanäle benötigt, welche die pyrotechnischen Ladungen zünden. Die BSC028N06LS3 N-Kanal-MOSFETs bieten mit einem maximalen Drain-Strom von 28\,A und einer maximalen Drain-Source-Spannung von 60\,V mehr als genug Leistung für die Zündung und können direkt über Logic Level sprich die MPU angesteuert werden.
 
@@ -303,8 +303,40 @@ Hier soll nun die Platine des Flightcomputers KOMADORI und die wichtigsten Desig
 \newpage
 \subsection{Prozessorenlayout}
 \label{subsec:prozessoren_layout}
+\begin{wrapfigure}{r}{0.4\textwidth}
+    \centering
+    \vspace{-10pt}
+    \includegraphics[width=0.4\textwidth]{MPULayout.png}
+    \caption{Layout der MPU mit den zugehörigen passiven Komponenten}
+    \label{fig:prozessoren_layout}
+\end{wrapfigure}
+Der wichtigste Teil der Leiterplatte stellt das Layout der beiden Prozessoren dar, da ohne diese keine Funktionalität gegeben ist. In der Abbildung \ref{fig:prozessoren_layout} ist das Layout der Main Processing Unit (MPU) mit den zugehörigen passiven Komponenten zu sehen. Die Decoupling-Kondensatoren (in Orange) sind so nah wie möglich an den VDD-Pins zu platzieren (siehe Abschnitt \ref{sec:bypass_decoupling}). Der PI-Filter (in Gelb) ist so angeordnet, dass die Leitungen zwischen den Kondensatoren und der Induktvität möglichst kurz sind. Der RC-Tiefpass (in Grün) ist nach dem gleichen Prinzip angeordnet. Der Quarzschwingkreis (in Blau) ist so angeordnet, dass die Leitungen zum Quarz direkt durch die Pads der Lastkapazitäten geführt werden.
+Es ist darauf zu achten, beim Herausführen der Leiterbahnen aus den Pads den Abstand der Leiterbahnen möglich bald zu vergrößern um Crosstalk zu minimieren. 
+
+
 \subsection{Abwärtswandler}
 \label{subsec:abwaertswandler}
+Im Theorie-Teil wurde bereits die Funktionsweise als auch die Layoutrichtlinien für die Implementierung eines Buck Converters erläutert (siehe Abschnitt \ref{sec:abwaertswandler}), desweiteren ist der Schaltplan des Buck Converters und die Auswahl der Komponenten im Abschnitt \ref{subsec:versorgungskonzept} beschrieben. Hier folgt nun die Umsetzung des Buck Converters auf der Leiterplatte.
+\\
+Nach dem Herstellerdatenblatt des TPS54308 \cite{TPS54308} sollen die Ein- und Ausgangskondensatoren so nah wie möglich am IC platziert werden, Eingangsspannungs- und Masseleitungen so kurz und breit wie möglich gehalten werden, keine Schaltströme unter dem Spannungswandler geführt werden und die Rückführung auf einer internen Lage zwischen Switch Pin und der Induktivität so kurz und breit wie möglich gehalten werden. 
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.35\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Bucklayout.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.6\textwidth}
+        \centering
+        \vspace{2pt}
+        \includegraphics[width=1\textwidth]{bucklayoutexample.png}
+    \end{minipage}
+    \caption{Layout der Leiterplatte des Flightcomputers KOMADORI (Vorder- und Rückseite)}
+    \label{fig:buckpcb_layout}
+    \vspace{-10pt}
+\end{figure}
+Das Layout des Buck-Converters ist in Abbildung \ref{fig:buckpcb_layout} links dargestellt. Rechts daneben befindet sich ein Referenzlayout des Herstellers, das die empfohlenen Layoutrichtlinien veranschaulicht. Zur besseren Orientierung wurden die Power-Puddles in beiden Abbildungen farblich hervorgehoben.
 \subsection{GNSS Modul}
 \label{subsec:gnss_modul}
 \subsection{Servos und Pyro-Kanäle}

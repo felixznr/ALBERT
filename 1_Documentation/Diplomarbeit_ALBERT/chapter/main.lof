@@ -40,10 +40,12 @@
 \contentsline {figure}{\numberline {9.7}{\ignorespaces Schaltplan des LDOs basierend auf dem AMS1117-3.3}}{44}{figure.caption.74}%
 \contentsline {figure}{\numberline {9.8}{\ignorespaces Erste Skizze der Leiterplatte}}{44}{figure.caption.75}%
 \contentsline {figure}{\numberline {9.9}{\ignorespaces Layout der Leiterplatte des Flightcomputers KOMADORI (Vorder- und Rückseite)}}{45}{figure.caption.76}%
+\contentsline {figure}{\numberline {9.10}{\ignorespaces Layout der MPU mit den zugehörigen passiven Komponenten}}{46}{figure.caption.77}%
+\contentsline {figure}{\numberline {9.11}{\ignorespaces Layout der Leiterplatte des Flightcomputers KOMADORI (Vorder- und Rückseite)}}{46}{figure.caption.78}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{51}{figure.caption.77}%
-\contentsline {figure}{\numberline {10.2}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{52}{figure.caption.78}%
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{52}{figure.caption.79}%
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{53}{figure.caption.80}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {11.1}{\ignorespaces Flügelsteuermechanismus}}{56}{figure.caption.80}%
+\contentsline {figure}{\numberline {11.1}{\ignorespaces Flügelsteuermechanismus}}{57}{figure.caption.82}%
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
