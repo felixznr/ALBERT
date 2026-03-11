@@ -339,10 +339,24 @@ Nach dem Herstellerdatenblatt des TPS54308 \cite{TPS54308} sollen die Ein- und A
 Das Layout des Buck-Converters ist in Abbildung \ref{fig:buckpcb_layout} links dargestellt. Rechts daneben befindet sich ein Referenzlayout des Herstellers, das die empfohlenen Layoutrichtlinien veranschaulicht. Zur besseren Orientierung wurden die Power-Puddles in beiden Abbildungen farblich hervorgehoben.
 \subsection{GNSS Modul}
 \label{subsec:gnss_modul}
+Im Datenblatt des verwendeten GPS-Moduls ZOE-M8Q siehe \cite{ZOE-M8Q} werden mehrer Layoutempfehlungen gegeben, um eine optimale Funktionalität zu gewährleisten. Dabei ist die räumliche Trennung des GPS-Moduls von digitalen Komponenten und insbesondere der Abstand zur Antenne von großer Bedeutung um Störungen zu minimieren. Desweiteren ist eine gute Masseanbindung, eine durchgehende Masse Fläche sowie eine Abschirmung durch einen GND-Via Ring des GPS-Moduls essentiell.
+\\
+\begin{wrapfigure}{r}{0.5\textwidth}
+    \centering
+    \vspace{-10pt}
+    \includegraphics[width=0.5\textwidth]{GPSachleckmichamarsch.png}
+    \caption{Layout des GPS-Moduls mit den zugehörigen Designrichtlinien}
+    \label{fig:gps_layout}
+    \vspace{-10pt}
+\end{wrapfigure}
+In der Abbildung \ref{fig:gps_layout} ist das Layout des GPS-Moduls dargestellt. Das GPS-Modul befindet sich in der linken oberen Ecke auf der Vorderseite der Leiterplatte, mit einer direkt darunterliegenden durchgehenden Massefläche und ist damit sowohl auf der Vorder- als auch auf der Rückseit von digitalen Störungen räumlich getrennt  Um die Störanfälligkeit weiter zu minimieren, ist das GPS-Modul von einem Ring aus GND-Vias umgeben, welcher als Abschirmung dient. Die per SMA-Stecker angeschlossene Antenne wird über einen 50\,$\Omega$ Microstrip mit einer Breite von 0.12\,mm mit dem RF-Input des GPS-Moduls verbunden. Wobei die Breite des Microstrips mit einem Impendanzrechner von JLCPCB basierend auf den Stack-up Spezifikationen der Leiterplatte berechnet wird. Bei den an den Microstrip angeschlossenen Bauteilen handelt es sich um die Speisung für die Aktivantenne. Es soll an dieser Stelle nicht näher auf auf die Beschaltung des GPS-Moduls eingegangen werden, da diese auf Basis des Datenblatts und der Bauteilvorschläge des Herstellers erfolgt und eine detaillierte Erläuterung den Rahmen sprengen würde.
 \subsection{Servos und Pyro-Kanäle}
 \label{subsec:servos_pyro_kanaele}
-\subsection{USB-C-Schnittstelle}
-\label{subsec:usb_c_schnittstelle}
+Die Servos werden direkt über die Eingangsspannung des 2S-LiPo-Akkus (7.4–8.4\,V) versorgt, da sie bei höherer Versorgungsspannung eine größere Stellgeschwindigkeit erreichen. 
+Ebenso werden die Pyro-Kanäle direkt über die Akkuspannung betrieben, da beim Zünden der pyrotechnischen Ladungen kurzzeitig hohe Ströme auftreten. 
+Durch die direkte Versorgung aus dem Akku wird verhindert, dass diese Stromspitzen zu Spannungseinbrüchen auf der 3.3\,V-Versorgungsschiene der Steuerelektronik führen.
+\\
+Um die höheren Ströme der Servos und Pyro-Kanäle zu bewältigen, werden die entsprechenden Leiterbahnen möglichst breit ausgeführt, desweitern werden diese auf der dritten Lage der Leiterplatte geführt.
 
 \chapter{Steuerungssystem}
 \label{ch:steuerungssystem}
@@ -750,25 +764,34 @@ q+\frac{49\,w_b }{960}-\frac{49\,u_b \,{\left(\delta_{\eta } +\frac{10\,w_b }{u_
 \end{equation}
 \end{sidewaystable}
 
+\section{Linear Quadratic Gaussian}
+\label{sec:lqg}
+\subsection{Steuerbarkeit}
+\label{subsec:steuerbarkeit}
+Um sich im ersten Schritt ein Bild über die Regelstrecke zu machen, werden zuerst die Eigenwerte der Systemmatrix $\mathbf{A}_n$ für die verschiedenen Arbeitspunkte berechnet. Alle Eigenwerte bis auf einen haben negative Realteile, was darauf hindeutet, dass das System um die Arbeitspunkte stabil ist. Der eine Eigenwert mit positivem Realteil ist durch die Geschwindigkeit $u$ in $x$ Richtung bedingt.
+% ATTENTION DIESE WERTE SIND FÜR EXEMPLARISCHE WERTE UND MÜSSEN SPÄTER ANGEPASST WERDEN
+\begin{equation}
+\begin{bmatrix}
+-0.1531 \\
+-1.4844 + 23.1239i \\
+-1.4844 - 23.1239i \\
+-0.1958 \\
+-24.6607 \\
+21.6927 \\
+-0.1966 \\
+0.0000 \\
+0.0000
+\end{bmatrix}
+\end{equation}
+Nachdem die Eigenwerte berechnet wurden, wird die Steuerbarkeit des Systems überprüft. Das System ist steuerbar, wenn die Steuerbarkeitsmatrix $\mathcal{C} = [\mathbf{B}_n, \mathbf{A}_n \mathbf{B}_n, \mathbf{A}_n^2 \mathbf{B}_n, \ldots, \mathbf{A}_n^{n-1} \mathbf{B}_n]$ vollen Rang hat. Dies wird mit \texttt{ctrlrank = rank(ctrb(A,B))} Funktion in MATLAB überprüft. Als Rückgabewert erhält man für den Wert 8, was bedeutet, dass das System nicht vollständig steuerbar ist, da die Systemdimension 9 beträgt, was auch völlig logisch ist, wenn man bedenkt, dass die Geschwindigkeit $u$ maßgeblich von der Schubkraft bestimmt wird, die nicht als Steuergröße zur Verfügung steht.
+\\
+In Folge dieser Erkenntnis wird das System um die nicht steuerbare Geschwindigkeit $u$ reduziert, wobei die Größe trotzdem in der Zustandsschätzung berücksichtigt wird, da die anderen Systemgrößen von der Geschwindigkeit $u$ abhängen. 
+
+\subsection{Ermittlung der K Matrix}
+\label{subsec:k_matrix}
+
+\subsection{Kalman Filter}
 
 
-
-
-
-
-\section{Navigation}
-\label{sec:navigation}
-Um das System steuern zu können ist es zwingend notwendig die aktuellen Systemzustände zu kennen.
-Durch die Sensoren werden aktuelle Systemgrößen erfasst, wodurch \dots
-
-
-
-
-
-
-
-\section{Guidance}
-\label{sec:guidance}
-
-\section{Control}
-\label{sec:control}
+\section{Implementierung in C}
+\label{sec:implementation_in_c}

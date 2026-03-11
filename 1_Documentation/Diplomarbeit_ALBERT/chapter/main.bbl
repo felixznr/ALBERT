@@ -637,7 +637,7 @@
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Datasheet for STM32F405RGT6 Microcontroller}
+      \field{title}{Datenblatt für STM32F405RGT6 Microcontroller}
       \field{urlday}{6}
       \field{urlmonth}{3}
       \field{urlyear}{2026}
@@ -668,7 +668,7 @@
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Datasheet for STM32H753VIT6 Microcontroller}
+      \field{title}{Datenblatt für STM32H753VIT6 Microcontroller}
       \field{urlday}{6}
       \field{urlmonth}{3}
       \field{urlyear}{2026}
@@ -699,7 +699,7 @@
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Datasheet for TPS54308 Buck Converter}
+      \field{title}{Datenblatt für TPS54308 Buck Converter}
       \field{urlday}{8}
       \field{urlmonth}{3}
       \field{urlyear}{2026}
@@ -771,6 +771,36 @@
       \endverb
       \verb{url}
       \verb https://www.monolithicpower.com/en/learning/resources/switch-node-layout-considerations-for-emc?srsltid=AfmBOoqRXddokKGt6qhy2Qypf72WE3ECnBd1sNlJD2nkrFNsOXMKb-D_
+      \endverb
+    \endentry
+    \entry{ZOE-M8Q}{manual}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b1754e5cb767b09c247d1f51b41d4ce5}{%
+           family={{u-blox}},
+           familyi={u\bibinitperiod}}}%
+      }
+      \strng{namehash}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{fullhash}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{fullhashraw}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{bibnamehash}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{authorbibnamehash}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{authornamehash}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{authorfullhash}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \strng{authorfullhashraw}{b1754e5cb767b09c247d1f51b41d4ce5}
+      \field{sortinit}{u}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Datenblatt für ZOE-M8Q GNSS Receiver}
+      \field{urlday}{8}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://content.u-blox.com/sites/default/files/ZOE-M8_HIM_UBX-16030136.pdf
+      \endverb
+      \verb{url}
+      \verb https://content.u-blox.com/sites/default/files/ZOE-M8_HIM_UBX-16030136.pdf
       \endverb
     \endentry
     \entry{ApogeeRocketsPeakOfFlight}{online}{}{}

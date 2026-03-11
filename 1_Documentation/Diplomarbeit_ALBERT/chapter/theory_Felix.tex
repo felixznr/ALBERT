@@ -559,7 +559,7 @@ Die Entwicklung der Treiber erfordert ein umfassendes Verständnis der Spezifika
 
 
 
-\chapter{Regelungstechnik}
+\chapter{Lineare Regelungstechnik}
 \label{ch:regelungstechnik}
 
 
@@ -573,40 +573,41 @@ Die Entwicklung der Treiber erfordert ein umfassendes Verständnis der Spezifika
 
 Die Steuerung und Stabilisierung einer Rakete erfordert ein Regelungssystem, welches die aktuelle Lage und Position der Rakete erfasst und darauf basierend aktiv Korrekturen an die Aktuatoren sendet, um die gewünschte Flugbahn zu gewährleisten. 
 \\
+Für diesen Zweck wird ein Linear Quadratic Gaussian (LQG) Regler entwickelt, welcher den Zusammenschluss aus Linear Quadratic Regulator (LQR) und Kalman-Filter darstellt. Der LQR ist ein optimaler Zustandsregler, der die Stellgröße so berechnet, dass eine quadratische Kostenfunktion $J$ minimiert wird. Der Kalman-Filter hingegen ist ein optimaler Schätzer, der die aktuellen Systemzustände basierend auf den Messungen der Sensoren und einem dynamischen Modell des Systems schätzt, um die Unsicherheiten in den Messungen und im Modell zu berücksichtigen.
 \\
-Um die Lage und Position der Rakete zu bestimmen, messen die auf der Platine integrierten Sensoren (IMU, Barometer, Magnetometer) und GNSS die physikalischen Größen. Diese Messwerte werden in einem Sensorfusion-Algorithmus (Erweiteter-Kalman-Filter, siehe Abschnitt \ref{sec:kalman_filter})kombiniert und mit einer durch physikalische Modelle getroffene Vorhersage des Systemzustands abgeglichen, um eine genaue Schätzung der aktuellen Lage und Position zu erhalten.
-\\
-\section{Überblick Lineare Regelungstechnik}
-\label{sec:lineare_regelungstechnik}
-Das Ziel dieses Abschnitts ist es, einen Überblick über die für diese Arbeit relevanten Konzepte der linearen Regelungstechnik zu geben. Dabei werden die grundlegenden Prinzipien und Methoden vorgestellt um ein System zu modellieren und zu regeln.
-\subsection{Arten von Systemsteuerung}
-\label{subsec:arten_von_systemsteuerung}
+Wenn auch der PID-Regler eine weit verbreitete und effektive Regelungsstrategie darstellt, beschränkt sich seine Anwendbarkeit auf eine einzige Regelgröße oder mehrere Regelgrößen, die nicht miteinander gekoppelt sind, was den Einsatz in der Regelung einer Rakete extrem limitiert, da hier mehrere gekoppelte Regelgrößen (Lage, Position, Geschwindigkeit) gleichzeitig geregelt werden müssen.
+% Um die Lage und Position der Rakete zu bestimmen, messen die auf der Platine integrierten Sensoren (IMU, Barometer, Magnetometer) und GNSS die physikalischen Größen. Diese Messwerte werden in einem Sensorfusion-Algorithmus (Erweiteter-Kalman-Filter, siehe Abschnitt \ref{sec:kalman_filter})kombiniert und mit einer durch physikalische Modelle getroffene Vorhersage des Systemzustands abgeglichen, um eine genaue Schätzung der aktuellen Lage und Position zu erhalten.
 
-\begin{wrapfigure}
-{r}{0.4\textwidth}
-\vspace{-20pt}
-  % {r} = rechtsbündig platzieren
-  % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
-  % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
-  \centering
-        \includegraphics[width=0.45\textwidth]{controltypes.png}
-        \caption{Arten von Systemsteuerung \parencite{DataDrivenScience}}
-        \label{fig:passive_vs_aktive_steuerung}
-  % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)   
-  \vspace{-10pt}
-\end{wrapfigure}
+% \section{Überblick}
+% \label{subsec:regelungstechnik_ueberblick}
+% Das Ziel dieses Abschnitts ist es, einen Überblick über die für diese Arbeit relevanten Konzepte der linearen Regelungstechnik zu geben. Dabei werden die grundlegenden Prinzipien und Methoden vorgestellt um ein System zu modellieren und zu regeln.
+% \\
 
-Es gibt verschiedene Wege ein System zu steuern, nach der Einteilung von \textcite{DataDrivenScience} in Abbildung \ref{fig:passive_vs_aktive_steuerung} lassen sich wird zwischen passiver und aktiver Steuerung unterschieden. Passive Steuerungen zeigen keine Reaktion auf Veränderungen und es muss keine Energie aufgewendet werden, Beispiele sind etwa aerodynamische Stabilisatoren an Flugzeugen. 
-\\
-Welche wiederum sensorbasierte und nicht-sensorbasierte Steuerung umfassen. In der sensorbasierten Steuerung wird zwischen offenen und geschlossenen Regelkreisen unterschieden.
-\\
-Die Regelung (Closed-Loop Feedback) hat den Vorteil, dass durch die Rückkopplung der Regelgröße auf die Führungsgröße die Abweichung vom Sollwert erkannt und korrigiert werden kann. 
-\\
-Desweiteren ist es möglich instabile Systeme zu stabilisieren, auf externe Störungen zu reagieren und unerwartete Veränderungen im System zu kompensieren.\parencite{DataDrivenScience}
+% \begin{wrapfigure}
+% {r}{0.4\textwidth}
+% \vspace{-20pt}
+%   % {r} = rechtsbündig platzieren
+%   % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+%   % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+%   \centering
+%         \includegraphics[width=0.45\textwidth]{controltypes.png}
+%         \caption{Arten von Systemsteuerung \parencite{DataDrivenScience}}
+%         \label{fig:passive_vs_aktive_steuerung}
+%   % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)   
+%   \vspace{-10pt}
+% \end{wrapfigure}
 
-\subsection{Geschlossener Regelkreis}
-\label{subsec:regelkreis}
-In Abbildung \ref{fig:standard_regelkreis} ist ein Standard-Regelkreis dargestellt, welcher die grundlegenden Komponenten eines Regelungssystems zeigt: Regler (Controller), Regelstrecke (System) und Messung. Die Führungsgröße (Reference) $w_r$ repräsentiert den gewünschten Sollwert und wird mit der gemessenen Regelgröße $y_m$ verglichen, um die Regelabweichung $e$ zu bestimmen. Dem Regler wird die Regeldifferenz $e$ übergeben, welcher daraufhin die Stellgröße $u$ berechnet und so die Regelstrecke beeinflusst. Die Regelstrecke stellt das zu regelnde System dar, welches auf die Stellgröße $u$ und Störgröße (Disturbance) $w_d$ mit der Regelgröße $y$ reagiert. Diese Regelgröße wird durch eine von Messrauschen (Noise) $w_n$ behaftete Messung ermittelt und als gemessene Regelgröße $y_m$ zurückgeführt, um den Regelkreis zu schließen.
+% Es gibt verschiedene Wege ein System zu steuern, nach der Einteilung von \textcite{DataDrivenScience} in Abbildung \ref{fig:passive_vs_aktive_steuerung} lassen sich wird zwischen passiver und aktiver Steuerung unterschieden. Passive Steuerungen zeigen keine Reaktion auf Veränderungen und es muss keine Energie aufgewendet werden, Beispiele sind etwa aerodynamische Stabilisatoren an Flugzeugen. 
+% \\
+% Welche wiederum sensorbasierte und nicht-sensorbasierte Steuerung umfassen. In der sensorbasierten Steuerung wird zwischen offenen und geschlossenen Regelkreisen unterschieden.
+% \\
+% Die Regelung (Closed-Loop Feedback) hat den Vorteil, dass durch die Rückkopplung der Regelgröße auf die Führungsgröße die Abweichung vom Sollwert erkannt und korrigiert werden kann. 
+% \\
+% Desweiteren ist es möglich instabile Systeme zu stabilisieren, auf externe Störungen zu reagieren und unerwartete Veränderungen im System zu kompensieren.\parencite{DataDrivenScience}
+
+\section{Geschlossener Regelkreis}
+\label{sec:regelkreis}
+In Abbildung \ref{fig:standard_regelkreis} ist ein Standard-Regelkreis dargestellt, welcher die grundlegenden Komponenten eines Regelungssystems zeigt: Regler (Controller), Regelstrecke (System) und Messung. Die Führungsgröße (Reference) $w_r$ repräsentiert den gewünschten Sollwert und wird mit der gemessenen Regelgröße $y_m$ verglichen, um die Regelabweichung $e$ zu bestimmen. Dem Regler wird die Regeldifferenz $e$ übergeben, welcher daraufhin die Stellgröße $u$ berechnet und so die Regelstrecke beeinflusst. Die Regelstrecke stellt das zu regelnde System dar, welches auf die Stellgröße $u$ und Störgröße (Disturbance) $w_d$ mit der Regelgröße $x$ reagiert. Diese Regelgröße wird durch eine von Messrauschen (Noise) $w_n$ behaftete Messung ermittelt und als gemessene Regelgröße $y$ zurückgeführt, um den Regelkreis zu schließen.
 \begin{figure}[H]
     \centering
 \tikzstyle{block} = [draw, fill=blue!10, rectangle, 
@@ -632,10 +633,10 @@ In Abbildung \ref{fig:standard_regelkreis} ist ein Standard-Regelkreis dargestel
     % Once the nodes are placed, connecting them is easy. 
     \draw [draw,->] (input) -- node {$w_r$} (sum);
     \draw [->] (sum) -- node {$e$} (controller);
-    \draw [->] (system) -- node [name=y] {$y$}(output);
-    \draw [->] (y) |- (measurements);
+    \draw [->] (system) -- node [name=x] {$x$}(output);
+    \draw [->] (x) |- (measurements);
     \draw [->] (measurements) -| node[pos=0.99] {$-$} 
-        node [near end] {$y_m$} (sum);
+        node [near end] {$y$} (sum);
 
 \end{tikzpicture}
     \caption{Standard-Regelkreis }
@@ -650,7 +651,7 @@ So kann die Regelstrecke und die Messung mathematisch wie folgt beschrieben werd
 \begin{equation}
     \mathbf{y} = \mathbf{g}(\mathbf{x},\mathbf{u},\mathbf{w}_n)
 \end{equation}
-Das Ziel des Reglers ist es nun eine optimale Stellgröße $u$ zu berechnen um die Kostenfunktion $J$ zu minimieren:
+Das Ziel des Reglers ist es nun eine optimale Stellgröße $\mathbf{u}$ zu berechnen um die Kostenfunktion $J$ zu minimieren:
 \begin{equation}
     \mathbf{u} = \mathbf{k}(\mathbf{y},\hat{\mathbf{x}}, \mathbf{w}_r)
 \end{equation}
@@ -659,8 +660,8 @@ Das Ziel des Reglers ist es nun eine optimale Stellgröße $u$ zu berechnen um d
 \end{equation}
 Wobei $\hat{\mathbf{x}}$ die Schätzung des Systemzustands durch einen Zustandsschätzer (z.B. Kalman-Filter) darstellt.
 
-\subsection{Linearisierung}
-\label{subsec:linearisierung}
+\section{Linearisierung}
+\label{sec:linearisierung}
 Die Anwendung vieler Regelungsverfahren setzt ein lineares Systemmodell voraus, in der Praxis sind die meisten Systeme jedoch nichtlinear. Um dennoch lineare Regelungsverfahren anwenden zu können, kann das nichtlineare System um einen oder mehrere Arbeitspunkte linearisiert werden. 
 \\Im Folgenden werden die Störgrößen zur Vereinfachung vorübergehend vernachlässigt.
 \\\\
@@ -680,8 +681,8 @@ Nun können bei einer Verschiebung des Koordinatensystems auf den Arbeitspunkt $
      \mathbf{y} = \mathbf{C} \cdot  \mathbf{x} + \mathbf{D} \cdot  \mathbf{u} 
 \end{equation}
 
-\subsection{Steuerbarkeit}
-\label{subsec:steuerbarkeit}
+\section{Steuerbarkeit}
+\label{sec:steuerbarkeit}
 Die Steuerbarkeit (Controllability) eines Systems beschreibt die Fähigkeit, den Systemzustand durch geeignete Wahl der Stellgröße $\mathbf{u}$ zu einem stabilen Endzustand zu steuern. Dies kann durch Rückführung der Stellgröße $\mathbf{u}$ auf den Systemzustand $\mathbf{x}$ über die Matrix $\mathbf{K}$ erreicht werden:
 \begin{equation}
     \mathbf{u} = -\mathbf{K} \cdot \mathbf{x}
@@ -694,18 +695,143 @@ Ein stabiler Systemzustand ist gegeben, wenn alle Eigenwerte der Systemmatrix $(
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{eigenexample.png}
-    \caption{Eigenwerte eines geschlossenen Regelkreises}
+    \caption{Eigenwerte eines stabilen geschlossenen Regelkreises}
     \label{fig:eigenwerte_geschlossener_regelkreis}
 \end{figure}
 In Matlab können die Eigenwerte einer Matrix mit der Funktion \texttt{eig()} berechnet werden.
-Ob ein System steuerbar ist, kann durch die Steuerbarkeitsmatrix $\mathbf{C} = [\mathbf{B}, \mathbf{A} \cdot \mathbf{B}, \mathbf{A}^2 \cdot \mathbf{B}, ..., \mathbf{A}^{n-1} \cdot \mathbf{B}]$ überprüft werden, wenn diese Matrix vollen Rang sprich $\mathrm{rank}(\mathbf{C}) = n$ hat, ist das System steuerbar. Hierzu kann in Matlab die Funktion \texttt{ctrb(A,B)} welche die Steuerbarkeitsmatrix berechnet und die Funktion \texttt{rank()} die den Rang von $\mathbf{C}$ überprüft verwendet werden. \parencite{DataDrivenScience}
+Ob ein System steuerbar ist, kann durch die Steuerbarkeitsmatrix $\mathcal{C} = [\mathbf{B}, \mathbf{A} \cdot \mathbf{B}, \mathbf{A}^2 \cdot \mathbf{B}, ..., \mathbf{A}^{n} \cdot \mathbf{B}]$ überprüft werden, wenn diese Matrix vollen Rang sprich $\mathrm{rank}(\mathcal{C}) = n$ hat, ist das System steuerbar. Hierzu kann in Matlab die Funktion \texttt{ctrb(A,B)} welche die Steuerbarkeitsmatrix berechnet und die Funktion \texttt{rank()} die den Rang von $\mathcal{C}$ überprüft verwendet werden. \parencite{DataDrivenScience}
 
-\subsection{Beobachtbarkeit}
-\label{subsec:beobachtbarkeit}
-Die Beobachtbarkeit (Observability) eines Systems beschreibt die Fähigkeit, den Systemzustand $\mathbf{x}$ aus den Messungen der Regelgröße $\mathbf{y}$ zu rekonstruieren.
+\section{Beobachtbarkeit}
+\label{sec:beobachtbarkeit}
+Die Beobachtbarkeit (Observability) eines Systems beschreibt die Fähigkeit, den Systemzustand $\mathbf{x}$ aus den Messungen der Regelgröße $\mathbf{y}$ zu rekonstruieren. Mathematisch gesehen sind sich Steuerbarkeit und Beobachtbarkeit sehr ähnlich, was bereits darauf hindeutet, dass auch zwischen LQR und Kalman-Filter eine enge Verbindung besteht. Ein System ist genau dann beobachtbar, wenn die Beobachtbarkeitsmatrix $\mathcal{O}=[\mathbf{C}, \mathbf{A} \cdot \mathbf{C}, \mathbf{A}^2 \cdot \mathbf{C}, ..., \mathbf{A}^{n} \cdot \mathbf{C}]$ vollen Rang $n$ hat. \parencite{DataDrivenScience}
 
-\subsection{Jacobi Matrizen}
-\label{subsec:jacobi_matrizen}
+\section{Linear Quadratic Regulator (LQR)}
+\label{sec:lqr_regler}
+Zur Auslegung eines geeigneten Zustandsreglers wird ein Linear Quadratic Regulator (LQR) verwendet. 
+Die Grundidee des LQR besteht darin, eine Zustandsrückführung zu bestimmen, die das System stabilisiert und 
+gleichzeitig ein definiertes Optimierungskriterium erfüllt. Dabei wird ein Kompromiss zwischen einer möglichst 
+schnellen Annäherung an den Sollzustand und einem möglichst geringen Stellaufwand gesucht. Der Name setzt sich aus den Begriffen \textit{linear}, da der Regler linear ist $\mathbf{u} = -\mathbf{K} \mathbf{x}$, \textit{"quadratic"}, da die Kostenfunktion $J$ quadratisch ist, und \textit{regulator} zusammen, da es sich um einen Regler handelt.
+
+Unter der Voraussetzung, dass das System steuerbar ist und der vollständige Zustand $\mathbf{x}$ beobachtbar ist, 
+kann eine optimale Rückführungsmatrix $\mathbf{K}$ bestimmt werden. Optimal bedeutet hierbei, dass die folgende 
+Kostenfunktion minimiert wird:
+
+\begin{equation}
+J = \int_{0}^{\infty} \left( \mathbf{x}^{T} \mathbf{Q} \mathbf{x} + \mathbf{u}^{T} \mathbf{R} \mathbf{u} \right) dt
+\end{equation}
+
+Die Matrizen $\mathbf{Q}$ und $\mathbf{R}$ dienen als Gewichtungsmatrizen und legen fest, wie stark 
+Zustandsabweichungen beziehungsweise Stellaufwand im Optimierungskriterium berücksichtigt werden. 
+Während große Einträge in $\mathbf{Q}$ eine stärkere Bestrafung von Zustandsabweichungen bewirken, 
+führen große Einträge in $\mathbf{R}$ zu einer stärkeren Einschränkung der Stellgrößen.
+
+Im Gegensatz zur direkten Polvorgabe, bei der die Polstellen gezielt gewählt werden, ergibt sich beim LQR 
+die Lage der geschlossenen Polstellen aus der Minimierung der Kostenfunktion. Dadurch entsteht ein sinnvoller Kompromiss zwischen Dynamik und Stellaufwand.
+\parencite{DataDrivenScience}
+
+\subsection{Lösung der algebraischen Riccati-Gleichung}
+\label{subsec:riccati_gleichung}
+Die optimale Rückführungsmatrix $\mathbf{K}$ wird durch die Lösung der algebraischen Riccati-Gleichung 
+bestimmt. In Matlab kann diese mit der Funktion \texttt{lqr(A,B,Q,R)} berechnet werden.
+\\
+Im Folgenden soll die algebraische Riccati-Gleichung der Kostenfunktion $J$ dem Erkenntnisgewinn halber gelöst werden, um die optimale Rückführungsmatrix $\mathbf{K}$ zu bestimmen.
+\begin{equation}
+J = \int_{0}^{t_f} \underbrace{\frac{1}{2} \left( \mathbf{x}^{T} \mathbf{Q} \mathbf{x} + \mathbf{u}^{T} \mathbf{R} \mathbf{u} \right)}_{\text{Langragian }\mathcal{L}} dt 
++ \underbrace{\frac{1}{2}\mathbf{x}_{t_f}^{T} \mathbf{Q}_f \mathbf{x}_{t_f}}_{\text{Terminal cost}}
+\end{equation}
+In diesem Punkt wird die Kostenfunktion um eine Terminal Cost erweitert, welche die Kosten am Ende der Regelung zum Zeitpunkt $t_f$ berücksichtigt. Außerdem wird die Kostenfunktion um den Faktor $\frac{1}{2}$ skaliert, um die Ableitungen zu vereinfachen.
+\begin{equation}
+J_{aug} = \int_{0}^{t_f} \frac{1}{2} \left( \mathbf{x}^{T} \mathbf{Q} \mathbf{x} + \mathbf{u}^{T} \mathbf{R} \mathbf{u} \right) + \mathbf{\lambda}^T (\mathbf{Ax} + \mathbf{Bu} - \dot{\mathbf{x}}) dt 
++ {\frac{1}{2}\mathbf{x}_{t_f}^{T} \mathbf{Q}_f \mathbf{x}_{t_f}}
+\end{equation}
+Auf Basis des Zusammenhangs $\dot{\mathbf{x}} = \mathbf{Ax} + \mathbf{B} \mathbf{u}$ sind $\mathbf{x}$ und $\mathbf{u}$ nicht unabhängig, weshalb die Kostenfunktion um die Lagrange-Multiplikatoren $\mathbf{\lambda}$ erweitert (augmented) wird, um diesen Zusammenhang zu berücksichtigen.
+\begin{equation}
+    \delta J_{\text{aug}} =
+\int_{0}^{t_f}
+\left[
+\frac{\partial \mathcal{L}}{\partial \mathbf{x}}\,\delta \mathbf{x}
++
+\frac{\partial \mathcal{L}}{\partial \mathbf{u}}\,\delta \mathbf{u}
++
+\lambda^{T} \mathbf{A}\,\delta \mathbf{x}
++
+\lambda^{T} \mathbf{B}\,\delta \mathbf{u}
+-
+\lambda^{T}\,\delta \dot{\mathbf{x}}
+\right] dt
++
+\mathbf{Q}_f\,\mathbf{x}_{t_f}\,\delta \mathbf{x}_{t_f}.
+\end{equation}
+
+Die partiellen Ableitungen der Lagrange-Funktion $\mathcal{L}$ nach $\mathbf{x}$ und $\mathbf{u}$ ergeben sich zu:
+\begin{equation}
+  \frac{\partial \mathcal{L}}{\partial \mathbf{x}} = \mathbf{x}^{T} \mathbf{Q}
+\quad \text{and} \quad
+\frac{\partial \mathcal{L}}{\partial \mathbf{u}} = \mathbf{u}^{T} \mathbf{R} .  
+\end{equation}
+
+Der Term $\lambda^{T}\,\delta \dot{\mathbf{x}}$ kann durch partielle Integration umgeformt werden:
+\begin{equation}
+- \int_{0}^{t_f} \lambda^{T}\,\delta \dot{\mathbf{x}}\, dt
+=
+- \lambda^{T}_{t_f}\,\delta \mathbf{x}_{t_f}
++ \lambda^{T}_{0}\,\delta \mathbf{x}_{0}
++ \int_{0}^{t_f} \dot{\lambda}^{T}\,\delta \mathbf{x}\, dt .
+\end{equation}
+Dabei muss der Term $\lambda^{T}_{0}\,\delta \mathbf{x}_{0}$ nicht berücksichtigt werden, da die Anfangsbedingung $x(0)=x_0$ fest vorgegeben ist, und somit $\delta \mathbf{x}_{0} = 0$ gilt.
+\\
+Durch einsetzen ergibt sich die Variation der augmentierten Kostenfunktion zu:
+\begin{align}
+\delta J_{\text{aug}} &=
+\int_{0}^{t_f}
+\left(\mathbf{x}^{T}\mathbf{Q} + \lambda^{T}\mathbf{A} + \dot{\lambda}^{T}\right)\delta \mathbf{x}\, dt
++
+\int_{0}^{t_f}
+\left(\mathbf{u}^{T}\mathbf{R} + \lambda^{T}\mathbf{B}\right)\delta \mathbf{u}\, dt  
++
+\left(\mathbf{x}_{t_f}^{T}\mathbf{Q}_f - \lambda^{T}_{t_f}\right)\delta \mathbf{x}_{t_f}
+\end{align}
+Zur Minimierung der Kostenfunktion muss die Variation $\delta J_{\text{aug}}$ für alle möglichen Variationen $\delta \mathbf{x}$, $\delta \mathbf{u}$ und $\delta \mathbf{x}_{t_f}$ gleich null sein. Dies führt zu den folgenden Gleichungen:
+\begin{align}
+\mathbf{x}^{T}\mathbf{Q} + \lambda^{T}\mathbf{A} + \dot{\lambda}^{T} &= 0  \\
+\mathbf{u}^{T}\mathbf{R} + \lambda^{T}\mathbf{B} &= 0  \\
+\mathbf{x}_{t_f}^{T}\mathbf{Q}_f - \lambda^{T}_{t_f} &= 0
+\end{align}
+Das Nullsetzen der ersten Variation liefert die notwendigen Bedingungen für Optimalität. Diese bestehen aus der ursprünglichen Zustandsgleichung, einer Differentialgleichung für die Kostatenvariable (co-state), einer algebraischen Stationaritätsbedingung für den Eingang (die Steuergröße) sowie einer Endbedingung zum finalen Zeitpunkt.
+Diese Gleichungen können nun verwendet werden, um die optimale Rückführungsmatrix $\mathbf{K}$ zu bestimmen. Zunächst wird die zweite Gleichung nach $\mathbf{u}$ umgestellt:
+\begin{equation}
+\mathbf{u} = \mathbf{-R}^{-1}\mathbf{B}^{T}\lambda 
+\end{equation}
+Es wird angenommen, dass die Kostatenvariable $\lambda$ proportional zum Systemzustand $x$ ist, mit der Proportionalitätskonstante $P$, welche eine symmetrische Matrix ist. Diese Annahme ist gerechtfertigt, da die Kostenfunktion quadratisch ist und somit die optimale Rückführung linear sein muss.
+\begin{equation}
+\lambda = \mathbf{Px}
+\end{equation}
+Durch einsetzen in die Gleichung für $\lambda = \mathbf{Px}$ und $\dot{\mathbf{x}} = \mathbf{Ax} + \mathbf{Bu}$ ergibt sich:
+\begin{equation}
+\dot{\mathbf{P}}\mathbf{x} + \mathbf{P}(\mathbf{Ax} + \mathbf{Bu}) + \mathbf{Q}\mathbf{x} + \mathbf{A}^{T}\mathbf{Px} = 0 
+\end{equation}
+
+Durch Einsetzen von $\mathbf{u} = \mathbf{-R}^{-1}\mathbf{B}^{T}\mathbf{Px}$ ergibt sich die folgende Gleichung:
+
+\begin{equation}
+\dot{\mathbf{P}}\mathbf{x} + \mathbf{P}\mathbf{Ax} + \mathbf{A}^{T}\mathbf{Px} - \mathbf{P}\mathbf{B}\mathbf{R}^{-1}\mathbf{B}^{T}\mathbf{Px} + \mathbf{Q}\mathbf{x} = 0
+\end{equation}
+Diese Gleichung muss für alle $\mathbf{x}$ erfüllt sein und kann daher auch als Matrixgleichung geschrieben werden. Unter Vernachlässigung der Terminal Cost und für $t \to \infty$ verschwindet der Term $\dot{\mathbf{P}}$, und man erhält die algebraische Riccati-Gleichung:
+
+\begin{equation}
+\mathbf{PA} + \mathbf{A}^{T}\mathbf{P} - \mathbf{P}\mathbf{B}\mathbf{R}^{-1}\mathbf{B}^{T}\mathbf{P} + \mathbf{Q} = 0.
+\end{equation}
+Durch lösen dieser Gleichung nach $\mathbf{P}$ und einsetzen in die Gleichung für $\mathbf{u}$ ergibt sich die optimale Rückführungsmatrix $\mathbf{K}$ zu:
+\begin{equation}
+\mathbf{K} = \mathbf{R}^{-1}\mathbf{B}^{T}\mathbf{P}
+\end{equation}
+Ein intuitiver Ansatz ist die Frage wie schlimm der Zustand $P$ aktuell ist, dieser wird auf die Matrix $\mathbf{B}$ projiziert, um zu bestimmen wie stark die Stellgröße $\mathbf{u}$ auf diesen Zustand einwirken kann, und schließlich wird mit der Inversen von $\mathbf{R}$ gewichtet, um den Stellaufwand zu berücksichtigen.
+\parencite{DataDrivenScience}
+
+
+
+\section{Jacobi Matrizen}
+\label{sec:jacobi_matrizen}
 Die Jacobi-Matrix ist eine Matrix, die die partiellen Ableitungen einer Matrix nach ihren Variablen enthält. Sie stellt die lokale Steigung einer nichtlinearen Funktion in mehreren Richtungen dar.
 \\
 Für eine Funktion ${f}({x})$ mit $m$ Ausgabekomponenten (Zeilen) und $n$ Eingabekomponenten (Spalten) ist die Jacobi-Matrix definiert als:
@@ -896,3 +1022,61 @@ Das Euler-Verfahren ist ein numerisches Verfahren zur Lösung von gewöhnlichen 
 \end{equation}
 wobei $y_k$ der Funktionswert zum Zeitpunkt $t_k$, $h$ die Schrittweite und $f(t_k, y_k)$ die Ableitung der Funktion zum Zeitpunkt $t_k$ ist, welcher durch $t_{k} = t_0 + k \cdot h$ definiert ist. $k$ ist eine positive ganze Zahl, welche den Zeitschritt angibt.
 \\
+
+\section{Linear Quadratic Gaussian}
+\label{sec:lqg_regler}
+An diesem Punkt soll die Verbindung zwischen LQR und Kalman-Filter vorgestellt werden: Der Linear Quadratic Gaussian (LQG) Regler kombiniert die Vorteile beider Verfahren, indem er die optimale Zustandsrückführung des LQR mit der optimalen Zustandsabschätzung des Kalman-Filters zu einem optimalen Full State Feedback Regler zusammenführt.
+
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[>=latex, thick]
+\tikzset{
+  block/.style={draw,fill=blue!20, rectangle, minimum width=3.2cm, minimum height=1.6cm},
+  sum/.style={draw,fill=blue!20, circle, minimum size=7mm, inner sep=0pt}
+}
+
+% --- Nodes ---
+\node[block] (system) at (0,0) {System};
+\node[sum]   (sum)    at (4.2,0) {+};
+\node[block] (lqr)    at (-2.2,-2.4) {LQR};
+\node[block] (lqe)    at ( 2.2,-2.4) {Kalman-Filter};
+
+% --- Plant input junction (vertical branch for u) ---
+\coordinate (ujunc) at (-2.6,0); % junction point left of system
+
+% --- Input u line and into system ---
+\draw[-] (-4.2,0) -- node[above] {$u$} (ujunc);
+\draw[->] (ujunc) -- (system.west);
+
+% --- Output y, sum, and output arrow ---
+\draw[->] (system.east) -- node[above] {$y$} (sum.west);
+\draw[->] (sum.east) -- ++(1.4,0);
+
+% --- Disturbance and measurement noise ---
+\draw[->] (0,1.5) -- node[right] {$w_d$} (system.north);
+\draw[->] (4.2,1.5) -- node[right] {$w_n$} (sum.north);
+
+% --- Vertical line down from sum (measurement path) ---
+\coordinate (down) at (4.2,-2.4);
+\draw[-] (sum.south) -- (4.2,-2.4);
+
+% --- Into LQE from the right ---
+\draw[->] (4.2,-2.4) -- (lqe.east);
+
+% --- LQE to LQR with x-hat ---
+\draw[->] (lqe.west) -- node[below] {$\hat{x}$} (lqr.east);
+
+% --- Connection from LQE to the u-branch (missing in previous) ---
+% (line leaving LQE top, going to the vertical u-branch)
+\draw[<-] (lqe.north) -- ++(0,0.4) -| (ujunc);
+
+% --- LQR to u: must exit LEFT side of LQR and go up to u-branch ---
+\draw[-] (lqr.west) -- ++(-0.8,0) |- (ujunc);
+
+\end{tikzpicture}
+
+\caption{LQG control structure}
+\label{fig:lqg_structure}
+\end{figure}
