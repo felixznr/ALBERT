@@ -10,16 +10,16 @@
 \contentsline {section}{\numberline {4.1}Build-up \& Stack-up}{6}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Build-up}{6}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Stack-up}{7}{subsection.4.1.2}%
-\contentsline {subsubsection}{\nonumberline Rückstrompfade}{7}{subsubsection*.6}%
-\contentsline {subsubsection}{\nonumberline Energiefluss}{8}{subsubsection*.9}%
+\contentsline {subsubsection}{\nonumberline Rückstrompfade}{7}{subsubsection*.5}%
+\contentsline {subsubsection}{\nonumberline Energiefluss}{8}{subsubsection*.7}%
 \contentsline {section}{\numberline {4.2}Bypass- \& Decoupling-Kondensatoren}{9}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Abwärtswandler}{10}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Funktionsweise}{10}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}Layoutrichtlinien}{11}{subsection.4.3.2}%
 \contentsline {section}{\numberline {4.4}Sensorik}{12}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Inertial Measurement Unit (IMU)}{12}{subsection.4.4.1}%
-\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Beschleunigungssensoren}{12}{subsubsection*.17}%
-\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Gyroskop}{13}{subsubsection*.20}%
+\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Beschleunigungssensoren}{12}{subsubsection*.14}%
+\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Gyroskop}{13}{subsubsection*.16}%
 \contentsline {subsection}{\numberline {4.4.2}Magnetometer}{13}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Barometer}{14}{subsection.4.4.3}%
 \contentsline {section}{\numberline {4.5}Global Navigation Satellite System (GNSS)}{15}{section.4.5}%
@@ -48,9 +48,9 @@
 \contentsline {section}{\numberline {7.1}Die 4 Außenkräfte auf eine Rakete}{29}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Nicht-aerodynamische äußere Kräfte}{29}{subsection.7.1.1}%
 \contentsline {subsection}{\numberline {7.1.2}Äußere Faktoren}{30}{subsection.7.1.2}%
-\contentsline {subsubsection}{\nonumberline Erstes Newtonsches Gesetz}{30}{subsubsection*.31}%
-\contentsline {subsubsection}{\nonumberline Zweites Newtonsches Gesetz}{30}{subsubsection*.33}%
-\contentsline {subsubsection}{\nonumberline Drittes Newtonsches Gesetz}{30}{subsubsection*.35}%
+\contentsline {subsubsection}{\nonumberline Erstes Newtonsches Gesetz}{30}{subsubsection*.25}%
+\contentsline {subsubsection}{\nonumberline Zweites Newtonsches Gesetz}{30}{subsubsection*.26}%
+\contentsline {subsubsection}{\nonumberline Drittes Newtonsches Gesetz}{30}{subsubsection*.27}%
 \contentsline {section}{\numberline {7.2}Aerodynamische Eigenschaften}{31}{section.7.2}%
 \contentsline {subsection}{\numberline {7.2.1}Überschallflug und Unterschallflug}{31}{subsection.7.2.1}%
 \contentsline {subsection}{\numberline {7.2.2}Raketenspitze}{31}{subsection.7.2.2}%
@@ -68,16 +68,16 @@
 \contentsline {section}{\numberline {9.2}Systemarchitektur}{41}{section.9.2}%
 \contentsline {section}{\numberline {9.3}Komponentenauswahl}{42}{section.9.3}%
 \contentsline {subsection}{\numberline {9.3.1}Sensoren}{42}{subsection.9.3.1}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/motion-sensors/imus/bmi088/}{IMU1 - BMI088}}{42}{subsubsection*.56}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/mems-and-sensors/lsm6dsl.html}{IMU2 - LSM6DSLTR}}{42}{subsubsection*.58}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/}{Barometer - BMP390}}{43}{subsubsection*.60}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf}{Magnetometer - BMM150}}{43}{subsubsection*.62}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/motion-sensors/imus/bmi088/}{IMU1 - BMI088}}{42}{subsubsection*.36}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/mems-and-sensors/lsm6dsl.html}{IMU2 - LSM6DSLTR}}{42}{subsubsection*.37}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/}{Barometer - BMP390}}{43}{subsubsection*.38}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf}{Magnetometer - BMM150}}{43}{subsubsection*.39}%
 \contentsline {subsection}{\numberline {9.3.2}Prozessoren}{43}{subsection.9.3.2}%
 \contentsline {subsection}{\numberline {9.3.3}Weitere Peripheriekomponenten}{43}{subsection.9.3.3}%
-\contentsline {subsubsection}{\nonumberline Servos - BMS-125WV+}{43}{subsubsection*.64}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}{44}{subsubsection*.66}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc028n06ls3-g-datasheet-en.pdf?fileId=db3a30431ddc9372011ebafa4c607f8c}{Pyro-Kanäle-Mosfets - BSC028N06LS3}}{44}{subsubsection*.68}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.ti.com/product/TPS54308}{Buck Converter - TPS54308}}{44}{subsubsection*.70}%
+\contentsline {subsubsection}{\nonumberline Servos - BMS-125WV+}{43}{subsubsection*.40}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}{44}{subsubsection*.41}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc028n06ls3-g-datasheet-en.pdf?fileId=db3a30431ddc9372011ebafa4c607f8c}{Pyro-Kanäle-Mosfets - BSC028N06LS3}}{44}{subsubsection*.42}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.ti.com/product/TPS54308}{Buck Converter - TPS54308}}{44}{subsubsection*.43}%
 \contentsline {section}{\numberline {9.4}Schaltungsentwurf}{44}{section.9.4}%
 \contentsline {subsection}{\numberline {9.4.1}Sensoren}{44}{subsection.9.4.1}%
 \contentsline {subsection}{\numberline {9.4.2}Prozessoren}{45}{subsection.9.4.2}%
@@ -111,15 +111,13 @@
 \contentsline {chapter}{\numberline {12}Simulation der Aerodynamik}{62}{chapter.12}%
 \contentsline {section}{\numberline {12.1}Simulation des Raketenkörpers in Ansys Fluent}{62}{section.12.1}%
 \contentsline {subsection}{\numberline {12.1.1}Definition der Referenzwerte und der simulierten/berechneten Werte}{62}{subsection.12.1.1}%
-\contentsline {paragraph}{\nonumberline Definition der Referenzwerte für alle Simulationsdurchgänge}{62}{paragraph*.85}%
-\contentsline {paragraph}{\nonumberline Definition der Winkel des Raketenkörpers und der Flügel}{62}{paragraph*.87}%
-\contentsline {paragraph}{\nonumberline Simulierte Beiwerte}{62}{paragraph*.89}%
-\contentsline {paragraph}{\nonumberline Aus mehreren Simulationsfällen errechnete ``Modellwerte''}{62}{paragraph*.91}%
-\contentsline {paragraph}{\nonumberline Stabilitäts- und Steuerungs-Moment-Ableitungen}{63}{paragraph*.93}%
-\contentsline {subsection}{\numberline {12.1.2}Simulationsdurchgänge}{64}{subsection.12.1.2}%
-\contentsline {section}{\numberline {12.2}Auswertung der Simulationsergebnisse}{64}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Messung eines Raketenflügels im Windkanal}{65}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Vergleich mit Messdaten}{65}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Herausforderungen und Lösungen}{65}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Fazit}{65}{section.12.6}%
+\contentsline {paragraph}{\nonumberline Definition der Referenzwerte für alle Simulationsdurchgänge}{62}{paragraph*.60}%
+\contentsline {paragraph}{\nonumberline Definition der Winkel des Raketenkörpers und der Flügel}{62}{paragraph*.61}%
+\contentsline {paragraph}{\nonumberline Aus der Simulation bezogene Kräfte/Beiwerte}{62}{paragraph*.62}%
+\contentsline {subsection}{\numberline {12.1.2}Simulationsdurchgänge}{62}{subsection.12.1.2}%
+\contentsline {section}{\numberline {12.2}Auswertung der Simulationsergebnisse}{63}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Messung eines Raketenflügels im Windkanal}{64}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Vergleich mit Messdaten}{64}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Herausforderungen und Lösungen}{64}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Fazit}{64}{section.12.6}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
