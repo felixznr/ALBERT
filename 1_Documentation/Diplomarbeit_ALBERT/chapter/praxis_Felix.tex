@@ -846,18 +846,22 @@ Zunächst muss das Header-File des Treibers selbst inkludiert werden, außerdem 
 \\
 Hier soll zunächst auf die Funktion \texttt{BMI088\_Init} genauer eingegangen werden, jedoch basiert diese auf den Funktionen \texttt{BMI088\_ReadRegister}, \texttt{BMI088\_ReadRegister} und \texttt{BMI088\_WriteRegister}, welche die grundlegende SPI-Kommunikation mit dem Sensor ermöglichen, um Register zu lesen und zu beschreiben.
 Diese werden im Anschluss beschrieben, um den Funktionsablauf so verständlich und kohärent wie möglich zu darzustellen.
-\\
-\\
+\subsubsection{BMI088\_Init}
 In der Funktion \texttt{BMI088\_Init} wird die SPI-Schnittstelle initialisiert und die Sensoren konfiguriert, um die gewünschten Messwerte zu liefern. Dies beinhaltet das Schreiben von Konfigurationswerten in die entsprechenden Register des Sensors, um beispielsweise die Messrate, den Messbereich und die Filtereinstellungen festzulegen.
 \begin{lstlisting}[style=cstyle, caption={Struktur initialisieren}, label={lst:init_function}]
 /* Set struct parameters */
 dev->spiHandle	= spiHandle;
 \end{lstlisting}
-Zuerst wird der SPI-Handle in der Sensorstruktur gespeichert, damit er in den anderen Funktionen für die Kommunikation mit dem Sensor verwendet werden kann. 
+Zuerst wird der SPI-Handle in der Sensorstruktur gespeichert, damit er in den anderen Funktionen für die Kommunikation mit dem Sensor verwendet werden kann. Außerdem werden die Variablen für die Chip Select Pins für das Accelerometer und das Gyroskop definiert, um die Kommunikation mit den jeweiligen Sensoren zu ermöglichen.
 \\
+Da der Accelerometerteil des BMI088 standardmäßig im I\textsuperscript{2}C Modus startet, muss dieser zunächst mittels einer Dummy-Read-Operation in den SPI Modus versetzt werden, bevor die Register konfiguriert werden können. 
+\begin{lstlisting}[style=cstyle, caption={SPI Modus aktivieren}, label={lst:enable_spi_mode}]
+/* Dummy Read */
+BMI088_ReadRegister(dev, BMI088_ACC_CHIP_ID, &regData, BMI088_ACC_SELECT);
+\end{lstlisting}
 Außerdem werden im Rahmen der Initialisierung die Register \texttt{BMI088\_ACC\_CHIP\_ID} und \\\texttt{BMI088\_GYRO\_CHIP\_ID} gelesen, um zu überprüfen, ob die SPI Kommunikation funktioniert und richtig konfiguriert ist.
-
 \begin{lstlisting}[style=cstyle, caption={Chip ID überprüfen}, label={lst:check_chip_id}]
+/* Check Device ID of the accelerometer */
 status = BMI088_ReadRegister(dev, BMI088_ACC_CHIP_ID, &regData, BMI088_ACC_SELECT);
 errNum += ( status != HAL_OK);
 
@@ -866,11 +870,6 @@ if ( regData != BMI088_ACC_CHIP_ID_VALUE){
     return HAL_ERROR;
 
 }
-\end{lstlisting}
-Da der Accelerometerteil des BMI088 standardmäßig im I\textsuperscript{2}C Modus startet, muss dieser zunächst mittels einer Dummy-Read-Operation in den SPI Modus versetzt werden, bevor die Register konfiguriert werden können. 
-\begin{lstlisting}[style=cstyle, caption={SPI Modus aktivieren}, label={lst:enable_spi_mode}]
-/* Dummy Read */
-BMI088_ReadRegister(dev, BMI088_ACC_CHIP_ID, &regData, BMI088_ACC_SELECT);
 \end{lstlisting}
 Anschließend werden die Register des Sensors mit den gewünschten Konfigurationswerten beschrieben.
 \\
@@ -902,4 +901,71 @@ status = BMI088_WriteRegister(dev,BMI088_ACC_RANGE, regData, BMI088_ACC_SELECT);
 errNum += ( status != HAL_OK);
 \end{lstlisting}
 Wobei \texttt{status} den Rückgabewert der Funktion \texttt{BMI088\_WriteRegister} speichert, um zu überprüfen, ob die Register erfolgreich beschrieben wurden, wenn dies nicht der Fall ist, wird die Variable \texttt{errNum} inkrementiert, um die Anzahl der Fehler zu zählen. Am Ende der Initialisierungsfunktion wird die Anzahl der Fehler zurückgegeben, um anzuzeigen, ob die Initialisierung erfolgreich war oder ob Probleme aufgetreten sind. Dies ist eine sehr einfache Fehlerbehandlung, die jedoch hilfreich sein kann, um Probleme bei der Sensorinitialisierung zu erkennen.
-\\
+\subsubsection{BMI088\_ReadAcceleration und BMI088\_ReadAngularRate}
+Die Funktionen \texttt{BMI088\_ReadAcceleration} und \texttt{BMI088\_ReadAngularRate} lesen die 8 Bit Rohdaten von den entsprechenden Sensorregistern, fügen diese zu 16 Bit Werten zusammen und konvertieren sie in $\frac{m}{s^2}$ für Beschleunigung und $\frac{rad}{s}$ für Winkelgeschwindigkeit, bevor sie in der Sensorstruktur gespeichert werden. Hier ist die Funktion \texttt{BMI088\_ReadAcceleration} als Beispiel angeführt: 
+\begin{lstlisting}[style=cstyle, caption={Beschleunigungsdaten lesen}, label={lst:read_acceleration}]
+/* legere accelerationis notitia */
+HAL_StatusTypeDef BMI088_ReadAcceleration(BMI088 *dev){
+
+	int16_t pnRawData[3];
+	uint8_t regData[6];
+	uint8_t i = 0;
+
+	BMI088_ReadRegisters(dev, BMI088_ACC_DATA, regData, 6, BMI088_ACC_SELECT);
+
+	for(i=0; i<3; i++)
+		{
+			pnRawData[i]=((((uint16_t)regData[2*i+1]) << 8) + (uint16_t)regData[2*i]);
+		}
+
+	dev->acc_mps2[0] = (float)(pnRawData[2] * 0.00718505824f);
+	dev->acc_mps2[1] = (float)(pnRawData[1] * 0.00718505824f);
+	dev->acc_mps2[2] = -(float)(pnRawData[0] * 0.00718505824f);
+
+	return HAL_OK;
+}
+\end{lstlisting}
+Es ist wichtig die Rohdaten in einem Stück zu auszulesen (Burst Read), um sicherzustellen, dass die Daten konsistent sind und nicht durch eine Unterbrechung der Kommunikation während des Lesens unbrauchbar werden. 
+
+\subsection{BMI088\_ReadRegisters}
+\begin{lstlisting}[style=cstyle, caption={Register lesen}, label={lst:read_registers}]
+
+HAL_StatusTypeDef BMI088_ReadRegisters(BMI088 *dev, uint8_t reg, uint8_t *data,uint8_t length, uint8_t select){
+    uint8_t res = HAL_OK;
+    uint8_t addr = reg | 0x80; /* MSB = 1 -> Read */
+    uint8_t dummy;
+
+
+    GPIO_TypeDef *cs_port;
+    uint16_t cs_pin;
+
+    /* Choose the correct CS */
+    if (select == BMI088_ACC_SELECT)
+    {
+        cs_port = dev->acc_cs_port;
+        cs_pin  = dev->acc_cs_pin;
+    }
+    else
+    {
+        cs_port = dev->gyr_cs_port;
+        cs_pin  = dev->gyr_cs_pin;
+    }
+
+    HAL_GPIO_WritePin(cs_port, cs_pin, GPIO_PIN_RESET);
+
+    if (HAL_SPI_Transmit(dev->spiHandle, &addr, 1, HAL_MAX_DELAY) != HAL_OK){
+        res = HAL_ERROR;
+    }
+    if(select == BMI088_ACC_SELECT){ /* Dummy Byte */
+    	if (HAL_SPI_Receive(dev->spiHandle, &dummy, 1, HAL_MAX_DELAY) != HAL_OK){
+    		res = HAL_ERROR;
+    	}
+    }
+    if (HAL_SPI_Receive(dev->spiHandle, data, length, HAL_MAX_DELAY) != HAL_OK){
+    	res = HAL_ERROR;
+    }
+
+    HAL_GPIO_WritePin(cs_port, cs_pin, GPIO_PIN_SET);
+    return res;
+}
+\end{lstlisting}
