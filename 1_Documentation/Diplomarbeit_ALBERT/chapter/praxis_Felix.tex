@@ -793,5 +793,113 @@ In Folge dieser Erkenntnis wird das System um die nicht steuerbare Geschwindigke
 \subsection{Kalman Filter}
 
 
-\section{Implementierung in C}
-\label{sec:implementation_in_c}
+\chapter{Implementierung in Software}
+\label{ch:implementation_in_software}
+\section{Treiber}
+\label{sec:treiber}
+An dieser Stelle soll der Treiber für das IMU1 BMI088 representativ für die Treiber aller Sensoren beschrieben werden, da sich die Treiber im Wesentlichen sehr ähnlich sind. Alle Treiber sind in C implementiert und teilen sich in ein Header File, in dem die Schnittstelle definiert ist, und ein Source File, in dem die eigentlichen Funktionen implementiert sind. 
+\subsection{Header File}
+Im Header File wird zuerst ein Include Guard definiert, um Mehrfacheinbindungen zu verhindern. Der Treiber basiert auf den Funktionen des HAL Treibers (Hardware Abstraction Layer) von STM32, einer Abstraktionsschicht die Funktionen für die Kommunikation mit Peripheriehardware bereitstellt. 
+\begin{lstlisting}[style=cstyle, caption={Include Guard}, label={lst:C}]
+#ifndef BMI088_H
+#define BMI088_H
+
+#include "stm32f4xx_hal.h"
+
+//... rest of the header file content ...
+
+#endif
+\end{lstlisting}
+Anschließend werden die Registeradressen des BMI088 definiert, so müssen müssen diese bei Verwendung nicht ausgeschrieben werden, was die Lesbarkeit deutlich verbessert.
+\\
+Zur Verwaltung der Sensordaten als auch der Kalibrierungsdaten wird eine Struktur definiert, die alle relevanten Informationen enthält. Diese Struktur ermöglicht es, die Daten organisiert und leicht zugänglich zu halten.
+\begin{lstlisting}[style=cstyle, caption={Sensor Struktur}, 
+label={lst:sensor_struct}]
+typedef struct {
+	/* SPI HANDLE */
+	SPI_HandleTypeDef *spiHandle;
+
+	/* Acceleration data (X,Y,Z) in m/s^2 */
+	float acc_mps2[3];
+	
+	/* Gyroscope data (X,Y,Z) in rad/s */
+	float gyr_rdps[3];
+}BMI088;
+\end{lstlisting}
+Folgende Funktionen werden im Header File deklariert, um die Schnittstelle des Treibers zu definieren:
+\begin{lstlisting}[style=cstyle, caption={Funktionendeklarationen}, label={lst:function_declarations}]
+uint8_t BMI088_Init(BMI088 *dev, SPI_HandleTypeDef *spiHandle);
+
+// Read Data
+HAL_StatusTypeDef BMI088_ReadAcceleration(BMI088 *dev);
+HAL_StatusTypeDef BMI088_ReadAngularRate(BMI088 *dev);
+
+// Low level register access
+HAL_StatusTypeDef BMI088_ReadRegister(BMI088 *dev, uint8_t reg, uint8_t *data, uint8_t select);
+HAL_StatusTypeDef BMI088_ReadRegisters(BMI088 *dev, uint8_t reg, uint8_t *data, uint8_t length, uint8_t select);
+HAL_StatusTypeDef BMI088_WriteRegister(BMI088 *dev, uint8_t reg, uint8_t value, uint8_t select);
+\end{lstlisting}
+\subsection{Source File}
+\label{subsec:driver_source_file}
+Die Implementierung der Funktionen im Source-File wird hier beschrieben.
+Zunächst muss das Header-File des Treibers selbst inkludiert werden, außerdem das Main-Header-File, um Zugriff auf die HAL-Funktionen zu erhalten.
+\\
+Hier soll zunächst auf die Funktion \texttt{BMI088\_Init} genauer eingegangen werden, jedoch basiert diese auf den Funktionen \texttt{BMI088\_ReadRegister}, \texttt{BMI088\_ReadRegister} und \texttt{BMI088\_WriteRegister}, welche die grundlegende SPI-Kommunikation mit dem Sensor ermöglichen, um Register zu lesen und zu beschreiben.
+Diese werden im Anschluss beschrieben, um den Funktionsablauf so verständlich und kohärent wie möglich zu darzustellen.
+\\
+\\
+In der Funktion \texttt{BMI088\_Init} wird die SPI-Schnittstelle initialisiert und die Sensoren konfiguriert, um die gewünschten Messwerte zu liefern. Dies beinhaltet das Schreiben von Konfigurationswerten in die entsprechenden Register des Sensors, um beispielsweise die Messrate, den Messbereich und die Filtereinstellungen festzulegen.
+\begin{lstlisting}[style=cstyle, caption={Struktur initialisieren}, label={lst:init_function}]
+/* Set struct parameters */
+dev->spiHandle	= spiHandle;
+\end{lstlisting}
+Zuerst wird der SPI-Handle in der Sensorstruktur gespeichert, damit er in den anderen Funktionen für die Kommunikation mit dem Sensor verwendet werden kann. 
+\\
+Außerdem werden im Rahmen der Initialisierung die Register \texttt{BMI088\_ACC\_CHIP\_ID} und \\\texttt{BMI088\_GYRO\_CHIP\_ID} gelesen, um zu überprüfen, ob die SPI Kommunikation funktioniert und richtig konfiguriert ist.
+
+\begin{lstlisting}[style=cstyle, caption={Chip ID überprüfen}, label={lst:check_chip_id}]
+status = BMI088_ReadRegister(dev, BMI088_ACC_CHIP_ID, &regData, BMI088_ACC_SELECT);
+errNum += ( status != HAL_OK);
+
+if ( regData != BMI088_ACC_CHIP_ID_VALUE){
+
+    return HAL_ERROR;
+
+}
+\end{lstlisting}
+Da der Accelerometerteil des BMI088 standardmäßig im I\textsuperscript{2}C Modus startet, muss dieser zunächst mittels einer Dummy-Read-Operation in den SPI Modus versetzt werden, bevor die Register konfiguriert werden können. 
+\begin{lstlisting}[style=cstyle, caption={SPI Modus aktivieren}, label={lst:enable_spi_mode}]
+/* Dummy Read */
+BMI088_ReadRegister(dev, BMI088_ACC_CHIP_ID, &regData, BMI088_ACC_SELECT);
+\end{lstlisting}
+Anschließend werden die Register des Sensors mit den gewünschten Konfigurationswerten beschrieben.
+\\
+Für das Accelerometer müssen folgende Register konfiguriert werden:
+\begin{itemize}
+    \item \texttt{ACC\_CONF}: Stellt ODR auf \SI{800}{Hz} und den Filtermodus \texttt{OSR4} ein.
+    \item \texttt{ACC\_RANGE}: Setzt den Messbereich des Accelerometers auf \(\pm24\,g\).
+    \item \texttt{ACC\_PWR\_CTRL}: Aktiviert den Beschleunigungssensor im Normalbetrieb.
+    \item \texttt{INT1\_IO\_CTRL}: Konfiguriert \texttt{INT1} als aktiv-high Push-Pull-Ausgang.
+    \item \texttt{INT\_MAP\_DATA}: Legt den Data-Ready-Interrupt des Accelerometers auf \texttt{INT1}.
+    \item \texttt{ACC\_PWR\_CONF}: Setzt den Accelerometer in den aktiven Modus.
+\end{itemize}
+Für das Gyroskop müssen folgende Register konfiguriert werden:
+\begin{itemize}
+    \item \texttt{GYRO\_LPM1}: Setzt das Gyroskop in den Normalmodus.
+    \item \texttt{GYRO\_BANDWIDTH}: Konfiguriert Bandbreite und ODR auf \SI{116}{Hz} bzw. \SI{1000}{Hz}.
+    \item \texttt{GYRO\_INT\_CTRL}: Aktiviert den Data-Ready-Interrupt des Gyroskops.
+    \item \texttt{INT3\_INT4\_IO\_CONF}: Konfiguriert \texttt{INT3} als aktiv-high Push-Pull-Ausgang.
+    \item \texttt{INT3\_INT4\_IO\_MAP}: Legt den Data-Ready-Interrupt des Gyroskops auf \texttt{INT3}.
+    \item \texttt{GYRO\_RANGE}: Setzt den Messbereich des Gyroskops auf \(\pm500~^\circ/\text{s}\).
+\end{itemize}
+
+Hier ist zu Demonstrationszwecken die Einstellung für den Messbereich von $\pm 24g$ angeführt:
+\begin{lstlisting}[style=cstyle, caption={Sensor 
+konfigurieren}, label={lst:configure_sensor}]
+/* Accelerometer range (+-24G = 0x03) */
+regData = 0x03;
+status = BMI088_WriteRegister(dev,BMI088_ACC_RANGE, regData, BMI088_ACC_SELECT);
+errNum += ( status != HAL_OK);
+\end{lstlisting}
+Wobei \texttt{status} den Rückgabewert der Funktion \texttt{BMI088\_WriteRegister} speichert, um zu überprüfen, ob die Register erfolgreich beschrieben wurden, wenn dies nicht der Fall ist, wird die Variable \texttt{errNum} inkrementiert, um die Anzahl der Fehler zu zählen. Am Ende der Initialisierungsfunktion wird die Anzahl der Fehler zurückgegeben, um anzuzeigen, ob die Initialisierung erfolgreich war oder ob Probleme aufgetreten sind. Dies ist eine sehr einfache Fehlerbehandlung, die jedoch hilfreich sein kann, um Probleme bei der Sensorinitialisierung zu erkennen.
+\\

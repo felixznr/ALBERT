@@ -101,24 +101,27 @@
 \contentsline {subsection}{\numberline {10.3.1}Steuerbarkeit}{59}{subsection.10.3.1}%
 \contentsline {subsection}{\numberline {10.3.2}Ermittlung der K Matrix}{59}{subsection.10.3.2}%
 \contentsline {subsection}{\numberline {10.3.3}Kalman Filter}{59}{subsection.10.3.3}%
-\contentsline {section}{\numberline {10.4}Implementierung in C}{59}{section.10.4}%
-\contentsline {chapter}{\numberline {11}CAD-Aufbau}{61}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Konzeptentwicklung}{61}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Flügelsteuermechanismus}{61}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Innenstruktur und Materialwahl}{62}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Implementierung und Fertigung}{62}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Herausforderungen und Lösungen}{62}{section.11.5}%
-\contentsline {section}{\numberline {11.6}Fazit}{62}{section.11.6}%
-\contentsline {chapter}{\numberline {12}Simulation der Aerodynamik}{63}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Simulation des Raketenkörpers in Ansys Fluent}{63}{section.12.1}%
-\contentsline {subsection}{\numberline {12.1.1}Definition der Referenzwerte und der simulierten/berechneten Werte}{63}{subsection.12.1.1}%
-\contentsline {paragraph}{\nonumberline Definition der Referenzwerte für alle Simulationsdurchgänge}{63}{paragraph*.86}%
-\contentsline {paragraph}{\nonumberline Definition der Winkel des Raketenkörpers und der Flügel}{63}{paragraph*.88}%
-\contentsline {paragraph}{\nonumberline Aus der Simulation bezogene Kräfte/Beiwerte}{63}{paragraph*.90}%
-\contentsline {subsection}{\numberline {12.1.2}Simulationsdurchgänge}{63}{subsection.12.1.2}%
-\contentsline {section}{\numberline {12.2}Auswertung der Simulationsergebnisse}{64}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Messung eines Raketenflügels im Windkanal}{65}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Vergleich mit Messdaten}{65}{section.12.4}%
+\contentsline {chapter}{\numberline {11}Implementierung in Software}{61}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Treiber}{61}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Header File}{61}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Source File}{62}{subsection.11.1.2}%
+\contentsline {chapter}{\numberline {12}CAD-Aufbau}{64}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Konzeptentwicklung}{64}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Flügelsteuermechanismus}{64}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Innenstruktur und Materialwahl}{65}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Implementierung und Fertigung}{65}{section.12.4}%
 \contentsline {section}{\numberline {12.5}Herausforderungen und Lösungen}{65}{section.12.5}%
 \contentsline {section}{\numberline {12.6}Fazit}{65}{section.12.6}%
+\contentsline {chapter}{\numberline {13}Simulation der Aerodynamik}{66}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Simulation des Raketenkörpers in Ansys Fluent}{66}{section.13.1}%
+\contentsline {subsection}{\numberline {13.1.1}Definition der Referenzwerte und der simulierten/berechneten Werte}{66}{subsection.13.1.1}%
+\contentsline {paragraph}{\nonumberline Definition der Referenzwerte für alle Simulationsdurchgänge}{66}{paragraph*.86}%
+\contentsline {paragraph}{\nonumberline Definition der Winkel des Raketenkörpers und der Flügel}{66}{paragraph*.88}%
+\contentsline {paragraph}{\nonumberline Aus der Simulation bezogene Kräfte/Beiwerte}{66}{paragraph*.90}%
+\contentsline {subsection}{\numberline {13.1.2}Simulationsdurchgänge}{66}{subsection.13.1.2}%
+\contentsline {section}{\numberline {13.2}Auswertung der Simulationsergebnisse}{67}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Messung eines Raketenflügels im Windkanal}{68}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Vergleich mit Messdaten}{68}{section.13.4}%
+\contentsline {section}{\numberline {13.5}Herausforderungen und Lösungen}{68}{section.13.5}%
+\contentsline {section}{\numberline {13.6}Fazit}{68}{section.13.6}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
