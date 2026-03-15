@@ -576,6 +576,8 @@ Die Steuerung und Stabilisierung einer Rakete erfordert ein Regelungssystem, wel
 Für diesen Zweck wird ein Linear Quadratic Gaussian (LQG) Regler entwickelt, welcher den Zusammenschluss aus Linear Quadratic Regulator (LQR) und Kalman-Filter darstellt. Der LQR ist ein optimaler Zustandsregler, der die Stellgröße so berechnet, dass eine quadratische Kostenfunktion $J$ minimiert wird. Der Kalman-Filter hingegen ist ein optimaler Schätzer, der die aktuellen Systemzustände basierend auf den Messungen der Sensoren und einem dynamischen Modell des Systems schätzt, um die Unsicherheiten in den Messungen und im Modell zu berücksichtigen.
 \\
 Wenn auch der PID-Regler eine weit verbreitete und effektive Regelungsstrategie darstellt, beschränkt sich seine Anwendbarkeit auf eine einzige Regelgröße oder mehrere Regelgrößen, die nicht miteinander gekoppelt sind, was den Einsatz in der Regelung einer Rakete extrem limitiert, da hier mehrere gekoppelte Regelgrößen (Lage, Position, Geschwindigkeit) gleichzeitig geregelt werden müssen.
+\\
+Dieses Kapitel basiert in großen Teilen auf der Arbeit von \textcite{DataDrivenScience}, welche einen umfassenden Überblick über die für diese Arbeit relevanten Konzepte der linearen Regelungstechnik gibt. 
 % Um die Lage und Position der Rakete zu bestimmen, messen die auf der Platine integrierten Sensoren (IMU, Barometer, Magnetometer) und GNSS die physikalischen Größen. Diese Messwerte werden in einem Sensorfusion-Algorithmus (Erweiteter-Kalman-Filter, siehe Abschnitt \ref{sec:kalman_filter})kombiniert und mit einer durch physikalische Modelle getroffene Vorhersage des Systemzustands abgeglichen, um eine genaue Schätzung der aktuellen Lage und Position zu erhalten.
 
 % \section{Überblick}
@@ -604,7 +606,6 @@ Wenn auch der PID-Regler eine weit verbreitete und effektive Regelungsstrategie 
 % Die Regelung (Closed-Loop Feedback) hat den Vorteil, dass durch die Rückkopplung der Regelgröße auf die Führungsgröße die Abweichung vom Sollwert erkannt und korrigiert werden kann. 
 % \\
 % Desweiteren ist es möglich instabile Systeme zu stabilisieren, auf externe Störungen zu reagieren und unerwartete Veränderungen im System zu kompensieren.\parencite{DataDrivenScience}
-
 \section{Geschlossener Regelkreis}
 \label{sec:regelkreis}
 In Abbildung \ref{fig:standard_regelkreis} ist ein Standard-Regelkreis dargestellt, welcher die grundlegenden Komponenten eines Regelungssystems zeigt: Regler (Controller), Regelstrecke (System) und Messung. Die Führungsgröße (Reference) $w_r$ repräsentiert den gewünschten Sollwert und wird mit der gemessenen Regelgröße $y_m$ verglichen, um die Regelabweichung $e$ zu bestimmen. Dem Regler wird die Regeldifferenz $e$ übergeben, welcher daraufhin die Stellgröße $u$ berechnet und so die Regelstrecke beeinflusst. Die Regelstrecke stellt das zu regelnde System dar, welches auf die Stellgröße $u$ und Störgröße (Disturbance) $w_d$ mit der Regelgröße $x$ reagiert. Diese Regelgröße wird durch eine von Messrauschen (Noise) $w_n$ behaftete Messung ermittelt und als gemessene Regelgröße $y$ zurückgeführt, um den Regelkreis zu schließen.
@@ -680,6 +681,20 @@ Nun können bei einer Verschiebung des Koordinatensystems auf den Arbeitspunkt $
 \begin{equation}
      \mathbf{y} = \mathbf{C} \cdot  \mathbf{x} + \mathbf{D} \cdot  \mathbf{u} 
 \end{equation}
+\subsection{Jacobi Matrizen}
+\label{subsec:jacobi_matrizen}
+Die Jacobi-Matrix ist eine Matrix, die die partiellen Ableitungen einer Matrix nach ihren Variablen enthält. Sie stellt die lokale Steigung einer nichtlinearen Funktion in mehreren Richtungen dar.
+\\
+Für eine Funktion ${f}({x})$ mit $m$ Ausgabekomponenten (Zeilen) und $n$ Eingabekomponenten (Spalten) ist die Jacobi-Matrix definiert als:
+\begin{equation}
+    \mathbf{J} = \begin{bmatrix}
+    \frac{\partial f_1}{\partial x_1}  & \cdots & \frac{\partial f_1}{\partial x_n} \\
+    
+    \vdots  & \ddots & \vdots \\
+    \frac{\partial f_m}{\partial x_1} &  \cdots & \frac{\partial f_m}{\partial x_n}
+    \end{bmatrix}
+\end{equation}
+
 
 \section{Steuerbarkeit}
 \label{sec:steuerbarkeit}
@@ -703,7 +718,7 @@ Ob ein System steuerbar ist, kann durch die Steuerbarkeitsmatrix $\mathcal{C} = 
 
 \section{Beobachtbarkeit}
 \label{sec:beobachtbarkeit}
-Die Beobachtbarkeit (Observability) eines Systems beschreibt die Fähigkeit, den Systemzustand $\mathbf{x}$ aus den Messungen der Regelgröße $\mathbf{y}$ zu rekonstruieren. Mathematisch gesehen sind sich Steuerbarkeit und Beobachtbarkeit sehr ähnlich, was bereits darauf hindeutet, dass auch zwischen LQR und Kalman-Filter eine enge Verbindung besteht. Ein System ist genau dann beobachtbar, wenn die Beobachtbarkeitsmatrix $\mathcal{O}=[\mathbf{C}, \mathbf{A} \cdot \mathbf{C}, \mathbf{A}^2 \cdot \mathbf{C}, ..., \mathbf{A}^{n} \cdot \mathbf{C}]$ vollen Rang $n$ hat. \parencite{DataDrivenScience}
+Die Beobachtbarkeit (Observability) eines Systems beschreibt die Fähigkeit, den Systemzustand $\mathbf{x}$ aus den Messungen der Regelgröße $\mathbf{y}$ zu rekonstruieren. Mathematisch gesehen sind sich Steuerbarkeit und Beobachtbarkeit sehr ähnlich, was bereits darauf hindeutet, dass auch zwischen LQR und Kalman-Filter eine enge Verbindung besteht. Ein System ist genau dann beobachtbar, wenn die Beobachtbarkeitsmatrix $\mathcal{O}=[\mathbf{C}, \mathbf{A} \cdot \mathbf{C}, \mathbf{A}^2 \cdot \mathbf{C}, ..., \mathbf{A}^{n} \cdot \mathbf{C}]$ vollen Rang $n$ hat. In Matlab kann die Beobachtbarkeitsmatrix mit der Funktion \texttt{obsv(A,C)} berechnet werden. \parencite{DataDrivenScience}
 
 \section{Linear Quadratic Regulator (LQR)}
 \label{sec:lqr_regler}
@@ -829,19 +844,6 @@ Ein intuitiver Ansatz ist die Frage wie schlimm der Zustand $\mathbf{P}$ aktuell
 
 
 
-\section{Jacobi Matrizen}
-\label{sec:jacobi_matrizen}
-Die Jacobi-Matrix ist eine Matrix, die die partiellen Ableitungen einer Matrix nach ihren Variablen enthält. Sie stellt die lokale Steigung einer nichtlinearen Funktion in mehreren Richtungen dar.
-\\
-Für eine Funktion ${f}({x})$ mit $m$ Ausgabekomponenten (Zeilen) und $n$ Eingabekomponenten (Spalten) ist die Jacobi-Matrix definiert als:
-\begin{equation}
-    \mathbf{J} = \begin{bmatrix}
-    \frac{\partial f_1}{\partial x_1}  & \cdots & \frac{\partial f_1}{\partial x_n} \\
-    
-    \vdots  & \ddots & \vdots \\
-    \frac{\partial f_m}{\partial x_1} &  \cdots & \frac{\partial f_m}{\partial x_n}
-    \end{bmatrix}
-\end{equation}
 
 
 \section{Kalman-Filter}
@@ -1102,10 +1104,12 @@ Wie in den der detaillierten Beschreibungen der beiden Verfahren siehe Kapitel \
 Optimal control and estimation are mathematical dual problems, as are controllability and observability.
  \parencite{DataDrivenScience}
 \end{quote}
-Die gesamte Systemdynamik des LQG-Reglers kann somit durch die folgende Gleichung beschrieben werden:
+Die vollständige Systemdynamik des LQG-Reglers kann somit durch die folgende Gleichung beschrieben werden:
 \begin{equation}
-\dot{\hat{\mathbf{x}}} = (\mathbf{A} - \mathbf{K}_f \mathbf{C} - \mathbf{B} \mathbf{K}_r ) \cdot \hat{\mathbf{x}} + \mathbf{K_f} \cdot \mathbf{y} 
+\dot{\hat{\mathbf{x}}} = \mathbf{A} \cdot \hat{\mathbf{x}} + \mathbf{B} \cdot \mathbf{u} + \mathbf{K}_f (\mathbf{y} - \mathbf{C} \cdot \hat{\mathbf{x}})
 \end{equation}
 \begin{equation}
 \mathbf{u} = -\mathbf{K}_r \cdot \hat{\mathbf{x}}
 \end{equation}
+Wenn die Matrix $\mathbf{K}_f$ in der ersten Gleichung groß ist, vertraut der Schätzer stark auf die Messungen, wenn diese jedoch klein ist, verlässt sich dieser stärker auf die Systemdynamik. Dies hängt davon ab wie stark das Messrauschen $\mathbf{w}_n$ im Vergleich zum Prozessrauschen $\mathbf{w}_d$ ist, und somit wie zuverlässig die Messungen sind.
+\parencite{DataDrivenScience}kn
