@@ -8,6 +8,7 @@
 \usepackage{setspace}
 \usepackage{caption}
 \usepackage{tabularx}
+\KOMAoptions{cleardoublepage=current}
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{fancyhdr}
@@ -100,6 +101,7 @@
 
     %Kopf- und Fußzeilen aktivieren
     \pagestyle{fancy}
+    \renewcommand*{\chapterpagestyle}{fancy}
     
     %Linie über Fußzeile aktivieren
     \renewcommand{\footrulewidth}{0.4pt}

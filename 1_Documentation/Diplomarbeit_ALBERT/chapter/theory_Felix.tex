@@ -576,6 +576,8 @@ Die Steuerung und Stabilisierung einer Rakete erfordert ein Regelungssystem, wel
 Für diesen Zweck wird ein Linear Quadratic Gaussian (LQG) Regler entwickelt, welcher den Zusammenschluss aus Linear Quadratic Regulator (LQR) und Kalman-Filter darstellt. Der LQR ist ein optimaler Zustandsregler, der die Stellgröße so berechnet, dass eine quadratische Kostenfunktion $J$ minimiert wird. Der Kalman-Filter hingegen ist ein optimaler Schätzer, der die aktuellen Systemzustände basierend auf den Messungen der Sensoren und einem dynamischen Modell des Systems schätzt, um die Unsicherheiten in den Messungen und im Modell zu berücksichtigen.
 \\
 Wenn auch der PID-Regler eine weit verbreitete und effektive Regelungsstrategie darstellt, beschränkt sich seine Anwendbarkeit auf eine einzige Regelgröße oder mehrere Regelgrößen, die nicht miteinander gekoppelt sind, was den Einsatz in der Regelung einer Rakete extrem limitiert, da hier mehrere gekoppelte Regelgrößen (Lage, Position, Geschwindigkeit) gleichzeitig geregelt werden müssen.
+\\
+Dieses Kapitel basiert in großen Teilen auf der Arbeit von \textcite{DataDrivenScience}, welche einen umfassenden Überblick über die für diese Arbeit relevanten Konzepte der linearen Regelungstechnik gibt. 
 % Um die Lage und Position der Rakete zu bestimmen, messen die auf der Platine integrierten Sensoren (IMU, Barometer, Magnetometer) und GNSS die physikalischen Größen. Diese Messwerte werden in einem Sensorfusion-Algorithmus (Erweiteter-Kalman-Filter, siehe Abschnitt \ref{sec:kalman_filter})kombiniert und mit einer durch physikalische Modelle getroffene Vorhersage des Systemzustands abgeglichen, um eine genaue Schätzung der aktuellen Lage und Position zu erhalten.
 
 % \section{Überblick}
@@ -604,7 +606,6 @@ Wenn auch der PID-Regler eine weit verbreitete und effektive Regelungsstrategie 
 % Die Regelung (Closed-Loop Feedback) hat den Vorteil, dass durch die Rückkopplung der Regelgröße auf die Führungsgröße die Abweichung vom Sollwert erkannt und korrigiert werden kann. 
 % \\
 % Desweiteren ist es möglich instabile Systeme zu stabilisieren, auf externe Störungen zu reagieren und unerwartete Veränderungen im System zu kompensieren.\parencite{DataDrivenScience}
-
 \section{Geschlossener Regelkreis}
 \label{sec:regelkreis}
 In Abbildung \ref{fig:standard_regelkreis} ist ein Standard-Regelkreis dargestellt, welcher die grundlegenden Komponenten eines Regelungssystems zeigt: Regler (Controller), Regelstrecke (System) und Messung. Die Führungsgröße (Reference) $w_r$ repräsentiert den gewünschten Sollwert und wird mit der gemessenen Regelgröße $y_m$ verglichen, um die Regelabweichung $e$ zu bestimmen. Dem Regler wird die Regeldifferenz $e$ übergeben, welcher daraufhin die Stellgröße $u$ berechnet und so die Regelstrecke beeinflusst. Die Regelstrecke stellt das zu regelnde System dar, welches auf die Stellgröße $u$ und Störgröße (Disturbance) $w_d$ mit der Regelgröße $x$ reagiert. Diese Regelgröße wird durch eine von Messrauschen (Noise) $w_n$ behaftete Messung ermittelt und als gemessene Regelgröße $y$ zurückgeführt, um den Regelkreis zu schließen.
@@ -680,6 +681,20 @@ Nun können bei einer Verschiebung des Koordinatensystems auf den Arbeitspunkt $
 \begin{equation}
      \mathbf{y} = \mathbf{C} \cdot  \mathbf{x} + \mathbf{D} \cdot  \mathbf{u} 
 \end{equation}
+\subsection{Jacobi Matrizen}
+\label{subsec:jacobi_matrizen}
+Die Jacobi-Matrix ist eine Matrix, die die partiellen Ableitungen einer Matrix nach ihren Variablen enthält. Sie stellt die lokale Steigung einer nichtlinearen Funktion in mehreren Richtungen dar.
+\\
+Für eine Funktion ${f}({x})$ mit $m$ Ausgabekomponenten (Zeilen) und $n$ Eingabekomponenten (Spalten) ist die Jacobi-Matrix definiert als:
+\begin{equation}
+    \mathbf{J} = \begin{bmatrix}
+    \frac{\partial f_1}{\partial x_1}  & \cdots & \frac{\partial f_1}{\partial x_n} \\
+    
+    \vdots  & \ddots & \vdots \\
+    \frac{\partial f_m}{\partial x_1} &  \cdots & \frac{\partial f_m}{\partial x_n}
+    \end{bmatrix}
+\end{equation}
+
 
 \section{Steuerbarkeit}
 \label{sec:steuerbarkeit}
@@ -703,7 +718,7 @@ Ob ein System steuerbar ist, kann durch die Steuerbarkeitsmatrix $\mathcal{C} = 
 
 \section{Beobachtbarkeit}
 \label{sec:beobachtbarkeit}
-Die Beobachtbarkeit (Observability) eines Systems beschreibt die Fähigkeit, den Systemzustand $\mathbf{x}$ aus den Messungen der Regelgröße $\mathbf{y}$ zu rekonstruieren. Mathematisch gesehen sind sich Steuerbarkeit und Beobachtbarkeit sehr ähnlich, was bereits darauf hindeutet, dass auch zwischen LQR und Kalman-Filter eine enge Verbindung besteht. Ein System ist genau dann beobachtbar, wenn die Beobachtbarkeitsmatrix $\mathcal{O}=[\mathbf{C}, \mathbf{A} \cdot \mathbf{C}, \mathbf{A}^2 \cdot \mathbf{C}, ..., \mathbf{A}^{n} \cdot \mathbf{C}]$ vollen Rang $n$ hat. \parencite{DataDrivenScience}
+Die Beobachtbarkeit (Observability) eines Systems beschreibt die Fähigkeit, den Systemzustand $\mathbf{x}$ aus den Messungen der Regelgröße $\mathbf{y}$ zu rekonstruieren. Mathematisch gesehen sind sich Steuerbarkeit und Beobachtbarkeit sehr ähnlich, was bereits darauf hindeutet, dass auch zwischen LQR und Kalman-Filter eine enge Verbindung besteht. Ein System ist genau dann beobachtbar, wenn die Beobachtbarkeitsmatrix $\mathcal{O}=[\mathbf{C}, \mathbf{A} \cdot \mathbf{C}, \mathbf{A}^2 \cdot \mathbf{C}, ..., \mathbf{A}^{n} \cdot \mathbf{C}]$ vollen Rang $n$ hat. In Matlab kann die Beobachtbarkeitsmatrix mit der Funktion \texttt{obsv(A,C)} berechnet werden. \parencite{DataDrivenScience}
 
 \section{Linear Quadratic Regulator (LQR)}
 \label{sec:lqr_regler}
@@ -797,12 +812,11 @@ Zur Minimierung der Kostenfunktion muss die Variation $\delta J_{\text{aug}}$ f�
 \mathbf{u}^{T}\mathbf{R} + \lambda^{T}\mathbf{B} &= 0  \\
 \mathbf{x}_{t_f}^{T}\mathbf{Q}_f - \lambda^{T}_{t_f} &= 0
 \end{align}
-Das Nullsetzen der ersten Variation liefert die notwendigen Bedingungen für Optimalität. Diese bestehen aus der ursprünglichen Zustandsgleichung, einer Differentialgleichung für die Kostatenvariable (co-state), einer algebraischen Stationaritätsbedingung für den Eingang (die Steuergröße) sowie einer Endbedingung zum finalen Zeitpunkt.
 Diese Gleichungen können nun verwendet werden, um die optimale Rückführungsmatrix $\mathbf{K}$ zu bestimmen. Zunächst wird die zweite Gleichung nach $\mathbf{u}$ umgestellt:
 \begin{equation}
 \mathbf{u} = \mathbf{-R}^{-1}\mathbf{B}^{T}\lambda 
 \end{equation}
-Es wird angenommen, dass die Kostatenvariable $\lambda$ proportional zum Systemzustand $x$ ist, mit der Proportionalitätskonstante $P$, welche eine symmetrische Matrix ist. Diese Annahme ist gerechtfertigt, da die Kostenfunktion quadratisch ist und somit die optimale Rückführung linear sein muss.
+Es wird angenommen, dass die Kostatenvariable $\lambda$ proportional zum Systemzustand $x$ ist, mit der Proportionalitätskonstante $P$, welche eine symmetrische Matrix ist. 
 \begin{equation}
 \lambda = \mathbf{Px}
 \end{equation}
@@ -825,24 +839,11 @@ Durch lösen dieser Gleichung nach $\mathbf{P}$ und einsetzen in die Gleichung f
 \begin{equation}
 \mathbf{K} = \mathbf{R}^{-1}\mathbf{B}^{T}\mathbf{P}
 \end{equation}
-Ein intuitiver Ansatz ist die Frage wie schlimm der Zustand $P$ aktuell ist, dieser wird auf die Matrix $\mathbf{B}$ projiziert, um zu bestimmen wie stark die Stellgröße $\mathbf{u}$ auf diesen Zustand einwirken kann, und schließlich wird mit der Inversen von $\mathbf{R}$ gewichtet, um den Stellaufwand zu berücksichtigen.
+Ein intuitiver Ansatz ist die Frage wie schlimm der Zustand $\mathbf{P}$ aktuell ist, dieser wird auf die Matrix $\mathbf{B}$ projiziert, um zu bestimmen wie stark die Stellgröße $\mathbf{u}$ auf diesen Zustand einwirken kann, und schließlich wird mit der Inversen von $\mathbf{R}$ gewichtet, um den Stellaufwand zu berücksichtigen.
 \parencite{DataDrivenScience}
 
 
 
-\section{Jacobi Matrizen}
-\label{sec:jacobi_matrizen}
-Die Jacobi-Matrix ist eine Matrix, die die partiellen Ableitungen einer Matrix nach ihren Variablen enthält. Sie stellt die lokale Steigung einer nichtlinearen Funktion in mehreren Richtungen dar.
-\\
-Für eine Funktion ${f}({x})$ mit $m$ Ausgabekomponenten (Zeilen) und $n$ Eingabekomponenten (Spalten) ist die Jacobi-Matrix definiert als:
-\begin{equation}
-    \mathbf{J} = \begin{bmatrix}
-    \frac{\partial f_1}{\partial x_1}  & \cdots & \frac{\partial f_1}{\partial x_n} \\
-    
-    \vdots  & \ddots & \vdots \\
-    \frac{\partial f_m}{\partial x_1} &  \cdots & \frac{\partial f_m}{\partial x_n}
-    \end{bmatrix}
-\end{equation}
 
 
 \section{Kalman-Filter}
@@ -853,6 +854,8 @@ Es wurde ursprünglich von Rudolf E. Kálmán, Richard S. Bucy und Ruslan L. Str
 Um den Schätzwert des Systems zu beschreiben werden im Gegensatz zu einfacheren Filtermethoden wie dem gleitenden Mittelwert mehrdimensionale Normalverteilungen verwendet. So können auch die Zusammenhänge von Schätzfehlern verschiedener Systemgrößen berücksichtigt werden um in jedem Zeitschritt eine optimale Schätzung zu erhalten.
 \\
 Eine Anwendung eines Kalman-Filters macht dann Sinn, wenn erstens eine zugrundeliegende Systemdynamik (physikalische Gesetze) modelliert werden kann und somit eine Vorhersage des Systemzustands möglich ist und zweitens eine direkte Messung der Systemgrößen nicht möglich oder mit Unsicherheiten behaftet ist. Das Kalman-Filter kombiniert diese beiden Informationsquellen optimal um so eine genauere Vorhersage des Systemzustands zu erhalten.
+\\
+Im Folgenden soll der Kalman-Filter in seiner in der Literatur am häufigsten beschriebenen Form vorgestellt werden: in diskreter Zeit und für lineare Systeme. Der Kalman-Filter wird deshalb detaillierter beschrieben, da eine intuitivere Betrachtung im Vergleich zum Ablauf eines LQR-Controllers möglich ist. Später wird im Rahmen des Kapitels \ref{sec:lqg} auf die spiegelbildartige Verbindung zwischen LQR und Kalman-Filter eingegangen, um die kaum zu übersehende Ähnlichkeit der beiden Verfahren zu verdeutlichen. 
 \parencite{Kalman60}
 \parencite{DorFuchsKalman}
 \parencite{WikipediaKalman}
@@ -861,11 +864,11 @@ Eine Anwendung eines Kalman-Filters macht dann Sinn, wenn erstens eine zugrundel
 \label{subsec:zustandsraummodellierung}
 Das Kalman-Filter basiert auf einer Zustandsraummodellierung des Systems, dabei wird der Systemzustand zu einem Zeitpunkt $k$ durch einen mehrdimensionalen Vektor $\mathbf{X}_k$ (Zuststandsgleichung) beschrieben, welcher sich aus den Systemgrößen zusammensetzt. Die Dynamik des Systems wird durch die Zustandsübergangsmatrix $\mathbf{F}_k$ beschrieben, welche den Einfluss des vorherigen Zustands $\mathbf{x}_{k-1}$ auf den aktuellen Zustand $\mathbf{x}_k$ modelliert. Um deterministische Steuerungseinflüsse zu berücksichtigen, wird der Steuervektor $\mathbf{u}_k$ mit der Steuerungsmatrix $\mathbf{B}_k$ multipliziert und zum Systemzustand addiert. Zusätzlich wird Prozessrauschen  berücksichtigt, welches die Unsicherheiten im Systemmodell als normalverteilte Zufallsvariable $\mathbf{w}_k$ beschreibt.
 \begin{equation}
-    \mathbf{X}_k = \mathbf{F}_k \cdot \mathbf{X}_{k-1} + \mathbf{B}_k \cdot \mathbf{u}_k + \mathbf{w}_k
+    \mathbf{x}_k = \mathbf{F}_k \cdot \mathbf{x}_{k-1} + \mathbf{B}_k \cdot \mathbf{u}_k + \mathbf{w}_k
 \end{equation}
 Beispielhaft hier angeführt eine eindimensionale Bewegung mit konstanter Geschwindigkeit ohne Prozessrauschen, bei der die Position $x_k$ und die Geschwindigkeit $\dot{x}_k$ des Systems den Systemzustand bilden:
 \begin{equation}
-    \mathbf{X}_k = \begin{bmatrix}
+    \mathbf{x}_k = \begin{bmatrix}
     x_k \\
     \dot{x}_k
     \end{bmatrix}
@@ -898,9 +901,9 @@ Man könnte die Zuststandsgleichung nun wie folgt anschreiben:
 \end{equation}
 \\
 \\
-Die Beobachtungen der realen Systemgrößen werden durch den Messvektor $\mathbf{Z}_k$ beschrieben, welcher sich aus den gemessenen Größen zusammensetzt. Die als linear angenommene Verzerrung zwischen dem Systemzustand und den Messungen wird durch die Beobachtungsmatrix $\mathbf{H}_k$ modelliert, welche den Einfluss des Systemzustands auf die Messungen beschreibt. Zusätzlich wird Messrauschen berücksichtigt, welches die Unsicherheiten in den Messungen als normalverteilte Zufallsvariable $\mathbf{v}_k$ beschreibt.
+Die Beobachtungen der realen Systemgrößen werden durch den Messvektor $\mathbf{z}_k$ beschrieben, welcher sich aus den gemessenen Größen zusammensetzt. Die als linear angenommene Verzerrung zwischen dem Systemzustand und den Messungen wird durch die Beobachtungsmatrix $\mathbf{H}_k$ modelliert, welche den Einfluss des Systemzustands auf die Messungen beschreibt. Zusätzlich wird Messrauschen berücksichtigt, welches die Unsicherheiten in den Messungen als normalverteilte Zufallsvariable $\mathbf{v}_k$ beschreibt.
 \begin{equation}
-    \mathbf{Z}_k = \mathbf{H}_k \cdot \mathbf{X}_k + \mathbf{v}_k
+    \mathbf{z}_k = \mathbf{H}_k \cdot \mathbf{x}_k + \mathbf{v}_k
 \end{equation}
 \\
 Die Zustandsgleichungen und die Messgleichungen bilden die Grundlage für den Filteralgorithmus und werden als Zustandsraummodellierung bezeichnet.
@@ -908,9 +911,9 @@ Die Zustandsgleichungen und die Messgleichungen bilden die Grundlage für den Fi
 
 \subsection{Vorhersageschritt}
 \label{subsec:vorhersageschritt}
-Im Vorhersageschritt wird nach der zuvor aufgestellten Zustandsgleichung der vorhergesagte Systemzustand $\mathbf{X}_{k|k-1}$ und die vorhergesagte Kovarianzmatrix\footnote{Kovarianzmatrix - mehrdimensionale Zufallsvariable} $\mathbf{P}_{k|k-1}$ berechnet. Diese Vorhersagen basieren auf dem vorherigen geschätzten Zustand $\mathbf{X}_{k-1}$ und da der Erwartungswert des Prozessrauschens $\mathbf{w}_k$ null ist, wird dieses im Vorhersageschritt nicht berücksichtigt.
+Im Vorhersageschritt wird nach der zuvor aufgestellten Zustandsgleichung der vorhergesagte Systemzustand $\mathbf{x}_{k|k-1}$ und die vorhergesagte Kovarianzmatrix\footnote{Kovarianzmatrix - mehrdimensionale Zufallsvariable} $\mathbf{P}_{k|k-1}$ berechnet. Diese Vorhersagen basieren auf dem vorherigen geschätzten Zustand $\mathbf{x}_{k-1}$ und da der Erwartungswert des Prozessrauschens $\mathbf{w}_k$ null ist, wird dieses im Vorhersageschritt nicht berücksichtigt.
 \begin{equation}
-    \mathbf{X}_{k|k-1} = \mathbf{F}_k \cdot \mathbf{X}_{k-1} + \mathbf{B}_k \cdot \mathbf{u}_k
+    \mathbf{x}_{k|k-1} = \mathbf{F}_k \cdot \mathbf{x}_{k-1} + \mathbf{B}_k \cdot \mathbf{u}_k
 \end{equation}
 In diesem Schritt wird ebenfalls die Kovarianzmatrix $\mathbf{P}_{k|k-1}$ der Schätzfehler aktualisiert, welche die Unsicherheiten in der Schätzung des Systemzustands beschreibt. Dabei wird auf Basis der vorherigen Kovarianzmatrix $\mathbf{P}_{k-1}$ und der Zustandsgleichung sowie der Kovarianzmatrix $\mathbf{Q}_k$ des Prozessrauschens $\mathbf{w}_k$ die neue Kovarianzmatrix berechnet.
 \begin{equation}
@@ -921,16 +924,16 @@ In diesem Schritt wird ebenfalls die Kovarianzmatrix $\mathbf{P}_{k|k-1}$ der Sc
 \label{subsec:korrekturschritt}
 Im Korrekturschritt wird die Vorhersage des Systemzustands $\mathbf{X}_{k|k-1}$ anhand der aktuellen Messungen $\mathbf{Z}_k$ angepasst, um eine genauere Schätzung zu erhalten. Dazu wird zunächst der Innovationsvektor $\mathbf{y}_k$ berechnet, welcher die Differenz zwischen den tatsächlichen Messungen und den vorhergesagten Messungen darstellt. 
 \begin{equation}
-    \mathbf{y}_k = \mathbf{Z}_k - \mathbf{H}_k \cdot \mathbf{X}_{k|k-1}
+    \mathbf{y}_k = \mathbf{z}_k - \mathbf{H}_k \cdot \mathbf{x}_{k|k-1}
 \end{equation}
 \\
 Anschließend stellt sich die Frage wie stark die Messdaten gewichtet werden sollen, um die Vorhersage zu korrigieren. Diese Gewichtung wird durch die Kalman-Gain-Matrix $\mathbf{K}_k$ beschrieben, welche auf Basis der vorhergesagten Kovarianzmatrix $\mathbf{P}_{k|k-1}$, der Beobachtungsmatrix $\mathbf{H}_k$ und der Kovarianzmatrix $\mathbf{R}_k$ des Messrauschens $\mathbf{v}_k$ berechnet wird.
 \begin{equation}
     \mathbf{K}_k = \frac{\mathbf{P}_{k|k-1} \cdot \mathbf{H}_k^T }{\mathbf{H}_k \cdot \mathbf{P}_{k|k-1} \cdot \mathbf{H}_k^T + \mathbf{R}_k} 
 \end{equation}
-Mit der Kalman-Gain-Matrix wird nun die Vorhersage des Systemzustands dynamisch korrigiert, um die aktualisierte Schätzung des Systemzustands $\mathbf{X}_k$ zu erhalten.
+Mit der Kalman-Gain-Matrix wird nun die Vorhersage des Systemzustands dynamisch korrigiert, um die aktualisierte Schätzung des Systemzustands $\mathbf{x}_k$ zu erhalten.
 \begin{equation}
-    \mathbf{X}_k = \mathbf{X}_{k|k-1} + \mathbf{K}_k \cdot \mathbf{y}_k
+    \mathbf{x}_k = \mathbf{x}_{k|k-1} + \mathbf{K}_k \cdot \mathbf{y}_k
 \end{equation}
 Abschließend wird die Kovarianzmatrix der Schätzfehler aktualisiert, um die Unsicherheiten in der aktualisierten Schätzung des Systemzustands zu beschreiben. Das Ziel des Filters ist es, diese Unsicherheiten zu minimieren.
 \begin{equation}
@@ -993,25 +996,25 @@ mit den Jacobi-Matrizen
 \parencite{ExtendedKalmanHalle}
 Für den Vorherageschritt des EKF ergibt sich somit:
 \begin{equation}
-    \mathbf{X}_{k|k-1} = f(\mathbf{X}_{k-1}, \mathbf{u}_k) 
+    \mathbf{x}_{k|k-1} = f(\mathbf{x}_{k-1}, \mathbf{u}_k) 
 \end{equation}
 \begin{equation}
     \mathbf{P}_{k|k-1} = \mathbf{A} \cdot \mathbf{P}_{k-1} \cdot \mathbf{A}^T + \mathbf{W} \cdot \mathbf{Q}_k \cdot \mathbf{W}^T
 \end{equation}
 Für den Korrekturschritt des EKF ergibt sich:
 \begin{equation}
-    \mathbf{y}_k = \mathbf{Z}_k - \mathbf{H}_{k|k-1} \cdot \mathbf{X}_{k|k-1}
+    \mathbf{y}_k = \mathbf{z}_k - \mathbf{H}_{k} \cdot \mathbf{x}_{k|k-1}
 \end{equation}
 \begin{equation}
-    \mathbf{K}_k =  \frac{\mathbf{P}_{k|k-1} \cdot \mathbf{H}^T}{  \mathbf{H} \cdot \mathbf{P}_{k|k-1} \cdot \mathbf{H}^T + \mathbf{V} \cdot \mathbf{R}_k \cdot \mathbf{V}^T}
+    \mathbf{K}_k =  \frac{\mathbf{P}_{k|k-1} \cdot \mathbf{H}_{k}^T}{  \mathbf{H}_{k} \cdot \mathbf{P}_{k|k-1} \cdot \mathbf{H}_{k}^T + \mathbf{V} \cdot \mathbf{R}_k \cdot \mathbf{V}^T}
 \end{equation}
 \begin{equation}
-    \mathbf{X}_k = \mathbf{X}_{k|k-1} + \mathbf{K}_k \cdot \mathbf{y}_k
-\end{equation}
-\begin{equation}
-    \mathbf{P}_k = (\mathbf{I} - \mathbf{K}_k \cdot \mathbf{H}) \cdot \mathbf{P}_{k|k-1}
+    \mathbf{P}_k = (\mathbf{I} - \mathbf{K}_k \cdot \mathbf{H}_{k}) \cdot \mathbf{P}_{k|k-1}
 \end{equation}  
-Der Ablauf des EKF ist ansonsten identisch zum klassischen Kalman-Filter.
+\begin{equation}
+    \hat{\mathbf{x}}_k = \mathbf{x}_{k|k-1} + \mathbf{K}_k \cdot \mathbf{y}_k
+\end{equation}
+Der Ablauf des EKF ist quasi identisch zum klassischen Kalman-Filter.
 \parencite{ExtendedKalmanHalle}\parencite{ExtendedKalmanPhils1}
 
 \subsection{Euler-Verfahren}
@@ -1025,9 +1028,9 @@ wobei $y_k$ der Funktionswert zum Zeitpunkt $t_k$, $h$ die Schrittweite und $f(t
 
 \section{Linear Quadratic Gaussian}
 \label{sec:lqg_regler}
-An diesem Punkt soll die Verbindung zwischen LQR und Kalman-Filter vorgestellt werden: Der Linear Quadratic Gaussian (LQG) Regler kombiniert die Vorteile beider Verfahren, indem er die optimale Zustandsrückführung des LQR mit der optimalen Zustandsabschätzung des Kalman-Filters zu einem optimalen Full State Feedback Regler zusammenführt.
-
-
+An diesem Punkt soll die Verbindung zwischen Linear Quadratic Regulator und Kalman-Filter auch Linear Quadratic Estimator genannt vorgestellt werden: Der Linear Quadratic Gaussian (LQG) Regler kombiniert die Vorteile beider Verfahren, indem er die optimale Zustandsrückführung des LQR mit der optimalen Zustandsabschätzung des Kalman-Filters zu einem optimalen Full State Feedback Regler zusammenführt.
+\\
+Dabei können die beiden optimalen Verfahren unabhängig voneinander ausgelegt werden und anschließend zusammengeführt werden, bleiben jedoch nach wie vor optimal. 
 \begin{figure}[H]
 \centering
 
@@ -1047,16 +1050,16 @@ An diesem Punkt soll die Verbindung zwischen LQR und Kalman-Filter vorgestellt w
 \coordinate (ujunc) at (-2.6,0); % junction point left of system
 
 % --- Input u line and into system ---
-\draw[-] (-4.2,0) -- node[above] {$u$} (ujunc);
+\draw[-] (-4.2,0) -- node[above] {$\mathbf{u}$} (ujunc);
 \draw[->] (ujunc) -- (system.west);
 
 % --- Output y, sum, and output arrow ---
-\draw[->] (system.east) -- node[above] {$y$} (sum.west);
+\draw[->] (system.east) -- node[above] {$\mathbf{y}$} (sum.west);
 \draw[->] (sum.east) -- ++(1.4,0);
 
 % --- Disturbance and measurement noise ---
-\draw[->] (0,1.5) -- node[right] {$w_d$} (system.north);
-\draw[->] (4.2,1.5) -- node[right] {$w_n$} (sum.north);
+\draw[->] (0,1.5) -- node[right] {$\mathbf{w}_d$} (system.north);
+\draw[->] (4.2,1.5) -- node[right] {$\mathbf{w}_n$} (sum.north);
 
 % --- Vertical line down from sum (measurement path) ---
 \coordinate (down) at (4.2,-2.4);
@@ -1066,7 +1069,7 @@ An diesem Punkt soll die Verbindung zwischen LQR und Kalman-Filter vorgestellt w
 \draw[->] (4.2,-2.4) -- (lqe.east);
 
 % --- LQE to LQR with x-hat ---
-\draw[->] (lqe.west) -- node[below] {$\hat{x}$} (lqr.east);
+\draw[->] (lqe.west) -- node[below] {$\hat{\mathbf{x}}$} (lqr.east);
 
 % --- Connection from LQE to the u-branch (missing in previous) ---
 % (line leaving LQE top, going to the vertical u-branch)
@@ -1080,3 +1083,33 @@ An diesem Punkt soll die Verbindung zwischen LQR und Kalman-Filter vorgestellt w
 \caption{LQG control structure}
 \label{fig:lqg_structure}
 \end{figure}
+In der Abbildung \ref{fig:lqg_structure} ist die Struktur eines LQG-Reglers dargestellt. Das System empfängt die Steuergröße $\mathbf{u}$ und produziert die Ausgangsgröße $\mathbf{y}$. Störgrößen $\mathbf{w}_d$ beeinflussen das System, während Messrauschen $\mathbf{w}_n$ die gemessenen Signale $\mathbf{y}$ stören. Der Kalman-Filter verarbeitet die gemessenen Signale, um eine Schätzung $\hat{\mathbf{x}}$ des Systemzustands zu liefern, welche dann an den LQR weitergegeben wird. Der LQR-Block berechnet die optimale Steuergröße basierend auf der geschätzten Zustandsinformation $\hat{\mathbf{x}}$. 
+\\
+Das System wird dabei durch folgende bereits bekannte Gleichungen beschrieben:
+\begin{equation}
+\dot{\mathbf{x}} = \mathbf{A} \cdot \mathbf{x} + \mathbf{B} \cdot \mathbf{u} + \mathbf{w}_d
+\end{equation}
+\begin{equation}
+\mathbf{y} = \mathbf{C} \cdot \mathbf{x} + \mathbf{w}_n
+\end{equation}
+Der LQG-Regler berechnet die Steuergröße $\mathbf{u}$ auf Basis der geschätzten Zustandsinformation $\hat{\mathbf{x}}$ durch die folgende Rückführung:
+\begin{equation}\mathbf{u} = -\mathbf{K}_r \cdot \hat{\mathbf{x}}
+\end{equation}
+Der Kalman-Filter (hier in seiner kontinuierlichen Form auch Kalman-Bucy Filter genannt) berechnet die Schätzung $\hat{\mathbf{x}}$ des Systemzustands basierend auf den gemessenen Signalen $\mathbf{y}$:
+\begin{equation}\hat{\mathbf{x}} = -\mathbf{K}_f \cdot \mathbf{y}\end{equation}
+Die Rückführungsmatrix $\mathbf{K}_r$ des LQR und die Kalman-Gain-Matrix $\mathbf{K}_f$ des Kalman-Filters werden unabhängig voneinander berechnet, wobei $\mathbf{K}_r$ auf der Minimierung der Kostenfunktion des LQR basiert und $\mathbf{K}_f$ auf der Minimierung der Kovarianzmatrix des Kalman-Filters basiert.
+\\
+Wie in den der detaillierten Beschreibungen der beiden Verfahren siehe Kapitel \ref{sec:lqr_regler} und \ref{sec:kalman_filter} beschrieben, sind sich die Berechnungsschritte der Rückführungsmatrix $\mathbf{K}_r$ des LQR und der Kalman-Gain-Matrix $\mathbf{K}_f$ des Kalman-Filters sehr ähnlich, und jeweils auf eine algebraische Riccati-Gleichung zurückzuführen. 
+\begin{quote}
+Optimal control and estimation are mathematical dual problems, as are controllability and observability.
+ \parencite{DataDrivenScience}
+\end{quote}
+Die vollständige Systemdynamik des LQG-Reglers kann somit durch die folgende Gleichung beschrieben werden:
+\begin{equation}
+\dot{\hat{\mathbf{x}}} = \mathbf{A} \cdot \hat{\mathbf{x}} + \mathbf{B} \cdot \mathbf{u} + \mathbf{K}_f (\mathbf{y} - \mathbf{C} \cdot \hat{\mathbf{x}})
+\end{equation}
+\begin{equation}
+\mathbf{u} = -\mathbf{K}_r \cdot \hat{\mathbf{x}}
+\end{equation}
+Wenn die Matrix $\mathbf{K}_f$ in der ersten Gleichung groß ist, vertraut der Schätzer stark auf die Messungen, wenn diese jedoch klein ist, verlässt sich dieser stärker auf die Systemdynamik. Dies hängt davon ab wie stark das Messrauschen $\mathbf{w}_n$ im Vergleich zum Prozessrauschen $\mathbf{w}_d$ ist, und somit wie zuverlässig die Messungen sind.
+\parencite{DataDrivenScience}kn
