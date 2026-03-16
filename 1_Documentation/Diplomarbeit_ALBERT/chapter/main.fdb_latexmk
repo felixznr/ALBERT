@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1773334961.89619 "main.bcf" "main.bbl" "main" 1773395252.16085 0
+["biber main"] 1773621560.62866 "main.bcf" "main.bbl" "main" 1773623311.21251 0
   "../appendix/refs.bib" 1773334944 8787 7f270eb53de71f08ba23ae635e8462cf ""
-  "main.bcf" 1773395251 111624 a9d83de6185ae554047471319ca9e8fb "pdflatex"
+  "main.bcf" 1773623310 111624 a9d83de6185ae554047471319ca9e8fb "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1773395242.50766 "c:/Users/timlu/HTL/5AHETS/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1773395252.16207 0
+["pdflatex"] 1773623297.3068 "c:/Users/timlu/HTL/5AHETS/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1773623311.21343 0
   "../figures/6dofrocket.png" 1771836742 314532 3bcd199b5df237a94efacaf2de644cee ""
   "../figures/BuckSchematic.png" 1773334944 113771 bad1ccd65b6fcd7f255fef4001621c8d ""
   "../figures/Bucklayout.png" 1773334944 165871 b5c16b766f5e32efb06222776af446f0 ""
@@ -41,6 +41,7 @@
   "../figures/pcbback.png" 1773334944 252728 e51650387b39e0dccd8292111eae2bae ""
   "../figures/pcbfront.png" 1772143985 571988 059214ae0e8d3d5902c03992fd276885 ""
   "../figures/pifilter.png" 1773334944 73730 c89640bea3424e436b0f6b77c9cf600c ""
+  "../figures/residuals.jpg" 1773595622 81845 57a3673cad731c500f2784dde4a23dd0 ""
   "../figures/sketch.png" 1773334944 217709 5b1f4c7670e836d7dac16350aa1291d1 ""
   "../figures/ski.jpg" 1770320249 327306 c303d4dd67a72aa94beddeaab515f80d ""
   "../figures/supersonic_shockwave.jpg" 1771233859 418639 a717198a291928a36e55dc283bdaa228 ""
@@ -403,16 +404,16 @@
   "bibliography.tex" 1770320249 548 19040c6066eb25a5f1d90f6b7e6ca17e ""
   "c:/Users/timlu/HTL/5AHETS/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" 1771497731 364 df4961bf5fd091a187fe14a1bfdc03dd ""
   "introduction.tex" 1773334944 1406 b146c8133a82a191496697c06862b517 ""
-  "main.aux" 1773395251 77425 b962ca81f203fd6a0718277af13eec43 "pdflatex"
-  "main.bbl" 1773334963 40245 52166719330c00c61f1c7bd5e0ee8581 "biber main"
-  "main.lof" 1773395251 5911 33fa6a87cb7e6ba953fd4ae63c28e3bf "pdflatex"
-  "main.lot" 1773395251 461 d1a59e37efc0d5b479f2aa64191d74cf "pdflatex"
-  "main.run.xml" 1773395251 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
+  "main.aux" 1773623310 78643 3095679e92d9fb46abd4af308a982a3c "pdflatex"
+  "main.bbl" 1773621562 40245 52166719330c00c61f1c7bd5e0ee8581 "biber main"
+  "main.lof" 1773623310 6034 a6b10030f74e97f4e9aa44fdd251cf82 "pdflatex"
+  "main.lot" 1773623310 561 628c122e5883b0e79cb191838866c6b6 "pdflatex"
+  "main.run.xml" 1773623310 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
   "main.tex" 1771497731 364 df4961bf5fd091a187fe14a1bfdc03dd ""
-  "main.toc" 1773395251 11375 6863d1193c62d983ed14144af7aa8dcb "pdflatex"
+  "main.toc" 1773623310 11476 434f07b33ed4eae46561f7396a4bdbeb "pdflatex"
   "praxis.tex" 1773334944 218 32efc3fd2a6dcb446e3dbd5c18836ae7 ""
   "praxis_Felix.tex" 1773334944 57351 b7481a9f667a70dc7847bf74b56efee6 ""
-  "praxis_Timofey.tex" 1773395232 9389 252102efd34dbf0945f15682ee37379e ""
+  "praxis_Timofey.tex" 1773623296 19320 d5893e4e7d953ebb5f006edcf6ad9f4a ""
   "preamble.tex" 1771493564 10164 c184f3192dfde2d33be83ebae7c49425 ""
   "tableofcontents.tex" 1770320249 706 74a712d631795294899c60a2b5541849 ""
   "theory.tex" 1773334944 230 1ff2d5edc55a498daf49ba583df4836f ""

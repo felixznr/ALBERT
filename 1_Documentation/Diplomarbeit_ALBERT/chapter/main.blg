@@ -1,17 +1,17 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'main.blg'
-[84] biber-MSWIN64:342> INFO - === 
-[116] Biber.pm:421> INFO - Reading 'main.bcf'
-[196] Biber.pm:1002> INFO - Found 29 citekeys in bib section 0
-[205] Biber.pm:4487> INFO - Processing section 0
-[214] Biber.pm:4678> INFO - Looking for bibtex file '../appendix/refs.bib' for section 0
-[260] bibtex.pm:1713> INFO - LaTeX decoding ...
-[274] bibtex.pm:1519> INFO - Found BibTeX data source '../appendix/refs.bib'
-[356] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[356] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[356] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'de-DE'
-[356] Biber.pm:4313> INFO - No sort tailoring available for locale 'de-DE'
-[375] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[384] bbl.pm:779> INFO - Output to main.bbl
-[384] Biber.pm:132> WARN - Duplicate entry key: 'barometerWorkingPrinciple' in file '../appendix/refs.bib', skipping ...
-[384] Biber.pm:134> INFO - WARNINGS: 1
+[69] biber-MSWIN64:342> INFO - === 
+[93] Biber.pm:421> INFO - Reading 'main.bcf'
+[162] Biber.pm:1002> INFO - Found 29 citekeys in bib section 0
+[171] Biber.pm:4487> INFO - Processing section 0
+[179] Biber.pm:4678> INFO - Looking for bibtex file '../appendix/refs.bib' for section 0
+[208] bibtex.pm:1713> INFO - LaTeX decoding ...
+[223] bibtex.pm:1519> INFO - Found BibTeX data source '../appendix/refs.bib'
+[298] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[298] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[300] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[300] Biber.pm:4313> INFO - No sort tailoring available for locale 'de-DE'
+[317] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[324] bbl.pm:779> INFO - Output to main.bbl
+[324] Biber.pm:132> WARN - Duplicate entry key: 'barometerWorkingPrinciple' in file '../appendix/refs.bib', skipping ...
+[324] Biber.pm:134> INFO - WARNINGS: 1

@@ -114,10 +114,11 @@
 \contentsline {paragraph}{\nonumberline Definition der Referenzwerte für alle Simulationsdurchgänge}{62}{paragraph*.60}%
 \contentsline {paragraph}{\nonumberline Definition der Winkel des Raketenkörpers und der Flügel}{62}{paragraph*.61}%
 \contentsline {paragraph}{\nonumberline Aus der Simulation bezogene Kräfte/Beiwerte}{62}{paragraph*.62}%
-\contentsline {subsection}{\numberline {12.1.2}Simulationsdurchgänge}{62}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.2}Simulationsdurchgänge}{63}{subsection.12.1.2}%
 \contentsline {section}{\numberline {12.2}Auswertung der Simulationsergebnisse}{63}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Messung eines Raketenflügels im Windkanal}{64}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Vergleich mit Messdaten}{64}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Herausforderungen und Lösungen}{64}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Fazit}{64}{section.12.6}%
+\contentsline {subsection}{\numberline {12.2.1}Berechnungen der Modellwerte}{65}{subsection.12.2.1}%
+\contentsline {section}{\numberline {12.3}Messung eines Raketenflügels im Windkanal}{68}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Vergleich mit Messdaten}{68}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Herausforderungen und Lösungen}{68}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Fazit}{68}{section.12.6}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
