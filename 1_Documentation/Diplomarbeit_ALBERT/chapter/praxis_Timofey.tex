@@ -128,7 +128,7 @@ Um genug Messpunkte der verschiedenen Werte für genaue Ableitungen zu erreichen
 Nach dem Simulieren von allen 11 Fällen, wurden diese entsprechend ausgewertet und alle für die Regelung nötigen Beiwerte wurden errechnet. Im ersten Schritt wurden alle aus den Simulationsergebnissen bezogene Kräfte in entsprechende Beiwerte umgerechnet.
 \newpage
 
-\subsection*{Simulationsergebnisse} 
+\subsection{Simulationsergebnisse} 
 \label{subsec:sim_results}
 Aus den 9 Simulationsdurchgängen ergaben sich folgende Ergebnisse für die Beiwerte:
 \begin{table}[h]
@@ -407,6 +407,42 @@ q
 \frac{2{,}6130694 \cdot 0{,}0349066}{0{,}00073304}
 \approx 24{,}89
 \]
+
+\subsection{Visualisierung der Simulationsergebnisse}
+\label{subsec:cfd_visual_results}
+Nach dem Simulationsdruchlauf in Ansys Fluent kann man anschließend die Simulationsergebnisse in Ansys CFD-Post visuell darstellen lassen. Somit ist es möglich einen besseren Einblick in den eigentlichen Strömungsverlauf zu bekommen und auch verschiedene Eigenschaften der Strömung an verschiedenen Punkten im Raum zu sehen.
+\\
+Um am besten die Änderungen der Strömung abhängig von Anstellwinkel des Raketenkörpers und der Flügel zu erkennen, wurden die visuellen Ergebnisse von Simulationsfall 9 in betracht gezogen, da bei diesem die höchsten Anstellwinkel von allen Fällen zu finden sind.
+
+\subsubsection*{Strömung um Raketenflügel}
+\label{subsubec:rocket_fin_flow}
+Beim 9. Simulationsfall wurde die Strömung an den Flügeln mit dem Anstellwinkel $\eta = 5^\circ$ in Betracht bezogen. In der Abbildung \ref{fig:rocket_fin_pressure} ist zu erkennen, wie durch den Winkel, mit dem sich der Flügel durch die Luft bewegt und durch dessen Aerofoil-Profil auf der unteren Seite ein Überdruck und auf der oberen Seite ein Unterdruck entsteht. Durch diesen Druckunterschied wird eine Auftriebskraft durch den Druckpunkt des Raketenkörpers erzeugt, die schließlich zu einem Pitchdrehmoment um die Y-Achse am Schwerpunkt der Rakete führt.
+\newpage
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.9\textwidth]{rocket_fin_pressure.jpg}
+        \caption{Druck am Raketenflügel}
+        \label{fig:rocket_fin_pressure}
+\end{figure}
+Die nächste Abbildung \ref{fig:rocket_fin_velocity} zeigt die Geschwindigkeit der Strömung um den Raketenflügel. Hier ist zu erkennen, wie die Strömung auf der Oberseite des Flügels schneller verläuft, was ebenfalls wie bei der Visualisierung vom Druck darauf hindeutet, dass es einen Auftrieb in die Z-Richtung gibt. Zusätzlich ist zu sehen wie die Geschwindigkeit nach dem Flügel kleiner wird, und diese Verlangsamung sich nach diesem auch ausbreitet. Dies ist der Nachlauf, verursacht durch Reibungs- und Umlenkungsverluste an dem Flügel.
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.9\textwidth]{rocket_fin_velocity.jpg}
+        \caption{Geschwindigkeit am Raketenflügel}
+        \label{fig:rocket_fin_velocity}
+\end{figure}
+\newpage
+
+\subsubsection*{Strömung um Raketenkörper}
+\label{subsubsec:rocket_body_flow}
+Anhand vom Kontur in der Abbildung \ref{fig:rocket_body_pressure} ist zu erkennen, wie sich der statische Druck um den Raketenkörper verteilt. An der Spitze erkennt man einen rot-/orangefarbigen Bereich, was typisch für einen Staupunkt ist. Hier wird die anströmende Luft durch den Kontakt mit dem Raketenkörper stark abgebremst. Der Pitch-Winkel des Raketenkörpers beträgt $\alpha = 5^\circ$, was nicht ausreichend ist, dass man einen richtigen Druckunterschied zwischen der Ober- und Unterseite erkennen kann, was außerdem auch auf die runde Form der Rakete zurückzuführen ist. In diesem Fall wird fast der ganze Auftrieb durch die um $\alpha + \eta = 2^\circ + 5^\circ = 10^\circ$ angewinkelten Raketenflügel erzeugt.
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.9\textwidth]{rocket_body_pressure.jpg}
+        \caption{Druck am Raketenkörper}
+        \label{fig:rocket_body_pressure}
+\end{figure}
+
 
 \section{Messung eines Raketenflügels im Windkanal}
 \label{sec:wind_tunnel_test}
