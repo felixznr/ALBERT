@@ -1,5 +1,7 @@
 \chapter{CAD-Aufbau}
 \label{ch:cad}
+\fancyfoot[C]{\large Timofey Luzin}
+\fancypagestyle{plain}{\fancyfoot[C]{\large Timofey Luzin}}
 
 \section{Konzeptentwicklung}
 \label{sec:concept}
@@ -26,6 +28,12 @@ den Flügelsteuermechanismus von ``ALBERT''.
 \end{figure}
 Um sicherzustellen, dass die Flügel stabil am Gehäuse befestigt sind, wurden diese mit
 2 Kugellagern gelagert, die in das Gehäuse eingebaut wurden. 
+
+\section{Montierung vom Flightcomputer und Akku}
+\label{sec:flight_computer_montage}
+
+\section{Bergungssystem}
+\label{sec:recovery_system}
 
 \section{Innenstruktur und Materialwahl}
 \label{sec:internal_structure}
@@ -67,7 +75,7 @@ die aufgrund ihrer Größe auf einem größeren Drucker gedruckt werden musste.
 
 \section{Simulation des Raketenkörpers in Ansys Fluent}
 \label{sec:used_software_sim}
-Um alle nötigen Kraft-/Momentkoeffizienten für das Steuersystem zu berechnen, wurde der ganze Raketenkörper in Ansys Fluent mit Verschiedenen Anstellwinkeln der Flügel simuliert.
+Um alle nötigen Kraft-/Momentkoeffizienten für das Steuersystem zu berechnen, wurde der ganze Raketenkörper in Ansys Fluent mit Verschiedenen Anstellwinkeln der Flügel und des ganzen Raketenkörpers simuliert.
 
 \subsection{Definition der Referenzwerte und der simulierten/berechneten Werte}
 \label{subsec:reference_sim_values}
@@ -442,7 +450,21 @@ Anhand vom Kontur in der Abbildung \ref{fig:rocket_body_pressure} ist zu erkenne
         \caption{Druck am Raketenkörper}
         \label{fig:rocket_body_pressure}
 \end{figure}
-
+Abbildung \ref{fig:rocket_body_velocity} zeigt den Kontur der Strömungsgeschwindigkeit um den Raketenkörper. Um den Vorderteil und den Heckteil erkennt man eine Beschleunigung der Strömung, was mit dem lokalen Abfall vom Druck an den selben Stellen zusammenpasst. Direkt an der Oberfläche der Rakete ist die Geschwindigkeit sehr klein, was eine Folge der no-slip condition. Die no-slip condition in der Strömungsmechanik besagt, dass ein viskoses Fluid direkt an einer festen Wand keine Geschwindigkeit relativ zur Wand besitzt. Anschließend ist genauso wie beim Raketenflügel auch hier ein Nachlauf erkennbar. Dieser ist nicht symmetrisch und nicht perfekt homogen, was für horizontale oder vertikale Geschwindigkeitsanteile zuspricht.
+\newpage
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.9\textwidth]{rocket_body_velocity.jpg}
+        \caption{Geschwindigkeit am Raketenkörper}
+        \label{fig:rocket_body_velocity}
+\end{figure}
+Der dritte Kontur um den Raketenkörper in der Abbildung \ref{fig:rocket_body_velocity_w} zeigt die Z-Komponente der Strömungsgeschwindigkeit. Man erkennt durch diesen Kontur eindeutig, dass die Strömung nicht nur eine axiale Komponente ist, da diese hier ansonsten perfekt symmetrisch und nahezu Null wäre. Es ist sowohl positive, als auch negative Geschwindigkeit vorhanden. An der Spitze der Rakete kann man gut den Geschwindigkeitsunterschied zwischen der Ober- und Unterseite, was wiederum auf ein Impuls in die Z-Richtung deutet. Genauso ist diese Geschwindigkeitsdifferenz auch bei den Flügeln der Rakete im Heckteil zu erkennen. Diese erzeugen zusätzliche lokale Ablenkungen in die Z-Richtung.\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.9\textwidth]{rocket_body_velocity_w.jpg}
+        \caption{Z-Komponente der Geschwindigkeit am Raketenkörper}
+        \label{fig:rocket_body_velocity_w}
+\end{figure}
+\newpage
 
 \section{Messung eines Raketenflügels im Windkanal}
 \label{sec:wind_tunnel_test}
