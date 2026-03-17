@@ -28,8 +28,8 @@
 \contentsline {figure}{\numberline {7.4}{\ignorespaces Verschiedene Flügelformen \blx@tocontentsinit {0}\parencite {NakkaRocketry}}}{33}{figure.caption.31}%
 \contentsline {figure}{\numberline {7.5}{\ignorespaces Flügelprofile \blx@tocontentsinit {0}\parencite {NakkaRocketry}}}{34}{figure.caption.33}%
 \contentsline {figure}{\numberline {7.6}{\ignorespaces Geometrie der NACA Profile \blx@tocontentsinit {0}\parencite {WikipediaNACA}}}{35}{figure.caption.34}%
-\contentsline {figure}{\numberline {7.7}{\ignorespaces Flügel CAD Modell}}{36}{figure.caption.35}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Aufbau vom Windkanal}}{38}{figure.caption.35}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {9.1}{\ignorespaces Systemarchitektur des Flightcomputers}}{42}{figure.caption.36}%
 \contentsline {figure}{\numberline {9.2}{\ignorespaces Schaltplan des BMI088 }}{46}{figure.caption.45}%
@@ -48,13 +48,14 @@
 \contentsline {figure}{\numberline {10.2}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{57}{figure.caption.58}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {12.1}{\ignorespaces Flügelsteuermechanismus}}{67}{figure.caption.62}%
+\contentsline {figure}{\numberline {12.1}{\ignorespaces Flügel CAD Modell}}{67}{figure.caption.62}%
+\contentsline {figure}{\numberline {12.2}{\ignorespaces Flügelsteuermechanismus}}{68}{figure.caption.63}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {13.1}{\ignorespaces Plot der Residuals im 8. Simulationsfall}}{71}{figure.caption.67}%
-\contentsline {figure}{\numberline {13.2}{\ignorespaces Druck am Raketenflügel}}{76}{figure.caption.68}%
-\contentsline {figure}{\numberline {13.3}{\ignorespaces Geschwindigkeit am Raketenflügel}}{76}{figure.caption.69}%
-\contentsline {figure}{\numberline {13.4}{\ignorespaces Druck am Raketenkörper}}{77}{figure.caption.70}%
-\contentsline {figure}{\numberline {13.5}{\ignorespaces Geschwindigkeit am Raketenkörper}}{78}{figure.caption.71}%
-\contentsline {figure}{\numberline {13.6}{\ignorespaces Z-Komponente der Geschwindigkeit am Raketenkörper}}{78}{figure.caption.72}%
+\contentsline {figure}{\numberline {13.1}{\ignorespaces Plot der Residuals im 8. Simulationsfall}}{72}{figure.caption.68}%
+\contentsline {figure}{\numberline {13.2}{\ignorespaces Druck am Raketenflügel}}{77}{figure.caption.69}%
+\contentsline {figure}{\numberline {13.3}{\ignorespaces Geschwindigkeit am Raketenflügel}}{77}{figure.caption.70}%
+\contentsline {figure}{\numberline {13.4}{\ignorespaces Druck am Raketenkörper}}{78}{figure.caption.71}%
+\contentsline {figure}{\numberline {13.5}{\ignorespaces Geschwindigkeit am Raketenkörper}}{79}{figure.caption.72}%
+\contentsline {figure}{\numberline {13.6}{\ignorespaces Z-Komponente der Geschwindigkeit am Raketenkörper}}{79}{figure.caption.73}%
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

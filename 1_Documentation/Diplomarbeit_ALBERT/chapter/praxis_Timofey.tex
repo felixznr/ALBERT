@@ -6,6 +6,31 @@
 \section{Konzeptentwicklung}
 \label{sec:concept}
 
+\section{Flügeldesign}
+\label{sec:fin_design}
+\begin{wrapfigure}{l}{0.3\textwidth}
+
+    % {r} = rechtsbündig platzieren
+    % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+    % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+    \centering
+    \includegraphics[width=0.3\textwidth]{albert_fin.png}
+        \caption{Flügel CAD Modell}
+        \label{fig:fin_cad_model}
+    % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+
+  % Abstand nach dem Bild reduzieren
+\end{wrapfigure}
+Die Flügel von ``ALBERT'' haben die Form eines gestutzten Deltas, da diese Form
+sowohl strukturell robust ist, als auch eine gute Wahl für Finnensteuerung darstellt.
+Beim Profil der Flügel von ``ALBERT'' wurde das NACA0012 Profil gewählt, da dieses Profil
+symmetrisch ist, was keinen Auftrieb bei einem Anstellwinkel von 0° erzeugt,
+die Auftriebskennlinie des Profils für kleine Anstellwinkel relativ linear ist,
+was die Regelung der Flügel einfacher macht. Die vierstelligen NACA Profile existieren
+schon sehr lange, daher gibt es gute Daten über die aerodynamischen Eigenschaften,
+was das überprüfen von Simlationsergebnissen und Versuchen erleichtert. Abbildung
+\ref{fig:fin_cad_model} zeigt das CAD Modell der Flügel.
+
 \section{Flügelsteuermechanismus}
 \label{sec:fin_control}
 Nach dem Entwurf der gesamten Raketengeometrie und der Festlegung der Form/Position
@@ -56,6 +81,9 @@ Für das Außengehäuse der Rakete wurde ein Kartorohr mit einem Außendurchmess
 und einer Wandstärke von 2mm verwendet. Dieses ist eine kostengünstige und leicht verfügbare
 Option, die alle Anforderungen an die Festigkeit und Steifigkeit der Rakete ausreichend erfüllt.
 
+\section{Zusammenführen vom CAD-Modell}
+\label{sec:cad_assembly}
+
 \section{Implementierung und Fertigung}
 \label{sec:implementation}
 Die Fertigung der Rakete erfolgte hauptsächlich durch 3D-Druck, wobei die meisten Komponenten
@@ -72,6 +100,12 @@ die aufgrund ihrer Größe auf einem größeren Drucker gedruckt werden musste.
 
 \chapter{Simulation der Aerodynamik}
 \label{ch:aero_simulation}
+
+\section{Definition der Geometrie und der Grenzen des Simulationsbereichs}
+\label{sec:geometry_boundaries_definition}
+
+\section{Meshing der Geometrie}
+\label{sec:geometry_meshing}
 
 \section{Simulation des Raketenkörpers in Ansys Fluent}
 \label{sec:used_software_sim}
@@ -130,6 +164,9 @@ Um genug Messpunkte der verschiedenen Werte für genaue Ableitungen zu erreichen
     \item Fall 10: $\alpha = \ang{5}, \beta = \ang{0}, \delta_1 = \ang{2}, \delta_2 = \ang{2}, \delta_3 = \ang{2}, \delta_4 = \ang{2}$
     \item Fall 11: $\alpha = \ang{0}, \beta = \ang{0}, \delta_1 = \ang{5}, \delta_2 = \ang{5}, \delta_3 = \ang{5}, \delta_4 = \ang{5}$
 \end{itemize}
+
+\subsection{Defenition der Beiwert-Reports in Fluent}
+\label{subsec:report_definitions_flunet}
 
 \section{Auswertung der Simulationsergebnisse}
 \label{sec:simulation_results}

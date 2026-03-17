@@ -313,33 +313,6 @@ mit den folgenden Parametern zu sehen:
     \item untere Profilseite  
 \end{enumerate}
 
-\newpage
-
-\subsection{Flügeldesign}
-\label{subsec:fin_design}
-\begin{wrapfigure}{l}{0.3\textwidth}
-
-    % {r} = rechtsbündig platzieren
-    % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
-    % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
-    \centering
-    \includegraphics[width=0.3\textwidth]{albert_fin.png}
-        \caption{Flügel CAD Modell}
-        \label{fig:fin_cad_model}
-    % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
-
-  % Abstand nach dem Bild reduzieren
-\end{wrapfigure}
-Die Flügel von ``ALBERT'' haben die Form eines gestutzten Deltas, da diese Form
-sowohl strukturell robust ist, als auch eine gute Wahl für Finnensteuerung darstellt.
-Beim Profil der Flügel von ``ALBERT'' wurde das NACA0012 Profil gewählt, da dieses Profil
-symmetrisch ist, was keinen Auftrieb bei einem Anstellwinkel von 0° erzeugt,
-die Auftriebskennlinie des Profils für kleine Anstellwinkel relativ linear ist,
-was die Regelung der Flügel einfacher macht. Die vierstelligen NACA Profile existieren
-schon sehr lange, daher gibt es gute Daten über die aerodynamischen Eigenschaften,
-was das überprüfen von Simlationsergebnissen und Versuchen erleichtert. Abbildung
-\ref{fig:fin_cad_model} zeigt das CAD Modell der Flügel.
-
 \chapter{Strömungssimulation und Messung im Windkanal}
 \fancyfoot[C]{\large Timofey Luzin}
 \fancypagestyle{plain}{\fancyfoot[C]{\large Timofey Luzin}}
@@ -357,11 +330,11 @@ ohne physische Experimente durchführen zu müssen. CFD wird in einer Vielzahl v
 Anwendungen eingesetzt, darunter die Luft- und Raumfahrt, die Automobilindustrie,
 die Energieerzeugung und die Umweltwissenschaften.
 
-\subsection{Ansys Fluent}
+\subsection{Ablauf von einem CFD-Simulationsdurchgang in Ansys Workbench}
 \label{subsec:ansys_fluent}
-Die CFD Simulation der Rakete ``ALBERT'' wurde mit Student Version von Ansys Fluent
+Die CFD Simulation der Rakete "`ALBERT"' wurde mit Student Version von Ansys Fluent
 durchgeführt, einem der führenden Softwarepakete für Computational Fluid Dynamics.
-Die Simulation läuft in mereren Schritten ab.
+Die Simulation läuft in mereren Schritten ab. Der ganze Ablauf kann sauber und übersichtlich mit Hilfe von Ansys Workbench definiert und bearbeitet werden. Ansys Workbench ist eine zentrale Simulationsplatform, die mehrere Simulationstools in einer Oberfläche vereint.
 
 \subsubsection*{Geometrie}
 \label{subsubsec:geometry_cfd}
@@ -426,6 +399,7 @@ Danach kommen Einstellugen für die Lösungsmethoden.
 
 \subsubsection*{Auswertung der Simulation}
 \label{subsubsec:simulation_postprossesing}
+Nach einem erfolgreichen Simulationsdurchgang können die gesammelten Daten anschließend ausgewertet werden. Wenn bei der Erstellung der Report-Definitions Report File/Report Plot ausgewählt wurden, kann man am Ende die Ergebnisse in Dateien mit der .out Dateierweiterung sehen. Diese stehen dort in Reihe mit der Nummer der jeweiligen Iteration. Außerdem kann Fluent diese ergebnisse auch als Kurve plotten, was nutzvoll ist, wenn man graphisch sehen möchte, wie sich bestimmte Werte im Lauf der Simulation ändern und ob diese stabil verlaufen. Dies kann Hinweise auf Fehler geben, oder zeigen, wenn die Simulation mit nicht genügend Iterationen durchgeführt wurde.
 
 \subsection{CFD Berechnung der Kräfte/Koeffizienten}
 \label{subsec:force_coeffietents_calculation}
@@ -435,6 +409,31 @@ es, diese bei verschiedenen Anstellwinkeln der Flügel zu erfassen, ohne
 aufwendige und teure Messungen durchführen zu müssen oder ungenaue,
 sehr annähernde Berechnungen mit der Hand zu machen.
 \\
+
+\section{Messung im Windkanal}
+\label{sec:aero_tube_measurement}
+\begin{wrapfigure}{r}{0.5\textwidth}
+    \centering
+    \vspace{-10pt}
+    \includegraphics[width=0.5\textwidth]{windkanal_aufbau.png}
+    \caption{Aufbau vom Windkanal}
+    \label{fig:aero_tube_schematic}
+    \vspace{-10pt}
+\end{wrapfigure}
+Da die Abteilung Maschinenbau über einen kleinen Windkanal in einem Labor verfügt, wurde dieser genutzt, um zusätzliche Informationen bezüglich der Strömung um ein Raketenflügel zu sammeln. Die Abbildung \ref{fig:aero_tube_schematic}, bezogen aus einem Laborprotokoll der Abteilung Maschinenbau, zeigt den Aufbau vom Windkanal. Die Geschwindigkeit der Luftströmung ist grundsätzlich durch den rotierenden Ventilator konstant, kann aber jedoch mit Hilfe von den verstellbaren Auslassklappen eingestellt werden. Um die Geschwindigkeit richtig einzustellen, können das Piezometer und das Manometer verwendet werden. Das Piezometer ist mit einem Schlauch zum Manometer verbunden. Da mit höherer Strömungsgeschwindigkeit der Druck im Windkanal steigt, steigt gleichzeitig auch der Spiegel der Flüssigkeit im Manometer. Aus bereits vorhandenen Messdaten aus dem Protokoll der Abteilung Maschinenbau konnte die gewollte Strömungsgeschwindigkeit eingestellt werden. \\
+\newpage
+Legende zur Abbildung \ref{fig:aero_tube_schematic}:
+\begin{itemize}
+    \item E: Einlass der Luft
+    \item H: Handrad zur Verstellung der Auslassklappen
+    \item A: Auslass der Luft
+    \item T: Messobjekt
+    \item P: Piezometer
+    \item M: Manometer
+    \item D: Dehnmessstreifen
+    \item K: Gerät zum Ablesen der Kraft
+\end{itemize}
+Anschließend kann mit Hilfe des Dehnmessstreifens die Axialkraft/Drag $F_A$ gemessen werden. Das Messobjekt wird am Ende eines Stabes befestigt und wird über diesen Hebelarm auf einem Scharnier außerhalb vom Windkanal befestigt. Dieser Hebelarm drückt gegen den Dehnmesstreifen, diese Kraft kann mit Hilfe eines Gerätes in Newton abgelesen werden.  
 
 
 \newpage
