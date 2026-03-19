@@ -50,12 +50,15 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {12.1}{\ignorespaces Flügel CAD Modell}}{68}{figure.caption.61}%
 \contentsline {figure}{\numberline {12.2}{\ignorespaces Flügelsteuermechanismus}}{69}{figure.caption.62}%
+\contentsline {figure}{\numberline {12.3}{\ignorespaces Befestigung des Raketenflügels mit Kugellagern}}{69}{figure.caption.63}%
+\contentsline {figure}{\numberline {12.4}{\ignorespaces Montierung vom Flightcomputer und Akku}}{70}{figure.caption.64}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {13.1}{\ignorespaces Plot der Residuals im 8. Simulationsfall}}{74}{figure.caption.66}%
-\contentsline {figure}{\numberline {13.2}{\ignorespaces Druck am Raketenflügel}}{79}{figure.caption.67}%
-\contentsline {figure}{\numberline {13.3}{\ignorespaces Geschwindigkeit am Raketenflügel}}{79}{figure.caption.68}%
-\contentsline {figure}{\numberline {13.4}{\ignorespaces Druck am Raketenkörper}}{80}{figure.caption.69}%
-\contentsline {figure}{\numberline {13.5}{\ignorespaces Geschwindigkeit am Raketenkörper}}{81}{figure.caption.70}%
-\contentsline {figure}{\numberline {13.6}{\ignorespaces Z-Komponente der Geschwindigkeit am Raketenkörper}}{81}{figure.caption.71}%
+\contentsline {figure}{\numberline {13.1}{\ignorespaces Vernetzter Raketenflügel}}{73}{figure.caption.66}%
+\contentsline {figure}{\numberline {13.2}{\ignorespaces Plot der Residuals im 8. Simulationsfall}}{76}{figure.caption.69}%
+\contentsline {figure}{\numberline {13.3}{\ignorespaces Druck am Raketenflügel}}{80}{figure.caption.70}%
+\contentsline {figure}{\numberline {13.4}{\ignorespaces Geschwindigkeit am Raketenflügel}}{81}{figure.caption.71}%
+\contentsline {figure}{\numberline {13.5}{\ignorespaces Druck am Raketenkörper}}{81}{figure.caption.72}%
+\contentsline {figure}{\numberline {13.6}{\ignorespaces Geschwindigkeit am Raketenkörper}}{82}{figure.caption.73}%
+\contentsline {figure}{\numberline {13.7}{\ignorespaces Z-Komponente der Geschwindigkeit am Raketenkörper}}{83}{figure.caption.74}%
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
