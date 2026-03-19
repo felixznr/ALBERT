@@ -6,6 +6,27 @@
 \section{Konzeptentwicklung}
 \label{sec:concept}
 
+\section{Innenstruktur und Materialwahl}
+\label{sec:internal_structure}
+Die Innenstruktur der Rakete wird auf 4 Carbonstäbe aufgebaut, die vom Heck bis zum
+Fallschirmfach verlaufen. Diese Stäbe sorgen für die notwendige Steifigkeit der Rakete
+und helfen dabei, die eizelnen Komponenten in nötiger Position zu halten. Die Stäbe
+mussten allerdings im Bereich des Flightcomputers unterbrochen werden, um Platz für
+diesen zu schaffen.
+\\
+\\
+Die Wahl des Materials für die Rakete fiel auf 3D-gedrucktes PLA, da dieses Material
+leicht zu verarbeiten ist, eine ausreichende Festigkeit für die Anforderungen der Rakete
+bietet und kostengünstig ist. Allerdings um die Festigkeit der Flügel und dessen
+Steuermechanismus zu erhöhen, wurde das Greentec Pro Filament von Extrudr verwendet,
+da dieses Material genauso einfach wie PLA zu verarbeiten ist, aber eine deutlich höhere
+Festigkeit aufweist.
+\\
+\\
+Für das Außengehäuse der Rakete wurde ein Kartorohr mit einem Außendurchmesser von 84 mm
+und einer Wandstärke von 2mm verwendet. Dieses ist eine kostengünstige und leicht verfügbare
+Option, die alle Anforderungen an die Festigkeit und Steifigkeit der Rakete ausreichend erfüllt.
+
 \section{Flügeldesign}
 \label{sec:fin_design}
 \begin{wrapfigure}{l}{0.3\textwidth}
@@ -51,35 +72,33 @@ den Flügelsteuermechanismus von ``ALBERT''.
         \caption{Flügelsteuermechanismus}
         \label{fig:fin_servo}
 \end{figure}
-Um sicherzustellen, dass die Flügel stabil am Gehäuse befestigt sind, wurden diese mit
-2 Kugellagern gelagert, die in das Gehäuse eingebaut wurden. 
+Um sicherzustellen, dass die Flügel stabil am Gehäuse befestigt und gleichzeitig frei beweglich auf dessen Rotationsachse sind, wurden diese mit
+2 Kugellagern gelagert, die in die Flügelhalterung eingebaut wurden, wie auf der Abbildung zu erkennen ist. 
+% ================== BILD EINFÜGEN ==================
 
 \section{Montierung vom Flightcomputer und Akku}
 \label{sec:flight_computer_montage}
+Der Flightcomputer und der Akku mussten direkt nebeneinander platziert werden, damit keine Verlängerung für das Kabel vom Akku zum Flightcomputer nötig ist. Die Halterungen wurden direkt über dem Flügelsteuermechanismus platziert. Zwischen der Halterung des Flightcomputers und der Halterung für die Servomotoren wurden Abstandhalter auf den Carbonstäben angebracht, um Platz für den Raketenmotor zu schaffen. Da bestimmte Bauteile des Flightcomputers Platz brauchten, war es nicht möglich die 4 Carbonstäbe durch die Halterung des Flightcomputers durchzuführen. Diese wurden daher unterbrochen, was jedoch für einen Schwachpunkt in der Innenstruktur im Bereich des Flightcomputers sorgte. Die Halterung des Flightcomputers wurde somit oben und unten verstärkt, wie auf Abbildung zu erkennen ist.
+% ================= BILD EINFÜGEN ======================
 
 \section{Bergungssystem}
 \label{sec:recovery_system}
+Um eine erfolgreiche Landung der Rakete zu ermöglichen, wurde diese mit einem Fallschirm ausgestattet. Die Auslösung des Bergungssystems erfolgt pyrotechnisch.
 
-\section{Innenstruktur und Materialwahl}
-\label{sec:internal_structure}
-Die Innenstruktur der Rakete wird auf 4 Carbonstäbe aufgebaut, die vom Heck bis zum
-Fallschirmfach verlaufen. Diese Stäbe sorgen für die notwendige Steifigkeit der Rakete
-und helfen dabei, die eizelnen Komponenten in nötiger Position zu halten. Die Stäbe
-mussten allerdings im Bereich des Flightcomputers unterbrochen werden, um Platz für
-diesen zu schaffen.
+\subsection{Auslösung des Bergungsystems}
+\label{subsec:recovery_system_trigger}
+Das Bergungssystem wird durch eine kleine Explosion innerhalb des Raketenkörpers ausgelöst. Dabei wird durch einen mit dem Flightcomputer verbundenen elektrischen Zünder eine explosive Mischung gezündet, durch dessen Detonation anschließend der Druck innerhalb des Gehäuses steigt. Durch diesen Druck wird ein Kolben nach vorne gedrückt, der letzendlich die Raketenspitze und den gefalteten Fallschirm aus dem Gehäuse der Rakete drückt.
 \\
-\\
-Die Wahl des Materials für die Rakete fiel auf 3D-gedrucktes PLA, da dieses Material
-leicht zu verarbeiten ist, eine ausreichende Festigkeit für die Anforderungen der Rakete
-bietet und kostengünstig ist. Allerdings um die Festigkeit der Flügel und dessen
-Steuermechanismus zu erhöhen, wurde das Greentec Pro Filament von Extrudr verwendet,
-da dieses Material genauso einfach wie PLA zu verarbeiten ist, aber eine deutlich höhere
-Festigkeit aufweist.
-\\
-\\
-Für das Außengehäuse der Rakete wurde ein Kartorohr mit einem Außendurchmesser von 84 mm
-und einer Wandstärke von 2mm verwendet. Dieses ist eine kostengünstige und leicht verfügbare
-Option, die alle Anforderungen an die Festigkeit und Steifigkeit der Rakete ausreichend erfüllt.
+Bestandteile der Mischung:
+\begin{itemize}
+    \item Kaliumnitrat ($KNO_3$)
+    \item Ascorbinsäure ($C_6H_8O_6$)
+    \item Eisen(III)-oxid ($Fe_2O_3$)
+    \item Wasser ($H_2O$)
+\end{itemize}
+% ====================== BILD ZU KOLBEN FALLSCHIRM =================
+Als Kolben diente ein hohles Kartonrohr, das in das Gehäuserohr eingeführt wird. Der Kolben bisitzt unten eine 3D-gedruckte Abdeckung, durch die ein Schockseil durchgeführt wird, welches die Raketenspitze, die Fallschirmseile und den Rest der Rakete verbindet.
+
 
 \section{Zusammenführen vom CAD-Modell}
 \label{sec:cad_assembly}
@@ -91,7 +110,7 @@ mit dem Bambulab A1 mini gedruckt wurden. Die einzige Ausnahme war die Raketensp
 die aufgrund ihrer Größe auf einem größeren Drucker gedruckt werden musste. 
 
 \section{Herausforderungen und Lösungen}
-\label{sec:challenges}
+\label{sec:die 4 Raketenflügel und der eigentlich Raketenkörper challenges}
 
 \section{Fazit}
 \label{sec:cad_fazit}
@@ -100,21 +119,62 @@ die aufgrund ihrer Größe auf einem größeren Drucker gedruckt werden musste.
 
 \chapter{Simulation der Aerodynamik}
 \label{ch:aero_simulation}
+Der simulierte Raketenkörper wurde im ersten Schritt in Siemens Solid Edge vereinfacht, sodass keine für CFD relevanten Teile vorhanden sind. Dieser wurde für jeden Simulationsfall angepasst und anschließend als Parasolid (Dateierweiterung .x\_t) exportiert.
 
 \section{Definition der Geometrie und der Grenzen des Simulationsbereichs}
 \label{sec:geometry_boundaries_definition}
+Die Parasolid-Geometrie wurde in die Tabelle für den Simulationsdurchlauf in Ansys Workbench importiert. Als nächsten Schritt wurde diese in Ansys DesignModeler (spezialisierte CAD-Software für Geometrieaufbereitung für technische Simulationen) geöffnet.
+\\
+In Designmodeler wurden mit Hilfe einer Boolschen Funktion die 4 Raketenflügel und der eigentliche Raketenkörper in ein Körper zusammengeführt. Um den Körper konnten mit der Erstellung eines Hüllkörpers die Grenzen des Simulationsbereichs festgelegt werden. Der Hüllkörper wurde für jeden Simulationsdurchgang identisch, mit den folgenden Maßen erstellt:
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Richtung} & \textbf{Abmaß in $m$} \\
+\hline
++X & 2 \\
++Y & 1 \\
++Z & 1 \\
+-X & 1,5 \\
+-Y & 1 \\
+-Z & 1 \\
+\hline
+\end{tabular}
+\caption{Maße des Simulationsbereichs}
+\label{tab:sim_boundaries}
+\end{table}
+\\Da Fluent einen durchgängigen Körper erwartet, wurde nach dem erstellen des Hüllkörpers, wurde wieder mit der Boolschen Funktion die Geometrie des Raketenkörpers von diesem subtrahiert.
 
 \section{Meshing der Geometrie}
 \label{sec:geometry_meshing}
+Nachdem mit Hilfe von DesignModeler ein durchgehender Körper erstellt wurde, muss aus dieser Geometrie ein Netz erstellt werden. Dies wurde in Ansys Mechanical realisiert, ebenfalls aus der Ansys Workbench Oberfläche.
+\\
+Bevor Mechanical das Netz erstellt, mussten bestimmte Einstellungen für das Netz angepasst werden.
+% =============== HIER EINSTELLUNGEN AUS MECHANICAL ==================
+\\
+Nach dem Einstellen und erfolgreichem Fertigstellen des Meshing-Vorgangs müssen einzelne Komponenten des Netzes definiert werden, um diese als Verschiedene Grenzbedingungen in Flunet definieren zu können. Es wurden folgende Komponenten erstellt:
+\begin{itemize}
+    \item inlet: Einlass der Strömung; Fläche des Hüllkörpers in die +X Richtung
+    \item wall: 4 Außenwände als Grenzen des Simulationsbereichs; 4 Flächen des Hüllkörpers in die +Y, -Y. +Z und -Z Richtungen
+    \item outlet: Auslass der Strömung; Fläche des Hüllkörpers in die -X Richtung
+    \item rocket: Raketenkörper; Teil des Netzes in der Mitte des Hüllkörpers
+\end{itemize}
+Anschließend wurde das Netz aktualisiert, um die letzten Änderungen mit Ansys Workbench zu synchronisieren.
 
 \section{Simulation des Raketenkörpers in Ansys Fluent}
 \label{sec:used_software_sim}
 Um alle nötigen Kraft-/Momentkoeffizienten für das Steuersystem zu berechnen, wurde der ganze Raketenkörper in Ansys Fluent mit Verschiedenen Anstellwinkeln der Flügel und des ganzen Raketenkörpers simuliert.
 
-\subsection{Definition der Referenzwerte und der simulierten/berechneten Werte}
+\subsection{Starteinstellungen für Fluent}
+\label{subsec:start_settings_fluent}
+Beim ersten Start von Fluent in einem Simulationsdurchgang öffnet sich ein Fenster mit Starteinstellungen. Hier wurde doppelte Präzision ausgewählt und die Anzahl der für die Simulation zugeteilter Kerne auf 4 gesetzt. Danach wurde in dem eigentlichen Programm mit den restlichen Einstellungen fortgefahren.
+
+\subsection{Definition von Referenzwerten, Winkeln, simulierten Werten}
 \label{subsec:reference_sim_values}
 Um die richtige Berechnung von den Kraft-/Momentkoeffizienten und dessen Ableitungen müssen in Fluent bestimmte Referenzwerte gesetzt werden.
-\paragraph{Definition der Referenzwerte für alle Simulationsdurchgänge}
+
+\subsubsection*{Definition der Referenzwerte}
+\label{subsubsec:reference_values}
 \begin{itemize}
     \item $A_{ref} = \frac{\pi \cdot D^2}{4}$: Referenzfläche (Frontfläche der Rakete) mit $D$ als Durchmesser des Raketenkörpers
     \item $l_{ref} = D$: Referenzlänge (Durchmesser des Raketenkörpers)
@@ -130,7 +190,9 @@ Mit einem Durchmesser des Raketenkörpers $D = 0,084m$ wurden diese wie folgt fe
 \[
     v_{ref} = 100\frac{m}{s}
 \]
-\paragraph{Definition der Winkel des Raketenkörpers und der Flügel}
+
+\subsubsection*{Definiton der Winkel des Raketenkörpers und der Flügel}
+\label{subsubsec:rocket_angle_definitions}
 \begin{itemize}
     \item $\alpha$: Pitch Winkel des Raketenkörpers
     \item $\beta$: Yaw Winkel des Raketenkörpers
@@ -138,15 +200,28 @@ Mit einem Durchmesser des Raketenkörpers $D = 0,084m$ wurden diese wie folgt fe
     \item $\eta$: Anstellwinkel vom für Pitch verantwortliches Flügelpaar
     \item $\zeta$: Anstellwinkeln vom für Yaw verantwortliches Flügelpaar
 \end{itemize}
-\paragraph{Aus der Simulation bezogene Kräfte/Beiwerte}
-\begin{itemize}
-    \item $F_A$: Axialkraft
-    \item $F_Y$: Seitenkraft
-    \item $F_Z$: Normalkraft
-    \item $C_l$: Rollmomentbeiwert
-    \item $C_m$: Pitchmomentbeiwert
-    \item $C_n$: Yawmomentbeiwert
-\end{itemize}
+
+\subsubsection*{Definition der simulierten Werte}
+\label{subsubsec:report_definitions}
+Folgende Kraft-/Momentbeiwerte mit den jeweiligen Einstellungen wurden als Report Definitions in Fluent definiert:
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Variable} & \textbf{Definition} & \textbf{Vektor-(Richtung)} & \textbf{Momentzentrum} \\
+\hline
+$C_A$ & Axialkraftbeiwert & $X(1) Y(0) Z(0)$ & - \\
+$C_Y$ & Seitenkraftbeiwert & $X(0) Y(1) Z(0)$ & - \\
+$C_Z$ & Normalkraftbeiwert & $X(0) Y(0) Z(1)$ & - \\
+$C_l$ & Rollmomentbeiwert & $X(1) Y(0) Z(0)$ & $X() Y() Z()$ \\
+$C_m$ & Pitchmomentbeiwert & $X(0) Y(1) Z(0)$ & $X() Y() Z()$ \\
+$C_n$ & Yawmomentbeiwert & $X(0) Y(0) Z(1)$ & $X() Y() Z()$ \\
+\hline
+\end{tabular}
+\caption{Definition der simulierten Werte}
+\label{tab:report_definitions}
+\end{table}
+\\Für jedes dieser Beiwerte wurden die Optionen für die Erstellung einer Reportdatei und eines Reportplots ausgewählt, was die anschließende Arbeit mit den simulierten Werten und dessen Visualisierung ermöglichte. 
 
 \subsection{Simulationsdurchgänge}
 \label{subsec:sim_cases}
@@ -171,7 +246,6 @@ Um genug Messpunkte der verschiedenen Werte für genaue Ableitungen zu erreichen
 \section{Auswertung der Simulationsergebnisse}
 \label{sec:simulation_results}
 Nach dem Simulieren von allen 11 Fällen, wurden diese entsprechend ausgewertet und alle für die Regelung nötigen Beiwerte wurden errechnet. Im ersten Schritt wurden alle aus den Simulationsergebnissen bezogene Kräfte in entsprechende Beiwerte umgerechnet.
-\newpage
 
 \subsection{Simulationsergebnisse} 
 \label{subsec:sim_results}
@@ -215,7 +289,7 @@ Dabei ist \textbf{continuity} die Massenerhaltung, \textbf{x-velocity}, \textbf{
 \subsection{Berechnungen der Modellwerte}
 \label{subsec:derivatives_calculation}
 Als ersten Schritt wurden die 3 Kraftbeiwerte berechnet. Diese resultieren aus den folgenden Ableitungen:
-\begin{equation}
+die 4 Raketenflügel und der eigentlich Raketenkörper \begin{equation}
     C_A = C_{A0} + \frac{\Delta C_A}{\Delta \alpha} + \frac{\Delta C_A}{\Delta \beta}
 \end{equation}
 Hier wird der Axialkraftbeiwert $C_A$ aus dem Axialkraftbeiwert ohne jeglichen Anstellwinkeln $C_{A0}$, der Ableitung des Axialkraftbeiwertes nach Pitch Winkel $\frac{\Delta C_A}{\Delta \alpha}$ und der Ableitung nach Yaw Winkel $\frac{\Delta C_A}{\Delta \beta}$.

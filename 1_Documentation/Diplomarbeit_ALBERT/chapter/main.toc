@@ -110,11 +110,12 @@
 \contentsline {subsection}{\numberline {11.1.3}BMI088\_ReadRegisters}{64}{subsection.11.1.3}%
 \contentsline {chapter}{\numberline {12}CAD-Aufbau}{67}{chapter.12}%
 \contentsline {section}{\numberline {12.1}Konzeptentwicklung}{67}{section.12.1}%
-\contentsline {section}{\numberline {12.2}Flügeldesign}{67}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Flügelsteuermechanismus}{67}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Montierung vom Flightcomputer und Akku}{68}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Bergungssystem}{68}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Innenstruktur und Materialwahl}{68}{section.12.6}%
+\contentsline {section}{\numberline {12.2}Innenstruktur und Materialwahl}{67}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Flügeldesign}{67}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Flügelsteuermechanismus}{67}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Montierung vom Flightcomputer und Akku}{68}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Bergungssystem}{69}{section.12.6}%
+\contentsline {subsection}{\numberline {12.6.1}Auslösung des Bergungsystems}{69}{subsection.12.6.1}%
 \contentsline {section}{\numberline {12.7}Zusammenführen vom CAD-Modell}{69}{section.12.7}%
 \contentsline {section}{\numberline {12.8}Implementierung und Fertigung}{69}{section.12.8}%
 \contentsline {section}{\numberline {12.9}Herausforderungen und Lösungen}{69}{section.12.9}%
@@ -122,23 +123,21 @@
 \contentsline {chapter}{\numberline {13}Simulation der Aerodynamik}{70}{chapter.13}%
 \contentsline {section}{\numberline {13.1}Definition der Geometrie und der Grenzen des Simulationsbereichs}{70}{section.13.1}%
 \contentsline {section}{\numberline {13.2}Meshing der Geometrie}{70}{section.13.2}%
-\contentsline {section}{\numberline {13.3}Simulation des Raketenkörpers in Ansys Fluent}{70}{section.13.3}%
-\contentsline {subsection}{\numberline {13.3.1}Definition der Referenzwerte und der simulierten/berechneten Werte}{70}{subsection.13.3.1}%
-\contentsline {paragraph}{\nonumberline Definition der Referenzwerte für alle Simulationsdurchgänge}{70}{paragraph*.64}%
-\contentsline {paragraph}{\nonumberline Definition der Winkel des Raketenkörpers und der Flügel}{70}{paragraph*.65}%
-\contentsline {paragraph}{\nonumberline Aus der Simulation bezogene Kräfte/Beiwerte}{71}{paragraph*.66}%
-\contentsline {subsection}{\numberline {13.3.2}Simulationsdurchgänge}{71}{subsection.13.3.2}%
-\contentsline {subsection}{\numberline {13.3.3}Defenition der Beiwert-Reports in Fluent}{71}{subsection.13.3.3}%
-\contentsline {section}{\numberline {13.4}Auswertung der Simulationsergebnisse}{71}{section.13.4}%
-\contentsline {subsection}{\numberline {13.4.1}Simulationsergebnisse}{72}{subsection.13.4.1}%
-\contentsline {subsection}{\numberline {13.4.2}Berechnungen der Modellwerte}{73}{subsection.13.4.2}%
-\contentsline {subsection}{\numberline {13.4.3}Visualisierung der Simulationsergebnisse}{76}{subsection.13.4.3}%
-\contentsline {section}{\numberline {13.5}Messung eines Raketenflügels im Windkanal}{80}{section.13.5}%
-\contentsline {section}{\numberline {13.6}Vergleich mit Messdaten}{80}{section.13.6}%
-\contentsline {section}{\numberline {13.7}Herausforderungen und Lösungen}{80}{section.13.7}%
-\contentsline {section}{\numberline {13.8}Fazit}{80}{section.13.8}%
-\contentsline {part}{\numberline {IV}Rechtliches}{81}{part.4}%
-\contentsline {chapter}{\numberline {14}Rechtliche Einschränkungen}{82}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Raketenmotor}{82}{section.14.1}%
-\contentsline {section}{\numberline {14.2}Pyrotechnische Charges zum Fallschirmauswurf}{83}{section.14.2}%
+\contentsline {section}{\numberline {13.3}Simulation des Raketenkörpers in Ansys Fluent}{71}{section.13.3}%
+\contentsline {subsection}{\numberline {13.3.1}Starteinstellungen für Fluent}{71}{subsection.13.3.1}%
+\contentsline {subsection}{\numberline {13.3.2}Definition von Referenzwerten, Winkeln, simulierten Werten}{71}{subsection.13.3.2}%
+\contentsline {subsection}{\numberline {13.3.3}Simulationsdurchgänge}{72}{subsection.13.3.3}%
+\contentsline {subsection}{\numberline {13.3.4}Defenition der Beiwert-Reports in Fluent}{73}{subsection.13.3.4}%
+\contentsline {section}{\numberline {13.4}Auswertung der Simulationsergebnisse}{73}{section.13.4}%
+\contentsline {subsection}{\numberline {13.4.1}Simulationsergebnisse}{73}{subsection.13.4.1}%
+\contentsline {subsection}{\numberline {13.4.2}Berechnungen der Modellwerte}{74}{subsection.13.4.2}%
+\contentsline {subsection}{\numberline {13.4.3}Visualisierung der Simulationsergebnisse}{77}{subsection.13.4.3}%
+\contentsline {section}{\numberline {13.5}Messung eines Raketenflügels im Windkanal}{81}{section.13.5}%
+\contentsline {section}{\numberline {13.6}Vergleich mit Messdaten}{81}{section.13.6}%
+\contentsline {section}{\numberline {13.7}Herausforderungen und Lösungen}{81}{section.13.7}%
+\contentsline {section}{\numberline {13.8}Fazit}{81}{section.13.8}%
+\contentsline {part}{\numberline {IV}Rechtliches}{82}{part.4}%
+\contentsline {chapter}{\numberline {14}Rechtliche Einschränkungen}{83}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Raketenmotor}{83}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Pyrotechnische Charges zum Fallschirmauswurf}{84}{section.14.2}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
