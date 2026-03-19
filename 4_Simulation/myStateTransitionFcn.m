@@ -1,8 +1,10 @@
-function xdot = myStateTransitionFcn(x,u_in)
+function x = myStateTransitionFcn(x,u_in)
 % x = [u v w p q r phi theta psi]'
 % u_in = [delta_eta delta_zeta delta_r T]' 
 
 % Define Parameters
+
+Ts = 0.01;
 % --- Geometry / environment ---
 g0   = 9.81;        % m/s^2
 rho0 = 1.225;       % kg/m^3 (sea level)
@@ -127,5 +129,16 @@ phidot   = p + (q*sin(phi) + r*cos(phi))*tan(theta);
 thetadot = q*cos(phi) - r*sin(phi);
 psidot   = (q*sin(phi) + r*cos(phi))/cos(theta);
 
-xdot = [vdot wdot pdot qdot rdot phidot thetadot psidot];
+ub = ub + udot*Ts;
+vb = vb + vdot*Ts;
+wb = wb + wdot*Ts;
+
+p = p + pdot*Ts;
+q = q + qdot*Ts;
+r = r + rdot*Ts;
+
+phi = phi + phidot*Ts;
+theta = theta + thetadot*Ts;
+psi = psi + psidot*Ts;
+x = [ub vb wb p q r phi theta psi];
 end

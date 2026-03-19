@@ -732,37 +732,47 @@ Mit $\Delta\mathbf{x} = \mathbf{x} - \bar{\mathbf{x}}_n$ und $\Delta\mathbf{u} =
 \dot{\mathbf{x}} = \mathbf{A}_n \mathbf{x} + \mathbf{B}_n \mathbf{u}
 \end{equation}
 Zur Bestimmung der Systemmatrizen $\mathbf{A}_n$ und $\mathbf{B}_n$ wird die \textit{Symbolic Toolbox} von MATLAB verwendet. Zun\"achst werden die Jacobi-Matrizen des nichtlinearen Zustandsraummodells $\dot{\mathbf{x}}=\mathbf{f}(\mathbf{x},\mathbf{u})$ symbolisch berechnet. Durch Auswertung dieser Ableitungen an den festgelegten Arbeitspunkten (Einsetzen der jeweiligen Zustands- und Eingangsgrößen sowie der Modellparameter) ergeben sich die numerischen Systemmatrizen. Die folgenden Matrizen $\mathbf{A}_n$ und $\mathbf{B}_n$ beschreiben die lineare Dynamik der Rakete um die jeweiligen Arbeitspunkte mit verschiedenen Geschwindigkeiten $u$ in $x$ Richtung.
-
-\begin{sidewaystable}
-\centering
+\\
+Hier beispielsweise anhand von einem Arbeitspunkt mit einer Geschwindigkeit von $u = 50\,\mathrm{m/s}$:
 \begin{equation}
-\mathbf{A}_n =
-\begin{array}{l}
-\left(\begin{array}{ccccccccc}
--\frac{49\,u_b }{16000}-\frac{49\,v_b }{12000}-\frac{49\,w_b }{12000} & r-\frac{49\,u_b }{12000} & -q-\frac{49\,u_b }{12000} & 0 & -w_b  & v_b  & 0 & -\frac{981\,\cos \left(\psi \right)\,\sin \left(\theta \right)}{100} & -\frac{981\,\cos \left(\theta \right)\,\sin \left(\psi \right)}{100}\\
-\frac{49\,v_b }{960}-r-\frac{49\,u_b \,{\left(\delta_{\zeta } +\frac{10\,v_b }{u_b }\right)}}{4800} & \sigma_4  & p & w_b  & 0 & -u_b  & \frac{981\,\sin \left(\phi \right)\,\sin \left(\psi \right)}{100}+\frac{981\,\cos \left(\phi \right)\,\cos \left(\psi \right)\,\sin \left(\theta \right)}{100} & \frac{981\,\cos \left(\psi \right)\,\cos \left(\theta \right)\,\sin \left(\phi \right)}{100} & -\frac{981\,\cos \left(\phi \right)\,\cos \left(\psi \right)}{100}-\frac{981\,\sin \left(\phi \right)\,\sin \left(\psi \right)\,\sin \left(\theta \right)}{100}\\
-q+\frac{49\,w_b }{960}-\frac{49\,u_b \,{\left(\delta_{\eta } +\frac{10\,w_b }{u_b }\right)}}{4800} & -p & \sigma_4  & -v_b  & u_b  & 0 & \frac{981\,\cos \left(\phi \right)\,\sin \left(\psi \right)}{100}-\frac{981\,\cos \left(\psi \right)\,\sin \left(\phi \right)\,\sin \left(\theta \right)}{100} & \frac{981\,\cos \left(\phi \right)\,\cos \left(\psi \right)\,\cos \left(\theta \right)}{100} & \frac{981\,\cos \left(\psi \right)\,\sin \left(\phi \right)}{100}-\frac{981\,\cos \left(\phi \right)\,\sin \left(\psi \right)\,\sin \left(\theta \right)}{100}\\
-\frac{49\,\delta_r \,u_b }{400}-\frac{49\,p}{800} & 0 & 0 & -\frac{49\,u_b }{800} & 0 & 0 & 0 & 0 & 0\\
-\frac{343\,w_b }{1600}-\frac{49\,q}{4000}+\frac{147\,\delta_{\eta } \,u_b }{1600} & 0 & \frac{343\,u_b }{1600} & \frac{3\,r}{4} & \sigma_3  & \frac{3\,p}{4} & 0 & 0 & 0\\
-\frac{343\,v_b }{1600}-\frac{49\,r}{4000}+\frac{147\,\delta_{\zeta } \,u_b }{1600} & \frac{343\,u_b }{1600} & 0 & -\frac{3\,q}{4} & -\frac{3\,p}{4} & \sigma_3  & 0 & 0 & 0\\
-0 & 0 & 0 & 1 & \frac{\sin \left(\phi \right)\,\sin \left(\theta \right)}{\cos \left(\theta \right)} & \frac{\cos \left(\phi \right)\,\sin \left(\theta \right)}{\cos \left(\theta \right)} & \frac{\sin \left(\theta \right)\,\sigma_1 }{\cos \left(\theta \right)} & r\,\cos \left(\phi \right)+q\,\sin \left(\phi \right)+\frac{{\sin \left(\theta \right)}^2 \,\sigma_2 }{{\cos \left(\theta \right)}^2 } & 0\\
-0 & 0 & 0 & 0 & \cos \left(\phi \right) & -\sin \left(\phi \right) & -r\,\cos \left(\phi \right)-q\,\sin \left(\phi \right) & 0 & 0\\
-0 & 0 & 0 & 0 & \frac{\sin \left(\phi \right)}{\cos \left(\theta \right)} & \frac{\cos \left(\phi \right)}{\cos \left(\theta \right)} & \frac{\sigma_1 }{\cos \left(\theta \right)} & \frac{\sin \left(\theta \right)\,\sigma_2 }{{\cos \left(\theta \right)}^2 } & 0
-\end{array}\right)\\
-\mathrm{}\\
-\textrm{where}\\
-\mathrm{}\\
-\;\;\sigma_1 =q\,\cos \left(\phi \right)-r\,\sin \left(\phi \right)\\
-\mathrm{}\\
-\;\;\sigma_2 =r\,\cos \left(\phi \right)+q\,\sin \left(\phi \right)\\
-\mathrm{}\\
-\;\;\sigma_3 =-\frac{49\,u_b }{4000}\\
-\mathrm{}\\
-\;\;\sigma_4 =-\frac{49\,u_b }{960}
-\end{array}
+\mathbf{A}_{20} =
+\begin{bmatrix}
+    -0.0190 &  -0.0061  & -0.0061  &    0     &     0     &     0    &     0    &     0    &     0 \\
+          0  &      0    &     0    &     0    &     0     & -20 &     0    &     0    & -9.81 \\
+          0  &      0    &     0    &     0    & 20   &     0    &     0    &  9.81 &     0 \\
+          0  &      0    &     0    & -1.2250  &     0     &     0    &     0    &     0   &     0 \\
+          0  &      0    &  1.6005  &     0    & -0.6822   &     0    &     0    &     0   &     0 \\
+          0  &   1.6005  &     0    &     0    &     0     & -0.6822  &     0    &     0   &     0 \\
+          0  &      0    &     0    &  1  &     0     &     0    &     0    &     0   &     0 \\
+          0  &      0    &     0    &     0    &  1  &     0    &     0    &     0   &     0 \\
+          0  &      0    &     0    &     0    &     0     &  1  &     0    &     0   &     0
+\end{bmatrix}
 \end{equation}
-\end{sidewaystable}
-
+In der Matrix lassen sich folgende Abhängigkeiten erkennen:
+\begin{itemize}
+    \item Die Beschleunigung $\dot{u}$ in $x$ Richtung hängt negativ von der Geschwindigkeit $u$ in $x$ Richtung ab, was auf den Luftwiderstand zurückzuführen ist. Außerdem beeinflussen die Geschwindigkeiten $v$ und $w$ in $y$ und $z$ Richtung die Beschleunigung in $x$ Richtung negativ, was auf den das Kreuzprodukt der Winkelgeschwindigkeiten mit den Geschwindigkeiten zurückzuführen ist.
+    \item Die seitlichen Beschleunigungen $\dot{v}$ und $\dot{w}$ in $y$ und $z$ Richtung hängen von den jeweiligen Rotationsgeschwindigkeiten und von der gravitationsbedingten Kopplung mit den jeweiligen Winkeln ab. 
+    \item Die Winkelbeschleunigungen $\dot{p}$, $\dot{q}$ und $\dot{r}$ stehen in negativer Beziehung zu den jeweiligen Winkelgeschwindigkeiten, was durch die aerodynamische Dämpfung verursacht wird. 
+    \item Die Winkelbeschleunigungen $\dot{q}$ und $\dot{r}$ hängen auch von den jeweiligen Geschwindigkeiten $w$ und $v$ in $z$ und $y$ Richtung ab.
+    \item Die Ableitungen der Euler-Winkel $\dot{\phi}$, $\dot{\theta}$ und $\dot{\psi}$ sind die Winkelgeschwindigkeiten $p$, $q$ und $r$.
+\end{itemize}
+\begin{equation}
+\mathbf{B}_{20} =
+\begin{bmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 11.2210 \\
+    33.9529 & 0 & 0 \\
+    0 & 33.9529 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 0
+\end{bmatrix}
+\end{equation}
+In der B-Matrix lässt sich erkennen, dass die Eingangsgrößen $\delta_\eta$ und $\delta_\zeta$ die Winkelgeschwindigkeiten $q$ und $r$ beeinflussen. Die Eingangsgröße $\delta_r$ beeinflusst die Winkelgeschwindigkeit $p$. Alle anderen Einträge in der B-Matrix sind null, was bedeutet, dass die Eingangsgrößen keinen direkten Einfluss auf die anderen Zustandsgrößen haben.
+\\
+Dadurch das beide Matrizen stark von der Geschwindigkeit $\mathbf{u}$ abhängen, ist für die gleiche Korrektur eines Winkels bei höheren Geschwindigkeiten eine kleinere Ruderauslenkung notwendig, da die aerodynamischen Kräfte und Momente bei höheren Geschwindigkeiten stärker wirken. 
 \section{Linear Quadratic Gaussian}
 \label{sec:lqg}
 \subsection{Steuerbarkeit}
@@ -778,8 +788,8 @@ Um sich im ersten Schritt ein Bild über die Regelstrecke zu machen, werden zuer
 -24.6607 \\
 21.6927 \\
 -0.1966 \\
-0.0000 \\
-0.0000
+0 \\
+0
 \end{bmatrix}
 \end{equation}
 Nachdem die Eigenwerte berechnet wurden, wird die Steuerbarkeit des Systems überprüft. Das System ist steuerbar, wenn die Steuerbarkeitsmatrix $\mathcal{C} = [\mathbf{B}_n, \mathbf{A}_n \mathbf{B}_n, \mathbf{A}_n^2 \mathbf{B}_n, \ldots, \mathbf{A}_n^{n-1} \mathbf{B}_n]$ vollen Rang hat. Dies wird mit \texttt{ctrlrank = rank(ctrb(A,B))} Funktion in MATLAB überprüft. Als Rückgabewert erhält man für den Wert 8, was bedeutet, dass das System nicht vollständig steuerbar ist, da die Systemdimension 9 beträgt, was auch völlig logisch ist, wenn man bedenkt, dass die Geschwindigkeit $u$ maßgeblich von der Schubkraft bestimmt wird, die nicht als Steuergröße zur Verfügung steht.
@@ -788,6 +798,27 @@ In Folge dieser Erkenntnis wird das System um die nicht steuerbare Geschwindigke
 
 \subsection{Ermittlung der K Matrix}
 \label{subsec:k_matrix}
+Die K-Matrix kann mit der Funktion \texttt{lqr(A,B,Q,R)} in MATLAB berechnet werden. Für die Gewichtungsmatrizen $Q$ und $R$ werden sinnvolle Werte nach der Bryson Methode gewählt, dabei werden für die diagonalen Elemente die maximal tolerierbaren Werte der Zustands- und Eingangsgrößen verwendet, um die Gewichtungen zu bestimmen.
+\\
+Auch die K-Matrix muss für die verschiedenen Arbeitspunkte berechnet werden, um die Systemdynamik über den gesamten Flug zu beschreiben. Über Interpolation zwischen den K-Matrizen der verschiedenen Arbeitspunkte kann eine von der Geschwindigkeit abhängige K-Matrix $\mathbf{K(u)}$ erstellt werden, die im Laufe des Fluges dynamisch angepasst werden kann.
+\\
+Im Folgenden sind die Matrizen für die Arbeitspunkte mit den Geschwindigkeiten $u = 50\,\mathrm{m/s}$ und $u = 100\,\mathrm{m/s}$ dargestellt:
+\begin{equation}
+\mathbf{K}_{50} =
+\begin{bmatrix}
+    0 & 0.0585 & 0 & 0.2928 & 0 & 0 & 5.3765 & 0 \\
+    -0.0208 & 0 & 0 & 0 & 0.2616 & 0 & 0 & 5.3744 \\
+    0 & 0 & 0.4208 & 0 & 0 & 7.0711 & 0 & 0
+\end{bmatrix}
+\end{equation}
+\begin{equation}
+\mathbf{K}_{100} =
+\begin{bmatrix}
+    0 & 0.0456 & 0 & 0.1781 & 0 & 0 & 4.3343 & 0 \\
+    -0.0267 & 0 & 0 & 0 & 0.1654 & 0 & 0 & 4.3337 \\
+    0 & 0 & 0.2293 & 0 & 0 & 7.0711 & 0 & 0
+\end{bmatrix}
+\end{equation}
 
 \subsection{Kalman Filter}
 
