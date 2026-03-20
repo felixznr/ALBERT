@@ -819,7 +819,8 @@ Im Folgenden sind die Matrizen für die Arbeitspunkte mit den Geschwindigkeiten 
     0 & 0 & 0.2293 & 0 & 0 & 7.0711 & 0 & 0
 \end{bmatrix}
 \end{equation}
-
+Mithilfe von MATLAB wurden für den Bereich von $u = 10\,\mathrm{m/s}$ bis $u = 200\,\mathrm{m/s}$ Polynomfunktionen für die einzelnen Einträge der K-Matrix berechnet.
+Hierzu wurden zuerst die jeweiligen $\mathbf{A}$ und $\mathbf{B}$ Matrizen  ermittelt, anschließend die K-Matrix für jeden Arbeitspunkt mit der \texttt{lqr} Funktion berechnet und schließlich die Polynomfunktionen mit der \texttt{polyfit} Funktion berechnet.
 \begin{equation}
 \mathbf{K}(u)\approx
 \begin{bmatrix}
@@ -828,7 +829,6 @@ k_{21} & 0 & 0 & 0 & k_{25} & 0 & 0 & k_{28} \\
 0 & 0 & k_{33} & 0 & 0 & 7.071 & 0 & 0
 \end{bmatrix}
 \end{equation}
-
 \begin{align*}
 k_{12} &= 6.28\cdot10^{-6}u^2 - 1.72\cdot10^{-3}u + 0.149 \\
 k_{14} &= 5.07\cdot10^{-5}u^2 - 1.39\cdot10^{-2}u + 1.020 \\
