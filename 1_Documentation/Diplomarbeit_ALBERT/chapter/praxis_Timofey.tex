@@ -39,6 +39,7 @@ Option, die alle Anforderungen an die Festigkeit und Steifigkeit der Rakete ausr
         \caption{Flügel CAD Modell}
         \label{fig:fin_cad_model}
     % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+    \vspace{-60pt}
 
   % Abstand nach dem Bild reduzieren
 \end{wrapfigure}
@@ -51,35 +52,38 @@ was die Regelung der Flügel einfacher macht. Die vierstelligen NACA Profile exi
 schon sehr lange, daher gibt es gute Daten über die aerodynamischen Eigenschaften,
 was das überprüfen von Simlationsergebnissen und Versuchen erleichtert. Abbildung
 \ref{fig:fin_cad_model} zeigt das CAD Modell der Flügel.
+\newpage
 
 \section{Flügelsteuermechanismus}
 \label{sec:fin_control}
-Nach dem Entwurf der gesamten Raketengeometrie und der Festlegung der Form/Position
-der Flügel, wurde die Entwicklung eines Steuermechanismus für die Flügel begonnen.
-Nach ein Paar gescheiterten Versuchen, wurde ein Mechanismus entwickelt, bei dem
-sowohl die Motoren aufgrund von Platzmangel in das Gehäuse passten, als diese auch
-effizient das Drehmoment auf die Flügel übertragen konnten. 
-\\
-Aufgrund von Platzmangel im Heckteil der Rakete, konnten die die Servomotoren nicht
-direkt an die Flügel angebracht werden, sondern mussten über ein System mit 2 ineinander
-zeigenden Hebelarmen und einem Gelenkarm, der die zwei Hebelarme miteinander verbindet.
-Das Drehmoment der Servomotoren wird dabei 1 zu 1 übertragen, da beide Hebelarme die
-gleiche Länge einer Drehachse auf die andere haben. Abbildung \ref{fig:fin_servo} zeigt
-den Flügelsteuermechanismus von ``ALBERT''.
+\begin{wrapfigure}{r}{0.35\textwidth}
+    \centering
+    \vspace{-10pt}
+    \includegraphics[width=0.35\textwidth]{fin_servo.png}
+    \caption{Flügelsteuermechanismus}
+    \label{fig:fin_servo}
+    \vspace{-10pt}
+\end{wrapfigure}
+Nach dem Entwurf der gesamten Raketengeometrie und der Festlegung der Form/Position der Flügel, wurde die Entwicklung eines Steuermechanismus für die Flügel begonnen. Nach ein Paar gescheiterten Versuchen, wurde ein Mechanismus entwickelt, bei dem sowohl die Motoren aufgrund von Platzmangel in das Gehäuse passten, als auch eine effiziente Übertragung des Drehmoments auf die Rotierungsachse der Flügel stattfinden konnte. \\
+Aufgrund von Platzmangel im Heckteil der Rakete, konnten die die Servomotoren nicht direkt an die Flügel angebracht werden, sondern mussten über ein System mit 2 ineinander zeigenden Hebelarmen und einem Gelenkarm, der die zwei Hebelarme miteinander verbindet. Das Drehmoment der Servomotoren wird dabei 1 zu 1 übertragen, da beide Hebelarme den gleichen Abstand von einer Drehachse zur anderen haben. \\
+Der Hebelarm des Flügels wurde dabei in einen Auschnitt in der Welle des Flügels geklebt und der Hebelarm des Motors wurde auf dessen gezähnte Welle gepresst. Abbildung \ref{fig:fin_servo} zeigt den Flügelsteuermechanismus von "`ALBERT"'. \\
+Um sicherzustellen, dass die Flügel stabil am Gehäuse befestigt und gleichzeitig frei beweglich auf dessen Rotationsachse sind, wurden diese mit 2 Kugellagern gelagert, die in die Flügelhalterung eingebaut wurden, wie auf der Abbildung \ref{fig:rocket_fin_bearings} zu erkennen ist. Der Abstand zwischen den beiden Kugellagern wird für den Flügelsteuermechanismus genutzt. Somit wirkt die Rotationskraft stabiler auf den Raketenflügel, da sich auf beiden Seiten des Hebelarms ein Lager befindet.
 \begin{figure}[H]
     \centering
-        \includegraphics[width=0.4\textwidth]{fin_servo.png}
-        \caption{Flügelsteuermechanismus}
-        \label{fig:fin_servo}
+    \includegraphics[width=0.5\textwidth]{fin_bearings.jpg}
+    \caption{Befestigung des Raketenflügels mit Kugellagern}
+    \label{fig:rocket_fin_bearings}
 \end{figure}
-Um sicherzustellen, dass die Flügel stabil am Gehäuse befestigt und gleichzeitig frei beweglich auf dessen Rotationsachse sind, wurden diese mit
-2 Kugellagern gelagert, die in die Flügelhalterung eingebaut wurden, wie auf der Abbildung zu erkennen ist. 
-% ================== BILD EINFÜGEN ==================
 
 \section{Montierung vom Flightcomputer und Akku}
 \label{sec:flight_computer_montage}
-Der Flightcomputer und der Akku mussten direkt nebeneinander platziert werden, damit keine Verlängerung für das Kabel vom Akku zum Flightcomputer nötig ist. Die Halterungen wurden direkt über dem Flügelsteuermechanismus platziert. Zwischen der Halterung des Flightcomputers und der Halterung für die Servomotoren wurden Abstandhalter auf den Carbonstäben angebracht, um Platz für den Raketenmotor zu schaffen. Da bestimmte Bauteile des Flightcomputers Platz brauchten, war es nicht möglich die 4 Carbonstäbe durch die Halterung des Flightcomputers durchzuführen. Diese wurden daher unterbrochen, was jedoch für einen Schwachpunkt in der Innenstruktur im Bereich des Flightcomputers sorgte. Die Halterung des Flightcomputers wurde somit oben und unten verstärkt, wie auf Abbildung zu erkennen ist.
-% ================= BILD EINFÜGEN ======================
+Der Flightcomputer und der Akku mussten direkt nebeneinander platziert werden, damit keine Verlängerung für das Kabel vom Akku zum Flightcomputer nötig ist. Die Halterungen wurden direkt über dem Flügelsteuermechanismus platziert. Zwischen der Halterung des Flightcomputers und der Halterung für die Servomotoren wurden Abstandhalter auf den Carbonstäben angebracht, um Platz für den Raketenmotor zu schaffen. Da bestimmte Bauteile des Flightcomputers Platz brauchten, war es nicht möglich die 4 Carbonstäbe durch die Halterung des Flightcomputers durchzuführen. Diese wurden daher unterbrochen, was jedoch für einen Schwachpunkt in der Innenstruktur im Bereich des Flightcomputers sorgte. Die Halterung des Flightcomputers wurde daher über und unter der Platine verstärkt, wie auf Abbildung \ref{fig:flight_computer_battery} zu erkennen ist.
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.9\textwidth]{flight_computer_battery.jpg}
+        \caption{Montierung vom Flightcomputer und Akku}
+        \label{fig:flight_computer_battery}
+\end{figure}
 
 \section{Bergungssystem}
 \label{sec:recovery_system}
@@ -149,10 +153,16 @@ In Designmodeler wurden mit Hilfe einer Boolschen Funktion die 4 Raketenflügel 
 \label{sec:geometry_meshing}
 Nachdem mit Hilfe von DesignModeler ein durchgehender Körper erstellt wurde, muss aus dieser Geometrie ein Netz erstellt werden. Dies wurde in Ansys Mechanical realisiert, ebenfalls aus der Ansys Workbench Oberfläche.
 \\
-Bevor Mechanical das Netz erstellt, mussten bestimmte Einstellungen für das Netz angepasst werden.
-% =============== HIER EINSTELLUNGEN AUS MECHANICAL ==================
+Bevor Mechanical das Netz erstellt, mussten bestimmte Einstellungen für das Netz angepasst werden. Die Elementgröße wurde auf 0,1m gesetzt, welche die globale maximale Netzgröße der Oberflächen festlegt. Eine Größe von 0,1m ist zwar relativ grob, reicht dennoch im Fall von "`ALBERT"' vollkommen aus (siehe Abbildung \ref{fig:rocket_fin_mesh}).
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.9\textwidth]{rocket_fin_mesh.jpg}
+        \caption{Vernetzter Raketenflügel}
+        \label{fig:rocket_fin_mesh}
+\end{figure}
+Zusätzlich wurde der Ziel-Schiefewert auf 0,3 gesetzt, dieser beschreibt, wie stark ein Netzelement von dessen idealen Form abweicht. Dabei ist ein Ziel-Schiefewert von 0 ideal und ein Wert von 1 ist die höchste und die grobste Einstellung. Letzendlich wurde die Glättung als "`Hoch"' eingestellt, diese besagt, wie oft/stark der Mesher die Position der einzelnen Knoten des Netzes nachträglich anpasst, um bessere Elementformen zu erzeugen. "`Hoch"' ist hierbei die höchste Einstellung und "`Niedrig"' die niedrigste.
 \\
-Nach dem Einstellen und erfolgreichem Fertigstellen des Meshing-Vorgangs müssen einzelne Komponenten des Netzes definiert werden, um diese als Verschiedene Grenzbedingungen in Flunet definieren zu können. Es wurden folgende Komponenten erstellt:
+Nach dem Einstellen und erfolgreichem Fertigstellen des Meshing-Vorgangs müssen einzelne Komponenten des Netzes definiert werden, um diese als Verschiedene Grenzbedingungen in Fluent definieren zu können. Es wurden folgende Komponenten erstellt:
 \begin{itemize}
     \item inlet: Einlass der Strömung; Fläche des Hüllkörpers in die +X Richtung
     \item wall: 4 Außenwände als Grenzen des Simulationsbereichs; 4 Flächen des Hüllkörpers in die +Y, -Y. +Z und -Z Richtungen
@@ -239,9 +249,6 @@ Um genug Messpunkte der verschiedenen Werte für genaue Ableitungen zu erreichen
     \item Fall 10: $\alpha = \ang{5}, \beta = \ang{0}, \delta_1 = \ang{2}, \delta_2 = \ang{2}, \delta_3 = \ang{2}, \delta_4 = \ang{2}$
     \item Fall 11: $\alpha = \ang{0}, \beta = \ang{0}, \delta_1 = \ang{5}, \delta_2 = \ang{5}, \delta_3 = \ang{5}, \delta_4 = \ang{5}$
 \end{itemize}
-
-\subsection{Defenition der Beiwert-Reports in Fluent}
-\label{subsec:report_definitions_flunet}
 
 \section{Auswertung der Simulationsergebnisse}
 \label{sec:simulation_results}
@@ -536,7 +543,6 @@ Um am besten die Änderungen der Strömung abhängig von Anstellwinkel des Raket
 \subsubsection*{Strömung um Raketenflügel}
 \label{subsubec:rocket_fin_flow}
 Beim 9. Simulationsfall wurde die Strömung an den Flügeln mit dem Anstellwinkel $\eta = 5^\circ$ in Betracht bezogen. In der Abbildung \ref{fig:rocket_fin_pressure} ist zu erkennen, wie durch den Winkel, mit dem sich der Flügel durch die Luft bewegt und durch dessen Aerofoil-Profil auf der unteren Seite ein Überdruck und auf der oberen Seite ein Unterdruck entsteht. Durch diesen Druckunterschied wird eine Auftriebskraft durch den Druckpunkt des Raketenkörpers erzeugt, die schließlich zu einem Pitchdrehmoment um die Y-Achse am Schwerpunkt der Rakete führt.
-\newpage
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.9\textwidth]{rocket_fin_pressure.jpg}
@@ -550,7 +556,6 @@ Die nächste Abbildung \ref{fig:rocket_fin_velocity} zeigt die Geschwindigkeit d
         \caption{Geschwindigkeit am Raketenflügel}
         \label{fig:rocket_fin_velocity}
 \end{figure}
-\newpage
 
 \subsubsection*{Strömung um Raketenkörper}
 \label{subsubsec:rocket_body_flow}
@@ -562,7 +567,7 @@ Anhand vom Kontur in der Abbildung \ref{fig:rocket_body_pressure} ist zu erkenne
         \label{fig:rocket_body_pressure}
 \end{figure}
 Abbildung \ref{fig:rocket_body_velocity} zeigt den Kontur der Strömungsgeschwindigkeit um den Raketenkörper. Um den Vorderteil und den Heckteil erkennt man eine Beschleunigung der Strömung, was mit dem lokalen Abfall vom Druck an den selben Stellen zusammenpasst. Direkt an der Oberfläche der Rakete ist die Geschwindigkeit sehr klein, was eine Folge der no-slip condition. Die no-slip condition in der Strömungsmechanik besagt, dass ein viskoses Fluid direkt an einer festen Wand keine Geschwindigkeit relativ zur Wand besitzt. Anschließend ist genauso wie beim Raketenflügel auch hier ein Nachlauf erkennbar. Dieser ist nicht symmetrisch und nicht perfekt homogen, was für horizontale oder vertikale Geschwindigkeitsanteile zuspricht.
-\newpage
+
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.9\textwidth]{rocket_body_velocity.jpg}
