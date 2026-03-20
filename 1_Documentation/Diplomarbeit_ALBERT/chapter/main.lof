@@ -1,0 +1,64 @@
+\babel@toc {ngerman}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Beispielhafter Stackup einer vierlagigen Leiterplatte \blx@tocontentsinit {0}\parencite {bitweenie2013}}}{6}{figure.caption.5}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Rückstrompfade im Vergleich \blx@tocontentsinit {0}\parencite {ZachariahPeterson_Rückstromführung}}}{7}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Elektrisches und magnetisches Feld eines Leiterbahnschnitts \blx@tocontentsinit {0}\parencite {ToddToporski_EMC}}}{8}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Platzierung von Decoupling-Kondensatoren}}{9}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Vereinfachter Schaltplan eines Abwärtswandlers}}{10}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Zeitliche Verläufe von Schaltspannung $U_Q$, Ausgangsspannung $U_A$ und Induktivitätsstrom $I_L$ eines Buck Converters im kontinuierlichen Betrieb}}{11}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Beispielhaftes Layout eines Abwärtswandlers \blx@tocontentsinit {0}\parencite {TPS55289}}}{11}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Messgrößen einer 6-DOF IMU}}{12}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Schematische Darstellung eines MEMS-Beschleunigungssensors }}{12}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Schematische Darstellung eines MEMS-Gyroskops \blx@tocontentsinit {0}\parencite {AdvancedNavigation_IMU}}}{13}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Funktionsprinzip eines Fluxgate-Magnetometers }}{13}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Beispielhafter Aufbau eines piezoresistiven Barometers \blx@tocontentsinit {0}\parencite {barometerWorkingPrinciple}}}{14}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Vereinfachte Darstellung der GNSS-Satelliten und des Empfängers}}{15}{figure.caption.25}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Standard-Regelkreis }}{20}{figure.caption.26}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Eigenwerte eines stabilen geschlossenen Regelkreises}}{21}{figure.caption.27}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces LQG control structure}}{28}{figure.caption.28}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Die 4 wichtigsten Kräfte auf einen Raketenflugkörper \blx@tocontentsinit {0}\parencite {BeginnersGuideToAeronautics}}}{30}{figure.caption.29}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Machscher Kegel \blx@tocontentsinit {0}\parencite {ApogeeRocketsPeakOfFlight}}}{32}{figure.caption.38}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Raketenspitze}}{32}{figure.caption.40}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Verschiedene Flügelformen \blx@tocontentsinit {0}\parencite {NakkaRocketry}}}{33}{figure.caption.45}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Flügelprofile \blx@tocontentsinit {0}\parencite {NakkaRocketry}}}{34}{figure.caption.48}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Geometrie der NACA Profile \blx@tocontentsinit {0}\parencite {WikipediaNACA}}}{35}{figure.caption.49}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Aufbau vom Windkanal}}{38}{figure.caption.54}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Systemarchitektur des Flightcomputers}}{42}{figure.caption.55}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Schaltplan des BMI088 }}{46}{figure.caption.72}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces PI-Filter zur Entkopplung der VDDA und VREF+ Pins von der 3.3\,V Schiene}}{47}{figure.9.3}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces RC-Tiefpass zur Stabilisierung der Referenzspannung am VREF+ Pin}}{47}{figure.9.4}%
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Quarzschwingkreis zur Taktfrequenzgenerierung}}{47}{figure.caption.73}%
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Schaltplan des Buck Converters basierend auf dem TPS54308 }}{48}{figure.caption.74}%
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Schaltplan des LDOs basierend auf dem AMS1117-3.3}}{48}{figure.caption.75}%
+\contentsline {figure}{\numberline {9.8}{\ignorespaces Erste Skizze der Leiterplatte}}{48}{figure.caption.76}%
+\contentsline {figure}{\numberline {9.9}{\ignorespaces Layout der Leiterplatte des Flightcomputers KOMADORI (Vorder- und Rückseite)}}{49}{figure.caption.77}%
+\contentsline {figure}{\numberline {9.10}{\ignorespaces Layout der MPU mit den zugehörigen passiven Komponenten}}{50}{figure.caption.78}%
+\contentsline {figure}{\numberline {9.11}{\ignorespaces Vergleich des Layouts des Buck Converters mit einem Referenzlayout des Herstellers}}{50}{figure.caption.79}%
+\contentsline {figure}{\numberline {9.12}{\ignorespaces Layout des GPS-Moduls mit den zugehörigen Designrichtlinien}}{51}{figure.caption.80}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{56}{figure.caption.81}%
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{57}{figure.caption.82}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {12.1}{\ignorespaces Flügel CAD Modell}}{68}{figure.caption.87}%
+\contentsline {figure}{\numberline {12.2}{\ignorespaces Flügelsteuermechanismus}}{69}{figure.caption.88}%
+\contentsline {figure}{\numberline {12.3}{\ignorespaces Befestigung des Raketenflügels mit Kugellagern}}{69}{figure.caption.89}%
+\contentsline {figure}{\numberline {12.4}{\ignorespaces Montierung vom Flightcomputer und Akku}}{70}{figure.caption.90}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {13.1}{\ignorespaces Vernetzter Raketenflügel}}{73}{figure.caption.92}%
+\contentsline {figure}{\numberline {13.2}{\ignorespaces Plot der Residuals im 8. Simulationsfall}}{76}{figure.caption.98}%
+\contentsline {figure}{\numberline {13.3}{\ignorespaces Druck am Raketenflügel}}{80}{figure.caption.104}%
+\contentsline {figure}{\numberline {13.4}{\ignorespaces Geschwindigkeit am Raketenflügel}}{81}{figure.caption.105}%
+\contentsline {figure}{\numberline {13.5}{\ignorespaces Druck am Raketenkörper}}{81}{figure.caption.107}%
+\contentsline {figure}{\numberline {13.6}{\ignorespaces Geschwindigkeit am Raketenkörper}}{82}{figure.caption.108}%
+\contentsline {figure}{\numberline {13.7}{\ignorespaces Z-Komponente der Geschwindigkeit am Raketenkörper}}{83}{figure.caption.109}%
+\addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
