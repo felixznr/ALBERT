@@ -819,8 +819,8 @@ Im Folgenden sind die Matrizen für die Arbeitspunkte mit den Geschwindigkeiten 
     0 & 0 & 0.2293 & 0 & 0 & 7.0711 & 0 & 0
 \end{bmatrix}
 \end{equation}
-Mithilfe von MATLAB wurden für den Bereich von $u = 10\,\mathrm{m/s}$ bis $u = 200\,\mathrm{m/s}$ Polynomfunktionen für die einzelnen Einträge der K-Matrix berechnet.
-Hierzu wurden zuerst die jeweiligen $\mathbf{A}$ und $\mathbf{B}$ Matrizen  ermittelt, anschließend die K-Matrix für jeden Arbeitspunkt mit der \texttt{lqr} Funktion berechnet und schließlich die Polynomfunktionen mit der \texttt{polyfit} Funktion berechnet.
+Mithilfe von MATLAB wurden für den Bereich von $u = 10\,\mathrm{m/s}$ bis $u = 200\,\mathrm{m/s}$ Polynomfunktionen von Grad 3 für die einzelnen Einträge der K-Matrix berechnet.
+Hierzu wurden zuerst die jeweiligen $\mathbf{A}$ und $\mathbf{B}$ Matrizen  ermittelt, anschließend die K-Matrix für jeden Arbeitspunkt mit der \texttt{lqr} Funktion berechnet und schließlich die Polynomfunktionen mit der \texttt{polyfit} Funktion berechnet. Im Vergleich zu den durch die \texttt{lqr} berechneten Stützpunkten zeigt sich das die Polynomfunktion eine unzureichende Näherung darstellt . Daher wird die K-Matrix über Interpolation der Stützpunkte ermittelt, was zu einer deutlich besseren Näherung führt(siehe Abbildung \ref{fig:k_fitting}).
 \begin{equation}
 \mathbf{K}(u)\approx
 \begin{bmatrix}
@@ -829,18 +829,18 @@ k_{21} & 0 & 0 & 0 & k_{25} & 0 & 0 & k_{28} \\
 0 & 0 & k_{33} & 0 & 0 & 7.071 & 0 & 0
 \end{bmatrix}
 \end{equation}
-\begin{align*}
-k_{12} &= 6.28\cdot10^{-6}u^2 - 1.72\cdot10^{-3}u + 0.149 \\
-k_{14} &= 5.07\cdot10^{-5}u^2 - 1.39\cdot10^{-2}u + 1.020 \\
-k_{17} &= 4.29\cdot10^{-5}u^2 - 2.69\cdot10^{-2}u + 6.597 \\
-k_{21} &= 9.23\cdot10^{-7}u^2 - 2.96\cdot10^{-4}u - 0.00662 \\
-k_{25} &= 4.39\cdot10^{-5}u^2 - 1.20\cdot10^{-2}u + 0.890 \\
-k_{28} &= 4.16\cdot10^{-5}u^2 - 2.65\cdot10^{-2}u + 6.577 \\
-k_{33} &= 7.75\cdot10^{-5}u^2 - 2.15\cdot10^{-2}u + 1.537
-\end{align*}
 
-\subsection{Kalman Filter}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{k_fitting.png}
+    \caption{Vergleich der Polynomfunktion mit Interpolation des Eingtrags $k_{12}$ der K-Matrix}
+    \label{fig:k_fitting}
+\end{figure}
+
+\subsection{ExtendedKalman Filter}
+\label{subsec:extendedkalmanfilter}
+Die Implementierung eines Zustandschätzers erfordert eine Messmodell, das die Beziehung zwischen den gemessenen Sensorwerten und den Zustandsgrößen beschreibt. In diesem Fall werden die Messungen von einem Inertial Measurement Unit (IMU) und einem GPS-Modul verwendet, um die Zustände der Rakete zu schätzen. Das Messmodell kann als Funktion $h(\mathbf{x})$ formuliert werden, die die gemessenen Werte in Abhängigkeit von den Zustandsgrößen beschreibt.
 
 \chapter{Implementierung in Software}
 \label{ch:implementation_in_software}

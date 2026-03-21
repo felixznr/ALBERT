@@ -100,13 +100,13 @@
 \contentsline {section}{\numberline {10.3}Linear Quadratic Gaussian}{60}{section.10.3}%
 \contentsline {subsection}{\numberline {10.3.1}Steuerbarkeit}{60}{subsection.10.3.1}%
 \contentsline {subsection}{\numberline {10.3.2}Ermittlung der K Matrix}{60}{subsection.10.3.2}%
-\contentsline {subsection}{\numberline {10.3.3}Kalman Filter}{61}{subsection.10.3.3}%
+\contentsline {subsection}{\numberline {10.3.3}ExtendedKalman Filter}{61}{subsection.10.3.3}%
 \contentsline {chapter}{\numberline {11}Implementierung in Software}{62}{chapter.11}%
 \contentsline {section}{\numberline {11.1}Treiber}{62}{section.11.1}%
 \contentsline {subsection}{\numberline {11.1.1}Header File}{62}{subsection.11.1.1}%
 \contentsline {subsection}{\numberline {11.1.2}Source File}{63}{subsection.11.1.2}%
-\contentsline {subsubsection}{\nonumberline BMI088\_Init}{63}{subsubsection*.84}%
-\contentsline {subsubsection}{\nonumberline BMI088\_ReadAcceleration und BMI088\_ReadAngularRate}{65}{subsubsection*.86}%
+\contentsline {subsubsection}{\nonumberline BMI088\_Init}{63}{subsubsection*.85}%
+\contentsline {subsubsection}{\nonumberline BMI088\_ReadAcceleration und BMI088\_ReadAngularRate}{65}{subsubsection*.87}%
 \contentsline {subsection}{\numberline {11.1.3}BMI088\_ReadRegisters}{65}{subsection.11.1.3}%
 \contentsline {chapter}{\numberline {12}CAD-Aufbau}{68}{chapter.12}%
 \contentsline {section}{\numberline {12.1}Konzeptentwicklung}{68}{section.12.1}%

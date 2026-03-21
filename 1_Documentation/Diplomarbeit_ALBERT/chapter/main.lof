@@ -46,19 +46,20 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {10.1}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{56}{figure.caption.81}%
 \contentsline {figure}{\numberline {10.2}{\ignorespaces Modell eines Rakete mit 6 Freiheitsgraden \blx@tocontentsinit {0}\parencite {AliyuAliyuStateSpace}}}{57}{figure.caption.82}%
+\contentsline {figure}{\numberline {10.3}{\ignorespaces Vergleich der Polynomfunktion mit Interpolation des Eingtrags $k_{12}$ der K-Matrix}}{61}{figure.caption.83}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {12.1}{\ignorespaces Flügel CAD Modell}}{68}{figure.caption.87}%
-\contentsline {figure}{\numberline {12.2}{\ignorespaces Flügelsteuermechanismus}}{69}{figure.caption.88}%
-\contentsline {figure}{\numberline {12.3}{\ignorespaces Befestigung des Raketenflügels mit Kugellagern}}{69}{figure.caption.89}%
-\contentsline {figure}{\numberline {12.4}{\ignorespaces Montierung vom Flightcomputer und Akku}}{70}{figure.caption.90}%
+\contentsline {figure}{\numberline {12.1}{\ignorespaces Flügel CAD Modell}}{68}{figure.caption.88}%
+\contentsline {figure}{\numberline {12.2}{\ignorespaces Flügelsteuermechanismus}}{69}{figure.caption.89}%
+\contentsline {figure}{\numberline {12.3}{\ignorespaces Befestigung des Raketenflügels mit Kugellagern}}{69}{figure.caption.90}%
+\contentsline {figure}{\numberline {12.4}{\ignorespaces Montierung vom Flightcomputer und Akku}}{70}{figure.caption.91}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {13.1}{\ignorespaces Vernetzter Raketenflügel}}{73}{figure.caption.92}%
-\contentsline {figure}{\numberline {13.2}{\ignorespaces Plot der Residuals im 8. Simulationsfall}}{76}{figure.caption.98}%
-\contentsline {figure}{\numberline {13.3}{\ignorespaces Druck am Raketenflügel}}{80}{figure.caption.104}%
-\contentsline {figure}{\numberline {13.4}{\ignorespaces Geschwindigkeit am Raketenflügel}}{81}{figure.caption.105}%
-\contentsline {figure}{\numberline {13.5}{\ignorespaces Druck am Raketenkörper}}{81}{figure.caption.107}%
-\contentsline {figure}{\numberline {13.6}{\ignorespaces Geschwindigkeit am Raketenkörper}}{82}{figure.caption.108}%
-\contentsline {figure}{\numberline {13.7}{\ignorespaces Z-Komponente der Geschwindigkeit am Raketenkörper}}{83}{figure.caption.109}%
+\contentsline {figure}{\numberline {13.1}{\ignorespaces Vernetzter Raketenflügel}}{73}{figure.caption.93}%
+\contentsline {figure}{\numberline {13.2}{\ignorespaces Plot der Residuals im 8. Simulationsfall}}{76}{figure.caption.99}%
+\contentsline {figure}{\numberline {13.3}{\ignorespaces Druck am Raketenflügel}}{80}{figure.caption.105}%
+\contentsline {figure}{\numberline {13.4}{\ignorespaces Geschwindigkeit am Raketenflügel}}{81}{figure.caption.106}%
+\contentsline {figure}{\numberline {13.5}{\ignorespaces Druck am Raketenkörper}}{81}{figure.caption.108}%
+\contentsline {figure}{\numberline {13.6}{\ignorespaces Geschwindigkeit am Raketenkörper}}{82}{figure.caption.109}%
+\contentsline {figure}{\numberline {13.7}{\ignorespaces Z-Komponente der Geschwindigkeit am Raketenkörper}}{83}{figure.caption.110}%
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
