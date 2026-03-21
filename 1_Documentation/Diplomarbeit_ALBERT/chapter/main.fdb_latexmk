@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1774108871.42665 "main.bcf" "main.bbl" "main" 1774109659.63679 0
+["biber main"] 1774109772.84038 "main.bcf" "main.bbl" "main" 1774109779.7694 0
   "../appendix/refs.bib" 1773771312.08164 9628 27ea2e014e44bd329a7a5af527e8b867 ""
-  "main.bcf" 1774109659.50436 112058 c590d720392a733202b9bd91247f27e3 "pdflatex"
+  "main.bcf" 1774109779.63618 112058 c590d720392a733202b9bd91247f27e3 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1774109654.31145 "/Users/felixzauner/Desktop/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1774109659.637 0
+["pdflatex"] 1774109774.23645 "/Users/felixzauner/Desktop/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1774109779.76963 0
   "../figures/6dofrocket.png" 1771673931.54071 314532 56689617eb28dbaf3516b522b3b7463f ""
   "../figures/BuckSchematic.png" 1772795168.60845 113771 a510fafcc36115634d1419b0dde047fa ""
   "../figures/Bucklayout.png" 1772968445.1209 165871 aed4bee8ec259bfa411ba84b3c20ded1 ""
@@ -27,6 +27,7 @@
   "../figures/StackupExample.png" 1771322208.49707 48639 cf9df8b02b3205f12b756c3aea79d863 ""
   "../figures/TraceFields.png" 1771322208.49897 457678 4a9e732fc80246643bccf3f72cbcebee ""
   "../figures/albert_fin.png" 1772087445.51847 23166 19c758d3e33039f2075cf24fc7d50bfd ""
+  "../figures/big_stein.png" 1774109753.11946 389710 81f21c1083f2886433023cd2b4ac62bb ""
   "../figures/bucklayoutexample.png" 1772968437.50396 145386 5e43c7a237291f53dfbf136f2638fedc ""
   "../figures/decouplingcap.png" 1771322208.49979 142441 7ab115a5fffdd38407eaa46b8bba02cc ""
   "../figures/eigenexample.png" 1772475837.35266 19313 d0a0a0fd67040b7d82db6e0c316d62b4 ""
@@ -426,15 +427,15 @@
   "abstract.tex" 1772981307.00948 8088 a2b46295d3266a61f0a19b2aa51ff48a ""
   "bibliography.tex" 1771322208.48226 536 19040c6066eb25a5f1d90f6b7e6ca17e ""
   "introduction.tex" 1773496359.65474 1360 c8dd57f12165adada7de9f057e62b849 ""
-  "legal.tex" 1773771312.0819 4757 9c96921bbbde9a2cc1a6b0547b643b6b ""
-  "main.aux" 1774109659.48841 96569 d6e2f4b330629a27415959f9ee4fead2 "pdflatex"
-  "main.bbl" 1774108883.67041 43364 b0fb1a0e2ea3ea3903b42a324c179e45 "biber main"
-  "main.lof" 1774109659.50506 7277 71d19fc04178784d3b82d310070203ae "pdflatex"
-  "main.lot" 1774109659.50512 824 d1d123d0b65370bdfadc191f81294904 "pdflatex"
-  "main.out" 1774109655.77974 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.run.xml" 1774109659.50493 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
+  "legal.tex" 1774109753.11267 5229 5803337e0d1781852039f3ad04ca7839 ""
+  "main.aux" 1774109779.6203 97353 125a8771ed4f89218538431013669641 "pdflatex"
+  "main.bbl" 1774109774.22365 43364 b0fb1a0e2ea3ea3903b42a324c179e45 "biber main"
+  "main.lof" 1774109779.6369 7383 25703748aae900e29b63d937c5644b51 "pdflatex"
+  "main.lot" 1774109779.63699 824 d1d123d0b65370bdfadc191f81294904 "pdflatex"
+  "main.out" 1774109775.71583 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.run.xml" 1774109779.63675 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
   "main.tex" 1773771312.1113 355 1eb3546986e5585504bd83aac0312465 ""
-  "main.toc" 1774109659.505 13090 88ae708d209a236ccb4b8313d0e3f235 "pdflatex"
+  "main.toc" 1774109779.63681 13178 a358b1bd96843024d45ca517f63ac7a0 "pdflatex"
   "praxis.tex" 1773052834.58622 208 32efc3fd2a6dcb446e3dbd5c18836ae7 ""
   "praxis_Felix.tex" 1774109654.05155 71625 421e4505c581ec6fa3aed606232a6283 ""
   "praxis_Timofey.tex" 1773990210.20336 33771 17c4f4f1b9ee1e91038563289f9f0a3b ""
