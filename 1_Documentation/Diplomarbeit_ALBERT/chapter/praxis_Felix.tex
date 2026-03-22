@@ -803,6 +803,7 @@ Die K-Matrix kann mit der Funktion \texttt{lqr(A,B,Q,R)} in MATLAB berechnet wer
 Auch die K-Matrix muss für die verschiedenen Arbeitspunkte berechnet werden, um die Systemdynamik über den gesamten Flug zu beschreiben. Über Interpolation zwischen den K-Matrizen der verschiedenen Arbeitspunkte kann eine von der Geschwindigkeit abhängige K-Matrix $\mathbf{K(u)}$ erstellt werden, die im Laufe des Fluges dynamisch angepasst werden kann.
 \\
 Im Folgenden sind die Matrizen für die Arbeitspunkte mit den Geschwindigkeiten $u = 50\,\mathrm{m/s}$ und $u = 100\,\mathrm{m/s}$ dargestellt:
+% ATTENTION DIESE WERTE MÜSSEN SPÄTER ANGEPASST WERDEN
 \begin{equation}
 \mathbf{K}_{50} =
 \begin{bmatrix}
@@ -819,8 +820,8 @@ Im Folgenden sind die Matrizen für die Arbeitspunkte mit den Geschwindigkeiten 
     0 & 0 & 0.2293 & 0 & 0 & 7.0711 & 0 & 0
 \end{bmatrix}
 \end{equation}
-Mithilfe von MATLAB wurden für den Bereich von $u = 10\,\mathrm{m/s}$ bis $u = 200\,\mathrm{m/s}$ Polynomfunktionen von Grad 3 für die einzelnen Einträge der K-Matrix berechnet.
-Hierzu wurden zuerst die jeweiligen $\mathbf{A}$ und $\mathbf{B}$ Matrizen  ermittelt, anschließend die K-Matrix für jeden Arbeitspunkt mit der \texttt{lqr} Funktion berechnet und schließlich die Polynomfunktionen mit der \texttt{polyfit} Funktion berechnet. Im Vergleich zu den durch die \texttt{lqr} berechneten Stützpunkten zeigt sich das die Polynomfunktion eine unzureichende Näherung darstellt . Daher wird die K-Matrix über Interpolation der Stützpunkte ermittelt, was zu einer deutlich besseren Näherung führt(siehe Abbildung \ref{fig:k_fitting}).
+Mithilfe von MATLAB wurden für den Bereich von $u = 10\,\mathrm{m/s}$ bis $u = 200\,\mathrm{m/s}$ zuerst Polynomfunktionen von Grad 3 für die einzelnen Einträge der $\mathbf{K}$-Matrix berechnet.
+Hierzu wurden zuerst die jeweiligen $\mathbf{A}$ und $\mathbf{B}$ Matrizen  ermittelt, anschließend die $\mathbf{K}$-Matrix für jeden Arbeitspunkt mit der \texttt{lqr} Funktion berechnet und schließlich die Polynomfunktionen mit der \texttt{polyfit} Funktion berechnet. Im Vergleich zu den durch die \texttt{lqr} berechneten Stützpunkten zeigt sich das die Polynomfunktion eine unzureichende Näherung darstellt . Daher wird die $\mathbf{K}$-Matrix über Interpolation der Stützpunkte ermittelt, was zu einer deutlich besseren Näherung führt (siehe Abbildung \ref{fig:k_fitting}) und gut in C-Code implementiert werden kann. Aufgrund des geringen Abstands zwischen den Stützpunkten ist eine lineare Interpolation dabei bereits ausreichend genau, zumal sich die Einträge der $\mathbf{K}$-Matrix bei höheren Geschwindigkeiten nur noch geringfügig ändern.
 \begin{equation}
 \mathbf{K}(u)\approx
 \begin{bmatrix}
@@ -840,7 +841,14 @@ k_{21} & 0 & 0 & 0 & k_{25} & 0 & 0 & k_{28} \\
 
 \subsection{ExtendedKalman Filter}
 \label{subsec:extendedkalmanfilter}
-Die Implementierung eines Zustandschätzers erfordert eine Messmodell, das die Beziehung zwischen den gemessenen Sensorwerten und den Zustandsgrößen beschreibt. In diesem Fall werden die Messungen von einem Inertial Measurement Unit (IMU) und einem GPS-Modul verwendet, um die Zustände der Rakete zu schätzen. Das Messmodell kann als Funktion $h(\mathbf{x})$ formuliert werden, die die gemessenen Werte in Abhängigkeit von den Zustandsgrößen beschreibt.
+Die Implementierung eines Zustandschätzers erfordert eine Messmodell, das die Beziehung zwischen den gemessenen Sensorwerten und den Zustandsgrößen beschreibt. Das Messmodell kann als Funktion $\mathbf{g}(\mathbf{x},\mathbf{u},\mathbf{w}_n)$ formuliert werden, die die gemessenen Werte $\mathbf{z}$ beziehungsweise $\mathbf{y}$ in Abhängigkeit von den Zustandsgrößen beschreibt (siehe Abschnitt \ref{sec:regelkreis}). 
+\begin{wrapfigure}[10]{r}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.5\textwidth]{kalmanfilter.png}
+    \caption{Schätzwert des Winkels $\phi$ bei sinusförmigem Steuersignal $\delta_r $ und konstanter Geschwindigkeit $u$ im Vergleich zur stark verrauschen Messung}
+    \label{fig:kalmanfilter}
+\end{wrapfigure}
+
 
 \chapter{Implementierung in Software}
 \label{ch:implementation_in_software}

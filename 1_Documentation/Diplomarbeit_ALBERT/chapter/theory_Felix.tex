@@ -46,7 +46,7 @@ Das Stack-up einer Leiterplatte beschreibt die Anordnung der verschiedenen Schic
 \end{itemize}
 Des Weiteren besteht die Möglichkeit, Power- und Ground-Planes\footnote{Plane: Eine durchgehende Kupferfläche auf einer Leiterplattenlage, die als Referenzpotential oder Versorgungsspannung dient.} sowie Signal- und Ground-Planes auf einem Layer zu kombinieren. Auf diese Weise kann etwa auf zweilagigen Platinen Platz eingespart werden.
 \\
-Die Anordnung dieser Schichten im Stack-up ist entscheidend für gute EMC\footnote{EMC - Electromagnetic Compatibility}/EMI\footnote{EMI - Electromagnetic Interference} Eigenschaften, Signalintegrität und Leistungsverteilung. Ein gut durchdachtes Stack-up minimiert Störungen, verbessert die Signalqualität und gewährleistet eine zuverlässige Funktion der Schaltung.
+Die Anordnung dieser Schichten im Stack-up ist entscheidend für gute EMV/EMI Eigenschaften, Signalintegrität und Leistungsverteilung. Ein gut durchdachtes Stack-up minimiert Störungen, verbessert die Signalqualität und gewährleistet eine zuverlässige Funktion der Schaltung.
 \\\\
 Die im folgenden Abschnitten beschriebenen Konzepte stellen die wichtigsten Prinzipien dar, die bei der Gestaltung eines effektiven Stack-ups zu berücksichtigen sind.
 \subsubsection{Rückstrompfade}
@@ -113,18 +113,18 @@ Dies kann durch zwei wesentliche Maßnahmen erreicht werden:
     \item Minimierung des Abstands $h$ zwischen der Leiterbahn und dem zugehörigen Ground-Plane
     \item Maximierung des Abstands zu benachbarten Leiterbahnen
 \end{itemize}
-\vspace{1cm}
-Aus diesen beiden Punkten können folgende Designregeln abgeleitet werden:
+% ATTENTION hier nochmal drüber schauen bitch ASS nuttenarsch
+Aus diesen beiden Punkten können folgende Designregeln für das Layout der Leiterplatte abgeleitet werden:
 \begin{itemize}
-    \item Der Abstand $h$ zwischen der Leiterbahn und dem zugehörigen Ground-Plane sollte so klein wie möglich gehalten werden $\rightarrow$ es wäre ideal , wenn jede Signal-Leiterbahn direkt über einem Ground-Plane verlaufen würde
-    \item Jede Signal-Leiterbahn sollte einen ununterbrochenen  Rückstrompfad auf der darunterliegenden Ground Layer haben $\rightarrow$ Vermeidung von Unterbrechungen im Ground-Plane durch andere Leiterbahnen
+    \item Der Abstand $h$ zwischen der Leiterbahn und der zugehörigen Ground-Plane sollte so klein wie möglich gehalten werden, daher wäre es ideal, wenn jede Signal-Leiterbahn direkt über einer Ground-Plane verlaufen würde.
+    \item Jede Signal-Leiterbahn sollte einen ununterbrochenen Rückstrompfad haben.
 \end{itemize}
 \parencite{PhilsLab56}
 \newpage
 
 \section{Bypass- \& Decoupling-Kondensatoren}
 \label{sec:bypass_decoupling}
-Bypass- und Decoupling-Kondensatoren sind wesentliche Komponenten in der Entwicklung von Leiterplatten, die dazu dienen, Störungen zu minimieren und eine stabile Versorgungsspannung für ICs\footnote{IC - Integrated Circuit} bereitzustellen. Oft werden die Begriffe Bypass- und Decoupling-Kondensatoren synonym verwendet, obwohl sie strenggenommen unterschiedliche Funktionen erfüllen.
+Bypass- und Decoupling-Kondensatoren sind wesentliche Komponenten in der Entwicklung von Leiterplatten, die dazu dienen, Störungen zu minimieren und eine stabile Versorgungsspannung für ICs bereitzustellen. Oft werden die Begriffe Bypass- und Decoupling-Kondensatoren synonym verwendet, obwohl sie strenggenommen unterschiedliche Funktionen erfüllen.
 \\\\
 \textbf{Bypass-Kondensatoren} werden verwendet, da Kondensatoren bei hohen Frequenzen einen niedrigen Impedanzwert aufweisen. Sie leiten hochfrequente Störsignale von der Versorgungsspannung gegen Masse ab und dienen als Filter, um zu verhindern, dass Störungen in die Schaltung eindringen und die Funktion der Bauteile beeinträchtigen.
 \\\\
@@ -302,7 +302,7 @@ Beim Layout eines Abwärtswandlers gilt es mehrere kritische Aspekte zu berücks
 \section{Sensorik}
 \label{sec:sensorik}
 Zur Erfassung der benötigten Messgrößen für das Regelungssystem werden verschiedene Sensoren eingesetzt. Diese Sensoren wandeln physikalische Größen in elektrische Signale um, die von der Steuerungseinheit verarbeitet werden können.
-\subsection{Inertial Measurement Unit (IMU)}
+\subsection{Inertial Measurement Unit}
 \label{subsec:imu}
 \begin{wrapfigure}{r}{0.35\textwidth}
 \vspace{-20pt}
@@ -377,10 +377,10 @@ Zur Erfassung der benötigten Messgrößen für das Regelungssystem werden versc
   % Abstand nach dem Bild reduzieren
 \vspace{0.5cm}
 \end{wrapfigure}
-Eine Inertial Measurement Unit (IMU) ist ein elektronisches Gerät, das mehrere Inertialsensoren kombiniert, um die Bewegungs- und Lageänderungen eines Objekts zu messen. 
+Eine Inertial Measurement Unit (IMU) ist ein Bauteil, das mehrere Inertialsensoren kombiniert, um die Bewegungs- und Lageänderungen eines Objekts zu messen. 
  Beschleunigungssensoren messen die lineare Beschleunigung $a$ in verschiedenen Achsen, während Gyroskope die Winkelgeschwindigkeit $\omega$ um diese Achsen erfassen. Durch Integration dieser Messwerte können Position, Geschwindigkeit und Orientierung des Systems bestimmt werden.
 \\
-In vorliegendem Projekt finden moderne IMUs Anwendung, die MEMS-Technologie\footnote{MEMS - Micro-Electro-Mechanical Systems} nutzen, um kompakte und energieeffiziente Sensoren bereitzustellen, welche auf der Platine integriert werden können.
+In vorliegendem Projekt finden moderne IMUs Anwendung, die MEMS-Technologie nutzen, um kompakte und energieeffiziente Sensoren bereitzustellen, welche auf der Platine integriert werden können.
 \parencite{AdvancedNavigation_IMU}
 
 \subsubsection{Funktionsweise von MEMS Beschleunigungssensoren}
@@ -515,7 +515,6 @@ Aus diesen Entfernungen lassen sich um die Satelliten gedanklich Kugeln konstrui
 
 Bei der Integration eines GNSS-Empfängers auf einer Leiterplatte sind mehrere wichtige Layout-Aspekte zu beachten, um eine optimale Signalqualität und Empfangsleistung zu gewährleisten:
 \begin{itemize}
-    \item \textbf{Antennen-Positionierung}: Die GNSS-Antenne sollte dort platziert werden, wo sie eine freie Sicht zum Himmel hat, fern von metallischen Objekten und Störquellen, um Signalabschattung und Reflexionen zu minimieren.
     \item \textbf{Platzierung}: Störquellen wie digitale Schaltungen oder Hochfrequenzkomponenten sollten von der GNSS-Antenne und dem Empfänger (Insbesondere dem Verbindungspfad) getrennt werden, um elektromagnetische Interferenzen zu minimieren. 
     \item \textbf{Leiterbahnlänge}: Die Verbindung zwischen der Antenne und dem GNSS-Empfänger sollte so kurz wie möglich gehalten werden, um Signalverluste und Verzerrungen zu reduzieren. Ergänzend ist es sinnvoll, eine 50-Ohm-impedanzangepasste Leitung zu verwenden.
     \item \textbf{Massefläche}: Eine gute Masseverbindung und Abschirmung (wird durch Vias realisiert) der GNSS-Schaltung ist entscheidend, um Störungen zu minimieren und die Signalqualität zu verbessern. Es ist empfohlen, die GNSS-Masse von der digitalen Masse zu trennen und nur an einem Punkt zu verbinden.
@@ -523,24 +522,13 @@ Bei der Integration eines GNSS-Empfängers auf einer Leiterplatte sind mehrere w
 Wie bei den bereits in der Sektion \ref{sec:abwaertswandler} beschriebenen Layoutrichtlinien für den Abwärtswandler ist es ratsam, die Layout-Empfehlungen als auch die Bauteilempfehlungen des Herstellers des GNSS-Empfängers zu befolgen, da diese spezifische Hinweise zur optimalen Integration des Bauteils enthalten.
 \parencite{AltiumGPS}
 
-\newpage
-\section{Microcontroller}
-
-
-
-
-
-
-
-
-
 
 
 \chapter{Software}
 \label{ch:software}
 \section{STM32CubeIDE}
 \label{sec:stm32cubeide}
-STM32CubeIDE ist eine integrierte Entwicklungsumgebung (IDE) von STMicroelectronics, die speziell für die Entwicklung von Anwendungen auf STM32-Mikrocontrollern entwickelt wurde. Sie kombiniert den STM32CubeMX-Konfigurationsgenerator mit der Eclipse-basierten IDE, um eine umfassende Plattform für die Softwareentwicklung bereitzustellen.
+STM32CubeIDE ist eine integrierte Entwicklungsumgebung (IDE) von STMicroelectronics, die speziell für die Entwicklung von Anwendungen auf STM32-Mikrocontrollern entwickelt wurde. Sie kombiniert den STM32CubeMX-Konfigurationsgenerator mit der Eclipse-basierten IDE, um eine Plattform für die Softwareentwicklung bereitzustellen.
 \\ 
 Die Hauptfunktionen von STM32CubeIDE umfassen:
 \begin{itemize}
@@ -922,7 +910,7 @@ In diesem Schritt wird ebenfalls die Kovarianzmatrix $\mathbf{P}_{k|k-1}$ der Sc
 
 \subsection{Korrekturschritt}
 \label{subsec:korrekturschritt}
-Im Korrekturschritt wird die Vorhersage des Systemzustands $\mathbf{X}_{k|k-1}$ anhand der aktuellen Messungen $\mathbf{Z}_k$ angepasst, um eine genauere Schätzung zu erhalten. Dazu wird zunächst der Innovationsvektor $\mathbf{y}_k$ berechnet, welcher die Differenz zwischen den tatsächlichen Messungen und den vorhergesagten Messungen darstellt. 
+Im Korrekturschritt wird die Vorhersage des Systemzustands $\mathbf{x}_{k|k-1}$ anhand der aktuellen Messungen $\mathbf{z}_k$ angepasst, um eine genauere Schätzung zu erhalten. Dazu wird zunächst der Innovationsvektor $\mathbf{y}_k$ berechnet, welcher die Differenz zwischen den tatsächlichen Messungen und den vorhergesagten Messungen darstellt. Das Messmodell ist hier aufgrund der in der Literatur üblichen Schreibweise als $\mathbf{z}_k$ angeschrieben, wird jedoch im Abschnitt \ref{sec:regelkreis} als $\mathbf{g}(\mathbf{x}_k, \mathbf{u}_k, \mathbf{w}_k)$ bezeichnet, .
 \begin{equation}
     \mathbf{y}_k = \mathbf{z}_k - \mathbf{H}_k \cdot \mathbf{x}_{k|k-1}
 \end{equation}
@@ -941,62 +929,59 @@ Abschließend wird die Kovarianzmatrix der Schätzfehler aktualisiert, um die Un
 \end{equation}
 \subsection{Erweiterter Kalman-Filter}
 \label{subsec:erweiterter_kalman_filter}
-Der erweiterte Kalman-Filter (EKF) ist eine Erweiterung des klassischen Kalman-Filters, die es ermöglicht, nichtlineare Systeme zu modellieren und zu schätzen. Während der klassische Kalman-Filter auf linearen Zustands- und Messgleichungen basiert, verwendet der EKF eine lokale lineare Approximation dieser Gleichungen durch das Euler-Verfahren.
+% ATTENTION hier ist noch überarbeitung notwendig
+Der erweiterte Kalman-Filter (EKF) ist eine Erweiterung des klassischen Kalman-Filters, die es ermöglicht, nichtlineare Systeme zu modellieren und zu schätzen. Während der klassische Kalman-Filter auf linearen Zustands- und Messgleichungen basiert, verwendet der EKF eine lokale lineare Approximation dieser Gleichungen.
 \\
-Die Systemmodellierung erfolgt analog zum klassischen Kalman-Filter,
-wobei nichtlineare \\Zustandsübergangs- und Beobachtungsfunktionen mittels
-einer Linearisierung erster Ordnung approximiert werden.
 Hierzu werden die Jacobi-Matrizen der nichtlinearen Funktionen an der
-aktuellen Zustandsabschätzung ausgewertet und anstelle der linearen
-Matrizen $\mathbf{F}_k$ und $\mathbf{H}_k$ verwendet.
+aktuellen Zustandsabschätzung ausgewertet und als 
+Matrizen $\mathbf{F}_k$ und $\mathbf{H}_k$ verwendet um Kalman-Gain und Kovarianzmatrix zu berechnen.
 \\
 \\
 Das nichtlineare Zustandsmodell ist gegeben durch
 \begin{equation}
-\mathbf{x}_k = f(\mathbf{x}_{k-1}, \boldsymbol{\omega}_{k-1}),
+\mathbf{x}_k = \mathbf{f}(\mathbf{x}_{k-1}, \boldsymbol{\omega}_{k-1}),
 \end{equation}
 wobei $\boldsymbol{\omega}_{k-1}$ das Prozessrauschen beschreibt.
 Durch Linearisierung um die a-priori-Zustandsschätzung (Vorhersage)
 $\hat{\mathbf{x}}_{k-1}$ ergibt sich
 \begin{equation}
-\mathbf{x}_k \approx f({\mathbf{x}}_{k|k-1}, \mathbf{0})
+\mathbf{x}_k \approx \mathbf{f}({\mathbf{x}}_{k|k-1}, \mathbf{0})
 + \mathbf{F}_k (\mathbf{x}_{k-1} - {\mathbf{x}}_{k|k-1})
 + \mathbf{W}_k \boldsymbol{\omega}_{k-1},
 \end{equation}
 mit den Jacobi-Matrizen
 \begin{equation}
 \mathbf{F}_k =
-\left.\frac{\partial f}{\partial \mathbf{x}}\right|_{{\mathbf{x}}_{k|k-1}},
+\left.\frac{\partial \mathbf{f}}{\partial \mathbf{x}}\right|_{{\mathbf{x}}_{k|k-1}},
 \qquad
 \mathbf{W}_k =
-\left.\frac{\partial f}{\partial \boldsymbol{\omega}}\right|_{{\mathbf{x}}_{k|k-1}}
+\left.\frac{\partial \mathbf{f}}{\partial \boldsymbol{\omega}}\right|_{{\mathbf{x}}_{k|k-1}}
 \end{equation}
 \\
 Das nichtlineare Beobachtungsmodell (Messvektor) lautet
 \begin{equation}
-\mathbf{z}_k = h(\mathbf{x}_k, \boldsymbol{\nu}_k),
+\mathbf{z}_k = \mathbf{h}(\mathbf{x}_k, \boldsymbol{\nu}_k),
 \end{equation}
 wobei $\boldsymbol{\nu}_k$ das Messrauschen bezeichnet.
 \\
 Die Linearisierung um die a-priori-Zustandsschätzung
 ${\mathbf{x}}_{k|k-1}$ führt zu
 \begin{equation}
-\mathbf{z}_k \approx h({\mathbf{x}}_{k|k-1}, \mathbf{0})
+\mathbf{z}_k \approx \mathbf{h}({\mathbf{x}}_{k|k-1}, \mathbf{0})
 + \mathbf{H}_k (\mathbf{x}_k - {\mathbf{x}}_{k|k-1})
 + \mathbf{V}_k \boldsymbol{\nu}_k,
 \end{equation}
 mit den Jacobi-Matrizen
 \begin{equation}
 \mathbf{H}_k =
-\left.\frac{\partial h}{\partial \mathbf{x}}\right|_{{\mathbf{x}}_{k|k-1}},
+\left.\frac{\partial \mathbf{h}}{\partial \mathbf{x}}\right|_{{\mathbf{x}}_{k|k-1}},
 \qquad
 \mathbf{V}_k =
-\left.\frac{\partial h}{\partial \boldsymbol{\nu}}\right|_{{\mathbf{x}}_{k|k-1}}.
+\left.\frac{\partial \mathbf{h}}{\partial \boldsymbol{\nu}}\right|_{{\mathbf{x}}_{k|k-1}}.
 \end{equation}
-\parencite{ExtendedKalmanHalle}
 Für den Vorherageschritt des EKF ergibt sich somit:
 \begin{equation}
-    \mathbf{x}_{k|k-1} = f(\mathbf{x}_{k-1}, \mathbf{u}_k) 
+    \mathbf{x}_{k|k-1} = \mathbf{f}(\mathbf{x}_{k-1}, \mathbf{u}_k) 
 \end{equation}
 \begin{equation}
     \mathbf{P}_{k|k-1} = \mathbf{A} \cdot \mathbf{P}_{k-1} \cdot \mathbf{A}^T + \mathbf{W} \cdot \mathbf{Q}_k \cdot \mathbf{W}^T
@@ -1080,7 +1065,7 @@ Dabei können die beiden optimalen Verfahren unabhängig voneinander ausgelegt w
 
 \end{tikzpicture}
 
-\caption{LQG control structure}
+\caption{LQG Regler Struktur}
 \label{fig:lqg_structure}
 \end{figure}
 In der Abbildung \ref{fig:lqg_structure} ist die Struktur eines LQG-Reglers dargestellt. Das System empfängt die Steuergröße $\mathbf{u}$ und produziert die Ausgangsgröße $\mathbf{y}$. Störgrößen $\mathbf{w}_d$ beeinflussen das System, während Messrauschen $\mathbf{w}_n$ die gemessenen Signale $\mathbf{y}$ stören. Der Kalman-Filter verarbeitet die gemessenen Signale, um eine Schätzung $\hat{\mathbf{x}}$ des Systemzustands zu liefern, welche dann an den LQR weitergegeben wird. Der LQR-Block berechnet die optimale Steuergröße basierend auf der geschätzten Zustandsinformation $\hat{\mathbf{x}}$. 
