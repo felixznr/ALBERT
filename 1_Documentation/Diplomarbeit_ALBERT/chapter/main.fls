@@ -1323,6 +1323,15 @@ INPUT ..\figures\Logo_HTL.png
 INPUT ..\figures\Logo_HTL.png
 INPUT ..\figures\Logo_HTL.png
 INPUT ..\figures\Logo_HTL.png
+INPUT ..\figures\albert_assembly.png
+INPUT ..\figures\albert_assembly.png
+INPUT ..\figures\albert_assembly.png
+INPUT ..\figures\albert_assembly.png
+INPUT ..\figures\albert_assembly.png
+INPUT ..\figures\albert_assembly.png
+INPUT ..\figures\Logo_HTL.png
+INPUT ..\figures\Logo_HTL.png
+INPUT ..\figures\Logo_HTL.png
 INPUT ..\figures\Logo_HTL.png
 INPUT ..\figures\Logo_HTL.png
 INPUT ..\figures\Logo_HTL.png
@@ -1428,6 +1437,9 @@ INPUT ..\figures\big_stein.png
 INPUT .\bibliography.tex
 INPUT .\bibliography.tex
 INPUT bibliography.tex
+INPUT ..\figures\Logo_HTL.png
+INPUT ..\figures\Logo_HTL.png
+INPUT ..\figures\Logo_HTL.png
 INPUT ..\figures\Logo_HTL.png
 INPUT ..\figures\Logo_HTL.png
 INPUT ..\figures\Logo_HTL.png
