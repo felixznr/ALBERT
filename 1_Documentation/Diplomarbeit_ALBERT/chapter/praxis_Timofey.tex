@@ -1,4 +1,4 @@
-\chapter{CAD-Aufbau und Design der restlichen Bauteile}
+\chapter{Mechanisches Design}
 \label{ch:cad}
 \fancyfoot[C]{\large Timofey Luzin}
 \fancypagestyle{plain}{\fancyfoot[C]{\large Timofey Luzin}}
@@ -638,8 +638,95 @@ Der dritte Kontur um den Raketenkörper in der Abbildung \ref{fig:rocket_body_ve
 \section{Messung eines Raketenflügels im Windkanal}
 \label{sec:wind_tunnel_test}
 
-\section{Vergleich mit Messdaten}
-\label{sec:comparison_wind_tunnel_cfd}
+\subsection{Messaufbau}
+\label{subsec:wind_tunnel_setup}
+\begin{wrapfigure}{r}{0.4\textwidth}
+    \centering
+    \vspace{-10pt}
+    \includegraphics[width=0.4\textwidth]{aero_tube_fin_cad.png}
+    \caption{CAD-Modell des Raketenflügels zur befestigung im Windkanal}
+    \label{fig:wind_tunnel_fin_cad}
+    \vspace{-50pt}
+\end{wrapfigure}
+Wie in \ref{sec:aero_tube_measurement} beschrieben, wurde ebenfalls ein Versuch im Windkanal durchgeführt. Dabei wurde das CAD-Modell des Flügels so verändert, dass es robust und mit möglichst wenig extra Luftwiderstand im Windkanal befestigt werden kann. In Abbildung \ref{fig:wind_tunnel_setup} erkennt man das Loch auf der Drehachse des Flügels, mit Hilfe von diesem Loch wurde der Flügel mit einem Metallstab als Hebelarm waagrecht im Windkanal positioniert. Der Metallstab wurde so zugeschnitte, dass der Flügel sich mittig befindet, um eine genauere Messung zu ermöglichen. An den Abbildungen in \ref{fig:wind_tunnel_setup}erkennt man den Messaufbau.
+\vspace{2cm}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.615\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fin_in_aero_tube.jpg}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.375\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{wind_tunnel_stupjpg.jpg}
+    \end{minipage}
+    \caption{Messaufbau vom Raketenflügel im Windkanal}
+    \label{fig:wind_tunnel_setup}
+    \vspace{-10pt}
+\end{figure}
+Aufgrund von begrenzter Strämungsgeschwindigkeit $v$ im Windkanal konnten die Messungen nicht bei Fluggeschwindigkeiten durchgeführt werden. Also wurde die Messung bei $20\frac{m}{s}$ und $30\frac{m}{s}$ durchgeführt. Dies wurde mit Hilfe des in \ref{sec:aero_tube_measurement} erwähnten Laborprotokolls gemacht, indem das Handrad so lange gedreht wurde, bis sich auf dem Manometer eine dem Wert im Protokoll entsprechende Höhe der Wassersäule $h_{stat}$ einstellte. Dies ist in der Tabelle genauer zu sehen.
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+$\mathbf{h_{stat}}$ & $\mathbf{v}$ \\
+\hline
+$23,4mmWs$ & $20\frac{m}{s}$ \\
+$53mmWs$ & $30\frac{m}{s}$ \\
+\hline
+\end{tabular}
+\caption{Der Strömungsgeschwindigkeit entsprechende Höhe der Wassersäule}
+\label{tab:wind_tunnel_speed_kokain}
+\end{table}
+
+\subsection{Messergebnisse}
+\label{subsec:wind_tunnel_results}
+Bei beiden Messdurchgängen wurden jeweils die folgenden 4 Anstellwinkel des Flügels $\delta$ in Betracht genommen:
+\begin{itemize}
+    \item Fall 1: $\delta = 5^\circ$
+    \item Fall 2: $\delta = 10^\circ$
+    \item Fall 3: $\delta = 15^\circ$
+    \item Fall 4: $\delta = 20^\circ$
+\end{itemize}
+Es wurden die folgenden Werte für die Axialkraft $F_A$ bei beiden Messudurchgängen gemessen:
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Fall} & $\mathbf{F_A}$ \\
+\hline
+1 & 1,3N \\
+2 & 1,5N \\
+3 & 1,8N \\
+4 & 2,3N \\
+\hline
+\end{tabular}
+\caption{Messergebnisse im Windkanal bei $20\frac{m}{s}$}
+\label{tab:wind_tunnel_results_20ms}
+\end{table}
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Fall} & $\mathbf{F_A}$ \\
+\hline
+1 & 3N \\
+2 & 3,6N \\
+3 & 4,4N \\
+4 & 5,6N \\
+\hline
+\end{tabular}
+\caption{Messergebnisse im Windkanal bei $30\frac{m}{s}$}
+\label{tab:wind_tunnel_results_30ms}
+\end{table}
+
+
+
+
+\subsection{Vergleich der Messergebnisse mit simullierten Werten}
+\label{subsec:wind_tunnel_sim_comparison}
+
 
 \section{Herausforderungen und Lösungen}
 \label{sec:challenges_simulation}
