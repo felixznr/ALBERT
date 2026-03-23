@@ -839,64 +839,159 @@ k_{21} & 0 & 0 & 0 & k_{25} & 0 & 0 & k_{28} \\
     \label{fig:k_fitting}
 \end{figure}
 
-\subsection{ExtendedKalman Filter}
+\subsection{Extended Kalman Filter}
 \label{subsec:extendedkalmanfilter}
 Um den Zustand der Rakete zu schätzen, wir ein Extended Kalman Filter implementiert, da der normale Kalman Filter nur für lineare Systeme geeignet ist, was auf die Rakete nicht zutrifft (siehe Abschnitt \ref{subsec:erweiterter_kalman_filter}).
 Die Implementierung eines Zustandschätzers erfordert ein Messmodell, das die Beziehung zwischen den gemessenen Sensorwerten und den Zustandsgrößen beschreibt. Das Messmodell kann als Funktion $\mathbf{g}(\mathbf{x}_k, \boldsymbol{\nu}_k)$ formuliert werden, die die gemessenen Werte $\mathbf{z}$ beziehungsweise $\mathbf{y}$ in Abhängigkeit von den Zustandsgrößen beschreibt (siehe Abschnitt \ref{sec:regelkreis}). 
 \\
 Um den späteren Programmcode so übersichtlich und verständlich wie möglich zu gestalten, wird die Funktion $\mathbf{g}(\mathbf{x}_k, \boldsymbol{\nu}_k)$ in mehrere Funktionen für die jeweiligen Sensoren aufgeteilt.
 Im Folgenden werden die einzelnen Messfunktionen der Sensoren näher erläutert.
-\subsubsection{IMU}
-Die IMU liefert Messwerte für die Beschleunigungen in $x$, $y$ und $z$ Richtung sowie für die Winkelgeschwindigkeiten um die drei Achsen. Das Messmodell für die IMU kann wie folgt formuliert werden:
-\begin{equation}
-\mathbf{z}_{\mathrm{IMU}} = \mathbf{g}_{\mathrm{IMU}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{IMU},k}) = 
-\begin{bmatrix}
-a_x \\
-a_y \\
-a_z \\
-p \\
-q \\
-r
-\end{bmatrix} + \boldsymbol{\nu}_{\mathrm{IMU},k}
-\end{equation}
+Die Messdaten des IMUs werden für die Zustandsgleichung $\mathbf{f}(\mathbf{x}_{k-1}, \mathbf{u}_{k-1})$ verwendet. Alle anderen Sensoren liefern Messwerte, die für die Messfunktion $\mathbf{g}$ verwendet werden, um die Zustandsschätzung zu aktualisieren.
 \subsubsection{GNSS}
-Das GNSS-Modul liefert Messwerte für die Position und Geschwindigkeit der Rakete. Das Messmodell für das GNSS kann wie folgt formuliert werden:
+Das GNSS-Modul liefert Messwerte für die Position und Geschwindigkeit der Rakete. Das Messmodell wie folgt formuliert werden:
 \begin{equation}
 \mathbf{z}_{\mathrm{GNSS}} = \mathbf{g}_{\mathrm{GNSS}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{GNSS},k}) = 
-\begin{bmatrix}x \\
-y \\
-z \\
-\dot{x} \\
-\dot{y} \\
-\dot{z}
+\mathbf{T}_{n \to b}
+\begin{bmatrix}u \\
+v \\
+w
 \end{bmatrix} + \boldsymbol{\nu}_{\mathrm{GNSS},k}
 \end{equation}
+Da sich die Zustandsgleichung in dieser Arbeit ausschließlich auf Geschwindigkeiten, Winkelgeschwindigkeiten und Euler-Winkel konzentriert, werden die Positionsmesswerte des GNSS nicht direkt für die Zustandsschätzung verwendet. Stattdessen kommen die Geschwindigkeitsmesswerte zum Einsatz. Die Geschwindigkeitswerte des GNSS können jedoch nicht direkt als Zustandsgrößen verwendet werden, da diese nicht im Body Frame, sondern im Navigation Frame definiert sind. Daher müssen diese über die bereits oben beschriebene Transformationsmatrix $\mathbf{T}_{n \to b}(\phi, \theta, \psi)$ in den Body Frame transformiert werden, um sie für die Zustandsschätzung verwenden zu können.
 \subsubsection{Barometer}
-Das Barometer liefert Messwerte für die Höhe der Rakete über dem Meeresspiegel. Das Messmodell für das Barometer kann wie folgt formuliert werden:
+Das Barometer liefert Messwerte für die Höhe über dem Meeresspiegel. Durch Ableitung der Höhe über die Zeit kann die vertikale Geschwindigkeit der Rakete geschätzt werden. Das Messmodell für das Barometer kann wie folgt formuliert werden:
 \begin{equation}
-\mathbf{z}_{\mathrm{Barometer}} = \mathbf{g}_{\mathrm{Barometer}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{Barometer},k}) = 
-\begin{bmatrix}z
-\end{bmatrix} + \boldsymbol{\nu}_{\mathrm{Barometer},k}
+\mathbf{z}_{\mathrm{Barometer}} = \mathbf{g}_{\mathrm{Barometer}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{Barometer},k}) = \mathbf{T}_{n \to b}\dot{h} + \boldsymbol{\nu}_{\mathrm{Barometer},k}
 \end{equation}
+Auch hier müssen die Messwerte in den Body Frame transformiert werden, um sie für die Zustandsschätzung verwenden zu können. Die Barometerdaten abzuleiten kann zu einer starken Verstärkung des Rauschens führen, weshalb es sinnvoll sein kann, diese mittels eines Tiefpassfilters vorher zu glätten.
 \subsubsection{Magnetometer}
-Das Magnetometer liefert Messwerte für die Orientierung der Rakete in Bezug auf das Erdmagnetfeld. Das Messmodell für das Magnetometer kann wie folgt formuliert werden:
+Das Magnetometer liefert Messwerte für die Orientierung der Rakete in Bezug auf das Erdmagnetfeld. Für den Euler-Winkel $\phi$ kann die folgende Messfunktion formuliert werden:
 \begin{equation}
-\mathbf{z}_{\mathrm{Magnetometer}} = \mathbf{g}_{\mathrm{Magnetometer}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{Magnetometer},k}) = 
-\begin{bmatrix}m_x \\
-m_y \\
-m_z
-\end{bmatrix} + \boldsymbol{\nu}_{\mathrm{Magnetometer},k}
+\mathbf{z}_{\mathrm{Magnetometer}} = \mathbf{g}_{\mathrm{Magnetometer}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{Magnetometer},k}) = \phi + \boldsymbol{\nu}_{\mathrm{Magnetometer},k}
 \end{equation}
-\begin{wrapfigure}[10]{r}{0.5\textwidth}
+Die Messwerte des Magnetometers können jedoch sehr unzuverlässig sein, insbesondere in der Nähe von Störquellen, deshalb sind diese nur mit Vorsicht zu verwenden.
+\\
+\\
+Um die Zuverlässigkeit der Winkelmessung zu erhöhen, können die Beschleunigungsdaten des IMUs im unbeschleunigten Zustand dazu verwendet werden aus der Richtung der Schwerkraft die Orientierung ($\phi$ \& $\theta$) der Rakete zu bestimmen. Die Messfunktion kann wie folgt angeschrieben werden:
+\begin{equation}
+\mathbf{z}_{\mathrm{IMU}} = \mathbf{g}_{\mathrm{IMU}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{IMU},k}) = 
+\left(\begin{array}{c}
+g\,\sin \left(\theta \right)\\
+-g\,\cos \left(\theta \right)\,\sin \left(\phi \right)\\
+-g\,\cos \left(\phi \right)\,\cos \left(\theta \right)
+\end{array}\right) + \boldsymbol{\nu}_{\mathrm{IMU},k}
+\end{equation}
+\begin{wrapfigure}{r}{0.5\textwidth}
     \centering
     \includegraphics[width=0.5\textwidth]{kalmanfilter.png}
     \caption{Schätzwert des Winkels $\phi$ bei sinusförmigem Steuersignal $\delta_r $ und konstanter Geschwindigkeit $u$ im Vergleich zur stark verrauschen Messung}
     \label{fig:kalmanfilter}
+    \vspace{-10pt}
 \end{wrapfigure}
-
-
+Der EKF ist dazu in der Lage, aus einer Reihe verrauschter Messwerte eine zuverlässige Schätzung zu liefern, wie in Abbildung \ref{fig:kalmanfilter} zu sehen ist. In diesem Beispiel wird die Schätzung des Winkels $\phi$ bei einem sinusförmigen Steuersignal $\delta_r$ und konstanter Geschwindigkeit $u$ dargestellt. Die türkise Linie zeigt die Schätzung des EKF, während die lila Linie die stark verrauschte Messung darstellt. Es ist deutlich zu erkennen, dass der EKF in der Lage ist, die zugrunde liegende Dynamik des Systems zu erfassen und eine glattere und genauere Schätzung zu liefern, trotz der starken Störungen in den Messdaten.
+\\
+Die Leistung des EKF hängt maßgeblich davon ab, wie gut die zugrundeliegenden Modelle die tatsächliche Dynamik beschreiben, sowie von der Wahl der Prozess- und Messrauschkovarianzen. Darüber hinaus ist es wichtig die Startwerte genau zu kennen. Eine sorgfältige Modellierung und Abstimmung dieser Parameter ist entscheidend, um eine genaue und zuverlässige Zustandsschätzung zu gewährleisten. Später soll im Rahmen des Fazits noch genauer auf die erzielten Ergebnisse eingegangen werden, um die Leistung des EKF zu bewerten und mögliche Verbesserungen zu identifizieren. Desweiteren soll die tatsächliche Implementierung in C und der Ablauf der tatsächliche Ablauf im Kapitel \ref{ch:implementation_in_software} beschrieben werden.
 \chapter{Implementierung in Software}
 \label{ch:implementation_in_software}
+\begin{wrapfigure}{r}{0.25\textwidth}
+\vspace{-15pt}
+    \begin{tikzpicture}[
+    node distance=1.6cm,
+    >=Latex,
+    line width=0.9pt,
+    font=\sffamily,
+    startstop/.style={
+        rounded corners=8pt,
+        draw=orange!70!black,
+        fill=yellow!70,
+        minimum width=4.2cm,
+        minimum height=0.95cm,
+        align=center
+    },
+    process/.style={
+        rounded corners=6pt,
+        draw=magenta!70!black,
+        fill=pink!55,
+        minimum width=4.2cm,
+        minimum height=0.95cm,
+        align=center
+    },
+    decision/.style={
+        diamond,
+        aspect=2.1,
+        draw=blue!60!black,
+        fill=blue!10,
+        minimum width=3.2cm,
+        minimum height=1.0cm,
+        align=center,
+        inner sep=1pt
+    },
+    arrow/.style={
+        ->,
+        rounded corners=4pt
+    }
+]
+
+% Nodes
+\node (start) [startstop] {Power On};
+\node (init)  [process, below of=start] {Initialization};
+\node (safe)  [decision, below of=init, yshift=-0.2cm] {Safety Checks\\ passed?};
+
+\node (ramp)  [process, below of=safe, yshift=-0.3cm] {On Ramp / Armed};
+\node (lift)  [decision, below of=ramp, yshift=-0.2cm] {Lift-off\\ detected?};
+
+
+\node (flight) [process, below of=lift, yshift=-0.3cm] {Ascent};
+\node (sep)    [decision, below of=flight, yshift=-0.2cm] {Summit\\ reached?};
+\node (descent)[process, below of=sep, yshift=-0.3cm] {Descent};
+\node (land)   [startstop, below of=descent] {Landing};
+
+% Arrows
+\draw [arrow] (start) -- (init);
+\draw [arrow] (init) -- (safe);
+
+\draw [arrow] (safe) -- node[right] {$\checkmark$} (ramp);
+
+\draw [arrow] (ramp) -- (lift);
+
+\draw [arrow] (lift) -- node[right] {$\checkmark$} (flight);
+\draw [arrow] (flight) -- (sep);
+\draw [arrow] (sep) -- node[right] {$\checkmark$} (descent);
+\draw [arrow] (descent) -- (land);
+
+\end{tikzpicture}
+\caption{Ablaufdiagramm des Raketenstarts}
+\label{fig:flowchart_all}
+\end{wrapfigure}
+Um eine zuverlässige Funktion in den verschiedenen Phasen des Flugs zu gewährleisten wird eine State Machine implementiert. Diese State Machine steuert den Ablauf des Raketenstarts und stellt sicher, dass die verschiedenen Funktionen zum richtigen Zeitpunkt aktiviert werden. 
+\\
+Im Folgenden werden die in Abbildung \ref{fig:flowchart_all} dargestellten Phasen des Raketenstarts sowie die zugehörigen Systemabläufe und Zustandsübergänge in den einzelnen Abschnitten im Detail durchleuchtet.
+Um den aktuellen Status der Rakete über die beiden Prozessoren hinweg zu kennen, wird die UART-Schnittstelle verwendet, um eine Statusvariable zu übertragen. 
+
+Desweiteren wird representativ für die Treiber aller Sensoren der Treiber für das IMU1 beschrieben um einen Einblick in die Treiberentwicklung zu geben. Der gesamte Programmcode wurde in C realisiert und in STM32CubeIDE geschrieben.
+
+
+
+
+\section{Initialization - Initialisierung}
+\label{sec:initialization}
+In der Initialisierungsphase werden alle Sensoren und Peripheriegeräte wie PWM-Controller, Flash-Speicher und SD-Karte konfiguriert. Dabei geben die jeweiligen Initialisierungsfunktionen der Treiber die Möglichkeit, Probleme frühzeitig zu erkennen, um so eine Fehlfunktion in späteren Phasen zu vermeiden. 
+Zusätzlich wird eine LoRa-Kommunikation mit der Bodenstation initialisiert, um die Übertragung von Telemetrie- und Statusdaten zu ermöglichen. Parallel dazu beginnt das GNSS-Modul mit der Akquisition von Satellitensignalen, sodass anschließend die Position und Geschwindigkeit der Rakete bestimmt werden können.
+
+\section{On Ramp / Armed - Bereit zum Start}
+\label{sec:on_ramp}
+
+
+\section{Ascent - Aufstiegsphase}
+\label{sec:ascent}
+
+\section{Descent - Abstiegsphase}
+\label{sec:descent}
+
+\section{Landing - Landung}
+\label{sec:landing}
+
+
 \section{Treiber}
 \label{sec:treiber}
 An dieser Stelle soll der Treiber für das IMU1 BMI088 representativ für die Treiber aller Sensoren beschrieben werden. Alle Treiber sind in C implementiert und teilen sich in ein Header File, in dem die Schnittstelle definiert ist, und ein Source File, in dem die eigentlichen Funktionen implementiert sind. 
