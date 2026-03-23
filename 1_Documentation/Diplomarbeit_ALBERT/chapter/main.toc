@@ -104,17 +104,18 @@
 \contentsline {subsubsection}{\nonumberline Barometer}{61}{subsubsection*.87}%
 \contentsline {subsubsection}{\nonumberline Magnetometer}{61}{subsubsection*.89}%
 \contentsline {chapter}{\numberline {11}Implementierung in Software}{63}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Initialization - Initialisierung}{63}{section.11.1}%
-\contentsline {section}{\numberline {11.2}On Ramp / Armed - Bereit zum Start}{64}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Ascent - Aufstiegsphase}{64}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Descent - Abstiegsphase}{64}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Landing - Landung}{64}{section.11.5}%
-\contentsline {section}{\numberline {11.6}Treiber}{64}{section.11.6}%
-\contentsline {subsection}{\numberline {11.6.1}Header File}{64}{subsection.11.6.1}%
-\contentsline {subsection}{\numberline {11.6.2}Source File}{65}{subsection.11.6.2}%
-\contentsline {subsubsection}{\nonumberline BMI088\_Init}{65}{subsubsection*.93}%
-\contentsline {subsubsection}{\nonumberline BMI088\_ReadAcceleration und BMI088\_ReadAngularRate}{67}{subsubsection*.95}%
-\contentsline {subsection}{\numberline {11.6.3}BMI088\_ReadRegisters}{68}{subsection.11.6.3}%
+\contentsline {section}{\numberline {11.1}Allgemeiner Programmablauf}{63}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Initialization - Initialisierung}{63}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}On Ramp / Armed - Bereit zum Start}{63}{subsection.11.1.2}%
+\contentsline {subsection}{\numberline {11.1.3}Ascent - Aufstiegsphase}{64}{subsection.11.1.3}%
+\contentsline {subsection}{\numberline {11.1.4}Descent - Abstiegsphase}{64}{subsection.11.1.4}%
+\contentsline {subsection}{\numberline {11.1.5}Landing - Landung}{64}{subsection.11.1.5}%
+\contentsline {section}{\numberline {11.2}Treiber}{65}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Header File}{65}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Source File}{66}{subsection.11.2.2}%
+\contentsline {subsubsection}{\nonumberline BMI088\_Init}{66}{subsubsection*.93}%
+\contentsline {subsubsection}{\nonumberline BMI088\_ReadAcceleration und BMI088\_ReadAngularRate}{68}{subsubsection*.95}%
+\contentsline {subsection}{\numberline {11.2.3}BMI088\_ReadRegisters}{68}{subsection.11.2.3}%
 \contentsline {chapter}{\numberline {12}CAD-Aufbau und Design der restlichen Bauteile}{70}{chapter.12}%
 \contentsline {section}{\numberline {12.1}Konzeptentwicklung}{70}{section.12.1}%
 \contentsline {section}{\numberline {12.2}Innenstruktur und Materialwahl}{70}{section.12.2}%

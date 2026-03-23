@@ -890,11 +890,15 @@ g\,\sin \left(\theta \right)\\
 \end{wrapfigure}
 Der EKF ist dazu in der Lage, aus einer Reihe verrauschter Messwerte eine zuverlässige Schätzung zu liefern, wie in Abbildung \ref{fig:kalmanfilter} zu sehen ist. In diesem Beispiel wird die Schätzung des Winkels $\phi$ bei einem sinusförmigen Steuersignal $\delta_r$ und konstanter Geschwindigkeit $u$ dargestellt. Die türkise Linie zeigt die Schätzung des EKF, während die lila Linie die stark verrauschte Messung darstellt. Es ist deutlich zu erkennen, dass der EKF in der Lage ist, die zugrunde liegende Dynamik des Systems zu erfassen und eine glattere und genauere Schätzung zu liefern, trotz der starken Störungen in den Messdaten.
 \\
-Die Leistung des EKF hängt maßgeblich davon ab, wie gut die zugrundeliegenden Modelle die tatsächliche Dynamik beschreiben, sowie von der Wahl der Prozess- und Messrauschkovarianzen. Darüber hinaus ist es wichtig die Startwerte genau zu kennen. Eine sorgfältige Modellierung und Abstimmung dieser Parameter ist entscheidend, um eine genaue und zuverlässige Zustandsschätzung zu gewährleisten. Später soll im Rahmen des Fazits noch genauer auf die erzielten Ergebnisse eingegangen werden, um die Leistung des EKF zu bewerten und mögliche Verbesserungen zu identifizieren. Desweiteren soll die tatsächliche Implementierung in C und der Ablauf der tatsächliche Ablauf im Kapitel \ref{ch:implementation_in_software} beschrieben werden.
+Die Leistung des EKF hängt maßgeblich davon ab, wie gut die zugrundeliegenden Modelle die tatsächliche Dynamik beschreiben, sowie von der Wahl der Prozess- und Messrauschkovarianzen. Darüber hinaus ist es wichtig die Startwerte genau zu kennen. Eine sorgfältige Modellierung und Abstimmung dieser Parameter ist entscheidend, um eine genaue und zuverlässige Zustandsschätzung zu gewährleisten. Später soll im Rahmen des Fazits noch genauer auf die erzielten Ergebnisse eingegangen werden, um die Leistung des EKF zu bewerten und mögliche Verbesserungen zu identifizieren. Desweiteren soll die tatsächliche Implementierung in C im Kapitel \ref{ch:implementation_in_software} beschrieben werden.
 \chapter{Implementierung in Software}
 \label{ch:implementation_in_software}
+
+Desweiteren wird representativ für die Treiber aller Sensoren der Treiber für das IMU1 beschrieben um einen Einblick in die Treiberentwicklung zu geben. Der gesamte Programmcode wurde in C realisiert und in STM32CubeIDE geschrieben.
+\section{Allgemeiner Programmablauf}
+\label{sec:general_program_flow}
 \begin{wrapfigure}{r}{0.25\textwidth}
-\vspace{-15pt}
+\vspace{-30pt}
     \begin{tikzpicture}[
     node distance=1.6cm,
     >=Latex,
@@ -958,38 +962,38 @@ Die Leistung des EKF hängt maßgeblich davon ab, wie gut die zugrundeliegenden 
 \draw [arrow] (flight) -- (sep);
 \draw [arrow] (sep) -- node[right] {$\checkmark$} (descent);
 \draw [arrow] (descent) -- (land);
-
 \end{tikzpicture}
+
 \caption{Ablaufdiagramm des Raketenstarts}
 \label{fig:flowchart_all}
+\vspace{-3cm}
 \end{wrapfigure}
 Um eine zuverlässige Funktion in den verschiedenen Phasen des Flugs zu gewährleisten wird eine State Machine implementiert. Diese State Machine steuert den Ablauf des Raketenstarts und stellt sicher, dass die verschiedenen Funktionen zum richtigen Zeitpunkt aktiviert werden. 
 \\
 Im Folgenden werden die in Abbildung \ref{fig:flowchart_all} dargestellten Phasen des Raketenstarts sowie die zugehörigen Systemabläufe und Zustandsübergänge in den einzelnen Abschnitten im Detail durchleuchtet.
 Um den aktuellen Status der Rakete über die beiden Prozessoren hinweg zu kennen, wird die UART-Schnittstelle verwendet, um eine Statusvariable zu übertragen. 
 
-Desweiteren wird representativ für die Treiber aller Sensoren der Treiber für das IMU1 beschrieben um einen Einblick in die Treiberentwicklung zu geben. Der gesamte Programmcode wurde in C realisiert und in STM32CubeIDE geschrieben.
-
-
-
-
-\section{Initialization - Initialisierung}
-\label{sec:initialization}
-In der Initialisierungsphase werden alle Sensoren und Peripheriegeräte wie PWM-Controller, Flash-Speicher und SD-Karte konfiguriert. Dabei geben die jeweiligen Initialisierungsfunktionen der Treiber die Möglichkeit, Probleme frühzeitig zu erkennen, um so eine Fehlfunktion in späteren Phasen zu vermeiden. 
+\subsection{Initialization - Initialisierung}
+\label{subsec:initialization}
+In der Initialisierungsphase werden alle Sensoren und Peripheriegeräte wie PWM-Controller, Flash-Speicher und SD-Karte konfiguriert. Dabei geben die jeweiligen Initialisierungsfunktionen der Treiber die Möglichkeit, Probleme frühzeitig zu erkennen, um so eine Fehlfunktion in späteren Phasen zu vermeiden, indem sie Fehlermeldungen als Rückgabewerte liefern. 
 Zusätzlich wird eine LoRa-Kommunikation mit der Bodenstation initialisiert, um die Übertragung von Telemetrie- und Statusdaten zu ermöglichen. Parallel dazu beginnt das GNSS-Modul mit der Akquisition von Satellitensignalen, sodass anschließend die Position und Geschwindigkeit der Rakete bestimmt werden können.
 
-\section{On Ramp / Armed - Bereit zum Start}
-\label{sec:on_ramp}
+\subsection{On Ramp / Armed - Bereit zum Start}
+\label{subsec:on_ramp}
+In dieser Phase wurden bereits alle Sicherheitschecks durchgeführt und bestanden, um sicherzustellen, dass der Flightcomputer und dessen Peripheriekomponenten keinerlei unmittelbar erkennbare elektronische Probleme aufweisen. Auf der Startrampe beginnt der EKF damit, den Zustand der Rakete zu schätzen, dabei werden für die Geschwindigkeit und Winkelgeschwindigkeit Anfangswerten von Null angenommen, da die Rakete zu diesem Zeitpunkt noch stillsteht. Um eine akurate Messung der Euler-Winkel zu ermöglichen, werden die Beschleunigungsdaten des ersten IMUs, wie in Abschnitt \ref{subsec:extendedkalmanfilter} beschrieben, im Updateschritt als zusätzliche Messwerte verwendet. Dadurch ist eine genauere Schätzung der Euler-Winkel möglich. 
+\\
+Bevor die Rakete zum Start freigegeben wird, ist es essentiell, zu prüfen ob alle vier Servos einwandfrei funktionieren, da ein Fehlverhalten eines Servos zu einem Kontrollverlust der Rakete führen könnte. Aus diesem Grund werden die Servos zuerst einem Testablauf unterzogen, bei dem sie selbstständig verschiedene Auslenkungen anfahren. Der erfolgreiche Testablauf muss zwangsläufig durch den Benutzer manuell über die Bodenstation bestätigt werden. Erst nach dieser Bestätigung wird die aktive Regelung freigegeben und die Rakete ist bereit zum Start. In Vorbereitung auf den Start werden die Servos auf die Neutralposition bei 1500 $\mu$s gesteuert.
 
-
-\section{Ascent - Aufstiegsphase}
-\label{sec:ascent}
-
-\section{Descent - Abstiegsphase}
-\label{sec:descent}
-
-\section{Landing - Landung}
-\label{sec:landing}
+\subsection{Ascent - Aufstiegsphase}
+\label{subsec:ascent}
+Wenn die Startfreigabe erteilt wurde prüft der Flightcomputer laufend die Beschleunigungsdaten des IMUs, um den Start der Rakete zu erkennen. Sobald die Beschleunigung in $x$ Richtung einen bestimmten Schwellwert überschreitet, wird der Start erkannt. Wie in Abbildung \ref{fig:k_fitting} zu erkennen ist, ist bei kleinen Geschwindigkeiten eine größere Finnenauslenkung notwendig, um die gleiche Korrektur eines Winkels zu erreichen, da die aerodynamischen Kräfte bei kleinen Geschwindigkeiten geringer sind. Aus diesem Grund wird die aktive Regelung mittels LQR erst ab einer Geschwindigkeit von 20 $\frac{m}{s}$freigegeben, um zu vermeiden, dass die Regelung bei kleinen Geschwindigkeiten übermäßig große Ruderauslenkungen verursacht was eventuell zu Instabilitäten führen könnte. Ab diesem Zeitpunkt wird die K-Matrix, wie bereits beschrieben, über die lineare Interpolation die aus dem Flash geladenen Stützpunkte der verschiedenen Arbeitspunkte ermittelt, um eine Adaption der Regelung zur aktuellen Geschwindigkeit zu ermöglichen.
+\subsection{Descent - Abstiegsphase}
+\label{subsec:descent}
+Sobald die Rakete den Scheitelpunkt erreicht hat, beginnt die Abstiegsphase.
+In dieser Phase befindet sich die Rakete zunächst in einem unkontrollierten Fall, da die Finnen bereits zum Ende der Abstiegsphase in die Neutralposition gebracht und deaktiviert werden und ohnehin keine aerodynamischen Kräfte mehr wirken, um die Rakete effektiv zu steuern. Sobald eine vordefinierte Minimalgeschwindigkeit erreicht wird, gibt der Flightcomputer den Befehl den Fallschirm auszuwerfen, um die Geschwindigkeit zu reduzieren und die Rakete sicher zu landen. 
+\subsection{Landing - Landung}
+\label{subsec:landing}
+Der Flightcomputer überwacht auch während der Abstiegsphase kontinuierlich die Sensorwerte, um die Landung der Rakete zu erkennen. Sobald die alle Geschwindigkeiten gleich Null sind, ist die Rakete gelandet. Nun wird geprüft, ob die SD-Karte korrekt eingesetzt ist, um die Telemetrie- und Statusdaten vom Flash-Speicher auf die SD-Karte zu übertragen, damit diese auch nach der Landung zur Verfügung stehen. Sobald die Datenübertragung abgeschlossen ist, werden alle Sensoren und Peripheriegeräte bis auf das GNSS-Modul und das LoRa-Modul heruntergefahren, um möglichst lange Standortdaten über die LoRa-Verbindung an die Bodenstation zu übertragen, sodass die Rakete gefunden werden kann. 
 
 
 \section{Treiber}

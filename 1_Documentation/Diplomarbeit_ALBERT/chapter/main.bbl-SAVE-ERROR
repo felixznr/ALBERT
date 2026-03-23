@@ -143,6 +143,68 @@
       \verb https://www.youtube.com/watch?v=zXIeqeT_FC8
       \endverb
     \endentry
+    \entry{BMF_Pyro}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=af82e9b6d1c3eb0d27881a057179f213}{%
+           family={{Bundesfinanzministerium für Finanzen}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{af82e9b6d1c3eb0d27881a057179f213}
+      \strng{fullhash}{af82e9b6d1c3eb0d27881a057179f213}
+      \strng{fullhashraw}{af82e9b6d1c3eb0d27881a057179f213}
+      \strng{bibnamehash}{af82e9b6d1c3eb0d27881a057179f213}
+      \strng{authorbibnamehash}{af82e9b6d1c3eb0d27881a057179f213}
+      \strng{authornamehash}{af82e9b6d1c3eb0d27881a057179f213}
+      \strng{authorfullhash}{af82e9b6d1c3eb0d27881a057179f213}
+      \strng{authorfullhashraw}{af82e9b6d1c3eb0d27881a057179f213}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Arbeitsrichtlinie für Pyrotechnische Gegenstände}
+      \field{urlday}{17}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2011}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://findok.bmf.gv.at/findok/resources/pdf/95671df0-c48d-4e55-8d16-feddce6d7d9b/55436.1.-1.X.pdf
+      \endverb
+      \verb{url}
+      \verb https://findok.bmf.gv.at/findok/resources/pdf/95671df0-c48d-4e55-8d16-feddce6d7d9b/55436.1.-1.X.pdf
+      \endverb
+    \endentry
+    \entry{pyro_law_2010}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f2775cb7c75e008d2e48fde2a3577707}{%
+           family={{Bundesministerium für Inneres}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{f2775cb7c75e008d2e48fde2a3577707}
+      \strng{fullhash}{f2775cb7c75e008d2e48fde2a3577707}
+      \strng{fullhashraw}{f2775cb7c75e008d2e48fde2a3577707}
+      \strng{bibnamehash}{f2775cb7c75e008d2e48fde2a3577707}
+      \strng{authorbibnamehash}{f2775cb7c75e008d2e48fde2a3577707}
+      \strng{authornamehash}{f2775cb7c75e008d2e48fde2a3577707}
+      \strng{authorfullhash}{f2775cb7c75e008d2e48fde2a3577707}
+      \strng{authorfullhashraw}{f2775cb7c75e008d2e48fde2a3577707}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Erläuterungen zum Pyrotechnikgesetz 2010}
+      \field{urlday}{17}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2009}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.parlament.gv.at/dokument/XXIV/ME/78/imfname_166177.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.parlament.gv.at/dokument/XXIV/ME/78/imfname_166177.pdf
+      \endverb
+    \endentry
     \entry{DorFuchsKalman}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=ae5718ac83b526e3f44d0b055719d9f6}{%
@@ -551,6 +613,37 @@
       \endverb
       \verb{url}
       \verb https://www.unitedthc.com/DSP/Kalman1960.pdf
+      \endverb
+    \endentry
+    \entry{pyroTG_jusline}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=48dc365ba6859f69f869cd88d4bc813a}{%
+           family={{Republik Österreich}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{48dc365ba6859f69f869cd88d4bc813a}
+      \strng{fullhash}{48dc365ba6859f69f869cd88d4bc813a}
+      \strng{fullhashraw}{48dc365ba6859f69f869cd88d4bc813a}
+      \strng{bibnamehash}{48dc365ba6859f69f869cd88d4bc813a}
+      \strng{authorbibnamehash}{48dc365ba6859f69f869cd88d4bc813a}
+      \strng{authornamehash}{48dc365ba6859f69f869cd88d4bc813a}
+      \strng{authorfullhash}{48dc365ba6859f69f869cd88d4bc813a}
+      \strng{authorfullhashraw}{48dc365ba6859f69f869cd88d4bc813a}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{§ 28 PyroTG - Besitz und Verwendung pyrotechnischer Gegenstände und Sätze}
+      \field{urlday}{17}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2015}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.jusline.at/gesetz/pyrotg/paragraf/28
+      \endverb
+      \verb{url}
+      \verb https://www.jusline.at/gesetz/pyrotg/paragraf/28
       \endverb
     \endentry
     \entry{NakkaRocketry}{online}{}{}
