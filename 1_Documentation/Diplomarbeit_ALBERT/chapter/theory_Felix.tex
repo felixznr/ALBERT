@@ -631,8 +631,7 @@ In Abbildung \ref{fig:standard_regelkreis} ist ein Standard-Regelkreis dargestel
     \caption{Standard-Regelkreis }
     \label{fig:standard_regelkreis}
 \end{figure}
-Im folgenden werden die drei Störgrößen $\mathbf{w}_d$, $\mathbf{w}_n$ und $\mathbf{w}_r$ als Vektor $\mathbf{w}=[\mathbf{w}_d, \mathbf{w}_n, \mathbf{w}_r]$ zusammengefasst.
-\\
+
 So kann die Regelstrecke und die Messung mathematisch wie folgt beschrieben werden:
 \begin{equation}
     \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x},\mathbf{u},\mathbf{w}_d)
@@ -960,7 +959,7 @@ mit den Jacobi-Matrizen
 \\
 Das nichtlineare Beobachtungsmodell (Messvektor) lautet
 \begin{equation}
-\mathbf{z}_k = \mathbf{h}(\mathbf{x}_k, \boldsymbol{\nu}_k),
+\mathbf{z}_k = \mathbf{g}(\mathbf{x}_k, \boldsymbol{\nu}_k),
 \end{equation}
 wobei $\boldsymbol{\nu}_k$ das Messrauschen bezeichnet.
 \\
@@ -974,10 +973,10 @@ ${\mathbf{x}}_{k|k-1}$ führt zu
 mit den Jacobi-Matrizen
 \begin{equation}
 \mathbf{H}_k =
-\left.\frac{\partial \mathbf{h}}{\partial \mathbf{x}}\right|_{{\mathbf{x}}_{k|k-1}},
+\left.\frac{\partial \mathbf{g}}{\partial \mathbf{x}}\right|_{{\mathbf{x}}_{k|k-1}},
 \qquad
 \mathbf{V}_k =
-\left.\frac{\partial \mathbf{h}}{\partial \boldsymbol{\nu}}\right|_{{\mathbf{x}}_{k|k-1}}.
+\left.\frac{\partial \mathbf{g}}{\partial \boldsymbol{\nu}}\right|_{{\mathbf{x}}_{k|k-1}}.
 \end{equation}
 Für den Vorherageschritt des EKF ergibt sich somit:
 \begin{equation}

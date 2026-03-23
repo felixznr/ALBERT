@@ -841,7 +841,52 @@ k_{21} & 0 & 0 & 0 & k_{25} & 0 & 0 & k_{28} \\
 
 \subsection{ExtendedKalman Filter}
 \label{subsec:extendedkalmanfilter}
-Die Implementierung eines Zustandschätzers erfordert eine Messmodell, das die Beziehung zwischen den gemessenen Sensorwerten und den Zustandsgrößen beschreibt. Das Messmodell kann als Funktion $\mathbf{g}(\mathbf{x},\mathbf{u},\mathbf{w}_n)$ formuliert werden, die die gemessenen Werte $\mathbf{z}$ beziehungsweise $\mathbf{y}$ in Abhängigkeit von den Zustandsgrößen beschreibt (siehe Abschnitt \ref{sec:regelkreis}). 
+Um den Zustand der Rakete zu schätzen, wir ein Extended Kalman Filter implementiert, da der normale Kalman Filter nur für lineare Systeme geeignet ist, was auf die Rakete nicht zutrifft (siehe Abschnitt \ref{subsec:erweiterter_kalman_filter}).
+Die Implementierung eines Zustandschätzers erfordert ein Messmodell, das die Beziehung zwischen den gemessenen Sensorwerten und den Zustandsgrößen beschreibt. Das Messmodell kann als Funktion $\mathbf{g}(\mathbf{x}_k, \boldsymbol{\nu}_k)$ formuliert werden, die die gemessenen Werte $\mathbf{z}$ beziehungsweise $\mathbf{y}$ in Abhängigkeit von den Zustandsgrößen beschreibt (siehe Abschnitt \ref{sec:regelkreis}). 
+\\
+Um den späteren Programmcode so übersichtlich und verständlich wie möglich zu gestalten, wird die Funktion $\mathbf{g}(\mathbf{x}_k, \boldsymbol{\nu}_k)$ in mehrere Funktionen für die jeweiligen Sensoren aufgeteilt.
+Im Folgenden werden die einzelnen Messfunktionen der Sensoren näher erläutert.
+\subsubsection{IMU}
+Die IMU liefert Messwerte für die Beschleunigungen in $x$, $y$ und $z$ Richtung sowie für die Winkelgeschwindigkeiten um die drei Achsen. Das Messmodell für die IMU kann wie folgt formuliert werden:
+\begin{equation}
+\mathbf{z}_{\mathrm{IMU}} = \mathbf{g}_{\mathrm{IMU}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{IMU},k}) = 
+\begin{bmatrix}
+a_x \\
+a_y \\
+a_z \\
+p \\
+q \\
+r
+\end{bmatrix} + \boldsymbol{\nu}_{\mathrm{IMU},k}
+\end{equation}
+\subsubsection{GNSS}
+Das GNSS-Modul liefert Messwerte für die Position und Geschwindigkeit der Rakete. Das Messmodell für das GNSS kann wie folgt formuliert werden:
+\begin{equation}
+\mathbf{z}_{\mathrm{GNSS}} = \mathbf{g}_{\mathrm{GNSS}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{GNSS},k}) = 
+\begin{bmatrix}x \\
+y \\
+z \\
+\dot{x} \\
+\dot{y} \\
+\dot{z}
+\end{bmatrix} + \boldsymbol{\nu}_{\mathrm{GNSS},k}
+\end{equation}
+\subsubsection{Barometer}
+Das Barometer liefert Messwerte für die Höhe der Rakete über dem Meeresspiegel. Das Messmodell für das Barometer kann wie folgt formuliert werden:
+\begin{equation}
+\mathbf{z}_{\mathrm{Barometer}} = \mathbf{g}_{\mathrm{Barometer}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{Barometer},k}) = 
+\begin{bmatrix}z
+\end{bmatrix} + \boldsymbol{\nu}_{\mathrm{Barometer},k}
+\end{equation}
+\subsubsection{Magnetometer}
+Das Magnetometer liefert Messwerte für die Orientierung der Rakete in Bezug auf das Erdmagnetfeld. Das Messmodell für das Magnetometer kann wie folgt formuliert werden:
+\begin{equation}
+\mathbf{z}_{\mathrm{Magnetometer}} = \mathbf{g}_{\mathrm{Magnetometer}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{Magnetometer},k}) = 
+\begin{bmatrix}m_x \\
+m_y \\
+m_z
+\end{bmatrix} + \boldsymbol{\nu}_{\mathrm{Magnetometer},k}
+\end{equation}
 \begin{wrapfigure}[10]{r}{0.5\textwidth}
     \centering
     \includegraphics[width=0.5\textwidth]{kalmanfilter.png}
