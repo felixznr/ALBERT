@@ -1,4 +1,4 @@
-\chapter{CAD-Aufbau}
+\chapter{CAD-Aufbau und Design der restlichen Bauteile}
 \label{ch:cad}
 \fancyfoot[C]{\large Timofey Luzin}
 \fancypagestyle{plain}{\fancyfoot[C]{\large Timofey Luzin}}
@@ -91,7 +91,7 @@ Um eine erfolgreiche Landung der Rakete zu ermöglichen, wurde diese mit einem F
 
 \subsection{Auslösung des Bergungsystems}
 \label{subsec:recovery_system_trigger}
-Das Bergungssystem wird durch eine kleine Explosion innerhalb des Raketenkörpers ausgelöst. Dabei wird durch einen mit dem Flightcomputer verbundenen elektrischen Zünder eine explosive Mischung gezündet, durch dessen Detonation anschließend der Druck innerhalb des Gehäuses steigt. Durch diesen Druck wird ein Kolben nach vorne gedrückt, der letzendlich die Raketenspitze und den gefalteten Fallschirm aus dem Gehäuse der Rakete drückt.
+Das Bergungssystem wird durch eine kleine Explosion innerhalb des Raketenkörpers ausgelöst. Dabei wird durch einen mit dem Flightcomputer verbundenen elektrischen Zünder eine explosive Mischung gezündet, durch dessen Detonation anschließend der Druck innerhalb des Gehäuses steigt. Durch diesen Druck wird ein Kolben nach vorne gedrückt, der letzendlich die Raketenspitze und den gefalteten Fallschirm aus dem Gehäuse der Rakete drückt. Zur Redundanz wurden 2 Charges vor dem Kolben platziert.
 \\
 Bestandteile der Mischung:
 \begin{itemize}
@@ -103,9 +103,62 @@ Bestandteile der Mischung:
 % ====================== BILD ZU KOLBEN FALLSCHIRM =================
 Als Kolben diente ein hohles Kartonrohr, das in das Gehäuserohr eingeführt wird. Der Kolben bisitzt unten eine 3D-gedruckte Abdeckung, durch die ein Schockseil durchgeführt wird, welches die Raketenspitze, die Fallschirmseile und den Rest der Rakete verbindet.
 
+\subsection{Fallschirm}
+\label{sec:parachute}
+Um den Abstieg der Rakete mit einer Geschwindigkeit von $\approx 5\frac{m}{s}$ zu ermöglichen, wurde der Fallschirm wie folgt dimensioniert:
+\\
+Im stationären Flug gilt:
+\begin{equation}
+    F_G = F_W
+\end{equation}
+Dabei ist $F_G$ die Gravitationskraft und $F_W$ die Strömungswiderstandskraft. Dies kann auch folgend angeschrieben werden:
+\begin{equation}
+    mg = \frac{1}{2}\rho C_DAv^2
+\end{equation}
+Diese Gleichung kann wie folgt umgeformt werden:
+\begin{equation}
+    A = \frac{2mg}{\rho C_Dv^2}
+\end{equation}
+Hierbei ist $m$ die Masse der Rakete mit leerem Treibstoff, $g$ die Erdbeschleunigung, $\rho$ die Luftdichte, $C_D$ der Widerstandswert des Fallschirms, $v$ die Abstiegsgeschwindigkeit und $A$ die projizierte Fläche des Fallschirms.
+\\
+Es wurde mit folgenden Werten gerechnet:
+\[
+    m \approx 1,5kg 
+\]
+\[
+    \rho = 1,225\frac{kg}{m^3} 
+\]
+\[
+    g = 9,81\frac{m}{s^2}
+\]
+\[
+    v = 5\frac{m}{s}
+\]
+Es wurde auch angenommen:
+\[
+    C_D = 0,75
+\]
+Daraus ergab sich:
+\[
+    A = \frac{2 \cdot 1,5 \cdot 9,81}{1,225 \cdot 0,75 \cdot 5^2} \approx 1,281m^2
+\]
+Aus der errechnete Fläche wurde wie folgt der nötige Durchmesser für den Fallschirm bestimmt:
+\begin{equation}
+    d = \sqrt{\frac{4A}{\pi}} = \sqrt{\frac{4 \cdot 1,281}{\pi}} \approx 1,227m
+\end{equation}
+Als Material für den Fallschirm wurde Ripstop-Nylon verwendet. Dies ist ein synthetisches Gewebe auf Basis von Nylon mit einer Antireiß-Struktur. Es war eine günstige Wahl für den Fallschirm, weil es eine sehr gute Festigkeit bei einer gleichzeitig sehr geringer Masse bietet.
 
 \section{Zusammenführen vom CAD-Modell}
 \label{sec:cad_assembly}
+Anschließend wurden die einzelnen CAD-Teile in ein Assembly in Solid Edge zusammengeführt. Abbildung \ref{fig:albert_assembly} zeigt das zusammengeführte Modell:
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.9\textwidth]{albert_assembly.png}
+        \caption{Solid Edge Assembly}
+        \label{fig:albert_assembly}
+\end{figure}
+Hierbei ist der Rote Zylinder im Vorderteil der Rakete ein Platzhalter für den gefalteten Fallschirm und die kleinen gelben Zylinder sind Platzhalter für die pyrotechnischen Charges zum Fallschirmauswurf.
+
 
 \section{Implementierung und Fertigung}
 \label{sec:implementation}
