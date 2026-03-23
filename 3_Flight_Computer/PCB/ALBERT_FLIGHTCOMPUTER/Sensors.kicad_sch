@@ -8,7 +8,7 @@
 		(title "Sensors and Peripherals")
 		(date "2025-11-10")
 		(rev "0.1")
-		(company "ALBERT AEROSPACE")
+		(company "ALBERT AERO")
 	)
 	(lib_symbols
 		(symbol "BMI088:BMI088"
@@ -2040,7 +2040,7 @@
 		)
 		(uuid "0493721a-f99a-4b09-bc4f-6ba12980c67b")
 	)
-	(text "I2C ADRESS: 0x41\n\n"
+	(text "I2C ADRESS: 0x6B\n\n"
 		(exclude_from_sim no)
 		(at 113.792 157.48 0)
 		(effects
@@ -2050,7 +2050,7 @@
 		)
 		(uuid "0cd77d8d-594d-43c6-9937-946d51417445")
 	)
-	(text "I2C ADRESS: 0x40\n"
+	(text "I2C ADRESS: 0x10\n"
 		(exclude_from_sim no)
 		(at 251.968 134.874 0)
 		(effects

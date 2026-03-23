@@ -428,7 +428,7 @@ F_{g_{x_n}} &= mg \\
 F_{g_{y_n}} &= 0 \\
 F_{g_{z_n}} &= 0
 \end{align}
-wobei $g$ die Erdbeschleunigung ist. Um die Gravitationskraft in den Körperachsen zu berechnen, muss sie mit der Transformationsmatrix $T_{n \to b}$ von Navigation Frame zu Body Frame transformiert werden:
+wobei $g$ die Erdbeschleunigung ist. Um die Gravitationskraft in den Körperachsen zu berechnen, muss sie mit der Transformationsmatrix $T_{n \to b}$ von Navigation Frame zu Body Frame transformiert werden: % ATTENTIONE hier nochmal drüberschauen weiß nicht ob das so passt mit den winkeln
 \begin{equation}
 \mathbf{T}_{n \to b} =
 \begin{bmatrix}
@@ -464,9 +464,9 @@ F_{g_{z_n}}
 =
 \mathbf{T}_{n \to b}
 \begin{bmatrix}
+mg \\
 0 \\
-0 \\
-mg
+0
 \end{bmatrix}
 \quad \left[\mathrm{N}\right] \\[6pt]
 \end{equation}
@@ -872,7 +872,7 @@ Das Magnetometer liefert Messwerte für die Orientierung der Rakete in Bezug auf
 Die Messwerte des Magnetometers können jedoch sehr unzuverlässig sein, insbesondere in der Nähe von Störquellen, deshalb sind diese nur mit Vorsicht zu verwenden.
 \\
 \\
-Um die Zuverlässigkeit der Winkelmessung zu erhöhen, können die Beschleunigungsdaten des IMUs im unbeschleunigten Zustand dazu verwendet werden aus der Richtung der Schwerkraft die Orientierung ($\phi$ \& $\theta$) der Rakete zu bestimmen. Die Messfunktion kann wie folgt angeschrieben werden:
+Um die Zuverlässigkeit der Winkelmessung zu erhöhen, können die Beschleunigungsdaten des IMUs im unbeschleunigten Zustand dazu verwendet werden aus der Richtung der Schwerkraft die Orientierung ($\phi$ \& $\theta$) der Rakete zu bestimmen. Die Messfunktion kann wie folgt angeschrieben werden: % ATTENTION diese dingsbums muss noch angepasst werden
 \begin{equation}
 \mathbf{z}_{\mathrm{IMU}} = \mathbf{g}_{\mathrm{IMU}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{IMU},k}) = 
 \left(\begin{array}{c}
@@ -893,7 +893,7 @@ Der EKF ist dazu in der Lage, aus einer Reihe verrauschter Messwerte eine zuverl
 Die Leistung des EKF hängt maßgeblich davon ab, wie gut die zugrundeliegenden Modelle die tatsächliche Dynamik beschreiben, sowie von der Wahl der Prozess- und Messrauschkovarianzen. Darüber hinaus ist es wichtig die Startwerte genau zu kennen. Eine sorgfältige Modellierung und Abstimmung dieser Parameter ist entscheidend, um eine genaue und zuverlässige Zustandsschätzung zu gewährleisten. Später soll im Rahmen des Fazits noch genauer auf die erzielten Ergebnisse eingegangen werden, um die Leistung des EKF zu bewerten und mögliche Verbesserungen zu identifizieren. Desweiteren soll die tatsächliche Implementierung in C im Kapitel \ref{ch:implementation_in_software} beschrieben werden.
 \chapter{Implementierung in Software}
 \label{ch:implementation_in_software}
-
+In der nachfolgenden Abhandlung wird die Implementierung der zuvor beschriebenen Regelungskonzepte in die Software des Flightcomputers Komadori erörtert. Zunächst erfolgt eine Beschreibung des Programmablaufs, anschließend wird auf die Implementation des LQG-Reglers eingegangen.
 Desweiteren wird representativ für die Treiber aller Sensoren der Treiber für das IMU1 beschrieben um einen Einblick in die Treiberentwicklung zu geben. Der gesamte Programmcode wurde in C realisiert und in STM32CubeIDE geschrieben.
 \section{Allgemeiner Programmablauf}
 \label{sec:general_program_flow}
