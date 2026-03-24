@@ -81,37 +81,6 @@
       \verb https://resources.altium.com/de/p/gps-antennas-in-your-pcb-design-you-won-t-get-lost-again
       \endverb
     \endentry
-    \entry{ExtendedKalmanHalle}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3c9843ce68dffdf1c0f301e28c14d4b7}{%
-           family={{Birgit Moeller und Denis Williams}},
-           familyi={B\bibinitperiod}}}%
-      }
-      \strng{namehash}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{fullhash}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{fullhashraw}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{bibnamehash}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{authorbibnamehash}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{authornamehash}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{authorfullhash}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{authorfullhashraw}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Extended Kalmanfilter}
-      \field{urlday}{9}
-      \field{urlmonth}{1}
-      \field{urlyear}{2026}
-      \field{year}{2003}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www2.informatik.uni-halle.de/agprbio/AG/Lehre/ABV_WS03/material/extendedKalman.pdf
-      \endverb
-      \verb{url}
-      \verb https://www2.informatik.uni-halle.de/agprbio/AG/Lehre/ABV_WS03/material/extendedKalman.pdf
-      \endverb
-    \endentry
     \entry{barometerWorkingPrinciple}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=d6909410a4f8426780fa6519b31a2130}{%
@@ -362,6 +331,37 @@
       \endverb
       \verb{url}
       \verb https://www.intechopen.com/chapters/64567
+      \endverb
+    \endentry
+    \entry{RibeiroKalman}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=15d1b0895d69a21c01423b5b2de25c51}{%
+           family={{Maria Isabel Ribeiro}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{fullhash}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{fullhashraw}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{bibnamehash}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{authorbibnamehash}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{authornamehash}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{authorfullhash}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{authorfullhashraw}{15d1b0895d69a21c01423b5b2de25c51}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Kalman and Extended Kalman Filters: Concept, Derivation and Properties}
+      \field{urlday}{24}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2004}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://people.duke.edu/~hpgavin/SystemID/References/Ribeiro-KalmanFilter-2004.pdf
+      \endverb
+      \verb{url}
+      \verb https://people.duke.edu/~hpgavin/SystemID/References/Ribeiro-KalmanFilter-2004.pdf
       \endverb
     \endentry
     \entry{BeginnersGuideToAeronautics}{online}{}{}

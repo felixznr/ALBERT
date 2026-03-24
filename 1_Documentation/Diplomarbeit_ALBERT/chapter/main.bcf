@@ -2399,7 +2399,7 @@
     <bcf:citekey order="38" intorder="1">Kalman60</bcf:citekey>
     <bcf:citekey order="39" intorder="1">DorFuchsKalman</bcf:citekey>
     <bcf:citekey order="40" intorder="1">WikipediaKalman</bcf:citekey>
-    <bcf:citekey order="41" intorder="1">ExtendedKalmanHalle</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">RibeiroKalman</bcf:citekey>
     <bcf:citekey order="42" intorder="1">ExtendedKalmanPhils1</bcf:citekey>
     <bcf:citekey order="43" intorder="1">DataDrivenScience</bcf:citekey>
     <bcf:citekey order="44" intorder="1">DataDrivenScience</bcf:citekey>

@@ -1,17 +1,17 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'main.blg'
-[26] biber-darwin:340> INFO - === Mon Mar 23, 2026, 21:41:07
-[32] Biber.pm:420> INFO - Reading 'main.bcf'
-[61] Biber.pm:994> INFO - Found 32 citekeys in bib section 0
-[67] Biber.pm:4463> INFO - Processing section 0
-[71] Biber.pm:4654> INFO - Looking for bibtex file '../appendix/refs.bib' for section 0
-[72] bibtex.pm:1713> INFO - LaTeX decoding ...
-[80] bibtex.pm:1519> INFO - Found BibTeX data source '../appendix/refs.bib'
-[139] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[139] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[139] Biber.pm:4283> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'de-DE'
-[139] Biber.pm:4289> INFO - No sort tailoring available for locale 'de-DE'
-[152] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[157] bbl.pm:779> INFO - Output to main.bbl
-[157] Biber.pm:131> WARN - Duplicate entry key: 'barometerWorkingPrinciple' in file '../appendix/refs.bib', skipping ...
-[157] Biber.pm:133> INFO - WARNINGS: 1
+[25] biber-darwin:340> INFO - === Tue Mar 24, 2026, 13:16:27
+[31] Biber.pm:420> INFO - Reading 'main.bcf'
+[58] Biber.pm:994> INFO - Found 32 citekeys in bib section 0
+[63] Biber.pm:4463> INFO - Processing section 0
+[67] Biber.pm:4654> INFO - Looking for bibtex file '../appendix/refs.bib' for section 0
+[68] bibtex.pm:1713> INFO - LaTeX decoding ...
+[76] bibtex.pm:1519> INFO - Found BibTeX data source '../appendix/refs.bib'
+[134] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[134] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[134] Biber.pm:4283> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[134] Biber.pm:4289> INFO - No sort tailoring available for locale 'de-DE'
+[147] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[151] bbl.pm:779> INFO - Output to main.bbl
+[151] Biber.pm:131> WARN - Duplicate entry key: 'barometerWorkingPrinciple' in file '../appendix/refs.bib', skipping ...
+[151] Biber.pm:133> INFO - WARNINGS: 1
