@@ -558,14 +558,7 @@ Die Entwicklung der Treiber erfordert ein umfassendes Verständnis der Spezifika
 % Welche teile eines Regelkreises gibt es allgemein
 % Welche Regelungsstrategien gibt es allgemein
 
-
-Die Steuerung und Stabilisierung einer Rakete erfordert ein Regelungssystem, welches die aktuelle Lage und Position der Rakete erfasst und darauf basierend aktiv Korrekturen an die Aktuatoren sendet, um die gewünschte Flugbahn zu gewährleisten. 
-\\
-Für diesen Zweck wird ein Linear Quadratic Gaussian (LQG) Regler entwickelt, welcher den Zusammenschluss aus Linear Quadratic Regulator (LQR) und Kalman-Filter darstellt. Der LQR ist ein optimaler Zustandsregler, der die Stellgröße so berechnet, dass eine quadratische Kostenfunktion $J$ minimiert wird. Der Kalman-Filter hingegen ist ein optimaler Schätzer, der die aktuellen Systemzustände basierend auf den Messungen der Sensoren und einem dynamischen Modell des Systems schätzt, um die Unsicherheiten in den Messungen und im Modell zu berücksichtigen.
-\\
-Wenn auch der PID-Regler eine weit verbreitete und effektive Regelungsstrategie darstellt, beschränkt sich seine Anwendbarkeit auf eine einzige Regelgröße oder mehrere Regelgrößen, die nicht miteinander gekoppelt sind, was den Einsatz in der Regelung einer Rakete extrem limitiert, da hier mehrere gekoppelte Regelgrößen (Lage, Position, Geschwindigkeit) gleichzeitig geregelt werden müssen.
-\\
-Dieses Kapitel basiert in großen Teilen auf der Arbeit von \textcite{DataDrivenScience}, welche einen umfassenden Überblick über die für diese Arbeit relevanten Konzepte der linearen Regelungstechnik gibt. 
+Dieses Kapitel basiert in großen Teilen auf der Arbeit von \textcite{DataDrivenScience}, und soll einen kompakten Überblick über die für diese Arbeit relevanten Konzepte der linearen Regelungstechnik geben. 
 % Um die Lage und Position der Rakete zu bestimmen, messen die auf der Platine integrierten Sensoren (IMU, Barometer, Magnetometer) und GNSS die physikalischen Größen. Diese Messwerte werden in einem Sensorfusion-Algorithmus (Erweiteter-Kalman-Filter, siehe Abschnitt \ref{sec:kalman_filter})kombiniert und mit einer durch physikalische Modelle getroffene Vorhersage des Systemzustands abgeglichen, um eine genaue Schätzung der aktuellen Lage und Position zu erhalten.
 
 % \section{Überblick}
@@ -573,35 +566,37 @@ Dieses Kapitel basiert in großen Teilen auf der Arbeit von \textcite{DataDriven
 % Das Ziel dieses Abschnitts ist es, einen Überblick über die für diese Arbeit relevanten Konzepte der linearen Regelungstechnik zu geben. Dabei werden die grundlegenden Prinzipien und Methoden vorgestellt um ein System zu modellieren und zu regeln.
 % \\
 
-% \begin{wrapfigure}
-% {r}{0.4\textwidth}
-% \vspace{-20pt}
-%   % {r} = rechtsbündig platzieren
-%   % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
-%   % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
-%   \centering
-%         \includegraphics[width=0.45\textwidth]{controltypes.png}
-%         \caption{Arten von Systemsteuerung \parencite{DataDrivenScience}}
-%         \label{fig:passive_vs_aktive_steuerung}
-%   % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)   
-%   \vspace{-10pt}
-% \end{wrapfigure}
+\begin{wrapfigure}
+{r}{0.4\textwidth}
+\vspace{-20pt}
+  % {r} = rechtsbündig platzieren
+  % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+  % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+  \centering
+        \includegraphics[width=0.45\textwidth]{controltypes.png}
+        \caption{Arten von Systemsteuerung \parencite{DataDrivenScience}}
+        \label{fig:passive_vs_aktive_steuerung}
+  % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)   
+  \vspace{-10pt}
+\end{wrapfigure}
 
-% Es gibt verschiedene Wege ein System zu steuern, nach der Einteilung von \textcite{DataDrivenScience} in Abbildung \ref{fig:passive_vs_aktive_steuerung} lassen sich wird zwischen passiver und aktiver Steuerung unterschieden. Passive Steuerungen zeigen keine Reaktion auf Veränderungen und es muss keine Energie aufgewendet werden, Beispiele sind etwa aerodynamische Stabilisatoren an Flugzeugen. 
-% \\
-% Welche wiederum sensorbasierte und nicht-sensorbasierte Steuerung umfassen. In der sensorbasierten Steuerung wird zwischen offenen und geschlossenen Regelkreisen unterschieden.
-% \\
-% Die Regelung (Closed-Loop Feedback) hat den Vorteil, dass durch die Rückkopplung der Regelgröße auf die Führungsgröße die Abweichung vom Sollwert erkannt und korrigiert werden kann. 
-% \\
-% Desweiteren ist es möglich instabile Systeme zu stabilisieren, auf externe Störungen zu reagieren und unerwartete Veränderungen im System zu kompensieren.\parencite{DataDrivenScience}
+Es gibt verschiedene Wege ein System zu steuern, nach der Einteilung von \textcite{DataDrivenScience} in Abbildung \ref{fig:passive_vs_aktive_steuerung} lassen sich wird zwischen passiver und aktiver Steuerung unterschieden. Passive Steuerungen zeigen keine Reaktion auf Veränderungen und es muss keine Energie aufgewendet werden, Beispiele sind etwa aerodynamische Stabilisatoren an Flugzeugen. 
+\\
+Welche wiederum sensorbasierte und nicht-sensorbasierte Steuerung umfassen. In der sensorbasierten Steuerung wird zwischen offenen und geschlossenen Regelkreisen unterschieden.
+\\
+Die Regelung (Closed-Loop Feedback) hat den Vorteil, dass durch die Rückkopplung der Regelgröße auf die Führungsgröße die Abweichung vom Sollwert erkannt und korrigiert werden kann. 
+\\
+Desweiteren ist es möglich instabile Systeme zu stabilisieren, auf externe Störungen zu reagieren und unerwartete Veränderungen im System zu kompensieren.
+
+Die Rakete stellt ein dynamisches System mit stark gekoppelten und nichtlinearen Bewegungen dar. Für eine stabile Fluglage und die Einhaltung der gewünschten Flugbahn ist daher eine geeignete Regelung erforderlich. In diesem Kapitel werden die dafür notwendigen Grundlagen der Regelungstechnik sowie die im weiteren Verlauf verwendeten Verfahren vorgestellt. 
 \section{Geschlossener Regelkreis}
 \label{sec:regelkreis}
 In Abbildung \ref{fig:standard_regelkreis} ist ein Standard-Regelkreis dargestellt, welcher die grundlegenden Komponenten eines Regelungssystems zeigt: Regler (Controller), Regelstrecke (System) und Messung. Die Führungsgröße (Reference) $w_r$ repräsentiert den gewünschten Sollwert und wird mit der gemessenen Regelgröße $y_m$ verglichen, um die Regelabweichung $e$ zu bestimmen. Dem Regler wird die Regeldifferenz $e$ übergeben, welcher daraufhin die Stellgröße $u$ berechnet und so die Regelstrecke beeinflusst. Die Regelstrecke stellt das zu regelnde System dar, welches auf die Stellgröße $u$ und Störgröße (Disturbance) $w_d$ mit der Regelgröße $x$ reagiert. Diese Regelgröße wird durch eine von Messrauschen (Noise) $w_n$ behaftete Messung ermittelt und als gemessene Regelgröße $y$ zurückgeführt, um den Regelkreis zu schließen.
 \begin{figure}[H]
     \centering
-\tikzstyle{block} = [draw, fill=blue!10, rectangle, 
+\tikzstyle{block} = [draw, fill=blue!15, rectangle, 
     minimum height=3em, minimum width=6em]
-\tikzstyle{sum} = [draw, fill=blue!20, circle, node distance=1cm]
+\tikzstyle{sum} = [draw, fill=blue!15, circle, node distance=1cm]
 \tikzstyle{input} = [coordinate]
 \tikzstyle{output} = [coordinate]
 \tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
@@ -928,7 +923,6 @@ Abschließend wird die Kovarianzmatrix der Schätzfehler aktualisiert, um die Un
 \end{equation}
 \subsection{Erweiterter Kalman-Filter}
 \label{subsec:erweiterter_kalman_filter}
-% ATTENTION hier ist noch überarbeitung notwendig
 Der erweiterte Kalman-Filter (EKF) ist eine Erweiterung des klassischen Kalman-Filters, die es ermöglicht, nichtlineare Systeme zu modellieren und zu schätzen. Während der klassische Kalman-Filter auf linearen Zustands- und Messgleichungen basiert, verwendet der EKF eine lokale lineare Approximation dieser Gleichungen.
 \\
 Hierzu werden die Jacobi-Matrizen der nichtlinearen Funktionen an der
@@ -938,69 +932,138 @@ Matrizen $\mathbf{F}_k$ und $\mathbf{H}_k$ verwendet um Kalman-Gain und Kovarian
 \\
 Das nichtlineare Zustandsmodell ist gegeben durch
 \begin{equation}
-\mathbf{x}_k = \mathbf{f}(\mathbf{x}_{k-1}, \boldsymbol{\omega}_{k-1}),
+\mathbf{x}_k = \mathbf{f}(\mathbf{x}_{k-1}, \mathbf{u}_{k-1}) + \mathbf{w}_{k-1},
 \end{equation}
-wobei $\boldsymbol{\omega}_{k-1}$ das Prozessrauschen beschreibt.
-Durch Linearisierung um die a-priori-Zustandsschätzung (Vorhersage)
+wobei $\mathbf{w}_{k-1}$ das Prozessrauschen beschreibt.
+Durch Linearisierung um die letztige Schätzung des Systemzustands
 $\hat{\mathbf{x}}_{k-1}$ ergibt sich
 \begin{equation}
-\mathbf{x}_k \approx \mathbf{f}({\mathbf{x}}_{k|k-1}, \mathbf{0})
+\mathbf{x}_k \approx \mathbf{f}({\mathbf{x}}_{k-1}, \mathbf{0})
 + \mathbf{F}_k (\mathbf{x}_{k-1} - {\mathbf{x}}_{k|k-1})
-+ \mathbf{W}_k \boldsymbol{\omega}_{k-1},
++ \mathbf{W}_k \mathbf{w}_{k-1},
 \end{equation}
 mit den Jacobi-Matrizen
 \begin{equation}
 \mathbf{F}_k =
-\left.\frac{\partial \mathbf{f}}{\partial \mathbf{x}}\right|_{{\mathbf{x}}_{k|k-1}},
+\left.\frac{\partial \mathbf{f}}{\partial \mathbf{x}}\right|_{{\mathbf{x}}_{k-1}},
 \qquad
 \mathbf{W}_k =
-\left.\frac{\partial \mathbf{f}}{\partial \boldsymbol{\omega}}\right|_{{\mathbf{x}}_{k|k-1}}
+\left.\frac{\partial \mathbf{f}}{\partial \mathbf{w}}\right|_{{\mathbf{x}}_{k-1}}
 \end{equation}
 \\
 Das nichtlineare Beobachtungsmodell (Messvektor) lautet
 \begin{equation}
-\mathbf{z}_k = \mathbf{g}(\mathbf{x}_k, \boldsymbol{\nu}_k),
+\mathbf{z}_k = \mathbf{h}(\mathbf{x}_k) + \mathbf{v}_k
 \end{equation}
-wobei $\boldsymbol{\nu}_k$ das Messrauschen bezeichnet.
+wobei $\mathbf{v}_k$ das Messrauschen bezeichnet.
 \\
 Die Linearisierung um die a-priori-Zustandsschätzung
 ${\mathbf{x}}_{k|k-1}$ führt zu
 \begin{equation}
 \mathbf{z}_k \approx \mathbf{h}({\mathbf{x}}_{k|k-1}, \mathbf{0})
-+ \mathbf{H}_k (\mathbf{x}_k - {\mathbf{x}}_{k|k-1})
-+ \mathbf{V}_k \boldsymbol{\nu}_k,
++ \mathbf{H}_k ({\mathbf{x}}_{k|k-1} - \mathbf{x}_k)
++ \mathbf{V}_k \mathbf{v}_k
 \end{equation}
 mit den Jacobi-Matrizen
 \begin{equation}
 \mathbf{H}_k =
-\left.\frac{\partial \mathbf{g}}{\partial \mathbf{x}}\right|_{{\mathbf{x}}_{k|k-1}},
+\left.\frac{\partial \mathbf{h}}{\partial \mathbf{x}}\right|_{{\mathbf{x}}_{k|k-1}},
 \qquad
 \mathbf{V}_k =
-\left.\frac{\partial \mathbf{g}}{\partial \boldsymbol{\nu}}\right|_{{\mathbf{x}}_{k|k-1}}.
+\left.\frac{\partial \mathbf{h}}{\partial \boldsymbol{\nu}}\right|_{{\mathbf{x}}_{k|k-1}}.
 \end{equation}
 Für den Vorherageschritt des EKF ergibt sich somit:
 \begin{equation}
-    \mathbf{x}_{k|k-1} = \mathbf{f}(\mathbf{x}_{k-1}, \mathbf{u}_k) 
+   \hat{\mathbf{x}}_{k|k-1} = \mathbf{f}(\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}) 
 \end{equation}
 \begin{equation}
-    \mathbf{P}_{k|k-1} = \mathbf{A} \cdot \mathbf{P}_{k-1} \cdot \mathbf{A}^T + \mathbf{W} \cdot \mathbf{Q}_k \cdot \mathbf{W}^T
+    \mathbf{P}_{k|k-1} = \mathbf{F}_k \cdot \mathbf{P}_{k-1} \cdot \mathbf{F}_k^T +   \mathbf{Q}_{k-1} 
 \end{equation}
 Für den Korrekturschritt des EKF ergibt sich:
 \begin{equation}
-    \mathbf{y}_k = \mathbf{z}_k - \mathbf{H}_{k} \cdot \mathbf{x}_{k|k-1}
+    \mathbf{y}_k = \mathbf{z}_k - \mathbf{h}(\hat{\mathbf{x}}_{k|k-1}) 
 \end{equation}
 \begin{equation}
-    \mathbf{K}_k =  \frac{\mathbf{P}_{k|k-1} \cdot \mathbf{H}_{k}^T}{  \mathbf{H}_{k} \cdot \mathbf{P}_{k|k-1} \cdot \mathbf{H}_{k}^T + \mathbf{V} \cdot \mathbf{R}_k \cdot \mathbf{V}^T}
+    \mathbf{K}_k =  \frac{\mathbf{P}_{k|k-1} \cdot \mathbf{H}_{k}^T}{  \mathbf{H}_{k} \cdot \mathbf{P}_{k|k-1} \cdot \mathbf{H}_{k}^T +  \mathbf{R}_k }
 \end{equation}
 \begin{equation}
     \mathbf{P}_k = (\mathbf{I} - \mathbf{K}_k \cdot \mathbf{H}_{k}) \cdot \mathbf{P}_{k|k-1}
 \end{equation}  
 \begin{equation}
-    \hat{\mathbf{x}}_k = \mathbf{x}_{k|k-1} + \mathbf{K}_k \cdot \mathbf{y}_k
+    \hat{\mathbf{x}}_k = \hat{\mathbf{x}}_{k|k-1} + \mathbf{K}_k \cdot \mathbf{y}_k
 \end{equation}
-Der Ablauf des EKF ist quasi identisch zum klassischen Kalman-Filter.
-\parencite{ExtendedKalmanHalle}\parencite{ExtendedKalmanPhils1}
+\begin{figure}
+ \begin{tikzpicture}[
+    >=latex,
+    node distance=2.2cm,
+    block/.style={draw, rectangle,fill=blue!15, minimum width=3cm, minimum height=1cm},
+    smallblock/.style={draw,fill=blue!15, rectangle, minimum width=2cm, minimum height=1cm},
+    sum/.style={draw, circle, fill=blue!15,minimum size=4mm, inner sep=0pt},
+    every node/.style={font=\small}
+]
 
+% obere Blöcke
+\node[block] (f) {$\mathbf{f}(\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}) $};
+\node[block, right=3.5cm of f] (h) {$\mathbf{h}(\hat{\mathbf{x}}_{k|k-1})$};
+\node[sum, right=1.5cm of h] (sumR) {};
+
+% K-Block
+\node[smallblock, below=1cm of h] (K) {$\mathbf{K}_k$};
+
+% linker Summationspunkt
+\node[sum, left=2.2cm of K] (sumL) {};
+
+% Kovarianzblock
+\node[block, below=0.5cm of K] (cov) {Kovarianz-Update};
+
+% Hauptpfad oben
+\draw[blue,double,double distance=1pt,->] (f) -- node[above] {$\hat{\mathbf{x}}_{k|k-1}$} (h);
+\draw[blue,double,double distance=1pt,->] (h) -- node[above]{} (sumR);
+
+% Eingang links in f
+\draw[blue,double,double distance=1pt,->] ($(f.west)+(-0.5,0)$) -- ($(f.west)+(0,0)$)
+    node[pos=0, left] {$\hat{\mathbf{x}}_{k-1}$};
+\draw[blue,double,double distance=1pt,->] ($(f.north)+(-0,0.5)$) -- ($(f.north)+(-0,0)$)
+    node[pos=0, above] {$\mathbf{u}_{k-1}$};
+
+% Messvektor z_k
+\draw[blue,double,double distance=1pt,->] ($(sumR.north)+(0,0.5)$) -- (sumR.north)
+    node[pos=0, above] {$z_k$};
+
+% Vorzeichen am rechten Summationspunkt
+\node at ($(sumR.west)+(-0.28,0.22)$) {$-$};
+
+% Innovationspfad
+\draw[blue,double,double distance=1pt,->] (sumR.south) |- (K.east);
+
+% Korrekturpfad links
+\draw[blue,double,double distance=1pt,->] (K.west) -- (sumL.east);
+\draw[blue,double,double distance=1pt,->] (f.east) -|  node[pos=0.95,right] {$+$} (sumL.north);
+\draw[blue,double,double distance=1pt,->] (sumL.west) -- ++(-5,0) node[left] {$\hat{\mathbf{x}}_{k}$};
+
+% F_k zum Kovarianz-Update
+\draw[red,double,double distance=1pt,->] ($(f.south)+(0,0)$) |- node[pos=0.95,above] {$\mathbf{F}_k$} (cov.west);
+
+% H_k zum Kovarianz-Update
+\draw[red,double,double distance=1pt,->] (h.south) -- ++(0,-0.5) -- ++(2.5,0) -- ++(0,-2.5) -- node[pos=0.7,above] {$\mathbf{H}_k$}(cov.east);
+
+% Kovarianz-Update zu K_k
+\draw[red,double,double distance=1pt,->] (cov.north) -- (K.south);
+
+% Eingänge unten
+\draw[red,double,double distance=1pt,->] ($(cov.south)+(-1.1,-0.5)$) -- ($(cov.south)+(-1.1,0)$)
+    node[pos=0, below] {$\mathbf{Q}_{k-1}$};
+\draw[red,double,double distance=1pt,->] ($(cov.south)+(0,-0.5)$) -- ($(cov.south)+(0,0)$)
+    node[pos=0, below] {$\mathbf{R}_k$};
+\draw[red,double,double distance=1pt,->] ($(cov.south)+(1.1,-0.5)$) -- ($(cov.south)+(1.1,0)$)
+    node[pos=0, below] {$\mathbf{P}_{k-1}$};
+\end{tikzpicture}
+\caption{Ablauf eines erweiterten Kalman-Filters}
+\label{fig:ekf}
+
+\end{figure}
+Der Ablauf des EKF ist quasi identisch zum klassischen Kalman-Filter und in Abbildung \ref{fig:ekf} dargestellt. Wobei die Matrizen Rot und die Vektoren Blau eingefärbt sind, um den Ablauf klarer zu machen. Der Zustandsvektor $\hat{\mathbf{x}}_{k}$ wird im nächsten Schritt als $\hat{\mathbf{x}}_{k-1}$ eingesetzt.
+\parencite{RibeiroKalman}\parencite{ExtendedKalmanPhils1}
 \subsection{Euler-Verfahren}
 \label{subsec:ekf_euler_verfahren}
 Das Euler-Verfahren ist ein numerisches Verfahren zur Lösung von gewöhnlichen Differentialgleichungen. Es basiert auf der Idee, die Ableitung einer Funktion an einem bestimmten Punkt zu verwenden, um den Funktionswert an einem nahegelegenen Punkt zu approximieren. 
@@ -1020,15 +1083,15 @@ Dabei können die beiden optimalen Verfahren unabhängig voneinander ausgelegt w
 
 \begin{tikzpicture}[>=latex, thick]
 \tikzset{
-  block/.style={draw,fill=blue!20, rectangle, minimum width=3.2cm, minimum height=1.6cm},
-  sum/.style={draw,fill=blue!20, circle, minimum size=7mm, inner sep=0pt}
+  block/.style={draw,fill=blue!15, rectangle, minimum width=3cm, minimum height=1.2cm},
+  sum/.style={draw,fill=blue!15, circle, minimum size=4mm, inner sep=0pt}
 }
 
 % --- Nodes ---
 \node[block] (system) at (0,0) {System};
-\node[sum]   (sum)    at (4.2,0) {+};
-\node[block] (lqr)    at (-2.2,-2.4) {LQR};
-\node[block] (lqe)    at ( 2.2,-2.4) {Kalman-Filter};
+\node[sum]   (sum)    at (4.2,0) {$+$};
+\node[block] (lqr)    at (-2.2,-2) {LQR};
+\node[block] (lqe)    at ( 2.2,-2) {Kalman-Filter};
 
 % --- Plant input junction (vertical branch for u) ---
 \coordinate (ujunc) at (-2.6,0); % junction point left of system
@@ -1046,11 +1109,11 @@ Dabei können die beiden optimalen Verfahren unabhängig voneinander ausgelegt w
 \draw[->] (4.2,1.5) -- node[right] {$\mathbf{w}_n$} (sum.north);
 
 % --- Vertical line down from sum (measurement path) ---
-\coordinate (down) at (4.2,-2.4);
-\draw[-] (sum.south) -- (4.2,-2.4);
+% \coordinate (down) at (4.2,-2.4);
+% \draw[-] (sum.south) -- (4.2,-2.4);
 
 % --- Into LQE from the right ---
-\draw[->] (4.2,-2.4) -- (lqe.east);
+\draw[->] (sum.south)|- (lqe.east);
 
 % --- LQE to LQR with x-hat ---
 \draw[->] (lqe.west) -- node[below] {$\hat{\mathbf{x}}$} (lqr.east);
@@ -1061,14 +1124,12 @@ Dabei können die beiden optimalen Verfahren unabhängig voneinander ausgelegt w
 
 % --- LQR to u: must exit LEFT side of LQR and go up to u-branch ---
 \draw[-] (lqr.west) -- ++(-0.8,0) |- (ujunc);
-
 \end{tikzpicture}
-
 \caption{LQG Regler Struktur}
 \label{fig:lqg_structure}
 \end{figure}
 In der Abbildung \ref{fig:lqg_structure} ist die Struktur eines LQG-Reglers dargestellt. Das System empfängt die Steuergröße $\mathbf{u}$ und produziert die Ausgangsgröße $\mathbf{y}$. Störgrößen $\mathbf{w}_d$ beeinflussen das System, während Messrauschen $\mathbf{w}_n$ die gemessenen Signale $\mathbf{y}$ stören. Der Kalman-Filter verarbeitet die gemessenen Signale, um eine Schätzung $\hat{\mathbf{x}}$ des Systemzustands zu liefern, welche dann an den LQR weitergegeben wird. Der LQR-Block berechnet die optimale Steuergröße basierend auf der geschätzten Zustandsinformation $\hat{\mathbf{x}}$. 
-\\
+
 Das System wird dabei durch folgende bereits bekannte Gleichungen beschrieben:
 \begin{equation}
 \dot{\mathbf{x}} = \mathbf{A} \cdot \mathbf{x} + \mathbf{B} \cdot \mathbf{u} + \mathbf{w}_d
@@ -1082,7 +1143,7 @@ Der LQG-Regler berechnet die Steuergröße $\mathbf{u}$ auf Basis der geschätzt
 Der Kalman-Filter (hier in seiner kontinuierlichen Form auch Kalman-Bucy Filter genannt) berechnet die Schätzung $\hat{\mathbf{x}}$ des Systemzustands basierend auf den gemessenen Signalen $\mathbf{y}$:
 \begin{equation}\hat{\mathbf{x}} = -\mathbf{K}_f \cdot \mathbf{y}\end{equation}
 Die Rückführungsmatrix $\mathbf{K}_r$ des LQR und die Kalman-Gain-Matrix $\mathbf{K}_f$ des Kalman-Filters werden unabhängig voneinander berechnet, wobei $\mathbf{K}_r$ auf der Minimierung der Kostenfunktion des LQR basiert und $\mathbf{K}_f$ auf der Minimierung der Kovarianzmatrix des Kalman-Filters basiert.
-\\
+
 Wie in den der detaillierten Beschreibungen der beiden Verfahren siehe Kapitel \ref{sec:lqr_regler} und \ref{sec:kalman_filter} beschrieben, sind sich die Berechnungsschritte der Rückführungsmatrix $\mathbf{K}_r$ des LQR und der Kalman-Gain-Matrix $\mathbf{K}_f$ des Kalman-Filters sehr ähnlich, und jeweils auf eine algebraische Riccati-Gleichung zurückzuführen. 
 \begin{quote}
 Optimal control and estimation are mathematical dual problems, as are controllability and observability.
@@ -1096,4 +1157,4 @@ Die vollständige Systemdynamik des LQG-Reglers kann somit durch die folgende Gl
 \mathbf{u} = -\mathbf{K}_r \cdot \hat{\mathbf{x}}
 \end{equation}
 Wenn die Matrix $\mathbf{K}_f$ in der ersten Gleichung groß ist, vertraut der Schätzer stark auf die Messungen, wenn diese jedoch klein ist, verlässt sich dieser stärker auf die Systemdynamik. Dies hängt davon ab wie stark das Messrauschen $\mathbf{w}_n$ im Vergleich zum Prozessrauschen $\mathbf{w}_d$ ist, und somit wie zuverlässig die Messungen sind.
-\parencite{DataDrivenScience}kn
+\parencite{DataDrivenScience}
