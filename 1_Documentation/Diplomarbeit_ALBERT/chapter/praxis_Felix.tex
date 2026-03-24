@@ -359,6 +359,13 @@ Um die höheren Ströme der Servos und Pyro-Kanäle zu bewältigen, werden die e
 
 \chapter{Steuerungssystem}
 \label{ch:steuerungssystem}
+Die Steuerung und Stabilisierung einer Rakete erfordert ein Regelungssystem, welches die aktuelle Lage und Position der Rakete erfasst und darauf basierend aktiv Korrekturen an die Aktuatoren sendet, um die gewünschte Flugbahn zu gewährleisten. 
+\\
+Für diesen Zweck wird ein Linear Quadratic Gaussian (LQG) Regler entwickelt, welcher den Zusammenschluss aus Linear Quadratic Regulator (LQR) und Kalman-Filter darstellt. Der LQR ist ein optimaler Zustandsregler, der die Stellgröße so berechnet, dass eine quadratische Kostenfunktion $J$ minimiert wird. Der Kalman-Filter hingegen ist ein optimaler Schätzer, der die aktuellen Systemzustände basierend auf den Messungen der Sensoren und einem dynamischen Modell des Systems schätzt, um die Unsicherheiten in den Messungen und im Modell zu berücksichtigen.
+\\
+Wenn auch der PID-Regler eine weit verbreitete und effektive Regelungsstrategie darstellt, beschränkt sich seine Anwendbarkeit auf eine einzige Regelgröße oder mehrere Regelgrößen, die nicht miteinander gekoppelt sind, was den Einsatz in der Regelung einer Rakete extrem limitiert, da hier mehrere gekoppelte Regelgrößen (Lage, Position, Geschwindigkeit) gleichzeitig geregelt werden müssen.
+\\
+Aus diesem Grund wird nicht, wie ursprünglich in der Projektkonzeption geplant, zunächst ein PID-Regler implementiert, sondern es wird direkt mit der Entwicklung eines LQG-Reglers begonnen, da dieser die Anforderungen an die Regelung einer Rakete deutlich besser erfüllt.
 
 \section{Anforderungsanalyse}
 \label{sec:anforderungsanalyse_steuerung}
