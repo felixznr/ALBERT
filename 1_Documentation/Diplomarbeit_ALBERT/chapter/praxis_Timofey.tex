@@ -289,24 +289,34 @@ $C_n$ & Yawmomentbeiwert & $X(0) Y(0) Z(1)$ & $X() Y() Z()$ \\
 \subsection{Simulationsdurchgänge}
 \label{subsec:sim_cases}
 Um genug Messpunkte der verschiedenen Werte für genaue Ableitungen zu erreichen und um für alle simulierten Werte die besten Bedingungen zu schaffen, wo diese am genausten von Fluent berechent werden können, wurden 11 Verschieden Fälle in der Simulation betrachtet. Durch diese 11 Durchgänge wurden sowohl alle möglichen Fälle bezüglich Pitch- und Yaw-Winkel abgedeckt, als auch Veränderungen im Anstellwinkel der Flügel. Da der Raketenkörper symmetrisch ist, sind die Beiwerte für Pitch und Yaw Stellungen identisch. Daher können die in der Simulation errechneten Werte für Pitch Änderung auch für Yaw-bezogene Beiwerte verwendet werden. Diese Werte für $\alpha, \beta, \delta_i$ bzw. $\eta$ und $\zeta$ wurden bei jedem Durchgang angenommen:
-\begin{itemize}
-    \item Fall 1: $\alpha = \ang{0}, \beta = \ang{0}, \eta = \ang{0}, \zeta = \ang{0}$
-    \item Fall 2: $\alpha = \ang{0}, \beta = \ang{0}, \eta = \ang{2}, \zeta = \ang{0}$
-    \item Fall 3: $\alpha = \ang{0}, \beta = \ang{0}, \eta = \ang{5}, \zeta = \ang{0}$
-    \item Fall 4: $\alpha = \ang{2}, \beta = \ang{0}, \eta = \ang{0}, \zeta = \ang{0}$
-    \item Fall 5: $\alpha = \ang{2}, \beta = \ang{0}, \eta = \ang{2}, \zeta = \ang{0}$
-    \item Fall 6: $\alpha = \ang{2}, \beta = \ang{0}, \eta = \ang{5}, \zeta = \ang{0}$
-    \item Fall 7: $\alpha = \ang{5}, \beta = \ang{0}, \eta = \ang{0}, \zeta = \ang{0}$
-    \item Fall 8: $\alpha = \ang{5}, \beta = \ang{0}, \eta = \ang{2}, \zeta = \ang{0}$
-    \item Fall 9: $\alpha = \ang{5}, \beta = \ang{0}, \eta = \ang{5}, \zeta = \ang{0}$
-    \item Fall 10: $\alpha = \ang{5}, \beta = \ang{0}, \delta_1 = \ang{2}, \delta_2 = \ang{2}, \delta_3 = \ang{2}, \delta_4 = \ang{2}$
-    \item Fall 11: $\alpha = \ang{0}, \beta = \ang{0}, \delta_1 = \ang{5}, \delta_2 = \ang{5}, \delta_3 = \ang{5}, \delta_4 = \ang{5}$
-\end{itemize}
+\begin{table}[h]
+    \centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Fall} & $\mathbf{\alpha}$ & $\mathbf{\beta}$ & $\mathbf{\eta}$ & $\mathbf{\zeta}$ & $\mathbf{\delta_{1,2,3,4}}$ \\ 
+\hline
+1 & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ \\
+2 & $0^\circ$ & $0^\circ$ & $2^\circ$ & $0^\circ$ & $0^\circ$ \\
+3 & $0^\circ$ & $0^\circ$ & $5^\circ$ & $0^\circ$ & $0^\circ$ \\
+4 & $2^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ \\
+5 & $2^\circ$ & $0^\circ$ & $2^\circ$ & $0^\circ$ & $0^\circ$ \\
+6 & $2^\circ$ & $0^\circ$ & $5^\circ$ & $0^\circ$ & $0^\circ$ \\
+7 & $5^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ \\
+8 & $5^\circ$ & $0^\circ$ & $2^\circ$ & $0^\circ$ & $0^\circ$ \\
+9 & $5^\circ$ & $0^\circ$ & $5^\circ$ & $0^\circ$ & $0^\circ$ \\
+10 & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ & $2^\circ$ \\
+11 & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ & $5^\circ$ \\
+\hline
+\end{tabular} 
+    \caption{Definition der Simulationsfälle}
+    \label{tab:sim_cases}
+\end{table}
 
 \section{Auswertung der Simulationsergebnisse}
 \label{sec:simulation_results}
 Nach dem Simulieren von allen 11 Fällen, wurden diese entsprechend ausgewertet und alle für die Regelung nötigen Beiwerte wurden errechnet. Im ersten Schritt wurden alle aus den Simulationsergebnissen bezogene Kräfte in entsprechende Beiwerte umgerechnet.
 
+\newpage
 \subsection{Simulationsergebnisse} 
 \label{subsec:sim_results}
 Aus den 9 Simulationsdurchgängen ergaben sich folgende Ergebnisse für die Beiwerte:
@@ -314,7 +324,7 @@ Aus den 9 Simulationsdurchgängen ergaben sich folgende Ergebnisse für die Beiw
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-\textbf{Fall} & $C_A$ & $C_Y$ & $C_Z$ & $C_l$ & $C_m$ & $C_n$ \\
+\textbf{Fall} & $\mathbf{C_A}$ & $C_Y$ & $C_Z$ & $C_l$ & $C_m$ & $C_n$ \\
 \hline
 1 & 0,09329290 & 0,01060445 & 0,01311977 & 0,0015015 & 0,05151140 & 0,04080199 \\
 2 & 0,09410596 & 0,02127894 & 0,01752323 & 0,00037719 & 0,07384833 & 0,08960357 \\
@@ -330,7 +340,7 @@ Aus den 9 Simulationsdurchgängen ergaben sich folgende Ergebnisse für die Beiw
 \caption{Simulierte Beiwerte}
 \label{tab:sim_coefficients}
 \end{table}
-\\ Anhand dieser Beiwerte, kann man erkennen, dass mit höherem Pitch Winkel $\alpha$ vor allem der Normlakraftbeiwert steigt $C_Z$ und bei einem höheren Winkel $\eta$ sich in erster Linie der Pitchmomentbeiwert $C_m$ vergrößert. Es sind kleine ungenauigkeiten dabei, wie $C_Y \neq 0$, diese sind auf Ungenauigkeiten beim Meshing oder des Solvers zurückzuführen.
+\\Anhand dieser Beiwerte, kann man erkennen, dass mit höherem Pitch Winkel $\alpha$ vor allem der Normlakraftbeiwert steigt $C_Z$ und bei einem höheren Winkel $\eta$ sich in erster Linie der Pitchmomentbeiwert $C_m$ vergrößert. Es sind kleine Ungenauigkeiten dabei, wie $C_Y \neq 0$, diese sind auf Ungenauigkeiten beim Meshing oder des Solvers zurückzuführen.
 \\
 \begin{wrapfigure}{r}{0.6\textwidth}
     \centering
@@ -341,6 +351,7 @@ Aus den 9 Simulationsdurchgängen ergaben sich folgende Ergebnisse für die Beiw
     \vspace{-10pt}
 \end{wrapfigure}
 Jeder Simulationsfall wurde für 600 Iterationen durchgeführt, damit die Residuals sich gut einschwingen könnne. Residuals in Ansys Fluent sind die verbleibenden Fehler der im Hintergrund berechneten Gleichungen nach jeder Iteration. Je niedriger die Residuals sind, desto genauer sind die Berechnungen. Die Abbildung \ref{fig:residuals_plot} zeigt den Plot der Residuals für den 8 Simulationsfall. Es ist auch gut zu erkennen, dass die Residuals erst nach $\approx$ 300 Iterationen richtig eingeschwungen sind, um sicher zu gehen, dass diese auch weiterhin ungefähr konstant bleiben, wurden danach noch weitere 300 Iterationen durchgeführt.
+\\
 \\
 Dabei ist \textbf{continuity} die Massenerhaltung, \textbf{x-velocity}, \textbf{y-velocity}, \textbf{z-velocity} sind die Impulsgleichungen in alle 3 Richtungen des Koordinatensystems, \textbf{k} ist die turbulente kinetische Energie und schließlich ist \textbf{omega} die spezifische Dissipationsrate beim $k$-$\omega$-Turbulenzmodell.
 \\
@@ -721,12 +732,8 @@ Es wurden die folgenden Werte für die Axialkraft $F_A$ bei beiden Messudurchgä
 \label{tab:wind_tunnel_results_30ms}
 \end{table}
 
-
-
-
 \subsection{Vergleich der Messergebnisse mit simullierten Werten}
 \label{subsec:wind_tunnel_sim_comparison}
-
 
 \section{Herausforderungen und Lösungen}
 \label{sec:challenges_simulation}
