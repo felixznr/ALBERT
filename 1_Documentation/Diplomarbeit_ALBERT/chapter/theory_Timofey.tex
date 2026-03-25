@@ -47,6 +47,7 @@ Die Gewichtskraft und die Schubkraft sind wie folgt definiert:
 \end{equation}
 \begin{equation}
     \vec{F}_{thrust} = \dot{m} \cdot \vec{v}_{e} + (p_e - p_0) \cdot A_e
+    \label{eq:rocket_thrust}
 \end{equation}
 \\Mit $m$ als Masse der Rakete, $\vec{g}$ als Die Erdbeschleunigung,
 $\dot{m}$ als Massenstrom durch den Motor, $\vec{v}_{e}$
@@ -229,32 +230,33 @@ ist 8 Formen zur Auswahl mit den jeweiligen Vor- und Nachteilen in \ref{tab:fin_
 
 %==== VON DEEPSEEK ÜBERETZT ALSO PROMPT DANN SPÄTER NOCH ANGEBEN ====
 
-\begin{table}
-    \caption{Vor- und Nachteile verschiedener Flügelformen}
+\begin{table}[H]
     \centering
-\begin{tabular}{|m{3cm}|m{5cm}|m{5cm}|}
-    \hline
-    \textbf{Form} & \textbf{Vorteile} & \textbf{Nachteile} \\
-    \hline
-    Delta & Flatterrobust, gut für hohe Geschwindigkeiten & Spitze Kante anfällig für Beschädigungen\\
-    \hline
-    Rechteckig & Einfach zu bauen, strukturell robust & Kann bei Landung beschädigt werden, nicht optimal für Finnensteuerung\\
-    \hline
-    Gepfeilt & Flatterrobust, strukturell robust & Kann bei Landung beschödigt werden, nicht optimal für Finnensteuerung\\
-    \hline
-    Trapezförmig & Strukturell robust, kann gestutzt werden um den Druckpunkt nach vorne zu verlagern & Weniger aerodynamisch als gepfeilte Formen\\
-    \hline
-    Trapezförmig gepfeilt & Gut für hohe Geschwindigkeiten, kann gestutzt werden um den Druckpunkt nach vorne zu verlagern & Anfällig für Flattern und Beschädigungen bei Landung\\
-    \hline
-    Gestutztes Delta & Strukturell robust, gute Wahl für Finnensteuerung & Kann bei der Landung beschädigt werden\\
-    \hline
-    Gestutztes gepfeiltes Trapez & Eine Verbesserung des einfach gepfeilten Trapezes & Anfällig für Flattern und Beschädigungen bei Landung\\
-    \hline
-    Elliptisch & Aerodynamisch effizient, robust, flattersicher & Schwer herzustellen, Berechnung des Druckpunkts kompliziert\\
-    \hline
-\end{tabular}
+    \begin{tabular}{|m{2.8cm}|m{5.8cm}|m{5.8cm}|}
+        \hline
+        \textbf{Form} & \textbf{Vorteile} & \textbf{Nachteile} \\
+        \hline
+        Delta & Flatterrobust, gut für hohe Geschwindigkeiten & Spitze Kante anfällig für Beschädigungen \\
+        \hline
+        Rechteckig & Einfach zu bauen, strukturell robust & Kann bei Landung beschädigt werden, nicht optimal für Finnensteuerung \\
+        \hline
+        Gepfeilt & Flatterrobust, strukturell robust & Kann bei Landung beschädigt werden, nicht optimal für Finnensteuerung \\
+        \hline
+        Trapezförmig & Strukturell robust, kann gestutzt werden, um den Druckpunkt nach vorne zu verlagern & Weniger aerodynamisch als gepfeilte Formen \\
+        \hline
+        Trapezförmig gepfeilt & Gut für hohe Geschwindigkeiten, kann gestutzt werden, um den Druckpunkt nach vorne zu verlagern & Anfällig für Flattern und Beschädigungen bei Landung \\
+        \hline
+        Gestutztes Delta & Strukturell robust, gute Wahl für Finnensteuerung & Kann bei der Landung beschädigt werden \\
+        \hline
+        Gestutztes gepfeiltes Trapez & Eine Verbesserung des einfach gepfeilten Trapezes & Anfällig für Flattern und Beschädigungen bei Landung \\
+        \hline
+        Elliptisch & Aerodynamisch effizient, robust, flattersicher & Schwer herzustellen, Berechnung des Druckpunkts kompliziert \\
+        \hline
+    \end{tabular}
+    \caption{Vor- und Nachteile verschiedener Flügelformen}
     \label{tab:fin_shapes}
 \end{table}
+
 \subsubsection*{Flügelprofil}
 \label{subsubsec:fin_aerofoil}
 \begin{wrapfigure}{r}{0.5\textwidth}
@@ -437,7 +439,14 @@ Legende zur Abbildung \ref{fig:aero_tube_schematic}:
     \item D: Dehnmessstreifen
     \item K: Gerät zum Ablesen der Kraft
 \end{itemize}
-Anschließend kann mit Hilfe des Dehnmessstreifens die Axialkraft/Drag $F_A$ gemessen werden. Das Messobjekt wird am Ende eines Stabes befestigt und wird über diesen Hebelarm auf einem Scharnier außerhalb vom Windkanal befestigt. Dieser Hebelarm drückt gegen den Dehnmesstreifen, diese Kraft kann mit Hilfe eines Gerätes in Newton abgelesen werden.  
+Anschließend kann die Axialkraft/Drag $F_A$ aus der Hebelkraft am Dehnmessstreifen $F_D$ errechnet werden. Das Messobjekt wird am Ende eines Stabes befestigt und wird über diesen Hebelarm auf einem Scharnier außerhalb vom Windkanal befestigt. Dieser Hebelarm drückt gegen den Dehnmesstreifen, diese Kraft kann mit Hilfe eines Gerätes in Newton abgelesen werden. 
+\\
+Dies erfolgt mit Hilfe vom Hebelgesetz, das folgendermaßen definiert ist:
+\begin{equation}
+    F_1 \cdot l_1 = F_2 \cdot l_2
+    \label{eq:lever_law}
+\end{equation}
+Wobei $F_1$ als Kraft auf einer Seite vom Drehpunkt des Hebels, $l_1$ als Abstand vom Drehpunkt zum Wirkungspunkt der Kraft $F_1$, $F_2$ als Last auf der anderen Seite des Drehpunkts und $l_2$ als Abstand zwischen dem Wirkungspunkt der Last $F_2$ und dem Drehpunkt definiert sind.
 
 \section{Feststoffraketentriebwerk}
 \label{sec:solid_fuel_rocket_engine}
@@ -447,14 +456,10 @@ Kryogene Flüssigkeiten sind Gase, die durch sehr starke Abkühlung auf typische
 
 \subsection{Funktionsweise eines Festofftriebwerks}
 \label{subsec:solid_fuel_engine_funktionsweise_ich_kann_kein_englisch}
-In einem Feststoffraketenantrieb werden Treibstoff und Oxidationsmittel zu einem festen Treibstoff gemischt, der in einen festen Zylinder gepresst wird. Ein Loch durch den Zylinder dient als Brennkammer. Wenn die Mischung gezündet wird, findet die Verbrennung an der Oberfläche des Treibstoffs statt. Es entsteht eine Flammenfront, die sich in das Gemisch hineinausbreitet. Bei der Verbrennung entstehen große Mengen an Abgasen mit hoher Temperatur und hohem Druck. Die Menge des entstehenden Abgases hängt von der Fläche der Flammenfront ab, und Motorenkonstrukteure nutzen verschiedene Lochformen, um die Schubänderung bei einem bestimmten Motor zu steuern. Das heiße Abgas strömt durch eine Düse, die den Strom beschleunigt. Dadurch entsteht gemäß dem dritten Newtonschen Bewegungsgesetz Schubkraft wie in Formel \ref{eq:solid_fuel_engine_thrust} beschrieben. \parencite{NasaSolidFuelEngine}
-\begin{equation}
-    \textbf{Schub} = F = \dot{m}V_e + A_e(p_e - p_0)
-    \label{eq:solid_fuel_engine_thrust}
-\end{equation}
-Dabei ist $V_e$ die Austrittgeschwindigkeit aus der Düse, $\dot{m}$ ist der Massenstrom durch die Düse, $p_0$ der Umgebungsdruck, $p_e$ der Austrittdruck aus der Düse und $A_e$ die Austrittfläche der Düse.
+In einem Feststoffraketenantrieb werden Treibstoff und Oxidationsmittel zu einem festen Treibstoff gemischt, der in einen festen Zylinder gepresst wird. Ein Loch durch den Zylinder dient als Brennkammer. Wenn die Mischung gezündet wird, findet die Verbrennung an der Oberfläche des Treibstoffs statt. Es entsteht eine Flammenfront, die sich in das Gemisch hineinausbreitet. Bei der Verbrennung entstehen große Mengen an Abgasen mit hoher Temperatur und hohem Druck. Die Menge des entstehenden Abgases hängt von der Fläche der Flammenfront ab, und Motorenkonstrukteure nutzen verschiedene Lochformen, um die Schubänderung bei einem bestimmten Motor zu steuern. Das heiße Abgas strömt durch eine Düse, die den Strom beschleunigt. Dadurch entsteht gemäß dem dritten Newtonschen Bewegungsgesetz Schubkraft wie in Formel \ref{eq:rocket_thrust} beschrieben. \parencite{NasaSolidFuelEngine}
 \\
 Der Aufbau eines Festostofftriebwerks ist in der Abbildung \ref{fig:solid_fuel_engine_nasa_image} genauer zu erkennnen.
+\newpage
 \begin{figure}[H]
    \centering
    \includegraphics[width=0.9\textwidth]{solid_fuel_engine.png} 
