@@ -54,7 +54,7 @@ als die Austrittgeschwindigkeit der Gase aus der Düse, $p_e$
 als Druck am Düsenaustritt, $p_0$ als Umgebungsdruck und $A_e$
 als Querschnittsfläche am Düsenaustritt.
 
-\subsection*{Aerodynamische Kräfte}
+\subsection{Aerodynamische Kräfte}
 \label{subsec:aero_forces}
 Die Größe der aerodynamischen Kräfte hängt sowohl von der Größe und Form der Rakete, als auch
 von der Geschwindigkeit und der Eigenschaften der Atmosphäre ab. Diese Kräfte wirken durch 
@@ -106,6 +106,24 @@ wird eine Gegenkraft ausgeübt, die gleich groß ist und in entgegengesetzter Ri
     \vec{F}_{A\rightarrow B} = - \vec{F}_{B\rightarrow A}
 \end{equation}
 
+\section{Stabilitätskoeffizient}
+\label{sec:stability_margin}
+Der Stabilitätskoeffizient einer Rakete beschreibt die Different der Abstände des Druckpunkts(CP) und des Schwerpunkts(CG) über dem Durchmesser der Rakete $D$. Ein positiver Stabilitätskoeffizient sagt aus, dass der Schwerpunkt der Rakete höher als der Druckpunkt liegt. Ist der Stabilitätskoeffizient negativ, wird die Rakete instabil und wird in eine zufällige Richtung davonfliegen. Der Stabilitätskoeffizient ist allgemein folgend definiert:
+\begin{equation}
+    S_m = \frac{x_{CP} - x_{CG}}{D}
+\end{equation}
+Dabei ist $D$ der Durchmesser des Raketenkörpers, $x_{CP}$ der Abstand des Druckpunktes vom Heck der Rakete und $x_{CG}$ der Abstand des Schwerpunktes vom Heck.
+\\
+Um den Stabilitätskoeffizient zu bekommen, muss man den Abstand des Druckpunktes vom Heck $x_{CP}$ wissen, der teilweise schwer zu berechnen ist. Mit Hilfe von Simulationssoftware für Modellraketen wie \textit{OpenRocket} oder \textit{RASAero} kann man nach der Definition von den Raketenmaßen nicht nur die Position des Druckpunktes, sondern gleich den Stabilitätskoeffizienten bekommen.
+\\
+Wenn der Stabilitätskoeffizient nicht den gewünschten Wert hat, gibt es grundsätzlich 2 Möglichkeiten den Druckpunkt der Rakete durch Manipulation der Flügelform und Flügelposition zu verschieben. Durch Stutzen der Flügel kann der Druckpunkt weiter nach vorne verschoben werden, genauso wie durch Verschieben der ganzen Flügel nach vorne. Dies ist in Abbildung \ref{fig:cp_manipulation_rocket_fins} graphisch veranschaulicht.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{cp_manipulation_rocket_fins.jpg}
+    \caption{Verschieben des Druckpunktes durch Stutzen oder Verschieben der Flügel \parencite{NakkaFins}}
+    \label{fig:cp_manipulation_rocket_fins}
+\end{figure}
+
 \section{Aerodynamische Eigenschaften}
 \label{sec:aero_features}
 Die aerodynamischen Kräfte auf eine Rakete hängen direkt von
@@ -153,7 +171,16 @@ zu maximieren.
 
 \subsection{Raketenspitze}
 \label{subsec:rocket_nose}
-Aus aerodynamischer Sicht ist die Form der Raketenspitze für eine typische Modellrakete bei Unterschallflug nicht besonders relevant. Der Großteil des Luftwiderstands wird dabei durch die Raketenflügel und das Raketengehäuse erzeugt.
+Aus aerodynamischer Sicht ist die Form der Raketenspitze für eine typische Modellrakete bei Unterschallflug nicht besonders relevant. Der Großteil des Luftwiderstands wird dabei durch die Raketenflügel, den Raketenkörper, oder kleine Ungenauigkeiten in diesen erzeugt. Daher wird die Form meistens je nach Komplexität der Herstellung und des Volumens dieser Form gewählt. \cite{NakkaNoseCone}
+\begin{wrapfigure}{l}{0.4\textwidth}
+    \centering
+    \vspace{-10pt}
+    \includegraphics[width=0.4\textwidth]{nose_cone_shapes.png}
+    \caption{Verschiedene Formen der Raketenspitze für Modellraketen bei Unterschallflug \parencite{NakkaNoseCone}}
+    \label{fig:nose_cone_shapes}
+    \vspace{-30pt}
+\end{wrapfigure}
+Abbildung \ref{fig:nose_cone_shapes} zeigt 3 verschiedene Formen der Raketenspitze für Modellraketen bei Unterschallflug. Die erste Raketenspitze ist kegelförming und am leichtesten herzustellen, sie bietet gleichhzeitig ausreichend nutzbaren Hohlraum. Die zweite Spitze hat die Form eine Hemisphäre, trotz niedrigem Volumen kann diese Form komplett ausreichen, wenn dieses nicht benötigt wird. Die dritte Spitze hat die Form einer Tangent-Ogive, dies ist die am meisten verbreitete Form für Raketenspitzen bei Unterschallmodellraketen. Sie bietet das meiste Volumen, kann aber abhängig vom Material kompliziert herzustellen sein.
 
 \subsection{Raketenflügel}
 \label{subsec:rocket_fins}

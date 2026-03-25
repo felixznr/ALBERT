@@ -614,7 +614,7 @@ Anschließend die finalen Wertannahmen vor der eigentlichen Berechnung:
     k = 0,2
 \] 
 Berechnung der Dämpfungsableitungen:
-\[
+\begin{equation}
 q
 =
 \frac{q^\ast l_\mathrm{ref}}{2V}
@@ -622,8 +622,8 @@ q
 \frac{1{,}74533 \cdot 0{,}084}{2 \cdot 100}
 =
 0{,}00073304
-\]
-\[
+\end{equation}
+\begin{equation}
 \dot{r}
 =
 \frac{r^\ast l_\mathrm{ref}}{2V}
@@ -631,21 +631,21 @@ q
 \frac{1{,}74533 \cdot 0{,}084}{2 \cdot 100}
 =
 0{,}00073304
-\]
-\[
+\end{equation}
+\begin{equation}
 |C_{mq}|
 =
 0{,}2\,
 \frac{2{,}6130694 \cdot 0{,}0349066}{0{,}00073304}
 \approx 24{,}89
-\]
-\[
+\end{equation}
+\begin{equation}
 |C_{n\dot{r}}|
 =
 0{,}2\,
 \frac{2{,}6130694 \cdot 0{,}0349066}{0{,}00073304}
 \approx 24{,}89
-\]
+\end{equation}
 
 \subsection{Visualisierung der Simulationsergebnisse}
 \label{subsec:cfd_visual_results}
@@ -656,7 +656,6 @@ Um am besten die Änderungen der Strömung abhängig von Anstellwinkel des Raket
 \subsubsection*{Strömung um Raketenflügel}
 \label{subsubec:rocket_fin_flow}
 Beim 9. Simulationsfall wurde die Strömung an den Flügeln mit dem Anstellwinkel $\eta = 5^\circ$ in Betracht bezogen. In der Abbildung \ref{fig:rocket_fin_pressure} ist zu erkennen, wie durch den Winkel, mit dem sich der Flügel durch die Luft bewegt und durch dessen Aerofoil-Profil auf der unteren Seite ein Überdruck und auf der oberen Seite ein Unterdruck entsteht. Durch diesen Druckunterschied wird eine Auftriebskraft durch den Druckpunkt des Raketenkörpers erzeugt, die schließlich zu einem Pitchdrehmoment um die Y-Achse am Schwerpunkt der Rakete führt.
-\newpage
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.9\textwidth]{rocket_fin_pressure.jpg}

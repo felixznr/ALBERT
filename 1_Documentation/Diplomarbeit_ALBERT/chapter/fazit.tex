@@ -8,92 +8,66 @@
 \chapter{Gesamtaufbau und Systemintegration}
 \label{ch:aufbau_albert}
 
+\chapter{Rechtliches}
+\label{ch:legal}
+
+\section{Rechtliche Einschränkungen}
+\label{sec:legal_boundaries}
+\fancyfoot[C]{\large Felix Zauner, \large Timofey Luzin}
+\fancypagestyle{plain}{\fancyfoot[C]{\large Felix Zauner, \large Timofey Luzin}}
+
+Da beim Projekt "`ALBERT"' Arbeit mit Pyrotechnik vorgesehen war, musste dringend beachtet werden, dass keine gesetzwidrigen Aktionen durchgeführt werden. Hierbei stoßte man auf das Problem, dass der Raketenmotor, der sich in der Motorklasse H befindet, in Österreich ohne einer speziellen Lizent weder gebaut, noch gezündet werden darf. Auch bei den pyrotechnischen Charges für den Fallschirmauswurf stoßte man auf rechtliche Barrieren.
+
+\subsection{Raketenmotor}
+\label{subsec:rocket_motor_legal}
+Modellraketenmotoren fallen in Österreich grundsätzlich in den Bereich des Pyrotechnikgesetzes. In der Arbeitsrichtlinie Pyrotechnische Gegenstände des Bundesfinanzministeriums für Finanzen findet man Modellbauraketenmotoren unter dem Punkt 1.1.3 "`Sonstige pyrotechnische Gegenstände"'.
+\\
+\\
+Sonstige pyrotechnische Gegenstände sind alle pyrotechnischen Gegenstände, die keine Feuerwerkskörper (Abschnitt 1.1.1.) und keine pyrotechnischen Gegenstände für Bühne und Theater (Abschnitt 1.1.2.) sind. Sonstige pyrotechnische Gegenstände werden gemäß § 13 PyroTG 2010 entsprechend ihrer Verwendungsart oder ihrem Zweck und dem Grad ihrer
+Gefährlichkeit einschließlich ihres Lärmpegels unterteilt in:
+\begin{enumerate}
+    \item \textbf{Kategorie P1}: Sonstige pyrotechnische Gegenstände, die eine geringe Gefahr darstellen. Von der Kategorie P1 sind zB Anzündschnüre, -lichter und -litzen, mechanische Anzünder, pyrotechnische Signalmittel (Berg- und Seenotsignalmittel, Signalstifte mit Munition, Munition von Leuchtpistolen, Rauchsignale, alpine Notsignalmittel, Hand-, Warn-, Bengal- und Magnesiumfackeln), Rauch- und Nebelerzeuger, pyrotechnische Gegenstände für die Schädlingsbekämpfung in der Land- und Forstwirtschaft, Gurtenstraffer, Airbags und Stromkreisunterbrecher erfasst, die als geringgefährlich gelten.
+    \item \textbf{Kategorie P2}: Sonstige pyrotechnische Gegenstände, die Personen mit Fachkenntnissen vorbehalten sind. Der Kategorie P2 sind insbesondere Stoppinen, Anzündbänder („Tape- Match“), Blitzknallpatronen, Modellbauraketenmotoren, Hagel- und Starenabwehrraketen sowie Verzögerungsanzünder zuzuordnen, die eine Gefahr darstellen und daher nur von Personen mit Fachkenntnissen verwendet werden dürfen. \parencite{BMF_Pyro}
+\end{enumerate} 
+\vspace{0.5cm}
+Dieselbe Definition ist auch in den Erläuterungen für das Pyrotechnikgesetz 2010 zu finden:
+\\
+\\
+\textbf{Zu § 22:} \\
+Z 1: Von der Kategorie P1 sind zB Anzündschnüre, -lichter und -litzen, mechanische Anzünder, Gurtenstraffer, Airbags und Stromkreisunterbrecher erfasst, die als geringgefährlich gelten. \\
+Z 2: Der Kategorie P2 sind insbesondere Stoppinen, Anzündbänder („Match-Tapes“), Blitzknallpatronen, Raketenmotoren und Verzögerungsanzünder zuzuordnen, die eine Gefahr darstellen. \parencite{pyro_law_2010}
+\\
+\\
+Anhand dieser Quellen ist klar zur erkennen, dass der für "`ALBERT"' vorgesehene Motor klar unter die Kategorie P2 fällt. Der Besitz und die Verwendung dieser Kategorie sind ohne einem Pyrotechnik-Ausweis und ohne einer behördlichen Bewilligung nicht erlaubt.
+\\
+\\
+(2) Besitz und Verwendung pyrotechnischer Gegenstände der Kategorie P2, mit Ausnahme pyrotechnischer Anzündmittel, sind nur aufgrund einer behördlichen Bewilligung erlaubt. Die Bewilligung ist nach Glaubhaftmachung eines Bedarfs für eine bestimmte Art (Produktgruppe) von pyrotechnischen Gegenständen der Kategorie P2 zu erteilen, wenn die Person gemäß Abs. 1 Z 2 lit. a oder b oder Z 3 über einen Pyrotechnik-Ausweis für die beantragte Art (Produktgruppe) der Kategorie P2 verfügt und unter Bedachtnahme auf die Umstände der beabsichtigten Verwendungen der pyrotechnischen Gegenstände, insbesondere die beantragten Verwendungsorte oder -gebiete und Verwendungszeiten gewährleistet ist, dass Gefährdungen von Leben, Gesundheit und Eigentum von Menschen oder der öffentlichen Sicherheit sowie unzumutbare Lärmbelästigungen vermieden werden. Die Berechtigung kann in Form einer Dauerbewilligung erteilt werden. \parencite{pyroTG_jusline}
+\\
+\\
+Da wir als Projektteam über keinen Pyrotechnik-Ausweis verfügen, darf der Raketenmotor weder gebaut, noch gezündet werden. Daher wurde das Projekt auf den Bau von der restlichen Rakete, auf die Entwicklung des Flightcomputers, die Strömungssimulation des Raketenkörpers und Entwicklung der Regelungstechnik beschränkt.
+
+\subsection{Pyrotechnische Charges zum Fallschirmauswurf}
+\label{subsec:pyro_charges_legal}
+\newpage
+
+%\section{Unterstützung von Israel}
+%\label{sec:israel_support}
+%Das Projekt wurde von Big Yahu unterstützt, diese connection kam dank Big Stein (siehe Abbildung \ref{fig:big_stein}) zustande. Nach Vollendung des Projekts, wird "`ALBERT"' an die IDF (Israeli Defence Forces) verkauft.
+%\begin{figure}[H]
+%    \centering
+%        \includegraphics[width=0.9\textwidth]{big_stein.png}
+%        \caption{Big Stein Portraitbild}
+%        \label{fig:big_stein}
+%\end{figure}
+
 \section{Fehlende Subsysteme im mechanischen Aufbau}
 \label{sec:missing_subsystems}
 \paragraph{Bergungsystem}
-Das Bergungsystem inklusive des Fallschirms wurde nicht fertiggebracht, da Prioritäten für andere Subsysteme gesetzt werden mussten. Ursprünglich war der Kauf eines fertigen Fallschirms geplant, aber wegen einer höheren als geplanter Gesamtmasse der Rakete, ist diese Option zu teuer gewesen. Es wurden jedoch alle nötigen Berechnungen zur Fallschirmgröße durchgeführt und die Wahl für das Material wurde getroffen, so wie in \ref{subsec:parachute} beschrieben. Die pyrotechnische Auslösung des Bergungssystems war ursprünglich nur theoretisch vogesehen, da diese wie in \ref{sec:pyro_charges_legal} beschrieben aufgrund von gesetzlichen Einschränkungen nicht gebaut werden durfte.
+Das Bergungsystem inklusive des Fallschirms wurde nicht fertiggebracht, da Prioritäten für andere Subsysteme gesetzt werden mussten. Ursprünglich war der Kauf eines fertigen Fallschirms geplant, aber wegen einer höheren als geplanter Gesamtmasse der Rakete, ist diese Option zu teuer gewesen. Es wurden jedoch alle nötigen Berechnungen zur Fallschirmgröße durchgeführt und die Wahl für das Material wurde getroffen, so wie in \ref{subsec:parachute} beschrieben. Die pyrotechnische Auslösung des Bergungssystems war ursprünglich nur theoretisch vogesehen, da diese wie in \ref{subsec:pyro_charges_legal} beschrieben aufgrund von gesetzlichen Einschränkungen nicht gebaut werden durfte.
 \paragraph{Innere Struktur}
 Ebenfalls wurde die innere Struktur der Rakete nicht komplett fertiggestellt. Aufgrund des fehlenden Bergungssystems wurde auch die Kopplung zwischen diesem und der restlichen inneren Struktur der Rakete ausgelassen.
 \paragraph{Raketenmotor}
-Der eigentlich Antrieb der Rakete durfte wegen in \ref{sec:rocket_motor_legal} genannten gesetzlichen Gründen weder gebaut, noch gezündert werden. Eine theoretische Entwicklung von diesem wurde jedoch in \ref{sec:solid_fuel_rocket_engine} beschrieben. 
-
-\section{Zeichnungen der CAD-Modelle}
-\label{sec:cad_drafts}
-Anbei sind alle in Siemens Solid Edge erstellten Zeichnungen der 3D-gedruckten CAD-Modelle mit Maßen zu finden.
-\newpage
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Spitzn_draft.jpg}
-    \caption{Zeichnung der Raketenspitze}
-    \label{fig:rocket_tip_draft}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{NACA0012_draft.jpg}
-    \caption{Zeichnung des Raketenflügels}
-    \label{fig:rocket_fin_draft}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Abdeckung_Heck_draft.jpg}
-    \caption{Zeichnung der hinteren Abdeckung/Motorhalterung}
-    \label{fig:rocket_engine_holder_draft}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Akku_Halterung_draft.jpg}
-    \caption{Zeichnung der Akkuhalterung}
-    \label{fig:battery_holder_draft}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Pyro_Halterung_draft.jpg}
-    \caption{Zeichnung der Halterung der Bergungssystemzünder}
-    \label{fig:pyro_charge_draft}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Finnen_Halterung_draft.jpg}
-    \caption{Zeichnung der Flügelhalterung}
-    \label{fig:rocket_fin_holder_draft}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Abdeckung_Motor_Heck_draft.jpg}
-    \caption{Zeichnung der Motorabdeckung an der Motorhalterung}
-    \label{fig:engine_cover_back_draft}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Servomotor_Halterung_draft.jpg}
-    \caption{Zeichnung der Servomotorhalterung}
-    \label{fig:servo_holder_draft}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Drehmomentaufnahme_Servo_draft.jpg}
-    \caption{Zeichnung des Flügelsteuermechanismushebels am Servomotor}
-    \label{fig:servo_torque_lever_draft}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Drehmomentaufnahme_Fluegel_draft.jpg}
-    \caption{Zeichnung des Flügelsteuermechanismushebels am Flügel}
-    \label{fig:fin_torque_lever_draft}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Drehmomentaufnahme_Verbindung_draft.jpg}
-    \caption{Zeichnung der Gelenkverbindung beider Hebel des Flügelsteuermechanismus}
-    \label{fig:torque_connection_draft}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{FlightComputer_Halterung_draft.jpg}
-    \caption{Zeichnung der Halterung des Flightcomputers}
-    \label{fig:flight_computer_holder_draft}
-\end{figure}
-
+Der eigentlich Antrieb der Rakete durfte wegen in \ref{subsec:rocket_motor_legal} genannten gesetzlichen Gründen weder gebaut, noch gezündert werden. Eine theoretische Entwicklung von diesem wurde jedoch in \ref{sec:solid_fuel_rocket_engine} beschrieben. 
 
 Ziel: Zeigen, was du überhaupt gebaut hast – aber auf reflektiertem Niveau
 
@@ -203,10 +177,3 @@ Flügel können an verschiedenen Positionen entlang vom Raketengehäuse angebrac
 
 \paragraph{Ausgabe:}
 Flügel können an verschiedenen Positionen entlang \textcolor{green}{des Raketengehäuses}angebracht werden, am verbreitetsten sind jedoch Raketen mit entweder nur hinteren Flügeln oder mit sowohl frontalen als auch hinteren Flügeln. Bei aktiven Steuersystemen bieten bewegliche frontale Flügel den Vorteil der besseren Manövrierfähigkeit, sorgen aber für weniger Stabilität und benötigen komplexere Regelungstechnik.
-
-\chapter{Reflexion und Ausblick}
-\label{ch:fazit}
- in Reflexion und Ausblick wieder versorgt bisschen drüber schreiben was gut gelaufen wie sowas schlecht gelaufen ist sowohl in technischen Hinsicht als halt alles drüber hinaus und bei Ausblick dann schreiben auf Basis von dem was wir aktuell haben was könnte man daran nur aufbauen wie könnten wir das ganze System nur verbessern genau
-
-
- ACHJA UND BITTE ZEICHNUNGEN NOCH EINFÜGEN UND GPT ANTIPLAGIARISM ASS ZAGLER
