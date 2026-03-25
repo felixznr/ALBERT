@@ -57,16 +57,7 @@ Einbauposition
 
  also hier bitte einfügen der Collage von den ganzen ganzen von der Rakete und was nun ja genau also Fotos Gesamtaufbau drüber besprechen wie die ganzen Systeme zusammenarbeiten
 
-\chapter{Simulations- und Testergebnisse}
-\label{ch:simulationsergebnisse}
-Während den Lauf des Entwicklungsprozesses hinweg wurden verschiedene Simulationen und Tests durchgeführt, von anfänglichen Simulationen mit OpenRocket, über die Simulation der Regelung mit MATLAB und der Strömungssimulation in Ansys Fluent, bis hin zu ersten Hardware in the loop Tests mit dem Flightcomputer. In diesem Kapitel werden die wichtigsten Ergebnisse dieser Simulationen und Tests präsentiert und diskutiert.
-\section{Ergebnisse der OpenRocket Simulation}
-\label{sec:ergebnisse_openrocket}
-Zu Beginn des Projekts wurde mit Hilfe von der Open-Source Simulationssoftware für Modellraketen OpenRocket eine Simulation durchgeführt, um die ungefähren Maße der Rakete festzulegen. Dadurch wurde auch ein Stabilitätskoeffizient von $S_m = 1$ festgelegt (genauere Erläuterung zum Stabilitätskoeffizient in \ref{sec:stability_margin}). Dieser resultiert aus der Position des Schwerpunktes $x_{CG} = 400mm$ und des Druckpunktes $x_{CP} = 300$. 
-\\
-Ebenfalls wurde mit Hilfe der Simulation die ungefähre Maximalgeschwindigkeit $v = 100\frac{m}{s}$, die maximale Flughöhe der Rakete $s_h = $ und der Verlauf der Flugbahn bestimmt.
-%================= HIER NOCH SCREENSHOTS AUS OPENROCKET + MEHR ERLÄUTERUNGEN ========
-\newpage
+ \newpage
 \begin{figure}[H]
     \centering
     \begin{minipage}{0.48\textwidth}
@@ -96,6 +87,16 @@ Ebenfalls wurde mit Hilfe der Simulation die ungefähre Maximalgeschwindigkeit $
     \label{fig:collage4}
 \end{figure}
 \newpage
+\chapter{Simulations- und Testergebnisse}
+\label{ch:simulationsergebnisse}
+Während den Lauf des Entwicklungsprozesses hinweg wurden verschiedene Simulationen und Tests durchgeführt, von anfänglichen Simulationen mit OpenRocket, über die Simulation der Regelung mit MATLAB und der Strömungssimulation in Ansys Fluent, bis hin zu ersten Hardware in the loop Tests mit dem Flightcomputer. In diesem Kapitel werden die wichtigsten Ergebnisse dieser Simulationen und Tests präsentiert und diskutiert.
+\section{Ergebnisse der OpenRocket Simulation}
+\label{sec:ergebnisse_openrocket}
+Zu Beginn des Projekts wurde mit Hilfe von der Open-Source Simulationssoftware für Modellraketen OpenRocket eine Simulation durchgeführt, um die ungefähren Maße der Rakete festzulegen. Dadurch wurde auch ein Stabilitätskoeffizient von $S_m = 1$ festgelegt (genauere Erläuterung zum Stabilitätskoeffizient in \ref{sec:stability_margin}). Dieser resultiert aus der Position des Schwerpunktes $x_{CG} = 400mm$ und des Druckpunktes $x_{CP} = 300$. 
+\\
+Ebenfalls wurde mit Hilfe der Simulation die ungefähre Maximalgeschwindigkeit $v = 100\frac{m}{s}$, die maximale Flughöhe der Rakete $s_h = $ und der Verlauf der Flugbahn bestimmt.
+%================= HIER NOCH SCREENSHOTS AUS OPENROCKET + MEHR ERLÄUTERUNGEN ========
+\newpage
 \section{Ergebnisse der MATLAB Simulationen}
 \label{sec:ergebnisse_matlab}
 Nach Aufstellen des Zustandsraummodells der Rakete, wurden verschiedene Simulationen mit MATLAB durchgeführt, um das Modell zu validieren und die Regelungsstrategie zu testen. 
@@ -118,7 +119,7 @@ Die Simulation dient der Validierung des mathematischen Modells in x-Richtung un
 \begin{wrapfigure}{l}{0.5\textwidth}
     \centering
     \includegraphics[width=0.5\textwidth]{sim2.png}
-    \caption{Ungestörter Flug der Rakete mit einem H-Motor}
+    \caption{Simulation der Regelung mit Nachführung der $\mathbf{K}$-Matrix}
     \label{fig:matlab_simulation_results_2}
     \vspace{-5cm}
 \end{wrapfigure}
@@ -128,15 +129,15 @@ In Abbildung \ref{fig:matlab_simulation_results_2} ist eine Simulation von Start
 \begin{wrapfigure}{r}{0.5\textwidth}
     \centering
     \includegraphics[width=0.5\textwidth]{sim3.png}
-    \caption{Ungestörter Flug der Rakete mit einem H-Motor}
+    \caption{Simulation der Regelung ohne Nachführung der $\mathbf{K}$-Matrix}
     \label{fig:matlab_simulation_results_3}
     
 \end{wrapfigure}
 Im Vergleich dazu ist in Abbildung \ref{fig:matlab_simulation_results_3} die Simulation des gleichen Fluges dargestellt, bei dem die Regelung von Anfang an aktiv ist und die $\mathbf{K}$-Matrix für die Geschwindigkeit von 60 $\frac{m}{s}$ verwendet wird. Es ist zu erkennen, dass sich die beiden Verläufe grundsätzlich sehr ähnlich sind, die Auslenkung der Finnen am Anfang jedoch merklich kleiner ist was daran liegt, dass die Regelung bei 50 $\frac{m}{s}$ weniger scharf eingestellt ist als bei den anfänglichen Geschwindigkeiten eigentlich optimal. Es lässt sich erkennen, dass die Winkel $\theta$ und $\psi$ einen leichten Überschwinger aufweisen, bevor sie sich stabilisieren. Es ist jedoch auch hier zu erkennen, dass die Regelung nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung.
-
 Die Analyse der Simulationsresultate zeigt, dass auch ohne Nachführung der $\mathbf{K}$-Matrix die Regelung in der Lage ist, die Rakete bei einer Winkelabweichung zu stabilisieren, dabei ist der Regler jedoch nicht mehr optimal eingestellt.
-
-Wenn jedoch anstatt einer Abweichung des Winkels eine Sinusschwingung (Türkis) als Störung für $\psi$ angenommen wird, wie in Abbildung \ref{fig:matlab_simulation_results_4} und \ref{fig:matlab_simulation_results_5} dargestellt, zeigt sich, dass die Regelung mit Nachführung der $\mathbf{K}$-Matrix in Abbildung \ref{fig:matlab_simulation_results_4} deutlich besser in der Lage ist, die Störung zu eliminieren und die Winkel $\theta$ und $\psi$ zu stabilisieren als ohne Nachführung der $\mathbf{K}$-Matrix (rechts). Ohne Nachführung der $\mathbf{K}$-Matrix kommt es zu einer gedämpten Schwingung der Winkel, was auf eine suboptimale Einstellung des Reglers zurückzuführen ist.
+% ATTENTION das hier ist blödsinn und muss morgen noch ausgebessert werden
+Wird statt einer anfänglichen Winkelauslenkung eine sinusförmige Störung in $\psi$ (türkis) sowie ein konstanter Schub von $20\,\si{\newton}$ angenommen, wie in Abbildung \ref{fig:matlab_simulation_results_4} und Abbildung \ref{fig:matlab_simulation_results_5} dargestellt, zeigt sich doch ein  Vorteil der Nachführung der $\mathbf{K}$-Matrix. Während die Störung mit nachgeführter $\mathbf{K}$-Matrix wirksam kompensiert und die Winkel $\theta$ und $\psi$ stabilisiert werden, kommt es ohne Nachführung zu gedämpften Schwingungen. 
+Damit stellt sich abschließend die Frage, inwiefern eine nachgeführte $\mathbf{K}$-Matrix real notwendig ist, da auch ohne diese eine pasable Leistung erreicht werden kann. 
 \begin{figure}[H]
     
     \centering
