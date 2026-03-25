@@ -51,7 +51,7 @@ die Auftriebskennlinie des Profils für kleine Anstellwinkel relativ linear ist,
 was die Regelung der Flügel einfacher macht. Die vierstelligen NACA Profile existieren
 schon sehr lange, daher gibt es gute Daten über die aerodynamischen Eigenschaften,
 was das überprüfen von Simlationsergebnissen und Versuchen erleichtert. Abbildung
-\ref{fig:fin_cad_model} zeigt das CAD Modell der Flügel.
+\ref{fig:fin_cad_model} zeigt das CAD Modell des Flügels, dessen Maße sind in Abbildung \ref{fig:rocket_fin_draft} zu finden.
 \newpage
 
 \section{Flügelsteuermechanismus}
@@ -60,24 +60,31 @@ was das überprüfen von Simlationsergebnissen und Versuchen erleichtert. Abbild
     \centering
     \vspace{-10pt}
     \includegraphics[width=0.35\textwidth]{fin_servo.png}
-    \caption{Flügelsteuermechanismus}
+    \caption{Gelenksystem zur Flügelsteuerung}
     \label{fig:fin_servo}
     \vspace{-10pt}
 \end{wrapfigure}
 Nach dem Entwurf der gesamten Raketengeometrie und der Festlegung der Form/Position der Flügel, wurde die Entwicklung eines Steuermechanismus für die Flügel begonnen. Nach ein Paar gescheiterten Versuchen, wurde ein Mechanismus entwickelt, bei dem sowohl die Motoren aufgrund von Platzmangel in das Gehäuse passten, als auch eine effiziente Übertragung des Drehmoments auf die Rotierungsachse der Flügel stattfinden konnte. \\
 Aufgrund von Platzmangel im Heckteil der Rakete, konnten die die Servomotoren nicht direkt an die Flügel angebracht werden, sondern mussten über ein System mit 2 ineinander zeigenden Hebelarmen und einem Gelenkarm, der die zwei Hebelarme miteinander verbindet. Das Drehmoment der Servomotoren wird dabei 1 zu 1 übertragen, da beide Hebelarme den gleichen Abstand von einer Drehachse zur anderen haben. \\
-Der Hebelarm des Flügels wurde dabei in einen Auschnitt in der Welle des Flügels geklebt und der Hebelarm des Motors wurde auf dessen gezähnte Welle gepresst. Abbildung \ref{fig:fin_servo} zeigt den Flügelsteuermechanismus von "`ALBERT"'. \\
-Um sicherzustellen, dass die Flügel stabil am Gehäuse befestigt und gleichzeitig frei beweglich auf dessen Rotationsachse sind, wurden diese mit 2 Kugellagern gelagert, die in die Flügelhalterung eingebaut wurden, wie auf der Abbildung \ref{fig:rocket_fin_bearings} zu erkennen ist. Der Abstand zwischen den beiden Kugellagern wird für den Flügelsteuermechanismus genutzt. Somit wirkt die Rotationskraft stabiler auf den Raketenflügel, da sich auf beiden Seiten des Hebelarms ein Lager befindet.
+Der Hebelarm des Flügels wurde dabei in einen Auschnitt in der Welle des Flügels geklebt und der Hebelarm des Motors wurde auf dessen gezähnte Welle gepresst. Abbildung \ref{fig:fin_servo} zeigt den Flügelsteuermechanismus von "`ALBERT"', die Maße der Teile des Flügelsteuermechanismus sind in den Abbildungen \ref{fig:servo_torque_lever_draft}, \ref{fig:fin_torque_lever_draft} und \ref{fig:torque_connection_draft} zu finden. \\
+Um sicherzustellen, dass die Flügel stabil am Gehäuse befestigt und gleichzeitig frei beweglich auf dessen Rotationsachse sind, wurden diese mit 2 Kugellagern gelagert, die in die Flügelhalterung eingebaut wurden, wie auf der Abbildung \ref{fig:rocket_fin_bearings} zu erkennen ist. Der Abstand zwischen den beiden Kugellagern wird für den Flügelsteuermechanismus genutzt. Somit wirkt die Rotationskraft stabiler auf den Raketenflügel, da sich auf beiden Seiten des Hebelarms ein Lager befindet. Die Maße der Flügelhalterung sind in Abbildung \ref{fig:rocket_fin_holder_draft} zu finden.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{fin_bearings.jpg}
     \caption{Befestigung des Raketenflügels mit Kugellagern}
     \label{fig:rocket_fin_bearings}
 \end{figure}
+Anschließend zeigt die Abbildung \ref{fig:fin_control_system_assmebly} den fertig zusammengesetzten Flügelsteuermechanismus in der Innenstruktur der Rakete.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{fin_control_assembly.png}
+    \caption{Assembly des kompletten Finnensteuermechanismus}
+    \label{fig:fin_control_system_assembly}
+\end{figure}
 
 \section{Montierung vom Flightcomputer und Akku}
 \label{sec:flight_computer_montage}
-Der Flightcomputer und der Akku mussten direkt nebeneinander platziert werden, damit keine Verlängerung für das Kabel vom Akku zum Flightcomputer nötig ist. Die Halterungen wurden direkt über dem Flügelsteuermechanismus platziert. Zwischen der Halterung des Flightcomputers und der Halterung für die Servomotoren wurden Abstandhalter auf den Carbonstäben angebracht, um Platz für den Raketenmotor zu schaffen. Da bestimmte Bauteile des Flightcomputers Platz brauchten, war es nicht möglich die 4 Carbonstäbe durch die Halterung des Flightcomputers durchzuführen. Diese wurden daher unterbrochen, was jedoch für einen Schwachpunkt in der Innenstruktur im Bereich des Flightcomputers sorgte. Die Halterung des Flightcomputers wurde daher über und unter der Platine verstärkt, wie auf Abbildung \ref{fig:flight_computer_battery} zu erkennen ist.
+Der Flightcomputer und der Akku mussten direkt nebeneinander platziert werden, damit keine Verlängerung für das Kabel vom Akku zum Flightcomputer nötig ist. Die Halterungen wurden direkt über dem Flügelsteuermechanismus platziert. Zwischen der Halterung des Flightcomputers und der Halterung für die Servomotoren wurden Abstandhalter auf den Carbonstäben angebracht, um Platz für den Raketenmotor zu schaffen. Da bestimmte Bauteile des Flightcomputers Platz brauchten, war es nicht möglich die 4 Carbonstäbe durch die Halterung des Flightcomputers durchzuführen. Diese wurden daher unterbrochen, was jedoch für einen Schwachpunkt in der Innenstruktur im Bereich des Flightcomputers sorgte. Die Halterung des Flightcomputers wurde daher über und unter der Platine verstärkt, wie auf Abbildung \ref{fig:flight_computer_battery} zu erkennen ist. Die Maße der Flightcomputerhalterung und der Akkuhalterung sind unter den Abbildungen \ref{fig:flight_computer_holder_draft} und \ref{fig:battery_holder_draft} zu finden.
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.9\textwidth]{flight_computer_battery.jpg}
@@ -104,7 +111,7 @@ Bestandteile der Mischung:
 Als Kolben diente ein hohles Kartonrohr, das in das Gehäuserohr eingeführt wird. Der Kolben bisitzt unten eine 3D-gedruckte Abdeckung, durch die ein Schockseil durchgeführt wird, welches die Raketenspitze, die Fallschirmseile und den Rest der Rakete verbindet.
 
 \subsection{Fallschirm}
-\label{sec:parachute}
+\label{subsec:parachute}
 Um den Abstieg der Rakete mit einer Geschwindigkeit von $\approx 5\frac{m}{s}$ zu ermöglichen, wurde der Fallschirm wie folgt dimensioniert:
 \\
 Im stationären Flug gilt:
@@ -139,14 +146,32 @@ Es wurde auch angenommen:
     C_D = 0,75
 \]
 Daraus ergab sich:
-\[
+\begin{equation}
     A = \frac{2 \cdot 1,5 \cdot 9,81}{1,225 \cdot 0,75 \cdot 5^2} \approx 1,281m^2
-\]
+\end{equation}
 Aus der errechnete Fläche wurde wie folgt der nötige Durchmesser für den Fallschirm bestimmt:
 \begin{equation}
     d = \sqrt{\frac{4A}{\pi}} = \sqrt{\frac{4 \cdot 1,281}{\pi}} \approx 1,227m
 \end{equation}
 Als Material für den Fallschirm wurde Ripstop-Nylon verwendet. Dies ist ein synthetisches Gewebe auf Basis von Nylon mit einer Antireiß-Struktur. Es war eine günstige Wahl für den Fallschirm, weil es eine sehr gute Festigkeit bei einer gleichzeitig sehr geringer Masse bietet.
+\newpage
+
+\section{Implementierung der Raketenspitze}
+\label{sec:rocket_nose_implementation}
+\begin{wrapfigure}{l}{0.3\textwidth}
+
+    % {r} = rechtsbündig platzieren
+    % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
+    % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
+    \centering
+    \includegraphics[width=0.3\textwidth]{nose_cone_cad.png}
+        \caption{Raketenspitze}
+        \label{fig:rocket_nose_cone_cad}
+    % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
+
+  % Abstand nach dem Bild reduzieren
+\end{wrapfigure}
+Bei "`ALBERT"' ist hat die Raketenspitze die Form einer tangentialer Ogive. Das ist die am meisten verbreitete Form für die Spitze von Modellraketen, da sie bei kleinen Mach-Zahlen einen geringen Luftwiderstand bietet und gleichzeitig einfach zu bauen ist. Die Spitze ist innen hohl, um die Masse zu reduzieren, hat aber innen eine Verstärkung, um die strukturelle Integrität zu gewährleisten und eine ausreichend stabile Verbindung zum Seil des Fallschirms zu bieten. Abbildung \ref{fig:rocket_nose_cone_cad} zeigt die Form der Raketenspitze von "`ALBERT"'. Beim Aktivieren des Bergungsystems trennt sich die Spitze von der Rakete, daher wird diese mit einem Schockseil mit dem Rest der Rakete und dem Fallschirm verbunden. Für die Befestigung vom Schockseil ist ein Loch für eine M10 Ringschraube vorgesehen, mit einem Durchmesser von 8,4mm lässt sich in das Loch vorsichtig ein Gewinde schneiden, um eine feste Verbindung zu sichern.
 
 \section{Zusammenführen vom CAD-Modell}
 \label{sec:cad_assembly}
@@ -165,12 +190,6 @@ Hierbei ist der Rote Zylinder im Vorderteil der Rakete ein Platzhalter für den 
 Die Fertigung der Rakete erfolgte hauptsächlich durch 3D-Druck, wobei die meisten Komponenten
 mit dem Bambulab A1 mini gedruckt wurden. Die einzige Ausnahme war die Raketenspitze,
 die aufgrund ihrer Größe auf einem größeren Drucker gedruckt werden musste. 
-
-\section{Herausforderungen und Lösungen}
-\label{sec:die 4 Raketenflügel und der eigentlich Raketenkörper challenges}
-
-\section{Fazit}
-\label{sec:cad_fazit}
 
 %=====================================================%
 
@@ -238,21 +257,20 @@ Um die richtige Berechnung von den Kraft-/Momentkoeffizienten und dessen Ableitu
 
 \subsubsection*{Definition der Referenzwerte}
 \label{subsubsec:reference_values}
-\begin{itemize}
-    \item $A_{ref} = \frac{\pi \cdot D^2}{4}$: Referenzfläche (Frontfläche der Rakete) mit $D$ als Durchmesser des Raketenkörpers
-    \item $l_{ref} = D$: Referenzlänge (Durchmesser des Raketenkörpers)
-    \item $v_{ref}$: Referenzgeschwindigkeit = Geschwindigkeit der Strömung
-\end{itemize}
-Mit einem Durchmesser des Raketenkörpers $D = 0,084m$ wurden diese wie folgt festgelegt:
-\[
-    A_{ref} = \frac{\pi \cdot 0,084^2m}{4} = 0,022m^2
-\]
-\[
-    l_{ref} = 0,084m
-\]
-\[
+Mit einem Durchmesser des Raketenkörpers $D = 0,084m$ wurden die Referenzwerte für Fluent wie folgt festgelegt:
+\\
+Referenzlänge (Durchmesser des Raketenkörpers):
+\begin{equation}
+    l_{ref} = D = 0,084m
+\end{equation}
+Referenzfläche (Frontfläche der Rakete) mit $D$ als Durchmesser des Raketenkörpers:
+\begin{equation}
+    A_{ref} = \frac{\pi \cdot D^2}{4} = \frac{\pi \cdot 0,084m^2}{4} = 0,022m^2
+\end{equation}
+Referenzgeschwindigkeit = Geschwindigkeit der Strömung:
+\begin{equation}
     v_{ref} = 100\frac{m}{s}
-\]
+\end{equation}
 
 \subsubsection*{Definiton der Winkel des Raketenkörpers und der Flügel}
 \label{subsubsec:rocket_angle_definitions}
@@ -289,24 +307,34 @@ $C_n$ & Yawmomentbeiwert & $X(0) Y(0) Z(1)$ & $X() Y() Z()$ \\
 \subsection{Simulationsdurchgänge}
 \label{subsec:sim_cases}
 Um genug Messpunkte der verschiedenen Werte für genaue Ableitungen zu erreichen und um für alle simulierten Werte die besten Bedingungen zu schaffen, wo diese am genausten von Fluent berechent werden können, wurden 11 Verschieden Fälle in der Simulation betrachtet. Durch diese 11 Durchgänge wurden sowohl alle möglichen Fälle bezüglich Pitch- und Yaw-Winkel abgedeckt, als auch Veränderungen im Anstellwinkel der Flügel. Da der Raketenkörper symmetrisch ist, sind die Beiwerte für Pitch und Yaw Stellungen identisch. Daher können die in der Simulation errechneten Werte für Pitch Änderung auch für Yaw-bezogene Beiwerte verwendet werden. Diese Werte für $\alpha, \beta, \delta_i$ bzw. $\eta$ und $\zeta$ wurden bei jedem Durchgang angenommen:
-\begin{itemize}
-    \item Fall 1: $\alpha = \ang{0}, \beta = \ang{0}, \eta = \ang{0}, \zeta = \ang{0}$
-    \item Fall 2: $\alpha = \ang{0}, \beta = \ang{0}, \eta = \ang{2}, \zeta = \ang{0}$
-    \item Fall 3: $\alpha = \ang{0}, \beta = \ang{0}, \eta = \ang{5}, \zeta = \ang{0}$
-    \item Fall 4: $\alpha = \ang{2}, \beta = \ang{0}, \eta = \ang{0}, \zeta = \ang{0}$
-    \item Fall 5: $\alpha = \ang{2}, \beta = \ang{0}, \eta = \ang{2}, \zeta = \ang{0}$
-    \item Fall 6: $\alpha = \ang{2}, \beta = \ang{0}, \eta = \ang{5}, \zeta = \ang{0}$
-    \item Fall 7: $\alpha = \ang{5}, \beta = \ang{0}, \eta = \ang{0}, \zeta = \ang{0}$
-    \item Fall 8: $\alpha = \ang{5}, \beta = \ang{0}, \eta = \ang{2}, \zeta = \ang{0}$
-    \item Fall 9: $\alpha = \ang{5}, \beta = \ang{0}, \eta = \ang{5}, \zeta = \ang{0}$
-    \item Fall 10: $\alpha = \ang{5}, \beta = \ang{0}, \delta_1 = \ang{2}, \delta_2 = \ang{2}, \delta_3 = \ang{2}, \delta_4 = \ang{2}$
-    \item Fall 11: $\alpha = \ang{0}, \beta = \ang{0}, \delta_1 = \ang{5}, \delta_2 = \ang{5}, \delta_3 = \ang{5}, \delta_4 = \ang{5}$
-\end{itemize}
+\begin{table}[h]
+    \centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Fall} & $\mathbf{\alpha}$ & $\mathbf{\beta}$ & $\mathbf{\eta}$ & $\mathbf{\zeta}$ & $\mathbf{\delta_{1,2,3,4}}$ \\ 
+\hline
+1 & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ \\
+2 & $0^\circ$ & $0^\circ$ & $2^\circ$ & $0^\circ$ & $0^\circ$ \\
+3 & $0^\circ$ & $0^\circ$ & $5^\circ$ & $0^\circ$ & $0^\circ$ \\
+4 & $2^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ \\
+5 & $2^\circ$ & $0^\circ$ & $2^\circ$ & $0^\circ$ & $0^\circ$ \\
+6 & $2^\circ$ & $0^\circ$ & $5^\circ$ & $0^\circ$ & $0^\circ$ \\
+7 & $5^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ \\
+8 & $5^\circ$ & $0^\circ$ & $2^\circ$ & $0^\circ$ & $0^\circ$ \\
+9 & $5^\circ$ & $0^\circ$ & $5^\circ$ & $0^\circ$ & $0^\circ$ \\
+10 & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ & $2^\circ$ \\
+11 & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ & $5^\circ$ \\
+\hline
+\end{tabular} 
+    \caption{Definition der Simulationsfälle}
+    \label{tab:sim_cases}
+\end{table}
 
 \section{Auswertung der Simulationsergebnisse}
 \label{sec:simulation_results}
 Nach dem Simulieren von allen 11 Fällen, wurden diese entsprechend ausgewertet und alle für die Regelung nötigen Beiwerte wurden errechnet. Im ersten Schritt wurden alle aus den Simulationsergebnissen bezogene Kräfte in entsprechende Beiwerte umgerechnet.
 
+\newpage
 \subsection{Simulationsergebnisse} 
 \label{subsec:sim_results}
 Aus den 9 Simulationsdurchgängen ergaben sich folgende Ergebnisse für die Beiwerte:
@@ -314,7 +342,7 @@ Aus den 9 Simulationsdurchgängen ergaben sich folgende Ergebnisse für die Beiw
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-\textbf{Fall} & $C_A$ & $C_Y$ & $C_Z$ & $C_l$ & $C_m$ & $C_n$ \\
+\textbf{Fall} & $\mathbf{C_A}$ & $C_Y$ & $C_Z$ & $C_l$ & $C_m$ & $C_n$ \\
 \hline
 1 & 0,09329290 & 0,01060445 & 0,01311977 & 0,0015015 & 0,05151140 & 0,04080199 \\
 2 & 0,09410596 & 0,02127894 & 0,01752323 & 0,00037719 & 0,07384833 & 0,08960357 \\
@@ -330,7 +358,7 @@ Aus den 9 Simulationsdurchgängen ergaben sich folgende Ergebnisse für die Beiw
 \caption{Simulierte Beiwerte}
 \label{tab:sim_coefficients}
 \end{table}
-\\ Anhand dieser Beiwerte, kann man erkennen, dass mit höherem Pitch Winkel $\alpha$ vor allem der Normlakraftbeiwert steigt $C_Z$ und bei einem höheren Winkel $\eta$ sich in erster Linie der Pitchmomentbeiwert $C_m$ vergrößert. Es sind kleine ungenauigkeiten dabei, wie $C_Y \neq 0$, diese sind auf Ungenauigkeiten beim Meshing oder des Solvers zurückzuführen.
+\\Anhand dieser Beiwerte, kann man erkennen, dass mit höherem Pitch Winkel $\alpha$ vor allem der Normlakraftbeiwert steigt $C_Z$ und bei einem höheren Winkel $\eta$ sich in erster Linie der Pitchmomentbeiwert $C_m$ vergrößert. Es sind kleine Ungenauigkeiten dabei, wie $C_Y \neq 0$, diese sind auf Ungenauigkeiten beim Meshing oder des Solvers zurückzuführen.
 \\
 \begin{wrapfigure}{r}{0.6\textwidth}
     \centering
@@ -365,12 +393,14 @@ Anschließend ergibt sich der Seitenkraftbeiwert $C_Y$ aus dessen Ableitung nach
 Hierbei wurden diese Beiwerte jeweils nach verschiedenen Änderungen verschiedener Winkel betrachtet. So gibt es am Beispiel vom Axialkraftbeiwert $C_A^{0^\circ \to 2^\circ}$, wo die Ableitungen nach der Änderung von $\alpha$ von $0^\circ$ auf $2^\circ$ und $\eta$ von $0^\circ$ auf $2^\circ$ zur Berechnung verwendet werden. Nach dem selben Prinzip gibt es auch $C_A^{0^\circ \to 5^\circ}$.
 \\
 Als ersten Schritt wurden die Anstellwinkel in Radiant umgerechnet:
-\[
-2^\circ = \frac{2\pi}{180} = 0{,}0349066\ \mathrm{rad}
-\]
-\[
-5^\circ = \frac{5\pi}{180} = 0{,}0872665\ \mathrm{rad}
-\]
+\begin{equation}
+    2^\circ = \frac{2\pi}{180} = 0{,}0349066\ \mathrm{rad}
+\end{equation}
+    
+\begin{equation}
+    5^\circ = \frac{5\pi}{180} = 0{,}0872665\ \mathrm{rad}
+\end{equation}
+
 \subsubsection*{Axialkraftbeiwert $C_A$}
 \label{subsubsec:c_a_calculation}
 Der Grundwert in neutraler Stellungs des Raketenkörpers ergab sich aus dem ersten Simulationsfall, wobei der ersten Winkel in den Klammern für $\alpha$ steht und der zweite Winkel für $\eta$:
@@ -378,144 +408,174 @@ Der Grundwert in neutraler Stellungs des Raketenkörpers ergab sich aus dem erst
 C_{A0} = C_A(0^\circ,0^\circ) = 0{,}093292905
 \]
 Danach die Änderung von $C_A$ abhängig von $\alpha$:
-\[
+%===========================================================
+\begin{equation}
 C_{A\alpha}^{0\to2}
 = \frac{C_A(2^\circ,0^\circ)-C_A(0^\circ,0^\circ)}{0{,}0349066}
 = \frac{0{,}095364979-0{,}093292905}{0{,}0349066}
 = 0{,}0593605\ \mathrm{rad^{-1}}
-\]
-\[
+\end{equation}
+
+\begin{equation}
 C_{A\alpha}^{0\to5}
 = \frac{C_A(5^\circ,0^\circ)-C_A(0^\circ,0^\circ)}{0{,}0872665}
 = \frac{0{,}098423619-0{,}093292905}{0{,}0872665}
 = 0{,}0587937\ \mathrm{rad^{-1}}
-\]
+\end{equation}
+
 Genauso die Änderung abhängig von $\eta$:
-\[
+
+\begin{equation}
 C_{A\eta}^{0\to2}
 = \frac{C_A(0^\circ,2^\circ)-C_A(0^\circ,0^\circ)}{0{,}0349066}
 = \frac{0{,}094105960-0{,}093292905}{0{,}0349066}
 = 0{,}0232923\ \mathrm{rad^{-1}}
-\]
-\[
+\end{equation}
+
+\begin{equation}
 C_{A\eta}^{0\to5}
 = \frac{C_A(0^\circ,5^\circ)-C_A(0^\circ,0^\circ)}{0{,}0872665}
 = \frac{0{,}098281292-0{,}093292905}{0{,}0872665}
 = 0{,}0571627\ \mathrm{rad^{-1}}
-\]
+\end{equation}
+
 Anschließend das zusammengesetzte Modell für $C_A$ aus $C_{A0}$, $C_{A\alpha}$ und $C_{A\eta}$:
-\[
+
+\begin{equation}
 C_A^{(0\to2)}(\alpha,\eta)
 = C_{A0} + C_{A\alpha}^{0\to2}\alpha + C_{A\eta}^{0\to2}\eta
 = 0{,}093292905 + 0{,}0593605\,\alpha + 0{,}0232923\,\eta
-\]
-\[
+\end{equation}
+
+\begin{equation}
 C_A^{(0\to5)}(\alpha,\eta)
 = C_{A0} + C_{A\alpha}^{0\to5}\alpha + C_{A\eta}^{0\to5}\eta
 = 0{,}093292905 + 0{,}0587937\,\alpha + 0{,}0571627\,\eta
-\]
+\end{equation}
 
 \subsubsection*{Seitenkraftbeiwert $C_Y$ und Normalkraftbeiwert $C_Z$}
 \label{subsubsec:c_y_z_calculation}
 Aufgrund von Symmetrie der Rakete kann $C_Y = C_Z$ angenommen werden. Da in der Simulation $\alpha$ und $\eta$ von Fall zu Fall geändert wurde, wurde die Berechnung auch für den entsprechenden Beiwert $C_Z$ durchgeführt.
 \\
 $C_Z$ nach Änderung von $\alpha$:
-\[
+
+\begin{equation}
 C_{Z\alpha}^{0\to2}
 = \frac{C_Z(2^\circ,0^\circ)-C_Z(0^\circ,0^\circ)}{0{,}0349066}
 = \frac{0{,}084948425-0{,}013119778}{0{,}0349066}
 = 2{,}0577392\ \mathrm{rad^{-1}}
-\]
-\[
+\end{equation}
+
+\begin{equation}
 C_{Z\alpha}^{0\to5}
 = \frac{C_Z(5^\circ,0^\circ)-C_Z(0^\circ,0^\circ)}{0{,}0872665}
 = \frac{0{,}132979163-0{,}013119778}{0{,}0872665}
 = 1{,}3734874\ \mathrm{rad^{-1}}
-\]
+\end{equation}
+
 $C_Z$ nach Änderung von $\eta$:
-\[
+
+\begin{equation}
 C_{Z\eta}^{0\to2}
 = \frac{C_Z(0^\circ,2^\circ)-C_Z(0^\circ,0^\circ)}{0{,}0349066}
 = \frac{0{,}017523236-0{,}013119778}{0{,}0349066}
 = 0{,}1261498\ \mathrm{rad^{-1}}
-\]
-\[
+\end{equation}
+
+\begin{equation}
 C_{Z\eta}^{0\to5}
 = \frac{C_Z(0^\circ,5^\circ)-C_Z(0^\circ,0^\circ)}{0{,}0872665}
 = \frac{0{,}069914667-0{,}013119778}{0{,}0872665}
 = 0{,}6508215\ \mathrm{rad^{-1}}
-\]
+\end{equation}
+
 Anschließend zusammengeführtes Modell für $C_Z$ bzw. $C_Y$:
-\[
+
+\begin{equation}
 C_Z^{(0\to2)}(\alpha,\eta)
 = C_{Z\alpha}^{0\to2}\alpha + C_{Z\eta}^{0\to2}\eta
 = 2{,}0577392\,\alpha + 0{,}1261498\,\eta
-\]
-\[
+\end{equation}
+
+\begin{equation}
 C_Z^{(0\to5)}(\alpha,\eta)
 = C_{Z\alpha}^{0\to5}\alpha + C_{Z\eta}^{0\to5}\eta
 = 1{,}3734874\,\alpha + 0{,}6508215\,\eta
-\]
-\[
+\end{equation}
+
+\begin{equation}
 C_Y^{(0\to2)}(\beta,\zeta)
 = C_{Y\beta}^{0\to2}\beta+ C_{Y\zeta}^{0\to2}\zeta
 = 2{,}0577392\,\beta+ 0{,}1261498\,\zeta
-\]
-\[
+\end{equation}
+
+\begin{equation}
 C_Y^{(0\to5)}(\beta,\zeta)
 = C_{Y\beta}^{0\to5}\beta+ C_{Y\zeta}^{0\to5}\zeta
 = 1{,}3734874\,\beta+ 0{,}6508215\,\zeta
-\]
+\end{equation}
 
 \subsubsection*{Pitchmomentbeiwert $C_m$ und Yawmomentbeiwert $C_n$}
 $C_m$ nach Änderung von $\alpha$:
-\[
+
+\begin{equation}
 C_{m\alpha}^{0\to2}
 = \frac{C_m(2^\circ,0^\circ)-C_m(0^\circ,0^\circ)}{0{,}0349066}
 = \frac{0{,}142724731-0{,}051511401}{0{,}0349066}
 = 2{,}6130694\ \mathrm{rad^{-1}}
-\]
-\[
+\end{equation}
+
+\begin{equation}
 C_{m\alpha}^{0\to5}
 = \frac{C_m(5^\circ,0^\circ)-C_m(0^\circ,0^\circ)}{0{,}0872665}
 = \frac{0{,}029316334-0{,}051511401}{0{,}0872665}
 = -0{,}2543367\ \mathrm{rad^{-1}}
-\]
+\end{equation}
+
 $C_m$ nach Änderung von $\eta$:
-\[
+
+\begin{equation}
 C_{m\eta}^{0\to2}
 = \frac{C_m(0^\circ,2^\circ)-C_m(0^\circ,0^\circ)}{0{,}0349066}
 = \frac{0{,}073848338-0{,}051511401}{0{,}0349066}
 = 0{,}6399061\ \mathrm{rad^{-1}}
-\]
-\[
+\end{equation}
+
+\begin{equation}
 C_{m\eta}^{0\to5}
 = \frac{C_m(0^\circ,5^\circ)-C_m(0^\circ,0^\circ)}{0{,}0872665}
 = \frac{0{,}293384582-0{,}051511401}{0{,}0872665}
 = 2{,}7716625\ \mathrm{rad^{-1}}
-\]
+\end{equation}
+
 Zusammengeführtes Modell für $C_m$:
-\[
+
+\begin{equation}
 C_m^{(0\to2)}(\alpha,\eta)
 = C_{m\alpha}^{0\to2}\alpha + C_{m\eta}^{0\to2}\eta
 = 2{,}6130694\,\alpha + 0{,}6399061\,\eta
-\]
-\[
+\end{equation}
+
+\begin{equation}
 C_m^{(0\to5)}(\alpha,\eta)
 = C_{m\alpha}^{0\to5}\alpha + C_{m\eta}^{0\to5}\eta
 = -0{,}2543367\,\alpha + 2{,}7716625\,\eta
-\]
+\end{equation}
+
 Aufgrund von Symmetrie kann $C_n = C_m$ angenommen werden:
-\[
+
+\begin{equation}
 C_n^{(0\to2)}(\beta,\delta_y)
 = C_{n\beta}^{0\to2}\beta + C_{n\delta_y}^{0\to2}\delta_y
 = 2{,}6130694\,\beta + 0{,}6399061\,\delta_y
-\]
-\[
+\end{equation}
+
+\begin{equation}
 C_n^{(0\to5)}(\beta,\delta_y)
 = C_{n\beta}^{0\to5}\beta + C_{n\delta_y}^{0\to5}\delta_y
 = -0{,}2543367\,\beta + 2{,}7716625\,\delta_y
-\]
+\end{equation}
+%==================================================================
 
 \subsubsection*{Dämpfungsableitungen $C_{mq}$, $C_{m\dot{\alpha}}$, $C_{n\dot{r}}$ und $C_{n\dot{\beta}}$}
 \label{subsubsec:damping_derivatives_calculation}
@@ -596,6 +656,7 @@ Um am besten die Änderungen der Strömung abhängig von Anstellwinkel des Raket
 \subsubsection*{Strömung um Raketenflügel}
 \label{subsubec:rocket_fin_flow}
 Beim 9. Simulationsfall wurde die Strömung an den Flügeln mit dem Anstellwinkel $\eta = 5^\circ$ in Betracht bezogen. In der Abbildung \ref{fig:rocket_fin_pressure} ist zu erkennen, wie durch den Winkel, mit dem sich der Flügel durch die Luft bewegt und durch dessen Aerofoil-Profil auf der unteren Seite ein Überdruck und auf der oberen Seite ein Unterdruck entsteht. Durch diesen Druckunterschied wird eine Auftriebskraft durch den Druckpunkt des Raketenkörpers erzeugt, die schließlich zu einem Pitchdrehmoment um die Y-Achse am Schwerpunkt der Rakete führt.
+\newpage
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.9\textwidth]{rocket_fin_pressure.jpg}
@@ -721,12 +782,8 @@ Es wurden die folgenden Werte für die Axialkraft $F_A$ bei beiden Messudurchgä
 \label{tab:wind_tunnel_results_30ms}
 \end{table}
 
-
-
-
 \subsection{Vergleich der Messergebnisse mit simullierten Werten}
 \label{subsec:wind_tunnel_sim_comparison}
-
 
 \section{Herausforderungen und Lösungen}
 \label{sec:challenges_simulation}

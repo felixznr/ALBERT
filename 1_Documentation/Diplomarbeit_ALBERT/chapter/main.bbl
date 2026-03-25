@@ -378,6 +378,7 @@
       \strng{authornamehash}{5e132303f66c04eff7f5dc9b56ce138c}
       \strng{authorfullhash}{5e132303f66c04eff7f5dc9b56ce138c}
       \strng{authorfullhashraw}{5e132303f66c04eff7f5dc9b56ce138c}
+      \field{extraname}{1}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
       \field{labelnamesource}{author}
@@ -393,6 +394,38 @@
       \endverb
       \verb{url}
       \verb https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/
+      \endverb
+    \endentry
+    \entry{NasaSolidFuelEngine}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5e132303f66c04eff7f5dc9b56ce138c}{%
+           family={{Nancy Hall}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{fullhash}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{fullhashraw}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{bibnamehash}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{authorbibnamehash}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{authornamehash}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{authorfullhash}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{authorfullhashraw}{5e132303f66c04eff7f5dc9b56ce138c}
+      \field{extraname}{2}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Solid Rocket Engine}
+      \field{urlday}{25}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.grc.nasa.gov/www/k-12/airplane/srockth.html
+      \endverb
+      \verb{url}
+      \verb https://www.grc.nasa.gov/www/k-12/airplane/srockth.html
       \endverb
     \endentry
     \entry{bitweenie2013}{online}{}{}

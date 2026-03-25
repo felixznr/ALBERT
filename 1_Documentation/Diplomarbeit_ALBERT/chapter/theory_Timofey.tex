@@ -43,15 +43,15 @@ somit auch die Richtung der Flugbahn zu ändern. \cite{BeginnersGuideToAeronauti
 Die Gewichtskraft und die Schubkraft sind wie folgt definiert:
 
 \begin{equation}
-    \vec{\mathbf{F}}_{weight} = \mathbf{m} \cdot \vec{\mathbf{g}}
+    \vec{F}_{weight} = m \cdot \vec{g}
 \end{equation}
 \begin{equation}
-    \vec{\mathbf{F}}_{thrust} = \dot{\mathbf{m}} \cdot \vec{\mathbf{v}}_{e} + (\mathbf{p}_{e} - \mathbf{p}_{0}) \cdot \mathbf{A}_{e}
+    \vec{F}_{thrust} = \dot{m} \cdot \vec{v}_{e} + (p_e - p_0) \cdot A_e
 \end{equation}
-\\Mit $\mathbf{m}$ als Masse der Rakete, $\vec{\mathbf{g}}$ als Die Erdbeschleunigung,
-$\dot{\mathbf{m}}$ als Massenstrom durch den Motor, $\vec{\mathbf{v}}_{e}$
-als die Austrittgeschwindigkeit der Gase aus der Düse, $\mathbf{p}_{e}$
-als Druck am Düsenaustritt, $\mathbf{p}_{0}$ als Umgebungsdruck und $\mathbf{A}_{e}$
+\\Mit $m$ als Masse der Rakete, $\vec{g}$ als Die Erdbeschleunigung,
+$\dot{m}$ als Massenstrom durch den Motor, $\vec{v}_{e}$
+als die Austrittgeschwindigkeit der Gase aus der Düse, $p_e$
+als Druck am Düsenaustritt, $p_0$ als Umgebungsdruck und $A_e$
 als Querschnittsfläche am Düsenaustritt.
 
 \subsection*{Aerodynamische Kräfte}
@@ -66,18 +66,18 @@ Diese zwei aerodynamischen Kräfte sind
 die Widerstandskraft und die Auftriebskraft. Diese sind wie folgt definiert:
 
 \begin{equation}
-    \vec{\mathbf{F}}_{drag} = \mathbf{C}_d \cdot \frac{\mathbf{\rho} \cdot \mathbf{A} \cdot \vec{\mathbf{v}}^{2}}{2}
+    \vec{F}_{drag} = C_d \cdot \frac{\rho \cdot A \cdot \vec{v}^{2}}{2}
 \end{equation}
 \begin{equation}
-    \vec{\mathbf{F}}_{lift} = \mathbf{C}_l \cdot \frac{\mathbf{\rho} \cdot \mathbf{A} \cdot \vec{\mathbf{v}}^{2}}{2}
+    \vec{F}_{lift} = C_l \cdot \frac{\rho \cdot A \cdot \vec{v}^{2}}{2}
 \end{equation}
-\\Mit $\mathbf{C}_d$ als Widerstandsbeiwert, $\mathbf{C}_l$ als Auftriebsbeiwert,
-$\mathbf{\rho}$ als Luftdichte, $\mathbf{A}$ als Querschnittsfläche der aerodynamischen Features
-der Rakete und $\mathbf{v}$ als Geschwindigkeit der Rakete relativ zur Luft. Die Widerstandskraft
+\\Mit $C_d$ als Widerstandsbeiwert, $C_l$ als Auftriebsbeiwert,
+$\rho$ als Luftdichte, $A$ als Querschnittsfläche der aerodynamischen Features
+der Rakete und $v$ als Geschwindigkeit der Rakete relativ zur Luft. Die Widerstandskraft
 und die Auftriebskraft hängen wie folgt zusammen:
 
 \begin{equation}
-    \frac{\vec{\mathbf{F}}_{drag}}{\vec{\mathbf{F}}_{lift}} = \frac{\mathbf{C}_l}{\mathbf{C}_d}
+    \frac{\vec{F}_{drag}}{\vec{F}_{lift}} = \frac{C_l}{C_d}
 \end{equation}
 
 
@@ -95,7 +95,7 @@ Ein Kräftefreier Körper bleibt in Ruhe oder bewegt sich mit konstanter Geschwi
 \label{subsubsec:second_newton_law}
 Kraft ist gleich Masse mal Beschleunigung.
 \begin{equation}
-    \vec{\mathbf{F}} = \mathbf{m} \cdot \vec{\mathbf{a}}
+    \vec{F} = m \cdot \vec{a}
 \end{equation}
 
 \subsubsection{Drittes Newtonsches Gesetz}
@@ -103,7 +103,7 @@ Kraft ist gleich Masse mal Beschleunigung.
 Kraft ist gleich Gegenkraft. Für eine Kraft von einem Körper auf einen anderen Körper 
 wird eine Gegenkraft ausgeübt, die gleich groß ist und in entgegengesetzter Richtung wirkt.
 \begin{equation}
-    \vec{\mathbf{F}}_{A\rightarrow B} = - \vec{\mathbf{F}}_{B\rightarrow A}
+    \vec{F}_{A\rightarrow B} = - \vec{F}_{B\rightarrow A}
 \end{equation}
 
 \section{Aerodynamische Eigenschaften}
@@ -153,31 +153,7 @@ zu maximieren.
 
 \subsection{Raketenspitze}
 \label{subsec:rocket_nose}
-\begin{wrapfigure}{l}{0.3\textwidth}
-
-    % {r} = rechtsbündig platzieren
-    % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
-    % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
-    \centering
-    \includegraphics[width=0.3\textwidth]{nose_cone.png}
-        \caption{Raketenspitze}
-        \label{fig:rocket_nose_cone}
-    % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
-
-  % Abstand nach dem Bild reduzieren
-\end{wrapfigure}
-Bei ``ALBERT'' ist hat die Raketenspitze die Form einer tangentialer Ogive.
-Das ist die am meisten verbreitete Form für die Spitze von Modellraketen, da sie
-bei kleinen Mach-Zahlen einen geringen Luftwiderstand bietet und gleichzeitig einfach zu bauen ist.
-Die Spitze ist innen hohl, um die Masse zu reduzieren %das ist eine glatte lüge die spitze ist scheiße schwer, weil sie einen nuklearen sprengkopf beherbergt, der beim austritt aus der atmosphöre abgeworfen wird und straigt auf iran intelligence headquarter zusteuert und dort den fucking janitor in tausend stücke reißt, der gerade die toilette putzt, weil er das iranische atomprogramm sabotieren wollte, aber das ist eine andere geschichte
-, hat aber innen eine
-Verstärkung, um die strukturelle Integrität zu gewährleisten und eine
-ausreichend stabile Verbindung zum Seil des Fallschirms zu bieten.
-Abbildung \ref{fig:rocket_nose_cone} zeigt die Form der Raketenspitze von ``ALBERT''.
-Beim Aktivieren des Bergungsystems trennt sich die Spitze von der Rakete, daher
-wird diese mit einem Schochseil mit dem Rest der Rakete und dem Fallschirm
-verbunden.
-\newpage
+Aus aerodynamischer Sicht ist die Form der Raketenspitze für eine typische Modellrakete bei Unterschallflug nicht besonders relevant. Der Großteil des Luftwiderstands wird dabei durch die Raketenflügel und das Raketengehäuse erzeugt.
 
 \subsection{Raketenflügel}
 \label{subsec:rocket_fins}
@@ -436,5 +412,53 @@ Legende zur Abbildung \ref{fig:aero_tube_schematic}:
 \end{itemize}
 Anschließend kann mit Hilfe des Dehnmessstreifens die Axialkraft/Drag $F_A$ gemessen werden. Das Messobjekt wird am Ende eines Stabes befestigt und wird über diesen Hebelarm auf einem Scharnier außerhalb vom Windkanal befestigt. Dieser Hebelarm drückt gegen den Dehnmesstreifen, diese Kraft kann mit Hilfe eines Gerätes in Newton abgelesen werden.  
 
+\section{Feststoffraketentriebwerk}
+\label{sec:solid_fuel_rocket_engine}
+Bei Auswahl des Raketenmotortyps bei Modellraketen, werden ausschließlich Feststoffmotoren verwendet, da Flüssigkeitsraketentriebwerke mit kryogenen Flüssigkeiten arbeiten, die im Rahmen einer Modellrakete nicht realisierbar sind. 
+\\
+Kryogene Flüssigkeiten sind Gase, die durch sehr starke Abkühlung auf typische Temperaturen von unter $-150^\circ C$ ihren Aggregatzustand von gasförmig zu flüssig ändern. Diese Temperaturen sind bei Modellraketen aus technischen, sicherheitstechnischen und Kostenbezogenen Gründen praktisch nicht realisierbar.
+
+\subsection{Funktionsweise eines Festofftriebwerks}
+\label{subsec:solid_fuel_engine_funktionsweise_ich_kann_kein_englisch}
+In einem Feststoffraketenantrieb werden Treibstoff und Oxidationsmittel zu einem festen Treibstoff gemischt, der in einen festen Zylinder gepresst wird. Ein Loch durch den Zylinder dient als Brennkammer. Wenn die Mischung gezündet wird, findet die Verbrennung an der Oberfläche des Treibstoffs statt. Es entsteht eine Flammenfront, die sich in das Gemisch hineinausbreitet. Bei der Verbrennung entstehen große Mengen an Abgasen mit hoher Temperatur und hohem Druck. Die Menge des entstehenden Abgases hängt von der Fläche der Flammenfront ab, und Motorenkonstrukteure nutzen verschiedene Lochformen, um die Schubänderung bei einem bestimmten Motor zu steuern. Das heiße Abgas strömt durch eine Düse, die den Strom beschleunigt. Dadurch entsteht gemäß dem dritten Newtonschen Bewegungsgesetz Schubkraft wie in Formel \ref{eq:solid_fuel_engine_thrust} beschrieben. \parencite{NasaSolidFuelEngine}
+\begin{equation}
+    \textbf{Schub} = F = \dot{m}V_e + A_e(p_e - p_0)
+    \label{eq:solid_fuel_engine_thrust}
+\end{equation}
+Dabei ist $V_e$ die Austrittgeschwindigkeit aus der Düse, $\dot{m}$ ist der Massenstrom durch die Düse, $p_0$ der Umgebungsdruck, $p_e$ der Austrittdruck aus der Düse und $A_e$ die Austrittfläche der Düse.
+\\
+Der Aufbau eines Festostofftriebwerks ist in der Abbildung \ref{fig:solid_fuel_engine_nasa_image} genauer zu erkennnen.
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.9\textwidth]{solid_fuel_engine.png} 
+   \caption{Aufbau eines Feststofftriebwerks \parencite{NasaSolidFuelEngine}}
+   \label{fig:solid_fuel_engine_nasa_image}
+\end{figure}
+
+\subsection{Umsetzung bei einer Modellrakete}
+\label{subsec:solid_fuel_model_rocket_implementation}
+Beim Bau von Modellraketenmotoren basierend auf Feststoff wird sich meistens für Zucker-Raketenmotoren entschieden. Diese sind einfach zu bauen und benötigen keine schwer zugänglichen Materialien/Chemikalien.
+\\
+Bei einem Zucker-Raketenmotor wird Zucker als Brennstoff und Kaliumnitrat ($KNO_3$) als Oxidator eingesetzt. Im Modellraketenbau werden häufig folgende Zuckerarten verwendet:
+\begin{itemize}
+    \item Saccharose ($C_{12}H_{22}O_{11}$)
+    \item Glucose ($C_6H_{12}O_6$)
+    \item Sorbit ($C_6H_{14}O_6$)
+\end{itemize}
+Sorbit ist dabei besonders verbreitet, da es gleichmäßiger schmilzt, was das Eingießen des Treibstoffs in das Motorgehäuse erleichtert, stabiler verbrennt und über konstantere Eigenschaften verfügt, was bessere Berechenbarkeit ermöglicht.
+\\
+Bei Zündung der Mischung aus Sorbit (wird oxidiert) und Kaliumnitrat (Oxidator) verläuft die folgende exotherme Redoxreaktion:
+\begin{equation}
+    C_6H_{14}O_6 + 6KNO_3 \to 6CO_2 + 7 H_2O + 3N_2 + 3K_2CO_3
+\end{equation}
+Bei dieser Reaktion wird $KNO_3$ durch Hitze instabil und setzt dadurch Sauerstoff frei (Dies ermöglicht eine Verbrennung auch ohne Luft). Sorbit enthält viel Kohlenstoff und 
+Wasserstoff, diese reagieren mit dem durch das $KNO_3$ freigesetzte Sauerstoff zu:
+\begin{equation}
+    C \to CO_2 
+\end{equation} 
+\begin{equation}
+    H \to H_2O
+\end{equation}
+Dieser Vorgang führt zu einer hoher Ausschüttung von Energie in Form von Wärme. Gleichzeitig entseht eine Schubkraft durch Bildung von heißen Gasen ($CO_2$, $H_2O$, $N_2$), die stark expandieren, was zu hohem Druck in der Brennkammer und anschließendem Ausstoß durch die Düse führt, was in Schub resultiert.
 
 \newpage
