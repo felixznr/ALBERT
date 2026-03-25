@@ -236,21 +236,21 @@ ist 8 Formen zur Auswahl mit den jeweiligen Vor- und Nachteilen in \ref{tab:fin_
         \hline
         \textbf{Form} & \textbf{Vorteile} & \textbf{Nachteile} \\
         \hline
-        Delta & Flatterrobust, gut für hohe Geschwindigkeiten & Spitze Kante anfällig für Beschädigungen \\
+        Delta & Flatterrobust, hohe Geschwindigkeiten & Anfällig für Schäden \\
         \hline
-        Rechteckig & Einfach zu bauen, strukturell robust & Kann bei Landung beschädigt werden, nicht optimal für Finnensteuerung \\
+        Rechteckig & Einfach, strukturell robust & Anfällig für Schäden bei Landung, nicht optimal für Flügelsteuerung \\
         \hline
-        Gepfeilt & Flatterrobust, strukturell robust & Kann bei Landung beschädigt werden, nicht optimal für Finnensteuerung \\
+        Gepfeilt & Flatterrobust, strukturell robust & Anfällig für Schäden bei Landung, nicht optimal für Flügelsteuerung\\
         \hline
-        Trapezförmig & Strukturell robust, kann gestutzt werden, um den Druckpunkt nach vorne zu verlagern & Weniger aerodynamisch als gepfeilte Formen \\
+        Trapezförmig & Strukturell robust, kann gestutzt werden & Weniger aerodynamisch als gepfeilte Formen \\
         \hline
-        Trapezförmig gepfeilt & Gut für hohe Geschwindigkeiten, kann gestutzt werden, um den Druckpunkt nach vorne zu verlagern & Anfällig für Flattern und Beschädigungen bei Landung \\
+        Trapezförmig gepfeilt & Hohe Geschwindigkeiten, kann gestutzt werden & Flatteranfällig, anfällig für Schäden bei Landung \\
         \hline
-        Gestutztes Delta & Strukturell robust, gute Wahl für Finnensteuerung & Kann bei der Landung beschädigt werden \\
+        Gestutztes Delta & Strukturell robust, gut für Flügelsteuerung & Anfällig für Schäden bei Landung \\
         \hline
-        Gestutztes gepfeiltes Trapez & Eine Verbesserung des einfach gepfeilten Trapezes & Anfällig für Flattern und Beschädigungen bei Landung \\
+        Gestutztes gepfeiltes Trapez & Eine Verbesserung des einfach gepfeilten Trapezes & Flatteranfällig, anfällig für Schäden bei Landung \\
         \hline
-        Elliptisch & Aerodynamisch effizient, robust, flattersicher & Schwer herzustellen, Berechnung des Druckpunkts kompliziert \\
+        Elliptisch & Aerodynamisch effizient, robust, flattersicher & Schwer herzustellen, Berechnung von $x_{CP}$ kompliziert \\
         \hline
     \end{tabular}
     \caption{Vor- und Nachteile verschiedener Flügelformen}
@@ -258,7 +258,7 @@ ist 8 Formen zur Auswahl mit den jeweiligen Vor- und Nachteilen in \ref{tab:fin_
 \end{table}
 
 \subsubsection*{Flügelprofil}
-\label{subsubsec:fin_aerofoil}
+\label{subsubsec:fin_airfoil}
 \begin{wrapfigure}{r}{0.5\textwidth}
 
     % {r} = rechtsbündig platzieren
@@ -267,7 +267,7 @@ ist 8 Formen zur Auswahl mit den jeweiligen Vor- und Nachteilen in \ref{tab:fin_
     \centering
     \includegraphics[width=0.5\textwidth]{finaerofoil.png}
         \caption{Flügelprofile \parencite{NakkaRocketry}}
-        \label{fig:finaerofoil}
+        \label{fig:finairfoil}
     % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
 
   % Abstand nach dem Bild reduzieren
@@ -278,17 +278,17 @@ vorliegt, muss das Profil so geformt werden, dass die vordere Kante der
 Flügel scharf ist, um die Schockwelle nach hinten zu lenken und um
 weniger Luft 
 zu komprimieren. Bei Unterschallflug werden Flügel in Form
-von einem symmetrischen Aerofoil Profil geformt, um gleichzeitig den
+von einem symmetrischen Airfoil Profil geformt, um gleichzeitig den
 Luftwiderstand zu minimieren und bei aktiven Steuersystemen den benötigten
-Auftrieb zu erzeugen. Auf der Abbildung \ref{fig:finaerofoil} sind
+Auftrieb zu erzeugen. Auf der Abbildung \ref{fig:finairfoil} sind
 Beispiele von Flügelprofilen zu sehen, sowohl für Unterschall- aus auch
 für Überschallflug. Es ist auch möglich ein unsymmetrisches Profil zu
 verwenden, um die Rakete zum drehen zu bringen, was mit Stabilität bei
 Raketen ohne aktivem Steuersystem helfen kann.
 
 \subsection{NACA Flügelprofile}
-\label{subsec:naca_aerofoil}
-Für Aerofoil Profile werden oft die NACA Profile verwendet. NACA
+\label{subsec:naca_airfoil}
+Für Airfoil Profile werden oft die NACA Profile verwendet. NACA
 Profile sind standardisierte Profile, die von der National Advisory Committee
 for Aeronautics (NACA) entwickelt wurden, welche später in die NASA
 übrerging.

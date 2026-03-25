@@ -57,25 +57,26 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {12.1}{\ignorespaces Flügel CAD Modell}}{74}{figure.caption.71}%
 \contentsline {figure}{\numberline {12.2}{\ignorespaces Gelenksystem zur Flügelsteuerung}}{75}{figure.caption.72}%
-\contentsline {figure}{\numberline {12.3}{\ignorespaces Befestigung des Raketenflügels mit Kugellagern}}{75}{figure.caption.73}%
+\contentsline {figure}{\numberline {12.3}{\ignorespaces Befestigung des Raketenflügels mit Kugellagern}}{76}{figure.caption.73}%
 \contentsline {figure}{\numberline {12.4}{\ignorespaces Assembly des kompletten Finnensteuermechanismus}}{76}{figure.caption.74}%
 \contentsline {figure}{\numberline {12.5}{\ignorespaces Montierung vom Flightcomputer und Akku}}{77}{figure.caption.75}%
-\contentsline {figure}{\numberline {12.6}{\ignorespaces Raketenspitze}}{79}{figure.caption.76}%
-\contentsline {figure}{\numberline {12.7}{\ignorespaces Solid Edge Assembly}}{79}{figure.caption.77}%
+\contentsline {figure}{\numberline {12.6}{\ignorespaces Aufbau des Bergungsystems mit Legende}}{77}{figure.caption.76}%
+\contentsline {figure}{\numberline {12.7}{\ignorespaces Raketenspitze}}{80}{figure.caption.77}%
+\contentsline {figure}{\numberline {12.8}{\ignorespaces Zusammengesetzte CAD-Baugruppe der Rakete}}{80}{figure.caption.78}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {13.1}{\ignorespaces Vernetzter Raketenflügel}}{82}{figure.caption.79}%
-\contentsline {figure}{\numberline {13.2}{\ignorespaces Plot der Residuals im 8. Simulationsfall}}{85}{figure.caption.83}%
-\contentsline {figure}{\numberline {13.3}{\ignorespaces Druck am Raketenflügel}}{90}{figure.caption.84}%
-\contentsline {figure}{\numberline {13.4}{\ignorespaces Geschwindigkeit am Raketenflügel}}{91}{figure.caption.85}%
-\contentsline {figure}{\numberline {13.5}{\ignorespaces Druck am Raketenkörper}}{91}{figure.caption.86}%
-\contentsline {figure}{\numberline {13.6}{\ignorespaces Geschwindigkeit am Raketenkörper}}{92}{figure.caption.87}%
-\contentsline {figure}{\numberline {13.7}{\ignorespaces Z-Komponente der Geschwindigkeit am Raketenkörper}}{93}{figure.caption.88}%
-\contentsline {figure}{\numberline {13.8}{\ignorespaces CAD-Modell des Raketenflügels zur befestigung im Windkanal}}{94}{figure.caption.89}%
-\contentsline {figure}{\numberline {13.9}{\ignorespaces Messaufbau vom Raketenflügel im Windkanal}}{94}{figure.caption.90}%
+\contentsline {figure}{\numberline {13.1}{\ignorespaces Vernetzter Raketenflügel}}{83}{figure.caption.80}%
+\contentsline {figure}{\numberline {13.2}{\ignorespaces Plot der Residuals im 8. Simulationsfall}}{86}{figure.caption.84}%
+\contentsline {figure}{\numberline {13.3}{\ignorespaces Druck am Raketenflügel}}{91}{figure.caption.85}%
+\contentsline {figure}{\numberline {13.4}{\ignorespaces Geschwindigkeit am Raketenflügel}}{92}{figure.caption.86}%
+\contentsline {figure}{\numberline {13.5}{\ignorespaces Druck am Raketenkörper}}{92}{figure.caption.87}%
+\contentsline {figure}{\numberline {13.6}{\ignorespaces Geschwindigkeit am Raketenkörper}}{93}{figure.caption.88}%
+\contentsline {figure}{\numberline {13.7}{\ignorespaces Z-Komponente der Geschwindigkeit am Raketenkörper}}{94}{figure.caption.89}%
+\contentsline {figure}{\numberline {13.8}{\ignorespaces CAD-Modell des Raketenflügels zur befestigung im Windkanal}}{95}{figure.caption.90}%
+\contentsline {figure}{\numberline {13.9}{\ignorespaces Messaufbau vom Raketenflügel im Windkanal}}{95}{figure.caption.91}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {15.1}{\ignorespaces Plot von den aus OpenRocket bezogenenen Werten}}{100}{figure.caption.100}%
-\contentsline {figure}{\numberline {15.2}{\ignorespaces Ungestörter Flug der Rakete mit einem H-Motor}}{100}{figure.caption.101}%
+\contentsline {figure}{\numberline {15.1}{\ignorespaces Plot von den aus OpenRocket bezogenenen Werten}}{101}{figure.caption.101}%
+\contentsline {figure}{\numberline {15.2}{\ignorespaces Ungestörter Flug der Rakete mit einem H-Motor}}{101}{figure.caption.102}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \def \@chapapp {\appendixname }

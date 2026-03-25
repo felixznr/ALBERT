@@ -9,24 +9,11 @@ Im ersten Konzept vom mechanischen Aufbau wurden bereits die Grundideen bezügli
 
 \section{Innenstruktur und Materialwahl}
 \label{sec:internal_structure}
-Die Innenstruktur der Rakete wird auf 4 Carbonstäbe aufgebaut, die vom Heck bis zum
-Fallschirmfach verlaufen. Diese Stäbe sorgen für die notwendige Steifigkeit der Rakete
-und helfen dabei, die eizelnen Komponenten in nötiger Position zu halten. Die Stäbe
-mussten allerdings im Bereich des Flightcomputers unterbrochen werden, um Platz für
-diesen zu schaffen.
+Die Innenstruktur der Rakete wird auf 4 Carbonstäben aufgebaut, die vom Heck bis Beginn des Bergungssystems verlaufen. Diese Stäbe sorgen für die notwendige Steifigkeit der Rakete und helfen dabei, die eizelnen Komponenten in nötiger Position zu halten. Die Stäbe mussten allerdings im Bereich des Flightcomputers unterbrochen werden, um Platz für diesen zu schaffen, da manche Bauteile, wie der Akkustecker relativ weit abstanden.
 \\
+Die Fertigung der Rakete erfolgte hauptsächlich mit Hilfe von 3D-Druck, wobei die meisten Komponenten mit dem Bambulab P1S 3D-Drucker gedruckt wurden. Beim Filament fiel die Wahl auf das GreenTEC Pro von der Firma Extrudr. Dieses Filament basiert auf PLA, ist aber im Vergleich zu PLA nachhaltiger, biologisch abbaubar und verfügt außerdem über eine höhere Temperaturbeständigkeit und Festigkeit. Dies ermöglicht den dünnen Raketenflügeln höhere Geschwindigkeiten bei höheren Anstellwinkel auszuhalten und verleiht dem Flügelsteuermechanismus, das aus ziemlich kleinen Gelenken besteht, eine höhere Festigkeit.
 \\
-Die Wahl des Materials für die Rakete fiel auf 3D-gedrucktes PLA, da dieses Material
-leicht zu verarbeiten ist, eine ausreichende Festigkeit für die Anforderungen der Rakete
-bietet und kostengünstig ist. Allerdings um die Festigkeit der Flügel und dessen
-Steuermechanismus zu erhöhen, wurde das Greentec Pro Filament von Extrudr verwendet,
-da dieses Material genauso einfach wie PLA zu verarbeiten ist, aber eine deutlich höhere
-Festigkeit aufweist.
-\\
-\\
-Für das Außengehäuse der Rakete wurde ein Kartorohr mit einem Außendurchmesser von 84 mm
-und einer Wandstärke von 2mm verwendet. Dieses ist eine kostengünstige und leicht verfügbare
-Option, die alle Anforderungen an die Festigkeit und Steifigkeit der Rakete ausreichend erfüllt.
+Für das Außengehäuse der Rakete wurde ein Kartorohr mit einem Außendurchmesser von 84 mm und einer Wandstärke von 2mm verwendet. Dieses ist eine kostengünstige und leicht verfügbare Option, die alle Anforderungen an die Festigkeit und Steifigkeit der Rakete ausreichend erfüllt. Die Komponenten der Innenstruktur wurden als zusätzliche Verstärkung von außen durch das Kartonrohr angeschraubt, dafür wurden in die 3D-gedruckten Teile Gewindeinsätze aus Kupfer reingeschmolzen.
 
 \section{Flügeldesign}
 \label{sec:fin_design}
@@ -53,7 +40,6 @@ was die Regelung der Flügel einfacher macht. Die vierstelligen NACA Profile exi
 schon sehr lange, daher gibt es gute Daten über die aerodynamischen Eigenschaften,
 was das überprüfen von Simlationsergebnissen und Versuchen erleichtert. Abbildung
 \ref{fig:fin_cad_model} zeigt das CAD Modell des Flügels.
-\newpage
 
 \section{Flügelsteuermechanismus}
 \label{sec:fin_control}
@@ -99,21 +85,34 @@ Um eine erfolgreiche Landung der Rakete zu ermöglichen, wurde diese mit einem F
 
 \subsection{Auslösung des Bergungsystems}
 \label{subsec:recovery_system_trigger}
-Das Bergungssystem wird durch eine kleine Explosion innerhalb des Raketenkörpers ausgelöst. Dabei wird durch einen mit dem Flightcomputer verbundenen elektrischen Zünder eine explosive Mischung gezündet, durch dessen Detonation anschließend der Druck innerhalb des Gehäuses steigt. Durch diesen Druck wird ein Kolben nach vorne gedrückt, der letzendlich die Raketenspitze und den gefalteten Fallschirm aus dem Gehäuse der Rakete drückt. Zur Redundanz wurden 2 Charges vor dem Kolben platziert.
-\\
-Bestandteile der Mischung:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{parachute_piston_legend.jpg}
+    \caption{Aufbau des Bergungsystems mit Legende}
+    \label{fig:recovery_system_cad}
+\end{figure}
+Das Bergungssystem wird durch die Detonation eines kleinen Röhrchens, welches mit "`Crimson Powder"` gefüllt ist (A auf der Abbildung \ref{fig:recovery_system_cad}). Das Pulver ist eine explosive Mischung aus folgenden Zutaten:
 \begin{itemize}
     \item Kaliumnitrat ($KNO_3$)
     \item Ascorbinsäure ($C_6H_8O_6$)
     \item Eisen(III)-oxid ($Fe_2O_3$)
     \item Wasser ($H_2O$)
 \end{itemize}
-% ====================== BILD ZU KOLBEN FALLSCHIRM =================
-Als Kolben diente ein hohles Kartonrohr, das in das Gehäuserohr eingeführt wird. Der Kolben bisitzt unten eine 3D-gedruckte Abdeckung, durch die ein Schockseil durchgeführt wird, welches die Raketenspitze, die Fallschirmseile und den Rest der Rakete verbindet.
+Diese Mischung hat 3 Hauptvorteile gegenüber Schwarzpulver:
+\begin{itemize}
+    \item Niedrigere Verbrennungstemperatur, dadurch kann der Hitzeschaden innerhalb des Raketengehäuses minimiert werden.
+    \item Höhere Potenz, weniger "`Crimson Powder"' nötig, um die gleiche Explosionsstärke wie von der gleichen Menge Schwarzpulver
+    \item Rückstände nach der Zündung sind geruchslos und lassen sich ohne Probleme entfernen
+\end{itemize}   
+
+Dabei wird durch einen mit dem Flightcomputer verbundenen elektrischen Zünder eine explosive Mischung gezündet, durch dessen Detonation anschließend der Druck innerhalb des Gehäuses sehr stark und schnell ansteigt. Durch diesen Druckanstieg wird ein Kolben nach vorne gedrückt, der letzendlich die Raketenspitze und den gefalteten Fallschirm aus dem Gehäuse der Rakete drückt. Zur Redundanz wurden 2 Charges vor dem Kolben platziert.
+\\
+Bestandteile der Mischung:
+
 
 \subsection{Fallschirm}
 \label{subsec:parachute}
-Um den Abstieg der Rakete mit einer Geschwindigkeit von $\approx 5\frac{m}{s}$ zu ermöglichen, wurde der Fallschirm wie folgt dimensioniert:
+Um den Abstieg der Rakete mit einer Geschwindigkeit von $v \approx 5\frac{m}{s}$ zu ermöglichen, wurde der Fallschirm wie folgt dimensioniert:
 \\
 Im stationären Flug gilt:
 \begin{equation}
@@ -174,16 +173,16 @@ Als Material für den Fallschirm wurde Ripstop-Nylon verwendet. Dies ist ein syn
 \end{wrapfigure}
 Bei "`ALBERT"' ist hat die Raketenspitze die Form einer Tangent-Ogive. Dies ist die am meisten verbreitete Form der Raketenspitze bei Modellraketen die sich im Unterschallbereich aufhalten, da diese sowohl ein ausreichendes Volumen bietet, als auch mit Hilfe von 3D-Druck über keinen aufwendigen Fertigungsprozess verfügt. Die Spitze ist innen hohl, um die Masse zu reduzieren, verfügt aber innen über eine Verstärkung, um die strukturelle Integrität zu gewährleisten und eine ausreichend stabile Verbindung zum Schockseil zu bieten. Abbildung \ref{fig:rocket_nose_cone_cad} zeigt die Form der Raketenspitze von "`ALBERT"'. Beim Aktivieren des Bergungsystems trennt sich die Spitze von der Rakete, um das Gehäuse für den Fallschirmauswurf zu öffnen. Daher wird diese mit einem Schockseil mit dem Rest der Rakete und dem Fallschirm verbunden. Für die Befestigung vom Schockseil ist ein Loch für eine M10 Ringschraube vorgesehen, mit einem Durchmesser von 8,4mm lässt sich in das Loch vorsichtig ein Gewinde schneiden, um eine feste Verbindung zu sichern.
 
-\section{Zusammenführen vom CAD-Modell}
+\section{Zusammenführen vom CAD-Baugruppe}
 \label{sec:cad_assembly}
 Anschließend wurden die einzelnen CAD-Teile in ein Assembly in Solid Edge zusammengeführt. Abbildung \ref{fig:albert_assembly} zeigt das zusammengeführte Modell:
 \begin{figure}[H]
     \centering
-        \includegraphics[width=0.9\textwidth]{albert_assembly.png}
-        \caption{Solid Edge Assembly}
+        \includegraphics[width=0.9\textwidth]{ALBERT_assembly.jpg}
+        \caption{Zusammengesetzte CAD-Baugruppe der Rakete}
         \label{fig:albert_assembly}
 \end{figure}
-Hierbei ist der Rote Zylinder im Vorderteil der Rakete ein Platzhalter für den gefalteten Fallschirm und die kleinen gelben Zylinder sind Platzhalter für die pyrotechnischen Charges zum Fallschirmauswurf.
+Hierbei ist der rote Zylinder direkt vor der Raketenspitze ein Platzhalter für den gefalteten Fallschirm und die kleinen gelben Zylinder im mittleren Teil des Gehäuses sind Platzhalter für die pyrotechnischen Charges zur Auslösung des Bergungssystems.
 
 
 \section{Implementierung und Fertigung}
@@ -308,7 +307,7 @@ Um genug Messpunkte der verschiedenen Werte für genaue Ableitungen zu erreichen
     \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline
-\textbf{Fall} & $\mathbf{\alpha}$ & $\mathbf{\beta}$ & $\mathbf{\eta}$ & $\mathbf{\zeta}$ & $\mathbf{\delta_{1,2,3,4}}$ \\ 
+\textbf{Fall} & $\boldsymbol{\alpha}$ & $\boldsymbol{\beta}$ & $\boldsymbol{\eta}$ & $\boldsymbol{\zeta}$ & $\boldsymbol{\delta_{1,2,3,4}}$ \\ 
 \hline
 1 & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ & $0^\circ$ \\
 2 & $0^\circ$ & $0^\circ$ & $2^\circ$ & $0^\circ$ & $0^\circ$ \\
@@ -338,7 +337,7 @@ Aus den in \ref{tab:sim_cases} definierten Simulationsdurchgängen ergaben sich 
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-\textbf{Fall} & $\mathbf{C_A}$ & $C_Y$ & $C_Z$ & $C_l$ & $C_m$ & $C_n$ \\
+\textbf{Fall} & $\mathbf{C_A}$ & $\mathbf{C_Y}$ & $\mathbf{C_Z}$ & $\mathbf{C_l}$ & $\mathbf{C_m}$ & $\mathbf{C_n}$ \\
 \hline
 1 & 0,09329290 & 0,01060445 & 0,01311977 & 0,0015015 & 0,05151140 & 0,04080199 \\
 2 & 0,09410596 & 0,02127894 & 0,01752323 & 0,00037719 & 0,07384833 & 0,08960357 \\
@@ -651,7 +650,7 @@ Um am besten die Änderungen der Strömung abhängig von Anstellwinkel des Raket
 
 \subsubsection*{Strömung um Raketenflügel}
 \label{subsubec:rocket_fin_flow}
-Beim 9. Simulationsfall wurde die Strömung an den Flügeln mit dem Anstellwinkel $\eta = 5^\circ$ in Betracht bezogen. In der Abbildung \ref{fig:rocket_fin_pressure} ist zu erkennen, wie durch den Winkel, mit dem sich der Flügel durch die Luft bewegt und durch dessen Aerofoil-Profil auf der unteren Seite ein Überdruck und auf der oberen Seite ein Unterdruck entsteht. Durch diesen Druckunterschied wird eine Auftriebskraft durch den Druckpunkt des Raketenkörpers erzeugt, die schließlich zu einem Pitchdrehmoment um die Y-Achse am Schwerpunkt der Rakete führt.
+Beim 9. Simulationsfall wurde die Strömung an den Flügeln mit dem Anstellwinkel $\eta = 5^\circ$ in Betracht bezogen. In der Abbildung \ref{fig:rocket_fin_pressure} ist zu erkennen, wie durch den Winkel, mit dem sich der Flügel durch die Luft bewegt und durch dessen Airfoil-Profil auf der unteren Seite ein Überdruck und auf der oberen Seite ein Unterdruck entsteht. Durch diesen Druckunterschied wird eine Auftriebskraft durch den Druckpunkt des Raketenkörpers erzeugt, die schließlich zu einem Pitchdrehmoment um die Y-Achse am Schwerpunkt der Rakete führt.
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.9\textwidth]{rocket_fin_pressure.jpg}
@@ -740,24 +739,17 @@ $53mmWs$ & $30\frac{m}{s}$ \\
 
 \subsection{Messergebnisse}
 \label{subsec:wind_tunnel_results}
-Bei beiden Messdurchgängen wurden jeweils die folgenden 4 Anstellwinkel des Flügels $\delta$ in Betracht genommen:
-\begin{itemize}
-    \item Fall 1: $\delta = 5^\circ$
-    \item Fall 2: $\delta = 10^\circ$
-    \item Fall 3: $\delta = 15^\circ$
-    \item Fall 4: $\delta = 20^\circ$
-\end{itemize}
-Es wurden die folgenden Werte für die Kraft $F_D$ bei beiden Messudurchgängen gemessen:
+Bei beiden Messdurchgängen wurden jeweils 4 verschiedene Anstellwinkel des Flügels $\delta$ in Betracht genommen. Es wurden die folgenden Werte für die Kraft $F_D$ bei beiden Messdurchgängen gemessen:
 \begin{table}[H]
 \centering
-\begin{tabular}{|c|c|}
+\begin{tabular}{|c|c|c|}
 \hline
-\textbf{Fall} & $\mathbf{F_D}$ \\
+\textbf{Fall} & $\boldsymbol{\delta}$ & $\mathbf{F_D}$ \\
 \hline
-1 & 1,3N \\
-2 & 1,5N \\
-3 & 1,8N \\
-4 & 2,3N \\
+1 & $5^\circ$ & $1,3N$ \\
+2 & $10^\circ$ & $1,5N$ \\
+3 & $15^\circ$ & $1,8N$ \\
+4 & $20^\circ$ & $2,3N$ \\
 \hline
 \end{tabular}
 \caption{Messergebnisse im Windkanal bei $v_s = 20\frac{m}{s}$}
@@ -765,14 +757,14 @@ Es wurden die folgenden Werte für die Kraft $F_D$ bei beiden Messudurchgängen 
 \end{table}
 \begin{table}[H]
 \centering
-\begin{tabular}{|c|c|}
+\begin{tabular}{|c|c|c|}
 \hline
-\textbf{Fall} & $\mathbf{F_D}$ \\
+\textbf{Fall} & $\boldsymbol{\delta}$ & $\mathbf{F_D}$ \\
 \hline
-1 & 3N \\
-2 & 3,6N \\
-3 & 4,4N \\
-4 & 5,6N \\
+1 & $5^\circ$ & $3N$ \\
+2 & $10^\circ$ & $3,6N$ \\
+3 & $15^\circ$ & $4,4N$ \\
+4 & $20^\circ$ & $5,6N$ \\
 \hline
 \end{tabular}
 \caption{Messergebnisse im Windkanal bei $v_s = 30\frac{m}{s}$}
