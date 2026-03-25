@@ -5,6 +5,7 @@
 
 \section{Konzeptentwicklung}
 \label{sec:concept}
+Im erste Konzept vom mechanischen Aufbau wurden bereits die Grundideen bezüglich des Flügelsteuermechanismus und der restlichen Innenstruktur entwickelt. Dieses Konzept wurde dann mehrmals angepasst, um sowohl die Masse zu reduzieren, als auch einen robusten Aufbau von jedem Subsystem zu gewährleisten.
 
 \section{Innenstruktur und Materialwahl}
 \label{sec:internal_structure}
@@ -51,7 +52,7 @@ die Auftriebskennlinie des Profils für kleine Anstellwinkel relativ linear ist,
 was die Regelung der Flügel einfacher macht. Die vierstelligen NACA Profile existieren
 schon sehr lange, daher gibt es gute Daten über die aerodynamischen Eigenschaften,
 was das überprüfen von Simlationsergebnissen und Versuchen erleichtert. Abbildung
-\ref{fig:fin_cad_model} zeigt das CAD Modell des Flügels, dessen Maße sind in Abbildung \ref{fig:rocket_fin_draft} zu finden.
+\ref{fig:fin_cad_model} zeigt das CAD Modell des Flügels.
 \newpage
 
 \section{Flügelsteuermechanismus}
@@ -66,15 +67,15 @@ was das überprüfen von Simlationsergebnissen und Versuchen erleichtert. Abbild
 \end{wrapfigure}
 Nach dem Entwurf der gesamten Raketengeometrie und der Festlegung der Form/Position der Flügel, wurde die Entwicklung eines Steuermechanismus für die Flügel begonnen. Nach ein Paar gescheiterten Versuchen, wurde ein Mechanismus entwickelt, bei dem sowohl die Motoren aufgrund von Platzmangel in das Gehäuse passten, als auch eine effiziente Übertragung des Drehmoments auf die Rotierungsachse der Flügel stattfinden konnte. \\
 Aufgrund von Platzmangel im Heckteil der Rakete, konnten die die Servomotoren nicht direkt an die Flügel angebracht werden, sondern mussten über ein System mit 2 ineinander zeigenden Hebelarmen und einem Gelenkarm, der die zwei Hebelarme miteinander verbindet. Das Drehmoment der Servomotoren wird dabei 1 zu 1 übertragen, da beide Hebelarme den gleichen Abstand von einer Drehachse zur anderen haben. \\
-Der Hebelarm des Flügels wurde dabei in einen Auschnitt in der Welle des Flügels geklebt und der Hebelarm des Motors wurde auf dessen gezähnte Welle gepresst. Abbildung \ref{fig:fin_servo} zeigt den Flügelsteuermechanismus von "`ALBERT"', die Maße der Teile des Flügelsteuermechanismus sind in den Abbildungen \ref{fig:servo_torque_lever_draft}, \ref{fig:fin_torque_lever_draft} und \ref{fig:torque_connection_draft} zu finden. \\
-Um sicherzustellen, dass die Flügel stabil am Gehäuse befestigt und gleichzeitig frei beweglich auf dessen Rotationsachse sind, wurden diese mit 2 Kugellagern gelagert, die in die Flügelhalterung eingebaut wurden, wie auf der Abbildung \ref{fig:rocket_fin_bearings} zu erkennen ist. Der Abstand zwischen den beiden Kugellagern wird für den Flügelsteuermechanismus genutzt. Somit wirkt die Rotationskraft stabiler auf den Raketenflügel, da sich auf beiden Seiten des Hebelarms ein Lager befindet. Die Maße der Flügelhalterung sind in Abbildung \ref{fig:rocket_fin_holder_draft} zu finden.
+Der Hebelarm des Flügels wurde dabei in einen Auschnitt in der Welle des Flügels geklebt und der Hebelarm des Motors wurde auf dessen gezähnte Welle gepresst. Abbildung \ref{fig:fin_servo} zeigt den Flügelsteuermechanismus von "`ALBERT"'. \\
+Um sicherzustellen, dass die Flügel stabil am Gehäuse befestigt und gleichzeitig frei beweglich auf dessen Rotationsachse sind, wurden diese mit 2 Kugellagern gelagert, die in die Flügelhalterung eingebaut wurden, wie auf der Abbildung \ref{fig:rocket_fin_bearings} zu erkennen ist. Der Abstand zwischen den beiden Kugellagern wird für den Flügelsteuermechanismus genutzt. Somit wirkt die Rotationskraft stabiler auf den Raketenflügel, da sich auf beiden Seiten des Hebelarms ein Lager befindet.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{fin_bearings.jpg}
     \caption{Befestigung des Raketenflügels mit Kugellagern}
     \label{fig:rocket_fin_bearings}
 \end{figure}
-Anschließend zeigt die Abbildung \ref{fig:fin_control_system_assmebly} den fertig zusammengesetzten Flügelsteuermechanismus in der Innenstruktur der Rakete.
+Anschließend zeigt die Abbildung \ref{fig:fin_control_system_assembly} den fertig zusammengesetzten Flügelsteuermechanismus in der Innenstruktur der Rakete.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{fin_control_assembly.png}
@@ -171,7 +172,7 @@ Als Material für den Fallschirm wurde Ripstop-Nylon verwendet. Dies ist ein syn
 
   % Abstand nach dem Bild reduzieren
 \end{wrapfigure}
-Bei "`ALBERT"' ist hat die Raketenspitze die Form einer tangentialer Ogive. Das ist die am meisten verbreitete Form für die Spitze von Modellraketen, da sie bei kleinen Mach-Zahlen einen geringen Luftwiderstand bietet und gleichzeitig einfach zu bauen ist. Die Spitze ist innen hohl, um die Masse zu reduzieren, hat aber innen eine Verstärkung, um die strukturelle Integrität zu gewährleisten und eine ausreichend stabile Verbindung zum Seil des Fallschirms zu bieten. Abbildung \ref{fig:rocket_nose_cone_cad} zeigt die Form der Raketenspitze von "`ALBERT"'. Beim Aktivieren des Bergungsystems trennt sich die Spitze von der Rakete, daher wird diese mit einem Schockseil mit dem Rest der Rakete und dem Fallschirm verbunden. Für die Befestigung vom Schockseil ist ein Loch für eine M10 Ringschraube vorgesehen, mit einem Durchmesser von 8,4mm lässt sich in das Loch vorsichtig ein Gewinde schneiden, um eine feste Verbindung zu sichern.
+Bei "`ALBERT"' ist hat die Raketenspitze die Form einer Tangent-Ogive. Dies ist die am meisten verbreitete Form der Raketenspitze bei Modellraketen die sich im Unterschallbereich aufhalten, da diese sowohl ein ausreichendes Volumen bietet, als auch mit Hilfe von 3D-Druck über keinen aufwendigen Fertigungsprozess verfügt. Die Spitze ist innen hohl, um die Masse zu reduzieren, verfügt aber innen über eine Verstärkung, um die strukturelle Integrität zu gewährleisten und eine ausreichend stabile Verbindung zum Schockseil zu bieten. Abbildung \ref{fig:rocket_nose_cone_cad} zeigt die Form der Raketenspitze von "`ALBERT"'. Beim Aktivieren des Bergungsystems trennt sich die Spitze von der Rakete, um das Gehäuse für den Fallschirmauswurf zu öffnen. Daher wird diese mit einem Schockseil mit dem Rest der Rakete und dem Fallschirm verbunden. Für die Befestigung vom Schockseil ist ein Loch für eine M10 Ringschraube vorgesehen, mit einem Durchmesser von 8,4mm lässt sich in das Loch vorsichtig ein Gewinde schneiden, um eine feste Verbindung zu sichern.
 
 \section{Zusammenführen vom CAD-Modell}
 \label{sec:cad_assembly}
@@ -187,11 +188,7 @@ Hierbei ist der Rote Zylinder im Vorderteil der Rakete ein Platzhalter für den 
 
 \section{Implementierung und Fertigung}
 \label{sec:implementation}
-Die Fertigung der Rakete erfolgte hauptsächlich durch 3D-Druck, wobei die meisten Komponenten
-mit dem Bambulab A1 mini gedruckt wurden. Die einzige Ausnahme war die Raketenspitze,
-die aufgrund ihrer Größe auf einem größeren Drucker gedruckt werden musste. 
-
-%=====================================================%
+Die Fertigung der Rakete erfolgte hauptsächlich mit Hilfe von 3D-Druck, wobei die meisten Komponenten mit dem Bambulab P1S 3D-Drucker gedruckt wurden. Beim Filament fiel die Wahl auf das GreenTEC Pro von der Firma Extrudr. Dieses Filament basiert auf PLA, ist aber im Vergleich zu PLA nachhaltiger, biologisch abbaubar und verfügt außerdem über eine höhere Temperaturbeständigkeit und Festigkeit. Dies ermöglicht den dünnen Raketenflügeln höhere Geschwindigkeiten bei höheren Anstellwinkel auszuhalten und verleiht dem Flügelsteuermechanismus, das aus ziemlich kleinen Gelenken besteht, eine höhere Festigkeit.
 
 \chapter{Simulation der Aerodynamik}
 \label{ch:aero_simulation}
@@ -333,11 +330,10 @@ Um genug Messpunkte der verschiedenen Werte für genaue Ableitungen zu erreichen
 \section{Auswertung der Simulationsergebnisse}
 \label{sec:simulation_results}
 Nach dem Simulieren von allen 11 Fällen, wurden diese entsprechend ausgewertet und alle für die Regelung nötigen Beiwerte wurden errechnet. Im ersten Schritt wurden alle aus den Simulationsergebnissen bezogene Kräfte in entsprechende Beiwerte umgerechnet.
-
 \newpage
 \subsection{Simulationsergebnisse} 
 \label{subsec:sim_results}
-Aus den 9 Simulationsdurchgängen ergaben sich folgende Ergebnisse für die Beiwerte:
+Aus den in \ref{tab:sim_cases} definierten Simulationsdurchgängen ergaben sich folgende Ergebnisse nach der Strömungssimulation:
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -708,7 +704,7 @@ Der dritte Kontur um den Raketenkörper in der Abbildung \ref{fig:rocket_body_ve
     \label{fig:wind_tunnel_fin_cad}
     \vspace{-50pt}
 \end{wrapfigure}
-Wie in \ref{sec:aero_tube_measurement} beschrieben, wurde ebenfalls ein Versuch im Windkanal durchgeführt. Dabei wurde das CAD-Modell des Flügels so verändert, dass es robust und mit möglichst wenig extra Luftwiderstand im Windkanal befestigt werden kann. In Abbildung \ref{fig:wind_tunnel_setup} erkennt man das Loch auf der Drehachse des Flügels, mit Hilfe von diesem Loch wurde der Flügel mit einem Metallstab als Hebelarm waagrecht im Windkanal positioniert. Der Metallstab wurde so zugeschnitte, dass der Flügel sich mittig befindet, um eine genauere Messung zu ermöglichen. An den Abbildungen in \ref{fig:wind_tunnel_setup}erkennt man den Messaufbau.
+Wie in \ref{sec:aero_tube_measurement} beschrieben, wurde ebenfalls ein Versuch im Windkanal durchgeführt. Dabei wurde das CAD-Modell des Flügels so verändert, dass es robust und mit möglichst wenig extra Luftwiderstand im Windkanal befestigt werden kann. In Abbildung \ref{fig:wind_tunnel_setup} erkennt man das Loch auf der Drehachse des Flügels, mit Hilfe von diesem Loch wurde der Flügel mit einem Metallstab als Hebelarm waagrecht im Windkanal positioniert. Der Abstand $l_1$ von der Wirkung der Kraft $F_D$ wurde als $90mm$ gemessen und der Abstand $l_2$ von der Wirkung der Kraft $F_A$ als $300mm$ Der Metallstab wurde so zugeschnitten, dass der Flügel sich mittig befindet, um eine genauere Messung zu ermöglichen. An den Abbildungen in \ref{fig:wind_tunnel_setup}erkennt man den Messaufbau.
 \vspace{2cm}
 \begin{figure}[H]
     \centering
@@ -749,12 +745,12 @@ Bei beiden Messdurchgängen wurden jeweils die folgenden 4 Anstellwinkel des Fl�
     \item Fall 3: $\delta = 15^\circ$
     \item Fall 4: $\delta = 20^\circ$
 \end{itemize}
-Es wurden die folgenden Werte für die Axialkraft $F_A$ bei beiden Messudurchgängen gemessen:
+Es wurden die folgenden Werte für die Kraft $F_D$ bei beiden Messudurchgängen gemessen:
 \begin{table}[H]
 \centering
 \begin{tabular}{|c|c|}
 \hline
-\textbf{Fall} & $\mathbf{F_A}$ \\
+\textbf{Fall} & $\mathbf{F_D}$ \\
 \hline
 1 & 1,3N \\
 2 & 1,5N \\
@@ -769,7 +765,7 @@ Es wurden die folgenden Werte für die Axialkraft $F_A$ bei beiden Messudurchgä
 \centering
 \begin{tabular}{|c|c|}
 \hline
-\textbf{Fall} & $\mathbf{F_A}$ \\
+\textbf{Fall} & $\mathbf{F_D}$ \\
 \hline
 1 & 3N \\
 2 & 3,6N \\
@@ -781,12 +777,50 @@ Es wurden die folgenden Werte für die Axialkraft $F_A$ bei beiden Messudurchgä
 \label{tab:wind_tunnel_results_30ms}
 \end{table}
 
+\subsection{Berechnung der Axialkraft}
+\label{subsec:f_a_calculation_wind_tunnel}
+Um die Axialkraft $F_A$ aus der Kraft am Dehnmessstreifen $F_D$ zu errechnen, wurde das Hebelgesetz angewendet, welches in \ref{eq:lever_law} definiert ist.
+\\
+Durch einsetzen der Kräfte in das Hebelgesetz und Umformen auf $F_A$ ergab sich die folgende Gleichung:
+\begin{equation}
+    F_A = F_D \cdot \frac{l_1}{l_2}
+\end{equation}
+Das Einsetzen in die Gleichung erfolgte folgendermaßen am Beispiel von Fall 1 bei $20\frac{m}{s}$:
+\begin{equation}
+    F_A = 1,3N \cdot \frac{90mm}{300mm} = 0,39N
+\end{equation}
+Mit diesem Vorgang wurden folgende Werte für $F_A$ für den jeweiligen Fall und die jeweilige Strömungsgeschwindigkeit errechnet:
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Fall} & $\mathbf{F_A}$ \\
+\hline
+1 & 0,39N \\
+2 & 0,45N \\
+3 & 0,54N \\
+4 & 0,69N \\
+\hline
+\end{tabular}
+\caption{Rechenergebnisse bei $20\frac{m}{s}$}
+\label{tab:wind_tunnel_calculation_results_20ms}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Fall} & $\mathbf{F_A}$ \\
+\hline
+1 & 0,9N \\
+2 & 1,08N \\
+3 & 1,32N \\
+4 & 1,68N \\
+\hline
+\end{tabular}
+\caption{Rechenergebnisse bei $30\frac{m}{s}$}
+\label{tab:wind_tunnel_calculation_results_30ms}
+\end{table}
+
 \subsection{Vergleich der Messergebnisse mit simullierten Werten}
 \label{subsec:wind_tunnel_sim_comparison}
-
-\section{Herausforderungen und Lösungen}
-\label{sec:challenges_simulation}
-
-\section{Fazit}
-\label{sec:simulation_fazit}
-
