@@ -51,7 +51,7 @@ die Auftriebskennlinie des Profils für kleine Anstellwinkel relativ linear ist,
 was die Regelung der Flügel einfacher macht. Die vierstelligen NACA Profile existieren
 schon sehr lange, daher gibt es gute Daten über die aerodynamischen Eigenschaften,
 was das überprüfen von Simlationsergebnissen und Versuchen erleichtert. Abbildung
-\ref{fig:fin_cad_model} zeigt das CAD Modell der Flügel.
+\ref{fig:fin_cad_model} zeigt das CAD Modell des Flügels, dessen Maße sind in Abbildung \ref{fig:rocket_fin_draft} zu finden.
 \newpage
 
 \section{Flügelsteuermechanismus}
@@ -60,24 +60,31 @@ was das überprüfen von Simlationsergebnissen und Versuchen erleichtert. Abbild
     \centering
     \vspace{-10pt}
     \includegraphics[width=0.35\textwidth]{fin_servo.png}
-    \caption{Flügelsteuermechanismus}
+    \caption{Gelenksystem zur Flügelsteuerung}
     \label{fig:fin_servo}
     \vspace{-10pt}
 \end{wrapfigure}
 Nach dem Entwurf der gesamten Raketengeometrie und der Festlegung der Form/Position der Flügel, wurde die Entwicklung eines Steuermechanismus für die Flügel begonnen. Nach ein Paar gescheiterten Versuchen, wurde ein Mechanismus entwickelt, bei dem sowohl die Motoren aufgrund von Platzmangel in das Gehäuse passten, als auch eine effiziente Übertragung des Drehmoments auf die Rotierungsachse der Flügel stattfinden konnte. \\
 Aufgrund von Platzmangel im Heckteil der Rakete, konnten die die Servomotoren nicht direkt an die Flügel angebracht werden, sondern mussten über ein System mit 2 ineinander zeigenden Hebelarmen und einem Gelenkarm, der die zwei Hebelarme miteinander verbindet. Das Drehmoment der Servomotoren wird dabei 1 zu 1 übertragen, da beide Hebelarme den gleichen Abstand von einer Drehachse zur anderen haben. \\
-Der Hebelarm des Flügels wurde dabei in einen Auschnitt in der Welle des Flügels geklebt und der Hebelarm des Motors wurde auf dessen gezähnte Welle gepresst. Abbildung \ref{fig:fin_servo} zeigt den Flügelsteuermechanismus von "`ALBERT"'. \\
-Um sicherzustellen, dass die Flügel stabil am Gehäuse befestigt und gleichzeitig frei beweglich auf dessen Rotationsachse sind, wurden diese mit 2 Kugellagern gelagert, die in die Flügelhalterung eingebaut wurden, wie auf der Abbildung \ref{fig:rocket_fin_bearings} zu erkennen ist. Der Abstand zwischen den beiden Kugellagern wird für den Flügelsteuermechanismus genutzt. Somit wirkt die Rotationskraft stabiler auf den Raketenflügel, da sich auf beiden Seiten des Hebelarms ein Lager befindet.
+Der Hebelarm des Flügels wurde dabei in einen Auschnitt in der Welle des Flügels geklebt und der Hebelarm des Motors wurde auf dessen gezähnte Welle gepresst. Abbildung \ref{fig:fin_servo} zeigt den Flügelsteuermechanismus von "`ALBERT"', die Maße der Teile des Flügelsteuermechanismus sind in den Abbildungen \ref{fig:servo_torque_lever_draft}, \ref{fig:fin_torque_lever_draft} und \ref{fig:torque_connection_draft} zu finden. \\
+Um sicherzustellen, dass die Flügel stabil am Gehäuse befestigt und gleichzeitig frei beweglich auf dessen Rotationsachse sind, wurden diese mit 2 Kugellagern gelagert, die in die Flügelhalterung eingebaut wurden, wie auf der Abbildung \ref{fig:rocket_fin_bearings} zu erkennen ist. Der Abstand zwischen den beiden Kugellagern wird für den Flügelsteuermechanismus genutzt. Somit wirkt die Rotationskraft stabiler auf den Raketenflügel, da sich auf beiden Seiten des Hebelarms ein Lager befindet. Die Maße der Flügelhalterung sind in Abbildung \ref{fig:rocket_fin_holder_draft} zu finden.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{fin_bearings.jpg}
     \caption{Befestigung des Raketenflügels mit Kugellagern}
     \label{fig:rocket_fin_bearings}
 \end{figure}
+Anschließend zeigt die Abbildung \ref{fig:fin_control_system_assmebly} den fertig zusammengesetzten Flügelsteuermechanismus in der Innenstruktur der Rakete.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{fin_control_assembly.png}
+    \caption{Assembly des kompletten Finnensteuermechanismus}
+    \label{fig:fin_control_system_assembly}
+\end{figure}
 
 \section{Montierung vom Flightcomputer und Akku}
 \label{sec:flight_computer_montage}
-Der Flightcomputer und der Akku mussten direkt nebeneinander platziert werden, damit keine Verlängerung für das Kabel vom Akku zum Flightcomputer nötig ist. Die Halterungen wurden direkt über dem Flügelsteuermechanismus platziert. Zwischen der Halterung des Flightcomputers und der Halterung für die Servomotoren wurden Abstandhalter auf den Carbonstäben angebracht, um Platz für den Raketenmotor zu schaffen. Da bestimmte Bauteile des Flightcomputers Platz brauchten, war es nicht möglich die 4 Carbonstäbe durch die Halterung des Flightcomputers durchzuführen. Diese wurden daher unterbrochen, was jedoch für einen Schwachpunkt in der Innenstruktur im Bereich des Flightcomputers sorgte. Die Halterung des Flightcomputers wurde daher über und unter der Platine verstärkt, wie auf Abbildung \ref{fig:flight_computer_battery} zu erkennen ist.
+Der Flightcomputer und der Akku mussten direkt nebeneinander platziert werden, damit keine Verlängerung für das Kabel vom Akku zum Flightcomputer nötig ist. Die Halterungen wurden direkt über dem Flügelsteuermechanismus platziert. Zwischen der Halterung des Flightcomputers und der Halterung für die Servomotoren wurden Abstandhalter auf den Carbonstäben angebracht, um Platz für den Raketenmotor zu schaffen. Da bestimmte Bauteile des Flightcomputers Platz brauchten, war es nicht möglich die 4 Carbonstäbe durch die Halterung des Flightcomputers durchzuführen. Diese wurden daher unterbrochen, was jedoch für einen Schwachpunkt in der Innenstruktur im Bereich des Flightcomputers sorgte. Die Halterung des Flightcomputers wurde daher über und unter der Platine verstärkt, wie auf Abbildung \ref{fig:flight_computer_battery} zu erkennen ist. Die Maße der Flightcomputerhalterung und der Akkuhalterung sind unter den Abbildungen \ref{fig:flight_computer_holder_draft} und \ref{fig:battery_holder_draft} zu finden.
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.9\textwidth]{flight_computer_battery.jpg}
@@ -104,7 +111,7 @@ Bestandteile der Mischung:
 Als Kolben diente ein hohles Kartonrohr, das in das Gehäuserohr eingeführt wird. Der Kolben bisitzt unten eine 3D-gedruckte Abdeckung, durch die ein Schockseil durchgeführt wird, welches die Raketenspitze, die Fallschirmseile und den Rest der Rakete verbindet.
 
 \subsection{Fallschirm}
-\label{sec:parachute}
+\label{subsec:parachute}
 Um den Abstieg der Rakete mit einer Geschwindigkeit von $\approx 5\frac{m}{s}$ zu ermöglichen, wurde der Fallschirm wie folgt dimensioniert:
 \\
 Im stationären Flug gilt:
@@ -147,6 +154,7 @@ Aus der errechnete Fläche wurde wie folgt der nötige Durchmesser für den Fall
     d = \sqrt{\frac{4A}{\pi}} = \sqrt{\frac{4 \cdot 1,281}{\pi}} \approx 1,227m
 \end{equation}
 Als Material für den Fallschirm wurde Ripstop-Nylon verwendet. Dies ist ein synthetisches Gewebe auf Basis von Nylon mit einer Antireiß-Struktur. Es war eine günstige Wahl für den Fallschirm, weil es eine sehr gute Festigkeit bei einer gleichzeitig sehr geringer Masse bietet.
+\newpage
 
 \section{Zusammenführen vom CAD-Modell}
 \label{sec:cad_assembly}
@@ -165,12 +173,6 @@ Hierbei ist der Rote Zylinder im Vorderteil der Rakete ein Platzhalter für den 
 Die Fertigung der Rakete erfolgte hauptsächlich durch 3D-Druck, wobei die meisten Komponenten
 mit dem Bambulab A1 mini gedruckt wurden. Die einzige Ausnahme war die Raketenspitze,
 die aufgrund ihrer Größe auf einem größeren Drucker gedruckt werden musste. 
-
-\section{Herausforderungen und Lösungen}
-\label{sec:die 4 Raketenflügel und der eigentlich Raketenkörper challenges}
-
-\section{Fazit}
-\label{sec:cad_fazit}
 
 %=====================================================%
 
@@ -351,7 +353,6 @@ Aus den 9 Simulationsdurchgängen ergaben sich folgende Ergebnisse für die Beiw
     \vspace{-10pt}
 \end{wrapfigure}
 Jeder Simulationsfall wurde für 600 Iterationen durchgeführt, damit die Residuals sich gut einschwingen könnne. Residuals in Ansys Fluent sind die verbleibenden Fehler der im Hintergrund berechneten Gleichungen nach jeder Iteration. Je niedriger die Residuals sind, desto genauer sind die Berechnungen. Die Abbildung \ref{fig:residuals_plot} zeigt den Plot der Residuals für den 8 Simulationsfall. Es ist auch gut zu erkennen, dass die Residuals erst nach $\approx$ 300 Iterationen richtig eingeschwungen sind, um sicher zu gehen, dass diese auch weiterhin ungefähr konstant bleiben, wurden danach noch weitere 300 Iterationen durchgeführt.
-\\
 \\
 Dabei ist \textbf{continuity} die Massenerhaltung, \textbf{x-velocity}, \textbf{y-velocity}, \textbf{z-velocity} sind die Impulsgleichungen in alle 3 Richtungen des Koordinatensystems, \textbf{k} ist die turbulente kinetische Energie und schließlich ist \textbf{omega} die spezifische Dissipationsrate beim $k$-$\omega$-Turbulenzmodell.
 \\
@@ -607,6 +608,7 @@ Um am besten die Änderungen der Strömung abhängig von Anstellwinkel des Raket
 \subsubsection*{Strömung um Raketenflügel}
 \label{subsubec:rocket_fin_flow}
 Beim 9. Simulationsfall wurde die Strömung an den Flügeln mit dem Anstellwinkel $\eta = 5^\circ$ in Betracht bezogen. In der Abbildung \ref{fig:rocket_fin_pressure} ist zu erkennen, wie durch den Winkel, mit dem sich der Flügel durch die Luft bewegt und durch dessen Aerofoil-Profil auf der unteren Seite ein Überdruck und auf der oberen Seite ein Unterdruck entsteht. Durch diesen Druckunterschied wird eine Auftriebskraft durch den Druckpunkt des Raketenkörpers erzeugt, die schließlich zu einem Pitchdrehmoment um die Y-Achse am Schwerpunkt der Rakete führt.
+\newpage
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.9\textwidth]{rocket_fin_pressure.jpg}
