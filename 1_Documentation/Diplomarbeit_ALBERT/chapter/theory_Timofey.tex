@@ -43,15 +43,15 @@ somit auch die Richtung der Flugbahn zu ändern. \cite{BeginnersGuideToAeronauti
 Die Gewichtskraft und die Schubkraft sind wie folgt definiert:
 
 \begin{equation}
-    \vec{\mathbf{F}}_{weight} = \mathbf{m} \cdot \vec{\mathbf{g}}
+    \vec{F}_{weight} = m \cdot \vec{g}
 \end{equation}
 \begin{equation}
-    \vec{\mathbf{F}}_{thrust} = \dot{\mathbf{m}} \cdot \vec{\mathbf{v}}_{e} + (\mathbf{p}_{e} - \mathbf{p}_{0}) \cdot \mathbf{A}_{e}
+    \vec{F}_{thrust} = \dot{m} \cdot \vec{v}_{e} + (p_e - p_0) \cdot A_e
 \end{equation}
-\\Mit $\mathbf{m}$ als Masse der Rakete, $\vec{\mathbf{g}}$ als Die Erdbeschleunigung,
-$\dot{\mathbf{m}}$ als Massenstrom durch den Motor, $\vec{\mathbf{v}}_{e}$
-als die Austrittgeschwindigkeit der Gase aus der Düse, $\mathbf{p}_{e}$
-als Druck am Düsenaustritt, $\mathbf{p}_{0}$ als Umgebungsdruck und $\mathbf{A}_{e}$
+\\Mit $m$ als Masse der Rakete, $\vec{g}$ als Die Erdbeschleunigung,
+$\dot{m}$ als Massenstrom durch den Motor, $\vec{v}_{e}$
+als die Austrittgeschwindigkeit der Gase aus der Düse, $p_e$
+als Druck am Düsenaustritt, $p_0$ als Umgebungsdruck und $A_e$
 als Querschnittsfläche am Düsenaustritt.
 
 \subsection*{Aerodynamische Kräfte}
@@ -66,18 +66,18 @@ Diese zwei aerodynamischen Kräfte sind
 die Widerstandskraft und die Auftriebskraft. Diese sind wie folgt definiert:
 
 \begin{equation}
-    \vec{\mathbf{F}}_{drag} = \mathbf{C}_d \cdot \frac{\mathbf{\rho} \cdot \mathbf{A} \cdot \vec{\mathbf{v}}^{2}}{2}
+    \vec{F}_{drag} = C_d \cdot \frac{\rho \cdot A \cdot \vec{v}^{2}}{2}
 \end{equation}
 \begin{equation}
-    \vec{\mathbf{F}}_{lift} = \mathbf{C}_l \cdot \frac{\mathbf{\rho} \cdot \mathbf{A} \cdot \vec{\mathbf{v}}^{2}}{2}
+    \vec{F}_{lift} = C_l \cdot \frac{\rho \cdot A \cdot \vec{v}^{2}}{2}
 \end{equation}
-\\Mit $\mathbf{C}_d$ als Widerstandsbeiwert, $\mathbf{C}_l$ als Auftriebsbeiwert,
-$\mathbf{\rho}$ als Luftdichte, $\mathbf{A}$ als Querschnittsfläche der aerodynamischen Features
-der Rakete und $\mathbf{v}$ als Geschwindigkeit der Rakete relativ zur Luft. Die Widerstandskraft
+\\Mit $C_d$ als Widerstandsbeiwert, $C_l$ als Auftriebsbeiwert,
+$\rho$ als Luftdichte, $A$ als Querschnittsfläche der aerodynamischen Features
+der Rakete und $v$ als Geschwindigkeit der Rakete relativ zur Luft. Die Widerstandskraft
 und die Auftriebskraft hängen wie folgt zusammen:
 
 \begin{equation}
-    \frac{\vec{\mathbf{F}}_{drag}}{\vec{\mathbf{F}}_{lift}} = \frac{\mathbf{C}_l}{\mathbf{C}_d}
+    \frac{\vec{F}_{drag}}{\vec{F}_{lift}} = \frac{C_l}{C_d}
 \end{equation}
 
 
@@ -95,7 +95,7 @@ Ein Kräftefreier Körper bleibt in Ruhe oder bewegt sich mit konstanter Geschwi
 \label{subsubsec:second_newton_law}
 Kraft ist gleich Masse mal Beschleunigung.
 \begin{equation}
-    \vec{\mathbf{F}} = \mathbf{m} \cdot \vec{\mathbf{a}}
+    \vec{F} = m \cdot \vec{a}
 \end{equation}
 
 \subsubsection{Drittes Newtonsches Gesetz}
@@ -103,7 +103,7 @@ Kraft ist gleich Masse mal Beschleunigung.
 Kraft ist gleich Gegenkraft. Für eine Kraft von einem Körper auf einen anderen Körper 
 wird eine Gegenkraft ausgeübt, die gleich groß ist und in entgegengesetzter Richtung wirkt.
 \begin{equation}
-    \vec{\mathbf{F}}_{A\rightarrow B} = - \vec{\mathbf{F}}_{B\rightarrow A}
+    \vec{F}_{A\rightarrow B} = - \vec{F}_{B\rightarrow A}
 \end{equation}
 
 \section{Aerodynamische Eigenschaften}
@@ -153,31 +153,7 @@ zu maximieren.
 
 \subsection{Raketenspitze}
 \label{subsec:rocket_nose}
-\begin{wrapfigure}{l}{0.3\textwidth}
-
-    % {r} = rechtsbündig platzieren
-    % Alternativen: {l} = links, {i} = innen (bei zweiseitigem Druck), {o} = außen
-    % 0.4\textwidth = Gesamtbreite inkl. Abstand zum Text
-    \centering
-    \includegraphics[width=0.3\textwidth]{nose_cone.png}
-        \caption{Raketenspitze}
-        \label{fig:rocket_nose_cone}
-    % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
-
-  % Abstand nach dem Bild reduzieren
-\end{wrapfigure}
-Bei ``ALBERT'' ist hat die Raketenspitze die Form einer tangentialer Ogive.
-Das ist die am meisten verbreitete Form für die Spitze von Modellraketen, da sie
-bei kleinen Mach-Zahlen einen geringen Luftwiderstand bietet und gleichzeitig einfach zu bauen ist.
-Die Spitze ist innen hohl, um die Masse zu reduzieren %das ist eine glatte lüge die spitze ist scheiße schwer, weil sie einen nuklearen sprengkopf beherbergt, der beim austritt aus der atmosphöre abgeworfen wird und straigt auf iran intelligence headquarter zusteuert und dort den fucking janitor in tausend stücke reißt, der gerade die toilette putzt, weil er das iranische atomprogramm sabotieren wollte, aber das ist eine andere geschichte
-, hat aber innen eine
-Verstärkung, um die strukturelle Integrität zu gewährleisten und eine
-ausreichend stabile Verbindung zum Seil des Fallschirms zu bieten.
-Abbildung \ref{fig:rocket_nose_cone} zeigt die Form der Raketenspitze von ``ALBERT''.
-Beim Aktivieren des Bergungsystems trennt sich die Spitze von der Rakete, daher
-wird diese mit einem Schochseil mit dem Rest der Rakete und dem Fallschirm
-verbunden.
-\newpage
+Aus aerodynamischer Sicht ist die Form der Raketenspitze für eine typische Modellrakete bei Unterschallflug nicht besonders relevant. Der Großteil des Luftwiderstands wird dabei durch die Raketenflügel und das Raketengehäuse erzeugt.
 
 \subsection{Raketenflügel}
 \label{subsec:rocket_fins}
