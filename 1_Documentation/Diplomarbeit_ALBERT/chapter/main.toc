@@ -168,14 +168,14 @@
 \contentsline {chapter}{\numberline {17}Verwendung von Künstlicher Intelligenz}{106}{chapter.17}%
 \contentsline {section}{\numberline {17.1}Beispielprompts}{106}{section.17.1}%
 \contentsline {subsection}{\numberline {17.1.1}OpenAI ChatGPT}{106}{subsection.17.1.1}%
-\contentsline {paragraph}{\nonumberline Prompt:}{106}{paragraph*.145}%
-\contentsline {paragraph}{\nonumberline Ausgabe:}{106}{paragraph*.147}%
+\contentsline {paragraph}{\nonumberline Prompt:}{106}{paragraph*.146}%
+\contentsline {paragraph}{\nonumberline Ausgabe:}{106}{paragraph*.148}%
 \contentsline {subsection}{\numberline {17.1.2}DeepL Übersetzer}{107}{subsection.17.1.2}%
-\contentsline {paragraph}{\nonumberline Eingabe:}{107}{paragraph*.149}%
-\contentsline {paragraph}{\nonumberline Ausgabe:}{107}{paragraph*.151}%
+\contentsline {paragraph}{\nonumberline Eingabe:}{107}{paragraph*.150}%
+\contentsline {paragraph}{\nonumberline Ausgabe:}{107}{paragraph*.152}%
 \contentsline {subsection}{\numberline {17.1.3}DeepL Write}{107}{subsection.17.1.3}%
-\contentsline {paragraph}{\nonumberline Eingabe:}{107}{paragraph*.153}%
-\contentsline {paragraph}{\nonumberline Ausgabe:}{107}{paragraph*.155}%
+\contentsline {paragraph}{\nonumberline Eingabe:}{107}{paragraph*.154}%
+\contentsline {paragraph}{\nonumberline Ausgabe:}{107}{paragraph*.156}%
 \contentsline {chapter}{\numberline {A}Bemaßte Zeichnungen der CAD-Modelle}{112}{appendix.A}%
 \contentsline {chapter}{\numberline {A}Schaltplan des Flightcomputers}{125}{appendix.A}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

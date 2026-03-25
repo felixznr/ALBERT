@@ -136,6 +136,27 @@ Im Vergleich dazu ist in Abbildung \ref{fig:matlab_simulation_results_3} die Sim
 
 Die Analyse der Simulationsresultate zeigt, dass auch ohne Nachführung der $\mathbf{K}$-Matrix die Regelung in der Lage ist, die Rakete bei einer Winkelabweichung zu stabilisieren, dabei ist der Regler jedoch nicht mehr optimal eingestellt.
 
+Wenn jedoch anstatt einer Abweichung des Winkels eine Sinusschwingung (Türkis) als Störung für $\psi$ angenommen wird, wie in Abbildung \ref{fig:matlab_simulation_results_4} und \ref{fig:matlab_simulation_results_5} dargestellt, zeigt sich, dass die Regelung mit Nachführung der $\mathbf{K}$-Matrix in Abbildung \ref{fig:matlab_simulation_results_4} deutlich besser in der Lage ist, die Störung zu eliminieren und die Winkel $\theta$ und $\psi$ zu stabilisieren als ohne Nachführung der $\mathbf{K}$-Matrix (rechts). Ohne Nachführung der $\mathbf{K}$-Matrix kommt es zu einer gedämpten Schwingung der Winkel, was auf eine suboptimale Einstellung des Reglers zurückzuführen ist.
+\begin{figure}[H]
+    
+    \centering
+    \begin{minipage}{0.44\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{sim4.png}
+        \caption{Verlauf mit Nachführung der $\mathbf{K}$-Matrix}
+        \label{fig:matlab_simulation_results_4}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.44\textwidth}
+        \centering
+        \vspace{2pt}
+        \includegraphics[width=1\textwidth]{sim5.png}
+        \caption{Verlauf ohne Nachführung der $\mathbf{K}$-Matrix}
+        \label{fig:matlab_simulation_results_5}
+    \end{minipage}
+    
+\end{figure}
+
 \newpage
 \section{Ergebnisse der Strömungssimulation}
 \label{sec:cfd_results_conclusion}
