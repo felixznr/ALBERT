@@ -5,7 +5,7 @@
 
 \section{Konzeptentwicklung}
 \label{sec:concept}
-Im erste Konzept vom mechanischen Aufbau wurden bereits die Grundideen bezüglich des Flügelsteuermechanismus und der restlichen Innenstruktur entwickelt. Dieses Konzept wurde dann mehrmals angepasst, um sowohl die Masse zu reduzieren, als auch einen robusten Aufbau von jedem Subsystem zu gewährleisten.
+Im ersten Konzept vom mechanischen Aufbau wurden bereits die Grundideen bezüglich des Flügelsteuermechanismus und der restlichen Innenstruktur entwickelt. Dieses Konzept wurde dann mehrmals angepasst, um sowohl die Masse zu reduzieren, als auch einen robusten Aufbau von jedem Subsystem zu gewährleisten.
 
 \section{Innenstruktur und Materialwahl}
 \label{sec:internal_structure}
@@ -266,7 +266,7 @@ Referenzfläche (Frontfläche der Rakete) mit $D$ als Durchmesser des Raketenkö
 \end{equation}
 Referenzgeschwindigkeit = Geschwindigkeit der Strömung:
 \begin{equation}
-    v_{ref} = 100\frac{m}{s}
+    v_{ref} = v_{max} = 100\frac{m}{s}
 \end{equation}
 
 \subsubsection*{Definiton der Winkel des Raketenkörpers und der Flügel}
@@ -299,7 +299,7 @@ $C_n$ & Yawmomentbeiwert & $X(0) Y(0) Z(1)$ & $X() Y() Z()$ \\
 \caption{Definition der simulierten Werte}
 \label{tab:report_definitions}
 \end{table}
-\\Für jedes dieser Beiwerte wurden die Optionen für die Erstellung einer Reportdatei und eines Reportplots ausgewählt, was die anschließende Arbeit mit den simulierten Werten und dessen Visualisierung ermöglichte. 
+\\Dabei wurde geachtet, dass alle Kraftbeiwerte durch den Druckpunkt bei $x_{CP} = 699mm$ durchgehen, während Momentbeiwerte um den Schwerpunkt bei $x_{CG} = 601mm$ wirken. Diese Werte wurden aus den Simulationsergebnissen in OpenRocket entnommen \ref{tab:openrocket_sim_values}. Für jedes dieser Beiwerte wurden die Optionen für die Erstellung einer Reportdatei und eines Reportplots ausgewählt, was die anschließende Arbeit mit den simulierten Werten und dessen Visualisierung ermöglichte. 
 
 \subsection{Simulationsdurchgänge}
 \label{subsec:sim_cases}
@@ -702,9 +702,11 @@ Der dritte Kontur um den Raketenkörper in der Abbildung \ref{fig:rocket_body_ve
     \includegraphics[width=0.4\textwidth]{aero_tube_fin_cad.png}
     \caption{CAD-Modell des Raketenflügels zur befestigung im Windkanal}
     \label{fig:wind_tunnel_fin_cad}
-    \vspace{-50pt}
+    \vspace{-20pt}
 \end{wrapfigure}
-Wie in \ref{sec:aero_tube_measurement} beschrieben, wurde ebenfalls ein Versuch im Windkanal durchgeführt. Dabei wurde das CAD-Modell des Flügels so verändert, dass es robust und mit möglichst wenig extra Luftwiderstand im Windkanal befestigt werden kann. In Abbildung \ref{fig:wind_tunnel_setup} erkennt man das Loch auf der Drehachse des Flügels, mit Hilfe von diesem Loch wurde der Flügel mit einem Metallstab als Hebelarm waagrecht im Windkanal positioniert. Der Abstand $l_1$ von der Wirkung der Kraft $F_D$ wurde als $90mm$ gemessen und der Abstand $l_2$ von der Wirkung der Kraft $F_A$ als $300mm$ Der Metallstab wurde so zugeschnitten, dass der Flügel sich mittig befindet, um eine genauere Messung zu ermöglichen. An den Abbildungen in \ref{fig:wind_tunnel_setup}erkennt man den Messaufbau.
+Wie in \ref{sec:aero_tube_measurement} beschrieben, wurde ebenfalls ein Versuch im Windkanal durchgeführt. Dabei wurde das CAD-Modell des Flügels so verändert, dass es robust und mit möglichst wenig extra Luftwiderstand im Windkanal befestigt werden kann. In Abbildung \ref{fig:wind_tunnel_setup} erkennt man das Loch auf der Drehachse des Flügels, mit Hilfe von diesem Loch wurde der Flügel mit einem Metallstab als Hebelarm waagrecht im Windkanal positioniert.
+\\
+Dabei wurden 2 Abstände am Hebelarm gemessen, der Abstand vom Wirkpunkt der Axialkraft $F_A$ zum Drehpunkt des Hebelarms betrug $l_2 = 200mm$ und der Abstand zwischen dem Wirkpunkt der Kraft am Dehnmessstreifen $F_D$ und dem Drehpunkt betrug dabei $l_1 = 90mm$. An den Abbildungen in \ref{fig:wind_tunnel_setup} erkennt man den Messaufbau.
 \vspace{2cm}
 \begin{figure}[H]
     \centering
@@ -721,12 +723,12 @@ Wie in \ref{sec:aero_tube_measurement} beschrieben, wurde ebenfalls ein Versuch 
     \label{fig:wind_tunnel_setup}
     \vspace{-10pt}
 \end{figure}
-Aufgrund von begrenzter Strämungsgeschwindigkeit $v$ im Windkanal konnten die Messungen nicht bei Fluggeschwindigkeiten durchgeführt werden. Also wurde die Messung bei $20\frac{m}{s}$ und $30\frac{m}{s}$ durchgeführt. Dies wurde mit Hilfe des in \ref{sec:aero_tube_measurement} erwähnten Laborprotokolls gemacht, indem das Handrad so lange gedreht wurde, bis sich auf dem Manometer eine dem Wert im Protokoll entsprechende Höhe der Wassersäule $h_{stat}$ einstellte. Dies ist in der Tabelle genauer zu sehen.
+Aufgrund von begrenzter Strömungsgeschwindigkeit $v_s$ im Windkanal konnten die Messungen nicht bei Fluggeschwindigkeiten durchgeführt werden. Also wurde die Messung bei $20\frac{m}{s}$ und $30\frac{m}{s}$ durchgeführt. Dies wurde mit Hilfe des in \ref{sec:aero_tube_measurement} erwähnten Laborprotokolls gemacht, indem das Handrad so lange gedreht wurde, bis sich auf dem Manometer eine dem Wert im Protokoll entsprechende Höhe der Wassersäule $h_{stat}$ einstellte. Dies ist in der Tabelle genauer zu sehen.
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|}
 \hline
-$\mathbf{h_{stat}}$ & $\mathbf{v}$ \\
+$\mathbf{h_{stat}}$ & $\mathbf{v_s}$ \\
 \hline
 $23,4mmWs$ & $20\frac{m}{s}$ \\
 $53mmWs$ & $30\frac{m}{s}$ \\
@@ -758,7 +760,7 @@ Es wurden die folgenden Werte für die Kraft $F_D$ bei beiden Messudurchgängen 
 4 & 2,3N \\
 \hline
 \end{tabular}
-\caption{Messergebnisse im Windkanal bei $20\frac{m}{s}$}
+\caption{Messergebnisse im Windkanal bei $v_s = 20\frac{m}{s}$}
 \label{tab:wind_tunnel_results_20ms}
 \end{table}
 \begin{table}[H]
@@ -773,7 +775,7 @@ Es wurden die folgenden Werte für die Kraft $F_D$ bei beiden Messudurchgängen 
 4 & 5,6N \\
 \hline
 \end{tabular}
-\caption{Messergebnisse im Windkanal bei $30\frac{m}{s}$}
+\caption{Messergebnisse im Windkanal bei $v_s = 30\frac{m}{s}$}
 \label{tab:wind_tunnel_results_30ms}
 \end{table}
 
@@ -785,9 +787,9 @@ Durch einsetzen der Kräfte in das Hebelgesetz und Umformen auf $F_A$ ergab sich
 \begin{equation}
     F_A = F_D \cdot \frac{l_1}{l_2}
 \end{equation}
-Das Einsetzen in die Gleichung erfolgte folgendermaßen am Beispiel von Fall 1 bei $20\frac{m}{s}$:
+Das Einsetzen in die Gleichung erfolgte folgendermaßen am Beispiel von Fall 1 bei $v_s = 20\frac{m}{s}$:
 \begin{equation}
-    F_A = 1,3N \cdot \frac{90mm}{300mm} = 0,39N
+    F_A = 1,3N \cdot \frac{90mm}{200mm} = 0,585N
 \end{equation}
 Mit diesem Vorgang wurden folgende Werte für $F_A$ für den jeweiligen Fall und die jeweilige Strömungsgeschwindigkeit errechnet:
 \begin{table}[H]
@@ -796,10 +798,10 @@ Mit diesem Vorgang wurden folgende Werte für $F_A$ für den jeweiligen Fall und
 \hline
 \textbf{Fall} & $\mathbf{F_A}$ \\
 \hline
-1 & 0,39N \\
-2 & 0,45N \\
-3 & 0,54N \\
-4 & 0,69N \\
+1 & 0,585N \\
+2 & 0,675N \\
+3 & 0,81N \\
+4 & 1,035N \\
 \hline
 \end{tabular}
 \caption{Rechenergebnisse bei $20\frac{m}{s}$}
@@ -812,10 +814,10 @@ Mit diesem Vorgang wurden folgende Werte für $F_A$ für den jeweiligen Fall und
 \hline
 \textbf{Fall} & $\mathbf{F_A}$ \\
 \hline
-1 & 0,9N \\
-2 & 1,08N \\
-3 & 1,32N \\
-4 & 1,68N \\
+1 & 1,35N \\
+2 & 1,62N \\
+3 & 1,98N \\
+4 & 2,52N \\
 \hline
 \end{tabular}
 \caption{Rechenergebnisse bei $30\frac{m}{s}$}

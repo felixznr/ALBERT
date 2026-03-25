@@ -8,6 +8,113 @@
 \chapter{Gesamtaufbau und Systemintegration}
 \label{ch:aufbau_albert}
 
+
+
+%\section{Unterstützung von Israel}
+%\label{sec:israel_support}
+%Das Projekt wurde von Big Yahu unterstützt, diese connection kam dank Big Stein (siehe Abbildung \ref{fig:big_stein}) zustande. Nach Vollendung des Projekts, wird "`ALBERT"' an die IDF (Israeli Defence Forces) verkauft.
+%\begin{figure}[H]
+%    \centering
+%        \includegraphics[width=0.9\textwidth]{big_stein.png}
+%        \caption{Big Stein Portraitbild}
+%        \label{fig:big_stein}
+%\end{figure}
+
+\section{Stand vom mechanischen Aufbau}
+\label{sec:mechanical_build_status}
+Es wurden die Halterungen für Raketenflügel/Servomotoren, die hintere Abdeckung und die Abdeckung des Motors, die Raketenspitze und die Raketenflügel in das Gehäuse eingebaut. In alle mit Schrauben ans Gehäuse festgemachten Teile wurden in die dafür vorgesehenen Löcher Gewindeeinsätze eingeschmolzen und die Kugellager der Flügel wurden in das 3D-gedruckte Teil eingeklebt, wie auf Bild
+% ======================== HIER BILD VON KUGELLAGER IN FLÜGELHALTERUNG ===============
+zu sehen ist.
+\\
+Aufgrund von Zeitmangel mussten Prioritäten beim Aufbau der einzelnen Subsysteme gesetzt werden. Diese fielen auf die Montierung der Raketenflügel und der Servomotoren. Insgesamt wurde mehr Wert auf eine funktionierende Regelung gelegt, die durch CFD-Simulationen ausgelegt wurde.
+
+\subsection{Nicht fertitggebrachte Subsysteme/Teile der Struktur}
+\label{subsec:not_finished_subsystems}
+\paragraph{Bergungsystem}
+Der ursprüngliche Plan für das Bergungsystem war, einen bereits fertigen Fallschirm zu kaufen. Aufgrund von falsch eingeschätzter Gesamtmasse der Rakete, war diese Option in der Größe zu teuer. Es wurde ein Fallschirm dimensioniert und die Wahl für das Material wurde ebenfalls getroffen, genauer beschrieben in \ref{sec:recovery_system}. Dies konnte jedoch nicht mehr zeitnah realisiert werden.
+\\
+Bei der Auslegung der pyrotechnischen Charges wurde, wie in \ref{subsec:pyro_charges_legal} beschrieben, auf gesetzliche Einschränkung gestoßen, was den Bau von diesen verhinderte.
+
+\paragraph{Montierung von Akku und Flightcomputer}
+
+\paragraph{Schockseilverbindung}
+
+\
+
+Ziel: Zeigen, was du überhaupt gebaut hast – aber auf reflektiertem Niveau
+
+Inhalte:
+Mechanischer Aufbau der Rakete
+Integration des Flightcomputers
+Sensorplatzierung (sehr wichtig!)
+
+
+Hier perfekt:
+
+Gesamtaufbau Rakete
+Flightcomputer PCB
+Einbauposition
+
+ also hier bitte einfügen der Collage von den ganzen ganzen von der Rakete und was nun ja genau also Fotos Gesamtaufbau drüber besprechen wie die ganzen Systeme zusammenarbeiten
+
+\chapter{Simulations- und Testergebnisse}
+\label{ch:simulationsergebnisse}
+Während den Lauf des Entwicklungsprozesses hinweg wurden verschiedene Simulationen und Tests durchgeführt, von anfänglichen Simulationen mit OpenRocket, über die Simulation der Regelung mit MATLAB und der Strömungssimulation in Ansys Fluent, bis hin zu ersten Hardware in the loop Tests mit dem Flightcomputer. In diesem Kapitel werden die wichtigsten Ergebnisse dieser Simulationen und Tests präsentiert und diskutiert.
+\section{Ergebnisse der OpenRocket Simulation}
+\label{sec:ergebnisse_openrocket}
+Zu Beginn des Projekts wurde mit Hilfe von der Open-Source Simulationssoftware für Modellraketen OpenRocket eine Simulation durchgeführt, um die ungefähren Maße der Rakete festzulegen. Dadurch wurde auch ein Stabilitätskoeffizient von $S_m = 1$ festgelegt (genauere Erläuterung zum Stabilitätskoeffizient in \ref{sec:stability_margin}). Dieser resultiert aus der Position des Schwerpunktes $x_{CG} = 400mm$ und des Druckpunktes $x_{CP} = 300$. 
+\\
+Ebenfalls wurde mit Hilfe der Simulation die ungefähre Maximalgeschwindigkeit $v = 100\frac{m}{s}$, die maximale Flughöhe der Rakete $s_h = $ und der Verlauf der Flugbahn bestimmt.
+%================= HIER NOCH SCREENSHOTS AUS OPENROCKET + MEHR ERLÄUTERUNGEN ========
+
+\section{Ergebnisse der MATLAB Simulationen}
+\label{sec:ergebnisse_matlab}
+Nach Aufstellen des Zustandsraummodells der Rakete, wurden verschiedene Simulationen mit MATLAB durchgeführt, um das Modell zu validieren und die Regelungsstrategie zu testen. 
+\begin{wrapfigure}{r}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.5\textwidth]{sim1.png}
+    \caption{Ungestörter Flug der Rakete mit einem H-Motor}
+    \label{fig:matlab_simulation_results}
+    \vspace{-30pt}
+\end{wrapfigure}
+
+In Abbildung \ref{fig:matlab_simulation_results} ist die simulierte Aufstiegsphase der Rakete bei einer angenommenen Masse von 1{,}6,kg dargestellt. Der Schubverlauf eines H-Motors (blau) zeigt eine maximale Schubkraft zu Beginn des Fluges, gefolgt von einem raschen Abfall auf null nach etwa 1{,}5,s.
+Infolge der Schubphase steigt die Geschwindigkeit in x-Richtung (grün) zunächst an und erreicht ihr Maximum kurz vor dem Brennschluss. Anschließend nimmt sie aufgrund der wirkenden Widerstands- und Gravitationskräfte kontinuierlich ab und wird im weiteren Verlauf negativ, was den Übergang in die Sinkphase beschreibt.
+
+Die Höhe der Rakete (rosa) nimmt während der Aufstiegsphase stetig zu und erreicht nach etwa 9\,s ein Maximum von rund 420\,m. Danach beginnt die Rakete wieder an Höhe zu verlieren.
+
+Die Simulation dient der Validierung des mathematischen Modells in x-Richtung und zeigt ein plausibles dynamisches Verhalten, das sich im Vergleich mit der Referenzsimulationen in OpenRocket bestätigt.
+
+\begin{wrapfigure}{l}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.5\textwidth]{sim2.png}
+    \caption{Ungestörter Flug der Rakete mit einem H-Motor}
+    \label{fig:matlab_simulation_results_2}
+    \vspace{-1.5cm}
+\end{wrapfigure}
+In Abbildung \ref{fig:matlab_simulation_results_2} ist eine Simulation von Startwinkeln von $3^\circ$ für $\theta$ (grün) und $1^\circ$ für $\psi$ (orange) dargestellt. Die Regelung setzt bei einer Geschwindigkeit von 20 $\frac{m}{s}$ ein, was etwa 0,25\,s nach dem Start entspricht und führt die $\mathbf{K}$-Matrix der Geschwindigkeit nach. Wie in Abschnitt 
+\ref{subsec:ascent} beschrieben, stehen die Finnen im Bereich von 0-20\,s in der Neutralstellung, um die Stabilität der Rakete zu gewährleisten. Sobald die Regelung aktiv wird, beginnen die Finnen ($\delta_\eta$ in gelb und $\delta_\zeta$ in lila) mit der Korrektur der Lageabweichungen, was sich in einer Stabilisierung der Winkel $\theta$ und $\psi$ zeigt. Die Simulation zeigt, dass die Regelung in der Lage ist, die Rakete trotz der anfänglichen Störung zu stabilisieren und eine kontrollierte Flugbahn aufrechtzuerhalten. Es ist jedoch auch zu erkennen, dass der Regler nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung.
+
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.5\textwidth]{sim3.png}
+    \caption{Ungestörter Flug der Rakete mit einem H-Motor}
+    \label{fig:matlab_simulation_results_3}
+    
+\end{wrapfigure}
+Im Vergleich dazu ist in Abbildung \ref{fig:matlab_simulation_results_3} die Simulation des gleichen Fluges dargestellt, bei dem die Regelung von Anfang an aktiv ist und die $\mathbf{K}$-Matrix für die Geschwindigkeit von 50 $\frac{m}{s}$ verwendet wird. Es ist zu erkennen, dass sich die beiden Verläufe grundsätzlich sehr ähnlich sind, die Auslenkung der Finnen jedoch merklich größer ist was zu einem Überschwinger des Winkels $\theta$ führt. In diesem Fall ist das in Ordnung und führt zu keinerlei Problemen, da die Regelung ohnehin im Bereich unter 50 $\frac{m}{s}$ bis ca. 1\,s bleibt siehe Abbildung \ref{fig:matlab_simulation_results}. 
+
+
+\newpage
+\section{Ergebnisse der Strömungssimulation}
+\label{sec:cfd_results_conclusion}
+% ======================= HIER PLOTS VON DEN BEIWERTEN ===============================
+% ======================= UND NOCH EXTRA VISUALISIERUNG VOM STRÖMUNGSVERLAUF =========
+
+\section{Ergebnisse der Hardware in the Loop Tests}
+Nachdem der Flightcomputer entwickelt und die Sensoren integriert wurden, wurden erste Hardware in the Loop Tests durchgeführt, um die Funktionalität des Flightcomputers und die Integration der Sensoren zu überprüfen.
+
 \chapter{Rechtliches}
 \label{ch:legal}
 
@@ -60,114 +167,6 @@ Daraus folgt für kleine Charges / kleine Sprengkörper:
     \item Weil S1 nur die drei genannten Pulverarten umfasst, wäre ein kleiner Knall-, Blitzknall- oder Ausstoßsatz rechtlich regelmäßig S2.
     \item Ist die Charge in einen Körper eingebaut oder geformt, kann sie statt als Satz als pyrotechnischer Gegenstand gelten; dann kommt bei „sonstigen pyrotechnischen Gegenständen“ regelmäßig P1 oder P2 in Betracht. P2 ist für Gegenstände, die Personen mit Fachkenntnissen vorbehalten sind.
 \end{itemize}
-
-
-%\section{Unterstützung von Israel}
-%\label{sec:israel_support}
-%Das Projekt wurde von Big Yahu unterstützt, diese connection kam dank Big Stein (siehe Abbildung \ref{fig:big_stein}) zustande. Nach Vollendung des Projekts, wird "`ALBERT"' an die IDF (Israeli Defence Forces) verkauft.
-%\begin{figure}[H]
-%    \centering
-%        \includegraphics[width=0.9\textwidth]{big_stein.png}
-%        \caption{Big Stein Portraitbild}
-%        \label{fig:big_stein}
-%\end{figure}
-
-\section{Stand vom mechanischen Aufbau}
-\label{sec:mechanical_build_status}
-Es wurden die Halterungen für Raketenflügel/Servomotoren, die hintere Abdeckung und die Abdeckung des Motors, die Raketenspitze und die Raketenflügel in das Gehäuse eingebaut. In alle mit Schrauben ans Gehäuse festgemachten Teile wurden in die dafür vorgesehenen Löcher Gewindeeinsätze eingeschmolzen und die Kugellager der Flügel wurden in das 3D-gedruckte Teil eingeklebt, wie auf Bild
-% ======================== HIER BILD VON KUGELLAGER IN FLÜGELHALTERUNG ===============
-zu sehen ist.
-\\
-Aufgrund von Zeitmangel mussten Prioritäten beim Aufbau der einzelnen Subsysteme gesetzt werden. Diese fielen auf die Montierung der Raketenflügel und der Servomotoren. Insgesamt wurde mehr Wert auf eine funktionierende Regelung gelegt, die durch CFD-Simulationen ausgelegt wurde.
-
-\subsection{Nicht fertitggebrachte Subsysteme/Teile der Struktur}
-\label{subsec:not_finished_subsystems}
-\paragraph{Bergungsystem}
-Der ursprüngliche Plan für das Bergungsystem war, einen bereits fertigen Fallschirm zu kaufen. Aufgrund von falsch eingeschätzter Gesamtmasse der Rakete, war diese Option in der Größe zu teuer. Es wurde ein Fallschirm dimensioniert und die Wahl für das Material wurde ebenfalls getroffen, genauer beschrieben in \ref{sec:recovery_system}. Dies konnte jedoch nicht mehr zeitnah realisiert werden.
-\\
-Bei der Auslegung der pyrotechnischen Charges wurde, wie in \ref{subsec:pyro_charges_legal} beschrieben, auf gesetzliche Einschränkung gestoßen, was den Bau von diesen verhinderte.
-
-\paragraph{Montierung von Akku und Flightcomputer}
-
-\paragraph{Schockseilverbindung}
-
-\
-
-Ziel: Zeigen, was du überhaupt gebaut hast – aber auf reflektiertem Niveau
-
-Inhalte:
-Mechanischer Aufbau der Rakete
-Integration des Flightcomputers
-Sensorplatzierung (sehr wichtig!)
-
-
-Hier perfekt:
-
-Gesamtaufbau Rakete
-Flightcomputer PCB
-Einbauposition
-
- also hier bitte einfügen der Collage von den ganzen ganzen von der Rakete und was nun ja genau also Fotos Gesamtaufbau drüber besprechen wie die ganzen Systeme zusammenarbeiten
-
-\chapter{Simulations- und Testergebnisse}
-\label{ch:simulationsergebnisse}
-I Simulation Testergebnisse Simulation von mir sprich bla bla bla was Ivo Evaluation von verschiedenen Tests CF Simulationo
-
-Während den Lauf des Entwicklungsprozesses hinweg wurden verschiedene Simulationen und Tests durchgeführt, von anfänglichen Simulationen mit OpenRocket, über die Simulation der Regelung mit MATLAB und der Strömungssimulation in Ansys Fluent, bis hin zu ersten Hardware in the loop Tests mit dem Flightcomputer. In diesem Kapitel werden die wichtigsten Ergebnisse dieser Simulationen und Tests präsentiert und diskutiert.
-\section{Ergebnisse der OpenRocket Simulation}
-\label{sec:ergebnisse_openrocket}
-Zu Beginn des Projekts wurde mit Hilfe von der Open-Source Simulationssoftware für Modellraketen OpenRocket eine Simulation durchgeführt, um die ungefähren Maße der Rakete festzulegen. Dadurch wurde auch ein Stabilitätskoeffizient von $S_m = 1$ festgelegt (genauere Erläuterung zum Stabilitätskoeffizient in \ref{sec:stability_margin}). Dieser resultiert aus der Position des Schwerpunktes $x_{CG} = 400mm$ und des Druckpunktes $x_{CP} = 300$. 
-\\
-Ebenfalls wurde mit Hilfe der Simulation die ungefähre Maximalgeschwindigkeit $v = 100\frac{m}{s}$, die maximale Flughöhe der Rakete $s_h = $ und der Verlauf der Flugbahn bestimmt.
-%================= HIER NOCH SCREENSHOTS AUS OPENROCKET + MEHR ERLÄUTERUNGEN ========
-\newpage
-\section{Ergebnisse der MATLAB Simulationen}
-\label{sec:ergebnisse_matlab}
-Nach Aufstellen des Zustandsraummodells der Rakete, wurden verschiedene Simulationen mit MATLAB durchgeführt, um das Modell zu validieren und die Regelungsstrategie zu testen. 
-\begin{wrapfigure}{r}{0.5\textwidth}
-    \centering
-    \includegraphics[width=0.5\textwidth]{sim1.png}
-    \caption{Ungestörter Flug der Rakete mit einem H-Motor}
-    \label{fig:matlab_simulation_results}
-    \vspace{-30pt}
-\end{wrapfigure}
-
-In Abbildung \ref{fig:matlab_simulation_results} ist die simulierte Aufstiegsphase der Rakete bei einer angenommenen Masse von 1{,}6,kg dargestellt. Der Schubverlauf eines H-Motors (blau) zeigt eine maximale Schubkraft zu Beginn des Fluges, gefolgt von einem raschen Abfall auf null nach etwa 1{,}5,s.
-Infolge der Schubphase steigt die Geschwindigkeit in x-Richtung (grün) zunächst an und erreicht ihr Maximum kurz vor dem Brennschluss. Anschließend nimmt sie aufgrund der wirkenden Widerstands- und Gravitationskräfte kontinuierlich ab und wird im weiteren Verlauf negativ, was den Übergang in die Sinkphase beschreibt.
-
-Die Höhe der Rakete (rosa) nimmt während der Aufstiegsphase stetig zu und erreicht nach etwa 9\,s ein Maximum von rund 420\,m. Danach beginnt die Rakete wieder an Höhe zu verlieren.
-
-Die Simulation dient der Validierung des mathematischen Modells in x-Richtung und zeigt ein plausibles dynamisches Verhalten, das sich im Vergleich mit der Referenzsimulationen in OpenRocket bestätigt.
-
-\begin{wrapfigure}{l}{0.5\textwidth}
-    \centering
-    \includegraphics[width=0.5\textwidth]{sim2.png}
-    \caption{Ungestörter Flug der Rakete mit einem H-Motor}
-    \label{fig:matlab_simulation_results_2}
-    \vspace{-1.5cm}
-\end{wrapfigure}
-In Abbildung \ref{fig:matlab_simulation_results_2} ist eine Simulation von Startwinkeln von $3^\circ$ für $\theta$ (grün) und $1^\circ$ für $\psi$ (orange) dargestellt. Die Regelung setzt bei einer Geschwindigkeit von 20 $\frac{m}{s}$ ein, was etwa 0,25\,s nach dem Start entspricht und führt die $\mathbf{K}$-Matrix der Geschwindigkeit nach. Wie in Abschnitt 
-\ref{subsec:ascent} beschrieben, stehen die Finnen im Bereich von 0-20\,s in der Neutralstellung, um die Stabilität der Rakete zu gewährleisten. Sobald die Regelung aktiv wird, beginnen die Finnen ($\delta_\eta$ in gelb und $\delta_\zeta$ in lila) mit der Korrektur der Lageabweichungen, was sich in einer Stabilisierung der Winkel $\theta$ und $\psi$ zeigt. Die Simulation zeigt, dass die Regelung in der Lage ist, die Rakete trotz der anfänglichen Störung zu stabilisieren und eine kontrollierte Flugbahn aufrechtzuerhalten. Es ist jedoch auch zu erkennen, dass der Regler nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung.
-
-
-\begin{wrapfigure}{r}{0.5\textwidth}
-    \centering
-    \includegraphics[width=0.5\textwidth]{sim3.png}
-    \caption{Ungestörter Flug der Rakete mit einem H-Motor}
-    \label{fig:matlab_simulation_results_3}
-    
-\end{wrapfigure}
-Im Vergleich dazu ist in Abbildung \ref{fig:matlab_simulation_results_3} die Simulation des gleichen Fluges dargestellt, bei dem die Regelung von Anfang an aktiv ist und die $\mathbf{K}$-Matrix für die Geschwindigkeit von 50 $\frac{m}{s}$ verwendet wird. Es ist zu erkennen, dass sich die beiden Verläufe grundsätzlich sehr ähnlich sind, die Auslenkung der Finnen jedoch merklich größer ist was zu einem Überschwinger des Winkels $\theta$ führt. In diesem Fall ist das in Ordnung und führt zu keinerlei Problemen, da die Regelung ohnehin im Bereich unter 50 $\frac{m}{s}$ bis ca. 1\,s bleibt siehe Abbildung \ref{fig:matlab_simulation_results}. 
-
-
-\newpage
-\section{Ergebnisse der Strömungssimulation}
-\label{sec:cfd_results_conclusion}
-% ======================= HIER PLOTS VON DEN BEIWERTEN ===============================
-% ======================= UND NOCH EXTRA VISUALISIERUNG VOM STRÖMUNGSVERLAUF =========
-
-\section{Ergebnisse der Hardware in the Loop Tests}
-Nachdem der Flightcomputer entwickelt und die Sensoren integriert wurden, wurden erste Hardware in the Loop Tests durchgeführt, um die Funktionalität des Flightcomputers und die Integration der Sensoren zu überprüfen.
 
 \chapter{Verwendung von Künstlicher Intelligenz}
 \label{ch:ai_use}
