@@ -679,6 +679,70 @@
       \verb https://www.jusline.at/gesetz/pyrotg/paragraf/28
       \endverb
     \endentry
+    \entry{NakkaFins}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=72aaaa794324b7514e7e99161f08c3d3}{%
+           family={{Richard Nakka}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{fullhash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{fullhashraw}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{bibnamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorbibnamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authornamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorfullhash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorfullhashraw}{72aaaa794324b7514e7e99161f08c3d3}
+      \field{extraname}{1}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fins}
+      \field{urlday}{25}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.nakka-rocketry.net/RD_fin.htm
+      \endverb
+      \verb{url}
+      \verb https://www.nakka-rocketry.net/RD_fin.htm
+      \endverb
+    \endentry
+    \entry{NakkaNoseCone}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=72aaaa794324b7514e7e99161f08c3d3}{%
+           family={{Richard Nakka}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{fullhash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{fullhashraw}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{bibnamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorbibnamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authornamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorfullhash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorfullhashraw}{72aaaa794324b7514e7e99161f08c3d3}
+      \field{extraname}{2}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Nosecone Design Considerations}
+      \field{urlday}{25}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.nakka-rocketry.net/RD_nosecone.html
+      \endverb
+      \verb{url}
+      \verb https://www.nakka-rocketry.net/RD_nosecone.html
+      \endverb
+    \endentry
     \entry{NakkaRocketry}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=72aaaa794324b7514e7e99161f08c3d3}{%
@@ -693,6 +757,7 @@
       \strng{authornamehash}{72aaaa794324b7514e7e99161f08c3d3}
       \strng{authorfullhash}{72aaaa794324b7514e7e99161f08c3d3}
       \strng{authorfullhashraw}{72aaaa794324b7514e7e99161f08c3d3}
+      \field{extraname}{3}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{labelnamesource}{author}
