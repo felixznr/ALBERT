@@ -18,15 +18,16 @@
 \contentsline {table}{\numberline {13.3}{\ignorespaces Definition der Simulationsfälle}}{84}{table.caption.81}%
 \contentsline {table}{\numberline {13.4}{\ignorespaces Simulierte Beiwerte}}{85}{table.caption.82}%
 \contentsline {table}{\numberline {13.5}{\ignorespaces Der Strömungsgeschwindigkeit entsprechende Höhe der Wassersäule}}{94}{table.caption.91}%
-\contentsline {table}{\numberline {13.6}{\ignorespaces Messergebnisse im Windkanal bei $20\frac {m}{s}$}}{95}{table.caption.92}%
-\contentsline {table}{\numberline {13.7}{\ignorespaces Messergebnisse im Windkanal bei $30\frac {m}{s}$}}{95}{table.caption.93}%
+\contentsline {table}{\numberline {13.6}{\ignorespaces Messergebnisse im Windkanal bei $v_s = 20\frac {m}{s}$}}{95}{table.caption.92}%
+\contentsline {table}{\numberline {13.7}{\ignorespaces Messergebnisse im Windkanal bei $v_s = 30\frac {m}{s}$}}{95}{table.caption.93}%
 \contentsline {table}{\numberline {13.8}{\ignorespaces Rechenergebnisse bei $20\frac {m}{s}$}}{96}{table.caption.94}%
 \contentsline {table}{\numberline {13.9}{\ignorespaces Rechenergebnisse bei $30\frac {m}{s}$}}{96}{table.caption.95}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {15.1}{\ignorespaces Simulierte Stabilitäts- und Flugwerte aus OpenRocket}}{99}{table.caption.99}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {17.1}{\ignorespaces Benutzte KI-Modell}}{104}{table.caption.100}%
+\contentsline {table}{\numberline {17.1}{\ignorespaces Benutzte KI-Modell}}{104}{table.caption.102}%
 \def \@chapapp {\appendixname }
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
