@@ -2,7 +2,7 @@
 \fancypagestyle{plain}{\fancyfoot[C]{}}
 \part{Ergebnisse und Ausblick}
 \label{part:ergebnisse_und_ausblick}
-\fancyfoot[C]{\large Felix Zauner, \large Timofey Luzin}
+\fancyfoot[C]{\large Felix Zauner \& \large Timofey Luzin}
 \fancypagestyle{plain}{\fancyfoot[C]{\large Felix Zauner, \large Timofey Luzin}}
 
 \chapter{Gesamtaufbau und Systemintegration}
@@ -66,7 +66,36 @@ Zu Beginn des Projekts wurde mit Hilfe von der Open-Source Simulationssoftware f
 \\
 Ebenfalls wurde mit Hilfe der Simulation die ungefähre Maximalgeschwindigkeit $v = 100\frac{m}{s}$, die maximale Flughöhe der Rakete $s_h = $ und der Verlauf der Flugbahn bestimmt.
 %================= HIER NOCH SCREENSHOTS AUS OPENROCKET + MEHR ERLÄUTERUNGEN ========
+\newpage
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{rocketmuse.jpeg}
+    
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{komadori.jpeg}
+    \end{minipage}
 
+    \vspace{0.5cm}
+
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{komadoriaerosmith.jpeg}
+        
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{rocketkomadori.jpeg}
+        
+    \end{minipage}
+    \label{fig:collage4}
+\end{figure}
+\newpage
 \section{Ergebnisse der MATLAB Simulationen}
 \label{sec:ergebnisse_matlab}
 Nach Aufstellen des Zustandsraummodells der Rakete, wurden verschiedene Simulationen mit MATLAB durchgeführt, um das Modell zu validieren und die Regelungsstrategie zu testen. 
@@ -81,7 +110,8 @@ Nach Aufstellen des Zustandsraummodells der Rakete, wurden verschiedene Simulati
 In Abbildung \ref{fig:matlab_simulation_results} ist die simulierte Aufstiegsphase der Rakete bei einer angenommenen Masse von 1{,}6,kg dargestellt. Der Schubverlauf eines H-Motors (blau) zeigt eine maximale Schubkraft zu Beginn des Fluges, gefolgt von einem raschen Abfall auf null nach etwa 1{,}5,s.
 Infolge der Schubphase steigt die Geschwindigkeit in x-Richtung (grün) zunächst an und erreicht ihr Maximum kurz vor dem Brennschluss. Anschließend nimmt sie aufgrund der wirkenden Widerstands- und Gravitationskräfte kontinuierlich ab und wird im weiteren Verlauf negativ, was den Übergang in die Sinkphase beschreibt.
 
-Die Höhe der Rakete (rosa) nimmt während der Aufstiegsphase stetig zu und erreicht nach etwa 9\,s ein Maximum von rund 420\,m. Danach beginnt die Rakete wieder an Höhe zu verlieren.
+Die Höhe der Rakete (rosa) nimmt während der Aufstiegsphase stetig zu und erreicht nach etwa 9\,s ein Maximum von rund 420\,m %https://www.youtube.com/watch?v=SjhRXwn0TNY
+. Danach beginnt die Rakete wieder an Höhe zu verlieren.
 
 Die Simulation dient der Validierung des mathematischen Modells in x-Richtung und zeigt ein plausibles dynamisches Verhalten, das sich im Vergleich mit der Referenzsimulationen in OpenRocket bestätigt.
 
@@ -90,12 +120,11 @@ Die Simulation dient der Validierung des mathematischen Modells in x-Richtung un
     \includegraphics[width=0.5\textwidth]{sim2.png}
     \caption{Ungestörter Flug der Rakete mit einem H-Motor}
     \label{fig:matlab_simulation_results_2}
-    \vspace{-1.5cm}
+    \vspace{-5cm}
 \end{wrapfigure}
-In Abbildung \ref{fig:matlab_simulation_results_2} ist eine Simulation von Startwinkeln von $3^\circ$ für $\theta$ (grün) und $1^\circ$ für $\psi$ (orange) dargestellt. Die Regelung setzt bei einer Geschwindigkeit von 20 $\frac{m}{s}$ ein, was etwa 0,25\,s nach dem Start entspricht und führt die $\mathbf{K}$-Matrix der Geschwindigkeit nach. Wie in Abschnitt 
-\ref{subsec:ascent} beschrieben, stehen die Finnen im Bereich von 0-20\,s in der Neutralstellung, um die Stabilität der Rakete zu gewährleisten. Sobald die Regelung aktiv wird, beginnen die Finnen ($\delta_\eta$ in gelb und $\delta_\zeta$ in lila) mit der Korrektur der Lageabweichungen, was sich in einer Stabilisierung der Winkel $\theta$ und $\psi$ zeigt. Die Simulation zeigt, dass die Regelung in der Lage ist, die Rakete trotz der anfänglichen Störung zu stabilisieren und eine kontrollierte Flugbahn aufrechtzuerhalten. Es ist jedoch auch zu erkennen, dass der Regler nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung.
+In Abbildung \ref{fig:matlab_simulation_results_2} ist eine Simulation von Startwinkeln von $3^\circ$ für $\theta$ (orange) und $-1^\circ$ für $\psi$ (grün) dargestellt. Sobald die Regelung aktiv wird, beginnen die Finnen ($\delta_\eta$ in gelb und $\delta_\zeta$ in lila) mit der Korrektur der Lageabweichungen, was sich in einer Stabilisierung der Winkel $\theta$ und $\psi$ zeigt. Die Simulation zeigt, dass die Regelung in der Lage ist, die Rakete trotz der anfänglichen Störung zu stabilisieren und eine kontrollierte Flugbahn aufrechtzuerhalten. Es ist jedoch auch zu erkennen, dass der Regler nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung.
 
-
+\newpage
 \begin{wrapfigure}{r}{0.5\textwidth}
     \centering
     \includegraphics[width=0.5\textwidth]{sim3.png}
@@ -103,8 +132,9 @@ In Abbildung \ref{fig:matlab_simulation_results_2} ist eine Simulation von Start
     \label{fig:matlab_simulation_results_3}
     
 \end{wrapfigure}
-Im Vergleich dazu ist in Abbildung \ref{fig:matlab_simulation_results_3} die Simulation des gleichen Fluges dargestellt, bei dem die Regelung von Anfang an aktiv ist und die $\mathbf{K}$-Matrix für die Geschwindigkeit von 50 $\frac{m}{s}$ verwendet wird. Es ist zu erkennen, dass sich die beiden Verläufe grundsätzlich sehr ähnlich sind, die Auslenkung der Finnen jedoch merklich größer ist was zu einem Überschwinger des Winkels $\theta$ führt. In diesem Fall ist das in Ordnung und führt zu keinerlei Problemen, da die Regelung ohnehin im Bereich unter 50 $\frac{m}{s}$ bis ca. 1\,s bleibt siehe Abbildung \ref{fig:matlab_simulation_results}. 
+Im Vergleich dazu ist in Abbildung \ref{fig:matlab_simulation_results_3} die Simulation des gleichen Fluges dargestellt, bei dem die Regelung von Anfang an aktiv ist und die $\mathbf{K}$-Matrix für die Geschwindigkeit von 60 $\frac{m}{s}$ verwendet wird. Es ist zu erkennen, dass sich die beiden Verläufe grundsätzlich sehr ähnlich sind, die Auslenkung der Finnen am Anfang jedoch merklich kleiner ist was daran liegt, dass die Regelung bei 50 $\frac{m}{s}$ weniger scharf eingestellt ist als bei den anfänglichen Geschwindigkeiten eigentlich optimal. Es lässt sich erkennen, dass die Winkel $\theta$ und $\psi$ einen leichten Überschwinger aufweisen, bevor sie sich stabilisieren. Es ist jedoch auch hier zu erkennen, dass die Regelung nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung.
 
+Die Analyse der Simulationsresultate zeigt, dass auch ohne Nachführung der $\mathbf{K}$-Matrix die Regelung in der Lage ist, die Rakete bei einer Winkelabweichung zu stabilisieren, dabei ist der Regler jedoch nicht mehr optimal eingestellt.
 
 \newpage
 \section{Ergebnisse der Strömungssimulation}
