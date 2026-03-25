@@ -115,6 +115,39 @@ Einbauposition
 \label{ch:simulationsergebnisse}
 I Simulation Testergebnisse Simulation von mir sprich bla bla bla was Ivo Evaluation von verschiedenen Tests CF Simulationo
 
+Während den Lauf des Entwicklungsprozesses hinweg wurden verschiedene Simulationen und Tests durchgeführt, von anfänglichen Simulationen mit OpenRocket, über die Simulation der Regelung mit MATLAB, bis hin zu ersten Hardware in the loop Tests mit dem Flightcomputer. In diesem Kapitel werden die wichtigsten Ergebnisse dieser Simulationen und Tests präsentiert und diskutiert.
+\section{Ergebnisse der OpenRocket Simulation}
+\label{sec:ergebnisse_openrocket}
+
+Zu Beginn des Projekts wurde mitthilfe der Open Source %Linux an die Macht
+Software OpenRocket eine erste Simulation des Raketenflugs durchgef
+
+\section{Ergebnisse der MATLAB Simulationen}
+\label{sec:ergebnisse_matlab}
+Nach Aufstellen des Zustandsraummodells der Rakete, wurden verschiedene Simulationen mit MATLAB durchgeführt, um das Modell zu validieren und die Regelungsstrategie zu testen. 
+\begin{wrapfigure}{r}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.5\textwidth]{sim1.png}
+    \caption{Ungestörter Flug der Rakete mit einem H-Motor}
+    \label{fig:matlab_simulation_results}
+    \vspace{-30pt}
+\end{wrapfigure}
+
+In Abbildung \ref{fig:matlab_simulation_results} ist die simulierte Aufstiegsphase der Rakete bei einer angenommenen Masse von 1{,}6,kg dargestellt. Der Schubverlauf eines H-Motors (blau) zeigt eine maximale Schubkraft zu Beginn des Fluges, gefolgt von einem raschen Abfall auf null nach etwa 1{,}5,s.
+
+Infolge der Schubphase steigt die Geschwindigkeit in x-Richtung (grün) zunächst an und erreicht ihr Maximum kurz vor dem Brennschluss. Anschließend nimmt sie aufgrund der wirkenden Widerstands- und Gravitationskräfte kontinuierlich ab und wird im weiteren Verlauf negativ, was den Übergang in die Sinkphase beschreibt.
+
+Die Höhe der Rakete (rosa) nimmt während der Aufstiegsphase stetig zu und erreicht nach etwa 9\,s ein Maximum von rund 420\,m. Danach beginnt die Rakete wieder an Höhe zu verlieren.
+
+Die Simulation dient der Validierung des mathematischen Modells in x-Richtung und zeigt ein plausibles dynamisches Verhalten, das sich im Vergleich mit der Referenzsimulationen in OpenRocket bestätigt.
+
+
+
+\section{Ergebnisse der Hardware in the Loop Tests}
+Nachdem der Flightcomputer entwickelt und die Sensoren integriert wurden, wurden erste Hardware in the Loop Tests durchgeführt, um die Funktionalität des Flightcomputers und die Integration der Sensoren zu überprüfen.
+
+
+
 \chapter{Verwendung von Künstlicher Intelligenz}
 \label{ch:ai_use}
 Um Rechtschreib- und Grammatikfehler in der Diplomarbeit zu korrigieren, um \LaTeX \, Source-Code zu Tabellen, Grafiken und Formeln zu erstellen, um aus dem Englischen in Deutsch zu übersetzen und, um gesetzliche Paragraphen zu finden, wurden die folgenden KI-Modelle verwendet:
