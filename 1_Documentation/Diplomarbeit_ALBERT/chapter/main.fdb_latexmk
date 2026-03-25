@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1774458589.48671 "main.bcf" "main.bbl" "main" 1774458598.8328 0
+["biber main"] 1774458589.48671 "main.bcf" "main.bbl" "main" 1774458707.14576 0
   "../appendix/refs.bib" 1774434274.03525 10533 2ea0425fb490219f22f12b87c8873053 ""
-  "main.bcf" 1774458598.67451 112798 c8f446a4f27a81784a7f28e2544691b0 "pdflatex"
+  "main.bcf" 1774458706.99418 112798 c8f446a4f27a81784a7f28e2544691b0 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1774458590.61999 "/Users/felixzauner/Desktop/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1774458598.83305 0
+["pdflatex"] 1774458699.15411 "/Users/felixzauner/Desktop/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1774458707.14598 0
   "../figures/6dofrocket.png" 1771673931.54071 314532 56689617eb28dbaf3516b522b3b7463f ""
   "../figures/ALBERT_FLIGHTCOMPUTER.pdf" 1774296652.74113 1151948 da7dc8ab4fc96656f27a4560091a0803 ""
   "../figures/BuckSchematic.png" 1772795168.60845 113771 a510fafcc36115634d1419b0dde047fa ""
@@ -51,7 +51,6 @@
   "../figures/naca_geometry.png" 1771489152.74478 90201 a2255278764f1f36673f0064d8b0dceb ""
   "../figures/nose_cone_cad.png" 1774430597.78971 265436 9abdd21e2a2212d4e17305838485d90d ""
   "../figures/nose_cone_shapes.png" 1774434274.04025 6234 507d27fec813c01cc1e476f2260efc7b ""
-  "../figures/openrocket_plot1.png" 1774458562.00133 103072 28deb4562f5e806548a6e471bd025aea ""
   "../figures/pcbback.png" 1772967604.65115 252728 4fb6537067a6864c4c05acbef53f5009 ""
   "../figures/pcbfront.png" 1772094203.10812 571988 9472245d920496d105a24f63b5116b09 ""
   "../figures/pifilter.png" 1772821143.23843 73730 365bed00a9dba3575054c6ae654d6e31 ""
@@ -445,16 +444,16 @@
   "attachments.tex" 1774445936.42373 462 96c74046daead2bd670e87fdd31783a4 ""
   "bibliography.tex" 1774294703.05509 522 bf19b6e1b0d3d7713c9df463ef0cde21 ""
   "cad_drafts.tex" 1774445931.37599 436 c3f35e2aea4a0e8d05a925ff5cbf2664 ""
-  "fazit.tex" 1774458561.99926 27461 728a58c74e277036d2cd1521d5ed51df ""
+  "fazit.tex" 1774458691.07715 20042 3cefb9ac34f037c8f46ce60d94ac0995 ""
   "introduction.tex" 1774447433.26119 2946 e5aeb74b630ce90cd4f7e3da508a5736 ""
-  "main.aux" 1774458598.6536 129701 dc4915f0550b862e4d0b2dfb75319e33 "pdflatex"
+  "main.aux" 1774458706.97455 123382 377eff7ed71d80a9cfc5210020a1f0f1 "pdflatex"
   "main.bbl" 1774458590.60627 47269 0281176346868ac7b4c9c639b071de60 "biber main"
-  "main.lof" 1774458598.67517 9780 bdbe28599a5a25015b949d95b95c02b5 "pdflatex"
-  "main.lot" 1774458598.67522 1955 549038c0ef8b40763608312859790a5d "pdflatex"
-  "main.out" 1774458592.07749 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.run.xml" 1774458598.67509 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
+  "main.lof" 1774458706.99485 9497 7a44301838d92a1dcda7a9cb32f9b4ef "pdflatex"
+  "main.lot" 1774458706.99495 1800 83713b173363f069e16626edcd292dbd "pdflatex"
+  "main.out" 1774458700.63949 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.run.xml" 1774458706.99478 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
   "main.tex" 1774434274.03817 432 90596554c03fd1e66e9145821ab22604 ""
-  "main.toc" 1774458598.67515 17666 410350a925ceee253f4fd812bff38c32 "pdflatex"
+  "main.toc" 1774458706.99483 16690 0aa9be451a1772e4f175c0479e21b1f6 "pdflatex"
   "praxis.tex" 1773052834.58622 208 32efc3fd2a6dcb446e3dbd5c18836ae7 ""
   "praxis_Felix.tex" 1774357672.84695 87118 030a740628233fe32a811256c66aff47 ""
   "praxis_Timofey.tex" 1774458562.00077 44589 29fba601f8620a990b37cecd5fb29125 ""
