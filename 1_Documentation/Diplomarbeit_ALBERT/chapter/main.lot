@@ -26,8 +26,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+<<<<<<< HEAD
 \contentsline {table}{\numberline {17.1}{\ignorespaces Benutzte KI-Modell}}{105}{table.caption.103}%
 \def \@chapapp {\appendixname }
+=======
+\contentsline {table}{\numberline {17.1}{\ignorespaces Benutzte KI-Modell}}{109}{table.caption.148}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+>>>>>>> 5b7c768a3e987d7d0baebcc34efe7007c6a7913c
 \addvspace {10\p@ }
 \def \@chapapp {\appendixname }
 \addvspace {10\p@ }

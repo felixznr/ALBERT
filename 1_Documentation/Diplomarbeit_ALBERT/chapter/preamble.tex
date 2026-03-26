@@ -262,4 +262,27 @@
   emph={int,float,bool,list,dict,set,tuple,str,range,zip,enumerate}, emphstyle=\color{codety}\bfseries, % Typen/Objekte grün
   morekeywords={self,True,False,None,async,await,with,as,lambda,yield,from,import}, % Zusätzliche Schlüsselwörter
 }
+
+\lstdefinestyle{matlabstyle}{
+  language=Matlab,
+  backgroundcolor=\color{codebg},
+  frame=single,
+  rulecolor=\color{codeframe},
+  frameround=tttt,
+  basicstyle=\ttfamily\small,
+  numbers=left,
+  numberstyle=\footnotesize\color{codenum},
+  stepnumber=1,
+  numbersep=8pt,
+  showstringspaces=false,
+  tabsize=4,
+  keepspaces=true,
+  breaklines=true,
+  keywordstyle=\bfseries\color{codekw},
+  stringstyle=\color{codestr},
+  commentstyle=\itshape\color{codecom},
+  morekeywords={zeros,ones,eye,length,size,linspace,plot,xlabel,ylabel,title,legend,grid,hold,subplot,figure,syms,subs,double,simplify,diff,int,inv,det,disp,fprintf,ode45,ss,tf,lqr,kalman,place,eig},
+  emph={pi,Inf,NaN,true,false},
+  emphstyle=\color{codety}\bfseries
+}
 % Ende Preamble

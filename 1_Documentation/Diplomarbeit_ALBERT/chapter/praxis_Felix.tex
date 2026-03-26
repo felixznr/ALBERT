@@ -1,6 +1,6 @@
 
 
-\chapter{Flightcomputer KOMADORI}
+\chapter{Flightcomputer \textit{KOMADORI}}
 \label{ch:komadori}
 \fancyfoot[C]{\large Felix Zauner}
 \fancypagestyle{plain}{\fancyfoot[C]{\large Felix Zauner}}
@@ -297,7 +297,7 @@ Hier soll nun die Platine des Flightcomputers KOMADORI und die wichtigsten Desig
         \vspace{2pt}
         \includegraphics[width=1\textwidth]{pcbback.png}
     \end{minipage}
-    \caption{Layout der Leiterplatte des Flightcomputers KOMADORI (Vorder- und Rückseite)}
+    \caption{Layout der Leiterplatte des Flightcomputers \textit{KOMADORI} (Vorder- und Rückseite)}
     \label{fig:pcb_layout}
 \end{figure}
 \newpage
@@ -357,8 +357,8 @@ Durch die direkte Versorgung aus dem Akku wird verhindert, dass diese Stromspitz
 \\
 Um die höheren Ströme der Servos und Pyro-Kanäle zu bewältigen, werden die entsprechenden Leiterbahnen möglichst breit ausgeführt, desweitern werden diese auf der dritten Lage der Leiterplatte geführt.
 
-\chapter{Steuerungssystem}
-\label{ch:steuerungssystem}
+\chapter{Regelungssystem}
+\label{ch:regelungssystem}
 Die Steuerung und Stabilisierung einer Rakete erfordert ein Regelungssystem, welches die aktuelle Lage und Position der Rakete erfasst und darauf basierend aktiv Korrekturen an die Aktuatoren sendet, um die gewünschte Flugbahn zu gewährleisten. 
 \\
 Für diesen Zweck wird ein Linear Quadratic Gaussian (LQG) Regler entwickelt, welcher den Zusammenschluss aus Linear Quadratic Regulator (LQR) und Kalman-Filter darstellt. Der LQR ist ein optimaler Zustandsregler, der die Stellgröße so berechnet, dass eine quadratische Kostenfunktion $J$ minimiert wird. Der Kalman-Filter hingegen ist ein optimaler Schätzer, der die aktuellen Systemzustände basierend auf den Messungen der Sensoren und einem dynamischen Modell des Systems schätzt, um die Unsicherheiten in den Messungen und im Modell zu berücksichtigen.
@@ -366,10 +366,6 @@ Für diesen Zweck wird ein Linear Quadratic Gaussian (LQG) Regler entwickelt, we
 Wenn auch der PID-Regler eine weit verbreitete und effektive Regelungsstrategie darstellt, beschränkt sich seine Anwendbarkeit auf eine einzige Regelgröße oder mehrere Regelgrößen, die nicht miteinander gekoppelt sind, was den Einsatz in der Regelung einer Rakete extrem limitiert, da hier mehrere gekoppelte Regelgrößen (Lage, Position, Geschwindigkeit) gleichzeitig geregelt werden müssen.
 \\
 Aus diesem Grund wird nicht, wie ursprünglich in der Projektkonzeption geplant, zunächst ein PID-Regler implementiert, sondern es wird direkt mit der Entwicklung eines LQG-Reglers begonnen, da dieser die Anforderungen an die Regelung einer Rakete deutlich besser erfüllt.
-
-\section{Anforderungsanalyse}
-\label{sec:anforderungsanalyse_steuerung}
-
 \section{Zustandsraummodellierung}
 \label{sec:zustandsraummodellierung}
 Ein wesentlicher Teil der Entwicklung der Regelung für die Rakete ist die Erstellung eines Zustandsraummodells, das die Dynamik des Systems ausreichend akurat beschreibt. Im Bezug auf die Rakete umfasst dies die Modellierung der translationalen und rotatorischen Bewegungen, die durch die Kräfte und Momente beeinflusst werden, die auf die Rakete wirken. 
@@ -641,7 +637,7 @@ q \cos\phi - r \sin\phi \\[8pt]
 \end{figure}
 Für die Entwicklung eines Linear Quadratic Gaussian (LQG) Reglers ist es notwendig, das System an einem passenden Arbeitspunkt zu linearisieren. 
 
-\subsection{Bestimmung des stationären Arbeitspunkts}
+\subsection{Bestimmung des Arbeitspunkts}
 \label{subsec:trimming}
 Es gilt einen Zustand $\bar{\mathbf{x}}$ und Eingänge $\bar{\mathbf{u}}$ zu finden, sodass $f(\bar{\mathbf{x}}, \bar{\mathbf{u}}) = 0$. Für eine Rakete wäre ein stationärer Arbeitspunkt ein Zustand, in dem die Rakete sich mit konstanter Geschwindigkeit und konstanter Ausrichtung bewegt. Das bedeutet, dass die Ableitungen von Geschwindigkeit, Winkelgeschwindigkeit und Euler-Winkeln alle null sein sollten, was zu den folgenden Bedingungen führt:
 \begin{equation}
@@ -900,7 +896,7 @@ Der EKF ist dazu in der Lage, aus einer Reihe verrauschter Messwerte eine zuverl
 Die Leistung des EKF hängt maßgeblich davon ab, wie gut die zugrundeliegenden Modelle die tatsächliche Dynamik beschreiben, sowie von der Wahl der Prozess- und Messrauschkovarianzen. Darüber hinaus ist es wichtig die Startwerte genau zu kennen. Eine sorgfältige Modellierung und Abstimmung dieser Parameter ist entscheidend, um eine genaue und zuverlässige Zustandsschätzung zu gewährleisten. Später soll im Rahmen des Fazits noch genauer auf die erzielten Ergebnisse eingegangen werden, um die Leistung des EKF zu bewerten und mögliche Verbesserungen zu identifizieren. Desweiteren soll die tatsächliche Implementierung in C im Kapitel \ref{ch:implementation_in_software} beschrieben werden.
 \chapter{Implementierung in Software}
 \label{ch:implementation_in_software}
-In der nachfolgenden Abhandlung wird die Implementierung der zuvor beschriebenen Regelungskonzepte in die Software des Flightcomputers Komadori erörtert. Zunächst erfolgt eine Beschreibung des Programmablaufs, anschließend wird auf die Implementation des LQG-Reglers eingegangen.
+In der nachfolgenden Abhandlung wird die Implementierung der zuvor beschriebenen Regelungskonzepte in die Software des Flightcomputers \textit{KOMADORI} erörtert. Zunächst erfolgt eine Beschreibung des Programmablaufs, anschließend wird auf die Implementation des LQG-Reglers eingegangen.
 Desweiteren wird representativ für die Treiber aller Sensoren der Treiber für das IMU1 beschrieben um einen Einblick in die Treiberentwicklung zu geben. Der gesamte Programmcode wurde in C realisiert und in STM32CubeIDE geschrieben.
 \section{Allgemeiner Programmablauf}
 \label{sec:general_program_flow}

@@ -81,37 +81,6 @@
       \verb https://resources.altium.com/de/p/gps-antennas-in-your-pcb-design-you-won-t-get-lost-again
       \endverb
     \endentry
-    \entry{ExtendedKalmanHalle}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3c9843ce68dffdf1c0f301e28c14d4b7}{%
-           family={{Birgit Moeller und Denis Williams}},
-           familyi={B\bibinitperiod}}}%
-      }
-      \strng{namehash}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{fullhash}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{fullhashraw}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{bibnamehash}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{authorbibnamehash}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{authornamehash}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{authorfullhash}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \strng{authorfullhashraw}{3c9843ce68dffdf1c0f301e28c14d4b7}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Extended Kalmanfilter}
-      \field{urlday}{9}
-      \field{urlmonth}{1}
-      \field{urlyear}{2026}
-      \field{year}{2003}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www2.informatik.uni-halle.de/agprbio/AG/Lehre/ABV_WS03/material/extendedKalman.pdf
-      \endverb
-      \verb{url}
-      \verb https://www2.informatik.uni-halle.de/agprbio/AG/Lehre/ABV_WS03/material/extendedKalman.pdf
-      \endverb
-    \endentry
     \entry{barometerWorkingPrinciple}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=d6909410a4f8426780fa6519b31a2130}{%
@@ -364,6 +333,37 @@
       \verb https://www.intechopen.com/chapters/64567
       \endverb
     \endentry
+    \entry{RibeiroKalman}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=15d1b0895d69a21c01423b5b2de25c51}{%
+           family={{Maria Isabel Ribeiro}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{fullhash}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{fullhashraw}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{bibnamehash}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{authorbibnamehash}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{authornamehash}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{authorfullhash}{15d1b0895d69a21c01423b5b2de25c51}
+      \strng{authorfullhashraw}{15d1b0895d69a21c01423b5b2de25c51}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Kalman and Extended Kalman Filters: Concept, Derivation and Properties}
+      \field{urlday}{24}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2004}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://people.duke.edu/~hpgavin/SystemID/References/Ribeiro-KalmanFilter-2004.pdf
+      \endverb
+      \verb{url}
+      \verb https://people.duke.edu/~hpgavin/SystemID/References/Ribeiro-KalmanFilter-2004.pdf
+      \endverb
+    \endentry
     \entry{BeginnersGuideToAeronautics}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=5e132303f66c04eff7f5dc9b56ce138c}{%
@@ -378,6 +378,7 @@
       \strng{authornamehash}{5e132303f66c04eff7f5dc9b56ce138c}
       \strng{authorfullhash}{5e132303f66c04eff7f5dc9b56ce138c}
       \strng{authorfullhashraw}{5e132303f66c04eff7f5dc9b56ce138c}
+      \field{extraname}{1}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
       \field{labelnamesource}{author}
@@ -393,6 +394,38 @@
       \endverb
       \verb{url}
       \verb https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/
+      \endverb
+    \endentry
+    \entry{NasaSolidFuelEngine}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5e132303f66c04eff7f5dc9b56ce138c}{%
+           family={{Nancy Hall}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{fullhash}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{fullhashraw}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{bibnamehash}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{authorbibnamehash}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{authornamehash}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{authorfullhash}{5e132303f66c04eff7f5dc9b56ce138c}
+      \strng{authorfullhashraw}{5e132303f66c04eff7f5dc9b56ce138c}
+      \field{extraname}{2}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Solid Rocket Engine}
+      \field{urlday}{25}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.grc.nasa.gov/www/k-12/airplane/srockth.html
+      \endverb
+      \verb{url}
+      \verb https://www.grc.nasa.gov/www/k-12/airplane/srockth.html
       \endverb
     \endentry
     \entry{bitweenie2013}{online}{}{}
@@ -646,6 +679,70 @@
       \verb https://www.jusline.at/gesetz/pyrotg/paragraf/28
       \endverb
     \endentry
+    \entry{NakkaFins}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=72aaaa794324b7514e7e99161f08c3d3}{%
+           family={{Richard Nakka}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{fullhash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{fullhashraw}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{bibnamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorbibnamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authornamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorfullhash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorfullhashraw}{72aaaa794324b7514e7e99161f08c3d3}
+      \field{extraname}{1}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fins}
+      \field{urlday}{25}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.nakka-rocketry.net/RD_fin.htm
+      \endverb
+      \verb{url}
+      \verb https://www.nakka-rocketry.net/RD_fin.htm
+      \endverb
+    \endentry
+    \entry{NakkaNoseCone}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=72aaaa794324b7514e7e99161f08c3d3}{%
+           family={{Richard Nakka}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{fullhash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{fullhashraw}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{bibnamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorbibnamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authornamehash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorfullhash}{72aaaa794324b7514e7e99161f08c3d3}
+      \strng{authorfullhashraw}{72aaaa794324b7514e7e99161f08c3d3}
+      \field{extraname}{2}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Nosecone Design Considerations}
+      \field{urlday}{25}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.nakka-rocketry.net/RD_nosecone.html
+      \endverb
+      \verb{url}
+      \verb https://www.nakka-rocketry.net/RD_nosecone.html
+      \endverb
+    \endentry
     \entry{NakkaRocketry}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=72aaaa794324b7514e7e99161f08c3d3}{%
@@ -660,6 +757,7 @@
       \strng{authornamehash}{72aaaa794324b7514e7e99161f08c3d3}
       \strng{authorfullhash}{72aaaa794324b7514e7e99161f08c3d3}
       \strng{authorfullhashraw}{72aaaa794324b7514e7e99161f08c3d3}
+      \field{extraname}{3}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{labelnamesource}{author}

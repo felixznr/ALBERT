@@ -2,7 +2,7 @@
 \fancypagestyle{plain}{\fancyfoot[C]{}}
 \part{Ergebnisse und Ausblick}
 \label{part:ergebnisse_und_ausblick}
-\fancyfoot[C]{\large Felix Zauner, \large Timofey Luzin}
+\fancyfoot[C]{\large Felix Zauner \& \large Timofey Luzin}
 \fancypagestyle{plain}{\fancyfoot[C]{\large Felix Zauner, \large Timofey Luzin}}
 
 \chapter{Gesamtaufbau und Systemintegration}
@@ -41,22 +41,67 @@ Bei der Auslegung der pyrotechnischen Charges wurde, wie in \ref{subsec:pyro_cha
 
 \
 
-Ziel: Zeigen, was du überhaupt gebaut hast – aber auf reflektiertem Niveau
+\section{Stand des elektrischen Aufbaus}
+\begin{wrapfigure}
+    {r}{0.25\textwidth}
+    \vspace{-30pt}
+    \centering
+    \includegraphics[width=0.2\textwidth]{komadori2.png}
+    \caption{Der fertig bestückte Flightcomputer \textit{KOMADORI}}
+    \label{fig:fertiger_flightcomputer}
+    \vspace{-20pt}
+\end{wrapfigure}
+Sowohl die Entwicklung des Flightcomputers \textit{KOMADORI} als auch dessen Bestellung in bestückter Form wurden abgeschlossen. Die Bestellung bei JLCPCB verzögerte sich aufgrund schulinterner organisatorischer Hürden um etwa zwei Wochen, was jedoch keine negativen Auswirkungen auf den weiteren Projektverlauf hatte, da ausreichend zeitlicher Spielraum in der Planung berücksichtigt worden war.
 
-Inhalte:
-Mechanischer Aufbau der Rakete
-Integration des Flightcomputers
-Sensorplatzierung (sehr wichtig!)
+Die Funktionsfähigkeit des Flightcomputers konnte bereits in wesentlichen Bereichen erfolgreich nachgewiesen werden. Sowohl NAV als auch MPU wurden über den ST-Link erfolgreich programmiert und in Betrieb genommen. Zudem konnten sämtliche vorgesehene Sensoren in das Gesamtsystem integriert, korrekt initialisiert und zuverlässig ausgelesen werden. Dadurch wurde gezeigt, dass die Erfassung der für den späteren Flugbetrieb relevanten Messdaten prinzipiell funktionsfähig umgesetzt werden konnte.
 
+Im Rahmen dieser Tests traten keine hardwarebedingten Probleme im Bereich der Bussysteme oder der Stromversorgung auf. Die Kommunikation zwischen den einzelnen Komponenten verlief stabil und fehlerfrei, und auch die Versorgung der Baugruppen erwies sich während des Betriebs als zuverlässig.
 
-Hier perfekt:
+Darüber hinaus konnten auch die Pyro-Kanäle erfolgreich in Betrieb genommen und auf ihre Funktion überprüft werden. Mit der Inbetriebnahme des PWM-Controllers konnte ein weiterer zentraler Bestandteil des Flightcomputers bereits erfolgreich getestet werden, was einen wichtigen Schritt in Richtung der vollständigen Funktionsfähigkeit des Systems darstellt.
 
-Gesamtaufbau Rakete
-Flightcomputer PCB
-Einbauposition
+Im Bezug auf die Spannungsversorgung der Servomotoren trat jedoch ein Problem auf, das nicht ohne Weiteres gelöst werden konnte. Es zeigte sich, dass sich die Servos trotz einer stabilen Versorgungsspannung von $8\,\si{\volt}$ nicht bewegten, sobald sie an das System angeschlossen wurden. Zunächst wurde vermutet, dass die Ursache des Problems in einem zu niedrigen PWM-Signal von $3{,}3\,\si{\volt}$ liege. In Folge eines Versuchs mit einer externen Spannungsversorgung von $8\,\si{\volt}$ und dem bestehenden PWM-Signal konnte diese Vermutung jedoch ausgeschlossen werden. Durch Analyse der Spannungsversorgung mittels Oszilloskop konnte weiters festgestellt werden, dass die Spannung nach Anschluss der Servos auf ein Pulsmuster von etwa $4\,\si{\volt}$ absackte. Die Lösung des Problems bestand schlussendlich darin, die Servos an die Ausgänge der Pyro-Kanäle anzuschließen. Obwohl laut Schaltungsaufbau an beiden Anschlusspunkten dieselbe Versorgungsspannung auf derselben Versorgungsebene anliegen sollte, zeigte sich in der praktischen Erprobung ein unterschiedliches Verhalten. Eine zuverlässige Ansteuerung der Servos konnte schließlich erst durch den Anschluss an die Ausgänge der Pyro-Kanäle erreicht werden.
 
- also hier bitte einfügen der Collage von den ganzen ganzen von der Rakete und was nun ja genau also Fotos Gesamtaufbau drüber besprechen wie die ganzen Systeme zusammenarbeiten
+Die Implementierung des externen Flash-Chips des Flightcomputers konnte unter Verwendung bereits bestehender, wenngleich fehlerhafter Treiber erfolgreich durchgeführt werden.
 
+Einer der wichtigsten Erfolge im Bezug auf die Hardware war die Inbetriebnahme des Buck-Converters, welcher die Spannungsversorgung der gesamten Elektronik sicherstellt. Wie bereits in Abschnitt~\ref{sec:abwaertswandler} beschrieben, kann die Auslegung eines zuverlässigen und stabilen Buck-Converters als eine der größten Herausforderungen bei der Entwicklung des Hardware-Systems angesehen werden.
+
+Auch das Datenlogging per USB-Interface konnte bereits erfolgreich implementiert und getestet werden.
+
+Die Telemetrieübertragung mittels LoRa befindet sich aktuell noch in der Entwicklungsphase, was auf Verzögerungen und Fehler bei der Bestellung der LoRa-Module zurückzuführen ist. Es wird jedoch erwartet, dass die Telemetrieübertragung in naher Zukunft erfolgreich implementiert und getestet werden kann.
+
+Mit der Inbetriebnahme des GNSS-Moduls wurde bereits begonnen, die Implementierung befindet sich derzeit jedoch noch im Stadium der Treiberentwicklung. Der Fortschritt wird dabei insbesondere durch die nur begrenzt ausführliche Dokumentation erschwert, sodass eine detaillierte Einarbeitung in das eigene Protokoll und die Funktionsweise des Moduls notwendig ist.
+
+\section{Collage}
+ \newpage
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{rocketmuse.jpeg}
+    
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{komadori.jpeg}
+    \end{minipage}
+
+    \vspace{0.5cm}
+
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{komadoriaerosmith.jpeg}
+        
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{rocketkomadori.jpeg}
+        
+    \end{minipage}
+    \label{fig:collage4}
+\end{figure}
+\newpage
 \chapter{Simulations- und Testergebnisse}
 \label{ch:simulationsergebnisse}
 Während den Lauf des Entwicklungsprozesses hinweg wurden verschiedene Simulationen und Tests durchgeführt, von anfänglichen Simulationen mit OpenRocket, über die Simulation der Regelung mit MATLAB und der Strömungssimulation in Ansys Fluent, bis hin zu ersten Hardware in the loop Tests mit dem Flightcomputer. In diesem Kapitel werden die wichtigsten Ergebnisse dieser Simulationen und Tests präsentiert und diskutiert.
@@ -66,7 +111,7 @@ Zu Beginn des Projekts wurde mit Hilfe von der Open-Source Simulationssoftware f
 \\
 Ebenfalls wurde mit Hilfe der Simulation die ungefähre Maximalgeschwindigkeit $v = 100\frac{m}{s}$, die maximale Flughöhe der Rakete $s_h = $ und der Verlauf der Flugbahn bestimmt.
 %================= HIER NOCH SCREENSHOTS AUS OPENROCKET + MEHR ERLÄUTERUNGEN ========
-
+\newpage
 \section{Ergebnisse der MATLAB Simulationen}
 \label{sec:ergebnisse_matlab}
 Nach Aufstellen des Zustandsraummodells der Rakete, wurden verschiedene Simulationen mit MATLAB durchgeführt, um das Modell zu validieren und die Regelungsstrategie zu testen. 
@@ -81,39 +126,217 @@ Nach Aufstellen des Zustandsraummodells der Rakete, wurden verschiedene Simulati
 In Abbildung \ref{fig:matlab_simulation_results} ist die simulierte Aufstiegsphase der Rakete bei einer angenommenen Masse von 1{,}6,kg dargestellt. Der Schubverlauf eines H-Motors (blau) zeigt eine maximale Schubkraft zu Beginn des Fluges, gefolgt von einem raschen Abfall auf null nach etwa 1{,}5,s.
 Infolge der Schubphase steigt die Geschwindigkeit in x-Richtung (grün) zunächst an und erreicht ihr Maximum kurz vor dem Brennschluss. Anschließend nimmt sie aufgrund der wirkenden Widerstands- und Gravitationskräfte kontinuierlich ab und wird im weiteren Verlauf negativ, was den Übergang in die Sinkphase beschreibt.
 
-Die Höhe der Rakete (rosa) nimmt während der Aufstiegsphase stetig zu und erreicht nach etwa 9\,s ein Maximum von rund 420\,m. Danach beginnt die Rakete wieder an Höhe zu verlieren.
+Die Höhe der Rakete (rosa) nimmt während der Aufstiegsphase stetig zu und erreicht nach etwa 9\,s ein Maximum von rund 420\,m %https://www.youtube.com/watch?v=SjhRXwn0TNY
+. Danach beginnt die Rakete wieder an Höhe zu verlieren.
 
 Die Simulation dient der Validierung des mathematischen Modells in x-Richtung und zeigt ein plausibles dynamisches Verhalten, das sich im Vergleich mit der Referenzsimulationen in OpenRocket bestätigt.
 
 \begin{wrapfigure}{l}{0.5\textwidth}
     \centering
     \includegraphics[width=0.5\textwidth]{sim2.png}
-    \caption{Ungestörter Flug der Rakete mit einem H-Motor}
+    \caption{Simulation der Regelung mit Nachführung der $\mathbf{K}$-Matrix}
     \label{fig:matlab_simulation_results_2}
-    \vspace{-1.5cm}
+    \vspace{-5cm}
 \end{wrapfigure}
-In Abbildung \ref{fig:matlab_simulation_results_2} ist eine Simulation von Startwinkeln von $3^\circ$ für $\theta$ (grün) und $1^\circ$ für $\psi$ (orange) dargestellt. Die Regelung setzt bei einer Geschwindigkeit von 20 $\frac{m}{s}$ ein, was etwa 0,25\,s nach dem Start entspricht und führt die $\mathbf{K}$-Matrix der Geschwindigkeit nach. Wie in Abschnitt 
-\ref{subsec:ascent} beschrieben, stehen die Finnen im Bereich von 0-20\,s in der Neutralstellung, um die Stabilität der Rakete zu gewährleisten. Sobald die Regelung aktiv wird, beginnen die Finnen ($\delta_\eta$ in gelb und $\delta_\zeta$ in lila) mit der Korrektur der Lageabweichungen, was sich in einer Stabilisierung der Winkel $\theta$ und $\psi$ zeigt. Die Simulation zeigt, dass die Regelung in der Lage ist, die Rakete trotz der anfänglichen Störung zu stabilisieren und eine kontrollierte Flugbahn aufrechtzuerhalten. Es ist jedoch auch zu erkennen, dass der Regler nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung.
+In Abbildung \ref{fig:matlab_simulation_results_2} ist eine Simulation von Startwinkeln von $3^\circ$ für $\theta$ (orange) und $-1^\circ$ für $\psi$ (grün) dargestellt. Sobald die Regelung aktiv wird, beginnen die Finnen ($\delta_\eta$ in gelb und $\delta_\zeta$ in lila) mit der Korrektur der Lageabweichungen, was sich in einer Stabilisierung der Winkel $\theta$ und $\psi$ zeigt. Die Simulation zeigt, dass die Regelung in der Lage ist, die Rakete trotz der anfänglichen Störung zu stabilisieren und eine kontrollierte Flugbahn aufrechtzuerhalten. Es ist jedoch auch zu erkennen, dass der Regler nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung.
 
-
+\newpage
 \begin{wrapfigure}{r}{0.5\textwidth}
     \centering
     \includegraphics[width=0.5\textwidth]{sim3.png}
-    \caption{Ungestörter Flug der Rakete mit einem H-Motor}
+    \caption{Simulation der Regelung ohne Nachführung der $\mathbf{K}$-Matrix}
     \label{fig:matlab_simulation_results_3}
     
 \end{wrapfigure}
-Im Vergleich dazu ist in Abbildung \ref{fig:matlab_simulation_results_3} die Simulation des gleichen Fluges dargestellt, bei dem die Regelung von Anfang an aktiv ist und die $\mathbf{K}$-Matrix für die Geschwindigkeit von 50 $\frac{m}{s}$ verwendet wird. Es ist zu erkennen, dass sich die beiden Verläufe grundsätzlich sehr ähnlich sind, die Auslenkung der Finnen jedoch merklich größer ist was zu einem Überschwinger des Winkels $\theta$ führt. In diesem Fall ist das in Ordnung und führt zu keinerlei Problemen, da die Regelung ohnehin im Bereich unter 50 $\frac{m}{s}$ bis ca. 1\,s bleibt siehe Abbildung \ref{fig:matlab_simulation_results}. 
+Im Vergleich dazu ist in Abbildung \ref{fig:matlab_simulation_results_3} die Simulation des gleichen Fluges dargestellt, bei dem die Regelung von Anfang an aktiv ist und die $\mathbf{K}$-Matrix für die Geschwindigkeit von 60 $\frac{m}{s}$ verwendet wird. Es ist zu erkennen, dass sich die beiden Verläufe grundsätzlich sehr ähnlich sind, die Auslenkung der Finnen am Anfang jedoch merklich kleiner ist was daran liegt, dass die Regelung bei 50 $\frac{m}{s}$ weniger scharf eingestellt ist als bei den anfänglichen Geschwindigkeiten eigentlich optimal. Es lässt sich erkennen, dass die Winkel $\theta$ und $\psi$ einen leichten Überschwinger aufweisen, bevor sie sich stabilisieren. Es ist jedoch auch hier zu erkennen, dass die Regelung nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung.
+Die Analyse der Simulationsresultate zeigt, dass auch ohne Nachführung der $\mathbf{K}$-Matrix die Regelung in der Lage ist, die Rakete bei einer Winkelabweichung zu stabilisieren, dabei ist der Regler jedoch nicht mehr optimal eingestellt.
 
+Wird statt einer anfänglichen Winkelauslenkung eine sinusförmige Störung in $\psi$ (türkis) sowie ein konstanter Schub von $20\,\si{\newton}$ angenommen, wie in Abbildung \ref{fig:matlab_simulation_results_4} und Abbildung \ref{fig:matlab_simulation_results_5} dargestellt, zeigt sich doch ein  Vorteil der Nachführung der $\mathbf{K}$-Matrix. Während die Störung mit nachgeführter $\mathbf{K}$-Matrix wirksam kompensiert und die Winkel $\theta$ und $\psi$ stabilisiert werden, kommt es ohne Nachführung zu gedämpften Schwingungen. 
+Damit stellt sich abschließend die Frage, inwiefern eine nachgeführte $\mathbf{K}$-Matrix real notwendig ist, da auch ohne diese eine passable Leistung erreicht werden kann, was im Rahmen eines ersten Flugversuchs zu klären wäre.
+\begin{figure}[H]
+    \vspace{-0.25cm}
+    \centering
+    \begin{minipage}{0.44\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{sim4.png}
+        \caption{Verlauf mit Nachführung der $\mathbf{K}$-Matrix}
+        \label{fig:matlab_simulation_results_4}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.44\textwidth}
+        \centering
+        \vspace{2pt}
+        \includegraphics[width=1\textwidth]{sim5.png}
+        \caption{Verlauf ohne Nachführung der $\mathbf{K}$-Matrix}
+        \label{fig:matlab_simulation_results_5}
+    \end{minipage}
+    
+\end{figure}
 
 \newpage
 \section{Ergebnisse der Strömungssimulation}
 \label{sec:cfd_results_conclusion}
 % ======================= HIER PLOTS VON DEN BEIWERTEN ===============================
 % ======================= UND NOCH EXTRA VISUALISIERUNG VOM STRÖMUNGSVERLAUF =========
-
-\section{Ergebnisse der Hardware in the Loop Tests}
+\newpage
+\section{Ergebnisse der Hardware in  the Loop Tests}
 Nachdem der Flightcomputer entwickelt und die Sensoren integriert wurden, wurden erste Hardware in the Loop Tests durchgeführt, um die Funktionalität des Flightcomputers und die Integration der Sensoren zu überprüfen.
+
+Um die Funktionalität des Extended Kalman Filters zu veranschaulichen, wurde die Verläufe der geschätzten Winkel $\theta$ und $\psi$, die für die Regelung am wichtigsten sind, über die Zeit aufgezeichnet, wie in Abbildung \ref{fig:winkelverlauf_csv} dargestellt. Dabei wurde der Flightcomputer von Hand in beide Richtungen nach vorne und hinten geneigt. Wie in Abschnitt \ref{subsec:extendedkalmanfilter} beschrieben, werden die Beschleunigungsdaten des IMUs als Messmodell für die Winkel $\theta$ und $\psi$ verwendet da bis auf die Schwerkraft keine Beschleunigung auftritt, was die Zustandschätzung genauer macht. Die gemessenen Winkel stimmen mit unter 1 Grad Fehler sehr gut mit den realen Bewegungen überein, was die Funktionsfähigkeit des EKF bestätigt.
+\begin{figure}[H]
+    \vspace{-0.5cm}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=\textwidth,
+            height=0.4\textwidth,
+            grid=major,
+            xlabel={Zeit in s},
+            ylabel={Winkel in Grad},
+            legend pos=north east,
+            no markers,
+            thick
+        ]
+            \addplot table[
+                col sep=comma,
+                x expr=(\thisrowno{0}-11860)/1000,
+                each nth point=10,
+                y index=1
+            ] {../figures/daten_klein.csv};
+            \addlegendentry{$\theta$}
+
+            \addplot table[
+                col sep=comma,
+                x expr=(\thisrowno{0}-11860)/1000,
+                each nth point=10,
+                y index=2
+            ] {../figures/daten_klein.csv};
+            \addlegendentry{$\psi$}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Verlauf der Winkel $\theta$ und $\psi$}
+    \label{fig:winkelverlauf_csv}
+    \vspace{-0.5cm}
+\end{figure}
+In Abbildung \ref{fig:winkelverlauf_csv2} ist der Verlauf der Winkel $\theta$ und $\psi$ dargestellt, wenn der Updateschritt durch die Beschleunigungsdaten des IMUs nach 10 Sekunden deaktiviert wird. Der Flightcomputer verweilte über die gesamte Dauer der Messung in der selben Ausrichtung. Es ist zu erkennen, dass sobald die Beschleunigungsdaten nicht mehr in die Schätzung der Winkel einbezogen werden, die geschätzten Winkel $\theta$ und $\psi$ beginnen zu driften, da die Schätzung nur noch auf von Rauschen und Bias-Fehlern behafteten Gyroskopdaten basiert siehe Abbildung \ref{fig:winkelverlauf_csv32}.
+\begin{figure}[H]
+    \vspace{-0.5cm}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=\textwidth,
+            height=0.35\textwidth,
+            grid=major,
+            xlabel={Zeit in s},
+            ylabel={Winkel in Grad},
+            legend pos=north east,
+            no markers,
+            thick
+        ]
+            \addplot table[
+                col sep=comma,
+                x expr=(\thisrowno{0}-1833)/1000,
+                each nth point=10,
+                y index=1
+            ] {../figures/daten_klein2.csv};
+            \addlegendentry{$\theta$}
+
+            \addplot table[
+                col sep=comma,
+                x expr=(\thisrowno{0}-1833)/1000,
+                each nth point=10,
+                y index=2
+            ] {../figures/daten_klein2.csv};
+            \addlegendentry{$\psi$}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Verlauf der Winkel $\theta$ und $\psi$ ohne Updateschritt durch Beschleunigungsdaten}
+    \label{fig:winkelverlauf_csv2}
+    \vspace{-0.5cm}
+\end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \begin{tikzpicture}
+%         \begin{axis}[
+%             width=\textwidth,
+%             height=0.45\textwidth,
+%             grid=major,
+%             xlabel={Zeit in s},
+%             ylabel={Winkel in Grad},
+%             legend pos=north east,
+%             no markers,
+%             thick
+%         ]
+%             \addplot table[
+%                 col sep=comma,
+%                 x expr=(\thisrowno{0}-2436)/1000,
+%                 each nth point=10,
+%                 y index=1
+%             ] {../figures/daten_klein3.csv};
+%             \addlegendentry{$\dot{u}$}
+
+%             \addplot table[
+%                 col sep=comma,
+%                 x expr=(\thisrowno{0}-2436)/1000,
+%                 each nth point=10,
+%                 y index=2
+%             ] {../figures/daten_klein3.csv};
+%             \addlegendentry{$\dot{v}$}
+%             \addplot table[
+%                 col sep=comma,
+%                 x expr=(\thisrowno{0}-2436)/1000,
+%                 each nth point=10,
+%                 y index=3
+%             ] {../figures/daten_klein3.csv};
+%             \addlegendentry{$\dot{w}$}
+%         \end{axis}
+%     \end{tikzpicture}
+%     \caption{Verlauf der Winkel $\theta$ und $\psi$ ohne Updateschritt durch Beschleunigungsdaten}
+%     \label{fig:winkelverlauf_csv3}
+% \end{figure}
+
+
+\begin{figure}[H]
+    \vspace{-0.5cm}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=\textwidth,
+            height=0.4\textwidth,
+            grid=major,
+            xlabel={Zeit in s},
+            ylabel={Winkelgeschwindigkeit in Grad/s},
+            legend pos=north east,
+            no markers,
+            thick
+        ]
+            \addplot table[
+                col sep=comma,
+                x expr=(\thisrowno{0}-2436)/1000,
+                y index=4
+            ] {../figures/daten_klein3.csv};
+            \addlegendentry{$p$}
+
+            \addplot table[
+                col sep=comma,
+                x expr=(\thisrowno{0}-2436)/1000,
+                y index=5
+            ] {../figures/daten_klein3.csv};
+            \addlegendentry{$q$}
+            \addplot table[
+                col sep=comma,
+                x expr=(\thisrowno{0}-2436)/1000,
+                y index=6
+            ] {../figures/daten_klein3.csv};
+            \addlegendentry{$r$}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Rohe Gyroskopdaten der Winkelgeschwindigkeiten $p$, $q$ und $r$}
+    \label{fig:winkelverlauf_csv32}
+    \vspace{-0.5cm}
+\end{figure}
+
 
 \chapter{Rechtliches}
 \label{ch:legal}
