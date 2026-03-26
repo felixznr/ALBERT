@@ -1,4 +1,4 @@
-\appendix
+
 \chapter{Schaltplan des Flightcomputers}
 \label{ch:komadori_schaltplan}
 \fancyfoot[C]{\large Felix Zauner}
@@ -9,6 +9,77 @@
   scale=0.88,
   pagecommand={}
 ]{../figures/ALBERT_FLIGHTCOMPUTER.pdf}
+
+\chapter{Ausschnitte des verwendeten MATLAB-Codes}
+\label{ch:matlab_code}
+\section{Interpolation der $\mathbf{K}$-Matrix}
+\begin{lstlisting}[style=matlabstyle, caption={Interpolation der $\mathbf{K}$-Matrix}, label={lst:interpolate_k_matrix}]
+A = subs(A,[delta_eta,delta_r,delta_zeta,p,phi,q,r,theta,v_b,w_b,psi],[0,0,0,0,0,0,0,0,0,0,0]);
+B = subs(B,[v_b,w_b],[0,0]);
+C = subs(C,[delta_eta,delta_zeta,p,phi,psi,q,r,theta,v_b,w_b],[0,0,0,0,0,0,0,0,0,0]);
+
+u_values = 10:10:200;
+idx = 1;
+
+A_all = cell(1,length(u_values));
+B_all = cell(1,length(u_values));
+C_all = cell(1,length(u_values));
+K_all = cell(1,length(u_values));
+
+% Calculate A,B,C and K for each step
+for ub_val = u_values
+    A_all{idx} = subs(A,u_b,ub_val);
+    A_all{idx} = double(A_all{idx});
+    A_all{idx} = A_all{idx}(2:9, 2:9);
+
+    B_all{idx} = subs(B,u_b,ub_val);
+    B_all{idx} = double(B_all{idx});
+    B_all{idx} = B_all{idx}(2:9, :);
+
+    C_all{idx} = subs(C,u_b,ub_val);
+    C_all{idx} = double(C_all{idx});
+    C_all{idx} = C_all{idx}(:, 2:9);
+
+    K_all{idx} = lqr(A_all{idx}, B_all{idx}, Q, R);
+
+    idx = idx + 1;
+end
+
+% Pack K Matrix into 3D-Array
+[m,n] = size(K_all{1});
+N = length(u_values);
+
+K_array = zeros(m,n,N);
+
+for k = 1:N
+    K_array(:,:,k) = K_all{k};
+end
+
+% Fit polynoms
+poly_order = 4;
+P = cell(m,n);
+
+K_fun = cell(m,n);
+
+for i = 1:m
+    for j = 1:n
+        kij_values = squeeze(K_array(i,j,:));
+        P{i,j} = polyfit(u_values, kij_values.', poly_order);
+        K_fun{i,j} = griddedInterpolant(u_values, kij_values, 'linear');
+    end
+end
+\end{lstlisting}
+
+\section{Simulink Simulation}
+\label{sec:simuleckarsch}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{simulink.png}
+    \caption{Simulink Modell der Rakete mit LQG-Regler}
+    \label{fig:simulink_model}
+\end{figure}
+
+\chapter{Auszug der C-Implementierung}
 % \chapter{Layout des Flightcomputers}
 % \includepdf[
 %   pages=-,

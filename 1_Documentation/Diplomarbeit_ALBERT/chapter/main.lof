@@ -43,7 +43,7 @@
 \contentsline {figure}{\numberline {9.6}{\ignorespaces Schaltplan des Buck Converters basierend auf dem TPS54308 }}{51}{figure.caption.77}%
 \contentsline {figure}{\numberline {9.7}{\ignorespaces Schaltplan des LDOs basierend auf dem AMS1117-3.3}}{51}{figure.caption.78}%
 \contentsline {figure}{\numberline {9.8}{\ignorespaces Erste Skizze der Leiterplatte}}{51}{figure.caption.79}%
-\contentsline {figure}{\numberline {9.9}{\ignorespaces Layout der Leiterplatte des Flightcomputers KOMADORI (Vorder- und Rückseite)}}{52}{figure.caption.80}%
+\contentsline {figure}{\numberline {9.9}{\ignorespaces Layout der Leiterplatte des Flightcomputers \textit {KOMADORI} (Vorder- und Rückseite)}}{52}{figure.caption.80}%
 \contentsline {figure}{\numberline {9.10}{\ignorespaces Layout der MPU mit den zugehörigen passiven Komponenten}}{53}{figure.caption.81}%
 \contentsline {figure}{\numberline {9.11}{\ignorespaces Vergleich des Layouts des Buck Converters mit einem Referenzlayout des Herstellers}}{53}{figure.caption.82}%
 \contentsline {figure}{\numberline {9.12}{\ignorespaces Layout des GPS-Moduls mit den zugehörigen Designrichtlinien}}{54}{figure.caption.83}%
@@ -73,14 +73,21 @@
 \contentsline {figure}{\numberline {13.8}{\ignorespaces CAD-Modell des Raketenflügels zur befestigung im Windkanal}}{94}{figure.caption.126}%
 \contentsline {figure}{\numberline {13.9}{\ignorespaces Messaufbau vom Raketenflügel im Windkanal}}{94}{figure.caption.127}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {14.1}{\ignorespaces Der fertig bestückte Flightcomputer \textit {KOMADORI}}}{98}{figure.caption.139}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {15.1}{\ignorespaces Ungestörter Flug der Rakete mit einem H-Motor}}{101}{figure.caption.140}%
-\contentsline {figure}{\numberline {15.2}{\ignorespaces Simulation der Regelung mit Nachführung der $\mathbf {K}$-Matrix}}{101}{figure.caption.141}%
-\contentsline {figure}{\numberline {15.3}{\ignorespaces Simulation der Regelung ohne Nachführung der $\mathbf {K}$-Matrix}}{102}{figure.caption.142}%
-\contentsline {figure}{\numberline {15.4}{\ignorespaces Verlauf mit Nachführung der $\mathbf {K}$-Matrix}}{102}{figure.caption.143}%
-\contentsline {figure}{\numberline {15.5}{\ignorespaces Verlauf ohne Nachführung der $\mathbf {K}$-Matrix}}{102}{figure.caption.143}%
+\contentsline {figure}{\numberline {15.1}{\ignorespaces Ungestörter Flug der Rakete mit einem H-Motor}}{102}{figure.caption.141}%
+\contentsline {figure}{\numberline {15.2}{\ignorespaces Simulation der Regelung mit Nachführung der $\mathbf {K}$-Matrix}}{102}{figure.caption.142}%
+\contentsline {figure}{\numberline {15.3}{\ignorespaces Simulation der Regelung ohne Nachführung der $\mathbf {K}$-Matrix}}{103}{figure.caption.143}%
+\contentsline {figure}{\numberline {15.4}{\ignorespaces Verlauf mit Nachführung der $\mathbf {K}$-Matrix}}{103}{figure.caption.144}%
+\contentsline {figure}{\numberline {15.5}{\ignorespaces Verlauf ohne Nachführung der $\mathbf {K}$-Matrix}}{103}{figure.caption.144}%
+\contentsline {figure}{\numberline {15.6}{\ignorespaces Verlauf der Winkel $\theta $ und $\psi $}}{105}{figure.caption.145}%
+\contentsline {figure}{\numberline {15.7}{\ignorespaces Verlauf der Winkel $\theta $ und $\psi $ ohne Updateschritt durch Beschleunigungsdaten}}{105}{figure.caption.146}%
+\contentsline {figure}{\numberline {15.8}{\ignorespaces Rohe Gyroskopdaten der Winkelgeschwindigkeiten $p$, $q$ und $r$}}{106}{figure.caption.147}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Simulink Modell der Rakete mit LQG-Regler}}{135}{figure.caption.162}%
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
