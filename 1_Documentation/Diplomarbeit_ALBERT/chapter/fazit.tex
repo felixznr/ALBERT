@@ -20,7 +20,7 @@
 %        \label{fig:big_stein}
 %\end{figure}
 
-\section{Stand vom mechanischen Aufbau}
+\section{Stand des mechanischen Aufbaus}
 \label{sec:mechanical_build_status}
 Es wurden die Halterungen für Raketenflügel/Servomotoren, die hintere Abdeckung und die Abdeckung des Motors, die Raketenspitze und die Raketenflügel in das Gehäuse eingebaut. In alle mit Schrauben ans Gehäuse festgemachten Teile wurden in die dafür vorgesehenen Löcher Gewindeeinsätze eingeschmolzen und die Kugellager der Flügel wurden in das 3D-gedruckte Teil eingeklebt, wie auf Bild
 % ======================== HIER BILD VON KUGELLAGER IN FLÜGELHALTERUNG ===============
@@ -28,7 +28,7 @@ zu sehen ist.
 \\
 Aufgrund von Zeitmangel mussten Prioritäten beim Aufbau der einzelnen Subsysteme gesetzt werden. Diese fielen auf die Montierung der Raketenflügel und der Servomotoren. Insgesamt wurde mehr Wert auf eine funktionierende Regelung gelegt, die durch CFD-Simulationen ausgelegt wurde.
 
-\subsection{Nicht fertitggebrachte Subsysteme/Teile der Struktur}
+\subsection{Nicht fertiggestellte Subsysteme und Strukturkomponenten}
 \label{subsec:not_finished_subsystems}
 \paragraph{Bergungsystem}
 Der ursprüngliche Plan für das Bergungsystem war, einen bereits fertigen Fallschirm zu kaufen. Aufgrund von falsch eingeschätzter Gesamtmasse der Rakete, war diese Option in der Größe zu teuer. Es wurde ein Fallschirm dimensioniert und die Wahl für das Material wurde ebenfalls getroffen, genauer beschrieben in \ref{sec:recovery_system}. Dies konnte jedoch nicht mehr zeitnah realisiert werden.
@@ -136,9 +136,9 @@ Die Simulation dient der Validierung des mathematischen Modells in x-Richtung un
     \includegraphics[width=0.5\textwidth]{sim2.png}
     \caption{Simulation der Regelung mit Nachführung der $\mathbf{K}$-Matrix}
     \label{fig:matlab_simulation_results_2}
-    \vspace{-5cm}
+    \vspace{-3cm}
 \end{wrapfigure}
-In Abbildung \ref{fig:matlab_simulation_results_2} ist eine Simulation von Startwinkeln von $3^\circ$ für $\theta$ (orange) und $-1^\circ$ für $\psi$ (grün) dargestellt. Sobald die Regelung aktiv wird, beginnen die Finnen ($\delta_\eta$ in gelb und $\delta_\zeta$ in lila) mit der Korrektur der Lageabweichungen, was sich in einer Stabilisierung der Winkel $\theta$ und $\psi$ zeigt. Die Simulation zeigt, dass die Regelung in der Lage ist, die Rakete trotz der anfänglichen Störung zu stabilisieren und eine kontrollierte Flugbahn aufrechtzuerhalten. Es ist jedoch auch zu erkennen, dass der Regler nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung.
+In Abbildung \ref{fig:matlab_simulation_results_2} ist eine Simulation von Startwinkeln von $3^\circ$ für $\theta$ (orange) und $-1^\circ$ für $\psi$ (grün) dargestellt. Sobald die Regelung aktiv wird, beginnen die Finnen ($\delta_\eta$ in gelb und $\delta_\zeta$ in lila) mit der Korrektur der Lageabweichungen, was sich in einer Stabilisierung der Winkel $\theta$ und $\psi$ zeigt. Die Simulation zeigt, dass die Regelung in der Lage ist, die Rakete trotz der anfänglichen Störung zu stabilisieren und eine kontrollierte Flugbahn aufrechtzuerhalten. Es ist jedoch auch zu erkennen, dass der Regler nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung. Generell gilt es auf jeden Fall zu beachten, dass der Regler nur im Bereich rund um die Auslegungsbedinungen sprich um den Nullpunkt der Regelung optimal eingestellt ist.
 
 \newpage
 \begin{wrapfigure}{r}{0.5\textwidth}
@@ -336,7 +336,7 @@ In Abbildung \ref{fig:winkelverlauf_csv2} ist der Verlauf der Winkel $\theta$ un
     \label{fig:winkelverlauf_csv32}
     \vspace{-0.5cm}
 \end{figure}
-
+In den Hardware in the Loop Tests konnte die Funktionsfähigkeit der Regelung bestätigt werden. 
 
 \chapter{Rechtliches}
 \label{ch:legal}
