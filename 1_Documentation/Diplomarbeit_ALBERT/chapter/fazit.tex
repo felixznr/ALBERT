@@ -47,7 +47,7 @@ Bei der Auslegung der pyrotechnischen Charges wurde, wie in \ref{subsec:pyro_cha
     \vspace{-30pt}
     \centering
     \includegraphics[width=0.2\textwidth]{komadori2.png}
-    \caption{Der fertig bestückte Flightcomputer \textit{KOMADORI}}
+    \caption{Fertig bestückter Flightcomputer \textit{KOMADORI}}
     \label{fig:fertiger_flightcomputer}
     \vspace{-20pt}
 \end{wrapfigure}
@@ -72,12 +72,13 @@ Die Telemetrieübertragung mittels LoRa befindet sich aktuell noch in der Entwic
 Mit der Inbetriebnahme des GNSS-Moduls wurde bereits begonnen, die Implementierung befindet sich derzeit jedoch noch im Stadium der Treiberentwicklung. Der Fortschritt wird dabei insbesondere durch die nur begrenzt ausführliche Dokumentation erschwert, sodass eine detaillierte Einarbeitung in das eigene Protokoll und die Funktionsweise des Moduls notwendig ist.
 
 \section{Collage}
+Die folgende Collage zeigt sowohl die fertige Rakete als auch den Flightcomputer \textit{KOMADORI} in verschiedenen Perspektiven. Dabei wurde eine handelsübliche Compact Disc als Referenzobjekt verwendet, um die Größenverhältnisse zu verdeutlichen. 
  \newpage
 \begin{figure}[H]
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{rocketmuse.jpeg}
+        \includegraphics[width=\linewidth]{rocketaerosmith.jpeg}
     
     \end{minipage}
     \hfill
@@ -456,3 +457,4 @@ Für die Zukunft ist eine Erweiterung um ein Guidance-System vorgesehen, das nic
 
 Für zukünftige Versionen des Flightcomputers ist zudem der Einsatz eines Dual-Core-Prozessors vorgesehen. Ziel dieser Weiterentwicklung ist es, rechenzeitkritische Funktionen noch klarer von Kommunikations- und Hintergrundaufgaben zu trennen und dabei auf langsame Bussystem zwischen den Prozessoren verzichten zu können. So könnten die Regelungsalgorithmen sowie die Zustandsschätzung auf einem Prozessorkern mit hoher zeitlicher Deterministik ausgeführt werden, während der zweite Kern für Telemetrie, Datenlogging und sonstige potenziell blockierende Prozesse zuständig ist. Von einer solchen Architektur werden insbesondere Vorteile hinsichtlich Echtzeitverhalten, Systemstabilität und Erweiterbarkeit des Flightcomputers erwartet.
 
+\cleardoublepage

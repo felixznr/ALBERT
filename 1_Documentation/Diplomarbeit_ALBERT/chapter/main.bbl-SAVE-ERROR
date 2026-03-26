@@ -321,6 +321,30 @@
       \verb https://jlcpcb.com/blog/decoupling-vs-bypass-capacitor
       \endverb
     \endentry
+    \entry{JulianZauner}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d19f95ed3f0335c6da4bd22c88ce5324}{%
+           family={{Julian Zauner}},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{fullhash}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{fullhashraw}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{bibnamehash}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{authorbibnamehash}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{authornamehash}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{authorfullhash}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{authorfullhashraw}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \verb{urlraw}
+      \verb https://www.julianzauner.at/
+      \endverb
+      \verb{url}
+      \verb https://www.julianzauner.at/
+      \endverb
+    \endentry
     \entry{AliyuAliyuStateSpace}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=109003ac4cb551f0b0ca211aec41f88a}{%
