@@ -1,7 +1,7 @@
 \babel@toc {ngerman}{}\relax 
-\contentsline {chapter}{Abbildungsverzeichnis}{IX}{chapter*.2}%
-\contentsline {chapter}{Tabellenverzeichnis}{XI}{chapter*.3}%
-\contentsline {chapter}{Abkürzungsverzeichnis}{XIII}{chapter*.4}%
+\contentsline {chapter}{Abbildungsverzeichnis}{VIII}{chapter*.2}%
+\contentsline {chapter}{Tabellenverzeichnis}{IX}{chapter*.3}%
+\contentsline {chapter}{Abkürzungsverzeichnis}{XI}{chapter*.4}%
 \contentsline {part}{\numberline {I}Einleitung}{1}{part.1}%
 \contentsline {chapter}{\numberline {1}Motivation}{2}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Zielsetzung}{3}{chapter.2}%
@@ -57,7 +57,7 @@
 \contentsline {subsection}{\numberline {7.3.1}Überschallflug und Unterschallflug}{33}{subsection.7.3.1}%
 \contentsline {subsection}{\numberline {7.3.2}Raketenspitze}{33}{subsection.7.3.2}%
 \contentsline {subsection}{\numberline {7.3.3}Raketenflügel}{33}{subsection.7.3.3}%
-\contentsline {subsection}{\numberline {7.3.4}NACA Flügelprofile}{36}{subsection.7.3.4}%
+\contentsline {subsection}{\numberline {7.3.4}NACA Flügelprofile}{35}{subsection.7.3.4}%
 \contentsline {chapter}{\numberline {8}Strömungssimulation und Messung im Windkanal}{37}{chapter.8}%
 \contentsline {section}{\numberline {8.1}CFD Simulation}{37}{section.8.1}%
 \contentsline {subsection}{\numberline {8.1.1}Grundlagen von CFD}{37}{subsection.8.1.1}%
@@ -125,59 +125,59 @@
 \contentsline {section}{\numberline {12.2}Innenstruktur und Materialwahl}{74}{section.12.2}%
 \contentsline {section}{\numberline {12.3}Flügeldesign}{74}{section.12.3}%
 \contentsline {section}{\numberline {12.4}Flügelsteuermechanismus}{75}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Montierung vom Flightcomputer und Akku}{76}{section.12.5}%
+\contentsline {section}{\numberline {12.5}Montierung vom Flightcomputer und Akku}{77}{section.12.5}%
 \contentsline {section}{\numberline {12.6}Bergungssystem}{77}{section.12.6}%
 \contentsline {subsection}{\numberline {12.6.1}Auslösung des Bergungsystems}{77}{subsection.12.6.1}%
-\contentsline {subsection}{\numberline {12.6.2}Fallschirm}{77}{subsection.12.6.2}%
-\contentsline {section}{\numberline {12.7}Implementierung der Raketenspitze}{79}{section.12.7}%
-\contentsline {section}{\numberline {12.8}Zusammenführen vom CAD-Modell}{79}{section.12.8}%
-\contentsline {section}{\numberline {12.9}Implementierung und Fertigung}{80}{section.12.9}%
-\contentsline {chapter}{\numberline {13}Simulation der Aerodynamik}{81}{chapter.13}%
-\contentsline {section}{\numberline {13.1}Definition der Geometrie und der Grenzen des Simulationsbereichs}{81}{section.13.1}%
-\contentsline {section}{\numberline {13.2}Meshing der Geometrie}{81}{section.13.2}%
-\contentsline {section}{\numberline {13.3}Simulation des Raketenkörpers in Ansys Fluent}{82}{section.13.3}%
-\contentsline {subsection}{\numberline {13.3.1}Starteinstellungen für Fluent}{82}{subsection.13.3.1}%
-\contentsline {subsection}{\numberline {13.3.2}Definition von Referenzwerten, Winkeln, simulierten Werten}{83}{subsection.13.3.2}%
-\contentsline {subsection}{\numberline {13.3.3}Simulationsdurchgänge}{84}{subsection.13.3.3}%
-\contentsline {section}{\numberline {13.4}Auswertung der Simulationsergebnisse}{84}{section.13.4}%
-\contentsline {subsection}{\numberline {13.4.1}Simulationsergebnisse}{85}{subsection.13.4.1}%
-\contentsline {subsection}{\numberline {13.4.2}Berechnungen der Modellwerte}{86}{subsection.13.4.2}%
-\contentsline {subsection}{\numberline {13.4.3}Visualisierung der Simulationsergebnisse}{90}{subsection.13.4.3}%
-\contentsline {section}{\numberline {13.5}Messung eines Raketenflügels im Windkanal}{94}{section.13.5}%
-\contentsline {subsection}{\numberline {13.5.1}Messaufbau}{94}{subsection.13.5.1}%
-\contentsline {subsection}{\numberline {13.5.2}Messergebnisse}{95}{subsection.13.5.2}%
-\contentsline {subsection}{\numberline {13.5.3}Berechnung der Axialkraft}{95}{subsection.13.5.3}%
-\contentsline {subsection}{\numberline {13.5.4}Vergleich der Messergebnisse mit simullierten Werten}{96}{subsection.13.5.4}%
-\contentsline {part}{\numberline {IV}Ergebnisse und Ausblick}{97}{part.4}%
-\contentsline {chapter}{\numberline {14}Gesamtaufbau und Systemintegration}{98}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Stand vom mechanischen Aufbau}{98}{section.14.1}%
-\contentsline {subsection}{\numberline {14.1.1}Nicht fertitggebrachte Subsysteme/Teile der Struktur}{98}{subsection.14.1.1}%
-\contentsline {paragraph}{\nonumberline Bergungsystem}{98}{paragraph*.134}%
-\contentsline {paragraph}{\nonumberline Montierung von Akku und Flightcomputer}{98}{paragraph*.136}%
-\contentsline {paragraph}{\nonumberline Schockseilverbindung}{98}{paragraph*.138}%
-\contentsline {section}{\numberline {14.2}Stand des elektrischen Aufbaus}{98}{section.14.2}%
-\contentsline {section}{\numberline {14.3}Collage}{99}{section.14.3}%
-\contentsline {chapter}{\numberline {15}Simulations- und Testergebnisse}{101}{chapter.15}%
-\contentsline {section}{\numberline {15.1}Ergebnisse der OpenRocket Simulation}{101}{section.15.1}%
-\contentsline {section}{\numberline {15.2}Ergebnisse der MATLAB Simulationen}{102}{section.15.2}%
-\contentsline {section}{\numberline {15.3}Ergebnisse der Strömungssimulation}{104}{section.15.3}%
-\contentsline {section}{\numberline {15.4}Ergebnisse der Hardware in the Loop Tests}{105}{section.15.4}%
-\contentsline {chapter}{\numberline {16}Rechtliches}{107}{chapter.16}%
-\contentsline {section}{\numberline {16.1}Rechtliche Einschränkungen}{107}{section.16.1}%
-\contentsline {subsection}{\numberline {16.1.1}Raketenmotor}{107}{subsection.16.1.1}%
-\contentsline {subsection}{\numberline {16.1.2}Pyrotechnische Charges zum Fallschirmauswurf}{108}{subsection.16.1.2}%
-\contentsline {chapter}{\numberline {17}Verwendung von Künstlicher Intelligenz}{109}{chapter.17}%
-\contentsline {section}{\numberline {17.1}Beispielprompts}{109}{section.17.1}%
-\contentsline {subsection}{\numberline {17.1.1}OpenAI ChatGPT}{109}{subsection.17.1.1}%
-\contentsline {paragraph}{\nonumberline Prompt:}{109}{paragraph*.150}%
-\contentsline {paragraph}{\nonumberline Ausgabe:}{109}{paragraph*.152}%
-\contentsline {subsection}{\numberline {17.1.2}DeepL Übersetzer}{110}{subsection.17.1.2}%
-\contentsline {paragraph}{\nonumberline Eingabe:}{110}{paragraph*.154}%
-\contentsline {paragraph}{\nonumberline Ausgabe:}{110}{paragraph*.156}%
-\contentsline {subsection}{\numberline {17.1.3}DeepL Write}{110}{subsection.17.1.3}%
-\contentsline {paragraph}{\nonumberline Eingabe:}{110}{paragraph*.158}%
-\contentsline {paragraph}{\nonumberline Ausgabe:}{110}{paragraph*.160}%
-\contentsline {chapter}{\numberline {18}Ausblick}{111}{chapter.18}%
+\contentsline {subsection}{\numberline {12.6.2}Fallschirm}{78}{subsection.12.6.2}%
+\contentsline {section}{\numberline {12.7}Implementierung der Raketenspitze}{80}{section.12.7}%
+\contentsline {section}{\numberline {12.8}Zusammenführen vom CAD-Baugruppe}{80}{section.12.8}%
+\contentsline {section}{\numberline {12.9}Implementierung und Fertigung}{81}{section.12.9}%
+\contentsline {chapter}{\numberline {13}Simulation der Aerodynamik}{82}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Definition der Geometrie und der Grenzen des Simulationsbereichs}{82}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Meshing der Geometrie}{82}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Simulation des Raketenkörpers in Ansys Fluent}{83}{section.13.3}%
+\contentsline {subsection}{\numberline {13.3.1}Starteinstellungen für Fluent}{83}{subsection.13.3.1}%
+\contentsline {subsection}{\numberline {13.3.2}Definition von Referenzwerten, Winkeln, simulierten Werten}{84}{subsection.13.3.2}%
+\contentsline {subsection}{\numberline {13.3.3}Simulationsdurchgänge}{85}{subsection.13.3.3}%
+\contentsline {section}{\numberline {13.4}Auswertung der Simulationsergebnisse}{85}{section.13.4}%
+\contentsline {subsection}{\numberline {13.4.1}Simulationsergebnisse}{86}{subsection.13.4.1}%
+\contentsline {subsection}{\numberline {13.4.2}Berechnungen der Modellwerte}{87}{subsection.13.4.2}%
+\contentsline {subsection}{\numberline {13.4.3}Visualisierung der Simulationsergebnisse}{91}{subsection.13.4.3}%
+\contentsline {section}{\numberline {13.5}Messung eines Raketenflügels im Windkanal}{95}{section.13.5}%
+\contentsline {subsection}{\numberline {13.5.1}Messaufbau}{95}{subsection.13.5.1}%
+\contentsline {subsection}{\numberline {13.5.2}Messergebnisse}{96}{subsection.13.5.2}%
+\contentsline {subsection}{\numberline {13.5.3}Berechnung der Axialkraft}{96}{subsection.13.5.3}%
+\contentsline {subsection}{\numberline {13.5.4}Vergleich der Messergebnisse mit simullierten Werten}{97}{subsection.13.5.4}%
+\contentsline {part}{\numberline {IV}Ergebnisse und Ausblick}{98}{part.4}%
+\contentsline {chapter}{\numberline {14}Gesamtaufbau und Systemintegration}{99}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Stand vom mechanischen Aufbau}{99}{section.14.1}%
+\contentsline {subsection}{\numberline {14.1.1}Nicht fertitggebrachte Subsysteme/Teile der Struktur}{99}{subsection.14.1.1}%
+\contentsline {paragraph}{\nonumberline Bergungsystem}{99}{paragraph*.135}%
+\contentsline {paragraph}{\nonumberline Montierung von Akku und Flightcomputer}{99}{paragraph*.137}%
+\contentsline {paragraph}{\nonumberline Schockseilverbindung}{99}{paragraph*.139}%
+\contentsline {section}{\numberline {14.2}Stand des elektrischen Aufbaus}{99}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Collage}{100}{section.14.3}%
+\contentsline {chapter}{\numberline {15}Simulations- und Testergebnisse}{102}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Ergebnisse der OpenRocket Simulation}{102}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Ergebnisse der MATLAB Simulationen}{103}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Ergebnisse der Strömungssimulation}{105}{section.15.3}%
+\contentsline {section}{\numberline {15.4}Ergebnisse der Hardware in the Loop Tests}{106}{section.15.4}%
+\contentsline {chapter}{\numberline {16}Rechtliches}{108}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Rechtliche Einschränkungen}{108}{section.16.1}%
+\contentsline {subsection}{\numberline {16.1.1}Raketenmotor}{108}{subsection.16.1.1}%
+\contentsline {subsection}{\numberline {16.1.2}Pyrotechnische Charges zum Fallschirmauswurf}{109}{subsection.16.1.2}%
+\contentsline {chapter}{\numberline {17}Verwendung von Künstlicher Intelligenz}{110}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Beispielprompts}{110}{section.17.1}%
+\contentsline {subsection}{\numberline {17.1.1}OpenAI ChatGPT}{110}{subsection.17.1.1}%
+\contentsline {paragraph}{\nonumberline Prompt:}{110}{paragraph*.151}%
+\contentsline {paragraph}{\nonumberline Ausgabe:}{110}{paragraph*.153}%
+\contentsline {subsection}{\numberline {17.1.2}DeepL Übersetzer}{111}{subsection.17.1.2}%
+\contentsline {paragraph}{\nonumberline Eingabe:}{111}{paragraph*.155}%
+\contentsline {paragraph}{\nonumberline Ausgabe:}{111}{paragraph*.157}%
+\contentsline {subsection}{\numberline {17.1.3}DeepL Write}{111}{subsection.17.1.3}%
+\contentsline {paragraph}{\nonumberline Eingabe:}{111}{paragraph*.159}%
+\contentsline {paragraph}{\nonumberline Ausgabe:}{111}{paragraph*.161}%
+\contentsline {chapter}{\numberline {18}Ausblick}{112}{chapter.18}%
 \contentsline {chapter}{\numberline {A}Bemaßte Zeichnungen der CAD-Modelle}{116}{appendix.A}%
 \contentsline {chapter}{\numberline {B}Schaltplan des Flightcomputers}{129}{appendix.B}%
 \contentsline {chapter}{\numberline {C}Ausschnitte des verwendeten MATLAB-Codes}{136}{appendix.C}%

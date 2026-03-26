@@ -57,38 +57,39 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {12.1}{\ignorespaces Flügel CAD Modell}}{74}{figure.caption.99}%
 \contentsline {figure}{\numberline {12.2}{\ignorespaces Gelenksystem zur Flügelsteuerung}}{75}{figure.caption.100}%
-\contentsline {figure}{\numberline {12.3}{\ignorespaces Befestigung des Raketenflügels mit Kugellagern}}{75}{figure.caption.101}%
+\contentsline {figure}{\numberline {12.3}{\ignorespaces Befestigung des Raketenflügels mit Kugellagern}}{76}{figure.caption.101}%
 \contentsline {figure}{\numberline {12.4}{\ignorespaces Assembly des kompletten Finnensteuermechanismus}}{76}{figure.caption.102}%
 \contentsline {figure}{\numberline {12.5}{\ignorespaces Montierung vom Flightcomputer und Akku}}{77}{figure.caption.103}%
-\contentsline {figure}{\numberline {12.6}{\ignorespaces Raketenspitze}}{79}{figure.caption.104}%
-\contentsline {figure}{\numberline {12.7}{\ignorespaces Solid Edge Assembly}}{79}{figure.caption.105}%
+\contentsline {figure}{\numberline {12.6}{\ignorespaces Aufbau des Bergungsystems mit Legende}}{77}{figure.caption.104}%
+\contentsline {figure}{\numberline {12.7}{\ignorespaces Raketenspitze}}{80}{figure.caption.105}%
+\contentsline {figure}{\numberline {12.8}{\ignorespaces Zusammengesetzte CAD-Baugruppe der Rakete}}{80}{figure.caption.106}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {13.1}{\ignorespaces Vernetzter Raketenflügel}}{82}{figure.caption.107}%
-\contentsline {figure}{\numberline {13.2}{\ignorespaces Plot der Residuals im 8. Simulationsfall}}{85}{figure.caption.114}%
-\contentsline {figure}{\numberline {13.3}{\ignorespaces Druck am Raketenflügel}}{90}{figure.caption.120}%
-\contentsline {figure}{\numberline {13.4}{\ignorespaces Geschwindigkeit am Raketenflügel}}{91}{figure.caption.121}%
-\contentsline {figure}{\numberline {13.5}{\ignorespaces Druck am Raketenkörper}}{91}{figure.caption.123}%
-\contentsline {figure}{\numberline {13.6}{\ignorespaces Geschwindigkeit am Raketenkörper}}{92}{figure.caption.124}%
-\contentsline {figure}{\numberline {13.7}{\ignorespaces Z-Komponente der Geschwindigkeit am Raketenkörper}}{93}{figure.caption.125}%
-\contentsline {figure}{\numberline {13.8}{\ignorespaces CAD-Modell des Raketenflügels zur befestigung im Windkanal}}{94}{figure.caption.126}%
-\contentsline {figure}{\numberline {13.9}{\ignorespaces Messaufbau vom Raketenflügel im Windkanal}}{94}{figure.caption.127}%
+\contentsline {figure}{\numberline {13.1}{\ignorespaces Vernetzter Raketenflügel}}{83}{figure.caption.108}%
+\contentsline {figure}{\numberline {13.2}{\ignorespaces Plot der Residuals im 8. Simulationsfall}}{86}{figure.caption.115}%
+\contentsline {figure}{\numberline {13.3}{\ignorespaces Druck am Raketenflügel}}{91}{figure.caption.121}%
+\contentsline {figure}{\numberline {13.4}{\ignorespaces Geschwindigkeit am Raketenflügel}}{92}{figure.caption.122}%
+\contentsline {figure}{\numberline {13.5}{\ignorespaces Druck am Raketenkörper}}{92}{figure.caption.124}%
+\contentsline {figure}{\numberline {13.6}{\ignorespaces Geschwindigkeit am Raketenkörper}}{93}{figure.caption.125}%
+\contentsline {figure}{\numberline {13.7}{\ignorespaces Z-Komponente der Geschwindigkeit am Raketenkörper}}{94}{figure.caption.126}%
+\contentsline {figure}{\numberline {13.8}{\ignorespaces CAD-Modell des Raketenflügels zur befestigung im Windkanal}}{95}{figure.caption.127}%
+\contentsline {figure}{\numberline {13.9}{\ignorespaces Messaufbau vom Raketenflügel im Windkanal}}{95}{figure.caption.128}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {14.1}{\ignorespaces Der fertig bestückte Flightcomputer \textit {KOMADORI}}}{98}{figure.caption.139}%
+\contentsline {figure}{\numberline {14.1}{\ignorespaces Der fertig bestückte Flightcomputer \textit {KOMADORI}}}{99}{figure.caption.140}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {15.1}{\ignorespaces Ungestörter Flug der Rakete mit einem H-Motor}}{102}{figure.caption.141}%
-\contentsline {figure}{\numberline {15.2}{\ignorespaces Simulation der Regelung mit Nachführung der $\mathbf {K}$-Matrix}}{102}{figure.caption.142}%
-\contentsline {figure}{\numberline {15.3}{\ignorespaces Simulation der Regelung ohne Nachführung der $\mathbf {K}$-Matrix}}{103}{figure.caption.143}%
-\contentsline {figure}{\numberline {15.4}{\ignorespaces Verlauf mit Nachführung der $\mathbf {K}$-Matrix}}{103}{figure.caption.144}%
-\contentsline {figure}{\numberline {15.5}{\ignorespaces Verlauf ohne Nachführung der $\mathbf {K}$-Matrix}}{103}{figure.caption.144}%
-\contentsline {figure}{\numberline {15.6}{\ignorespaces Verlauf der Winkel $\theta $ und $\psi $}}{105}{figure.caption.145}%
-\contentsline {figure}{\numberline {15.7}{\ignorespaces Verlauf der Winkel $\theta $ und $\psi $ ohne Updateschritt durch Beschleunigungsdaten}}{105}{figure.caption.146}%
-\contentsline {figure}{\numberline {15.8}{\ignorespaces Rohe Gyroskopdaten der Winkelgeschwindigkeiten $p$, $q$ und $r$}}{106}{figure.caption.147}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {15.1}{\ignorespaces Ungestörter Flug der Rakete mit einem H-Motor}}{103}{figure.caption.142}%
+\contentsline {figure}{\numberline {15.2}{\ignorespaces Simulation der Regelung mit Nachführung der $\mathbf {K}$-Matrix}}{103}{figure.caption.143}%
+\contentsline {figure}{\numberline {15.3}{\ignorespaces Simulation der Regelung ohne Nachführung der $\mathbf {K}$-Matrix}}{104}{figure.caption.144}%
+\contentsline {figure}{\numberline {15.4}{\ignorespaces Verlauf mit Nachführung der $\mathbf {K}$-Matrix}}{104}{figure.caption.145}%
+\contentsline {figure}{\numberline {15.5}{\ignorespaces Verlauf ohne Nachführung der $\mathbf {K}$-Matrix}}{104}{figure.caption.145}%
+\contentsline {figure}{\numberline {15.6}{\ignorespaces Verlauf der Winkel $\theta $ und $\psi $}}{106}{figure.caption.146}%
+\contentsline {figure}{\numberline {15.7}{\ignorespaces Verlauf der Winkel $\theta $ und $\psi $ ohne Updateschritt durch Beschleunigungsdaten}}{106}{figure.caption.147}%
+\contentsline {figure}{\numberline {15.8}{\ignorespaces Rohe Gyroskopdaten der Winkelgeschwindigkeiten $p$, $q$ und $r$}}{107}{figure.caption.148}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Simulink Modell der Rakete mit LQG-Regler}}{137}{figure.caption.162}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Simulink Modell der Rakete mit LQG-Regler}}{137}{figure.caption.163}%
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
