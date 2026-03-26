@@ -180,7 +180,7 @@ Damit stellt sich abschließend die Frage, inwiefern eine nachgeführte $\mathbf
 % ======================= UND NOCH EXTRA VISUALISIERUNG VOM STRÖMUNGSVERLAUF =========
 \newpage
 \section{Ergebnisse der Hardware in  the Loop Tests}
-Nachdem der Flightcomputer entwickelt und die Sensoren integriert wurden, wurden erste Hardware in the Loop Tests durchgeführt, um die Funktionalität des Flightcomputers und die Integration der Sensoren zu überprüfen.
+Nachdem der Flightcomputer entwickelt und die Sensoren integriert wurden, wurde zuerst die Funktionalität des Extended Kalman Filters (EKF) getestet, welcher für die Schätzung der Fluglage der Rakete von zentraler Bedeutung ist. Die Ergebnisse dieser Tests werden im Folgenden präsentiert und diskutiert.
 
 Um die Funktionalität des Extended Kalman Filters zu veranschaulichen, wurde die Verläufe der geschätzten Winkel $\theta$ und $\psi$, die für die Regelung am wichtigsten sind, über die Zeit aufgezeichnet, wie in Abbildung \ref{fig:winkelverlauf_csv} dargestellt. Dabei wurde der Flightcomputer von Hand in beide Richtungen nach vorne und hinten geneigt. Wie in Abschnitt \ref{subsec:extendedkalmanfilter} beschrieben, werden die Beschleunigungsdaten des IMUs als Messmodell für die Winkel $\theta$ und $\psi$ verwendet da bis auf die Schwerkraft keine Beschleunigung auftritt, was die Zustandschätzung genauer macht. Die gemessenen Winkel stimmen mit unter 1 Grad Fehler sehr gut mit den realen Bewegungen überein, was die Funktionsfähigkeit des EKF bestätigt.
 \begin{figure}[H]
@@ -446,3 +446,8 @@ Flügel können an verschiedenen Positionen entlang vom Raketengehäuse angebrac
 
 \paragraph{Ausgabe:}
 Flügel können an verschiedenen Positionen entlang \textcolor{green}{des Raketengehäuses} angebracht werden, am verbreitetsten sind jedoch Raketen mit entweder nur hinteren Flügeln oder mit sowohl frontalen als auch hinteren Flügeln. Bei aktiven Steuersystemen bieten bewegliche frontale Flügel den Vorteil der besseren Manövrierfähigkeit, sorgen aber für weniger Stabilität und benötigen komplexere Regelungstechnik.
+
+
+\chapter{Ausblick}
+\label{ch:outlook}
+Die Entwicklung von \textit{ALBERT} hat gezeigt, dass die Konstruktion einer aktiv geregelten Rakete im Rahmen des Diplomprojekts eine komplexe, aber machbare Aufgabe ist. Über den gesamten Entwicklungsprozess hinweg wurden zahlreiche Herausforderungen bewältigt, von der Konstruktion des Raketenkörpers über die Entwicklung des Flightcomputers bis hin zur Implementierung der Regelungstechnik. Nach voraussichtlichem Abschluss der Entwicklungsphase und der Bewältigung der beschriebenen Verzögerungen steht der Durchführung eines ersten Flugversuchs,welcher die Funktionalität des Systems unter realen Bedingungen evaluieren soll, nichts mehr im Wege. 

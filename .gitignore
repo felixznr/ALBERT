@@ -192,7 +192,7 @@ Temporary Items
 
 # Project specific
 # Data files
-*.csv
+
 *.json
 *.xml
 *.xlsx
