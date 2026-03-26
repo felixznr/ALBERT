@@ -1080,7 +1080,6 @@ An diesem Punkt soll die Verbindung zwischen Linear Quadratic Regulator und Kalm
 Dabei können die beiden optimalen Verfahren unabhängig voneinander ausgelegt werden und anschließend zusammengeführt werden, bleiben jedoch nach wie vor optimal. 
 \begin{figure}[H]
 \centering
-
 \begin{tikzpicture}[>=latex, thick]
 \tikzset{
   block/.style={draw,fill=blue!15, rectangle, minimum width=3cm, minimum height=1.2cm},
@@ -1143,7 +1142,6 @@ Der LQG-Regler berechnet die Steuergröße $\mathbf{u}$ auf Basis der geschätzt
 Der Kalman-Filter (hier in seiner kontinuierlichen Form auch Kalman-Bucy Filter genannt) berechnet die Schätzung $\hat{\mathbf{x}}$ des Systemzustands basierend auf den gemessenen Signalen $\mathbf{y}$:
 \begin{equation}\hat{\mathbf{x}} = -\mathbf{K}_f \cdot \mathbf{y}\end{equation}
 Die Rückführungsmatrix $\mathbf{K}_r$ des LQR und die Kalman-Gain-Matrix $\mathbf{K}_f$ des Kalman-Filters werden unabhängig voneinander berechnet, wobei $\mathbf{K}_r$ auf der Minimierung der Kostenfunktion des LQR basiert und $\mathbf{K}_f$ auf der Minimierung der Kovarianzmatrix des Kalman-Filters basiert.
-
 Wie in den der detaillierten Beschreibungen der beiden Verfahren siehe Kapitel \ref{sec:lqr_regler} und \ref{sec:kalman_filter} beschrieben, sind sich die Berechnungsschritte der Rückführungsmatrix $\mathbf{K}_r$ des LQR und der Kalman-Gain-Matrix $\mathbf{K}_f$ des Kalman-Filters sehr ähnlich, und jeweils auf eine algebraische Riccati-Gleichung zurückzuführen. 
 \begin{quote}
 Optimal control and estimation are mathematical dual problems, as are controllability and observability.

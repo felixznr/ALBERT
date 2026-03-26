@@ -431,7 +431,7 @@ F_{g_{x_n}} &= mg \\
 F_{g_{y_n}} &= 0 \\
 F_{g_{z_n}} &= 0
 \end{align}
-wobei $g$ die Erdbeschleunigung ist. Um die Gravitationskraft in den Körperachsen zu berechnen, muss sie mit der Transformationsmatrix $T_{n \to b}$ von Navigation Frame zu Body Frame transformiert werden: % ATTENTIONE hier nochmal drüberschauen weiß nicht ob das so passt mit den winkeln
+wobei $g$ die Erdbeschleunigung ist. Die Erdbeschleunidung wird deshalb in $x$-Richtung gelegt, da so das Gimbal-Lock Problem im Senkrechtflug umgangen werden kann. Um die Gravitationskraft in den Körperachsen zu berechnen, muss sie mit der Transformationsmatrix $T_{n \to b}$ von Navigation Frame zu Body Frame transformiert werden: % ATTENTIONE hier nochmal drüberschauen weiß nicht ob das so passt mit den winkeln
 \begin{equation}
 \mathbf{T}_{n \to b} =
 \begin{bmatrix}
@@ -573,7 +573,7 @@ Der Anstellwinkel $\alpha$ (und gesamte Anstellwinkel $\alpha_t$), der Schiebewi
 \alpha &= \tan^{-1}\!\left(\frac{w}{u}\right)
 \quad \text{oder} \quad
 \alpha_t = \tan^{-1}\!\left(\frac{\sqrt{v^2 + w^2}}{u}\right) \quad \text{[rad ]} \\
-\beta &= \tan^{-1}\!\left(\frac{v}{V_M}\right) \quad \text{[rad ]}\\
+\beta &= \sin^{-1}\!\left(\frac{v}{|V|}\right) \quad \text{[rad ]}\\
 \phi &= \tan^{-1}\!\left(\frac{v}{w}\right)
 \quad \text{[rad ]}
 \end{align}
@@ -781,18 +781,17 @@ Dadurch das beide Matrizen stark von der Geschwindigkeit $\mathbf{u}$ abhängen,
 \subsection{Steuerbarkeit}
 \label{subsec:steuerbarkeit}
 Um sich im ersten Schritt ein Bild über die Regelstrecke zu machen, werden zuerst die Eigenwerte der Systemmatrix $\mathbf{A}_n$ für die verschiedenen Arbeitspunkte berechnet. Alle Eigenwerte bis auf einen haben negative Realteile, was darauf hindeutet, dass das System um die Arbeitspunkte stabil ist. Der eine Eigenwert mit positivem Realteil ist durch die Geschwindigkeit $u$ in $x$ Richtung bedingt.
-% ATTENTION DIESE WERTE SIND FÜR EXEMPLARISCHE WERTE UND MÜSSEN SPÄTER ANGEPASST WERDEN
 \begin{equation}
 \begin{bmatrix}
--0.1531 \\
--1.4844 + 23.1239i \\
--1.4844 - 23.1239i \\
--0.1958 \\
--24.6607 \\
-21.6927 \\
--0.1966 \\
-0 \\
-0
+-0.0190 \\
+-0.0951 + 5.6487i \\
+-0.0951 - 5.6487i \\
+-0.4919 \\
+5.5703 \\
+-5.7635 \\
+-0.4891 \\
+0.0000 \\
+-1.2250
 \end{bmatrix}
 \end{equation}
 Nachdem die Eigenwerte berechnet wurden, wird die Steuerbarkeit des Systems überprüft. Das System ist steuerbar, wenn die Steuerbarkeitsmatrix $\mathcal{C} = [\mathbf{B}_n, \mathbf{A}_n \mathbf{B}_n, \mathbf{A}_n^2 \mathbf{B}_n, \ldots, \mathbf{A}_n^{n-1} \mathbf{B}_n]$ vollen Rang hat. Dies wird mit \texttt{ctrlrank = rank(ctrb(A,B))} Funktion in MATLAB überprüft. Als Rückgabewert erhält man für den Wert 8, was bedeutet, dass das System nicht vollständig steuerbar ist, da die Systemdimension 9 beträgt, was auch völlig logisch ist, wenn man bedenkt, dass die Geschwindigkeit $u$ maßgeblich von der Schubkraft bestimmt wird, die nicht als Steuergröße zur Verfügung steht.
@@ -805,22 +804,22 @@ Die K-Matrix kann mit der Funktion \texttt{lqr(A,B,Q,R)} in MATLAB berechnet wer
 \\
 Auch die K-Matrix muss für die verschiedenen Arbeitspunkte berechnet werden, um die Systemdynamik über den gesamten Flug zu beschreiben. Über Interpolation zwischen den K-Matrizen der verschiedenen Arbeitspunkte kann eine von der Geschwindigkeit abhängige K-Matrix $\mathbf{K(u)}$ erstellt werden, die im Laufe des Fluges dynamisch angepasst werden kann.
 \\
-Im Folgenden sind die Matrizen für die Arbeitspunkte mit den Geschwindigkeiten $u = 50\,\mathrm{m/s}$ und $u = 100\,\mathrm{m/s}$ dargestellt:
-% ATTENTION DIESE WERTE MÜSSEN SPÄTER ANGEPASST WERDEN
+Im Folgenden sind die Matrizen für die Arbeitspunkte mit den Geschwindigkeiten $u = 50\,\mathrm{m/s}$ und $u = 20\,\mathrm{m/s}$ dargestellt:
+
 \begin{equation}
 \mathbf{K}_{50} =
 \begin{bmatrix}
-    0 & 0.0585 & 0 & 0.2928 & 0 & 0 & 5.3765 & 0 \\
-    -0.0208 & 0 & 0 & 0 & 0.2616 & 0 & 0 & 5.3744 \\
-    0 & 0 & 0.4208 & 0 & 0 & 7.0711 & 0 & 0
+    0 & 0.0841 & 0 & 0.3446 & 0 & 0 & 7.0835 & 0 \\
+        -0.0579 & 0 & 0 & 0 & 0.3322 & 0 & 0 & 7.0825 \\
+        0 & 0 & 0.4674 & 0 & 0 & 10 & 0 & 0
 \end{bmatrix}
 \end{equation}
 \begin{equation}
-\mathbf{K}_{100} =
+\mathbf{K}_{20} =
 \begin{bmatrix}
-    0 & 0.0456 & 0 & 0.1781 & 0 & 0 & 4.3343 & 0 \\
-    -0.0267 & 0 & 0 & 0 & 0.1654 & 0 & 0 & 4.3337 \\
-    0 & 0 & 0.2293 & 0 & 0 & 7.0711 & 0 & 0
+    0 & 0.1314 & 0 & 0.8202 & 0 & 0 & 8.5253 & 0 \\
+    -0.0371 & 0 & 0 & 0 & 0.7510 & 0 & 0 & 8.5179 \\
+    0 & 0 & 1.2484 & 0 & 0 & 10 & 0 & 0
 \end{bmatrix}
 \end{equation}
 Mithilfe von MATLAB wurden für den Bereich von $u = 10\,\mathrm{m/s}$ bis $u = 200\,\mathrm{m/s}$ zuerst Polynomfunktionen von Grad 3 für die einzelnen Einträge der $\mathbf{K}$-Matrix berechnet.
@@ -830,7 +829,7 @@ Hierzu wurden zuerst die jeweiligen $\mathbf{A}$ und $\mathbf{B}$ Matrizen  ermi
 \begin{bmatrix}
 0 & k_{12} & 0 & k_{14} & 0 & 0 & k_{17} & 0 \\
 k_{21} & 0 & 0 & 0 & k_{25} & 0 & 0 & k_{28} \\
-0 & 0 & k_{33} & 0 & 0 & 7.071 & 0 & 0
+0 & 0 & k_{33} & 0 & 0 & 10 & 0 & 0
 \end{bmatrix}
 \end{equation}
 
@@ -845,15 +844,15 @@ k_{21} & 0 & 0 & 0 & k_{25} & 0 & 0 & k_{28} \\
 \subsection{Extended Kalman Filter}
 \label{subsec:extendedkalmanfilter}
 Um den Zustand der Rakete zu schätzen, wir ein Extended Kalman Filter implementiert, da der normale Kalman Filter nur für lineare Systeme geeignet ist, was auf die Rakete nicht zutrifft (siehe Abschnitt \ref{subsec:erweiterter_kalman_filter}).
-Die Implementierung eines Zustandschätzers erfordert ein Messmodell, das die Beziehung zwischen den gemessenen Sensorwerten und den Zustandsgrößen beschreibt. Das Messmodell kann als Funktion $\mathbf{g}(\mathbf{x}_k, \boldsymbol{\nu}_k)$ formuliert werden, die die gemessenen Werte $\mathbf{z}$ beziehungsweise $\mathbf{y}$ in Abhängigkeit von den Zustandsgrößen beschreibt (siehe Abschnitt \ref{sec:regelkreis}). 
+Die Implementierung eines Zustandschätzers erfordert ein Messmodell, das die Beziehung zwischen den gemessenen Sensorwerten und den Zustandsgrößen beschreibt. Das Messmodell kann als Funktion $\mathbf{h}(\mathbf{x}_k, \boldsymbol{\nu}_k)$ formuliert werden, die die gemessenen Werte $\mathbf{z}$ beziehungsweise $\mathbf{y}$ in Abhängigkeit von den Zustandsgrößen beschreibt (siehe Abschnitt \ref{sec:regelkreis}). 
 \\
-Um den späteren Programmcode so übersichtlich und verständlich wie möglich zu gestalten, wird die Funktion $\mathbf{g}(\mathbf{x}_k, \boldsymbol{\nu}_k)$ in mehrere Funktionen für die jeweiligen Sensoren aufgeteilt.
+Um den späteren Programmcode so übersichtlich und verständlich wie möglich zu gestalten, wird die Funktion $\mathbf{h}(\mathbf{x}_k, \boldsymbol{\nu}_k)$ in mehrere Funktionen für die jeweiligen Sensoren aufgeteilt.
 Im Folgenden werden die einzelnen Messfunktionen der Sensoren näher erläutert.
 Die Messdaten des IMUs werden für die Zustandsgleichung $\mathbf{f}(\mathbf{x}_{k-1}, \mathbf{u}_{k-1})$ verwendet. Alle anderen Sensoren liefern Messwerte, die für die Messfunktion $\mathbf{g}$ verwendet werden, um die Zustandsschätzung zu aktualisieren.
 \subsubsection{GNSS}
 Das GNSS-Modul liefert Messwerte für die Position und Geschwindigkeit der Rakete. Das Messmodell wie folgt formuliert werden:
 \begin{equation}
-\mathbf{z}_{\mathrm{GNSS}} = \mathbf{g}_{\mathrm{GNSS}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{GNSS},k}) = 
+\mathbf{z}_{\mathrm{GNSS}} = \mathbf{h}_{\mathrm{GNSS}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{GNSS},k}) = 
 \mathbf{T}_{n \to b}
 \begin{bmatrix}u \\
 v \\
@@ -864,24 +863,24 @@ Da sich die Zustandsgleichung in dieser Arbeit ausschließlich auf Geschwindigke
 \subsubsection{Barometer}
 Das Barometer liefert Messwerte für die Höhe über dem Meeresspiegel. Durch Ableitung der Höhe über die Zeit kann die vertikale Geschwindigkeit der Rakete geschätzt werden. Das Messmodell für das Barometer kann wie folgt formuliert werden:
 \begin{equation}
-\mathbf{z}_{\mathrm{Barometer}} = \mathbf{g}_{\mathrm{Barometer}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{Barometer},k}) = \mathbf{T}_{n \to b}\dot{h} + \boldsymbol{\nu}_{\mathrm{Barometer},k}
+\mathbf{z}_{\mathrm{Barometer}} = \mathbf{h}_{\mathrm{Barometer}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{Barometer},k}) = \mathbf{T}_{n \to b}\dot{h} + \boldsymbol{\nu}_{\mathrm{Barometer},k}
 \end{equation}
 Auch hier müssen die Messwerte in den Body Frame transformiert werden, um sie für die Zustandsschätzung verwenden zu können. Die Barometerdaten abzuleiten kann zu einer starken Verstärkung des Rauschens führen, weshalb es sinnvoll sein kann, diese mittels eines Tiefpassfilters vorher zu glätten.
 \subsubsection{Magnetometer}
 Das Magnetometer liefert Messwerte für die Orientierung der Rakete in Bezug auf das Erdmagnetfeld. Für den Euler-Winkel $\phi$ kann die folgende Messfunktion formuliert werden:
 \begin{equation}
-\mathbf{z}_{\mathrm{Magnetometer}} = \mathbf{g}_{\mathrm{Magnetometer}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{Magnetometer},k}) = \phi + \boldsymbol{\nu}_{\mathrm{Magnetometer},k}
+\mathbf{z}_{\mathrm{Magnetometer}} = \mathbf{h}_{\mathrm{Magnetometer}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{Magnetometer},k}) = \phi + \boldsymbol{\nu}_{\mathrm{Magnetometer},k}
 \end{equation}
 Die Messwerte des Magnetometers können jedoch sehr unzuverlässig sein, insbesondere in der Nähe von Störquellen, deshalb sind diese nur mit Vorsicht zu verwenden.
 \\
 \\
-Um die Zuverlässigkeit der Winkelmessung zu erhöhen, können die Beschleunigungsdaten des IMUs im unbeschleunigten Zustand dazu verwendet werden aus der Richtung der Schwerkraft die Orientierung ($\phi$ \& $\theta$) der Rakete zu bestimmen. Die Messfunktion kann wie folgt angeschrieben werden: % ATTENTION diese dingsbums muss noch angepasst werden
+Um die Zuverlässigkeit der Winkelmessung zu erhöhen, können die Beschleunigungsdaten des IMUs im unbeschleunigten Zustand dazu verwendet werden aus der Richtung der Schwerkraft die Orientierung ($\phi$ \& $\theta$) der Rakete zu bestimmen. Die Messfunktion kann wie folgt angeschrieben werden: 
 \begin{equation}
-\mathbf{z}_{\mathrm{IMU}} = \mathbf{g}_{\mathrm{IMU}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{IMU},k}) = 
+\mathbf{z}_{\mathrm{IMU}} = \mathbf{h}_{\mathrm{IMU}}(\mathbf{x}_k, \boldsymbol{\nu}_{\mathrm{IMU},k}) = 
 \left(\begin{array}{c}
-g\,\sin \left(\theta \right)\\
--g\,\cos \left(\theta \right)\,\sin \left(\phi \right)\\
--g\,\cos \left(\phi \right)\,\cos \left(\theta \right)
+-g\,\sin \left(\theta \right)\\
+g\,\cos \left(\theta \right)\,\sin \left(\psi \right)\\
+g\,\cos \left(\theta \right)\,\cos \left(\psi \right)
 \end{array}\right) + \boldsymbol{\nu}_{\mathrm{IMU},k}
 \end{equation}
 \begin{wrapfigure}{r}{0.5\textwidth}
@@ -893,7 +892,7 @@ g\,\sin \left(\theta \right)\\
 \end{wrapfigure}
 Der EKF ist dazu in der Lage, aus einer Reihe verrauschter Messwerte eine zuverlässige Schätzung zu liefern, wie in Abbildung \ref{fig:kalmanfilter} zu sehen ist. In diesem Beispiel wird die Schätzung des Winkels $\phi$ bei einem sinusförmigen Steuersignal $\delta_r$ und konstanter Geschwindigkeit $u$ dargestellt. Die türkise Linie zeigt die Schätzung des EKF, während die lila Linie die stark verrauschte Messung darstellt. Es ist deutlich zu erkennen, dass der EKF in der Lage ist, die zugrunde liegende Dynamik des Systems zu erfassen und eine glattere und genauere Schätzung zu liefern, trotz der starken Störungen in den Messdaten.
 \\
-Die Leistung des EKF hängt maßgeblich davon ab, wie gut die zugrundeliegenden Modelle die tatsächliche Dynamik beschreiben, sowie von der Wahl der Prozess- und Messrauschkovarianzen. Darüber hinaus ist es wichtig die Startwerte genau zu kennen. Eine sorgfältige Modellierung und Abstimmung dieser Parameter ist entscheidend, um eine genaue und zuverlässige Zustandsschätzung zu gewährleisten. Später soll im Rahmen des Fazits noch genauer auf die erzielten Ergebnisse eingegangen werden, um die Leistung des EKF zu bewerten und mögliche Verbesserungen zu identifizieren. Desweiteren soll die tatsächliche Implementierung in C im Kapitel \ref{ch:implementation_in_software} beschrieben werden.
+Die Leistung des EKF hängt maßgeblich davon ab, wie gut die zugrundeliegenden Modelle die tatsächliche Dynamik beschreiben, sowie von der Wahl der Prozess- und Messrauschkovarianzen. Darüber hinaus ist es wichtig die Startwerte genau zu kennen. Eine sorgfältige Modellierung und Abstimmung dieser Parameter ist entscheidend, um eine genaue und zuverlässige Zustandsschätzung zu gewährleisten. Später soll im Rahmen des Kapitels Ergebnisse und Ausblick noch genauer auf die erzielten Ergebnisse eingegangen werden, um die Leistung des EKF zu bewerten und mögliche Verbesserungen zu identifizieren. Desweiteren soll die tatsächliche Implementierung in C im Kapitel \ref{ch:implementation_in_software} beschrieben werden.
 \chapter{Implementierung in Software}
 \label{ch:implementation_in_software}
 In der nachfolgenden Abhandlung wird die Implementierung der zuvor beschriebenen Regelungskonzepte in die Software des Flightcomputers \textit{KOMADORI} erörtert. Zunächst erfolgt eine Beschreibung des Programmablaufs, anschließend wird auf die Implementation des LQG-Reglers eingegangen.

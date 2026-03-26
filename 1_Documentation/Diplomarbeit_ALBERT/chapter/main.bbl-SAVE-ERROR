@@ -205,6 +205,30 @@
       \verb https://www.youtube.com/watch?v=EBjca6tPuO0
       \endverb
     \endentry
+    \entry{Extrudr}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1a04daebbad0f758e547160873985bbe}{%
+           family={{Extrudr GmbH}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{1a04daebbad0f758e547160873985bbe}
+      \strng{fullhash}{1a04daebbad0f758e547160873985bbe}
+      \strng{fullhashraw}{1a04daebbad0f758e547160873985bbe}
+      \strng{bibnamehash}{1a04daebbad0f758e547160873985bbe}
+      \strng{authorbibnamehash}{1a04daebbad0f758e547160873985bbe}
+      \strng{authornamehash}{1a04daebbad0f758e547160873985bbe}
+      \strng{authorfullhash}{1a04daebbad0f758e547160873985bbe}
+      \strng{authorfullhashraw}{1a04daebbad0f758e547160873985bbe}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \verb{urlraw}
+      \verb https://www.extrudr.com/
+      \endverb
+      \verb{url}
+      \verb https://www.extrudr.com/
+      \endverb
+    \endentry
     \entry{BoschFlipCore}{patent}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=110823ca6b065c4ca0615ec97eb35889}{%
@@ -295,6 +319,30 @@
       \endverb
       \verb{url}
       \verb https://jlcpcb.com/blog/decoupling-vs-bypass-capacitor
+      \endverb
+    \endentry
+    \entry{JulianZauner}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d19f95ed3f0335c6da4bd22c88ce5324}{%
+           family={{Julian Zauner}},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{fullhash}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{fullhashraw}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{bibnamehash}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{authorbibnamehash}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{authornamehash}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{authorfullhash}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \strng{authorfullhashraw}{d19f95ed3f0335c6da4bd22c88ce5324}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \verb{urlraw}
+      \verb https://www.julianzauner.at/
+      \endverb
+      \verb{url}
+      \verb https://www.julianzauner.at/
       \endverb
     \endentry
     \entry{AliyuAliyuStateSpace}{article}{}{}
@@ -457,6 +505,30 @@
       \endverb
       \verb{url}
       \verb https://www.bitweenie.com/listings/standard-4-and-6-layer-pcb-stackups/
+      \endverb
+    \endentry
+    \entry{Palfinger}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=05e3f958a0eb9df4ed99417c66eb8951}{%
+           family={{Palfinger AG}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{05e3f958a0eb9df4ed99417c66eb8951}
+      \strng{fullhash}{05e3f958a0eb9df4ed99417c66eb8951}
+      \strng{fullhashraw}{05e3f958a0eb9df4ed99417c66eb8951}
+      \strng{bibnamehash}{05e3f958a0eb9df4ed99417c66eb8951}
+      \strng{authorbibnamehash}{05e3f958a0eb9df4ed99417c66eb8951}
+      \strng{authornamehash}{05e3f958a0eb9df4ed99417c66eb8951}
+      \strng{authorfullhash}{05e3f958a0eb9df4ed99417c66eb8951}
+      \strng{authorfullhashraw}{05e3f958a0eb9df4ed99417c66eb8951}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \verb{urlraw}
+      \verb https://www.palfinger.com/
+      \endverb
+      \verb{url}
+      \verb https://www.palfinger.com/
       \endverb
     \endentry
     \entry{ExtendedKalmanPhils1}{online}{}{}

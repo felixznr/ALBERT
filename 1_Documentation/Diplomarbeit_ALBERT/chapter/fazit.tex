@@ -20,16 +20,20 @@
 %        \label{fig:big_stein}
 %\end{figure}
 
-\section{Stand vom mechanischen Aufbau}
+\section{Stand des mechanischen Aufbaus}
 \label{sec:mechanical_build_status}
 Wegen Zeitmangel mussten Prioritäten beim Aufbau der einzelnen Subsysteme gesetzt werden. Ein Teil dieser wurde realisiert und verlief dabei so wie geplant, während der Rest aus zeitlichen, rechtlichen oder Prioritätsgründen es nicht wurde.
 
+<<<<<<< HEAD
 \subsection{Erfolgreich implementierte Subsysteme/Teile der Struktur}
 Insgesamt wurde mehr Wert auf eine optimale Aerodynamik und funktionierende Regelung gelegt, was auch erfolgreich realisiert wurde. Die Massenverteilung innerhalb der Rakete erfolgte nach Plan, wodurch die Strömungssimulation und die damit verbundene Berechnung der essenziellen Modellerwerte reibungsfrei verlief.
 \\
 Es wurden die Halterungen für Raketenflügel/Servomotoren, die hintere Abdeckung und die Abdeckung des Motors, die Raketenspitze und die Raketenflügel in das Gehäuse eingebaut und mit den Carbonstäben verstärkt. In alle mit Schrauben am Gehäuse festgemachten Teilen wurden in die dafür vorgesehenen Löcher Gewindeeinsätze aus Kupfer eingeschmolzen und die Kugellager der Flügel wurden in das 3D-gedruckte Teil eingeklebt, wo schließlich mit Presspassung die Flügel gesteckt wurden. Da der Flügelsteuermechanismus nicht rechtzeitig gefertigt und getestet wurde, konnte die Beweglichkeit der Flügel nicht getestet werden. Das Gehäuse wurde lackiert und mit einem Schriftzug des Projekttitels versehen, wie in \ref{sec:collage} zu sehen ist.
 
 \subsection{Nicht zeitnah realisierte Subsysteme/Teile der Struktur}
+=======
+\subsection{Nicht fertiggestellte Subsysteme und Strukturkomponenten}
+>>>>>>> 650e54399910864d6bee2dc5b830319b5d5d850e
 \label{subsec:not_finished_subsystems}
 \paragraph{Bergungsystem}
 Der ursprüngliche Plan für das Bergungsystem war, einen bereits fertigen Fallschirm zu kaufen. Aufgrund von falsch eingeschätzter Gesamtmasse der Rakete, war diese Option in der benötigten Größe zu teuer. Daher wurden die genauen Dimensionen des benötigten Fallschirms berechnet und die Wahl für das Material wurde ebenfalls getroffen, genauer beschrieben in \ref{sec:recovery_system}. Dies konnte jedoch nicht mehr zeitnah realisiert werden.
@@ -52,7 +56,7 @@ Durch den Zeitmangel wurde der Flügelsteuermechanismus ebenfalls nicht zeitnah 
     \vspace{-30pt}
     \centering
     \includegraphics[width=0.2\textwidth]{komadori2.png}
-    \caption{Der fertig bestückte Flightcomputer \textit{KOMADORI}}
+    \caption{Fertig bestückter Flightcomputer \textit{KOMADORI}}
     \label{fig:fertiger_flightcomputer}
     \vspace{-20pt}
 \end{wrapfigure}
@@ -77,13 +81,17 @@ Die Telemetrieübertragung mittels LoRa befindet sich aktuell noch in der Entwic
 Mit der Inbetriebnahme des GNSS-Moduls wurde bereits begonnen, die Implementierung befindet sich derzeit jedoch noch im Stadium der Treiberentwicklung. Der Fortschritt wird dabei insbesondere durch die nur begrenzt ausführliche Dokumentation erschwert, sodass eine detaillierte Einarbeitung in das eigene Protokoll und die Funktionsweise des Moduls notwendig ist.
 
 \section{Collage}
+<<<<<<< HEAD
 \label{sec:collage}
+=======
+Die folgende Collage zeigt sowohl die fertige Rakete als auch den Flightcomputer \textit{KOMADORI} in verschiedenen Perspektiven. Dabei wurde eine handelsübliche Compact Disc als Referenzobjekt verwendet, um die Größenverhältnisse zu verdeutlichen. 
+>>>>>>> 650e54399910864d6bee2dc5b830319b5d5d850e
  \newpage
 \begin{figure}[H]
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{rocketmuse.jpeg}
+        \includegraphics[width=\linewidth]{rocketaerosmith.jpeg}
     
     \end{minipage}
     \hfill
@@ -165,9 +173,9 @@ Die Simulation dient der Validierung des mathematischen Modells in x-Richtung un
     \includegraphics[width=0.5\textwidth]{sim2.png}
     \caption{Simulation der Regelung mit Nachführung der $\mathbf{K}$-Matrix}
     \label{fig:matlab_simulation_results_2}
-    \vspace{-5cm}
+    \vspace{-3cm}
 \end{wrapfigure}
-In Abbildung \ref{fig:matlab_simulation_results_2} ist eine Simulation von Startwinkeln von $3^\circ$ für $\theta$ (orange) und $-1^\circ$ für $\psi$ (grün) dargestellt. Sobald die Regelung aktiv wird, beginnen die Finnen ($\delta_\eta$ in gelb und $\delta_\zeta$ in lila) mit der Korrektur der Lageabweichungen, was sich in einer Stabilisierung der Winkel $\theta$ und $\psi$ zeigt. Die Simulation zeigt, dass die Regelung in der Lage ist, die Rakete trotz der anfänglichen Störung zu stabilisieren und eine kontrollierte Flugbahn aufrechtzuerhalten. Es ist jedoch auch zu erkennen, dass der Regler nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung.
+In Abbildung \ref{fig:matlab_simulation_results_2} ist eine Simulation von Startwinkeln von $3^\circ$ für $\theta$ (orange) und $-1^\circ$ für $\psi$ (grün) dargestellt. Sobald die Regelung aktiv wird, beginnen die Finnen ($\delta_\eta$ in gelb und $\delta_\zeta$ in lila) mit der Korrektur der Lageabweichungen, was sich in einer Stabilisierung der Winkel $\theta$ und $\psi$ zeigt. Die Simulation zeigt, dass die Regelung in der Lage ist, die Rakete trotz der anfänglichen Störung zu stabilisieren und eine kontrollierte Flugbahn aufrechtzuerhalten. Es ist jedoch auch zu erkennen, dass der Regler nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung. Generell gilt es auf jeden Fall zu beachten, dass der Regler nur im Bereich rund um die Auslegungsbedinungen sprich um den Nullpunkt der Regelung optimal eingestellt ist.
 
 \newpage
 \begin{wrapfigure}{r}{0.5\textwidth}
@@ -360,7 +368,7 @@ In Abbildung \ref{fig:winkelverlauf_csv2} ist der Verlauf der Winkel $\theta$ un
     \label{fig:winkelverlauf_csv32}
     \vspace{-0.5cm}
 \end{figure}
-
+In den Hardware in the Loop Tests konnte die Funktionsfähigkeit der Regelung bestätigt werden. 
 
 \chapter{Rechtliches}
 \label{ch:legal}
@@ -418,4 +426,14 @@ Auf Grundlage der genannten gesetzlichen Bestimmungen durften die pyrotechnische
 
 \chapter{Ausblick}
 \label{ch:outlook}
+<<<<<<< HEAD
 Die Entwicklung von \textit{ALBERT} hat gezeigt, dass die Konstruktion einer aktiv geregelten Rakete im Rahmen des Diplomprojekts eine komplexe, aber machbare Aufgabe ist. Über den gesamten Entwicklungsprozess hinweg wurden zahlreiche Herausforderungen bewältigt, von der Konstruktion des Raketenkörpers über die Entwicklung des Flightcomputers bis hin zur Implementierung der Regelungstechnik. Nach voraussichtlichem Abschluss der Entwicklungsphase und der Bewältigung der beschriebenen Verzögerungen steht der Durchführung eines ersten Flugtests, welcher die Funktionalität des Systems unter realen Bedingungen evaluieren soll, nichts mehr im Wege. Damit könnten alle einzelnen Bestandteile des Projekts am Boden getestet werden, ohne dabei legale Grenzen zu überschreiten.
+=======
+Die Entwicklung von \textit{ALBERT} hat gezeigt, dass die Konstruktion einer aktiv geregelten Rakete im Rahmen des Diplomprojekts eine komplexe, aber machbare Aufgabe ist. Über den gesamten Entwicklungsprozess hinweg wurden zahlreiche Herausforderungen bewältigt, von der Konstruktion des Raketenkörpers über die Entwicklung des Flightcomputers bis hin zur Implementierung der Regelungstechnik. Nach voraussichtlichem Abschluss der Entwicklungsphase und der Bewältigung der beschriebenen Verzögerungen steht der Durchführung eines ersten Flugversuchs,welcher die Funktionalität des Systems unter realen Bedingungen evaluieren soll, nichts mehr im Wege. 
+
+Für die Zukunft ist eine Erweiterung um ein Guidance-System vorgesehen, das nicht nur einen stabilisierten Vertikalflug ermöglichen, sondern auch das gezielte Anfliegen vorgegebener GPS-Koordinaten unterstützen soll. Darüber hinaus ist die Einführung eines eigenen Protokolls für die Telemetrieübertragung geplant, um die Übertragung von Telemetriedaten über LoRa zu optimieren und die Zuverlässigkeit der Datenkommunikation zu erhöhen. Um die übertragenen Telemtriedaten übersichtlich zu visualisieren, soll zusätzlich eine Ground Station Software entwickelt werden, welche die empfangenen Daten in Echtzeit darstellt und Möglichkeiten gibt Befehle an die Rakete zu senden.
+
+Für zukünftige Versionen des Flightcomputers ist zudem der Einsatz eines Dual-Core-Prozessors vorgesehen. Ziel dieser Weiterentwicklung ist es, rechenzeitkritische Funktionen noch klarer von Kommunikations- und Hintergrundaufgaben zu trennen und dabei auf langsame Bussystem zwischen den Prozessoren verzichten zu können. So könnten die Regelungsalgorithmen sowie die Zustandsschätzung auf einem Prozessorkern mit hoher zeitlicher Deterministik ausgeführt werden, während der zweite Kern für Telemetrie, Datenlogging und sonstige potenziell blockierende Prozesse zuständig ist. Von einer solchen Architektur werden insbesondere Vorteile hinsichtlich Echtzeitverhalten, Systemstabilität und Erweiterbarkeit des Flightcomputers erwartet.
+
+\cleardoublepage
+>>>>>>> 650e54399910864d6bee2dc5b830319b5d5d850e
