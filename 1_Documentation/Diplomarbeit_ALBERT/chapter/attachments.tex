@@ -1,3 +1,79 @@
+\appendix
+\chapter{Verwendung von Künstlicher Intelligenz}
+\label{ch:ai_use}
+\fancyfoot[C]{\large Felix Zauner, Timofey Luzin}
+\fancypagestyle{plain}{\fancyfoot[C]{\large Felix Zauner, Timofey Luzin}}
+Um Rechtschreib- und Grammatikfehler in der Diplomarbeit zu korrigieren, um \LaTeX \, Source-Code zu Tabellen, Grafiken und Formeln zu erstellen, um aus dem Englischen in Deutsch zu übersetzen und, um gesetzliche Paragraphen zu finden, wurden die folgenden KI-Modelle verwendet:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \textbf{KI-Modell} & \textbf{Verwendung} & \textbf{Kapitel} \\
+        \hline
+        OpenAI ChatGPT 5.4 Thinking & \LaTeX \, Source-Code, Suche von Paragraphen & II, III, V \\
+        DeepL Übersetzer & Übersetzen von Englischen Texten & II \\
+        DeepL Write & Rechtschreibung- und Grammatikkorrektur & I, II, III, IV, V \\
+        \hline
+    \end{tabular}
+    \caption{Benutzte KI-Modell}
+    \label{tab:used_ai_models}
+\end{table}
+
+\section{Beispielprompts}
+\label{sec:example_prompts}
+\subsection{OpenAI ChatGPT}
+\label{subsec:chatgpt_prompts}
+
+\paragraph{Prompt:}
+Such mir Österreichische gesetzliche Paragraphen heraus, unter welche kleine pyrotechnische Charges fallen. Wie sind kleine Sprengkörper (\~1g) mit Sprengpulver basierend auf rotem Eisenoxid geregelt?
+
+\paragraph{Ausgabe:}
+Für kleine pyrotechnische Charges ist in Österreich vor allem das Pyrotechnikgesetz 2010 (PyroTG) relevant. Entscheidend ist rechtlich nicht primär die Masse von ~1 g, sondern was das Ding rechtlich ist: ein pyrotechnischer Satz oder ein pyrotechnischer Gegenstand. Das Gesetz definiert „Sätze“ als lose explosionsgefährliche Stoffe oder Stoffgemische mit pyrotechnischer Wirkung; „sonstige pyrotechnische Gegenstände“ sind dagegen körperliche Gegenstände, die keine Feuerwerkskörper und keine Bühnenpyrotechnik sind. \\
+Für die Kategorisierung gilt:
+\begin{itemize}
+    \item \textbf{§ 14 PyroTG}: pyrotechnische Sätze sind S1 oder S2. S1 sind Sätze mit nur geringer Gefahr, S2 sind Sätze, die nur von Personen mit Fachkenntnis verwendet werden dürfen.
+    \item Die Pyrotechnikgesetz-Durchführungsverordnung und die BMF-Arbeitsrichtlinie konkretisieren das: S1 sind nur Bengalpulver, Schellackpulver und Rauchpulver. Die Arbeitsrichtlinie nennt ausdrücklich als pyrotechnische Sätze u. a. Blitzknallsätze und Ausstoßladungen; alle anderen pyrotechnischen Sätze sind damit praktisch S2.
+\end{itemize}
+Daraus folgt für kleine Charges / kleine Sprengkörper:
+\begin{itemize}
+    \item Ist es ein loser Satz oder eine Charge mit Knall-/Druckwirkung, dann fällt das typischerweise unter „pyrotechnischer Satz“.
+    \item Weil S1 nur die drei genannten Pulverarten umfasst, wäre ein kleiner Knall-, Blitzknall- oder Ausstoßsatz rechtlich regelmäßig S2.
+    \item Ist die Charge in einen Körper eingebaut oder geformt, kann sie statt als Satz als pyrotechnischer Gegenstand gelten; dann kommt bei „sonstigen pyrotechnischen Gegenständen“ regelmäßig P1 oder P2 in Betracht. P2 ist für Gegenstände, die Personen mit Fachkenntnissen vorbehalten sind.
+\end{itemize}
+
+\subsection{DeepL Übersetzer}
+\label{subsec:deepl_translate}
+\paragraph{Eingabe:}
+In flight, the magnitude, and sometimes the direction, of the four forces is constantly changing. The response of the rocket depends on the relative magnitude and direction of the forces, much like the motion of the rope in a “tug-of-war” contest. If we add up the forces, being careful to account for the direction, we obtain a net external force on the rocket. The resulting motion of the rocket is described by Newton's laws of motion.
+
+\paragraph{Ausgabe:}
+Während des Fluges ändern sich die Stärke und manchmal auch die Richtung der vier Kräfte ständig. Das Verhalten der Rakete hängt von der relativen Stärke und Richtung der Kräfte ab, ähnlich wie die Bewegung des Seils bei einem „Tauziehen“. Wenn wir die Kräfte addieren und dabei die Richtung berücksichtigen, erhalten wir eine resultierende äußere Kraft, die auf die Rakete wirkt. Die daraus resultierende Bewegung der Rakete wird durch Newtons Bewegungsgesetze beschrieben.
+
+\subsection{DeepL Write}
+\label{subsec:deepl_write}
+\paragraph{Eingabe:}
+Flügel können an verschiedenen Positionen entlang vom Raketengehäuse angebracht werden, am verbreitetsten sind jedoch Raketen mit entweder nur hinteren Flügeln oder mit sowohl frontalen als auch hinteren Flügeln. Bei aktiven Steuersystemen bieten bewegliche frontale Flügel den Vorteil der besseren Manövrierfähigkeit, sorgen aber für weniger Stabilität und benötigen komplexere Regelungstechnik.
+
+\paragraph{Ausgabe:}
+Flügel können an verschiedenen Positionen entlang \textcolor{green}{des Raketengehäuses} angebracht werden, am verbreitetsten sind jedoch Raketen mit entweder nur hinteren Flügeln oder mit sowohl frontalen als auch hinteren Flügeln. Bei aktiven Steuersystemen bieten bewegliche frontale Flügel den Vorteil der besseren Manövrierfähigkeit, sorgen aber für weniger Stabilität und benötigen komplexere Regelungstechnik.
+
+\chapter{Bemaßte Zeichnungen der CAD-Modelle}
+\label{ch:cad_drafts}
+\fancyfoot[C]{\large Timofey Luzin}
+\fancypagestyle{plain}{\fancyfoot[C]{\large Timofey Luzin}}
+
+\includepdf[
+  pages=-,angle=90,
+  scale=0.88,
+  pagecommand={}
+]{../figures/cad_drafts.pdf}
+% \chapter{Layout des Flightcomputers}
+% \includepdf[
+%   pages=-,
+%   landscape=true,
+%   fitpaper=true,
+%   pagecommand={}
+% ]{../figures/ALBERT_FLIGHTCOMPUTER.pdf}
 
 \chapter{Schaltplan des Flightcomputers}
 \label{ch:komadori_schaltplan}

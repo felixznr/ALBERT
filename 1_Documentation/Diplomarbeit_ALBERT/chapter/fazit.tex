@@ -22,26 +22,31 @@
 
 \section{Stand vom mechanischen Aufbau}
 \label{sec:mechanical_build_status}
-Es wurden die Halterungen für Raketenflügel/Servomotoren, die hintere Abdeckung und die Abdeckung des Motors, die Raketenspitze und die Raketenflügel in das Gehäuse eingebaut. In alle mit Schrauben ans Gehäuse festgemachten Teile wurden in die dafür vorgesehenen Löcher Gewindeeinsätze eingeschmolzen und die Kugellager der Flügel wurden in das 3D-gedruckte Teil eingeklebt, wie auf Bild
-% ======================== HIER BILD VON KUGELLAGER IN FLÜGELHALTERUNG ===============
-zu sehen ist.
-\\
-Aufgrund von Zeitmangel mussten Prioritäten beim Aufbau der einzelnen Subsysteme gesetzt werden. Diese fielen auf die Montierung der Raketenflügel und der Servomotoren. Insgesamt wurde mehr Wert auf eine funktionierende Regelung gelegt, die durch CFD-Simulationen ausgelegt wurde.
+Wegen Zeitmangel mussten Prioritäten beim Aufbau der einzelnen Subsysteme gesetzt werden. Ein Teil dieser wurde realisiert und verlief dabei so wie geplant, während der Rest aus zeitlichen, rechtlichen oder Prioritätsgründen es nicht wurde.
 
-\subsection{Nicht fertitggebrachte Subsysteme/Teile der Struktur}
+\subsection{Erfolgreich implementierte Subsysteme/Teile der Struktur}
+Insgesamt wurde mehr Wert auf eine optimale Aerodynamik und funktionierende Regelung gelegt, was auch erfolgreich realisiert wurde. Die Massenverteilung innerhalb der Rakete erfolgte nach Plan, wodurch die Strömungssimulation und die damit verbundene Berechnung der essenziellen Modellerwerte reibungsfrei verlief.
+\\
+Es wurden die Halterungen für Raketenflügel/Servomotoren, die hintere Abdeckung und die Abdeckung des Motors, die Raketenspitze und die Raketenflügel in das Gehäuse eingebaut und mit den Carbonstäben verstärkt. In alle mit Schrauben am Gehäuse festgemachten Teilen wurden in die dafür vorgesehenen Löcher Gewindeeinsätze aus Kupfer eingeschmolzen und die Kugellager der Flügel wurden in das 3D-gedruckte Teil eingeklebt, wo schließlich mit Presspassung die Flügel gesteckt wurden. Da der Flügelsteuermechanismus nicht rechtzeitig gefertigt und getestet wurde, konnte die Beweglichkeit der Flügel nicht getestet werden. Das Gehäuse wurde lackiert und mit einem Schriftzug des Projekttitels versehen, wie in \ref{sec:collage} zu sehen ist.
+
+\subsection{Nicht zeitnah realisierte Subsysteme/Teile der Struktur}
 \label{subsec:not_finished_subsystems}
 \paragraph{Bergungsystem}
-Der ursprüngliche Plan für das Bergungsystem war, einen bereits fertigen Fallschirm zu kaufen. Aufgrund von falsch eingeschätzter Gesamtmasse der Rakete, war diese Option in der Größe zu teuer. Es wurde ein Fallschirm dimensioniert und die Wahl für das Material wurde ebenfalls getroffen, genauer beschrieben in \ref{sec:recovery_system}. Dies konnte jedoch nicht mehr zeitnah realisiert werden.
+Der ursprüngliche Plan für das Bergungsystem war, einen bereits fertigen Fallschirm zu kaufen. Aufgrund von falsch eingeschätzter Gesamtmasse der Rakete, war diese Option in der benötigten Größe zu teuer. Daher wurden die genauen Dimensionen des benötigten Fallschirms berechnet und die Wahl für das Material wurde ebenfalls getroffen, genauer beschrieben in \ref{sec:recovery_system}. Dies konnte jedoch nicht mehr zeitnah realisiert werden.
 \\
-Bei der Auslegung der pyrotechnischen Charges wurde, wie in \ref{subsec:pyro_charges_legal} beschrieben, auf gesetzliche Einschränkung gestoßen, was den Bau von diesen verhinderte.
+Bei der Auslegung der pyrotechnischen Charges wurde, wie in \ref{subsec:pyro_charges_legal} beschrieben, auf gesetzliche Einschränkungen gestoßen, was den Bau von diesen verhinderte. Dies war auch ein Grund für die Verlagerung der Priorität.
 
 \paragraph{Montierung von Akku und Flightcomputer}
+Aufgrund von in \ref{sec:electrical_assembly} beschriebenen Problemen mit dem Antrieb der Servomotoren war die Montierung des Flightcomputers und des Akkus nicht die höchste Priorität, da aufgrunddessen keine Tests zur Reaktion der Flügel auf Änderung des Pitch-/Yawwinkels durchgeführt werden konnten.
 
 \paragraph{Schockseilverbindung}
+Durch das am aktuellen Stand fehlende Bergungssystem wurde auch die damit verbunden Schockseilverbindung nicht implementiert.
 
-\
+\paragraph{Flügelsteuermechanismus}
+Durch den Zeitmangel wurde der Flügelsteuermechanismus ebenfalls nicht zeitnah gefertigt und eingebaut. Dies war jedoch nach selbst nach den aufgetretenen Problemen mit dem Antrieb der Servomotoren nicht vorgesehen, da der Mechanismus sowohl für die auftretende mechanische Belastung als auch auf möglichst reibungsfreie Bewegung getestet werden sollte.
 
 \section{Stand des elektrischen Aufbaus}
+\label{sec:electrical_assembly}
 \begin{wrapfigure}
     {r}{0.25\textwidth}
     \vspace{-30pt}
@@ -72,6 +77,7 @@ Die Telemetrieübertragung mittels LoRa befindet sich aktuell noch in der Entwic
 Mit der Inbetriebnahme des GNSS-Moduls wurde bereits begonnen, die Implementierung befindet sich derzeit jedoch noch im Stadium der Treiberentwicklung. Der Fortschritt wird dabei insbesondere durch die nur begrenzt ausführliche Dokumentation erschwert, sodass eine detaillierte Einarbeitung in das eigene Protokoll und die Funktionsweise des Moduls notwendig ist.
 
 \section{Collage}
+\label{sec:collage}
  \newpage
 \begin{figure}[H]
     \centering
@@ -107,10 +113,33 @@ Mit der Inbetriebnahme des GNSS-Moduls wurde bereits begonnen, die Implementieru
 Während den Lauf des Entwicklungsprozesses hinweg wurden verschiedene Simulationen und Tests durchgeführt, von anfänglichen Simulationen mit OpenRocket, über die Simulation der Regelung mit MATLAB und der Strömungssimulation in Ansys Fluent, bis hin zu ersten Hardware in the loop Tests mit dem Flightcomputer. In diesem Kapitel werden die wichtigsten Ergebnisse dieser Simulationen und Tests präsentiert und diskutiert.
 \section{Ergebnisse der OpenRocket Simulation}
 \label{sec:ergebnisse_openrocket}
-Zu Beginn des Projekts wurde mit Hilfe von der Open-Source Simulationssoftware für Modellraketen OpenRocket eine Simulation durchgeführt, um die ungefähren Maße der Rakete festzulegen. Dadurch wurde auch ein Stabilitätskoeffizient von $S_m = 1$ festgelegt (genauere Erläuterung zum Stabilitätskoeffizient in \ref{sec:stability_margin}). Dieser resultiert aus der Position des Schwerpunktes $x_{CG} = 400mm$ und des Druckpunktes $x_{CP} = 300$. 
+Zu Beginn des Projekts wurde mit Hilfe von der Open-Source Simulationssoftware für Modellraketen OpenRocket eine Simulation durchgeführt, um die ungefähren Maße der Rakete festzulegen. Nachdem das finale Design vom Raketengehäuse, der restlichen aerodynamischen Elementen und der Innenstruktur festgelegt wurde, wurde eine nächste Simulation durchgeführt. Aus dieser Simulation ergaben sich für die Strömungssimulation kritische Werte, wie die Position des Druckpunktes und die Höchstgeschwindigkeit. Dabei wurde die Simulation mit einer Gesamtmasse der Rakete von $m \approx 1500g$ durchgeführt, genaue Erläuterungen zur Raketenmasse sind in HIER REFERENZ zu finden. Anschließend wurde eine bereits vorhandene Vorlage für den Raketenmotor ausgewählt, welche auf die vorgesehenen Maße und den Gesamtimpuls des Motors von "`ALBERT"' zutrifft.
 \\
-Ebenfalls wurde mit Hilfe der Simulation die ungefähre Maximalgeschwindigkeit $v = 100\frac{m}{s}$, die maximale Flughöhe der Rakete $s_h = $ und der Verlauf der Flugbahn bestimmt.
-%================= HIER NOCH SCREENSHOTS AUS OPENROCKET + MEHR ERLÄUTERUNGEN ========
+Mit Hilfe der Simulation wurden folgende Werte bestimmt:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+       \hline 
+       $\mathbf{h_{max}}$ & $\mathbf{v_{max}}$ & $\mathbf{S_m}$ & $\mathbf{x_{CG}}$ & $\mathbf{x_{CP}}$ \\
+       \hline
+       $437m$ & $100\frac{m}{s}$ & $1,16$ & $601mm$ & $699mm$ \\
+       \hline
+    \end{tabular}
+    \caption{Ergebnisse der Simulation in OpenRocket}
+    \label{tab:openrocket_sim_results}
+\end{table}
+Dabei ist $h_{max}$ die maximale Flughöhe, $v_{max}$ die Höchstgeschwindigkeit, $S_m$ der Stabilitätskoeffizient \ref{sec:stability_margin}, $x_{CG}$ der Abstand des Schwerpunktes und $x_{CP}$ der Abstand des Druckpunktes von der Spitze der Rakete. 
+\\
+Anschließend wurde ein Plot dieser Ergebnisse in Abhängigkeit von der Zeit erstellt, siehe Abbildung \ref{fig:openrocket_sim_plot}. Dies ermöglicht weiteren Vergleich mit Plots aus MATLAB Simulationen und stellt alle Wertänderungen im Laufe des Fluges graphisch dar.
+\newpage
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{openrocket_plot1.png}
+    \caption{Plot der Simulationsergebnisse in OpenRocket}
+    \label{fig:openrocket_sim_plot}
+\end{figure}
+Anhand dieses Plots ist zu erkennnen, dass aufgrund vom Ausbrennen des Motors sich der Schwerpunkt am Anfang des Fluges verschiebt. Diese Änderung ist jedoch gering und kann somit bei in der Regelung vernachlässigt werden. Beim Vergleich mit dem Plot der MATLAB Simulation in \ref{fig:matlab_simulation_results} ist zu erkennen, dass die Kruve der Flughöhe aus MATLAB (rosa) mit der Kurve der Flughöhe aus OpenRocket (blau) sehr ähnlich verlaufen, dies ist jedoch aufgrund der unterschiedlichen Skalierung der X-Achse nicht mit dem Auge genau vergleichbar.
+
 \newpage
 \section{Ergebnisse der MATLAB Simulationen}
 \label{sec:ergebnisse_matlab}
@@ -173,11 +202,6 @@ Damit stellt sich abschließend die Frage, inwiefern eine nachgeführte $\mathbf
     
 \end{figure}
 
-\newpage
-\section{Ergebnisse der Strömungssimulation}
-\label{sec:cfd_results_conclusion}
-% ======================= HIER PLOTS VON DEN BEIWERTEN ===============================
-% ======================= UND NOCH EXTRA VISUALISIERUNG VOM STRÖMUNGSVERLAUF =========
 \newpage
 \section{Ergebnisse der Hardware in  the Loop Tests}
 Nachdem der Flightcomputer entwickelt und die Sensoren integriert wurden, wurde zuerst die Funktionalität des Extended Kalman Filters (EKF) getestet, welcher für die Schätzung der Fluglage der Rakete von zentraler Bedeutung ist. Die Ergebnisse dieser Tests werden im Folgenden präsentiert und diskutiert.
@@ -390,64 +414,8 @@ Daraus folgt für kleine Charges / kleine Sprengkörper:
     \item Weil S1 nur die drei genannten Pulverarten umfasst, wäre ein kleiner Knall-, Blitzknall- oder Ausstoßsatz rechtlich regelmäßig S2.
     \item Ist die Charge in einen Körper eingebaut oder geformt, kann sie statt als Satz als pyrotechnischer Gegenstand gelten; dann kommt bei „sonstigen pyrotechnischen Gegenständen“ regelmäßig P1 oder P2 in Betracht. P2 ist für Gegenstände, die Personen mit Fachkenntnissen vorbehalten sind.
 \end{itemize}
-
-\chapter{Verwendung von Künstlicher Intelligenz}
-\label{ch:ai_use}
-Um Rechtschreib- und Grammatikfehler in der Diplomarbeit zu korrigieren, um \LaTeX \, Source-Code zu Tabellen, Grafiken und Formeln zu erstellen, um aus dem Englischen in Deutsch zu übersetzen und, um gesetzliche Paragraphen zu finden, wurden die folgenden KI-Modelle verwendet:
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|l|l|}
-        \hline
-        \textbf{KI-Modell} & \textbf{Verwendung} & \textbf{Kapitel} \\
-        \hline
-        OpenAI ChatGPT 5.4 Thinking & \LaTeX \, Source-Code, Suche von Paragraphen & II, III, V \\
-        DeepL Übersetzer & Übersetzen von Englischen Texten & II \\
-        DeepL Write & Rechtschreibung- und Grammatikkorrektur & I, II, III, IV, V \\
-        \hline
-    \end{tabular}
-    \caption{Benutzte KI-Modell}
-    \label{tab:used_ai_models}
-\end{table}
-
-\section{Beispielprompts}
-\label{sec:example_prompts}
-\subsection{OpenAI ChatGPT}
-\label{subsec:chatgpt_prompts}
-
-\paragraph{Prompt:}
-Such mir Österreichische gesetzliche Paragraphen heraus, unter welche kleine pyrotechnische Charges fallen. Wie sind kleine Sprengkörper (\~1g) mit Sprengpulver basierend auf rotem Eisenoxid geregelt?
-
-\paragraph{Ausgabe:}
-Für kleine pyrotechnische Charges ist in Österreich vor allem das Pyrotechnikgesetz 2010 (PyroTG) relevant. Entscheidend ist rechtlich nicht primär die Masse von ~1 g, sondern was das Ding rechtlich ist: ein pyrotechnischer Satz oder ein pyrotechnischer Gegenstand. Das Gesetz definiert „Sätze“ als lose explosionsgefährliche Stoffe oder Stoffgemische mit pyrotechnischer Wirkung; „sonstige pyrotechnische Gegenstände“ sind dagegen körperliche Gegenstände, die keine Feuerwerkskörper und keine Bühnenpyrotechnik sind. \\
-Für die Kategorisierung gilt:
-\begin{itemize}
-    \item \textbf{§ 14 PyroTG}: pyrotechnische Sätze sind S1 oder S2. S1 sind Sätze mit nur geringer Gefahr, S2 sind Sätze, die nur von Personen mit Fachkenntnis verwendet werden dürfen.
-    \item Die Pyrotechnikgesetz-Durchführungsverordnung und die BMF-Arbeitsrichtlinie konkretisieren das: S1 sind nur Bengalpulver, Schellackpulver und Rauchpulver. Die Arbeitsrichtlinie nennt ausdrücklich als pyrotechnische Sätze u. a. Blitzknallsätze und Ausstoßladungen; alle anderen pyrotechnischen Sätze sind damit praktisch S2.
-\end{itemize}
-Daraus folgt für kleine Charges / kleine Sprengkörper:
-\begin{itemize}
-    \item Ist es ein loser Satz oder eine Charge mit Knall-/Druckwirkung, dann fällt das typischerweise unter „pyrotechnischer Satz“.
-    \item Weil S1 nur die drei genannten Pulverarten umfasst, wäre ein kleiner Knall-, Blitzknall- oder Ausstoßsatz rechtlich regelmäßig S2.
-    \item Ist die Charge in einen Körper eingebaut oder geformt, kann sie statt als Satz als pyrotechnischer Gegenstand gelten; dann kommt bei „sonstigen pyrotechnischen Gegenständen“ regelmäßig P1 oder P2 in Betracht. P2 ist für Gegenstände, die Personen mit Fachkenntnissen vorbehalten sind.
-\end{itemize}
-
-\subsection{DeepL Übersetzer}
-\label{subsec:deepl_translate}
-\paragraph{Eingabe:}
-In flight, the magnitude, and sometimes the direction, of the four forces is constantly changing. The response of the rocket depends on the relative magnitude and direction of the forces, much like the motion of the rope in a “tug-of-war” contest. If we add up the forces, being careful to account for the direction, we obtain a net external force on the rocket. The resulting motion of the rocket is described by Newton's laws of motion.
-
-\paragraph{Ausgabe:}
-Während des Fluges ändern sich die Stärke und manchmal auch die Richtung der vier Kräfte ständig. Das Verhalten der Rakete hängt von der relativen Stärke und Richtung der Kräfte ab, ähnlich wie die Bewegung des Seils bei einem „Tauziehen“. Wenn wir die Kräfte addieren und dabei die Richtung berücksichtigen, erhalten wir eine resultierende äußere Kraft, die auf die Rakete wirkt. Die daraus resultierende Bewegung der Rakete wird durch Newtons Bewegungsgesetze beschrieben.
-
-\subsection{DeepL Write}
-\label{subsec:deepl_write}
-\paragraph{Eingabe:}
-Flügel können an verschiedenen Positionen entlang vom Raketengehäuse angebracht werden, am verbreitetsten sind jedoch Raketen mit entweder nur hinteren Flügeln oder mit sowohl frontalen als auch hinteren Flügeln. Bei aktiven Steuersystemen bieten bewegliche frontale Flügel den Vorteil der besseren Manövrierfähigkeit, sorgen aber für weniger Stabilität und benötigen komplexere Regelungstechnik.
-
-\paragraph{Ausgabe:}
-Flügel können an verschiedenen Positionen entlang \textcolor{green}{des Raketengehäuses} angebracht werden, am verbreitetsten sind jedoch Raketen mit entweder nur hinteren Flügeln oder mit sowohl frontalen als auch hinteren Flügeln. Bei aktiven Steuersystemen bieten bewegliche frontale Flügel den Vorteil der besseren Manövrierfähigkeit, sorgen aber für weniger Stabilität und benötigen komplexere Regelungstechnik.
-
+Auf Grundlage der genannten gesetzlichen Bestimmungen durften die pyrotechnischen Charges nicht gebaut werden, weil sie rechtlich nicht nur nach ihrer Masse, sondern auch nach ihrer pyrotechnischen Wirkung beurteilt werden. Handelt es sich dabei um lose Sätze mit Knall-, Blitzknall- oder Druckwirkung, fallen sie unter pyrotechnische Sätze der Kategorie S2, die nur von Personen mit entsprechender Fachkenntnis hergestellt/verwendet werden dürfen. Da im Rahmen des Projekts diese fachrechtlichen Voraussetzungen nicht vorlagen, war die Herstellung solcher Charges aus rechtlichen Gründen nicht erlaubt.
 
 \chapter{Ausblick}
 \label{ch:outlook}
-Die Entwicklung von \textit{ALBERT} hat gezeigt, dass die Konstruktion einer aktiv geregelten Rakete im Rahmen des Diplomprojekts eine komplexe, aber machbare Aufgabe ist. Über den gesamten Entwicklungsprozess hinweg wurden zahlreiche Herausforderungen bewältigt, von der Konstruktion des Raketenkörpers über die Entwicklung des Flightcomputers bis hin zur Implementierung der Regelungstechnik. Nach voraussichtlichem Abschluss der Entwicklungsphase und der Bewältigung der beschriebenen Verzögerungen steht der Durchführung eines ersten Flugversuchs,welcher die Funktionalität des Systems unter realen Bedingungen evaluieren soll, nichts mehr im Wege. 
+Die Entwicklung von \textit{ALBERT} hat gezeigt, dass die Konstruktion einer aktiv geregelten Rakete im Rahmen des Diplomprojekts eine komplexe, aber machbare Aufgabe ist. Über den gesamten Entwicklungsprozess hinweg wurden zahlreiche Herausforderungen bewältigt, von der Konstruktion des Raketenkörpers über die Entwicklung des Flightcomputers bis hin zur Implementierung der Regelungstechnik. Nach voraussichtlichem Abschluss der Entwicklungsphase und der Bewältigung der beschriebenen Verzögerungen steht der Durchführung eines ersten Flugtests, welcher die Funktionalität des Systems unter realen Bedingungen evaluieren soll, nichts mehr im Wege. Damit könnten alle einzelnen Bestandteile des Projekts am Boden getestet werden, ohne dabei legale Grenzen zu überschreiten.
