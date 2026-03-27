@@ -53,7 +53,7 @@ Die im folgenden Abschnitten beschriebenen Konzepte stellen die wichtigsten Prin
 \label{subsubsec:rueckstrompfade}
 Ein kritischer Aspekt im Platinendesign ist die Gestaltung der Rückstrompfade für Signale. \\Rückstrompfade sind die Wege, die der Strom zurück zum Ursprungspunkt nimmt, nachdem er durch die Schaltung geflossen ist. 
 \\
-Für Gleichspannung nimmt der Rückstrom den Weg des geringsten ohmschen Widerstands über die nächste Massefläche. Bei Wechselspannung ($>kHz$) hingegen folgt der Rückstrompfad dem Signalpfad, da die Kapazitive und induktive Kopplung zwischen den Leitungen dominant wird. \parencite{ZachariahPeterson_Rückstromführung}
+Für Gleichspannung nimmt der Rückstrom den Weg des geringsten ohmschen Widerstands über die nächste Massefläche. Bei Wechselspannung ($>kHz$) hingegen folgt der Rückstrompfad dem Signalpfad, da die kapazitive und induktive Kopplung zwischen den Leitungen dominant wird. \parencite{ZachariahPeterson_Rückstromführung}
 
 \begin{figure}[H]
   \centering
@@ -84,7 +84,7 @@ Für Gleichspannung nimmt der Rückstrom den Weg des geringsten ohmschen Widerst
   \label{fig:zwei-neben}
   % Hauptlabel für die gesamte Figure
 \end{figure}
-
+\newpage
 \subsubsection{Energiefluss}
 \label{subsubsec:energiefluss}
 Für eine optimale Signalübertragung und minimale Störungen ist es entscheidend, den Energiefluss zwischen den Leiterbahnen und den zugehörigen Ground- und Power-Planes zu verstehen. 
@@ -113,7 +113,7 @@ Dies kann durch zwei wesentliche Maßnahmen erreicht werden:
     \item Minimierung des Abstands $h$ zwischen der Leiterbahn und dem zugehörigen Ground-Plane
     \item Maximierung des Abstands zu benachbarten Leiterbahnen
 \end{itemize}
-% ATTENTION hier nochmal drüber schauen bitch ASS nuttenarsch
+\vspace{0.5cm}
 Aus diesen beiden Punkten können folgende Designregeln für das Layout der Leiterplatte abgeleitet werden:
 \begin{itemize}
     \item Der Abstand $h$ zwischen der Leiterbahn und der zugehörigen Ground-Plane sollte so klein wie möglich gehalten werden, daher wäre es ideal, wenn jede Signal-Leiterbahn direkt über einer Ground-Plane verlaufen würde.
@@ -133,13 +133,13 @@ Bypass- und Decoupling-Kondensatoren sind wesentliche Komponenten in der Entwick
 \\\\
 Bei der Platzierung von Bypass- und Decoupling-Kondensatoren auf der Leiterplatte sind folgende Richtlinien zu beachten:
 \begin{itemize}
-    \item \textbf{Nähe zum IC}: Decoupling-Kondensatoren sollten so nah wie möglich an den Versorgungspins des ICs platziert werden und mit möglichst breiten Leiterbahnen verbunden werden, um die Induktivität der Leiterbahnen zu minimieren. Die Vias zu Masse \& Power sollten ebenfalls so nah wie möglich am Kondensator platziert werden.
+    \item \textbf{Nähe zum IC}: Decoupling-Kondensatoren sollten so nah wie möglich an den Versorgungspins des ICs platziert werden und mit möglichst breiten Leiterbahnen verbunden werden, um die Induktivität der Leiterbahnen zu minimieren. Die Vias zu Masse und Power sollten ebenfalls so nah wie möglich am Kondensator platziert werden.
     \item \textbf{Verschiedene Werte}: In vielen Fällen erweist es sich als sinnvoll, mehrere \\Decoupling-Kondensatoren mit unterschiedlichen Kapazitätswerten (typischerweise $100nF$ und $10 \mu F$, Keramik) zu verwenden. Aufgrund der Tatsache, dass kleinere Kondensatoren dazu in der Lage sind, Energie schneller bereitzustellen, empfiehlt es sich, diese näher am IC zu platzieren. 
     \item \textbf{Bypass-Kondensatoren}: Diese sollten strategisch in der Nähe von kritischen Versorgungspunkten auf der Platine platziert werden, um Störungen effektiv abzuleiten. So etwa an der Analogversorgung von Mikrocontrollern.
 \end{itemize}
 Auch hier gilt wieder, die Empfehlungen des Herstellers der jeweiligen Bauteile zu beachten um eine optimale Funktion zu gewährleisten.
 \begin{figure}[H]
-
+\centering
     \includegraphics[width=0.4\textwidth]{decouplingcap.png}
     \caption{Platzierung von Decoupling-Kondensatoren}
     \label{fig:decoupling_cap}
@@ -201,7 +201,7 @@ Für den kontinuierlichen Betrieb\footnote{kontinuierlicher Betrieb - der Strom 
 \label{subsec:buck_funktionsweise}
 Der MOSFET $Q$ wird periodisch durch einen Regler (Controller) ein- und ausgeschaltet, wodurch während der Einschaltphase $t_{1}$ der Ausgangsstrom $I_{A}$ durch die Induktivität $L$ und die angeschlossene, aber hier nicht eingezeichnete Last fließt. Die Diode $D$ ist in dieser Phase gesperrt. Während der Ausschaltphase  hingegen sperrt der MOSFET $Q$ und die Induktivität $L$ entlädt sich über die Diode $D$ und die Last um den Stromfluss aufrechtzuerhalten. 
 \\
-Der Kondensator $C_A$ lädt sich in dieser Phase so lang auf bis beide das gleiche Potenzial erreicht haben, danach stützt er die Ausgangsspannung $U_{A}$. Der Eingangskondensator $C_E$ stellt die hochfrequenten, gepulsten Eingangsstromanteile bereit und wirkt als lokaler Energiespeicher, wodurch Eingangsspannungsripple, Spannungsspitzen und EMV-Störungen reduziert und die Spannungsquelle entlastet werden. 
+Der Kondensator $C_A$ lädt sich in dieser Phase so lang auf bis beide das gleiche Potenzial erreicht haben, danach stützt er die Ausgangsspannung $U_{A}$. Der Eingangskondensator $C_E$ stellt die hochfrequenten, gepulsten Eingangsstromanteile bereit und wirkt dabei als lokaler Energiespeicher, wodurch Eingangsspannungsripple, Spannungsspitzen und EMV-Störungen reduziert und die Spannungsquelle entlastet werden. 
 \\
 Durch die kontinuierliche Ein- und Ausschaltphase wird eine mittlere Ausgangsspannung $\bar{U}_{A}$ erzeugt, die niedriger ist als die Eingangsspannung $U_{E}$ und über die Schaltfrequenz gesteuert werden kann.
 \\
@@ -285,7 +285,7 @@ Beim Layout eines Abwärtswandlers gilt es mehrere kritische Aspekte zu berücks
     \caption{Beispielhaftes Layout eines Abwärtswandlers \parencite{TPS55289}}
     \label{fig:buck_layout_example}
   % Bildbreite etwas kleiner als wrapfigure-Breite (Abstand zum Text)
-
+    \vspace{-1cm}
   % Abstand nach dem Bild reduzieren
 \end{wrapfigure}
 
@@ -591,7 +591,7 @@ Des Weiteren ist es möglich instabile Systeme zu stabilisieren, auf externe St�
 Die Rakete stellt ein dynamisches System mit stark gekoppelten und nichtlinearen Bewegungen dar. Für eine stabile Fluglage und die Einhaltung der gewünschten Flugbahn ist daher eine geeignete Regelung erforderlich. In diesem Kapitel werden die dafür notwendigen Grundlagen der Regelungstechnik sowie die im weiteren Verlauf verwendeten Verfahren vorgestellt. 
 \section{Geschlossener Regelkreis}
 \label{sec:regelkreis}
-In Abbildung \ref{fig:standard_regelkreis} ist ein Standard-Regelkreis dargestellt, welcher die grundlegenden Komponenten eines Regelungssystems zeigt: Regler (Controller), Regelstrecke (System) und Messung. Die Führungsgröße (Reference) $w_r$ repräsentiert den gewünschten Sollwert und wird mit der gemessenen Regelgröße $y_m$ verglichen, um die Regelabweichung $e$ zu bestimmen. Dem Regler wird die Regeldifferenz $e$ übergeben, welcher daraufhin die Stellgröße $u$ berechnet und so die Regelstrecke beeinflusst. Die Regelstrecke stellt das zu regelnde System dar, welches auf die Stellgröße $u$ und Störgröße (Disturbance) $w_d$ mit der Regelgröße $x$ reagiert. Diese Regelgröße wird durch eine von Messrauschen (Noise) $w_n$ behaftete Messung ermittelt und als gemessene Regelgröße $y$ zurückgeführt, um den Regelkreis zu schließen.
+In Abbildung \ref{fig:standard_regelkreis} ist ein Standard-Regelkreis dargestellt, welcher die grundlegenden Komponenten eines Regelungssystems zeigt: Regler (Controller), Regelstrecke (System) und Messung. Die Führungsgröße (Reference) $\mathbf{w_r}$ repräsentiert den gewünschten Sollwert und wird mit der gemessenen Regelgröße $\mathbf{y_m}$ verglichen, um die Regelabweichung $\mathbf{e}$ zu bestimmen. Dem Regler wird die Regeldifferenz $\mathbf{e}$ übergeben, welcher daraufhin die Stellgröße $\mathbf{u}$ berechnet und so die Regelstrecke beeinflusst. Die Regelstrecke stellt das zu regelnde System dar, welches auf die Stellgröße $\mathbf{u}$ und Störgröße (Disturbance) $\mathbf{w_d}$ mit der Regelgröße $\mathbf{x}$ reagiert. Diese Regelgröße wird durch eine von Messrauschen (Noise) $\mathbf{w_n}$ behaftete Messung ermittelt und als gemessene Regelgröße $\mathbf{y}$ zurückgeführt, um den Regelkreis zu schließen.
 \begin{figure}[H]
     \centering
 \tikzstyle{block} = [draw, fill=blue!15, rectangle, 
@@ -632,7 +632,7 @@ So kann die Regelstrecke und die Messung mathematisch wie folgt beschrieben werd
     \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x},\mathbf{u},\mathbf{w}_d)
 \end{equation}
 \begin{equation}
-    \mathbf{y} = \mathbf{g}(\mathbf{x},\mathbf{u},\mathbf{w}_n)
+    \mathbf{y} = \mathbf{h}(\mathbf{x},\mathbf{u},\mathbf{w}_n)
 \end{equation}
 Das Ziel des Reglers ist es nun eine optimale Stellgröße $\mathbf{u}$ zu berechnen um die Kostenfunktion $J$ zu minimieren:
 \begin{equation}
@@ -654,7 +654,7 @@ Hierzu werden die nichtlinearen Systemgleichungen an einem Arbeitspunkt $(\bar{\
 \end{equation}
 
 \begin{equation} 
-\mathbf{g}(\bar{\mathbf{x}} + \Delta \mathbf{x}, \bar{\mathbf{u}} + \Delta \mathbf{u}) = \mathbf{g}(\bar{\mathbf{x}}, \bar{\mathbf{u}}) + \underbrace{\left. \frac{\partial \mathbf{g}}{\partial \mathbf{x}} \right|_{(\bar{\mathbf{x}}, \bar{\mathbf{u}})}}_{\mathbf{C}} \cdot \Delta \mathbf{x} + \underbrace{\left. \frac{\partial \mathbf{g}}{\partial \mathbf{u}} \right|_{(\bar{\mathbf{x}}, \bar{\mathbf{u}})}}_{\mathbf{D}} \cdot \Delta \mathbf{u} + \cdots
+\mathbf{h}(\bar{\mathbf{x}} + \Delta \mathbf{x}, \bar{\mathbf{u}} + \Delta \mathbf{u}) = \mathbf{h}(\bar{\mathbf{x}}, \bar{\mathbf{u}}) + \underbrace{\left. \frac{\partial \mathbf{h}}{\partial \mathbf{x}} \right|_{(\bar{\mathbf{x}}, \bar{\mathbf{u}})}}_{\mathbf{C}} \cdot \Delta \mathbf{x} + \underbrace{\left. \frac{\partial \mathbf{h}}{\partial \mathbf{u}} \right|_{(\bar{\mathbf{x}}, \bar{\mathbf{u}})}}_{\mathbf{D}} \cdot \Delta \mathbf{u} + \cdots
 \end{equation}
 Nun können bei einer Verschiebung des Koordinatensystems auf den Arbeitspunkt $(\bar{\mathbf{x}}, \bar{\mathbf{u}})$ die Differentialgleichungen mit den Jacobi-Matrizen siehe \ref{subsec:jacobi_matrizen} $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$ und $\mathbf{D}$ wie folgt beschrieben werden:
 \begin{equation}
@@ -972,7 +972,7 @@ mit den Jacobi-Matrizen
 \mathbf{V}_k =
 \left.\frac{\partial \mathbf{h}}{\partial \boldsymbol{\nu}}\right|_{{\mathbf{x}}_{k|k-1}}.
 \end{equation}
-Für den Vorherageschritt des EKF ergibt sich somit:
+Für den Vorhersageschritt des EKF ergibt sich somit:
 \begin{equation}
    \hat{\mathbf{x}}_{k|k-1} = \mathbf{f}(\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}) 
 \end{equation}

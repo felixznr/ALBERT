@@ -169,7 +169,7 @@ Im folgenden wird der Entwicklungsprozess und der Aufbau der Schaltung näher er
 \subsection{Sensoren}
 \label{subsec:sensoren}
 Den wichtigsten Teil der Sensorik stellt die IMU1 (BMI088) dar, welche die Hauptquelle für die Daten der Zustandsschätzung ist. Für eine möglichst hohe Datenrate und damit eine möglichst genaue Zustandsschätzung wird die IMU1 über die SPI-Schnittstelle an die Navigation Processing Unit angebunden, da diese im Vergleich zu I\textsuperscript{2}C eine höhere Datenrate ermöglicht. Die IMU2 (LSM6DSLTR) sowie das Magnetometer (BMM150) werden über die I\textsuperscript{2}C-Schnittstelle angebunden.
-Im folgenden soll genauer auf die Anbindung der IMU1 eingegangen werden, da diese representativ für alle Sensoren ist.
+Im folgenden soll genauer auf die Anbindung der IMU1 eingegangen werden, da diese repräsentativ für alle Sensoren ist.
 \\
 Die beiden Sensoren der IMU1 (Beschleunigungssensor und Gyroskop) teilen sich das gleiche SPI-Interface (CLK, MOSI, MISO), sind aber als zwei separate Sensoren implementiert und müssen daher mit separaten CS-Leitungen versehen werden. Für eine ressourcenschonende Anbindung werden zwei Data Ready Interrupts (DRDY) verwendet, die der NAV-Unit mitteilen, dass neue Daten des jeweiligen Sensors zum Auslesen bereitstehen. Um den Sensor im SPI-Modus zu betreiben, muss der PS-Pin auf GND gezogen werden. Auf den Versorgungsleitungen befinden sich zusätzlich 100\,nF Keramikkondensatoren als Entkoppelkondensatoren (siehe Abbildung \ref{fig:IMU1Schematic}). Die in der Abbildung gezeigten Widerstände dienen der Zustandsdefinition beim Einschalten, sind aber in keiner Weise kritisch und können weggelassen werden.
 
@@ -231,7 +231,7 @@ wobei $C_L$ die gesamte Lastkapazität des Quarzes mit 9\,pF \cite{YSX321SL}, $C
 \label{subsec:versorgungskonzept}
 Die Versorgung des Flightcomputer während des gesamten Fluges erfolgt über einen 2S-LiPo-Akku mit einem Spannungsbereich von 7.4\,V (vollständig entladen) bis 8.4\,V (vollständig geladen), während die Betriebsspannung der Komponenten 3.3\,V beträgt. Um nun die benötigte Betriebsspannung von 3.3\,V aus der Eingangsspannung zu erzeugen, wird ein Abwärtswandler (siehe Abschnitt \ref{sec:abwaertswandler}) verwendet, welcher die Spannung herunterregelt. Die Wahl fiel auf einen Abwärtswandler, da dieser einen deutlich besseren Wirkungsgrad aufweist als ein linearer Spannungsregler, der die überschüssige Energie in Form von Wärme an die Umgebung abgibt.
 \\
-Beim Entwurf des Buck Converters ist es essentiell, den Bauteilanforderungen des Herstellers, insbesondere bei der Induktivität und den Kondensatoren, nachzukommen, da diese die Stabilität der Schaltung sowie die Qualität der Ausgangsspannung maßgeblich beeinflussen. Aufgrund dessen wurde der WEBENCH POWER DESIGNER von Texas Instruments verwendet, um die Schaltung zu dimensionieren und die passenden Komponenten auszuwählen. In der Abbildung \ref{fig:BuckSchematic} ist der Schaltplan des Buck Converters mit Ein- und Ausgangskondensatoren, Induktivität, Feedback Spannungsteiler zur Ausgansspannungseinstellung sowie einem Testpunkt und einer Lötbrücke zur späteren Funktionsvalidierung und Inbetriebnahme zu sehen.
+Beim Entwurf des Buck Converters ist es essentiell, den Bauteilanforderungen des Herstellers, insbesondere bei der Induktivität und den Kondensatoren, nachzukommen, da diese die Stabilität der Schaltung sowie die Qualität der Ausgangsspannung maßgeblich beeinflussen. Aufgrund dessen wurde der WEBENCH POWER DESIGNER von Texas Instruments verwendet, um die Schaltung zu dimensionieren und die passenden Komponenten auszuwählen. In der Abbildung \ref{fig:BuckSchematic} ist der Schaltplan des Buck Converters mit Ein- und Ausgangskondensatoren, Induktivität, Feedback Spannungsteiler zur Ausgangsspannungseinstellung sowie einem Testpunkt und einer Lötbrücke zur späteren Funktionsvalidierung und Inbetriebnahme zu sehen.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.8\textwidth]{BuckSchematic.png}
@@ -310,7 +310,7 @@ Hier soll nun die Platine des Flightcomputers \textit{KOMADORI} und die wichtigs
     \caption{Layout der MPU mit den zugehörigen passiven Komponenten}
     \label{fig:prozessoren_layout}
 \end{wrapfigure}
-Der wichtigste Teil der Leiterplatte stellt das Layout der beiden Prozessoren dar, da ohne diese keine Funktionalität gegeben ist. In der Abbildung \ref{fig:prozessoren_layout} ist das Layout der Main Processing Unit (MPU) mit den zugehörigen passiven Komponenten zu sehen. Die Decoupling-Kondensatoren (in Orange) sind so nah wie möglich an den VDD-Pins zu platzieren (siehe Abschnitt \ref{sec:bypass_decoupling}). Der PI-Filter (in Gelb) ist so angeordnet, dass die Leitungen zwischen den Kondensatoren und der Induktvität möglichst kurz sind. Der RC-Tiefpass (in Grün) ist nach dem gleichen Prinzip angeordnet. Der Quarzschwingkreis (in Blau) ist so angeordnet, dass die Leitungen zum Quarz direkt durch die Pads der Lastkapazitäten geführt werden.
+Der wichtigste Teil der Leiterplatte stellt das Layout der beiden Prozessoren dar, da ohne diese keine Funktionalität gegeben ist. In der Abbildung \ref{fig:prozessoren_layout} ist das Layout der Main Processing Unit (MPU) mit den zugehörigen passiven Komponenten zu sehen. Die Decoupling-Kondensatoren (in Orange) sind so nah wie möglich an den VDD-Pins zu platzieren (siehe Abschnitt \ref{sec:bypass_decoupling}). Der PI-Filter (in Gelb) ist so angeordnet, dass die Leitungen zwischen den Kondensatoren und der Induktivität möglichst kurz sind. Der RC-Tiefpass (in Grün) ist nach dem gleichen Prinzip angeordnet. Der Quarzschwingkreis (in Blau) ist so angeordnet, dass die Leitungen zum Quarz direkt durch die Pads der Lastkapazitäten geführt werden.
 Beim Herausführen der Leiterbahnen aus den Pads ist darauf zu achten, dass der Abstand zwischen den Leiterbahnen so schnell wie möglich vergrößert wird, um Übersprechen zu minimieren. 
 
 
@@ -348,7 +348,7 @@ Im Datenblatt des verwendeten GPS-Moduls ZOE-M8Q, siehe \cite{ZOE-M8Q}, werden m
     \label{fig:gps_layout}
     \vspace{-10pt}
 \end{wrapfigure}
-In der Abbildung \ref{fig:gps_layout} ist das Layout des GPS-Moduls dargestellt. Das GPS-Modul befindet sich in der linken oberen Ecke auf der Vorderseite der Leiterplatte, mit einer direkt darunterliegenden durchgehenden Massefläche und ist damit sowohl auf der Vorder- als auch auf der Rückseit von digitalen Störungen räumlich getrennt  Um die Störanfälligkeit weiter zu minimieren, ist das GPS-Modul von einem Ring aus GND-Vias umgeben, welcher als Abschirmung dient. Die per SMA-Stecker angeschlossene Antenne wird über einen 50\,$\Omega$ Microstrip mit einer Breite von 0.12\,mm mit dem RF-Input des GPS-Moduls verbunden. Wobei die Breite des Microstrips mit einem Impendanzrechner von JLCPCB basierend auf den Stack-up Spezifikationen der Leiterplatte berechnet wird. Bei den an den Microstrip angeschlossenen Bauteilen handelt es sich um die Speisung für die Aktivantenne. Es soll an dieser Stelle nicht näher auf auf die Beschaltung des GPS-Moduls eingegangen werden, da diese auf Basis des Datenblatts und der Bauteilvorschläge des Herstellers erfolgt und eine detaillierte Erläuterung den Rahmen sprengen würde.
+In der Abbildung \ref{fig:gps_layout} ist das Layout des GPS-Moduls dargestellt. Das GPS-Modul befindet sich in der linken oberen Ecke auf der Vorderseite der Leiterplatte, mit einer direkt darunterliegenden durchgehenden Massefläche und ist damit sowohl auf der Vorder- als auch auf der Rückseite von digitalen Störungen räumlich getrennt  Um die Störanfälligkeit weiter zu minimieren, ist das GPS-Modul von einem Ring aus GND-Vias umgeben, welcher als Abschirmung dient. Die per SMA-Stecker angeschlossene Antenne wird über einen 50\,$\Omega$ Microstrip mit einer Breite von 0.12\,mm mit dem RF-Input des GPS-Moduls verbunden. Wobei die Breite des Microstrips mit einem Impedanzrechner von JLCPCB basierend auf den Stack-up Spezifikationen der Leiterplatte berechnet wird. Bei den an den Microstrip angeschlossenen Bauteilen handelt es sich um die Speisung für die Aktivantenne. Es soll an dieser Stelle nicht näher auf auf die Beschaltung des GPS-Moduls eingegangen werden, da diese auf Basis des Datenblatts und der Bauteilvorschläge des Herstellers erfolgt und eine detaillierte Erläuterung den Rahmen sprengen würde.
 \subsection{Servos und Pyro-Kanäle}
 \label{subsec:servos_pyro_kanaele}
 Die Servos werden direkt über die Eingangsspannung des 2S-LiPo-Akkus (7.4–8.4\,V) versorgt, da sie bei höherer Versorgungsspannung eine größere Stellgeschwindigkeit erreichen. 
@@ -368,7 +368,7 @@ Wenn auch der PID-Regler eine weit verbreitete und effektive Regelungsstrategie 
 Aus diesem Grund wird nicht, wie ursprünglich in der Projektkonzeption geplant, zunächst ein PID-Regler implementiert, sondern es wird direkt mit der Entwicklung eines LQG-Reglers begonnen, da dieser die Anforderungen an die Regelung einer Rakete deutlich besser erfüllt.
 \section{Zustandsraummodellierung}
 \label{sec:zustandsraummodellierung}
-Ein wesentlicher Teil der Entwicklung der Regelung für die Rakete ist die Erstellung eines Zustandsraummodells, das die Dynamik des Systems ausreichend akurat beschreibt. In Bezug auf die Rakete umfasst dies die Modellierung der translationalen und rotatorischen Bewegungen, die durch die Kräfte und Momente beeinflusst werden, die auf die Rakete wirken. 
+Ein wesentlicher Teil der Entwicklung der Regelung für die Rakete ist die Erstellung eines Zustandsraummodells, das die Dynamik des Systems ausreichend akkurat beschreibt. In Bezug auf die Rakete umfasst dies die Modellierung der translationalen und rotatorischen Bewegungen, die durch die Kräfte und Momente beeinflusst werden, die auf die Rakete wirken. 
 \\
 Die im folgenden aufgestellten Bewegungsgleichung basieren in großen Teilen auf den Gleichungen, die in \parencite{AliyuAliyuStateSpace} beschrieben werden.
 
@@ -896,11 +896,11 @@ Die Leistung des EKF hängt maßgeblich davon ab, wie gut die zugrundeliegenden 
 \chapter{Implementierung in Software}
 \label{ch:implementation_in_software}
 In der nachfolgenden Abhandlung wird die Implementierung der zuvor beschriebenen Regelungskonzepte in die Software des Flightcomputers \textit{KOMADORI} erörtert. Zunächst erfolgt eine Beschreibung des Programmablaufs, anschließend wird auf die Implementation des LQG-Reglers eingegangen.
-Des Weiteren wird representativ für die Treiber aller Sensoren der Treiber für das IMU1 beschrieben um einen Einblick in die Treiberentwicklung zu geben. Der gesamte Programmcode wurde in C realisiert und in STM32CubeIDE geschrieben.
+Des Weiteren wird repräsentativ für die Treiber aller Sensoren der Treiber für das IMU1 beschrieben um einen Einblick in die Treiberentwicklung zu geben. Der gesamte Programmcode wurde in C realisiert und in STM32CubeIDE geschrieben.
 \section{Allgemeiner Programmablauf}
 \label{sec:general_program_flow}
 \begin{wrapfigure}{r}{0.25\textwidth}
-\vspace{-30pt}
+\vspace{-35pt}
     \begin{tikzpicture}[
     node distance=1.6cm,
     >=Latex,
@@ -966,7 +966,7 @@ Des Weiteren wird representativ für die Treiber aller Sensoren der Treiber für
 \draw [arrow] (descent) -- (land);
 \end{tikzpicture}
 
-\caption{Ablaufdiagramm des Raketenstarts}
+\caption{Ablaufdiagramm des Starts}
 \label{fig:flowchart_all}
 \vspace{-3cm}
 \end{wrapfigure}
@@ -982,7 +982,7 @@ Zusätzlich wird eine LoRa-Kommunikation mit der Bodenstation initialisiert, um 
 
 \subsection{On Ramp / Armed - Bereit zum Start}
 \label{subsec:on_ramp}
-In dieser Phase wurden bereits alle Sicherheitschecks durchgeführt und bestanden, um sicherzustellen, dass der Flightcomputer und dessen Peripheriekomponenten keinerlei unmittelbar erkennbare elektronische Probleme aufweisen. Auf der Startrampe beginnt der EKF damit, den Zustand der Rakete zu schätzen, dabei werden für die Geschwindigkeit und Winkelgeschwindigkeit Anfangswerten von Null angenommen, da die Rakete zu diesem Zeitpunkt noch stillsteht. Um eine akurate Messung der Euler-Winkel zu ermöglichen, werden die Beschleunigungsdaten des ersten IMUs, wie in Abschnitt \ref{subsec:extendedkalmanfilter} beschrieben, im Updateschritt als zusätzliche Messwerte verwendet. Dadurch ist eine genauere Schätzung der Euler-Winkel möglich. 
+In dieser Phase wurden bereits alle Sicherheitschecks durchgeführt und bestanden, um sicherzustellen, dass der Flightcomputer und dessen Peripheriekomponenten keinerlei unmittelbar erkennbare elektronische Probleme aufweisen. Auf der Startrampe beginnt der EKF damit, den Zustand der Rakete zu schätzen, dabei werden für die Geschwindigkeit und Winkelgeschwindigkeit Anfangswerten von Null angenommen, da die Rakete zu diesem Zeitpunkt noch stillsteht. Um eine akkurate Messung der Euler-Winkel zu ermöglichen, werden die Beschleunigungsdaten des ersten IMUs, wie in Abschnitt \ref{subsec:extendedkalmanfilter} beschrieben, im Updateschritt als zusätzliche Messwerte verwendet. Dadurch ist eine genauere Schätzung der Euler-Winkel möglich. 
 \\
 Bevor die Rakete zum Start freigegeben wird, ist es essentiell, zu prüfen ob alle vier Servos einwandfrei funktionieren, da ein Fehlverhalten eines Servos zu einem Kontrollverlust der Rakete führen könnte. Aus diesem Grund werden die Servos zuerst einem Testablauf unterzogen, bei dem sie selbstständig verschiedene Auslenkungen anfahren. Der erfolgreiche Testablauf muss zwangsläufig durch den Benutzer manuell über die Bodenstation bestätigt werden. Erst nach dieser Bestätigung wird die aktive Regelung freigegeben und die Rakete ist bereit zum Start. In Vorbereitung auf den Start werden die Servos auf die Neutralposition bei 1500 $\mu$s gesteuert.
 
@@ -1000,7 +1000,7 @@ Der Flightcomputer überwacht auch während der Abstiegsphase kontinuierlich die
 
 \section{Treiber}
 \label{sec:treiber}
-An dieser Stelle soll der Treiber für das IMU1 BMI088 representativ für die Treiber aller Sensoren beschrieben werden. Alle Treiber sind in C implementiert und teilen sich in ein Header File, in dem die Schnittstelle definiert ist, und ein Source File, in dem die eigentlichen Funktionen implementiert sind. 
+An dieser Stelle soll der Treiber für das IMU1 BMI088 repräsentativ für die Treiber aller Sensoren beschrieben werden. Alle Treiber sind in C implementiert und teilen sich in ein Header File, in dem die Schnittstelle definiert ist, und ein Source File, in dem die eigentlichen Funktionen implementiert sind. 
 
 Die Entwicklung der Treiber für die übrigen Sensoren sowie für den PWM-Controller, den Flash-Speicher und die SD-Karte erfolgt sowohl bei SPI- als auch bei I\textsuperscript{2}C-Kommunikation nach dem gleichen grundlegenden Prinzip. Dabei werden lediglich die jeweiligen Registeradressen und Konfigurationswerte entsprechend den Anforderungen der einzelnen Bauteile angepasst.
 
