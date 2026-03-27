@@ -24,16 +24,12 @@
 \label{sec:mechanical_build_status}
 Wegen Zeitmangel mussten Prioritäten beim Aufbau der einzelnen Subsysteme gesetzt werden. Ein Teil dieser wurde realisiert und verlief dabei so wie geplant, während der Rest aus zeitlichen, rechtlichen oder Prioritätsgründen es nicht wurde.
 
-<<<<<<< HEAD
 \subsection{Erfolgreich implementierte Subsysteme/Teile der Struktur}
 Insgesamt wurde mehr Wert auf eine optimale Aerodynamik und funktionierende Regelung gelegt, was auch erfolgreich realisiert wurde. Die Massenverteilung innerhalb der Rakete erfolgte nach Plan, wodurch die Strömungssimulation und die damit verbundene Berechnung der essenziellen Modellerwerte reibungsfrei verlief.
 \\
 Es wurden die Halterungen für Raketenflügel/Servomotoren, die hintere Abdeckung und die Abdeckung des Motors, die Raketenspitze und die Raketenflügel in das Gehäuse eingebaut und mit den Carbonstäben verstärkt. In alle mit Schrauben am Gehäuse festgemachten Teilen wurden in die dafür vorgesehenen Löcher Gewindeeinsätze aus Kupfer eingeschmolzen und die Kugellager der Flügel wurden in das 3D-gedruckte Teil eingeklebt, wo schließlich mit Presspassung die Flügel gesteckt wurden. Da der Flügelsteuermechanismus nicht rechtzeitig gefertigt und getestet wurde, konnte die Beweglichkeit der Flügel nicht getestet werden. Das Gehäuse wurde lackiert und mit einem Schriftzug des Projekttitels versehen, wie in \ref{sec:collage} zu sehen ist.
 
-\subsection{Nicht zeitnah realisierte Subsysteme/Teile der Struktur}
-=======
-\subsection{Nicht fertiggestellte Subsysteme und Strukturkomponenten}
->>>>>>> 650e54399910864d6bee2dc5b830319b5d5d850e
+\subsection{Nicht fristgerecht realisierte Teilsysteme/Teilbauwerke}
 \label{subsec:not_finished_subsystems}
 \paragraph{Bergungsystem}
 Der ursprüngliche Plan für das Bergungsystem war, einen bereits fertigen Fallschirm zu kaufen. Aufgrund von falsch eingeschätzter Gesamtmasse der Rakete, war diese Option in der benötigten Größe zu teuer. Daher wurden die genauen Dimensionen des benötigten Fallschirms berechnet und die Wahl für das Material wurde ebenfalls getroffen, genauer beschrieben in \ref{sec:recovery_system}. Dies konnte jedoch nicht mehr zeitnah realisiert werden.
@@ -68,7 +64,7 @@ Im Rahmen dieser Tests traten keine hardwarebedingten Probleme im Bereich der Bu
 
 Darüber hinaus konnten auch die Pyro-Kanäle erfolgreich in Betrieb genommen und auf ihre Funktion überprüft werden. Mit der Inbetriebnahme des PWM-Controllers konnte ein weiterer zentraler Bestandteil des Flightcomputers bereits erfolgreich getestet werden, was einen wichtigen Schritt in Richtung der vollständigen Funktionsfähigkeit des Systems darstellt.
 
-Im Bezug auf die Spannungsversorgung der Servomotoren trat jedoch ein Problem auf, das nicht ohne Weiteres gelöst werden konnte. Es zeigte sich, dass sich die Servos trotz einer stabilen Versorgungsspannung von $8\,\si{\volt}$ nicht bewegten, sobald sie an das System angeschlossen wurden. Zunächst wurde vermutet, dass die Ursache des Problems in einem zu niedrigen PWM-Signal von $3{,}3\,\si{\volt}$ liege. In Folge eines Versuchs mit einer externen Spannungsversorgung von $8\,\si{\volt}$ und dem bestehenden PWM-Signal konnte diese Vermutung jedoch ausgeschlossen werden. Durch Analyse der Spannungsversorgung mittels Oszilloskop konnte weiters festgestellt werden, dass die Spannung nach Anschluss der Servos auf ein Pulsmuster von etwa $4\,\si{\volt}$ absackte. Die Lösung des Problems bestand schlussendlich darin, die Servos an die Ausgänge der Pyro-Kanäle anzuschließen. Obwohl laut Schaltungsaufbau an beiden Anschlusspunkten dieselbe Versorgungsspannung auf derselben Versorgungsebene anliegen sollte, zeigte sich in der praktischen Erprobung ein unterschiedliches Verhalten. Eine zuverlässige Ansteuerung der Servos konnte schließlich erst durch den Anschluss an die Ausgänge der Pyro-Kanäle erreicht werden.
+In Bezug auf die Spannungsversorgung der Servomotoren trat jedoch ein Problem auf, das nicht ohne Weiteres gelöst werden konnte. Es zeigte sich, dass sich die Servos trotz einer stabilen Versorgungsspannung von $8\,\si{\volt}$ nicht bewegten, sobald sie an das System angeschlossen wurden. Zunächst wurde vermutet, dass die Ursache des Problems in einem zu niedrigen PWM-Signal von $3{,}3\,\si{\volt}$ liege. In Folge eines Versuchs mit einer externen Spannungsversorgung von $8\,\si{\volt}$ und dem bestehenden PWM-Signal konnte diese Vermutung jedoch ausgeschlossen werden. Durch Analyse der Spannungsversorgung mittels Oszilloskop konnte weiters festgestellt werden, dass die Spannung nach Anschluss der Servos auf ein Pulsmuster von etwa $4\,\si{\volt}$ absackte. Die Lösung des Problems bestand schlussendlich darin, die Servos an die Ausgänge der Pyro-Kanäle anzuschließen. Obwohl laut Schaltungsaufbau an beiden Anschlusspunkten dieselbe Versorgungsspannung auf derselben Versorgungsebene anliegen sollte, zeigte sich in der praktischen Erprobung ein unterschiedliches Verhalten. Eine zuverlässige Ansteuerung der Servos konnte schließlich erst durch den Anschluss an die Ausgänge der Pyro-Kanäle erreicht werden.
 
 Die Implementierung des externen Flash-Chips des Flightcomputers konnte unter Verwendung bereits bestehender, wenngleich fehlerhafter Treiber erfolgreich durchgeführt werden.
 
@@ -81,11 +77,7 @@ Die Telemetrieübertragung mittels LoRa befindet sich aktuell noch in der Entwic
 Mit der Inbetriebnahme des GNSS-Moduls wurde bereits begonnen, die Implementierung befindet sich derzeit jedoch noch im Stadium der Treiberentwicklung. Der Fortschritt wird dabei insbesondere durch die nur begrenzt ausführliche Dokumentation erschwert, sodass eine detaillierte Einarbeitung in das eigene Protokoll und die Funktionsweise des Moduls notwendig ist.
 
 \section{Collage}
-<<<<<<< HEAD
-\label{sec:collage}
-=======
 Die folgende Collage zeigt sowohl die fertige Rakete als auch den Flightcomputer \textit{KOMADORI} in verschiedenen Perspektiven. Dabei wurde eine handelsübliche Compact Disc als Referenzobjekt verwendet, um die Größenverhältnisse zu verdeutlichen. 
->>>>>>> 650e54399910864d6bee2dc5b830319b5d5d850e
  \newpage
 \begin{figure}[H]
     \centering
@@ -118,10 +110,10 @@ Die folgende Collage zeigt sowohl die fertige Rakete als auch den Flightcomputer
 \newpage
 \chapter{Simulations- und Testergebnisse}
 \label{ch:simulationsergebnisse}
-Während den Lauf des Entwicklungsprozesses hinweg wurden verschiedene Simulationen und Tests durchgeführt, von anfänglichen Simulationen mit OpenRocket, über die Simulation der Regelung mit MATLAB und der Strömungssimulation in Ansys Fluent, bis hin zu ersten Hardware in the loop Tests mit dem Flightcomputer. In diesem Kapitel werden die wichtigsten Ergebnisse dieser Simulationen und Tests präsentiert und diskutiert.
+Während des gesamten Entwicklungsprozesses wurden verschiedene Simulationen und Tests durchgeführt, angefangen von anfänglichen Simulationen mit OpenRocket über Regelungssimulationen mit MATLAB und Strömungssimulationen mit Ansys Fluent bis hin zu ersten Hardware-in-the-Loop-Tests mit dem Flightcomputer. In diesem Kapitel werden die wichtigsten Ergebnisse dieser Simulationen und Tests vorgestellt und diskutiert.
 \section{Ergebnisse der OpenRocket Simulation}
 \label{sec:ergebnisse_openrocket}
-Zu Beginn des Projekts wurde mit Hilfe von der Open-Source Simulationssoftware für Modellraketen OpenRocket eine Simulation durchgeführt, um die ungefähren Maße der Rakete festzulegen. Nachdem das finale Design vom Raketengehäuse, der restlichen aerodynamischen Elementen und der Innenstruktur festgelegt wurde, wurde eine nächste Simulation durchgeführt. Aus dieser Simulation ergaben sich für die Strömungssimulation kritische Werte, wie die Position des Druckpunktes und die Höchstgeschwindigkeit. Dabei wurde die Simulation mit einer Gesamtmasse der Rakete von $m \approx 1500g$ durchgeführt, genaue Erläuterungen zur Raketenmasse sind in HIER REFERENZ zu finden. Anschließend wurde eine bereits vorhandene Vorlage für den Raketenmotor ausgewählt, welche auf die vorgesehenen Maße und den Gesamtimpuls des Motors von "`ALBERT"' zutrifft.
+Zu Beginn des Projekts wurde mit Hilfe der Open-Source Simulationssoftware für Modellraketen OpenRocket eine Simulation durchgeführt, um die ungefähren Maße der Rakete festzulegen. Nachdem das finale Design vom Raketengehäuse, der restlichen aerodynamischen Elementen und der Innenstruktur festgelegt wurde, wurde eine nächste Simulation durchgeführt. Aus dieser Simulation ergaben sich für die Strömungssimulation kritische Werte, wie die Position des Druckpunktes und die Höchstgeschwindigkeit. Dabei wurde die Simulation mit einer Gesamtmasse der Rakete von $m \approx 1500g$ durchgeführt, genaue Erläuterungen zur Raketenmasse sind in HIER REFERENZ zu finden. Anschließend wurde eine bereits vorhandene Vorlage für den Raketenmotor ausgewählt, welche auf die vorgesehenen Maße und den Gesamtimpuls des Motors von "`ALBERT"' zutrifft.
 \\
 Mit Hilfe der Simulation wurden folgende Werte bestimmt:
 \begin{table}[H]
@@ -188,8 +180,8 @@ In Abbildung \ref{fig:matlab_simulation_results_2} ist eine Simulation von Start
 Im Vergleich dazu ist in Abbildung \ref{fig:matlab_simulation_results_3} die Simulation des gleichen Fluges dargestellt, bei dem die Regelung von Anfang an aktiv ist und die $\mathbf{K}$-Matrix für die Geschwindigkeit von 60 $\frac{m}{s}$ verwendet wird. Es ist zu erkennen, dass sich die beiden Verläufe grundsätzlich sehr ähnlich sind, die Auslenkung der Finnen am Anfang jedoch merklich kleiner ist was daran liegt, dass die Regelung bei 50 $\frac{m}{s}$ weniger scharf eingestellt ist als bei den anfänglichen Geschwindigkeiten eigentlich optimal. Es lässt sich erkennen, dass die Winkel $\theta$ und $\psi$ einen leichten Überschwinger aufweisen, bevor sie sich stabilisieren. Es ist jedoch auch hier zu erkennen, dass die Regelung nicht in der Lage ist, die Störung vollständig zu eliminieren und es kommt zu einer bleibenden Abweichung.
 Die Analyse der Simulationsresultate zeigt, dass auch ohne Nachführung der $\mathbf{K}$-Matrix die Regelung in der Lage ist, die Rakete bei einer Winkelabweichung zu stabilisieren, dabei ist der Regler jedoch nicht mehr optimal eingestellt.
 
-Wird statt einer anfänglichen Winkelauslenkung eine sinusförmige Störung in $\psi$ (türkis) sowie ein konstanter Schub von $20\,\si{\newton}$ angenommen, wie in Abbildung \ref{fig:matlab_simulation_results_4} und Abbildung \ref{fig:matlab_simulation_results_5} dargestellt, zeigt sich doch ein  Vorteil der Nachführung der $\mathbf{K}$-Matrix. Während die Störung mit nachgeführter $\mathbf{K}$-Matrix wirksam kompensiert und die Winkel $\theta$ und $\psi$ stabilisiert werden, kommt es ohne Nachführung zu gedämpften Schwingungen. 
-Damit stellt sich abschließend die Frage, inwiefern eine nachgeführte $\mathbf{K}$-Matrix real notwendig ist, da auch ohne diese eine passable Leistung erreicht werden kann, was im Rahmen eines ersten Flugversuchs zu klären wäre.
+Wird statt einer anfänglichen Winkelauslenkung eine sinusförmige Störung in $q$ (grün) angenommen, wie in Abbildung \ref{fig:matlab_simulation_results_4} und Abbildung \ref{fig:matlab_simulation_results_5} dargestellt, zeigt sich doch ein  Vorteil der Nachführung der $\mathbf{K}$-Matrix. Während die Störung mit nachgeführter $\mathbf{K}$-Matrix wirksam kompensiert und die Winkelgeschwindigkeit $q$ und der zugehörige Winkel $\theta$ (orange) schnell stabilisiert werden, kommt es ohne Nachführung zu einer zu geringen Auslenkung der Finnen, was zu einer unzureichenden Kompensation der Störung und sogar einem kurzzeitigen Verstärkung der Störung von $q$ führt. 
+
 \begin{figure}[H]
     \vspace{-0.25cm}
     \centering
@@ -368,7 +360,8 @@ In Abbildung \ref{fig:winkelverlauf_csv2} ist der Verlauf der Winkel $\theta$ un
     \label{fig:winkelverlauf_csv32}
     \vspace{-0.5cm}
 \end{figure}
-In den Hardware in the Loop Tests konnte die Funktionsfähigkeit der Regelung bestätigt werden. 
+In weiterführenden Tests konnte die grundsätzliche Funktionalität der Regelung bereits erfolgreich verifiziert werden, indem die Reaktion der Finnen auf die Änderung des Zustands getestet wurde. Es konnte gezeigt werden, dass die Finnen entsprechend der Regelstrategie korrekt angesteuert werden und eine Stabilisierung des Flugkörpers bewirken. Es ist jedoch anzumerken, dass diese Tests noch nicht in einer den Flug vollständig nachbildenden Umgebung durchgeführt wurden, sondern lediglich das Zusammenspiel zwischen EKF und Regelung überprüft wurde.
+Aus Zeitgründen konnten die Hardware-in-the-Loop-Tests im zeitlichen Rahmen der Diplomarbeit nicht weitergeführt werden, um die Regelung unter realistischeren Bedingungen zu testen. Es ist jedoch geplant, diese Tests in naher Zukunft fortzusetzen.
 
 \chapter{Rechtliches}
 \label{ch:legal}
@@ -426,9 +419,6 @@ Auf Grundlage der genannten gesetzlichen Bestimmungen durften die pyrotechnische
 
 \chapter{Ausblick}
 \label{ch:outlook}
-<<<<<<< HEAD
-Die Entwicklung von \textit{ALBERT} hat gezeigt, dass die Konstruktion einer aktiv geregelten Rakete im Rahmen des Diplomprojekts eine komplexe, aber machbare Aufgabe ist. Über den gesamten Entwicklungsprozess hinweg wurden zahlreiche Herausforderungen bewältigt, von der Konstruktion des Raketenkörpers über die Entwicklung des Flightcomputers bis hin zur Implementierung der Regelungstechnik. Nach voraussichtlichem Abschluss der Entwicklungsphase und der Bewältigung der beschriebenen Verzögerungen steht der Durchführung eines ersten Flugtests, welcher die Funktionalität des Systems unter realen Bedingungen evaluieren soll, nichts mehr im Wege. Damit könnten alle einzelnen Bestandteile des Projekts am Boden getestet werden, ohne dabei legale Grenzen zu überschreiten.
-=======
 Die Entwicklung von \textit{ALBERT} hat gezeigt, dass die Konstruktion einer aktiv geregelten Rakete im Rahmen des Diplomprojekts eine komplexe, aber machbare Aufgabe ist. Über den gesamten Entwicklungsprozess hinweg wurden zahlreiche Herausforderungen bewältigt, von der Konstruktion des Raketenkörpers über die Entwicklung des Flightcomputers bis hin zur Implementierung der Regelungstechnik. Nach voraussichtlichem Abschluss der Entwicklungsphase und der Bewältigung der beschriebenen Verzögerungen steht der Durchführung eines ersten Flugversuchs,welcher die Funktionalität des Systems unter realen Bedingungen evaluieren soll, nichts mehr im Wege. 
 
 Für die Zukunft ist eine Erweiterung um ein Guidance-System vorgesehen, das nicht nur einen stabilisierten Vertikalflug ermöglichen, sondern auch das gezielte Anfliegen vorgegebener GPS-Koordinaten unterstützen soll. Darüber hinaus ist die Einführung eines eigenen Protokolls für die Telemetrieübertragung geplant, um die Übertragung von Telemetriedaten über LoRa zu optimieren und die Zuverlässigkeit der Datenkommunikation zu erhöhen. Um die übertragenen Telemtriedaten übersichtlich zu visualisieren, soll zusätzlich eine Ground Station Software entwickelt werden, welche die empfangenen Daten in Echtzeit darstellt und Möglichkeiten gibt Befehle an die Rakete zu senden.
@@ -436,4 +426,3 @@ Für die Zukunft ist eine Erweiterung um ein Guidance-System vorgesehen, das nic
 Für zukünftige Versionen des Flightcomputers ist zudem der Einsatz eines Dual-Core-Prozessors vorgesehen. Ziel dieser Weiterentwicklung ist es, rechenzeitkritische Funktionen noch klarer von Kommunikations- und Hintergrundaufgaben zu trennen und dabei auf langsame Bussystem zwischen den Prozessoren verzichten zu können. So könnten die Regelungsalgorithmen sowie die Zustandsschätzung auf einem Prozessorkern mit hoher zeitlicher Deterministik ausgeführt werden, während der zweite Kern für Telemetrie, Datenlogging und sonstige potenziell blockierende Prozesse zuständig ist. Von einer solchen Architektur werden insbesondere Vorteile hinsichtlich Echtzeitverhalten, Systemstabilität und Erweiterbarkeit des Flightcomputers erwartet.
 
 \cleardoublepage
->>>>>>> 650e54399910864d6bee2dc5b830319b5d5d850e

@@ -8,9 +8,9 @@
 
 \section{Anforderungsanalyse}
 \label{sec:anforderungsanalyse}
-In der Planungsphase des Flightcomputers ist es entscheidend, die Anforderungen an das System klar zu definieren, um sicherzustellen das der entwickelte Flightcomputer alle zukünftigen Anforderungen erfüllt. 
+In der Planungsphase des Flightcomputers ist es entscheidend, die Anforderungen an das System klar zu definieren, um sicherzustellen, dass der entwickelte Flightcomputer alle zukünftigen Anforderungen erfüllt. 
 \\
-Die Anforderungen wurden in aktive und passive Anforderungen unterteilt. Aktive Anforderungen beziehen sich auf die Funktionen, die der Flightcomputer erfüllen muss, wie z.B. die Fähigkeit, Sensordaten zu erfassen, die Steuerungsalgorithmen schnell genug auszuführen und die Kommunikation mit anderen Systemen zu ermöglichen. Passive Anforderungen beziehen sich auf die Eigenschaften des Flightcomputers und dessen Bauteile, wie den Formfaktor und die Zuverlässigkeit in stark beschleunigten Umgebungen mit Vibrationen.
+Die Anforderungen wurden in aktive und passive Anforderungen unterteilt. Aktive Anforderungen beziehen sich auf die Funktionen, die der Flightcomputer erfüllen muss, wie z.B. die Fähigkeit, Sensordaten zu erfassen, Regelalgorithmen schnell genug auszuführen und die Kommunikation mit anderen Systemen zu ermöglichen. Passive Anforderungen beziehen sich auf die Eigenschaften des Flightcomputers und dessen Komponenten, wie z.B. Formfaktor und Zuverlässigkeit in stark beschleunigten und vibrierdenden Umgebungen.
 \\
 
 \textbf{Aktive Anforderungen:}
@@ -49,7 +49,7 @@ Die Anforderungen wurden in aktive und passive Anforderungen unterteilt. Aktive 
 
 \section{Systemarchitektur}
 \label{sec:systemarchitektur}
-Auf Basis der Anforderungen an die Funktionen und Eigenschaften des Flightcomputers wird im folgenden die Systemarchitektur ausgearbeitet (siehe Abbildung \ref{fig:systemarchitektur} )um die Interaktion der verschiedenen Komponenten untereinander im Bezug auf ihre Funktionen zu strukturieren und so eine Grundlage für die weiteren Entwicklungsschritte zu schaffen. 
+Ausgehend von den Anforderungen an die Funktionen und Eigenschaften des Flight Computers wird im Folgenden die Systemarchitektur (siehe Abbildung \ref{fig:systemarchitektur}) erarbeitet, um das Zusammenspiel der verschiedenen Komponenten hinsichtlich ihrer Funktionen zu strukturieren und damit eine Grundlage für die weiteren Entwicklungsschritte zu schaffen. 
 \begin{figure}[H]
     \centering
     
@@ -108,16 +108,16 @@ Auf Basis der Anforderungen an die Funktionen und Eigenschaften des Flightcomput
     \caption{Systemarchitektur des Flightcomputers}
     \label{fig:systemarchitektur}
 \end{figure}
-Die Hardwarearchitektur des Flightcomputers teilt sich in zwei Hauptkomponenten auf: Navigation Processing Unit (NAV) mit den Sensoren und Main Processing Unit (MPU) mit der Aktuatorik, den Datenspeichern sowie der Telemetrie (LoRa). Die NAV ist für die Erfassung der Sensordaten und die Berechnung der Fluglage, Geschwindigkeit sowie Position verantwortlich. Er empfängt Daten von den Sensoren (IMU 1, IMU 2, Barometer, Magnetometer und GPS) und verarbeitet diese mittels Sensor Fusion (siehe Kapitel \ref{subsec:erweiterter_kalman_filter}).
+Die Hardwarearchitektur des Flightcomputers gliedert sich in zwei Hauptkomponenten: Navigation Processing Unit (NAV) mit den Sensoren und Main Processing Unit (MPU) mit der Aktuatorik, den Datenspeichern sowie der Telemetrie (LoRa). Die NAV ist für die Erfassung der Sensordaten und die Berechnung von Fluglage, Geschwindigkeit und Position verantwortlich. Er empfängt die Daten der Sensoren (IMU 1, IMU 2, Barometer, Magnetometer und GPS) und verarbeitet diese mittels Sensor Fusion (siehe Kapitel \ref{subsec:erweiterter_kalman_filter}).
 \\
-Wohingegen die MPU die zentrale Steuereinheit des Flightcomputers darstellt, welche die Steuerungsalgorithmen ausführt, die Aktuatoren (Servos und Pyro-Kanäle) ansteuert, die Flugdaten auf der SD-Karte und im Flash-Speicher speichert sowie die Telemetriedaten über LoRa überträgt. Die MPU empfängt die Zustandsschätzung vom NAV und verarbeitet diese mittels LQR Regelung (siehe Kapitel \ref{subsec:lqr_regelung}), um die erforderlichen Steuerbefehle für die Servos zu berechnen.
+Wohingegen die MPU die zentrale Steuereinheit des Flightcomputers darstellt, welche die Steuerungsalgorithmen ausführt, die Aktuatoren (Servos und Pyro-Kanäle) ansteuert, die Flugdaten auf der SD-Karte und im Flash-Speicher speichert sowie die Telemetriedaten über LoRa überträgt. Die MPU empfängt die Zustandsschätzung vom NAV und verarbeitet diese mittels LQR Regelung (siehe Kapitel \ref{sec:lqr_regler}), um die erforderlichen Steuerbefehle für die Servos zu berechnen.
 \\
-Die Trennung der Aufgabengebiete dient primär der Echtzeitsicherheit und funktionalen Entkopplung. Der NAV verarbeitet hochfrequente Sensordaten (insbesondere IMU) und schätzt den aktuellen Zustand aus Basis der Sensordaten mittels Extended Kalman Filter. Diese Berechnungen erfordern konstante Latenzen und dürfen nicht durch blockierende Operationen wie Speicherzugriffe oder Funkkommunikation beeinflusst werden. Durch die Auslagerung von potenziell nichtdeterministischen Aufgaben auf eine separate MPU wird sichergestellt, dass die Zustandsschätzung auch bei hoher Systemlast stabil bleibt. Darüber hinaus reduziert die funktionale Trennung die Softwarekomplexität.
+Die Trennung der Aufgabenbereiche dient primär der Echtzeitsicherheit und der funktionalen Entkopplung. Der NAV verarbeitet hochfrequente Sensordaten (insbesondere IMU) und schätzt den aktuellen Zustand auf Basis der Sensordaten mittels Extended Kalman Filter. Diese Berechnungen erfordern konstante Latenzzeiten und dürfen nicht durch blockierende Operationen wie Speicherzugriffe oder Funkkommunikation beeinflusst werden. Durch die Auslagerung von potenziell nichtdeterministischen Aufgaben auf eine separate MPU wird sichergestellt, dass die Zustandsschätzung auch bei hoher Systemlast stabil bleibt. Darüber hinaus reduziert die funktionale Trennung die Softwarekomplexität.
 \\ 
-Um Flugdaten sicher zu speichern werden diese während des Fluges im Flash-Speicher gespeichert und erst nach der Landung auf die SD-Karte übertragen. Dies verhindert Datenverluste da unter starken Vibrationen ein Datentransfer über die Kontakte der SD-Karte nicht garantiert werden kann.
+Zur sicheren Speicherung der Flugdaten werden diese während des Fluges im Flash-Speicher abgelegt und erst nach der Landung auf die SD-Karte übertragen. Dies verhindert Datenverluste, da bei starken Vibrationen eine Datenübertragung über die Kontakte der SD-Karte nicht gewährleistet werden kann.
 \section{Komponentenauswahl}
 \label{sec:komponentenauswahl}
-Im folgenden soll die Auswahl der wichtigesten Komponenten des Flightcomputers erläutert werden und die Gründe für die Auswahl dargelegt werden. Für die spätere Treiberentwicklung gilt es bereits bei der Komponentenauswahl darauf zu achten, dass umfangreiche Dokumentationen und optimalerweise Referenztreiber vorliegen, da dies den Zeitaufwand später deutlich verkürzt. Desweiteren ist es essentiell darauf zu achten, dass die ausgewählten Komponenten bei dem gewählten Platinenhersteller verfügbar sind.
+Im Folgenden wird die Auswahl der wichtigsten Komponenten des Flightcomputers erläutert und begründet. Für die spätere Treiberentwicklung ist bereits bei der Auswahl der Komponenten darauf zu achten, dass umfangreiche Dokumentationen und im Idealfall Referenztreiber vorhanden sind, da dies den späteren Zeitaufwand erheblich reduziert. Des Weiteren ist unbedingt darauf zu achten, dass die ausgewählten Komponenten beim ausgewählten Leiterplattenhersteller verfügbar sind.
 
 \subsection{Sensoren}
 \label{subsec:sensoren}
@@ -129,16 +129,16 @@ Aufgrund der immensen Wichtigkeit der IMU-Daten für die Lagebestimmung des Syst
 \subsubsection{\href{https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/}{Barometer - BMP390}}
 Der Drucksensor wird für die Höhenbestimmung verwendet. Mit einem Arbeitsbereich von 300-1250\,hPa und einer Genauigkeit von 0.50\,hPa erfüllt der BMP390 die Anforderungen problemlos und kann als zusätzlicher Stützwert für die Zustandsschätzung sowie als verlässliche Entscheidungsgrundlage für den Fallschirmauswurf dienen.
 \subsubsection{\href{https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf}{Magnetometer - BMM150}}
-Das Magnetometer wird zur Bestimmung der Ausrichtung der Rakete im Bezug auf den Referenzrahmen der Erde verwendet. Dabei ist es wichtig, zu beachten, dass die Messungen durch magnetische Störfelder auf der Platine beeinflusst und somit verfälscht werden können. Das BMM150 bietet einen Messbereich von $\pm$ 1300\,$\mu$T und einer Auflösung von 0.3\,$\mu$T.
+Das Magnetometer wird verwendet, um die Ausrichtung der Rakete in Bezug auf den Referenzrahmen der Erde zu bestimmen. Dabei ist zu beachten, dass die Messungen durch magnetische Störfelder auf der Platine beeinflusst und somit verfälscht werden können. Das BMM150 hat einen Messbereich von $\pm$ 1300\,$\mu$T und eine Auflösung von 0.3\,$\mu$T.
 \subsection{Prozessoren}
 \label{subsec:prozessoren}
-Für die Auswahl der beiden Prozessoren des Flightcomputers – der Navigation Processing Unit (NAV) sowie der Main Processing Unit (MPU) – wurde besonderer Wert auf eine umfassende technische Dokumentation, die zuverlässige Verfügbarkeit über den Leiterplattenfertiger JLCPCB sowie eine breite communitybasierte Nutzung gelegt.
+Für die Auswahl der beiden Prozessoren des Flightcomputers – der Navigation Processing Unit (NAV) sowie der Main Processing Unit (MPU) – wurde besonderer Wert auf eine umfassende technische Dokumentation, die zuverlässige Verfügbarkeit über den Leiterplattenhersteller JLCPCB sowie eine breite communitybasierte Nutzung gelegt.
 \\
-Zum Zeitpunkt des Projektbeginns beschränkte sich die schulische Ausbildung im Bereich der Mikrocontroller-Programmierung ausschließlich auf die Verwendung der Arduino-Plattform. Eine vertiefte Auseinandersetzung mit hardwarenaher Embedded-Programmierung, eigenständigem Leiterplattendesign oder der Entwicklung komplexerer Systeme war im bisherigen Unterricht nicht vorgesehen und musste sich in Eigeninitiative angeeignet werden.
+Zum Zeitpunkt des Projektbeginns beschränkte sich die schulische Ausbildung im Bereich der Mikrocontroller-Programmierung ausschließlich auf den Einsatz der Arduino-Plattform. Eine vertiefte Auseinandersetzung mit hardwarenaher Embedded-Programmierung, eigenständigem Leiterplattendesign oder der Entwicklung komplexerer Systeme war im bisherigen Unterricht nicht vorgesehen und musste sich in Eigeninitiative angeeignet werden.
 \\
-Aus den oben genannten Gründen wird für die Navigation Processing Unit (NAV) der STM32F405RGT6 von STMicroelectronics ausgewählt, da dieser Mikrocontroller eine leistungsstarke Arm Cortex-M4 CPU mit einer Taktfrequenz von bis zu 168\,MHz bietet, was ausreichend Rechenleistung für die Echtzeitverarbeitung der Zustandsschätzung gewährleistet sowie genügend Schnittstellen zur Anbindung von Sensoren bereitstellt
+Aus den oben genannten Gründen wird für die Navigation Processing Unit (NAV) der STM32F405RGT6 von STMicroelectronics ausgewählt, da dieser Mikrocontroller eine leistungsfähige Arm Cortex-M4 CPU mit einer Taktfrequenz von bis zu 168\,MHz bietet, was ausreichend Rechenleistung für die Echtzeitverarbeitung der Zustandsschätzung gewährleistet sowie genügend Schnittstellen zur Anbindung von Sensoren bereitstellt
 \\
-Für die Main Processing Unit (MPU) wird der STM32H753VIT6 ausgewählt, da dieser mit einer ARM Cortex-M7 CPU mit einer Taktfrequenz von bis zu 400\,MHz eine deutlich höhere Rechenleistung bietet, die für die Regelung, die Verwaltung der Peripherie und die Telemetrieübertragung in Echtzeit mehr als ausreichend ist und darüber hinaus zusätzliche Pins für externe Peripherie bietet. 
+Für die Main Processing Unit (MPU) wird der STM32H753VIT6 ausgewählt, da dieser mit einer ARM Cortex-M7 CPU mit einer Taktfrequenz von bis zu 400\,MHz eine deutlich höhere Rechenleistung bietet, die für die Regelung, das Peripheriemanagement und die Telemetrieübertragung in Echtzeit mehr als ausreichend ist und zudem zusätzliche Pins für externe Peripherie bietet. 
 \\
 Der zentrale Vorteil der STM32-Plattform liegt in der stark ausgeprägten Community-Unterstützung. Neben der offiziellen Dokumentation stehen zahlreiche technisch hochwertige, communitygetriebene Lernressourcen zur Verfügung, welche die eigenständige Einarbeitung in komplexere Themenbereiche um ein vielfaches erleichtern.
 
@@ -163,7 +163,7 @@ Auf die Auswahl der Komponenten für die SD-Karte, den Flash-Speicher, des LoRa-
  
 \section{Schaltungsentwurf}
 \label{sec:schaltungsentwurf}
-Im folgenden wird der Entwicklungsprozess und der Aufbau der Schaltung näher erläutert. Dabei wird auf die Versorgungskonzept, die Sensorik sowie die Prozessoren genauer eingegangen. Für die vollständigen Schaltpläne wird auf den Anhang verwiesen (siehe Anhang \ref{app:schaltplaene}), da diese aufgrund der Komplexität und des Umfangs an dieser Stelle nicht sinnvoll dargestellt werden können.
+Im folgenden wird der Entwicklungsprozess und der Aufbau der Schaltung näher erläutert. Dabei wird auf die Versorgungskonzept, die Sensorik sowie die Prozessoren genauer eingegangen. Für die vollständigen Schaltpläne wird auf den Anhang verwiesen (siehe Anhang \ref{ch:komadori_schaltplan}), da diese aufgrund der Komplexität und des Umfangs an dieser Stelle nicht sinnvoll dargestellt werden können.
 
 
 \subsection{Sensoren}
@@ -171,7 +171,7 @@ Im folgenden wird der Entwicklungsprozess und der Aufbau der Schaltung näher er
 Den wichtigsten Teil der Sensorik stellt die IMU1 (BMI088) dar, welche die Hauptquelle für die Daten der Zustandsschätzung ist. Für eine möglichst hohe Datenrate und damit eine möglichst genaue Zustandsschätzung wird die IMU1 über die SPI-Schnittstelle an die Navigation Processing Unit angebunden, da diese im Vergleich zu I\textsuperscript{2}C eine höhere Datenrate ermöglicht. Die IMU2 (LSM6DSLTR) sowie das Magnetometer (BMM150) werden über die I\textsuperscript{2}C-Schnittstelle angebunden.
 Im folgenden soll genauer auf die Anbindung der IMU1 eingegangen werden, da diese representativ für alle Sensoren ist.
 \\
-Die beiden Sensoren der IMU1 (Beschleunigungssensor und Gyroskop) teilen sich die gleiche SPI-Schnittstelle (CLK, MOSI, MISO), sind jedoch als zwei separate Sensoren implementieren und müssen aufgrund dessen mit einzelnen CS-Leitungen versehen werden. Zur rechentechnisch resourcenschonenden Anbindung werden zwei Data Ready Interrupts (DRDY) verwendet, welche die NAV-Unit darüber informieren, dass neue Daten des jeweiligen Sensors bereit zur Auslese sind. Um den Sensor in SPI Mode zu betreiben muss der PS Pin auf GND gezogen werden. Auf den Versorgungsleitungen werden zusätzlich 100\,nF Keramikkondensatoren als Decoupling-Kondensatoren eingesetzt (siehe Abbildung \ref{fig:IMU1Schematic}). Die auf dem Bild zusehenden Widerstände dienen der Zustandsdefinition beim Einschalten, sind jedoch in keinerlei Hinsicht kritisch und können auch weggelassen werden.
+Die beiden Sensoren der IMU1 (Beschleunigungssensor und Gyroskop) teilen sich das gleiche SPI-Interface (CLK, MOSI, MISO), sind aber als zwei separate Sensoren implementiert und müssen daher mit separaten CS-Leitungen versehen werden. Für eine ressourcenschonende Anbindung werden zwei Data Ready Interrupts (DRDY) verwendet, die der NAV-Unit mitteilen, dass neue Daten des jeweiligen Sensors zum Auslesen bereitstehen. Um den Sensor im SPI-Modus zu betreiben, muss der PS-Pin auf GND gezogen werden. Auf den Versorgungsleitungen befinden sich zusätzlich 100\,nF Keramikkondensatoren als Entkoppelkondensatoren (siehe Abbildung \ref{fig:IMU1Schematic}). Die in der Abbildung gezeigten Widerstände dienen der Zustandsdefinition beim Einschalten, sind aber in keiner Weise kritisch und können weggelassen werden.
 
 
 \begin{figure}[H]
@@ -184,17 +184,17 @@ Die beiden Sensoren der IMU1 (Beschleunigungssensor und Gyroskop) teilen sich di
 
 \subsection{Prozessoren}
 \label{subsec:prozessoren}
-Die Anbindung der beiden Prozessoren setzt eine Reihe von passiven Bauteilen voraus, um eine stabile Funktion zu gewährleisten. Im Folgenden soll anhand der Anbindung der MPU (STM32H753VIT6) genauer auf diese eingegangen werden, da die Anbindung der NAV (STM32F405RGT6) im Grunde identisch ist. \cite{STM32F405xI} \cite{STM32H753xI} 
+Die Anbindung der beiden Prozessoren erfordert eine Reihe von passiven Bauelementen, um einen stabilen Betrieb zu gewährleisten. Im Folgenden wird auf die Anbindung der MPU (STM32H753VIT6) näher eingegangen, da die Anbindung der NAV (STM32F405RGT6) grundsätzlich identisch ist. \cite{STM32F405xI} \cite{STM32H753xI} 
 \\
-Der wichtigste Punkt im Bezug auf die Anbindung des Prozessors ist eine stabile Spannungsversorgung von 3.3\,V der verschiedenen Spannungsschienen. Diese teilen sich wie folgt auf: 
+Der wichtigste Punkt in Bezug auf die Anbindung des Prozessors ist eine stabile Spannungsversorgung von 3.3\,V der verschiedenen Spannungsschienen. Diese teilen sich wie folgt auf: 
 \begin{itemize}
     \item VDD: Versorgungsspannung der internen Logik und In- und Outputs des Prozessors
     \item VDDA: Versorgungsspannung der analogen Komponenten des Prozessors (ADC, DAC, etc.)
     \item VREF+ : Interne Referenzspannung
     \item VBAT: Versorgungsspannung über externe Batterie
 \end{itemize}
-VDD wird direkt an die 3.3\,V Schiene angeschlossen, wobei zwischen jedem der fünf VDD-Pins und Masse ein 100\,nF Keramikkondensator als Decoupling-Kondensator eingesetzt wird, um die Stabilität der Versorgung zu gewährleisten, zusätzlich zu den 100\,nF Keramikkondensatoren wird ein 10\,\si{\micro\farad} Kondensator eingesetzt um größere Ströme zu kompensieren. 
-Um die durch die digitalen Schaltvorgänge auf der 3.3\,V Schiene entstehenden hochfrequenten Störungen zu minimieren, werden die VDDA und VREF+ Pins über einen PI-Filter von der VDD Schiene entkoppelt, welcher aus zwei 1\,\si{\micro\farad} Kondensator, einem 10\,nF Keramikkondensator sowie einem Ferrite Bead (Induktivität) mit einer Impedanz von 100\,\si{\ohm} besteht (siehe Abbildung \ref{fig:pifilter}). Für VREF+ wird zusätzlich ein RC Tiefpass eingefügt, um eine möglichst konsistente Referenzspannung zu gewährleisten. Hier stellt der Widerstand kein Problem dar, da kein nennenswerter Strom fließt. Da keine externe Batterie verwendet wird, kann der VBAT Pin als VDD Pin behandelt werden.
+VDD ist direkt mit der 3,3\,V-Schiene verbunden, wobei zwischen jedem der fünf VDD-Pins und Masse ein 100\,nF Keramikkondensator als Entkoppelkondensator eingesetzt wird, um die Stabilität der Versorgung zu gewährleisten, zusätzlich zu den 100\,nF Keramikkondensatoren wird ein 10\,\si{\micro\farad} Kondensator eingesetzt, um größere Ströme zu kompensieren. 
+Um die durch die digitalen Schaltvorgänge auf der 3,3\,V-Schiene verursachten hochfrequenten Störungen zu minimieren, werden die Pins VDDA und VREF+ von der VDD-Schiene durch ein PI-Filter entkoppelt, der aus zwei 1\,\si{\micro\farad}-Kondensatoren, einem 10\,nF Keramikkondensator und einer Ferritperle (Induktivität) mit einer Impedanz von 100\,\si{\ohm} besteht (siehe Abbildung \ref{fig:pifilter}). Für VREF+ wird zusätzlich ein RC-Tiefpass eingefügt, um eine möglichst konstante Referenzspannung zu gewährleisten. Der Widerstand stellt hier kein Problem dar, da kein nennenswerter Strom fließt. Da keine externe Batterie verwendet wird, kann der VBAT-Pin wie ein VDD-Pin behandelt werden.
 
 \begin{minipage}{\textwidth}
     \begin{minipage}{0.52\textwidth}
@@ -220,7 +220,7 @@ Um die durch die digitalen Schaltvorgänge auf der 3.3\,V Schiene entstehenden h
         \captionof{figure}{Quarzschwingkreis zur Taktfrequenzgenerierung}
         \label{fig:quarz}
 \end{wrapfigure}
-Auch wenn der STM32H753VIT6 über eine interne Clock-Quelle verfügt, wird eine externer Quarz (High Speed External Crystal) mit einer Frequenz von 16\,MHz verwendet, um eine höhere Genauigkeit der Taktfrequenz zu erreichen. Der Quarz wird über zwei 10\,pF Lastkapazitäten mit Masse verbunden, um die Schwingung zuverlässig zu starten und auf der vorgesehenen Frequenz zu halten (siehe Abbildung \ref{fig:quarz}). Die Werte für die Lastkapazitäten basieren auf folgender Formel:
+Obwohl der STM32H753VIT6 über eine interne Taktquelle verfügt, wird ein externer Quarz (High Speed External Crystal) mit einer Frequenz von 16\,MHz verwendet, um eine höhere Genauigkeit der Taktfrequenz zu erreichen. Der Quarz ist über zwei 10\,pF Lastkapazitäten mit Masse verbunden, um die Schwingung zuverlässig zu starten und auf der vorgesehenen Frequenz zu halten (siehe Abbildung \ref{fig:quarz}). Die Werte für die Lastkapazitäten ergeben sich aus folgender Formel:
 \begin{equation}
 C_L = \frac{C_{L1} \cdot C_{L2}}{C_{L1} + C_{L2}} + C_{stray}
 \end{equation}
@@ -229,9 +229,9 @@ wobei $C_L$ die gesamte Lastkapazität des Quarzes mit 9\,pF \cite{YSX321SL}, $C
 
 \subsection{Spannungsversorgung}
 \label{subsec:versorgungskonzept}
-Die Versorgung des Flightcomputer während des gesamten Fluges erfolgt über einen 2S-LiPo-Akku mit einem Spannungsbereich von 7.4\,V (vollständig entladen) bis 8.4\,V (vollständig geladen), während die Betriebsspannung der Komponenten 3.3\,V beträgt. Um nun die benötigte Betriebsspannung von 3.3\,V aus der Eingangsspannung zu erzeugen, wird ein Abwärtswandler (siehe Abschnitt \ref{sec:abwaertswandler}) verwendet, welcher die Spannung herunterregelt. Die Entscheidung fiel auf einen Abwärtswandler, da dieser im Bezug auf die Effizienz deutlich besser ist als ein linearer Spannungsregler, welcher die überschüssige Energie in Form von Wärme an die Umgebung abgibt.
+Die Versorgung des Flightcomputer während des gesamten Fluges erfolgt über einen 2S-LiPo-Akku mit einem Spannungsbereich von 7.4\,V (vollständig entladen) bis 8.4\,V (vollständig geladen), während die Betriebsspannung der Komponenten 3.3\,V beträgt. Um nun die benötigte Betriebsspannung von 3.3\,V aus der Eingangsspannung zu erzeugen, wird ein Abwärtswandler (siehe Abschnitt \ref{sec:abwaertswandler}) verwendet, welcher die Spannung herunterregelt. Die Wahl fiel auf einen Abwärtswandler, da dieser einen deutlich besseren Wirkungsgrad aufweist als ein linearer Spannungsregler, der die überschüssige Energie in Form von Wärme an die Umgebung abgibt.
 \\
-Bei der Planung des Buck Converters ist es essentiell den Bauteilanforderungen des Herstellers insbesondere bei der Induktivität und den Kondensatoren nachzukommen, da diese die Stabilität der Schaltung sowie die Qualität der Ausgangsspannung maßgeblich beeinflussen. Aufgrund dessen wurde der WEBENCH POWER DESIGNER von Texas Instruments verwendet, um die Schaltung zu dimensionieren und die passenden Komponenten auszuwählen. In der Abbildung \ref{fig:BuckSchematic} ist der Schaltplan des Buck Converters mit Ein- und Ausgangskondensatoren, Induktivität, Feedback Spannungsteiler zur Ausgansspannungseinstellung sowie einem Testpunkt und einer Lötbrücke zur späteren Funktionsvalidierung und Inbetriebnahme zu sehen.
+Beim Entwurf des Buck Converters ist es essentiell, den Bauteilanforderungen des Herstellers, insbesondere bei der Induktivität und den Kondensatoren, nachzukommen, da diese die Stabilität der Schaltung sowie die Qualität der Ausgangsspannung maßgeblich beeinflussen. Aufgrund dessen wurde der WEBENCH POWER DESIGNER von Texas Instruments verwendet, um die Schaltung zu dimensionieren und die passenden Komponenten auszuwählen. In der Abbildung \ref{fig:BuckSchematic} ist der Schaltplan des Buck Converters mit Ein- und Ausgangskondensatoren, Induktivität, Feedback Spannungsteiler zur Ausgansspannungseinstellung sowie einem Testpunkt und einer Lötbrücke zur späteren Funktionsvalidierung und Inbetriebnahme zu sehen.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.8\textwidth]{BuckSchematic.png}
@@ -250,11 +250,11 @@ Bei der Planung des Buck Converters ist es essentiell den Bauteilanforderungen d
     \label{fig:LDO}
     
 \end{wrapfigure}
-Um in der Entwicklungsphase nicht abhängig von der Akkuspannung zu sein wird die Möglichkeit geschaffen, den Flightcomputer auch über eine externe Spannungsversorgung (etwas Laptop) mit 5\,V zu versorgen, welche über die USB-C-Schnittstelle angeschlossen werden kann. In diesem Fall wird die Eingangsspannung von 5\,V über einen LDO (Low Dropout Regulator) auf die benötigten 3.3\,V herunterregelt, da zu keiner Zeit eine hohe Stromaufnahme erfolgt und die Spannungsdifferenz gering ist.
+Um in der Entwicklungsphase nicht von der Akkuspannung abhängig zu sein, wird die Möglichkeit geschaffen, den Flightcomputer auch über eine externe Spannungsversorgung (z.B. Laptop) mit 5\,V zu versorgen, die über die USB-C Schnittstelle angeschlossen werden kann. In diesem Fall wird die Eingangsspannung von 5\,V über einen LDO (Low Dropout Regulator) auf die benötigten 3\,3\,V heruntergeregelt, da zu keinem Zeitpunkt eine hohe Stromaufnahme erfolgt und die Spannungsdifferenz gering ist.
 \\
-An den Ein- und Ausgängen des LDOs sind zwei 22\,\si{\micro\farad} Kondensatoren zur Stabilisierung der Spannung verschaltet (siehe Abbildung \ref{fig:LDO}) außerdem wird eine LED zur Anzeige des Betriebszustands eingesetzt.
+An den Ein- und Ausgängen des LDOs sind zwei 22\,\si{\micro\farad} Kondensatoren zur Stabilisierung der Spannung angeschlossen (siehe Abbildung \ref{fig:LDO}) außerdem wird eine LED zur Anzeige des Betriebszustands verwendet.
 \\
-Um im späteren Betrieb die Möglichkeit zu haben, die Stromaufnahme sowie die Spannung des Akkus zu überwachen, wird außerdem ein Strom \& Spannungsmesser in die Schaltung integriert, welcher die Messwerte über eine I\textsuperscript{2}C-Schnittstelle an die Main Processing Unit übermittelt.
+Um im späteren Betrieb die Stromaufnahme sowie die Spannung der Batterie überwachen zu können, wird zusätzlich ein Strom \& Spannungsmesser in die Schaltung integriert, der die Messwerte über eine I\textsuperscript{2}C-Schnittstelle an die Main Processing Unit übermittelt.
 
 
 
@@ -268,21 +268,21 @@ Um im späteren Betrieb die Möglichkeit zu haben, die Stromaufnahme sowie die S
     \caption{Erste Skizze der Leiterplatte}
     \label{fig:layout}
 \end{wrapfigure}
-An die Auswahl der Bauteile, die Erstellung der Schaltpläne, die Einbindung der Footprints sowie 3D-Modelle und die Durchführung eines Electric Rule Check (ERC) anschließend wird mit dem eigentlichen Design der PCB begonnen. Dabei gilt es eine Vielzahl von Faktoren zu berücksichtigen. Den ersten Schritt stellt die Auswahl des Build-up und Stack-up dar (siehe Abschnitt \ref{sec:buildup_stackup}), da der gesamte Entwicklungsprozess davon abhängt. 
-Anschließend werden die Bauteile grob nach Systemarchitektur (siehe Abbildung \ref{fig:systemarchitektur}) strukturiert, dabei werden zunächst die einzelnen ICs mit ihren jeweiligen passiven Komponenten gruppiert und in Folge nach Funktion als auch Platzbedarf angeordnet. Hierzu ist es sinnvoll bereits zuvor eine grobe Skizze der Leiterplatte zu erstellen, um strukturierter vorgehen zu können (siehe Abbildung \ref{fig:layout}).
+An die Auswahl der Bauteile, die Erstellung der Schaltpläne, die Einbindung der Footprints sowie 3D-Modelle und die Durchführung eines Electric Rule Check (ERC) anschließend wird mit dem eigentlichen Design der PCB begonnen. Dabei gilt es eine Vielzahl von Faktoren zu berücksichtigen. Den ersten Schritt stellt die Auswahl des Build-up und Stack-up dar (siehe Abschnitt \ref{sec:buildup_stackup}), da der gesamte weitere Entwicklungsprozess davon abhängt. 
+Anschließend werden die Bauteile grob nach Systemarchitektur (siehe Abbildung \ref{fig:systemarchitektur}) strukturiert, dabei werden zunächst die einzelnen ICs mit ihren jeweiligen passiven Komponenten gruppiert und anschließend nach Funktion sowie Platzbedarf angeordnet. Hierzu ist es sinnvoll, bereits im Vorfeld eine grobe Skizze der Leiterplatte anzufertigen, um strukturierter vorgehen zu können (siehe Abbildung \ref{fig:layout}).
 \newpage
 Die Dimensionen der Platine unterliegen den Limitationen des Raketenrumpfs mit einem Innendurchmesser von 80\,mm und betragen 73\,mm $\times$ 98\,mm.
-Im Bezug auf das Stack-up wird ein 4-lagiges Design mit einer Gesamtdicke von 1.6\,mm gewählt, da dies für die Anforderungen im Bezug auf Signalintegrität und Platzbedarf ausreichend ist und gleichzeitig die Kosten im Rahmen hält. Die Anordnung der Lagen erfolgt wie folgt:
+Für das Stack-up wird ein 4-lagiges Design mit einer Gesamtdicke von 1.6\,mm gewählt, da dies für die Anforderungen in Bezug auf Signalintegrität und Platzbedarf ausreichend ist und gleichzeitig die Kosten im Rahmen hält. Die Anordnung der Lagen sind wie folgt angeordnet:
 \begin{itemize}
     \item Top Layer: Signale, Bauteile
     \item Inner Layer 1: Masse
     \item Inner Layer 2: Versorgungsspannung (3.3\,V)
     \item Bottom Layer: Signale, Bauteile
 \end{itemize}
-Obwohl die Bottom-Layer nicht direkt an eine zusammenhängende Ground-Plane angrenzt, ist dies für die dort verwendeten Bauteile akzeptabel, da die zugehörigen Netze keine allzu schnellen Flanken bzw. hohen Stromtransienten aufweisen. Die Rückstromführung bleibt damit unkritisch und es sind keine signifikanten Auswirkungen auf Signalqualität oder EMV zu erwarten.
+Obwohl der Bottom-Layer nicht direkt an eine durchgehende Ground-Plane angrenzt, ist dies für die dort eingesetzten Komponenten akzeptabel, da die zugehörigen Netze keine zu schnellen Flanken oder hohe Stromtransienten aufweisen. Die Rückstromführung ist daher unkritisch und es sind keine signifikanten Auswirkungen auf die Signalqualität oder die EMV zu erwarten.
 \\
 \\
-Hier soll nun die Platine des Flightcomputers KOMADORI und die wichtigsten Designentscheidungen möglichst strukturiert und verständlich erläutert werden.
+Hier soll nun die Platine des Flightcomputers \textit{KOMADORI} und die wichtigsten Design-Entscheidungen möglichst strukturiert und verständlich erläutert werden.
 
 
 \begin{figure}[H]
@@ -311,14 +311,14 @@ Hier soll nun die Platine des Flightcomputers KOMADORI und die wichtigsten Desig
     \label{fig:prozessoren_layout}
 \end{wrapfigure}
 Der wichtigste Teil der Leiterplatte stellt das Layout der beiden Prozessoren dar, da ohne diese keine Funktionalität gegeben ist. In der Abbildung \ref{fig:prozessoren_layout} ist das Layout der Main Processing Unit (MPU) mit den zugehörigen passiven Komponenten zu sehen. Die Decoupling-Kondensatoren (in Orange) sind so nah wie möglich an den VDD-Pins zu platzieren (siehe Abschnitt \ref{sec:bypass_decoupling}). Der PI-Filter (in Gelb) ist so angeordnet, dass die Leitungen zwischen den Kondensatoren und der Induktvität möglichst kurz sind. Der RC-Tiefpass (in Grün) ist nach dem gleichen Prinzip angeordnet. Der Quarzschwingkreis (in Blau) ist so angeordnet, dass die Leitungen zum Quarz direkt durch die Pads der Lastkapazitäten geführt werden.
-Es ist darauf zu achten, beim Herausführen der Leiterbahnen aus den Pads den Abstand der Leiterbahnen möglich bald zu vergrößern um Crosstalk zu minimieren. 
+Beim Herausführen der Leiterbahnen aus den Pads ist darauf zu achten, dass der Abstand zwischen den Leiterbahnen so schnell wie möglich vergrößert wird, um Übersprechen zu minimieren. 
 
 
 \subsection{Abwärtswandler}
 \label{subsec:abwaertswandler}
-Im Theorie-Teil wurde bereits die Funktionsweise als auch die Layoutrichtlinien für die Implementierung eines Buck Converters erläutert (siehe Abschnitt \ref{sec:abwaertswandler}), desweiteren ist der Schaltplan des Buck Converters und die Auswahl der Komponenten im Abschnitt \ref{subsec:versorgungskonzept} beschrieben. Hier folgt nun die Umsetzung des Buck Converters auf der Leiterplatte.
+Im Theorie-Teil wurde bereits die Funktionsweise als auch die Layoutrichtlinien für die Implementierung eines Buck Converters erläutert (siehe Abschnitt \ref{sec:abwaertswandler}), des Weiteren ist der Schaltplan des Buck Converters und die Auswahl der Komponenten im Abschnitt \ref{subsec:versorgungskonzept} beschrieben. Hier folgt nun die Umsetzung des Buck Converters auf der Leiterplatte.
 \\
-Nach dem Herstellerdatenblatt des TPS54308 \cite{TPS54308} sollen die Ein- und Ausgangskondensatoren so nah wie möglich am IC platziert werden, Eingangsspannungs- und Masseleitungen so kurz und breit wie möglich gehalten werden, keine Schaltströme unter dem Spannungswandler geführt werden und die Rückführung auf einer internen Lage zwischen Switch Pin und der Induktivität so kurz und breit wie möglich gehalten werden. 
+Nach dem Herstellerdatenblatt des TPS54308 \cite{TPS54308} sollten die Ein- und Ausgangskondensatoren so nah wie möglich am IC platziert werden, Eingangsspannungs- und Masseleitungen so kurz und breit wie möglich gehalten werden, keine Schaltströme unter dem Spannungswandler geführt werden und die Rückführung auf einer internen Lage zwischen Switch Pin und der Induktivität so kurz und breit wie möglich gehalten werden. 
 \begin{figure}[H]
     \centering
     \begin{minipage}{0.35\textwidth}
@@ -338,7 +338,7 @@ Nach dem Herstellerdatenblatt des TPS54308 \cite{TPS54308} sollen die Ein- und A
 Das Layout des Buck-Converters ist in Abbildung \ref{fig:buckpcb_layout} links dargestellt. Rechts daneben befindet sich ein Referenzlayout des Herstellers, das die empfohlenen Layoutrichtlinien veranschaulicht. Zur besseren Orientierung wurden die Power-Puddles in beiden Abbildungen farblich hervorgehoben.
 \subsection{GNSS Modul}
 \label{subsec:gnss_modul}
-Im Datenblatt des verwendeten GPS-Moduls ZOE-M8Q siehe \cite{ZOE-M8Q} werden mehrer Layoutempfehlungen gegeben, um eine optimale Funktionalität zu gewährleisten. Dabei ist die räumliche Trennung des GPS-Moduls von digitalen Komponenten und insbesondere der Abstand zur Antenne von großer Bedeutung um Störungen zu minimieren. Desweiteren ist eine gute Masseanbindung, eine durchgehende Masse Fläche sowie eine Abschirmung durch einen GND-Via Ring des GPS-Moduls essentiell.
+Im Datenblatt des verwendeten GPS-Moduls ZOE-M8Q, siehe \cite{ZOE-M8Q}, werden mehrere Layoutempfehlungen gegeben, um eine optimale Funktionalität zu gewährleisten. Dabei ist die räumliche Trennung des GPS-Moduls von digitalen Komponenten und insbesondere der Abstand zur Antenne von großer Bedeutung, um Störungen zu minimieren. Weiterhin ist eine gute Masseverbindung, eine durchgehende Massefläche sowie eine Abschirmung durch einen GND-Via-Ring des GPS-Moduls unerlässlich.
 \\
 \begin{wrapfigure}{r}{0.5\textwidth}
     \centering
@@ -368,11 +368,11 @@ Wenn auch der PID-Regler eine weit verbreitete und effektive Regelungsstrategie 
 Aus diesem Grund wird nicht, wie ursprünglich in der Projektkonzeption geplant, zunächst ein PID-Regler implementiert, sondern es wird direkt mit der Entwicklung eines LQG-Reglers begonnen, da dieser die Anforderungen an die Regelung einer Rakete deutlich besser erfüllt.
 \section{Zustandsraummodellierung}
 \label{sec:zustandsraummodellierung}
-Ein wesentlicher Teil der Entwicklung der Regelung für die Rakete ist die Erstellung eines Zustandsraummodells, das die Dynamik des Systems ausreichend akurat beschreibt. Im Bezug auf die Rakete umfasst dies die Modellierung der translationalen und rotatorischen Bewegungen, die durch die Kräfte und Momente beeinflusst werden, die auf die Rakete wirken. 
+Ein wesentlicher Teil der Entwicklung der Regelung für die Rakete ist die Erstellung eines Zustandsraummodells, das die Dynamik des Systems ausreichend akurat beschreibt. In Bezug auf die Rakete umfasst dies die Modellierung der translationalen und rotatorischen Bewegungen, die durch die Kräfte und Momente beeinflusst werden, die auf die Rakete wirken. 
 \\
 Die im folgenden aufgestellten Bewegungsgleichung basieren in großen Teilen auf den Gleichungen, die in \parencite{AliyuAliyuStateSpace} beschrieben werden.
 
-\subsection{Translationale Bewegunsgleichungen}
+\subsection{Translationale Bewegungsgleichungen}
 \label{subsec:translationale_bewegungsgleichungen}
 \begin{align}
 \dot{u} &= \frac{F_{A_{x_b}} + F_{P_{x_b}} + F_{g_{x_b}}}{m} - (q w - r v) \quad [\mathrm{m/s^2}] \\[6pt]
@@ -837,7 +837,7 @@ k_{21} & 0 & 0 & 0 & k_{25} & 0 & 0 & k_{28} \\
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{k_fitting.png}
-    \caption{Vergleich der Polynomfunktion mit Interpolation des Eingtrags $k_{12}$ der K-Matrix}
+    \caption{Vergleich der Polynomfunktion mit Interpolation des Eintrags $k_{12}$ der K-Matrix}
     \label{fig:k_fitting}
 \end{figure}
 
@@ -886,17 +886,17 @@ g\,\cos \left(\theta \right)\,\cos \left(\psi \right)
 \begin{wrapfigure}{r}{0.5\textwidth}
     \centering
     \includegraphics[width=0.5\textwidth]{kalmanfilter.png}
-    \caption{Schätzwert des Winkels $\phi$ bei sinusförmigem Steuersignal $\delta_r $ und konstanter Geschwindigkeit $u$ im Vergleich zur stark verrauschen Messung}
+    \caption{Schätzwert des Winkels $\phi$ bei sinusförmigem Steuersignal $\delta_r $ und konstanter Geschwindigkeit $u$ im Vergleich zur stark verrauschten Messung}
     \label{fig:kalmanfilter}
     \vspace{-10pt}
 \end{wrapfigure}
 Der EKF ist dazu in der Lage, aus einer Reihe verrauschter Messwerte eine zuverlässige Schätzung zu liefern, wie in Abbildung \ref{fig:kalmanfilter} zu sehen ist. In diesem Beispiel wird die Schätzung des Winkels $\phi$ bei einem sinusförmigen Steuersignal $\delta_r$ und konstanter Geschwindigkeit $u$ dargestellt. Die türkise Linie zeigt die Schätzung des EKF, während die lila Linie die stark verrauschte Messung darstellt. Es ist deutlich zu erkennen, dass der EKF in der Lage ist, die zugrunde liegende Dynamik des Systems zu erfassen und eine glattere und genauere Schätzung zu liefern, trotz der starken Störungen in den Messdaten.
 \\
-Die Leistung des EKF hängt maßgeblich davon ab, wie gut die zugrundeliegenden Modelle die tatsächliche Dynamik beschreiben, sowie von der Wahl der Prozess- und Messrauschkovarianzen. Darüber hinaus ist es wichtig die Startwerte genau zu kennen. Eine sorgfältige Modellierung und Abstimmung dieser Parameter ist entscheidend, um eine genaue und zuverlässige Zustandsschätzung zu gewährleisten. Später soll im Rahmen des Kapitels Ergebnisse und Ausblick noch genauer auf die erzielten Ergebnisse eingegangen werden, um die Leistung des EKF zu bewerten und mögliche Verbesserungen zu identifizieren. Desweiteren soll die tatsächliche Implementierung in C im Kapitel \ref{ch:implementation_in_software} beschrieben werden.
+Die Leistung des EKF hängt maßgeblich davon ab, wie gut die zugrundeliegenden Modelle die tatsächliche Dynamik beschreiben, sowie von der Wahl der Prozess- und Messrauschkovarianzen. Darüber hinaus ist es wichtig die Startwerte genau zu kennen. Eine sorgfältige Modellierung und Abstimmung dieser Parameter ist entscheidend, um eine genaue und zuverlässige Zustandsschätzung zu gewährleisten. Später soll im Rahmen des Kapitels Ergebnisse und Ausblick noch genauer auf die erzielten Ergebnisse eingegangen werden, um die Leistung des EKF zu bewerten und mögliche Verbesserungen zu identifizieren. Des Weiteren soll die tatsächliche Implementierung in C im Kapitel \ref{ch:implementation_in_software} beschrieben werden.
 \chapter{Implementierung in Software}
 \label{ch:implementation_in_software}
 In der nachfolgenden Abhandlung wird die Implementierung der zuvor beschriebenen Regelungskonzepte in die Software des Flightcomputers \textit{KOMADORI} erörtert. Zunächst erfolgt eine Beschreibung des Programmablaufs, anschließend wird auf die Implementation des LQG-Reglers eingegangen.
-Desweiteren wird representativ für die Treiber aller Sensoren der Treiber für das IMU1 beschrieben um einen Einblick in die Treiberentwicklung zu geben. Der gesamte Programmcode wurde in C realisiert und in STM32CubeIDE geschrieben.
+Des Weiteren wird representativ für die Treiber aller Sensoren der Treiber für das IMU1 beschrieben um einen Einblick in die Treiberentwicklung zu geben. Der gesamte Programmcode wurde in C realisiert und in STM32CubeIDE geschrieben.
 \section{Allgemeiner Programmablauf}
 \label{sec:general_program_flow}
 \begin{wrapfigure}{r}{0.25\textwidth}

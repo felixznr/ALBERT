@@ -15,7 +15,7 @@ Um Rechtschreib- und Grammatikfehler in der Diplomarbeit zu korrigieren, um \LaT
         DeepL Write & Rechtschreibung- und Grammatikkorrektur & I, II, III, IV, V \\
         \hline
     \end{tabular}
-    \caption{Benutzte KI-Modell}
+    \caption{Verwendete KI-Modelle}
     \label{tab:used_ai_models}
 \end{table}
 
@@ -89,6 +89,7 @@ Flügel können an verschiedenen Positionen entlang \textcolor{green}{des Rakete
 \chapter{Ausschnitte des verwendeten MATLAB-Codes}
 \label{ch:matlab_code}
 \section{Interpolation der $\mathbf{K}$-Matrix}
+Im Folgenden ist der MATLAB-Code zur Interpolation der $\mathbf{K}$-Matrix dargestellt, um die Regelung für verschiedene Geschwindigkeiten $u_b$ zu ermöglichen. Dabei werden die Matrizen $\mathbf{A}$, $\mathbf{B}$ und $\mathbf{C}$ für verschiedene Werte von $u_b$ berechnet, die $\mathbf{K}$-Matrix für jeden dieser Werte berechnet und schließlich eine Interpolation durchgeführt. Es ist dabei darauf zu achten, dass zuvor die Matrizen $\mathbf{A}$, $\mathbf{B}$ und $\mathbf{C}$ symbolisch definiert wurden, um die Substitution der Variablen zu ermöglichen.
 \begin{lstlisting}[style=matlabstyle, caption={Interpolation der $\mathbf{K}$-Matrix}, label={lst:interpolate_k_matrix}]
 A = subs(A,[delta_eta,delta_r,delta_zeta,p,phi,q,r,theta,v_b,w_b,psi],[0,0,0,0,0,0,0,0,0,0,0]);
 B = subs(B,[v_b,w_b],[0,0]);
@@ -131,7 +132,7 @@ for k = 1:N
     K_array(:,:,k) = K_all{k};
 end
 
-% Fit polynoms
+% Apta polynoms
 poly_order = 4;
 P = cell(m,n);
 
@@ -151,7 +152,7 @@ end
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{simulink.png}
-    \caption{Simulink Modell der Rakete mit LQG-Regler}
+    \caption{Simulink Modell der Rakete mit LQR-Regler für Abbildung \ref{fig:matlab_simulation_results_5}}
     \label{fig:simulink_model}
 \end{figure}
 

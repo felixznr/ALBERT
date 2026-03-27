@@ -1,0 +1,190 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {chapter}{Abbildungsverzeichnis}{X}{chapter*.2}%
+\contentsline {chapter}{Tabellenverzeichnis}{XI}{chapter*.3}%
+\contentsline {chapter}{Abkürzungsverzeichnis}{XII}{chapter*.4}%
+\contentsline {chapter}{Projektteam}{XIII}{chapter*.5}%
+\contentsline {part}{\numberline {I}Einleitung}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}Motivation}{2}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Zielsetzung}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Leitfaden}{4}{chapter.3}%
+\contentsline {part}{\numberline {II}Theoretischer Hintergrund}{5}{part.2}%
+\contentsline {chapter}{\numberline {4}Platinendesign}{6}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Build-up \& Stack-up}{6}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Build-up}{6}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Stack-up}{7}{subsection.4.1.2}%
+\contentsline {subsubsection}{\nonumberline Rückstrompfade}{7}{subsubsection*.12}%
+\contentsline {subsubsection}{\nonumberline Energiefluss}{7}{subsubsection*.15}%
+\contentsline {section}{\numberline {4.2}Bypass- \& Decoupling-Kondensatoren}{9}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Abwärtswandler}{10}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Funktionsweise}{10}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Layoutrichtlinien}{11}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Sensorik}{12}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Inertial Measurement Unit}{12}{subsection.4.4.1}%
+\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Beschleunigungssensoren}{12}{subsubsection*.23}%
+\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Gyroskop}{13}{subsubsection*.26}%
+\contentsline {subsection}{\numberline {4.4.2}Magnetometer}{13}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Barometer}{14}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Global Navigation Satellite System (GNSS)}{15}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Grundlegendes Funktionsprinzip}{15}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Layout}{16}{subsection.4.5.2}%
+\contentsline {chapter}{\numberline {5}Software}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}STM32CubeIDE}{17}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Treiberentwicklung}{17}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Lineare Regelungstechnik}{18}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Geschlossener Regelkreis}{18}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Linearisierung}{19}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Jacobi Matrizen}{20}{subsection.6.2.1}%
+\contentsline {section}{\numberline {6.3}Steuerbarkeit}{20}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Beobachtbarkeit}{21}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Linear Quadratic Regulator (LQR)}{21}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Lösung der algebraischen Riccati-Gleichung}{21}{subsection.6.5.1}%
+\contentsline {section}{\numberline {6.6}Kalman-Filter}{23}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Zustandsraummodellierung}{24}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Vorhersageschritt}{25}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}Korrekturschritt}{25}{subsection.6.6.3}%
+\contentsline {subsection}{\numberline {6.6.4}Erweiterter Kalman-Filter}{25}{subsection.6.6.4}%
+\contentsline {subsection}{\numberline {6.6.5}Euler-Verfahren}{27}{subsection.6.6.5}%
+\contentsline {section}{\numberline {6.7}Linear Quadratic Gaussian}{27}{section.6.7}%
+\contentsline {chapter}{\numberline {7}Physikalische Grundlagen}{29}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Außenkräfte}{29}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Aerodynamische Kräfte}{29}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Nichtaerodynamische Kräfte}{30}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Äußere Faktoren}{30}{subsection.7.1.3}%
+\contentsline {subsubsection}{\nonumberline Erstes Newtonsches Gesetz}{30}{subsubsection*.38}%
+\contentsline {subsubsection}{\nonumberline Zweites Newtonsches Gesetz}{30}{subsubsection*.40}%
+\contentsline {subsubsection}{\nonumberline Drittes Newtonsches Gesetz}{31}{subsubsection*.42}%
+\contentsline {section}{\numberline {7.2}Stabilitätskoeffizient}{31}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Aerodynamische Elemente}{32}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Überschallflug und Unterschallflug}{32}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Raketenspitze}{32}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}Raketenflügel}{33}{subsection.7.3.3}%
+\contentsline {subsection}{\numberline {7.3.4}NACA Flügelprofile}{34}{subsection.7.3.4}%
+\contentsline {section}{\numberline {7.4}Raketenmasse}{35}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Strömungssimulation und Messung im Windkanal}{37}{chapter.8}%
+\contentsline {section}{\numberline {8.1}CFD Simulation}{37}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Grundlagen von CFD}{37}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Ablauf von einem CFD-Simulationsdurchgang in Ansys Workbench}{37}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}CFD Berechnung der Kräfte/Koeffizienten}{39}{subsection.8.1.3}%
+\contentsline {section}{\numberline {8.2}Messung im Windkanal}{39}{section.8.2}%
+\contentsline {chapter}{\numberline {9}Raketenantrieb}{41}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Funktionsweise eines Feststofftriebwerks}{41}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Umsetzung vom Feststofftriebwerk einer Modellrakete}{42}{section.9.2}%
+\contentsline {part}{\numberline {III}Praktische Umsetzung}{43}{part.3}%
+\contentsline {chapter}{\numberline {10}Flightcomputer \textit {KOMADORI}}{44}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Anforderungsanalyse}{44}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Systemarchitektur}{45}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Komponentenauswahl}{46}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Sensoren}{46}{subsection.10.3.1}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/motion-sensors/imus/bmi088/}{IMU1 - BMI088}}{46}{subsubsection*.65}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/mems-and-sensors/lsm6dsl.html}{IMU2 - LSM6DSLTR}}{46}{subsubsection*.67}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/}{Barometer - BMP390}}{46}{subsubsection*.69}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf}{Magnetometer - BMM150}}{47}{subsubsection*.71}%
+\contentsline {subsection}{\numberline {10.3.2}Prozessoren}{47}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}Weitere Peripheriekomponenten}{47}{subsection.10.3.3}%
+\contentsline {subsubsection}{\nonumberline Servos - BMS-125WV+}{47}{subsubsection*.73}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}{47}{subsubsection*.75}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc028n06ls3-g-datasheet-en.pdf?fileId=db3a30431ddc9372011ebafa4c607f8c}{Pyro-Kanäle-Mosfets - BSC028N06LS3}}{48}{subsubsection*.77}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.ti.com/product/TPS54308}{Buck Converter - TPS54308}}{48}{subsubsection*.79}%
+\contentsline {section}{\numberline {10.4}Schaltungsentwurf}{48}{section.10.4}%
+\contentsline {subsection}{\numberline {10.4.1}Sensoren}{48}{subsection.10.4.1}%
+\contentsline {subsection}{\numberline {10.4.2}Prozessoren}{49}{subsection.10.4.2}%
+\contentsline {subsection}{\numberline {10.4.3}Spannungsversorgung}{50}{subsection.10.4.3}%
+\contentsline {section}{\numberline {10.5}Leiterplattendesign}{51}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Prozessorenlayout}{53}{subsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.5.2}Abwärtswandler}{53}{subsection.10.5.2}%
+\contentsline {subsection}{\numberline {10.5.3}GNSS Modul}{54}{subsection.10.5.3}%
+\contentsline {subsection}{\numberline {10.5.4}Servos und Pyro-Kanäle}{54}{subsection.10.5.4}%
+\contentsline {chapter}{\numberline {11}Regelungssystem}{55}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Zustandsraummodellierung}{55}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Translationale Bewegungsgleichungen}{55}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Rotatorische Bewegungsgleichungen}{57}{subsection.11.1.2}%
+\contentsline {subsection}{\numberline {11.1.3}Ausrichtung (Attitude)}{59}{subsection.11.1.3}%
+\contentsline {subsection}{\numberline {11.1.4}Systemdynamik}{60}{subsection.11.1.4}%
+\contentsline {subsection}{\numberline {11.1.5}Bestimmung des Arbeitspunkts}{61}{subsection.11.1.5}%
+\contentsline {subsection}{\numberline {11.1.6}Linearisierung}{61}{subsection.11.1.6}%
+\contentsline {section}{\numberline {11.2}Linear Quadratic Gaussian}{63}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Steuerbarkeit}{63}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Ermittlung der K Matrix}{63}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}Extended Kalman Filter}{64}{subsection.11.2.3}%
+\contentsline {subsubsection}{\nonumberline GNSS}{65}{subsubsection*.93}%
+\contentsline {subsubsection}{\nonumberline Barometer}{65}{subsubsection*.95}%
+\contentsline {subsubsection}{\nonumberline Magnetometer}{65}{subsubsection*.97}%
+\contentsline {chapter}{\numberline {12}Implementierung in Software}{67}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Allgemeiner Programmablauf}{67}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Initialization - Initialisierung}{67}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2}On Ramp / Armed - Bereit zum Start}{67}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.3}Ascent - Aufstiegsphase}{68}{subsection.12.1.3}%
+\contentsline {subsection}{\numberline {12.1.4}Descent - Abstiegsphase}{68}{subsection.12.1.4}%
+\contentsline {subsection}{\numberline {12.1.5}Landing - Landung}{68}{subsection.12.1.5}%
+\contentsline {section}{\numberline {12.2}Treiber}{69}{section.12.2}%
+\contentsline {subsection}{\numberline {12.2.1}Header File}{69}{subsection.12.2.1}%
+\contentsline {subsection}{\numberline {12.2.2}Source File}{70}{subsection.12.2.2}%
+\contentsline {subsubsection}{\nonumberline BMI088\_Init}{70}{subsubsection*.101}%
+\contentsline {subsubsection}{\nonumberline BMI088\_ReadAcceleration und BMI088\_ReadAngularRate}{72}{subsubsection*.103}%
+\contentsline {subsection}{\numberline {12.2.3}BMI088\_ReadRegisters}{72}{subsection.12.2.3}%
+\contentsline {chapter}{\numberline {13}Mechanisches und Aerodynamisches Design}{74}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Konzeptentwicklung}{74}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Innenstruktur und Materialwahl}{74}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Masse und Schwepunkt}{74}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Flügeldesign}{75}{section.13.4}%
+\contentsline {section}{\numberline {13.5}Flügelsteuermechanismus}{76}{section.13.5}%
+\contentsline {section}{\numberline {13.6}Montierung vom Flightcomputer und Akku}{77}{section.13.6}%
+\contentsline {section}{\numberline {13.7}Bergungssystem}{78}{section.13.7}%
+\contentsline {subsection}{\numberline {13.7.1}Auslösung des Bergungsystems}{78}{subsection.13.7.1}%
+\contentsline {subsection}{\numberline {13.7.2}Fallschirm}{79}{subsection.13.7.2}%
+\contentsline {section}{\numberline {13.8}Raketenspitze}{80}{section.13.8}%
+\contentsline {section}{\numberline {13.9}Zusammenführen vom CAD-Baugruppe}{80}{section.13.9}%
+\contentsline {section}{\numberline {13.10}Implementierung und Fertigung}{81}{section.13.10}%
+\contentsline {chapter}{\numberline {14}Simulation der Aerodynamik}{82}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Definition der Geometrie und der Grenzen des Simulationsbereichs}{82}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Meshing der Geometrie}{82}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Simulation des Raketenkörpers in Ansys Fluent}{83}{section.14.3}%
+\contentsline {subsection}{\numberline {14.3.1}Starteinstellungen für Fluent}{83}{subsection.14.3.1}%
+\contentsline {subsection}{\numberline {14.3.2}Definition von Referenzwerten, Winkeln, simulierten Werten}{84}{subsection.14.3.2}%
+\contentsline {subsection}{\numberline {14.3.3}Simulationsdurchgänge}{85}{subsection.14.3.3}%
+\contentsline {section}{\numberline {14.4}Auswertung der Simulationsergebnisse}{85}{section.14.4}%
+\contentsline {subsection}{\numberline {14.4.1}Simulationsergebnisse}{86}{subsection.14.4.1}%
+\contentsline {subsection}{\numberline {14.4.2}Berechnungen der Modellwerte}{87}{subsection.14.4.2}%
+\contentsline {subsection}{\numberline {14.4.3}Visualisierung der Simulationsergebnisse}{91}{subsection.14.4.3}%
+\contentsline {section}{\numberline {14.5}Messung eines Raketenflügels im Windkanal}{95}{section.14.5}%
+\contentsline {subsection}{\numberline {14.5.1}Messaufbau}{95}{subsection.14.5.1}%
+\contentsline {subsection}{\numberline {14.5.2}Messergebnisse}{95}{subsection.14.5.2}%
+\contentsline {subsection}{\numberline {14.5.3}Berechnung der Axialkraft}{96}{subsection.14.5.3}%
+\contentsline {subsection}{\numberline {14.5.4}Vergleich der Messergebnisse mit simulierten Werten}{96}{subsection.14.5.4}%
+\contentsline {part}{\numberline {IV}Ergebnisse und Ausblick}{98}{part.4}%
+\contentsline {chapter}{\numberline {15}Gesamtaufbau und Systemintegration}{99}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Stand des mechanischen Aufbaus}{99}{section.15.1}%
+\contentsline {subsection}{\numberline {15.1.1}Erfolgreich implementierte Subsysteme/Teile der Struktur}{99}{subsection.15.1.1}%
+\contentsline {subsection}{\numberline {15.1.2}Nicht fristgerecht realisierte Teilsysteme/Teilbauwerke}{99}{subsection.15.1.2}%
+\contentsline {paragraph}{\nonumberline Bergungsystem}{99}{paragraph*.140}%
+\contentsline {paragraph}{\nonumberline Montierung von Akku und Flightcomputer}{99}{paragraph*.142}%
+\contentsline {paragraph}{\nonumberline Schockseilverbindung}{99}{paragraph*.144}%
+\contentsline {paragraph}{\nonumberline Flügelsteuermechanismus}{100}{paragraph*.146}%
+\contentsline {section}{\numberline {15.2}Stand des elektrischen Aufbaus}{100}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Collage}{101}{section.15.3}%
+\contentsline {chapter}{\numberline {16}Simulations- und Testergebnisse}{103}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Ergebnisse der OpenRocket Simulation}{103}{section.16.1}%
+\contentsline {section}{\numberline {16.2}Ergebnisse der MATLAB Simulationen}{105}{section.16.2}%
+\contentsline {section}{\numberline {16.3}Ergebnisse der Hardware in the Loop Tests}{107}{section.16.3}%
+\contentsline {chapter}{\numberline {17}Rechtliches}{109}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Rechtliche Einschränkungen}{109}{section.17.1}%
+\contentsline {subsection}{\numberline {17.1.1}Raketenmotor}{109}{subsection.17.1.1}%
+\contentsline {subsection}{\numberline {17.1.2}Pyrotechnische Charges zum Fallschirmauswurf}{110}{subsection.17.1.2}%
+\contentsline {chapter}{\numberline {18}Ausblick}{112}{chapter.18}%
+\contentsline {chapter}{\numberline {A}Verwendung von Künstlicher Intelligenz}{116}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Beispielprompts}{116}{section.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}OpenAI ChatGPT}{116}{subsection.A.1.1}%
+\contentsline {paragraph}{\nonumberline Prompt:}{116}{paragraph*.161}%
+\contentsline {paragraph}{\nonumberline Ausgabe:}{116}{paragraph*.163}%
+\contentsline {subsection}{\numberline {A.1.2}DeepL Übersetzer}{117}{subsection.A.1.2}%
+\contentsline {paragraph}{\nonumberline Eingabe:}{117}{paragraph*.165}%
+\contentsline {paragraph}{\nonumberline Ausgabe:}{117}{paragraph*.167}%
+\contentsline {subsection}{\numberline {A.1.3}DeepL Write}{117}{subsection.A.1.3}%
+\contentsline {paragraph}{\nonumberline Eingabe:}{117}{paragraph*.169}%
+\contentsline {paragraph}{\nonumberline Ausgabe:}{117}{paragraph*.171}%
+\contentsline {chapter}{\numberline {B}Bemaßte Zeichnungen der CAD-Modelle}{118}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Schaltplan des Flightcomputers}{131}{appendix.C}%
+\contentsline {chapter}{\numberline {D}Ausschnitte des verwendeten MATLAB-Codes}{138}{appendix.D}%
+\contentsline {section}{\numberline {D.1}Interpolation der $\mathbf {K}$-Matrix}{138}{section.D.1}%
+\contentsline {section}{\numberline {D.2}Simulink Simulation}{139}{section.D.2}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
