@@ -33,13 +33,5 @@ ALBERT is a self-regulating guided rocket project developed as a Maturaprojekt (
 └── 5_Codebase/             # Main source code and algorithms
 ```
 
-## Current Status
 
-cooked
-du bist ein shem shem junkie
-brooo
-du gehst ins gym um in clash royale ins neue level zu kommen?!
-
-67 on a merry chrysler my balls are itching
-
-For detailed technical specifications, see `1_Documentation/Maturaprojekt_Lastenheft.pdf`.
+For detailed technical specifications, see `1_Documentation/Diplomarbeit_ALBERT/chapter/main.pdf`.
