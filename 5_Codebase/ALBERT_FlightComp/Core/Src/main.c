@@ -69,10 +69,19 @@ LSM6DSLTR imu2;
 BMM150 magneto;
 BMP390 prs;
 
-Kalman att;                 //  EKF for phi/theta
+Kalman ekf;                 //  6-DOF strapdown EKF
 
-float Q_att[2] = { 1e-3f, 1e-3f };   // Startwerte (tunen!)
-float R_att[3] = { 2e-2f, 2e-2f, 2e-2f }; // Messrauschen für normierten Accel (tunen!)
+/* Process noise (diagonal).  u,v,w [m/s per sqrt(s)]^2  ;  phi,theta,psi [rad/s per sqrt(s)]^2 */
+float Q_ekf[6] = {
+    5.0e-1f, 5.0e-1f, 5.0e-1f,
+    1.0e-3f, 1.0e-3f, 1.0e-3f
+};
+
+/* Measurement noise (tune against static bench data) */
+float R_accel[3] = { 0.5f, 0.5f, 0.5f };   /* (m/s^2)^2   */
+float R_mag      = 0.1f;                    /* rad^2       */
+float R_baro     = 1.0f;                    /* (m/s)^2     */
+float R_gps[3]   = { 0.25f, 0.25f, 0.25f }; /* (m/s)^2     */
 
 
 /* Interrupt Flags and timers*/
@@ -177,7 +186,7 @@ int main(void)
   /* Initialise BMP390 Pressure Sensor */
   BMP390_Init(&prs, &hspi2);
 
-  Kalman_Init(&att, 0.5f, Q_att, R_att);   // Pinit z.B. 0.5 (tunen)
+  Kalman_Init(&ekf, 0.5f, Q_ekf, R_accel, R_mag, R_baro, R_gps);
   last_gyr_t = gyr_t;                      // wichtig: dt beim ersten Mal nicht riesig
 
 
@@ -191,35 +200,33 @@ int main(void)
   {
 
 
+	  /* Accel: read first so the predict step has a fresh specific-force input */
+	  if (imu1_acc_drdy) {
+		  imu1_acc_drdy = 0;
+		  BMI088_ReadAcceleration(&imu1);
+		  Kalman_UpdateAccel(&ekf, imu1.acc_mps2);   /* gated internally */
+	  }
+
+	  /* Gyro: drives the prediction step */
 	  if (imu1_gyr_drdy) {
 	      imu1_gyr_drdy = 0;
-
 	      BMI088_ReadAngularRate(&imu1);
-	      //BMI088_ReadAcceleration(&imu1);
 
 	      float dt = (float)(gyr_t - last_gyr_t) / (float)SystemCoreClock;
 	      last_gyr_t = gyr_t;
 
-
-	      Kalman_Predict(&att, imu1.gyr_rdps, dt);
-
-
-
-
-	  }
-
-	  if (imu1_acc_drdy) {
-		  imu1_acc_drdy = 0;
-		  BMI088_ReadAcceleration(&imu1);
-		  Kalman_Update(&att, imu1.acc_mps2);
-
+	      Kalman_Predict(&ekf, imu1.acc_mps2, imu1.gyr_rdps, dt);
 	  }
 
 
 		if (bmp390_drdy) {
 			bmp390_drdy = 0;
 			BMP390_ReadPressure(&prs);
+			/* TODO: pressure -> altitude -> filtered dh/dt -> Kalman_UpdateBaro(&ekf, vrate); */
 		}
+
+		/* TODO: magnetometer heading -> Kalman_UpdateMag(&ekf, phi_from_mag);          */
+		/* TODO: when GPS driver is live         Kalman_UpdateGPS(&ekf, vel_nav_mps);   */
 
 //		Test Routine for interrupts
 		if (HAL_GetTick() - lastPrint > 500)
@@ -250,9 +257,12 @@ int main(void)
 //			  CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
 
 			  usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
-			      "ATT:\r\n\tphi=%.2f deg\r\n\ttheta=%.2f deg\r\n\n",
-			      att.phi_rad   * 57.2957795f,
-			      att.theta_rad * 57.2957795f);
+			      "VEL: u=%.2f v=%.2f w=%.2f\r\n"
+			      "ATT: phi=%.2f theta=%.2f psi=%.2f [deg]\r\n\n",
+			      ekf.x[0], ekf.x[1], ekf.x[2],
+			      ekf.x[3] * 57.2957795f,
+			      ekf.x[4] * 57.2957795f,
+			      ekf.x[5] * 57.2957795f);
 			  CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
 
 
