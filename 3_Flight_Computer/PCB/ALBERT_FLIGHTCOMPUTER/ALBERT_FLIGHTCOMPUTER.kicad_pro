@@ -521,7 +521,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "/Users/felixzauner/Desktop/ALBERT/1_Documentation/Diplomarbeit_ALBERT/figures/",
+      "plot": "./",
       "pos_files": "./",
       "specctra_dsn": "",
       "step": "ALBERT_FLIGHTCOMPUTER.step",
