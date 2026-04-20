@@ -2435,6 +2435,7 @@
     <bcf:citekey order="79" intorder="1">BMF_Pyro</bcf:citekey>
     <bcf:citekey order="80" intorder="1">pyro_law_2010</bcf:citekey>
     <bcf:citekey order="81" intorder="1">pyroTG_jusline</bcf:citekey>
+    <bcf:citekey order="82" intorder="1">ChatGPT</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

@@ -25,7 +25,7 @@ Kräfte sind Vektorgrößen, die sowohl über eine Richtung als auch über einen
 \label{subsec:aero_forces}
 Aerodynamik ist die Wissenschaft von strömenden Gasen, besonders von strömender Luft. Aerodynamik ist ein zentraler Punkt bei der Entwicklung von Flugkörpern. Raketen unterscheiden sich zwar von herkömmlichen Flugkörpern, wie Flugzeugen, im Aufbau und in der Implementierung der aerodynamischen Merkmale, werden aber von den gleichen physikalischen Gesetzen und Kräften beeinflusst.
 
-Die Größe der aerodynamischen Kräfte hängt sowohl von der Größe und Form der Rakete als auch von der Geschwindigkeit und den Eigenschaften der Atmosphäre ab. Diese Kräfte wirken durch den Druckpunkt (CP) der Rakete, welcher mit einem Gelb-Schwarzen Punkt auf der Abbildung gekennzeichnet ist. Aerodynamische Kräfte sind ein zentraler Punkt bei der Entwicklung von Modellraketen, für große Raketen sind diese möglicherweise weniger relevant, da sie in der Regel nur eine kurze Zeit in der Atmosphäre verbringen. \cite{BeginnersGuideToAeronautics} \\
+Die Größe der aerodynamischen Kräfte hängt sowohl von der Größe und Form der Rakete, als auch von der Geschwindigkeit und den Eigenschaften der Atmosphäre ab. Diese Kräfte wirken durch den Druckpunkt (CP) der Rakete, welcher mit einem Gelb-Schwarzen Punkt auf der Abbildung gekennzeichnet ist. Aerodynamische Kräfte sind ein zentraler Punkt bei der Entwicklung von Modellraketen; für große Raketen sind diese möglicherweise weniger relevant, da sie in der Regel nur eine kurze Zeit in der Atmosphäre verbringen. \cite{BeginnersGuideToAeronautics} \\
 Diese zwei aerodynamischen Kräfte sind die Widerstandskraft und die Auftriebskraft. Diese sind wie folgt definiert:
 
 \begin{equation}
@@ -37,8 +37,8 @@ Diese zwei aerodynamischen Kräfte sind die Widerstandskraft und die Auftriebskr
 \begin{equation}
     \vec{F}_{Y lift} = \vec{F_Y} = C_Y \cdot \frac{\rho \cdot A \cdot \vec{v}^{2}}{2}
 \end{equation}
-\\Mit $C_a$ als Axialkraftbeiwert, welcher die Stärke der Widerstandskraft gegen die Flugrichtung beschreibt, $C_z$ als Normalkraftbeiwert und $C_y$ als Seitenkraftbeiwert, welche mit der mit der Auftriebskraft in die Z- und Y-Richtung zusammenhängen, $\rho$ als Luftdichte, $A$ als Querschnittsfläche, auf welche die jeweilige Kraft der aerodynamischen Elemente wirkt, und $v$ als Geschwindigkeit der Rakete relativ zur Luft.
-\\
+\\Mit $C_a$ als Axialkraftbeiwert, welcher die Stärke der Widerstandskraft gegen die Flugrichtung beschreibt, $C_z$ als Normalkraftbeiwert und $C_y$ als Seitenkraftbeiwert, welche mit der Auftriebskraft in die Z- und Y-Richtung zusammenhängen, $\rho$ als Luftdichte, $A$ als Querschnittsfläche, auf welche die jeweilige Kraft der aerodynamischen Elemente wirkt, und $v$ als Geschwindigkeit der Rakete relativ zur Luft.
+
 Die Axialkraft und Auftriebskraft in einer der beiden Richtungen hängen wie folgt mit den jeweiligen Beiwerten zusammen:
 
 \begin{equation}
@@ -47,7 +47,7 @@ Die Axialkraft und Auftriebskraft in einer der beiden Richtungen hängen wie fol
 
 \subsection{Nichtaerodynamische Kräfte}
 \label{subsec:not_aero_forces}
-Die Gewichtskraft hängt von der Masse aller Teile der Rakete ab. Die Gewichtskraft wirkt immer in Richtung des Erdmittelpunkts durch den Schwerpunkt (CG) der Rakete, der mit einem gelben Punkt auf der Abbildung gekennzeichnet ist. Die Größe der Schubkraft hängt vom Massenstrom durch den Motor und von der Geschwindigkeit und dem Druck am Austritt der Düse ab. Die Schubkraft wirkt entlang der Längenachse der Rakete somit auch durch den eigenen Schwerpunkt. In einigen Raketensteuersystemen die Thrust-Vectoring implementieren, wird die Düse abgewinkelt, um die Richtung der Schubkraft und somit auch die Richtung der Flugbahn zu ändern. \cite{BeginnersGuideToAeronautics} \\
+Die Gewichtskraft hängt von der Masse aller Teile der Rakete ab. Die Gewichtskraft wirkt immer in Richtung des Erdmittelpunkts durch den Schwerpunkt (CG) der Rakete, der mit einem gelben Punkt auf der Abbildung gekennzeichnet ist. Die Größe der Schubkraft hängt vom Massenstrom durch den Motor und von der Geschwindigkeit und dem Druck am Austritt der Düse ab. Die Schubkraft wirkt entlang der Längenachse der Rakete, somit auch durch den eigenen Schwerpunkt. In einigen Raketensteuersystemen, die Thrust-Vectoring implementieren, wird die Düse abgewinkelt, um die Richtung der Schubkraft und somit auch die Richtung der Flugbahn zu ändern. \cite{BeginnersGuideToAeronautics} \\
 Die Gewichtskraft und die Schubkraft sind wie folgt definiert:
 
 \begin{equation}
@@ -64,7 +64,7 @@ Die Gewichtskraft und die Schubkraft sind wie folgt definiert:
 Während des gesamten Fluges verändern sich die Kräfte andauernd, sowohl in ihrem Betrag als auch in ihrer Richtung. Wenn man die Kräfte unter Berücksichtigung ihrer Richtung addiert, erhält man eine externe resultierende Kraft auf die Rakete. Die durch diese Kraft verursachte Bewegung der Rakete kann durch Newtons Bewegungsgesetze beschrieben werden: \cite{BeginnersGuideToAeronautics}
 \subsubsection{Erstes Newtonsches Gesetz}
 \label{subsubsec:first_newton_law}
-Ein Kräftefreier Körper bleibt in Ruhe oder bewegt sich mit konstanter Geschwindigkeit.
+Ein kräftefreier Körper bleibt in Ruhe oder bewegt sich mit konstanter Geschwindigkeit.
 
 \subsubsection{Zweites Newtonsches Gesetz}
 \label{subsubsec:second_newton_law}
@@ -82,13 +82,13 @@ Kraft ist gleich Gegenkraft. Für eine Kraft, die ein Körper auf einen anderen 
 
 \section{Stabilitätskoeffizient}
 \label{sec:stability_margin}
-Der Stabilitätskoeffizient einer Rakete beschreibt die Differenz der Abstände des Druckpunkts(CP) und des Schwerpunkts(CG) über dem Durchmesser der Rakete $D$. Ein positiver Stabilitätskoeffizient sagt aus, dass der Schwerpunkt der Rakete höher als der Druckpunkt liegt. Ist der Stabilitätskoeffizient negativ, wird die Rakete instabil und wird in eine zufällige Richtung davonfliegen. Der Stabilitätskoeffizient ist allgemein folgendermaßen definiert:
+Der Stabilitätskoeffizient einer Rakete beschreibt die Differenz der Abstände des Druckpunkts (CP) und des Schwerpunkts (CG) über dem Durchmesser der Rakete $D$. Ein positiver Stabilitätskoeffizient sagt aus, dass der Schwerpunkt der Rakete höher als der Druckpunkt liegt. Ist der Stabilitätskoeffizient negativ, wird die Rakete instabil und wird in eine zufällige Richtung davonfliegen. Der Stabilitätskoeffizient ist allgemein folgendermaßen definiert:
 \begin{equation}
     S_m = \frac{x_{CP} - x_{CG}}{D}
 \end{equation}
-Dabei ist $D$ der Durchmesser des Raketenkörpers, $x_{CP}$ der Abstand des Druckpunktes von der Spitze der Rakete und $x_{CG}$ der Abstand des Schwerpunktes der Spitze.
+Dabei ist $D$ der Durchmesser des Raketenkörpers, $x_{CP}$ der Abstand des Druckpunktes von der Spitze der Rakete und $x_{CG}$ der Abstand des Schwerpunktes von der Spitze.
 \\
-Um den Stabilitätskoeffizienten zu bekommen, muss man den Abstand des Druckpunktes vom Heck $x_{CP}$ wissen, der teilweise schwer zu berechnen ist. Mit Hilfe von Simulationssoftware für Modellraketen wie OpenRocket oder RASAero kann man nach der Definition von den Raketenmaßen nicht nur die Position des Druckpunktes, sondern gleich den Stabilitätskoeffizienten bekommen.
+Um den Stabilitätskoeffizienten zu bekommen, muss man den Abstand des Druckpunktes von der Spitze $x_{CP}$ wissen, der teilweise schwer zu berechnen ist. Mit Hilfe von Simulationssoftware für Modellraketen wie OpenRocket oder RASAero kann man nach der Definition von den Raketenmaßen nicht nur die Position des Druckpunktes, sondern gleich den Stabilitätskoeffizienten bekommen.
 \\
 Wenn der Stabilitätskoeffizient nicht den gewünschten Wert hat, gibt es grundsätzlich zwei Möglichkeiten, den Druckpunkt der Rakete durch Manipulation der Flügelform und Flügelposition zu verschieben. Durch Stutzen der Flügel kann der Druckpunkt weiter nach vorne verschoben werden, genauso wie durch Verschieben der ganzen Flügel nach vorne. Dies ist in Abbildung \ref{fig:cp_manipulation_rocket_fins} grafisch veranschaulicht.
 \begin{figure}[H]
@@ -126,7 +126,7 @@ Bei Überschreitung der Schallgeschwindigkeit ($Mach > 1$) bewegt sich die Raket
 
 \subsubsection*{Unterschallflug}
 \label{subsubsec:subsonic_flight}
-Überschreitet die Rakete jedoch an keinem Zeitpunkt während des Fluges die Schallgeschwindigkeit, können die aerodynamischen Eigenschaften nach normalen aerodynamischen Konzepten geformt werden, um den Luftwiderstand zu minimieren und den Auftrieb zu maximieren. 
+Überschreitet die Rakete jedoch an keinem Zeitpunkt während des Fluges die Schallgeschwindigkeit, können die aerodynamischen Elemente nach normalen aerodynamischen Konzepten geformt werden, um den Luftwiderstand zu minimieren und den Auftrieb zu maximieren. 
 
 \subsection{Raketenspitze}
 \label{subsec:rocket_nose}
@@ -138,13 +138,13 @@ Bei Überschreitung der Schallgeschwindigkeit ($Mach > 1$) bewegt sich die Raket
     \label{fig:nose_cone_shapes}
     \vspace{-15pt}
 \end{wrapfigure}
-Aus aerodynamischer Sicht ist die Form der Raketenspitze für eine typische Modellrakete beim Unterschallflug nicht besonders relevant. Der Großteil des Luftwiderstands wird dabei durch die Raketenflügel, den Raketenkörper, oder kleine Ungenauigkeiten in diesen erzeugt. Daher wird die Form meistens je nach Komplexität, der Herstellung und des Volumens dieser Form gewählt. \cite{NakkaNoseCone}
+Aus aerodynamischer Sicht ist die Form der Raketenspitze für eine typische Modellrakete beim Unterschallflug nicht besonders relevant. Der Großteil des Luftwiderstands wird dabei durch die Raketenflügel, den Raketenkörper oder kleine Ungenauigkeiten in diesen erzeugt. Daher wird die Form meistens je nach Komplexität der Herstellung und des Volumens dieser Form gewählt. \cite{NakkaNoseCone}
 \\
 Abbildung \ref{fig:nose_cone_shapes} zeigt 3 verschiedene Formen der Raketenspitze für Modellraketen beim Unterschallflug. Die erste Raketenspitze ist kegelförmig und am leichtesten herzustellen, sie bietet gleichzeitig ausreichend nutzbaren Hohlraum. Die zweite Spitze hat die Form einer Hemisphäre, trotz niedrigem Volumen kann diese Form komplett ausreichen, wenn dieses nicht benötigt wird. Die dritte Spitze hat die Form einer Tangent-Ogive, dies ist die am meisten verbreitete Form für Raketenspitzen bei Unterschallmodellraketen. Sie bietet das meiste Volumen, kann aber, abhängig vom Material, kompliziert herzustellen sein.
 
 \subsection{Raketenflügel}
 \label{subsec:rocket_fins}
-Raketenflügel, auch als Flossen oder Finnen bezeichnet, sind aerodynamische Oberflächen, die normal zur Längsachse der Rakete befestigt werden. Diese dienen dazu, die Rakete während des Fluges zu stabilisieren und bei Bedarf Auftrieb zu erzeugen.
+Raketenflügel, auch als Flossen oder Finnen bezeichnet, sind aerodynamische Oberflächen, die normal zur Längsachse der Rakete befestigt werden. Diese dienen dazu, die Rakete während des Fluges zu stabilisieren und, bei Bedarf, Auftrieb zu erzeugen.
 
 \subsubsection*{Anzahl der Flügel}
 \label{subsubsec:fin_count}
@@ -152,11 +152,11 @@ Die Anzahl der Flügel an einer Rakete variiert, aber die meisten Modellraketen 
 
 \subsubsection*{Position der Flügel}
 \label{subsubsec:fin_position}
-Flügel können an verschiedenen Positionen entlang des Raketengehäuses angebracht werden, am verbreitetsten sind jedoch Raketen mit entweder nur hinteren Flügeln oder mit sowohl frontalen als auch hinteren Flügeln. Bei aktiven Steuersystemen bieten bewegliche frontale Flügel den Vorteil der besseren Manövrierfähigkeit, sorgen aber für weniger Stabilität und benötigen komplexere Regelungstechnik.
+Flügel können an verschiedenen Positionen entlang des Raketengehäuses angebracht werden, am verbreitetsten sind jedoch Raketen mit entweder nur hinteren Flügeln oder mit sowohl frontalen als auch hinteren Flügeln. Bei aktiven Steuersystemen bieten bewegliche, frontale Flügel den Vorteil der besseren Manövrierfähigkeit, sorgen aber für weniger Stabilität und benötigen komplexere Regelungstechnik.
 
 \subsubsection*{Feste und bewegliche Flügel}
 \label{subsubsec:fixed_moveable_fins}
-Die Flügel einer Rakete können entweder fest oder beweglich sein, je nachdem ob die Rakete über ein aktives Steuersystem verfügt, oder ob die Flügel ausschließlich zur passiven Stabilisierung dienen.
+Die Flügel einer Rakete können entweder fest oder beweglich sein, je nachdem, ob die Rakete über ein aktives Steuersystem verfügt oder ob die Flügel ausschließlich zur passiven Stabilisierung dienen.
 
 \subsubsection*{Flügelform}
 \label{fin_form}
@@ -169,8 +169,6 @@ Ein wichtiger Punkt beim Formen der Flügel ist die Auswahl der Form. Bei Modell
 \end{figure}
 
 \newpage
-
-%==== VON DEEPSEEK ÜBERETZT ALSO PROMPT DANN SPÄTER NOCH ANGEBEN ====
 
 \begin{table}[H]
     \centering
@@ -190,9 +188,9 @@ Ein wichtiger Punkt beim Formen der Flügel ist die Auswahl der Form. Bei Modell
         \hline
         Gestutztes Delta & Strukturell robust, gut für Flügelsteuerung & Anfällig für Schäden bei Landung \\
         \hline
-        Gestutztes gepfeiltes Trapez & Eine Verbesserung des einfach gepfeilten Trapezes & Flatteranfällig, anfällig für Schäden bei Landung \\
+        Gestutztes gepfeiltes Trapez & Eine Verbesserung des einfach gepfeilten Trapezes & flatteranfällig, anfällig für Schäden bei Landung \\
         \hline
-        Elliptisch & Aerodynamisch effizient, robust, flattersicher & Schwer herzustellen, Berechnung von $x_{CP}$ kompliziert \\
+        Elliptisch & Aerodynamisch effizient, robust, flattersicher & schwer herzustellen, Berechnung von $x_{CP}$ kompliziert \\
         \hline
     \end{tabular}
     \caption{Vor- und Nachteile verschiedener Flügelformen}
@@ -218,7 +216,7 @@ Das Profil der Raketenflügel hängt maßgeblich davon ab, ob die Rakete die Sch
 
 \subsubsection*{NACA Flügelprofile}
 \label{subsubsec:naca_airfoil}
-Für Airfoil Profile werden oft die NACA Profile verwendet. NACA Profile sind standardisierte Profile, die von der National Advisory Committee for Aeronautics (NACA) entwickelt wurden, welche später in die NASA überging.
+Für Airfoil Profile werden oft die NACA Profile verwendet. NACA Profile sind standardisierte Profile, die von der National Advisory Committee for Aeronautics (NACA), welche später in die NASA überging, entwickelt wurden.
 \\
 Für symmetrische Flügelprofile für Unterschallflug werden meistens die vierstelligen NACA Profile verwendet. Die vierstellige NACA Serie umfasst 78 im Windkanal getestete Profile. Diese Profile wurden recht willkürlich ausgewählt, aber manche dieser Profile werden noch heute von Flugzeugherstellern verwendet. Das Konstruktionsprinzip der NACA Profile beruht auf Kreisen, die auf der Profilmittellinie gezeichnet werden.
 \begin{figure}[H]
@@ -242,11 +240,11 @@ Auf der Abbildung \ref{fig:naca_geometry} ist die Geometrie der NACA Profile mit
 
 \section{Raketenmasse}
 \label{sec:mass}
-Die Masse der Rakete ist einer der zentralen Aspekte, die bei der Entwicklung zu beachten sind. Wegen zu hoher Masse oder deren ungünstige Verteilung kann es zu großen Problemen während des Fluges resultieren.
+Die Masse der Rakete ist einer der zentralen Aspekte, die bei der Entwicklung zu beachten sind. Wegen zu hoher Masse oder deren ungünstiger Verteilung kann es zu großen Problemen während des Fluges führen.
 
-Im Raketenbau, sowohl im Modellbereich als auch bei Raketen in Originalgröße, ist beim Entwurf des Aufbaus und bei der Materialwahl die Minimierung der Masse ein zentraler Aspekt. Durch geringere Masse kann bei Weltraummissionen an Treibstoff gespart werden, und eine Modellrakete kann somit eine höhere Geschwindigkeit und Flughöhe erreichen.
+Im Raketenbau, sowohl im Modellbereich als auch bei Raketen in Originalgröße, ist beim Entwurf des Aufbaus und bei der Materialwahl die Minimierung der Masse ein zentraler Aspekt. Durch geringere Masse kann bei Weltraummissionen an Treibstoff gespart werden und eine Modellrakete kann somit eine höhere Geschwindigkeit und Flughöhe erreichen.
 
-Nicht nur die Masse selbst, sondern auch deren Verteilung muss berücksichtigt werden. Der Schwerpunkt der Rakete hängt direkt von der Massenverteilung ab. Dabei ist zu beachten, dass der Schwerpunkt direkt im Zentrum des Querschnitts liegt. Ist dies nicht der Fall, resultiert das in konstanter Abweichung von der Flugbahn und in unerwarteten Reaktionen des Raketenkörpers auf Steuereingaben. Auch die Position längs des Raketenkörpers ist wichtig, da davon abhängt, um welchen Punkt jegliche, aus den Auftriebskräften resultierende Momente wirken. Um Stabilität während des Flugs zu gewährleisten, muss der Schwerpunkt außerdem vor dem Druckpunkt der Rakete liegen, dieser Zusammenhang ist in \ref{sec:stability_margin} genauer beschrieben.
+Nicht nur die Masse selbst, sondern auch deren Verteilung muss berücksichtigt werden. Der Schwerpunkt der Rakete hängt direkt von der Massenverteilung ab. Dabei ist zu beachten, dass der Schwerpunkt direkt im Zentrum des Querschnitts liegt. Ist dies nicht der Fall, resultiert das in konstanter Abweichung von der Flugbahn und in unerwarteten Reaktionen des Raketenkörpers auf Steuereingaben. Auch die Position längs des Raketenkörpers ist wichtig, da davon abhängt, um welchen Punkt jegliche aus den Auftriebskräften resultierende Momente wirken. Um Stabilität während des Flugs zu gewährleisten, muss der Schwerpunkt außerdem vor dem Druckpunkt der Rakete liegen, dieser Zusammenhang ist in \ref{sec:stability_margin} genauer beschrieben.
 
 \chapter{Strömungssimulation und Messung im Windkanal}
 \fancyfoot[C]{\large Timofey Luzin}
@@ -276,7 +274,7 @@ Nachdem die Geometrie erfolgreich definiert wurde, muss diese in ein Mesh/Netz u
 Bevor Ansys Fluent die tatsächliche Simulation durchführt, müssen mehrere Sachen definiert
 werden. \\
 Als erstes werden bestimmte Eigenschaften des Solvers, darunter ob die Berechnung druckbasiert oder dichtebasiert verlaufen soll und ob die Strömungsgeschwindigkeit absolut oder relativ formuliert wird. \\
-Gleich als nächstes folgt die Modellauswahl, diese hängt davon ab, was man berechnen will und welche Gleichungen Fluent im Hintergrund bei der Simulation rechnet. Darunter:
+Gleich als Nächstes folgt die Modellauswahl, diese hängt davon ab, was man berechnen will und welche Gleichungen Fluent im Hintergrund bei der Simulation rechnet. Darunter:
 \begin{itemize}
     \item Multiphase: Wenn mehrere Zustände gleichzeitig vorhanden sind (z.B. Wasser + Luft)
     \item Energy: Temperatur wird berechnet, Erwärmung Kühlung etc.
@@ -291,7 +289,7 @@ Gleich als nächstes folgt die Modellauswahl, diese hängt davon ab, was man ber
     \item Electric Potential: Elektrische Felder sind in der Strömungsanalyse zu berücksichtigen
 \end{itemize}
 \vspace{0.5cm}
-Die Materialien des festen Körpers und des Fluids werden anschließend festgelegt. Als Nächstes werden die Grenzbedingungen der Simulation definiert. Darunter der Einlass der Strömung, wo die Strömung austritt, das durchgehende Volumen, durch das die Strömung fließt, und Wände (die äußeren Grenzen und der innere feste Körper in der Simulation). Diese Grenzbedingungen können noch einzeln eingestellt werden, so wie die Geschwindigkeit und die Turbulenzintensität beim Strömungseinlass. \\
+Die Materialien des festen Körpers und des Fluids werden anschließend festgelegt. Als Nächstes werden die Grenzbedingungen der Simulation definiert. Darunter: der Einlass der Strömung, wo die Strömung austritt, das durchgehende Volumen, durch das die Strömung fließt, und Wände (die äußeren Grenzen und der innere feste Körper in der Simulation). Diese Grenzbedingungen können noch einzeln eingestellt werden, so wie die Geschwindigkeit und die Turbulenzintensität beim Strömungseinlass. \\
 Ein weiterer zentraler Punkt sind die Referenzwerte. Darunter:
 \vspace{0.5cm}
 \begin{itemize}
@@ -312,7 +310,7 @@ Danach kommen Einstellungen für die Lösungsmethoden.
 
 \subsubsection*{Auswertung der Simulation}
 \label{subsubsec:simulation_postprossesing}
-Nach einem erfolgreichen Simulationsdurchgang können die gesammelten Daten anschließend ausgewertet werden. Wenn bei der Erstellung der Report-Definition Report File/Report Plot ausgewählt wurden, kann man am Ende die Ergebnisse in Dateien mit der .out Dateierweiterung sehen. Diese stehen dort in Reihen mit der Nummer der jeweiligen Iteration. Außerdem kann Fluent diese Ergebnisse auch als Kurve plotten, was nützlich ist, wenn man grafisch sehen möchte, wie sich bestimmte Werte im Lauf der Simulation ändern und ob diese stabil verlaufen. Dies kann Hinweise auf Fehler geben oder zeigen, wenn die Simulation mit nicht genügend Iterationen durchgeführt wurde.
+Nach einem erfolgreichen Simulationsdurchgang können die gesammelten Daten anschließend ausgewertet werden. Wenn bei der Erstellung der Report-Definition Report File/Report Plot ausgewählt wurden, kann man am Ende die Ergebnisse in Dateien mit der .out Dateierweiterung sehen. Diese stehen dort in Reihen mit der Nummer der jeweiligen Iteration. Außerdem kann Fluent diese Ergebnisse auch als Kurve plotten, was nützlich ist, wenn man grafisch sehen möchte, wie sich bestimmte Werte im Laufe der Simulation ändern und ob diese stabil verlaufen. Dies kann Hinweise auf Fehler geben oder zeigen, wenn die Simulation mit nicht genügend Iterationen durchgeführt wurde.
 
 \subsection{Ermittlung der Kraft- und Momentbeiwerte}
 \label{subsec:force_coeffietents_calculation}
@@ -369,7 +367,7 @@ Der Aufbau eines Feststofftriebwerks ist in Abbildung \ref{fig:solid_fuel_engine
 
 \section{Umsetzung des Feststofftriebwerks einer Modellrakete}
 \label{sec:solid_fuel_model_rocket_implementation}
-Beim Bau von Modellraketenmotoren, basierend auf Feststoff, wird meistens für Zucker-Raketenmotoren entschieden. Diese sind einfach zu bauen und benötigen keine schwer zugänglichen Materialien/Chemikalien.
+Beim Bau von Modellraketenmotoren basierend auf Feststoff wird meistens für Zucker-Raketenmotoren entschieden. Diese sind einfach zu bauen und benötigen keine schwer zugänglichen Materialien/Chemikalien.
 \\
 Bei einem Zucker-Raketenmotor wird Zucker als Brennstoff und Kaliumnitrat ($KNO_3$) als Oxidator eingesetzt. Im Modellraketenbau werden häufig folgende Zuckerarten verwendet:
 \begin{itemize}

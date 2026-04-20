@@ -17,7 +17,7 @@ Für das Außengehäuse der Rakete wurde ein Kartonrohr mit einem Außendurchmes
 
 \section{Masse und Schwerpunkt}
 \label{sec:mass_and_cg}
-Um die Flughöhe der Rakete zu maximieren, mussten Maßnahmen zur Massenminimierung getroffen werden. Für 3D-gedruckte Teile, die keine hohen Lasten aushalten müssen, wurden dünnere Wandstärken und die Fülldichte wurde eher gering gehalten. Um einen ausreichend hohen Stabilitätskoeffizienten zu erhalten, musste die Masse weiter nach vorne verlagert werden. Dafür wurde die Raketenspitze mit einer dickeren Wandstärke als nötig dimensioniert, was außerdem auch dafür sorgt, dass diese beim Kontakt mit der Erde diesen auch verträgt.
+Um die Flughöhe der Rakete zu maximieren, mussten Maßnahmen zur Massenminimierung getroffen werden. Für 3D-gedruckte Teile, die keine hohen Lasten aushalten müssen, wurden dünnere Wandstärken und die Fülldichte wurde eher gering gehalten. Um einen ausreichend hohen Stabilitätskoeffizienten zu erhalten, musste die Masse weiter nach vorne verlagert werden. Dafür wurde die Raketenspitze mit einer dickeren Wandstärke als nötig dimensioniert, was außerdem dafür sorgt, dass diese beim Kontakt mit der Erde diesen auch verträgt.
 \\
 Somit wurden folgende Massen $m$ der Bauteile erreicht:
 \begin{table}[H]
@@ -42,7 +42,7 @@ Somit wurden folgende Massen $m$ der Bauteile erreicht:
     \caption{Massen der Bauteile}
     \label{tab:parts_mass}
 \end{table}
-Dies ist jedoch nicht die finale Masse der Rakete, da, aufgrund von in \ref{subsec:not_finished_subsystems} beschriebenen Gründen, nicht alle Subsysteme zum aktuellen Zeitpunkt realisiert wurden. Es wurde trotzdem eine finale Masse von $m = 1,5kg$ und Position des Schwerpunkts $x_{CG} = 601mm$ mit Hilfe von bekannten Maßen und Materialien angenommen. 
+Dies ist jedoch nicht die finale Masse der Rakete, da aufgrund von in \ref{subsec:not_finished_subsystems} beschriebenen Gründen nicht alle Subsysteme zum aktuellen Zeitpunkt realisiert wurden. Es wurde trotzdem eine finale Masse von $m = 1,5kg$ und Position des Schwerpunkts $x_{CG} = 601mm$ mit Hilfe von bekannten Maßen und Materialien angenommen. 
 
 \section{Flügeldesign}
 \label{sec:fin_design}
@@ -60,7 +60,7 @@ Dies ist jedoch nicht die finale Masse der Rakete, da, aufgrund von in \ref{subs
 
   % Abstand nach dem Bild reduzieren
 \end{wrapfigure}
-Die Raketenflügel haben die Form eines gestutzten Deltas, da diese Form sowohl strukturell robust ist, als auch eine gute Wahl für Finnensteuerung darstellt. Beim Profil der Flügel wurde das NACA0012 Profil gewählt, da dieses Profil symmetrisch ist, was keinen Auftrieb bei einem Anstellwinkel von 0° erzeugt, die Auftriebskennlinie des Profils für kleine Anstellwinkel relativ linear ist, was die Regelung der Flügel einfacher macht. Die vierstelligen NACA Profile existieren schon sehr lange, daher gibt es gute Daten über die aerodynamischen Eigenschaften, was das Überprüfen von Simulationsergebnissen und Versuchen erleichtert. Abbildung \ref{fig:fin_cad_model} zeigt das CAD Modell des Flügels.
+Die Raketenflügel haben die Form eines gestutzten Deltas, da diese Form sowohl strukturell robust ist als auch eine gute Wahl für die Flügelsteuerung darstellt. Beim Profil der Flügel wurde das NACA0012 Profil gewählt, da dieses Profil symmetrisch ist, was keinen Auftrieb bei einem Anstellwinkel von 0° erzeugt, die Auftriebskennlinie des Profils für kleine Anstellwinkel relativ linear ist, was die Regelung der Flügel einfacher macht. Die vierstelligen NACA Profile existieren schon sehr lange, daher gibt es gute Daten über die aerodynamischen Eigenschaften, was das Überprüfen von Simulationsergebnissen und Versuchen erleichtert. Abbildung \ref{fig:fin_cad_model} zeigt das CAD Modell des Flügels.
 \newpage
 \section{Flügelsteuermechanismus}
 \label{sec:fin_control}
@@ -89,7 +89,7 @@ Anschließend zeigt die Abbildung \ref{fig:fin_control_system_assembly} den fert
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{fin_control_assembly.png}
-    \caption{Assembly des kompletten Finnensteuermechanismus}
+    \caption{Assembly des kompletten Flügelsteuermechanismus}
     \label{fig:fin_control_system_assembly}
 \end{figure}
 
@@ -130,7 +130,7 @@ Diese Mischung verfügt über 3 Hauptvorteile gegenüber Schwarzpulver:
     \item Höhere Potenz, weniger "`Crimson Powder"' nötig, um die gleiche Menge wie von der gleichen Menge Schwarzpulver.
     \item Die Rückstände nach der Detonation sind geruchslos und lassen sich ohne Probleme entfernen.
 \end{itemize}   
-Dabei wird durch einen mit dem Flightcomputer verbundenen, elektrischen Zünder die Ladung mit der explosiven Mischung gezündet, durch deren Detonation anschließend der Druck innerhalb des Gehäuses sehr stark und schnell ansteigt. Durch diesen Druckanstieg wird ein Kolben (B in \ref{fig:recovery_system_cad}) nach vorne gedrückt, der letztendlich die Raketenspitze und den gefalteten Fallschirm (C in \ref{fig:recovery_system_cad}) aus dem Gehäuse der Rakete drückt. Zur Redundanz wurden 2 der explosiven "`Charges"' vor dem Kolben platziert.
+Dabei wird durch einen mit dem Flightcomputer verbundenen elektrischen Zünder die Ladung mit der explosiven Mischung gezündet, durch deren Detonation anschließend der Druck innerhalb des Gehäuses sehr stark und schnell ansteigt. Durch diesen Druckanstieg wird ein Kolben (B in \ref{fig:recovery_system_cad}) nach vorne gedrückt, der letztendlich die Raketenspitze und den gefalteten Fallschirm (C in \ref{fig:recovery_system_cad}) aus dem Gehäuse der Rakete drückt. Zur Redundanz wurden 2 der explosiven "`Charges"' vor dem Kolben platziert.
 
 \subsection{Fallschirm}
 \label{subsec:parachute}
@@ -192,9 +192,9 @@ Als Material für den Fallschirm wurde Ripstop-Nylon gewählt. Dies ist ein synt
 
   % Abstand nach dem Bild reduzieren
 \end{wrapfigure}
-Bei \textit{ALBERT} ist hat die Raketenspitze die Form einer Tangent-Ogive. Dies ist die am meisten verbreitete Form der Raketenspitze bei Modellraketen, die sich im Unterschallbereich aufhalten, da diese sowohl ein ausreichendes Volumen bietet, als auch mit Hilfe von 3D-Druck über keinen aufwendigen Fertigungsprozess verfügt. Die Spitze ist innen hohl, um die Masse zu reduzieren, verfügt aber innen über eine Verstärkung, um die strukturelle Integrität zu gewährleisten und eine ausreichend stabile Verbindung zum Schockseil zu bieten. Abbildung \ref{fig:rocket_nose_cone_cad} zeigt die Form der Raketenspitze von \textit{ALBERT}. Beim Aktivieren des Bergungssystems trennt sich die Spitze von der Rakete, um das Gehäuse für den Fallschirmauswurf zu öffnen. Daher wird diese mit einem Schockseil mit dem Rest der Rakete und dem Fallschirm verbunden. Für die Befestigung vom Schockseil ist ein Loch für eine M10 Ringschraube vorgesehen, mit einem Durchmesser von 8,4mm lässt sich in das Loch vorsichtig ein Gewinde schneiden, um eine feste Verbindung zu sichern.
+Bei \textit{ALBERT} ist hat die Raketenspitze die Form einer Tangent-Ogive. Dies ist die am meisten verbreitete Form der Raketenspitze bei Modellraketen, die sich im Unterschallbereich aufhalten, da diese sowohl ein ausreichendes Volumen bietet als auch mit Hilfe von 3D-Druck über keinen aufwendigen Fertigungsprozess verfügt. Die Spitze ist innen hohl, um die Masse zu reduzieren, verfügt aber innen über eine Verstärkung, um die strukturelle Integrität zu gewährleisten und eine ausreichend stabile Verbindung zum Schockseil zu bieten. Abbildung \ref{fig:rocket_nose_cone_cad} zeigt die Form der Raketenspitze von \textit{ALBERT}. Beim Aktivieren des Bergungssystems trennt sich die Spitze von der Rakete, um das Gehäuse für den Fallschirmauswurf zu öffnen. Daher wird diese mit einem Schockseil mit dem Rest der Rakete und dem Fallschirm verbunden. Für die Befestigung vom Schockseil ist ein Loch für eine M10 Ringschraube vorgesehen, mit einem Durchmesser von 8,4mm lässt sich in das Loch vorsichtig ein Gewinde schneiden, um eine feste Verbindung zu sichern.
 
-\section{Zusammenführen vom CAD-Baugruppe}
+\section{Zusammenführen der CAD-Baugruppe}
 \label{sec:cad_assembly}
 Anschließend wurden die einzelnen CAD-Teile in einer Baugruppe in Solid Edge zusammengeführt. Abbildung \ref{fig:albert_assembly} zeigt das zusammengeführte Modell:
 \newpage
@@ -217,7 +217,7 @@ Der simulierte Raketenkörper wurde im ersten Schritt in Siemens Solid Edge vere
 \label{sec:geometry_boundaries_definition}
 Die Parasolid-Geometrie wurde in die Tabelle für den Simulationsdurchlauf in Ansys Workbench importiert. Als nächsten Schritt wurde diese in Ansys DesignModeler (spezialisierte CAD-Software für Geometrieaufbereitung für technische Simulationen) geöffnet.
 \\
-In Designmodeler wurden mit Hilfe einer Boolschen Funktion die 4 Raketenflügel und der eigentliche Raketenkörper in einen Körper zusammengeführt. Um den Körper konnten mit der Erstellung eines Hüllkörpers die Grenzen des Simulationsbereichs festgelegt werden. Der Hüllkörper wurde für jeden Simulationsdurchgang identisch, mit den folgenden Maßen erstellt:
+In DesignModeler wurden mit Hilfe einer Boolschen Funktion die 4 Raketenflügel und der eigentliche Raketenkörper in einen Körper zusammengeführt. Um den Körper konnten mit der Erstellung eines Hüllkörpers die Grenzen des Simulationsbereichs festgelegt werden. Der Hüllkörper wurde für jeden Simulationsdurchgang identisch, mit den folgenden Maßen erstellt:
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|}
@@ -235,7 +235,7 @@ In Designmodeler wurden mit Hilfe einer Boolschen Funktion die 4 Raketenflügel 
 \caption{Maße des Simulationsbereichs}
 \label{tab:sim_boundaries}
 \end{table}
-\\Da Fluent einen durchgängigen Körper erwartet, wurde nach dem Erstellen des Hüllkörpers, wurde wieder mit der Boolschen Funktion die Geometrie des Raketenkörpers von diesem subtrahiert.
+\\Da Fluent einen durchgängigen Körper erwartet, wurde, nach dem Erstellen des Hüllkörpers, wieder mit der Boolschen Funktion die Geometrie des Raketenkörpers von diesem subtrahiert.
 
 \section{Meshing der Geometrie}
 \label{sec:geometry_meshing}
@@ -248,7 +248,7 @@ Bevor Mechanical das Netz erstellt, mussten bestimmte Einstellungen für das Net
         \caption{Vernetzter Raketenflügel}
         \label{fig:rocket_fin_mesh}
 \end{figure}
-Zusätzlich wurde der Ziel-Schiefewert auf 0,3 gesetzt, dieser beschreibt, wie stark ein Netzelement von dessen idealen Form abweicht. Dabei ist ein Ziel-Schiefewert von 0 ideal, und ein Wert von 1 ist die höchste und die grobste Einstellung. Letztendlich wurde die Glättung als "`Hoch"' eingestellt, diese besagt, wie oft/stark der Mesher die Position der einzelnen Knoten des Netzes nachträglich anpasst, um bessere Elementformen zu erzeugen. "`Hoch"' ist hierbei die höchste Einstellung und "`Niedrig"' die niedrigste.
+Zusätzlich wurde der Ziel-Schiefewert auf 0,3 gesetzt, dieser beschreibt, wie stark ein Netzelement von dessen idealen Form abweicht. Dabei ist ein Ziel-Schiefewert von 0 ideal und ein Wert von 1 ist die höchste und die grobste Einstellung. Letztendlich wurde die Glättung als "`Hoch"' eingestellt, diese besagt, wie oft/stark der Mesher die Position der einzelnen Knoten des Netzes nachträglich anpasst, um bessere Elementformen zu erzeugen. "`Hoch"' ist hierbei die höchste Einstellung und "`Niedrig"' die niedrigste.
 \\
 Nach dem Einstellen und erfolgreichem Fertigstellen des Meshing-Vorgangs müssen einzelne Komponenten des Netzes definiert werden, um diese als verschiedene Grenzbedingungen in Fluent definieren zu können. Es wurden folgende Komponenten erstellt:
 \begin{itemize}
@@ -323,9 +323,9 @@ Dabei wurde geachtet, dass alle Kraftvektoren durch den Druckpunkt bei $x_{CP} =
 
 \subsection{Simulationsdurchgänge}
 \label{subsec:sim_cases}
-Um genug Messpunkte der verschiedenen Werte für genaue Ableitungen zu erreichen und um für alle simulierten Werte die besten Bedingungen zu schaffen, wo diese am genauesten von Fluent berechnet werden können, wurden 9 verschiedene Fälle in der Simulation betrachtet. Durch diese 9 Durchgänge wurden sowohl alle möglichen Fälle bezüglich Pitch- und Yawwinkel abgedeckt als auch Veränderungen im Anstellwinkel der Flügel. Da der Raketenkörper symmetrisch ist, sind die Beiwerte für Pitch und Yaw Stellungen identisch. Daher können die in der Simulation errechneten Werte für Pitch Änderung auch für Yaw-bezogene Beiwerte verwendet werden.
+Um genug Messpunkte der verschiedenen Werte für genaue Ableitungen zu erreichen und um für alle simulierten Werte die besten Bedingungen zu schaffen, wo diese am genauesten von Fluent berechnet werden können, wurden 9 verschiedene Fälle in der Simulation betrachtet. Durch diese 9 Durchgänge wurden sowohl alle möglichen Fälle bezüglich Pitch- und Yawwinkel abgedeckt, als auch Veränderungen im Anstellwinkel der Flügel. Da der Raketenkörper symmetrisch ist, sind die Beiwerte für Pitch und Yaw Stellungen identisch. Daher können die in der Simulation errechneten Werte für Pitch Änderung auch für Yaw-bezogene Beiwerte verwendet werden.
 \\
-Hierbei wurden allerdings die Simulationsfälle zur Ermittlung von Ableitungen vom Rollmoment weggelassen. Das erfolgte, weil diese Modellwerte nicht essenziell für das Steuersystem sind und daher für ein vereinfachtes Modell vernachlässigt werden können.
+Hierbei wurden allerdings die Simulationsfälle zur Ermittlung von Ableitungen vom Rollmoment weggelassen. Dies erfolgte, weil diese Modellwerte nicht essenziell für das Steuersystem sind und daher für ein vereinfachtes Modell vernachlässigt werden können.
 \\
 Für jeden Fall wurden folgende Werte der Winkel $\alpha, \beta$, $\eta$ und $\zeta$ festgelegt:
 \begin{table}[h]
@@ -376,7 +376,7 @@ Aus den in \ref{tab:sim_cases} definierten Simulationsdurchgängen ergaben sich 
 \caption{Simulierte Beiwerte}
 \label{tab:sim_coefficients}
 \end{table}
-\\Anhand dieser Beiwerte, kann man erkennen, dass mit höherem Pitchwinkel $\alpha$ vor allem der Normalkraftbeiwert $C_Z$ steigt, und bei einem höheren Winkel $\eta$ sich in erster Linie der Pitchmomentbeiwert $C_m$ vergrößert. Es sind kleine Ungenauigkeiten dabei, wie $C_Y \neq 0$, diese sind auf Ungenauigkeiten beim Meshing oder des Solvers zurückzuführen.
+\\Anhand dieser Beiwerte kann man erkennen, dass mit höherem Pitchwinkel $\alpha$ vor allem der Normalkraftbeiwert $C_Z$ steigt und bei einem höheren Winkel $\eta$ sich in erster Linie der Pitchmomentbeiwert $C_m$ vergrößert. Es sind kleine Ungenauigkeiten dabei, wie $C_Y \neq 0$, diese sind auf Ungenauigkeiten beim Meshing oder des Solvers zurückzuführen.
 \\
 \begin{wrapfigure}{r}{0.6\textwidth}
     \centering
@@ -681,7 +681,7 @@ Beim 9. Simulationsfall wurde die Strömung an den Flügeln mit dem Anstellwinke
         \caption{Druck am Raketenflügel}
         \label{fig:rocket_fin_pressure}
 \end{figure}
-Die nächste Abbildung \ref{fig:rocket_fin_velocity} zeigt die Geschwindigkeit der Strömung um den Raketenflügel. Hier ist zu erkennen, wie die Strömung auf der Oberseite des Flügels schneller verläuft, was wie ebenfalls bei der Visualisierung vom Druck darauf hindeutet, dass es einen Auftrieb in die Z-Richtung gibt. Zusätzlich ist zu sehen, wie die Geschwindigkeit nach dem Flügel kleiner wird, und diese Verlangsamung sich nach diesem auch ausbreitet. Dies ist der Nachlauf, verursacht durch Reibungs- und Umlenkungsverluste an dem Flügel.
+Die nächste Abbildung \ref{fig:rocket_fin_velocity} zeigt die Geschwindigkeit der Strömung um den Raketenflügel. Hier ist zu erkennen, wie die Strömung auf der Oberseite des Flügels schneller verläuft, was, wie ebenfalls bei der Visualisierung vom Druck, darauf hindeutet, dass es einen Auftrieb in die Z-Richtung gibt. Zusätzlich ist zu sehen, wie die Geschwindigkeit nach dem Flügel kleiner wird und diese Verlangsamung sich nach diesem auch ausbreitet. Dies ist der Nachlauf, verursacht durch Reibungs- und Umlenkungsverluste an dem Flügel.
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.9\textwidth]{rocket_fin_velocity.jpg}
@@ -705,7 +705,7 @@ Abbildung \ref{fig:rocket_body_velocity} zeigt die Kontur der Strömungsgeschwin
         \caption{Geschwindigkeit am Raketenkörper}
         \label{fig:rocket_body_velocity}
 \end{figure}
-Der dritte Kontur um den Raketenkörper in der Abbildung \ref{fig:rocket_body_velocity_w} zeigt die Z-Komponente der Strömungsgeschwindigkeit. Man erkennt durch diesen Kontur eindeutig, dass die Strömung nicht nur eine axiale Komponente ist, da diese hier ansonsten perfekt symmetrisch und nahezu Null wäre. Es ist sowohl positive als auch negative Geschwindigkeit vorhanden. An der Spitze der Rakete kann man gut den Geschwindigkeitsunterschied zwischen der Ober- und Unterseite, was wiederum auf einen Impuls in die Z-Richtung deutet. Genauso ist diese Geschwindigkeitsdifferenz auch bei den Flügeln der Rakete im Heckteil zu erkennen. Diese erzeugen zusätzliche, lokale Ablenkungen in die Z-Richtung.
+Der dritte Kontur um den Raketenkörper in der Abbildung \ref{fig:rocket_body_velocity_w} zeigt die Z-Komponente der Strömungsgeschwindigkeit. Man erkennt durch diesen Kontur eindeutig, dass die Strömung nicht nur eine axiale Komponente ist, da diese hier ansonsten perfekt symmetrisch und nahezu Null wäre. Es ist sowohl positive als auch negative Geschwindigkeit vorhanden. An der Spitze der Rakete kann man gut den Geschwindigkeitsunterschied zwischen der Ober- und Unterseite, was wiederum auf einen Impuls in die Z-Richtung deutet. Genauso ist diese Geschwindigkeitsdifferenz auch bei den Flügeln der Rakete im Heckteil zu erkennen. Diese erzeugen zusätzliche lokale Ablenkungen in die Z-Richtung.
 \newpage
 \begin{figure}[H]
     \centering
@@ -886,7 +886,7 @@ Aus der Simulation in Fluent ergaben sich folgende Werte der Axialkraft $F_A$:
     \label{tab:sim_results_30ms}
     \end{minipage}
 \end{table}
-Beim Vergleich der Mess- und Simulationsergebnisse ist ein bemerkbarer Unterschied vorhanden. Dieser Unterschied ist auf die Ungenauigkeit beim Windkanalversuch zurückzuführen, genauer gesagt, bei der Höhe der Wassersäule im Manometer zur Bestimmung der Geschwindigkeit, und beim Messobjekt selbst. Der um ein Vielfaches höhere Luftwiderstand ist auf den Metallstab, mit dem der Flügel im Windkanal montiert wurde, und auf den größeren und längeren Zylinder am Flügel selbst, mit dem dieser am Stab befestigt wurde, zurückzuführen.
+Beim Vergleich der Mess- und Simulationsergebnisse ist ein bemerkbarer Unterschied vorhanden. Dieser Unterschied ist auf die Ungenauigkeit beim Windkanalversuch zurückzuführen, genauer gesagt bei der Höhe der Wassersäule im Manometer zur Bestimmung der Geschwindigkeit und beim Messobjekt selbst. Der um ein Vielfaches höhere Luftwiderstand ist auf den Metallstab, mit dem der Flügel im Windkanal montiert wurde, und auf den größeren und längeren Zylinder am Flügel selbst, mit dem dieser am Stab befestigt wurde, zurückzuführen.
 \\
 Nichtsdestotrotz ermöglichte dieser Versuch einen tieferen Einblick in Aerodynamik und Verhalten der Luftströmung, sowohl am Messobjekt selbst, als auch die damit verbundenen Bedingungen im Windkanal selbst, wie der Unterdruck am Piezometer.
 

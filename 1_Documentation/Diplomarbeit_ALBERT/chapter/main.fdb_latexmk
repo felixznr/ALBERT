@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1776673598.16357 "main.bcf" "main.bbl" "main" 1776674147.78674 0
-  "../appendix/refs.bib" 1774619466 10626 6388555e4af85cd5361324f047475d9c ""
-  "main.bcf" 1776674146 113048 9d77a12f1dd1eaa75e0cc71031e566f7 "pdflatex"
+["biber main"] 1776698752.2467 "main.bcf" "main.bbl" "main" 1776700977.56222 0
+  "../appendix/refs.bib" 1776698701 10716 e92b4e353b5f41f0789bef90207996b3 ""
+  "main.bcf" 1776700976 113111 aa4491f882144664a8775d4838b28589 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1776674130.14002 "c:/Users/timlu/HTL/5AHETS/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1776674147.78772 0
+["pdflatex"] 1776700959.96261 "c:/Users/timlu/HTL/5AHETS/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" "main.pdf" "main" 1776700977.56308 0
   "../figures/6dofrocket.png" 1771836742 314532 3bcd199b5df237a94efacaf2de644cee ""
   "../figures/ALBERT_FLIGHTCOMPUTER.pdf" 1774388321 1151948 b73147889c486e648745e8408677f269 ""
   "../figures/ALBERT_assembly.png" 1774543917 953744 26d7e26564e589ecd294f889e9ad539d ""
@@ -455,23 +455,23 @@
   "attachments.tex" 1774604668 8614 1c6726fa3c4eaa626341467d93d0f77d ""
   "bibliography.tex" 1774295944 534 bf19b6e1b0d3d7713c9df463ef0cde21 ""
   "c:/Users/timlu/HTL/5AHETS/ALBERT/1_Documentation/Diplomarbeit_ALBERT/chapter/main.tex" 1774562400 438 7fac30471bc0d50ad55d4bcf88beab08 ""
-  "fazit.tex" 1776667975 35945 93cb64187772a941429f3c51c23990a1 ""
+  "fazit.tex" 1776698918 35958 54eaa2889ce02c0e25be7a5a868bafff ""
   "introduction.tex" 1774616387 3653 934f0432c53eb166791b4caf2aff20b8 ""
-  "main.aux" 1776674146 132104 c7444a18288500cfdfd54f92b88becf0 "pdflatex"
-  "main.bbl" 1776673600 50173 dc97f9f92985dfda2da685977c2c7e29 "biber main"
-  "main.lof" 1776674146 11348 aac4cce2b04381fa36d096aadfd411c3 "pdflatex"
-  "main.lot" 1776674146 2381 a2981013314d7b2342a1c9d305a301a3 "pdflatex"
-  "main.run.xml" 1776674146 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
+  "main.aux" 1776700976 132234 95a6b94cf39af0a453e6c10f5899c174 "pdflatex"
+  "main.bbl" 1776698754 50531 9bf06586c031b939bb97a5a0ea146270 "biber main"
+  "main.lof" 1776700976 11349 f221e92105d8ab50383d261d8fab9861 "pdflatex"
+  "main.lot" 1776700976 2381 a2981013314d7b2342a1c9d305a301a3 "pdflatex"
+  "main.run.xml" 1776700976 2341 77443cc53df3359a6c8b467c0576cea0 "pdflatex"
   "main.tex" 1774562400 438 7fac30471bc0d50ad55d4bcf88beab08 ""
-  "main.toc" 1776674146 17334 f0017e6aee3113455fd9a14cc000bfb6 "pdflatex"
+  "main.toc" 1776700976 17334 054ab9c234ccd4da0d2d2fbb81cfec57 "pdflatex"
   "praxis.tex" 1773334944 218 32efc3fd2a6dcb446e3dbd5c18836ae7 ""
   "praxis_Felix.tex" 1776667975 88094 88a9ebea12a0e2cf47c3252d6502ce8d ""
-  "praxis_Timofey.tex" 1776674129 50793 c897bd32372d3825bc86b74686a84a1a ""
+  "praxis_Timofey.tex" 1776700941 50781 3dcf534bd01aebd89bbc87840598deb8 ""
   "preamble.tex" 1774567496 11007 343f4c4bf490bfebab7d39053b00a410 ""
   "tableofcontents.tex" 1774605149 3217 6804bff7beaca1347256642791afad19 ""
   "theory.tex" 1774567496 231 5e9f0230245ad7227fe09d8e142f4348 ""
   "theory_Felix.tex" 1776667975 78547 175a9deab2ead08b6fa775b1ad2bdfdc ""
-  "theory_Timofey.tex" 1776673608 31853 2e5f0eb7987665415c4dcd53b72b85fe ""
+  "theory_Timofey.tex" 1776700886 31775 dfd2d0bd196176f0e61bc630cbcc5436 ""
   "titlepage.tex" 1774567496 4889 d31477a84ee79093e52b7c4677309d30 ""
   (generated)
   "main.aux"

@@ -132,7 +132,7 @@
 \contentsline {subsection}{\numberline {13.7.1}Auslösung des Bergungssystems}{78}{subsection.13.7.1}%
 \contentsline {subsection}{\numberline {13.7.2}Fallschirm}{79}{subsection.13.7.2}%
 \contentsline {section}{\numberline {13.8}Raketenspitze}{80}{section.13.8}%
-\contentsline {section}{\numberline {13.9}Zusammenführen vom CAD-Baugruppe}{80}{section.13.9}%
+\contentsline {section}{\numberline {13.9}Zusammenführen der CAD-Baugruppe}{80}{section.13.9}%
 \contentsline {section}{\numberline {13.10}Implementierung und Fertigung}{81}{section.13.10}%
 \contentsline {chapter}{\numberline {14}Simulation der Aerodynamik}{82}{chapter.14}%
 \contentsline {section}{\numberline {14.1}Definition der Geometrie und der Grenzen des Simulationsbereichs}{82}{section.14.1}%
