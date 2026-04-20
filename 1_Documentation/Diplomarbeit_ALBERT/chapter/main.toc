@@ -1,8 +1,8 @@
 \babel@toc {ngerman}{}\relax 
-\contentsline {chapter}{Abbildungsverzeichnis}{X}{chapter*.2}%
-\contentsline {chapter}{Tabellenverzeichnis}{XI}{chapter*.3}%
-\contentsline {chapter}{Abkürzungsverzeichnis}{XII}{chapter*.4}%
-\contentsline {chapter}{Projektteam}{XIII}{chapter*.5}%
+\contentsline {chapter}{Abbildungsverzeichnis}{X}{chapter*.4}%
+\contentsline {chapter}{Tabellenverzeichnis}{XI}{chapter*.5}%
+\contentsline {chapter}{Abkürzungsverzeichnis}{XII}{chapter*.6}%
+\contentsline {chapter}{Projektteam}{XIII}{chapter*.7}%
 \contentsline {part}{\numberline {I}Einleitung}{1}{part.1}%
 \contentsline {chapter}{\numberline {1}Motivation}{2}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Zielsetzung}{3}{chapter.2}%
@@ -12,16 +12,16 @@
 \contentsline {section}{\numberline {4.1}Build-up \& Stack-up}{6}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Build-up}{6}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Stack-up}{7}{subsection.4.1.2}%
-\contentsline {subsubsection}{\nonumberline Rückstrompfade}{7}{subsubsection*.12}%
-\contentsline {subsubsection}{\nonumberline Energiefluss}{8}{subsubsection*.15}%
+\contentsline {subsubsection}{\nonumberline Rückstrompfade}{7}{subsubsection*.10}%
+\contentsline {subsubsection}{\nonumberline Energiefluss}{8}{subsubsection*.12}%
 \contentsline {section}{\numberline {4.2}Bypass- \& Decoupling-Kondensatoren}{9}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Abwärtswandler}{10}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Funktionsweise}{10}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}Layoutrichtlinien}{11}{subsection.4.3.2}%
 \contentsline {section}{\numberline {4.4}Sensorik}{12}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Inertial Measurement Unit}{12}{subsection.4.4.1}%
-\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Beschleunigungssensoren}{12}{subsubsection*.23}%
-\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Gyroskop}{13}{subsubsection*.26}%
+\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Beschleunigungssensoren}{12}{subsubsection*.19}%
+\contentsline {subsubsection}{\nonumberline Funktionsweise von MEMS Gyroskop}{13}{subsubsection*.21}%
 \contentsline {subsection}{\numberline {4.4.2}Magnetometer}{13}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Barometer}{14}{subsection.4.4.3}%
 \contentsline {section}{\numberline {4.5}Global Navigation Satellite System (GNSS)}{15}{section.4.5}%
@@ -50,9 +50,9 @@
 \contentsline {subsection}{\numberline {7.1.1}Aerodynamische Kräfte}{29}{subsection.7.1.1}%
 \contentsline {subsection}{\numberline {7.1.2}Nichtaerodynamische Kräfte}{30}{subsection.7.1.2}%
 \contentsline {subsection}{\numberline {7.1.3}Äußere Faktoren}{30}{subsection.7.1.3}%
-\contentsline {subsubsection}{\nonumberline Erstes Newtonsches Gesetz}{30}{subsubsection*.38}%
-\contentsline {subsubsection}{\nonumberline Zweites Newtonsches Gesetz}{30}{subsubsection*.40}%
-\contentsline {subsubsection}{\nonumberline Drittes Newtonsches Gesetz}{31}{subsubsection*.42}%
+\contentsline {subsubsection}{\nonumberline Erstes Newtonsches Gesetz}{30}{subsubsection*.32}%
+\contentsline {subsubsection}{\nonumberline Zweites Newtonsches Gesetz}{30}{subsubsection*.33}%
+\contentsline {subsubsection}{\nonumberline Drittes Newtonsches Gesetz}{31}{subsubsection*.34}%
 \contentsline {section}{\numberline {7.2}Stabilitätskoeffizient}{31}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Aerodynamische Elemente}{32}{section.7.3}%
 \contentsline {subsection}{\numberline {7.3.1}Überschallflug und Unterschallflug}{32}{subsection.7.3.1}%
@@ -74,16 +74,16 @@
 \contentsline {section}{\numberline {10.2}Systemarchitektur}{45}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Komponentenauswahl}{46}{section.10.3}%
 \contentsline {subsection}{\numberline {10.3.1}Sensoren}{46}{subsection.10.3.1}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/motion-sensors/imus/bmi088/}{IMU1 - BMI088}}{46}{subsubsection*.66}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/mems-and-sensors/lsm6dsl.html}{IMU2 - LSM6DSLTR}}{46}{subsubsection*.68}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/}{Barometer - BMP390}}{46}{subsubsection*.70}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf}{Magnetometer - BMM150}}{47}{subsubsection*.72}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/motion-sensors/imus/bmi088/}{IMU1 - BMI088}}{46}{subsubsection*.45}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.st.com/en/mems-and-sensors/lsm6dsl.html}{IMU2 - LSM6DSLTR}}{46}{subsubsection*.46}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp390/}{Barometer - BMP390}}{46}{subsubsection*.47}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf}{Magnetometer - BMM150}}{47}{subsubsection*.48}%
 \contentsline {subsection}{\numberline {10.3.2}Prozessoren}{47}{subsection.10.3.2}%
 \contentsline {subsection}{\numberline {10.3.3}Weitere Peripheriekomponenten}{47}{subsection.10.3.3}%
-\contentsline {subsubsection}{\nonumberline Servos - BMS-125WV+}{47}{subsubsection*.74}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}{47}{subsubsection*.76}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc028n06ls3-g-datasheet-en.pdf?fileId=db3a30431ddc9372011ebafa4c607f8c}{Pyro-Kanäle-Mosfets - BSC028N06LS3}}{48}{subsubsection*.78}%
-\contentsline {subsubsection}{\nonumberline \href {https://www.ti.com/product/TPS54308}{Buck Converter - TPS54308}}{48}{subsubsection*.80}%
+\contentsline {subsubsection}{\nonumberline Servos - BMS-125WV+}{47}{subsubsection*.49}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.nxp.com/products/power-drivers/lighting-driver-and-controller-ics/led-drivers/16-channel-12-bit-pwm-fm-plus-ic-bus-led-driver:PCA9685}{PWM-Controller - PCA9685PW,118}}{47}{subsubsection*.50}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc028n06ls3-g-datasheet-en.pdf?fileId=db3a30431ddc9372011ebafa4c607f8c}{Pyro-Kanäle-Mosfets - BSC028N06LS3}}{48}{subsubsection*.51}%
+\contentsline {subsubsection}{\nonumberline \href {https://www.ti.com/product/TPS54308}{Buck Converter - TPS54308}}{48}{subsubsection*.52}%
 \contentsline {section}{\numberline {10.4}Schaltungsentwurf}{48}{section.10.4}%
 \contentsline {subsection}{\numberline {10.4.1}Sensoren}{48}{subsection.10.4.1}%
 \contentsline {subsection}{\numberline {10.4.2}Prozessoren}{49}{subsection.10.4.2}%
@@ -105,9 +105,9 @@
 \contentsline {subsection}{\numberline {11.2.1}Steuerbarkeit}{63}{subsection.11.2.1}%
 \contentsline {subsection}{\numberline {11.2.2}Ermittlung der K Matrix}{63}{subsection.11.2.2}%
 \contentsline {subsection}{\numberline {11.2.3}Extended Kalman Filter}{64}{subsection.11.2.3}%
-\contentsline {subsubsection}{\nonumberline GNSS}{65}{subsubsection*.94}%
-\contentsline {subsubsection}{\nonumberline Barometer}{65}{subsubsection*.96}%
-\contentsline {subsubsection}{\nonumberline Magnetometer}{65}{subsubsection*.98}%
+\contentsline {subsubsection}{\nonumberline GNSS}{65}{subsubsection*.68}%
+\contentsline {subsubsection}{\nonumberline Barometer}{65}{subsubsection*.69}%
+\contentsline {subsubsection}{\nonumberline Magnetometer}{65}{subsubsection*.70}%
 \contentsline {chapter}{\numberline {12}Implementierung in Software}{67}{chapter.12}%
 \contentsline {section}{\numberline {12.1}Allgemeiner Programmablauf}{67}{section.12.1}%
 \contentsline {subsection}{\numberline {12.1.1}Initialization - Initialisierung}{67}{subsection.12.1.1}%
@@ -118,8 +118,8 @@
 \contentsline {section}{\numberline {12.2}Treiber}{69}{section.12.2}%
 \contentsline {subsection}{\numberline {12.2.1}Header File}{69}{subsection.12.2.1}%
 \contentsline {subsection}{\numberline {12.2.2}Source File}{70}{subsection.12.2.2}%
-\contentsline {subsubsection}{\nonumberline BMI088\_Init}{70}{subsubsection*.102}%
-\contentsline {subsubsection}{\nonumberline BMI088\_ReadAcceleration und BMI088\_ReadAngularRate}{72}{subsubsection*.104}%
+\contentsline {subsubsection}{\nonumberline BMI088\_Init}{70}{subsubsection*.73}%
+\contentsline {subsubsection}{\nonumberline BMI088\_ReadAcceleration und BMI088\_ReadAngularRate}{72}{subsubsection*.74}%
 \contentsline {subsection}{\numberline {12.2.3}BMI088\_ReadRegisters}{72}{subsection.12.2.3}%
 \contentsline {chapter}{\numberline {13}Mechanisches und Aerodynamisches Design}{74}{chapter.13}%
 \contentsline {section}{\numberline {13.1}Konzeptentwicklung}{74}{section.13.1}%
@@ -155,10 +155,10 @@
 \contentsline {section}{\numberline {15.1}Stand des mechanischen Aufbaus}{99}{section.15.1}%
 \contentsline {subsection}{\numberline {15.1.1}Erfolgreich implementierte Subsysteme/Teile der Struktur}{99}{subsection.15.1.1}%
 \contentsline {subsection}{\numberline {15.1.2}Nicht fristgerecht realisierte Teilsysteme/Teilbauwerke}{99}{subsection.15.1.2}%
-\contentsline {paragraph}{\nonumberline Bergungssystem}{99}{paragraph*.141}%
-\contentsline {paragraph}{\nonumberline Montage von Akku und Flightcomputer}{99}{paragraph*.143}%
-\contentsline {paragraph}{\nonumberline Schockseilverbindung}{99}{paragraph*.145}%
-\contentsline {paragraph}{\nonumberline Flügelsteuermechanismus}{100}{paragraph*.147}%
+\contentsline {paragraph}{\nonumberline Bergungssystem}{99}{paragraph*.101}%
+\contentsline {paragraph}{\nonumberline Montage von Akku und Flightcomputer}{99}{paragraph*.102}%
+\contentsline {paragraph}{\nonumberline Schockseilverbindung}{99}{paragraph*.103}%
+\contentsline {paragraph}{\nonumberline Flügelsteuermechanismus}{100}{paragraph*.104}%
 \contentsline {section}{\numberline {15.2}Stand des elektrischen Aufbaus}{100}{section.15.2}%
 \contentsline {section}{\numberline {15.3}Collage}{101}{section.15.3}%
 \contentsline {chapter}{\numberline {16}Simulations- und Testergebnisse}{103}{chapter.16}%
@@ -170,17 +170,18 @@
 \contentsline {subsection}{\numberline {17.1.1}Raketenmotor}{109}{subsection.17.1.1}%
 \contentsline {subsection}{\numberline {17.1.2}Pyrotechnische Ladungen zum Fallschirmauswurf}{110}{subsection.17.1.2}%
 \contentsline {chapter}{\numberline {18}Ausblick}{112}{chapter.18}%
+\def \@chapapp {\appendixname }
 \contentsline {chapter}{\numberline {A}Verwendung von Künstlicher Intelligenz}{116}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Beispielprompts}{116}{section.A.1}%
 \contentsline {subsection}{\numberline {A.1.1}OpenAI ChatGPT}{116}{subsection.A.1.1}%
-\contentsline {paragraph}{\nonumberline Prompt:}{116}{paragraph*.162}%
-\contentsline {paragraph}{\nonumberline Ausgabe:}{116}{paragraph*.164}%
+\contentsline {paragraph}{\nonumberline Prompt:}{116}{paragraph*.118}%
+\contentsline {paragraph}{\nonumberline Ausgabe:}{116}{paragraph*.119}%
 \contentsline {subsection}{\numberline {A.1.2}DeepL Übersetzer}{117}{subsection.A.1.2}%
-\contentsline {paragraph}{\nonumberline Eingabe:}{117}{paragraph*.166}%
-\contentsline {paragraph}{\nonumberline Ausgabe:}{117}{paragraph*.168}%
+\contentsline {paragraph}{\nonumberline Eingabe:}{117}{paragraph*.120}%
+\contentsline {paragraph}{\nonumberline Ausgabe:}{117}{paragraph*.121}%
 \contentsline {subsection}{\numberline {A.1.3}DeepL Write}{117}{subsection.A.1.3}%
-\contentsline {paragraph}{\nonumberline Eingabe:}{117}{paragraph*.170}%
-\contentsline {paragraph}{\nonumberline Ausgabe:}{117}{paragraph*.172}%
+\contentsline {paragraph}{\nonumberline Eingabe:}{117}{paragraph*.122}%
+\contentsline {paragraph}{\nonumberline Ausgabe:}{117}{paragraph*.123}%
 \contentsline {chapter}{\numberline {B}Bemaßte Zeichnungen der CAD-Modelle}{118}{appendix.B}%
 \contentsline {chapter}{\numberline {C}Schaltplan des Flightcomputers}{131}{appendix.C}%
 \contentsline {chapter}{\numberline {D}Ausschnitte des verwendeten MATLAB-Codes}{138}{appendix.D}%
