@@ -27,6 +27,7 @@
 
 #include "W25X0XGV.h"
 
+#include "rfm95.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -85,7 +86,7 @@ static void MX_RTC_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-
+uint8_t tx_buff[]={0,1,2,3,4,5,6,7,8,9};
 
 /* USER CODE END 0 */
 
@@ -134,7 +135,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /* Initialise PMW driver */
-	PCA9685_Init(&servos, &hi2c2, 50);
+	PCA9685_Init(&servos, &hi2c2, 330);
 
 	PCA9685_SetMicros(&servos, 0, 0);
 	PCA9685_SetMicros(&servos, 1, 0);
@@ -144,7 +145,7 @@ int main(void)
 	HAL_Delay(1000);
 
 	/* Arm motors */
-	PCA9685_SetMicros(&servos, 0, 19000);
+	PCA9685_SetMicros(&servos, 0, 1500);
 	PCA9685_SetMicros(&servos, 1, 500);
 	PCA9685_SetMicros(&servos, 2, 500);
 	PCA9685_SetMicros(&servos, 3, 500);
@@ -156,7 +157,41 @@ int main(void)
 	// Erase the block that holds the page 0
 	W25X0XGV_block_erase(0);
 	// function tester for page 0
-	flash_self_test(0);
+	//flash_self_test(0);
+
+
+	HAL_GPIO_WritePin(Pyro_2_MPU_GPIO_Port, Pyro_2_MPU_Pin, GPIO_PIN_SET);
+
+
+	rfm95_t rfm = {
+	    .spi = &hspi2,
+	    .nss_port = SPI2_NSS_MPU_GPIO_Port,
+	    .nss_pin = SPI2_NSS_MPU_Pin,
+	    .reset_port = LORA_RST_MPU_GPIO_Port,
+	    .reset_pin = LORA_RST_MPU_Pin
+	};
+
+	uint8_t version = 0;
+
+	if (!rfm95_init(&rfm)) {
+	    Error_Handler();
+	}
+
+	if (!rfm95_read_version(&rfm, &version)) {
+	    Error_Handler();
+	}
+
+	if (version != 0x12) {
+	    Error_Handler();
+	}
+
+	if (!rfm95_set_frequency(&rfm, 868000000)) {
+	    Error_Handler();
+	}
+
+	if (!rfm95_config_lora(&rfm, 7, 7, 1, 17)) {
+	    Error_Handler();
+	}
 
   /* USER CODE END 2 */
 
@@ -169,14 +204,29 @@ int main(void)
   while (1)
   {
 
+	  HAL_UART_Transmit(&huart1, tx_buff, 10, 1000);
+	  HAL_Delay(10000);
 
-	  HAL_GPIO_WritePin(Pyro_4_MPU_GPIO_Port, Pyro_4_MPU_Pin, GPIO_PIN_SET);
-
-	  HAL_Delay(500);
-
-	  HAL_GPIO_WritePin(Pyro_4_MPU_GPIO_Port, Pyro_4_MPU_Pin, GPIO_PIN_RESET);
-
-	  HAL_Delay(500);
+//
+//	  if (!rfm95_send(&rfm, msg, sizeof(msg) - 1)) {
+//	          Error_Handler();
+//	      }
+//	      HAL_Delay(1000);
+//
+//  PCA9685_SetPulseWidth(&servos, 0, 1000);
+//  HAL_Delay(1000);
+//  PCA9685_SetPulseWidth(&servos, 0, 1800);
+//  HAL_Delay(1000);
+//
+//	  for(int i = 900; i <= 2100; i += 5){
+//		  PCA9685_SetPulseWidth(&servos, 0, i);
+//		  HAL_Delay(5);
+//	  }
+//
+//	  for(int i = 2100; i >= 900; i -= 5){
+//		  PCA9685_SetPulseWidth(&servos, 0, i);
+//	  		  HAL_Delay(5);
+//	  	  }
 
     /* USER CODE END WHILE */
 
@@ -545,7 +595,7 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
   huart1.Init.ClockPrescaler = UART_PRESCALER_DIV1;
   huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_MultiProcessor_Init(&huart1, 0, UART_WAKEUPMETHOD_IDLELINE) != HAL_OK)
+  if (HAL_UART_Init(&huart1) != HAL_OK)
   {
     Error_Handler();
   }

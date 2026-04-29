@@ -47,14 +47,19 @@
 #define GET_BITS(data, mask, pos) (((data) & (mask)) >> (pos))
 
 // Bit-Definitionen
-#define DATA_X_MASK    0x1F
-#define DATA_X_POS     0
-#define DATA_Y_MASK    0x1F
-#define DATA_Y_POS     0
+/* BMM150 DATA_X_LSB / DATA_Y_LSB layout:
+ *   bit 0      = self-test / data_ready flag
+ *   bits [2:1] = reserved
+ *   bits [7:3] = real X[4:0] / Y[4:0] data bits
+ * Mask off the flags, shift the data down to bits [4:0]. */
+#define DATA_X_MASK    0xF8
+#define DATA_X_POS     3
+#define DATA_Y_MASK    0xF8
+#define DATA_Y_POS     3
 #define DATA_Z_MASK    0xFE  // Bits 7:1 (ohne SelfTestZ)
 #define DATA_Z_POS     1     // Shift rechts um 1
-#define DATA_RHALL_MASK 0x3F
-#define DATA_RHALL_POS  0
+#define DATA_RHALL_MASK 0xFC // Bits 7:2 (RHall 14-bit aufgeteilt 6 LSB + 8 MSB)
+#define DATA_RHALL_POS  2
 
 
 /*

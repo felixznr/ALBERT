@@ -1,0 +1,13 @@
+../Core/Src/rfm95.c:4:13:rfm95_select	16	static
+../Core/Src/rfm95.c:9:13:rfm95_unselect	16	static
+../Core/Src/rfm95.c:14:13:rfm95_write_reg	24	static
+../Core/Src/rfm95.c:26:13:rfm95_read_reg	32	static
+../Core/Src/rfm95.c:45:13:rfm95_burst_write	32	static
+../Core/Src/rfm95.c:64:13:rfm95_burst_read	32	static
+../Core/Src/rfm95.c:83:6:rfm95_reset	16	static
+../Core/Src/rfm95.c:92:6:rfm95_read_version	16	static
+../Core/Src/rfm95.c:97:6:rfm95_init	24	static
+../Core/Src/rfm95.c:139:6:rfm95_set_frequency	32	static
+../Core/Src/rfm95.c:150:6:rfm95_config_lora	24	static
+../Core/Src/rfm95.c:191:6:rfm95_send	32	static
+../Core/Src/rfm95.c:217:6:rfm95_receive	32	static

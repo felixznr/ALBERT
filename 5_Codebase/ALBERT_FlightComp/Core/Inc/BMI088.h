@@ -10,7 +10,6 @@
 #ifndef BMI088_SPI_DRIVER_H
 #define BMI088_SPI_DRIVER_H
 
-
 #include "stm32f4xx_hal.h"
 
 
@@ -74,9 +73,12 @@ typedef struct {
 	/* SPI HANDLE */
 	SPI_HandleTypeDef *spiHandle;
 
-	/* Magnetometer Acceleration data (X,Y,Z) in m/s^2 */
+	/* Acceleration data (X,Y,Z) in m/s^2 */
 	float acc_mps2[3];
+
+	/* Gyroscope data (X,Y,Z) in rad/s */
 	float gyr_rdps[3];
+
 	float offset[6];
 
 	GPIO_TypeDef *acc_cs_port;

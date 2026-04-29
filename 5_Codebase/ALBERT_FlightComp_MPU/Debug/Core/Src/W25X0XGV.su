@@ -20,3 +20,4 @@
 ../Core/Src/W25X0XGV.c:209:9:W25X0XGV_program_execute	24	static
 ../Core/Src/W25X0XGV.c:227:9:W25X0XGV_page_data_read	24	static
 ../Core/Src/W25X0XGV.c:242:9:W25X0XGV_read	24	static
+../Core/Src/W25X0XGV.c:269:9:flash_self_test	4120	static
