@@ -62,4 +62,9 @@ void Kalman_UpdateMag  (Kalman *kal, float phi_meas);
 void Kalman_UpdateBaro (Kalman *kal, float u_meas);
 void Kalman_UpdateGPS  (Kalman *kal, const float vel_nav_mps[3]);
 
+/* Zero-velocity update: force body-frame velocity toward 0.
+ * Call only when the rocket is detectably static (e.g. |gyro| below threshold
+ * AND |accel| ~ g).  Stops velocity drift on the bench / pre-launch. */
+void Kalman_UpdateZUPT (Kalman *kal, float R_zupt);
+
 #endif

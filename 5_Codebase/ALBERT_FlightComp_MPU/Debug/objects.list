@@ -1,6 +1,7 @@
 "./Core/Src/PCA9685.o"
 "./Core/Src/W25X0XGV.o"
 "./Core/Src/main.o"
+"./Core/Src/rfm95.o"
 "./Core/Src/stm32h7xx_hal_msp.o"
 "./Core/Src/stm32h7xx_it.o"
 "./Core/Src/syscalls.o"

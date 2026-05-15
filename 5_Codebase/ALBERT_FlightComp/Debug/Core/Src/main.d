@@ -43,7 +43,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
  ../Core/Inc/LSM6DSLTR.h ../Core/Inc/BMM150.h ../Core/Inc/BMP390.h \
- ../Core/Inc/BMI088.h ../Core/Inc/Kalman.h
+ ../Core/Inc/BMI088.h ../Core/Inc/Kalman.h ../Core/Inc/RocketModel.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -94,3 +94,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/BMP390.h:
 ../Core/Inc/BMI088.h:
 ../Core/Inc/Kalman.h:
+../Core/Inc/RocketModel.h:

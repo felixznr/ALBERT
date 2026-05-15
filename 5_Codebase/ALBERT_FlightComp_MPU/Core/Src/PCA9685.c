@@ -1,8 +1,32 @@
 #include "PCA9685.h"
 
-void PCA9685_Init(PCA9685 *pca, I2C_HandleTypeDef *I2Chandle, uint8_t pwmFreq) {
+
+//
+//      (,                                                         ,)
+//      /|__--__                                              __--_|\
+//      |\' _                                                   _ `/|
+//      .' / `.,_ _________                       _________ _,.' \ `.
+//     /  ||``._.'                                         `._.''||  \
+//   .'   /|                                                     |\   `.
+// .'    /\ \                                                   / /\    `.
+//  ` `,/ / ,\                                                 /, \ \,' '
+//    .'.'  /|                                                 |\  `.`.
+//  .' /   / |                                                 | \   \ `,
+// - `- -- `-'- -ejm-------------------------------------VK-- -`-' -- -' -
+//
+
+//	„There must always, always be a
+//
+//			88888888 .d88b. 888d888888d888 .d88b.
+//			   d88P d88""88b888P"  888P"  d88""88b
+//			  d88P  888  888888    888    888  888
+//			 d88P   Y88..88P888    888    Y88..88P
+//			88888888 "Y88P" 888    888     "Y88P"  !"
+
+
+void PCA9685_Init(PCA9685 *pca, I2C_HandleTypeDef *I2Chandle, uint16_t pwmFreq) {
 	pca->I2Chandle = I2Chandle;
-	pca->preScale = (uint8_t) ((PCA9685_OSC_FREQ / (pwmFreq * 4096.0f) + 0.5f) - 1.0f);
+	pca->preScale = (uint16_t) ((PCA9685_OSC_FREQ / (pwmFreq * 4096.0f) + 0.5f) - 1.0f);
 
 	/* Reset */
 	uint8_t txBuf[] = {PCA9685_REG_MODE1, 0x80};

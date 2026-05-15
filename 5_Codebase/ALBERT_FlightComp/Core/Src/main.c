@@ -32,6 +32,7 @@
 #include "BMI088.h"
 
 #include "Kalman.h"
+#include "RocketModel.h"
 
 
 /* USER CODE END Includes */
@@ -69,11 +70,12 @@ LSM6DSLTR imu2;
 BMM150 magneto;
 BMP390 prs;
 
-Kalman ekf;                 //  6-DOF strapdown EKF
+Kalman      ekf;            //  6-DOF strapdown EKF (primary state estimator)
+RocketModel rmdl;           //  9-DOF dynamic model, runs in parallel for validation
 
 /* Process noise (diagonal).  u,v,w [m/s per sqrt(s)]^2  ;  phi,theta,psi [rad/s per sqrt(s)]^2 */
 float Q_ekf[6] = {
-    5.0e-1f, 5.0e-1f, 5.0e-1f,
+    1.0e-2f, 1.0e-2f, 1.0e-2f,   /* velocity: smaller Q fights drift when obs are sparse */
     1.0e-3f, 1.0e-3f, 1.0e-3f
 };
 
@@ -82,6 +84,44 @@ float R_accel[3] = { 0.5f, 0.5f, 0.5f };   /* (m/s^2)^2   */
 float R_mag      = 0.1f;                    /* rad^2       */
 float R_baro     = 1.0f;                    /* (m/s)^2     */
 float R_gps[3]   = { 0.25f, 0.25f, 0.25f }; /* (m/s)^2     */
+float R_zupt     = 0.01f;                   /* tight: believe v = 0 when static */
+
+/* Placeholders — hook up real servo commands and a thrust-time curve later */
+float cmd_delta_eta  = 0.0f;
+float cmd_delta_zeta = 0.0f;
+float cmd_delta_r    = 0.0f;
+float cmd_thrust_N   = 0.0f;
+
+/* Sensor bias estimates — updated in-place during static detection on the pad.
+ * gyr_bias absorbs the ~0.1-0.5 deg/s BMI088 offset that otherwise walks phi.
+ * acc_bias absorbs accel DC offset so Kalman_UpdateAccel sees a true +g vector. */
+float gyr_bias[3] = {0.0f, 0.0f, 0.0f};
+float acc_bias[3] = {0.0f, 0.0f, 0.0f};
+
+/* Nav-frame magnetic reference, captured once on pad during static hold.
+ * Fixes the "phi=0" heading to whatever orientation the rocket sits in at t0. */
+float            mag_nav[3]                = {0.0f, 0.0f, 0.0f};
+uint8_t          mag_reference_captured    = 0;
+volatile uint8_t static_now                = 0;   /* set by gyro handler each tick */
+
+/* Tilt-compensated phi from magnetometer.
+ *   body mag  =  R_x(phi) R_y(theta) R_z(psi) * mag_nav
+ * With A = -sy*mnx + cy*mny,  B = st*cy*mnx + st*sy*mny + ct*mnz :
+ *   m_by = A*cp + B*sp,   m_bz = B*cp - A*sp
+ * → phi = atan2(m_by*B - m_bz*A,  m_by*A + m_bz*B)
+ * Returns 0 when the horizontal-field basis degenerates (|A|,|B| both small). */
+static inline int phi_from_mag(const float m_b[3], const float mn[3],
+                               float theta, float psi, float *phi_out)
+{
+    const float st = sinf(theta), ct = cosf(theta);
+    const float sy = sinf(psi),   cy = cosf(psi);
+    const float A = -sy*mn[0] + cy*mn[1];
+    const float B =  st*cy*mn[0] + st*sy*mn[1] + ct*mn[2];
+    if (A*A + B*B < 1e-6f) return 0;
+    *phi_out = atan2f(m_b[1]*B - m_b[2]*A,
+                      m_b[1]*A + m_b[2]*B);
+    return 1;
+}
 
 
 /* Interrupt Flags and timers*/
@@ -187,9 +227,10 @@ int main(void)
   BMP390_Init(&prs, &hspi2);
 
   Kalman_Init(&ekf, 0.5f, Q_ekf, R_accel, R_mag, R_baro, R_gps);
+  RocketModel_Init(&rmdl, NULL);           /* parallel dynamic model, default coeffs */
   last_gyr_t = gyr_t;                      // wichtig: dt beim ersten Mal nicht riesig
 
-
+  uint8_t  ekf_attitude_initialized = 0;   /* one-shot attitude seed from first accel */
   uint32_t lastPrint = 0;
 
   /* USER CODE END 2 */
@@ -204,10 +245,32 @@ int main(void)
 	  if (imu1_acc_drdy) {
 		  imu1_acc_drdy = 0;
 		  BMI088_ReadAcceleration(&imu1);
-		  Kalman_UpdateAccel(&ekf, imu1.acc_mps2);   /* gated internally */
+
+		  /* Bias-corrected accel reused everywhere downstream */
+		  const float ax = imu1.acc_mps2[0] - acc_bias[0];
+		  const float ay = imu1.acc_mps2[1] - acc_bias[1];
+		  const float az = imu1.acc_mps2[2] - acc_bias[2];
+		  const float acc_c[3] = { ax, ay, az };
+
+		  /* One-shot attitude seed: use the first reliable accel reading to set
+		   * theta (and roughly phi), so the EKF doesn't start at 0° when the
+		   * rocket is tilted on the pad.  Prevents the initial gravity-residual
+		   * transient that otherwise integrates straight into velocity drift. */
+		  if (!ekf_attitude_initialized) {
+			  const float an = sqrtf(ax*ax + ay*ay + az*az);
+			  if (an > 0.5f * 9.80665f && an < 1.5f * 9.80665f) {
+				  /* theta from pitch of body-x against vertical; phi≈0 assumption */
+				  ekf.x[4] = atan2f(az, ax);                    /* theta */
+				  ekf.x[3] = atan2f(ay, sqrtf(ax*ax + az*az));  /* phi (small-angle approx) */
+				  ekf.x[5] = 0.0f;                              /* psi  */
+				  ekf_attitude_initialized = 1;
+			  }
+		  }
+
+		  Kalman_UpdateAccel(&ekf, acc_c);   /* gated internally */
 	  }
 
-	  /* Gyro: drives the prediction step */
+	  /* Gyro: drives the prediction step (both filter and parallel model) */
 	  if (imu1_gyr_drdy) {
 	      imu1_gyr_drdy = 0;
 	      BMI088_ReadAngularRate(&imu1);
@@ -215,7 +278,65 @@ int main(void)
 	      float dt = (float)(gyr_t - last_gyr_t) / (float)SystemCoreClock;
 	      last_gyr_t = gyr_t;
 
-	      Kalman_Predict(&ekf, imu1.acc_mps2, imu1.gyr_rdps, dt);
+	      /* Bias-corrected IMU values fed into all model-driven math */
+	      const float gyr_c[3] = {
+	          imu1.gyr_rdps[0] - gyr_bias[0],
+	          imu1.gyr_rdps[1] - gyr_bias[1],
+	          imu1.gyr_rdps[2] - gyr_bias[2]
+	      };
+	      const float acc_c[3] = {
+	          imu1.acc_mps2[0] - acc_bias[0],
+	          imu1.acc_mps2[1] - acc_bias[1],
+	          imu1.acc_mps2[2] - acc_bias[2]
+	      };
+
+	      Kalman_Predict(&ekf, acc_c, gyr_c, dt);
+
+	      /* Parallel dynamic-model integration.  Driven by commanded controls +
+	       * thrust — all zero until servos and a thrust-time curve are wired. */
+	      RocketModel_Step(&rmdl,
+	                       cmd_delta_eta, cmd_delta_zeta, cmd_delta_r,
+	                       cmd_thrust_N, dt);
+
+	      /* Static detection on raw readings: low body-rate norm AND |a| ~ g. */
+	      const float gx = imu1.gyr_rdps[0];
+	      const float gy = imu1.gyr_rdps[1];
+	      const float gz = imu1.gyr_rdps[2];
+	      const float axr = imu1.acc_mps2[0];
+	      const float ayr = imu1.acc_mps2[1];
+	      const float azr = imu1.acc_mps2[2];
+	      const float gyr2 = gx*gx + gy*gy + gz*gz;
+	      const float an   = sqrtf(axr*axr + ayr*ayr + azr*azr);
+	      static_now = (gyr2 < (0.1f*0.1f)) && (fabsf(an - 9.80665f) < 0.5f);
+
+	      if (static_now) {
+	          Kalman_UpdateZUPT(&ekf, R_zupt);
+
+	          /* Gyro bias EMA: while static, true rate = 0, so any
+	           * measured value IS the bias.  alpha ~1/200 → ~200ms settle at 1kHz. */
+	          const float alpha_g = 0.005f;
+	          for (int i = 0; i < 3; i++)
+	              gyr_bias[i] += alpha_g * (imu1.gyr_rdps[i] - gyr_bias[i]);
+
+	          /* Accel bias EMA: expected static reading = R_b<-n * [+g, 0, 0]
+	           * (accel measures specific force = −g_body).  alpha smaller so
+	           * vibration on the pad doesn't poison the estimate. */
+	          if (ekf_attitude_initialized) {
+	              const float phi   = ekf.x[3];
+	              const float theta = ekf.x[4];
+	              const float psi   = ekf.x[5];
+	              const float sp=sinf(phi),   cp=cosf(phi);
+	              const float st=sinf(theta), ct=cosf(theta);
+	              const float sy=sinf(psi),   cy=cosf(psi);
+	              const float a_exp_x = 9.80665f *  ct*cy;
+	              const float a_exp_y = 9.80665f * (sp*st*cy - cp*sy);
+	              const float a_exp_z = 9.80665f * (sp*sy + cp*st*cy);
+	              const float alpha_a = 0.002f;
+	              acc_bias[0] += alpha_a * ((imu1.acc_mps2[0] - a_exp_x) - acc_bias[0]);
+	              acc_bias[1] += alpha_a * ((imu1.acc_mps2[1] - a_exp_y) - acc_bias[1]);
+	              acc_bias[2] += alpha_a * ((imu1.acc_mps2[2] - a_exp_z) - acc_bias[2]);
+	          }
+	      }
 	  }
 
 
@@ -225,48 +346,79 @@ int main(void)
 			/* TODO: pressure -> altitude -> filtered dh/dt -> Kalman_UpdateBaro(&ekf, vrate); */
 		}
 
-		/* TODO: magnetometer heading -> Kalman_UpdateMag(&ekf, phi_from_mag);          */
+		/* Magnetometer: poll at 50 Hz, derive phi, feed Kalman_UpdateMag.
+		 * Phi is unobservable from accel alone (roll about body-x doesn't change
+		 * gravity projection); the mag-derived phi is what keeps it bounded. */
+		{
+			static uint32_t last_mag_ms = 0;
+			if (HAL_GetTick() - last_mag_ms >= 20) {
+				last_mag_ms = HAL_GetTick();
+				if (BMM150_ReadMagneticField(&magneto) == HAL_OK) {
+
+					/* One-shot capture of the nav-frame field while static, so
+					 * "phi = 0" is defined by the pad orientation.  Uses phi=0
+					 * in R_b<-n → m_nav = R_y(theta)^T R_z(psi)^T * m_body. */
+					if (!mag_reference_captured
+					    && ekf_attitude_initialized
+					    && static_now) {
+						const float theta = ekf.x[4];
+						const float psi   = ekf.x[5];
+						const float st=sinf(theta), ct=cosf(theta);
+						const float sy=sinf(psi),   cy=cosf(psi);
+						const float mx=magneto.mag_uT[1];
+						const float my=magneto.mag_uT[2];
+						const float mz=magneto.mag_uT[0];
+						mag_nav[0] = ct*cy*mx + (-sy)*my + st*cy*mz;
+						mag_nav[1] = ct*sy*mx + ( cy)*my + st*sy*mz;
+						mag_nav[2] = -st  *mx + 0.0f*my + ct   *mz;
+						mag_reference_captured = 1;
+					}
+
+					if (mag_reference_captured) {
+						float phi_meas;
+						if (phi_from_mag(magneto.mag_uT, mag_nav,
+						                 ekf.x[4], ekf.x[5], &phi_meas)) {
+							//Kalman_UpdateMag(&ekf, phi_meas);
+						}
+					}
+				}
+			}
+		}
+
 		/* TODO: when GPS driver is live         Kalman_UpdateGPS(&ekf, vel_nav_mps);   */
 
 //		Test Routine for interrupts
-		if (HAL_GetTick() - lastPrint > 500)
+		if (HAL_GetTick() - lastPrint > 100)
 		{
 			lastPrint = HAL_GetTick();
-//
-//			char msg[128];
-//			uint8_t pc4 = HAL_GPIO_ReadPin(SPI1_INT_GYRO_NAV_GPIO_Port, SPI1_INT_GYRO_NAV_Pin);
-//			sprintf(msg,
-//			        "ACC_IRQ:%lu | GYR_IRQ:%lu | BMP_IRQ:%lu | PC4:%u\r\n",
-//			        imu1_acc_irq_cnt, imu1_gyr_irq_cnt, bmp390_irq_cnt, pc4);
 
+			/* $ALB,ax,ay,az,u,v,w,phi_deg,theta_deg,psi_deg  (EKF) */
+			usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
+			    "$ALB,%.3f,%.3f,%.3f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\r\n",
+			    imu1.acc_mps2[0], imu1.acc_mps2[1], imu1.acc_mps2[2],
+			    ekf.x[0], ekf.x[1], ekf.x[2],
+			    ekf.x[3] * 57.2957795f,
+			    ekf.x[4] * 57.2957795f,
+			    ekf.x[5] * 57.2957795f);
+			CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
 
-			  /* Print IMU1 Accel Data over USB-C*/
-			  usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
-			      "IMU1 ACCEL:\r\n	X=%.3fms2\r\n	Y=%.3fms2\r\n	Z=%.3fms2\r\n\n",
-			      imu1.acc_mps2[0],
-				  imu1.acc_mps2[1],
-				  imu1.acc_mps2[2]);
-			  CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
-//
-//			  /* Print IMU1 Gyro Data over USB-C*/
-//			  usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
-//			      "IMU1 GYR:\r\n	X=%.3frads\r\n	Y=%.3frads\r\n	Z=%.3frads\r\n\n",
-//			      imu1.gyr_rdps[0],
-//				  imu1.gyr_rdps[1],
-//				  imu1.gyr_rdps[2]);
-//			  CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
+//			/* $MDL,u,v,w,p_dps,q_dps,r_dps,phi,theta,psi  (parallel rocket model) */
+//			usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
+//			    "$MDL,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\r\n",
+//			    rmdl.x[0], rmdl.x[1], rmdl.x[2],
+//			    rmdl.x[3] * 57.2957795f,
+//			    rmdl.x[4] * 57.2957795f,
+//			    rmdl.x[5] * 57.2957795f,
+//			    rmdl.x[6] * 57.2957795f,
+//			    rmdl.x[7] * 57.2957795f,
+//			    rmdl.x[8] * 57.2957795f);
+//			CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
 
-			  usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
-			      "VEL: u=%.2f v=%.2f w=%.2f\r\n"
-			      "ATT: phi=%.2f theta=%.2f psi=%.2f [deg]\r\n\n",
-			      ekf.x[0], ekf.x[1], ekf.x[2],
-			      ekf.x[3] * 57.2957795f,
-			      ekf.x[4] * 57.2957795f,
-			      ekf.x[5] * 57.2957795f);
-			  CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
-
-
-
+			/* $MAG,mx,my,mz  (raw body-frame mag — temp diagnostic for hard-iron cal) */
+			usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
+			    "$MAG,%.2f,%.2f,%.2f\r\n",
+			    magneto.mag_uT[0], magneto.mag_uT[1], magneto.mag_uT[2]);
+			CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
 		}
 
 
