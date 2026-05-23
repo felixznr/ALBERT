@@ -524,7 +524,7 @@
       "plot": "./",
       "pos_files": "./",
       "specctra_dsn": "",
-      "step": "ALBERT_FLIGHTCOMPUTER.step",
+      "step": "ALBERT_FLIGHTCOMPUTER.glb",
       "svg": "",
       "vrml": ""
     },

@@ -1,19 +1,6 @@
 #include "PCA9685.h"
 
 
-//
-//      (,                                                         ,)
-//      /|__--__                                              __--_|\
-//      |\' _                                                   _ `/|
-//      .' / `.,_ _________                       _________ _,.' \ `.
-//     /  ||``._.'                                         `._.''||  \
-//   .'   /|                                                     |\   `.
-// .'    /\ \                                                   / /\    `.
-//  ` `,/ / ,\                                                 /, \ \,' '
-//    .'.'  /|                                                 |\  `.`.
-//  .' /   / |                                                 | \   \ `,
-// - `- -- `-'- -ejm-------------------------------------VK-- -`-' -- -' -
-//
 
 //	„There must always, always be a
 //
@@ -71,7 +58,17 @@ void PCA9685_Init(PCA9685 *pca, I2C_HandleTypeDef *I2Chandle, uint16_t pwmFreq) 
 
 void PCA9685_SetMicros(PCA9685 *pca, uint8_t channel, uint16_t micros) {
 	float pulseLength = 1000000.0f * (pca->preScale + 1) / ((float) PCA9685_OSC_FREQ);
+
+	/* Limit */
+	if ( micros < 1000) {
+		micros = 1000;
+	}
+	if ( micros > 2000) {
+		micros = 2000;
+	}
+
 	uint16_t pulse = (uint16_t) (micros / pulseLength);
+
 
 	PCA9685_SetPWM(pca, channel, 0, pulse);
 }

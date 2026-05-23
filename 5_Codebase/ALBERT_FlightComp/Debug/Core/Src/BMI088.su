@@ -1,7 +1,7 @@
-../Core/Src/BMI088.c:21:9:BMI088_Init	24	static
-../Core/Src/BMI088.c:189:19:BMI088_OffsetCorrection	48	static
-../Core/Src/BMI088.c:220:19:BMI088_ReadAcceleration	40	static
-../Core/Src/BMI088.c:251:19:BMI088_ReadAngularRate	40	static
-../Core/Src/BMI088.c:287:19:BMI088_ReadRegister	40	static
-../Core/Src/BMI088.c:327:19:BMI088_ReadRegisters	40	static
-../Core/Src/BMI088.c:378:19:BMI088_WriteRegister	32	static
+../Core/Src/BMI088.c:43:9:BMI088_Init	24	static
+../Core/Src/BMI088.c:211:19:BMI088_OffsetCorrection	48	static
+../Core/Src/BMI088.c:242:19:BMI088_ReadAcceleration	40	static
+../Core/Src/BMI088.c:273:19:BMI088_ReadAngularRate	40	static
+../Core/Src/BMI088.c:309:19:BMI088_ReadRegister	40	static
+../Core/Src/BMI088.c:349:19:BMI088_ReadRegisters	40	static
+../Core/Src/BMI088.c:400:19:BMI088_WriteRegister	32	static

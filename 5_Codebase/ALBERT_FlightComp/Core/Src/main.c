@@ -40,11 +40,49 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
+/* ============================================================
+ *  Inter-chip protocol — NAV ↔ MPU
+ *  This struct MUST be byte-identical on both boards.
+ *  Layout (32 bytes, little-endian floats):
+ *    [0]  sync1 = 0xA1     [16..19] phi   (rad)
+ *    [1]  sync2 = 0xB5     [20..23] theta (rad)
+ *    [2]  type  = 0x01     [24..27] psi   (rad)
+ *    [3]  seq   (rolling)  [28..31] p     (rad/s, bias-corrected)
+ *    [4]  flags            ──── waits, that doesn't fit 32 bytes.
+ *  Real layout below:
+ * ============================================================ */
+typedef struct __attribute__((packed)) {
+    uint8_t  sync1;        /*  0   LINK_SYNC1          */
+    uint8_t  sync2;        /*  1   LINK_SYNC2          */
+    uint8_t  type;         /*  2   LINK_TYPE_STATE     */
+    uint8_t  seq;          /*  3   rolling counter     */
+    uint8_t  flags;        /*  4   bit0 = att_init, bit1 = mag_ref */
+    uint8_t  reserved;     /*  5   keep total at 32    */
+    float    phi;          /*  6   rad                 */
+    float    theta;        /* 10   rad                 */
+    float    psi;          /* 14   rad                 */
+    float    p;            /* 18   rad/s (bias-corrected) */
+    float    q;            /* 22                       */
+    float    r;            /* 26                       */
+    uint16_t crc;          /* 30   CRC-16/CCITT-FALSE over bytes [0..29] */
+} link_state_t;
+/* Compile-time size check (C89-portable; fails to compile with a
+ * "negative size array" error if the struct is ever the wrong size). */
+typedef char link_state_size_check[sizeof(link_state_t) == 32 ? 1 : -1];
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define USB_BUFLEN 128
+#define USB_BUFLEN        128
+
+#define LINK_PACKET_LEN   32        /* must equal sizeof(link_state_t)        */
+#define LINK_SYNC1        0xA1
+#define LINK_SYNC2        0xB5
+#define LINK_TYPE_STATE   0x01
+
+#define LINK_FLAG_ATT_INIT   (1u << 0)
+#define LINK_FLAG_MAG_REF    (1u << 1)
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -65,6 +103,28 @@ UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
+
+/* =====================================================================
+ *  Inter-chip UART link (NAV side)
+ * =====================================================================
+ *  Handshake:
+ *    MPU --INT1_MPU(out)--> INT1_NAV(EXTI rising) :  "I'm sending"
+ *    NAV --INT2_NAV(out)--> INT2_MPU(EXTI rising) :  "I'm sending"
+ *
+ *  On EXTI rising on INT1_NAV the NAV arms HAL_UART_Receive_IT for one
+ *  fixed-size packet; HAL_UART_RxCpltCallback raises mpu_rx_ready for
+ *  the main loop to consume.
+ *
+ *  TX direction (NAV -> MPU) carries the rocket state packet at 100 Hz
+ *  via nav_send_state().
+ * ===================================================================== */
+
+uint8_t  link_rx_buf[LINK_PACKET_LEN];
+uint8_t  link_tx_buf[LINK_PACKET_LEN];
+volatile uint8_t mpu_rx_ready = 0;       /* set by HAL_UART_RxCpltCallback */
+volatile uint8_t link_tx_busy = 0;       /* gates nav_send_packet re-entry */
+
+
 BMI088 imu1;
 LSM6DSLTR imu2;
 BMM150 magneto;
@@ -158,12 +218,356 @@ static void MX_RTC_Init(void);
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 
+/* App layer — main-loop helpers */
+static void app_init_sensors(void);
+static void app_arm_uart_rx(void);
+static void app_handle_imu_accel(void);
+static void app_handle_imu_gyro(void);
+static void app_handle_baro(void);
+static void app_handle_mag(void);
+static void app_handle_link_rx(void);
+static void app_emit_telemetry(void);
+static void app_send_state(void);
+
+/* Public TX entry (call when NAV wants to push a packet up to the MPU) */
+HAL_StatusTypeDef nav_send_packet(const uint8_t *buf, uint16_t n);
+
+/* CRC-16/CCITT-FALSE (poly 0x1021, init 0xFFFF, no reflect, no xor-out) */
+static uint16_t crc16_ccitt(const uint8_t *data, uint16_t len);
+
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+/* Shared loop state previously living inline in main() */
+static uint8_t  ekf_attitude_initialized = 0;
+static uint32_t lastPrint                = 0;
+
+/* Latest bias-corrected gyro reading [rad/s] — updated in
+ * app_handle_imu_gyro(), consumed in app_send_state(). */
+static float gyr_corrected[3] = {0.0f, 0.0f, 0.0f};
+
+
+/* ---------------------------------------------------------------------
+ *  CRC-16 / CCITT-FALSE
+ *      poly  = 0x1021
+ *      init  = 0xFFFF
+ *      refin = false, refout = false, xorout = 0x0000
+ *  Matches Boost / pycrc / online calculators set to "CCITT-FALSE".
+ * ------------------------------------------------------------------ */
+static uint16_t crc16_ccitt(const uint8_t *data, uint16_t len)
+{
+    uint16_t crc = 0xFFFF;
+    while (len--) {
+        crc ^= (uint16_t)(*data++) << 8;
+        for (int i = 0; i < 8; i++)
+            crc = (crc & 0x8000) ? (uint16_t)((crc << 1) ^ 0x1021)
+                                 : (uint16_t)(crc << 1);
+    }
+    return crc;
+}
+
+
+/* ---------------------------------------------------------------------
+ *  app_init_sensors
+ *  Powers up all on-board peripherals and seeds the filter state.
+ *  Called once from main() right after the CubeMX MX_*_Init() calls.
+ * ------------------------------------------------------------------ */
+static void app_init_sensors(void)
+{
+    BMM150_Init   (&magneto, &hi2c2);
+    LSM6DSLTR_Init(&imu2,    &hi2c2);
+    BMI088_Init   (&imu1,    &hspi1);
+    BMP390_Init   (&prs,     &hspi2);
+
+    Kalman_Init     (&ekf, 0.5f, Q_ekf, R_accel, R_mag, R_baro, R_gps);
+    RocketModel_Init(&rmdl, NULL);
+
+    last_gyr_t = gyr_t;                 /* avoids huge first dt */
+}
+
+
+/* ---------------------------------------------------------------------
+ *  app_arm_uart_rx
+ *  Idempotently re-arms the UART1 RX interrupt for a fixed-length
+ *  packet.  Used both at boot (defensive: even before the first
+ *  INT1_NAV edge) and from the INT1_NAV EXTI handler.
+ * ------------------------------------------------------------------ */
+static void app_arm_uart_rx(void)
+{
+    if (huart1.RxState == HAL_UART_STATE_READY) {
+        HAL_UART_Receive_IT(&huart1, link_rx_buf, LINK_PACKET_LEN);
+    }
+}
+
+
+/* ---------------------------------------------------------------------
+ *  Accelerometer DRDY processing — one-shot attitude seed + EKF accel
+ *  update.  Velocity drift on the pad gets murdered if attitude is
+ *  initialised from the first reliable g-reading instead of starting
+ *  at 0° while the rocket is actually tilted.
+ * ------------------------------------------------------------------ */
+static void app_handle_imu_accel(void)
+{
+    if (!imu1_acc_drdy) return;
+    imu1_acc_drdy = 0;
+
+    BMI088_ReadAcceleration(&imu1);
+
+    const float ax = imu1.acc_mps2[0] - acc_bias[0];
+    const float ay = imu1.acc_mps2[1] - acc_bias[1];
+    const float az = imu1.acc_mps2[2] - acc_bias[2];
+    const float acc_c[3] = { ax, ay, az };
+
+    if (!ekf_attitude_initialized) {
+        const float an = sqrtf(ax*ax + ay*ay + az*az);
+        if (an > 0.5f * 9.80665f && an < 1.5f * 9.80665f) {
+            ekf.x[4] = atan2f(az, ax);
+            ekf.x[3] = atan2f(ay, sqrtf(ax*ax + az*az));
+            ekf.x[5] = 0.0f;
+            ekf_attitude_initialized = 1;
+        }
+    }
+
+    Kalman_UpdateAccel(&ekf, acc_c);    /* internally gated to |a| ~ g */
+}
+
+
+/* ---------------------------------------------------------------------
+ *  Gyro DRDY processing — drives Kalman_Predict, the parallel rocket
+ *  model, ZUPT, and the running gyro/accel bias EMA while static.
+ * ------------------------------------------------------------------ */
+static void app_handle_imu_gyro(void)
+{
+    if (!imu1_gyr_drdy) return;
+    imu1_gyr_drdy = 0;
+
+    BMI088_ReadAngularRate(&imu1);
+
+    const float dt = (float)(gyr_t - last_gyr_t) / (float)SystemCoreClock;
+    last_gyr_t = gyr_t;
+
+    /* Publish the bias-corrected gyro so app_send_state() can grab it
+     * without reaching into the EKF internals. */
+    gyr_corrected[0] = imu1.gyr_rdps[0] - gyr_bias[0];
+    gyr_corrected[1] = imu1.gyr_rdps[1] - gyr_bias[1];
+    gyr_corrected[2] = imu1.gyr_rdps[2] - gyr_bias[2];
+
+    const float acc_c[3] = {
+        imu1.acc_mps2[0] - acc_bias[0],
+        imu1.acc_mps2[1] - acc_bias[1],
+        imu1.acc_mps2[2] - acc_bias[2]
+    };
+
+    Kalman_Predict (&ekf,  acc_c, gyr_corrected, dt);
+    RocketModel_Step(&rmdl,
+                     cmd_delta_eta, cmd_delta_zeta, cmd_delta_r,
+                     cmd_thrust_N, dt);
+
+    /* Static detection on the RAW readings */
+    const float gx = imu1.gyr_rdps[0];
+    const float gy = imu1.gyr_rdps[1];
+    const float gz = imu1.gyr_rdps[2];
+    const float axr = imu1.acc_mps2[0];
+    const float ayr = imu1.acc_mps2[1];
+    const float azr = imu1.acc_mps2[2];
+    const float gyr2 = gx*gx + gy*gy + gz*gz;
+    const float an   = sqrtf(axr*axr + ayr*ayr + azr*azr);
+    static_now = (gyr2 < (0.1f*0.1f)) && (fabsf(an - 9.80665f) < 0.5f);
+
+    if (!static_now) return;
+
+    Kalman_UpdateZUPT(&ekf, R_zupt);
+
+    /* Gyro bias EMA: while static, truth = 0  →  bias ≈ raw reading */
+    const float alpha_g = 0.005f;
+    for (int i = 0; i < 3; i++)
+        gyr_bias[i] += alpha_g * (imu1.gyr_rdps[i] - gyr_bias[i]);
+
+    /* Accel bias EMA: expected static reading = R_b<-n * [+g, 0, 0] */
+    if (ekf_attitude_initialized) {
+        const float phi   = ekf.x[3];
+        const float theta = ekf.x[4];
+        const float psi   = ekf.x[5];
+        const float sp=sinf(phi),   cp=cosf(phi);
+        const float st=sinf(theta), ct=cosf(theta);
+        const float sy=sinf(psi),   cy=cosf(psi);
+        const float a_exp_x = 9.80665f *  ct*cy;
+        const float a_exp_y = 9.80665f * (sp*st*cy - cp*sy);
+        const float a_exp_z = 9.80665f * (sp*sy + cp*st*cy);
+        const float alpha_a = 0.002f;
+        acc_bias[0] += alpha_a * ((imu1.acc_mps2[0] - a_exp_x) - acc_bias[0]);
+        acc_bias[1] += alpha_a * ((imu1.acc_mps2[1] - a_exp_y) - acc_bias[1]);
+        acc_bias[2] += alpha_a * ((imu1.acc_mps2[2] - a_exp_z) - acc_bias[2]);
+    }
+}
+
+
+/* ---------------------------------------------------------------------
+ *  Barometer DRDY processing — pressure read only for now; altitude
+ *  derivative → Kalman_UpdateBaro is left as a TODO.
+ * ------------------------------------------------------------------ */
+static void app_handle_baro(void)
+{
+    if (!bmp390_drdy) return;
+    bmp390_drdy = 0;
+
+    BMP390_ReadPressure(&prs);
+    /* TODO: pressure -> altitude -> filtered dh/dt -> Kalman_UpdateBaro */
+}
+
+
+/* ---------------------------------------------------------------------
+ *  Magnetometer @ 50 Hz — captures a phi=0 reference once static, then
+ *  feeds tilt-compensated phi into the EKF.  Phi is unobservable from
+ *  the accelerometer alone, so this is what keeps the heading bounded.
+ * ------------------------------------------------------------------ */
+static void app_handle_mag(void)
+{
+    static uint32_t last_mag_ms = 0;
+    if (HAL_GetTick() - last_mag_ms < 20) return;
+    last_mag_ms = HAL_GetTick();
+
+    if (BMM150_ReadMagneticField(&magneto) != HAL_OK) return;
+
+    /* PCB axis remap: BMM150 Y axis is along rocket body-X.
+     * Right-handed cyclic map: body(x,y,z) = sensor(y,z,x). */
+    const float m_body[3] = {
+        magneto.mag_uT[1],
+        magneto.mag_uT[2],
+        magneto.mag_uT[0]
+    };
+
+    if (!mag_reference_captured && ekf_attitude_initialized && static_now) {
+        const float theta = ekf.x[4];
+        const float psi   = ekf.x[5];
+        const float st=sinf(theta), ct=cosf(theta);
+        const float sy=sinf(psi),   cy=cosf(psi);
+        const float mx=m_body[0], my=m_body[1], mz=m_body[2];
+        mag_nav[0] = ct*cy*mx + (-sy)*my + st*cy*mz;
+        mag_nav[1] = ct*sy*mx + ( cy)*my + st*sy*mz;
+        mag_nav[2] = -st  *mx + 0.0f*my + ct   *mz;
+        mag_reference_captured = 1;
+    }
+
+    if (mag_reference_captured) {
+        float phi_meas;
+        if (phi_from_mag(m_body, mag_nav, ekf.x[4], ekf.x[5], &phi_meas)) {
+            Kalman_UpdateMag(&ekf, phi_meas);
+        }
+    }
+}
+
+
+/* ---------------------------------------------------------------------
+ *  Inter-chip link: drain a completed MPU→NAV packet.
+ *  Edit the inside of this function to interpret the protocol once
+ *  the MPU side has something useful to say.
+ * ------------------------------------------------------------------ */
+static void app_handle_link_rx(void)
+{
+    if (!mpu_rx_ready) return;
+    mpu_rx_ready = 0;
+
+    /* TODO: decode link_rx_buf[0..LINK_PACKET_LEN-1].
+     * Today the MPU just streams {0..9} as a heartbeat. */
+
+    /* Re-arm so the next INT1_NAV edge isn't strictly required to receive */
+    app_arm_uart_rx();
+}
+
+
+/* ---------------------------------------------------------------------
+ *  USB telemetry @ 10 Hz.  Two NMEA-style frames:
+ *    $ALB  — EKF state + raw accel
+ *    $MAG  — raw body-frame magnetometer (for hard-iron diagnostics)
+ * ------------------------------------------------------------------ */
+static void app_emit_telemetry(void)
+{
+    if (HAL_GetTick() - lastPrint <= 100) return;
+    lastPrint = HAL_GetTick();
+
+    usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
+        "$ALB,%.3f,%.3f,%.3f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\r\n",
+        imu1.acc_mps2[0], imu1.acc_mps2[1], imu1.acc_mps2[2],
+        ekf.x[0], ekf.x[1], ekf.x[2],
+        ekf.x[3] * 57.2957795f,
+        ekf.x[4] * 57.2957795f,
+        ekf.x[5] * 57.2957795f);
+    CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
+
+    usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
+        "$MAG,%.2f,%.2f,%.2f\r\n",
+        magneto.mag_uT[0], magneto.mag_uT[1], magneto.mag_uT[2]);
+    CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
+}
+
+
+/* ---------------------------------------------------------------------
+ *  app_send_state — 100 Hz NAV → MPU state packet.
+ *  Fills a link_state_t from the current EKF state + last bias-corrected
+ *  gyro reading, computes the CRC, and hands it to nav_send_packet().
+ *  Skips this tick if the previous TX hasn't drained — the next tick
+ *  will pick up the freshest state, which is what a control loop wants.
+ * ------------------------------------------------------------------ */
+static void app_send_state(void)
+{
+    static uint32_t last_ms = 0;
+    static uint8_t  seq     = 0;
+    if (HAL_GetTick() - last_ms < 10) return;       /* ~100 Hz */
+    last_ms = HAL_GetTick();
+
+    link_state_t pkt;
+    pkt.sync1    = LINK_SYNC1;
+    pkt.sync2    = LINK_SYNC2;
+    pkt.type     = LINK_TYPE_STATE;
+    pkt.seq      = seq++;
+    pkt.flags    = (uint8_t)
+                 ( (ekf_attitude_initialized ? LINK_FLAG_ATT_INIT : 0u)
+                 | (mag_reference_captured   ? LINK_FLAG_MAG_REF  : 0u) );
+    pkt.reserved = 0;
+    pkt.phi      = ekf.x[3];
+    pkt.theta    = ekf.x[4];
+    pkt.psi      = ekf.x[5];
+    pkt.p        = gyr_corrected[0];
+    pkt.q        = gyr_corrected[1];
+    pkt.r        = gyr_corrected[2];
+    pkt.crc      = crc16_ccitt((const uint8_t *)&pkt, sizeof(pkt) - 2);
+
+    nav_send_packet((const uint8_t *)&pkt, sizeof(pkt));
+}
+
+
+/* ---------------------------------------------------------------------
+ *  nav_send_packet — pulse INT2_NAV and start an interrupt-driven TX.
+ *  The MPU's INT2_MPU EXTI rising edge arms its UART RX so the packet
+ *  lands in its rx buffer.
+ *
+ *  Returns whatever HAL_UART_Transmit_IT returns; HAL_BUSY if a TX is
+ *  already in flight.
+ * ------------------------------------------------------------------ */
+HAL_StatusTypeDef nav_send_packet(const uint8_t *buf, uint16_t n)
+{
+    if (link_tx_busy)                        return HAL_BUSY;
+    if (n != LINK_PACKET_LEN || buf == NULL) return HAL_ERROR;
+
+    for (uint16_t i = 0; i < n; i++) link_tx_buf[i] = buf[i];
+    link_tx_busy = 1;
+
+    /* Brief rising pulse on INT2_NAV → MPU EXTI arms its RX */
+    HAL_GPIO_WritePin(INT2_NAV_GPIO_Port, INT2_NAV_Pin, GPIO_PIN_SET);
+    /* ~1 µs settle; ISR latency on the other side is well under
+     * one UART byte time (87 µs @ 115200) so the actual delay isn't
+     * critical, but the explicit nop sequence keeps it deterministic. */
+    for (volatile int i = 0; i < 32; i++) __NOP();
+    HAL_GPIO_WritePin(INT2_NAV_GPIO_Port, INT2_NAV_Pin, GPIO_PIN_RESET);
+
+    HAL_StatusTypeDef st = HAL_UART_Transmit_IT(&huart1, link_tx_buf, n);
+    if (st != HAL_OK) link_tx_busy = 0;
+    return st;
+}
 
 
 /* USER CODE END 0 */
@@ -212,26 +616,8 @@ int main(void)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 
-  /* Initialise BMM150 */
-  BMM150_Init( &magneto, &hi2c2);
-
-  /* Initialise IMU2 */
-  LSM6DSLTR_Init( &imu2, &hi2c2);
-  //LSM6DSLTR_OffsetCorrection(&imu2);
-
-  /* Initialise IMU1 */
-  BMI088_Init(&imu1, &hspi1);
-  //BMI088_OffsetCorrection(&imu1);
-
-  /* Initialise BMP390 Pressure Sensor */
-  BMP390_Init(&prs, &hspi2);
-
-  Kalman_Init(&ekf, 0.5f, Q_ekf, R_accel, R_mag, R_baro, R_gps);
-  RocketModel_Init(&rmdl, NULL);           /* parallel dynamic model, default coeffs */
-  last_gyr_t = gyr_t;                      // wichtig: dt beim ersten Mal nicht riesig
-
-  uint8_t  ekf_attitude_initialized = 0;   /* one-shot attitude seed from first accel */
-  uint32_t lastPrint = 0;
+  app_init_sensors();    /* sensors + EKF + parallel rocket model */
+  app_arm_uart_rx();     /* listen for the first MPU packet */
 
   /* USER CODE END 2 */
 
@@ -239,227 +625,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-
-	  /* Accel: read first so the predict step has a fresh specific-force input */
-	  if (imu1_acc_drdy) {
-		  imu1_acc_drdy = 0;
-		  BMI088_ReadAcceleration(&imu1);
-
-		  /* Bias-corrected accel reused everywhere downstream */
-		  const float ax = imu1.acc_mps2[0] - acc_bias[0];
-		  const float ay = imu1.acc_mps2[1] - acc_bias[1];
-		  const float az = imu1.acc_mps2[2] - acc_bias[2];
-		  const float acc_c[3] = { ax, ay, az };
-
-		  /* One-shot attitude seed: use the first reliable accel reading to set
-		   * theta (and roughly phi), so the EKF doesn't start at 0° when the
-		   * rocket is tilted on the pad.  Prevents the initial gravity-residual
-		   * transient that otherwise integrates straight into velocity drift. */
-		  if (!ekf_attitude_initialized) {
-			  const float an = sqrtf(ax*ax + ay*ay + az*az);
-			  if (an > 0.5f * 9.80665f && an < 1.5f * 9.80665f) {
-				  /* theta from pitch of body-x against vertical; phi≈0 assumption */
-				  ekf.x[4] = atan2f(az, ax);                    /* theta */
-				  ekf.x[3] = atan2f(ay, sqrtf(ax*ax + az*az));  /* phi (small-angle approx) */
-				  ekf.x[5] = 0.0f;                              /* psi  */
-				  ekf_attitude_initialized = 1;
-			  }
-		  }
-
-		  Kalman_UpdateAccel(&ekf, acc_c);   /* gated internally */
-	  }
-
-	  /* Gyro: drives the prediction step (both filter and parallel model) */
-	  if (imu1_gyr_drdy) {
-	      imu1_gyr_drdy = 0;
-	      BMI088_ReadAngularRate(&imu1);
-
-	      float dt = (float)(gyr_t - last_gyr_t) / (float)SystemCoreClock;
-	      last_gyr_t = gyr_t;
-
-	      /* Bias-corrected IMU values fed into all model-driven math */
-	      const float gyr_c[3] = {
-	          imu1.gyr_rdps[0] - gyr_bias[0],
-	          imu1.gyr_rdps[1] - gyr_bias[1],
-	          imu1.gyr_rdps[2] - gyr_bias[2]
-	      };
-	      const float acc_c[3] = {
-	          imu1.acc_mps2[0] - acc_bias[0],
-	          imu1.acc_mps2[1] - acc_bias[1],
-	          imu1.acc_mps2[2] - acc_bias[2]
-	      };
-
-	      Kalman_Predict(&ekf, acc_c, gyr_c, dt);
-
-	      /* Parallel dynamic-model integration.  Driven by commanded controls +
-	       * thrust — all zero until servos and a thrust-time curve are wired. */
-	      RocketModel_Step(&rmdl,
-	                       cmd_delta_eta, cmd_delta_zeta, cmd_delta_r,
-	                       cmd_thrust_N, dt);
-
-	      /* Static detection on raw readings: low body-rate norm AND |a| ~ g. */
-	      const float gx = imu1.gyr_rdps[0];
-	      const float gy = imu1.gyr_rdps[1];
-	      const float gz = imu1.gyr_rdps[2];
-	      const float axr = imu1.acc_mps2[0];
-	      const float ayr = imu1.acc_mps2[1];
-	      const float azr = imu1.acc_mps2[2];
-	      const float gyr2 = gx*gx + gy*gy + gz*gz;
-	      const float an   = sqrtf(axr*axr + ayr*ayr + azr*azr);
-	      static_now = (gyr2 < (0.1f*0.1f)) && (fabsf(an - 9.80665f) < 0.5f);
-
-	      if (static_now) {
-	          Kalman_UpdateZUPT(&ekf, R_zupt);
-
-	          /* Gyro bias EMA: while static, true rate = 0, so any
-	           * measured value IS the bias.  alpha ~1/200 → ~200ms settle at 1kHz. */
-	          const float alpha_g = 0.005f;
-	          for (int i = 0; i < 3; i++)
-	              gyr_bias[i] += alpha_g * (imu1.gyr_rdps[i] - gyr_bias[i]);
-
-	          /* Accel bias EMA: expected static reading = R_b<-n * [+g, 0, 0]
-	           * (accel measures specific force = −g_body).  alpha smaller so
-	           * vibration on the pad doesn't poison the estimate. */
-	          if (ekf_attitude_initialized) {
-	              const float phi   = ekf.x[3];
-	              const float theta = ekf.x[4];
-	              const float psi   = ekf.x[5];
-	              const float sp=sinf(phi),   cp=cosf(phi);
-	              const float st=sinf(theta), ct=cosf(theta);
-	              const float sy=sinf(psi),   cy=cosf(psi);
-	              const float a_exp_x = 9.80665f *  ct*cy;
-	              const float a_exp_y = 9.80665f * (sp*st*cy - cp*sy);
-	              const float a_exp_z = 9.80665f * (sp*sy + cp*st*cy);
-	              const float alpha_a = 0.002f;
-	              acc_bias[0] += alpha_a * ((imu1.acc_mps2[0] - a_exp_x) - acc_bias[0]);
-	              acc_bias[1] += alpha_a * ((imu1.acc_mps2[1] - a_exp_y) - acc_bias[1]);
-	              acc_bias[2] += alpha_a * ((imu1.acc_mps2[2] - a_exp_z) - acc_bias[2]);
-	          }
-	      }
-	  }
-
-
-		if (bmp390_drdy) {
-			bmp390_drdy = 0;
-			BMP390_ReadPressure(&prs);
-			/* TODO: pressure -> altitude -> filtered dh/dt -> Kalman_UpdateBaro(&ekf, vrate); */
-		}
-
-		/* Magnetometer: poll at 50 Hz, derive phi, feed Kalman_UpdateMag.
-		 * Phi is unobservable from accel alone (roll about body-x doesn't change
-		 * gravity projection); the mag-derived phi is what keeps it bounded. */
-		{
-			static uint32_t last_mag_ms = 0;
-			if (HAL_GetTick() - last_mag_ms >= 20) {
-				last_mag_ms = HAL_GetTick();
-				if (BMM150_ReadMagneticField(&magneto) == HAL_OK) {
-
-					/* One-shot capture of the nav-frame field while static, so
-					 * "phi = 0" is defined by the pad orientation.  Uses phi=0
-					 * in R_b<-n → m_nav = R_y(theta)^T R_z(psi)^T * m_body. */
-					if (!mag_reference_captured
-					    && ekf_attitude_initialized
-					    && static_now) {
-						const float theta = ekf.x[4];
-						const float psi   = ekf.x[5];
-						const float st=sinf(theta), ct=cosf(theta);
-						const float sy=sinf(psi),   cy=cosf(psi);
-						const float mx=magneto.mag_uT[1];
-						const float my=magneto.mag_uT[2];
-						const float mz=magneto.mag_uT[0];
-						mag_nav[0] = ct*cy*mx + (-sy)*my + st*cy*mz;
-						mag_nav[1] = ct*sy*mx + ( cy)*my + st*sy*mz;
-						mag_nav[2] = -st  *mx + 0.0f*my + ct   *mz;
-						mag_reference_captured = 1;
-					}
-
-					if (mag_reference_captured) {
-						float phi_meas;
-						if (phi_from_mag(magneto.mag_uT, mag_nav,
-						                 ekf.x[4], ekf.x[5], &phi_meas)) {
-							//Kalman_UpdateMag(&ekf, phi_meas);
-						}
-					}
-				}
-			}
-		}
-
-		/* TODO: when GPS driver is live         Kalman_UpdateGPS(&ekf, vel_nav_mps);   */
-
-//		Test Routine for interrupts
-		if (HAL_GetTick() - lastPrint > 100)
-		{
-			lastPrint = HAL_GetTick();
-
-			/* $ALB,ax,ay,az,u,v,w,phi_deg,theta_deg,psi_deg  (EKF) */
-			usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
-			    "$ALB,%.3f,%.3f,%.3f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\r\n",
-			    imu1.acc_mps2[0], imu1.acc_mps2[1], imu1.acc_mps2[2],
-			    ekf.x[0], ekf.x[1], ekf.x[2],
-			    ekf.x[3] * 57.2957795f,
-			    ekf.x[4] * 57.2957795f,
-			    ekf.x[5] * 57.2957795f);
-			CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
-
-//			/* $MDL,u,v,w,p_dps,q_dps,r_dps,phi,theta,psi  (parallel rocket model) */
-//			usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
-//			    "$MDL,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\r\n",
-//			    rmdl.x[0], rmdl.x[1], rmdl.x[2],
-//			    rmdl.x[3] * 57.2957795f,
-//			    rmdl.x[4] * 57.2957795f,
-//			    rmdl.x[5] * 57.2957795f,
-//			    rmdl.x[6] * 57.2957795f,
-//			    rmdl.x[7] * 57.2957795f,
-//			    rmdl.x[8] * 57.2957795f);
-//			CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
-
-			/* $MAG,mx,my,mz  (raw body-frame mag — temp diagnostic for hard-iron cal) */
-			usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
-			    "$MAG,%.2f,%.2f,%.2f\r\n",
-			    magneto.mag_uT[0], magneto.mag_uT[1], magneto.mag_uT[2]);
-			CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
-		}
-
-
-
-
-
-//
-//
-//	  /* Print Pressure Data over USB-C*/
-//	  usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
-//	      "%.3f;\r\n",
-//		  prs.prs_Pa);
-//	  CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
-
-//
-//
-//	  /* Print IMU2 Gyroscope Data over USB-C*/
-//	  usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
-//	      "IMU2 GYRO:\r\n	X=%.3frdps\r\n	Y=%.3frdps\r\n	Z=%.3frdps\r\n\n",
-//	      imu2.gyr_rdps[0],
-//		  imu2.gyr_rdps[1],
-//		  imu2.gyr_rdps[2]);
-//	  CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
-//
-//	  /* Print IMU2 Accelerometer Data over USB-C*/
-//	  usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
-//	  	      "IMU2 ACCELEROMETER:\r\n	X=%.2fms2\r\n	Y=%.2f ms2\r\n	Z=%.2f ms2\r\n\n",
-//	  	      imu2.acc_mps2[0],
-//	  	      imu2.acc_mps2[1],
-//	  	      imu2.acc_mps2[2]);
-//	  CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
-
-//
-//	  /* Print Magnetometer Data over USB-C*/
-//	  usbTxBufLen = snprintf((char*)usbTxBuf, USB_BUFLEN,
-//	  	      "MAGNETOMETER:\r\n	X=%.2f\r\n	Y=%.2f\r\n	Z=%.2f\r\n\n",
-//	  	      magneto.mag_uT[0],
-//			  magneto.mag_uT[1],
-//			  magneto.mag_uT[2]);
-//	  CDC_Transmit_FS(usbTxBuf, usbTxBufLen);
-
+      app_handle_imu_accel();   /* accel DRDY → EKF accel update + one-shot attitude seed */
+      app_handle_imu_gyro();    /* gyro  DRDY → EKF predict, ZUPT, bias EMA, parallel model */
+      app_handle_baro();        /* bmp390 DRDY                                              */
+      app_handle_mag();         /* 50 Hz mag poll → tilt-comp phi → Kalman_UpdateMag         */
+      app_handle_link_rx();     /* drain MPU→NAV UART packet if RxCplt set the flag         */
+      app_send_state();         /* 100 Hz NAV→MPU state packet for the control loop         */
+      app_emit_telemetry();     /* 10 Hz USB telemetry                                      */
 
     /* USER CODE END WHILE */
 
@@ -715,7 +887,7 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.Mode = UART_MODE_TX_RX;
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
-  if (HAL_MultiProcessor_Init(&huart1, 0, UART_WAKEUPMETHOD_IDLELINE) != HAL_OK)
+  if (HAL_UART_Init(&huart1) != HAL_OK)
   {
     Error_Handler();
   }
@@ -840,7 +1012,15 @@ static void MX_GPIO_Init(void)
   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
+  /* EXTI15_10 covers INT1_NAV (PC13) — fires when MPU pulses INT1_MPU.
+   * Lower priority than the IMU EXTIs so a packet edge can't preempt
+   * the gyro/accel timestamp capture. */
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ  (EXTI15_10_IRQn);
 
+  /* USART1 IRQ is required for HAL_UART_Receive_IT / _Transmit_IT */
+  HAL_NVIC_SetPriority(USART1_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ  (USART1_IRQn);
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
@@ -868,6 +1048,54 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
         //bmp390_irq_cnt++;
 
     }
+    else if (GPIO_Pin == INT1_NAV_Pin) {
+        /* MPU about to send.  Arm RX so the bytes land in link_rx_buf.
+         * Idempotent — if RX is already armed (e.g. from a previous
+         * heartbeat), HAL returns HAL_BUSY and we just keep listening. */
+        if (huart1.RxState == HAL_UART_STATE_READY) {
+            HAL_UART_Receive_IT(&huart1, link_rx_buf, LINK_PACKET_LEN);
+        }
+    }
+}
+
+
+/* ---------------------------------------------------------------------
+ *  HAL UART completion callbacks — both raise main-loop flags only.
+ * ------------------------------------------------------------------ */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *h)
+{
+    if (h->Instance == USART1) {
+        mpu_rx_ready = 1;
+    }
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *h)
+{
+    if (h->Instance == USART1) {
+        link_tx_busy = 0;
+    }
+}
+
+
+/* ---------------------------------------------------------------------
+ *  EXTI15_10_IRQHandler — INT1_NAV (PC13) lives on EXTI13, which the
+ *  CubeMX-generated stm32f4xx_it.c does NOT contain a handler for.
+ *  Defining one here as a strong symbol overrides the startup file's
+ *  weak default and routes the line into HAL_GPIO_EXTI_Callback above.
+ * ------------------------------------------------------------------ */
+void EXTI15_10_IRQHandler(void)
+{
+    HAL_GPIO_EXTI_IRQHandler(INT1_NAV_Pin);
+}
+
+
+/* ---------------------------------------------------------------------
+ *  USART1_IRQHandler — same story.  HAL_UART_*_IT only works if this
+ *  handler routes the interrupt into the HAL.
+ * ------------------------------------------------------------------ */
+void USART1_IRQHandler(void)
+{
+    HAL_UART_IRQHandler(&huart1);
 }
 
 /* USER CODE END 4 */

@@ -157,6 +157,7 @@ PB5.Locked=true
 PB5.Signal=GPIO_Output
 PB6.GPIOParameters=GPIO_Label
 PB6.GPIO_Label=USART1_TX_NAV
+PB6.Locked=true
 PB6.Mode=Asynchronous
 PB6.Signal=USART1_TX
 PB7.GPIOParameters=GPIO_Label
